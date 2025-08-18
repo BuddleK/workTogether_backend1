@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  /* font-weight: 500; 적용 안됨 */
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration-line: none;
+  list-style-type: none;
+  color: black;
+  font-family: "Pretendard-Regular";
+  /* #FFE7C9 */
+  /* #1D3266 */
+}
+main {
+  background-color: #ffe7c9;
+  width: 100%;
+  /* height: calc(100vh - 220px); */
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 600px;
+}
+.main_body {
+  width: 1200px;
+  /* background-color: rgba(104, 104, 104, 0.1); */
+  display: flex;
+  flex-direction: column;
+}
+#page_title {
+  margin-top: 40px;
+  /* background-color: yellowgreen; */
+  font-size: 30px;
+}
+#short_info {
+  position: absolute;
+  background-color: white;
+  left: 57.5%;
+  top: 75%;
+  padding: 20px 40px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  border: solid 1px gray;
+}
+#short_info div {
+  margin: 0 20px;
+  /* background-color: red; */
+}
+#short_info p {
+  margin: 1px 0;
+  white-space: nowrap;
+}
+.context {
+  margin-top: 40px;
+  /* background-color: gray; */
+  display: flex;
+  flex: 1;
+  width: 100%;
+  margin-bottom: 40px;
+  /* background-color: black; */
+}
+.detail_info_area {
+  /* background-color: yellow; */
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: midnightblue; */
+  margin-left: 60px;
+}
+.restaurant_img_box {
+  width: 480px;
+  height: 270px;
+  overflow: hidden;
+  border: solid 1px gray;
+}
+#restaurant_img {
+  width: 100%;
+  height: 100%;
+}
+.restaurant_info {
+  /* background-color: blueviolet; */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.restaurant_information {
+  /* background-color: aqua; */
+  flex: 1;
+  margin: 10px 10px;
+}
+#short_name,
+#short_branch {
+  display: inline-block;
+  margin-left: 3px;
+}
+.restaurant_information p {
+  margin-top: 10px;
+}
+.restaurant_introduction {
+  /* background-color: gray; */
+  background-color: #efefef;
+  width: 480px;
+  overflow: hidden;
+  border: solid 1px black;
+  border-radius: 10px;
+  display: flex;
+  max-width: 480px;
+}
+#introduction {
+  margin: 10px 20px;
+}
+.detail_map_area {
+  /* background-color: aquamarine; */
+  width: 45%;
+  /* margin-right: 80px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.map_img_box {
+  height: 100%;
+  overflow: hidden;
+  /* border: solid 3px black; */
+  border-radius: 20px;
+  box-shadow: 0 0 5px;
+  width: 100%;
+  position: relative;
+  height: 497px;
+}
+.map_img {
+  height: 100%;
+}

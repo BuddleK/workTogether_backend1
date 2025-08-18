@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- example -->
+<!-- <mapper namespace="member">
+	<insert id="join" parameterType="MemberDTO">
+		INSERT INTO tbl_member(member_number, member_id, member_password, member_name, member_age, member_gender, member_phone_number)
+		VALUES (seq_member.nextval, #{memberId}, #{memberPassword}, #{memberName}, #{memberAge}, #{memberGender}, #{memberPhoneNumber})
+	</insert>
+</mapper> -->
