@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +7,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Care_PostDetailPage</title>
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <link rel="stylesheet" href="./../../assets/css/myPageCare/carePostDP.css">
-  <script defer src="./../../assets/js/myPageCare/carePostDP.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPageCare/carePostDP.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/carePostDP.js"></script>
 </head>
 
 <body>
@@ -33,9 +35,9 @@
         안녕하세요
       </div>
       <div class="buttons">
-        <a class="btn_list" href="./carePost.html">목록</a>
+        <a class="btn_list" href="${pageContext.request.contextPath}/carePost.jsp">목록</a>
         <a class="btn_delete" href="#deleteModal">삭제</a>
-        <a class="btn_retry" href="./carePostRe.html" id="editLink">수정</a>
+        <a class="btn_retry" href="${pageContext.request.contextPath}/carePostRe.html" id="editLink">수정</a>
       </div>
 <!-- 게시글 댓글 내용 -->
       <section class="reply">
@@ -63,8 +65,8 @@
     <div class="modal_box">
       <p>정말로 게시글을 삭제하시겠습니까?</p>
       <form method="post" action="" class="modal_buttons">
-      <a href="./carePost.html"><button type="submit" id="confirmDelete">확인</button></a>
-      <a href="./carePost.html"><button type="submit" id="cansleDelete">취소</button></a>
+      <a href="${pageContext.request.contextPath}/carePost.html"><button type="submit" id="confirmDelete">확인</button></a>
+      <a href="${pageContext.request.contextPath}/carePost.html"><button type="submit" id="cansleDelete">취소</button></a>
     </form>
     </div>
   </div>

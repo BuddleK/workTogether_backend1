@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <header id="site_header_login">
   <div>
     <!-- 헤더 왼쪽 메뉴 -->
     <span>
       <!-- 로고 -->
       <a href="#">
-        <img src="../../assets/img/main/logoP.png" />
+        <img src="${pageContext.request.contextPath}/assets/img/main/logoP.png" />
       </a>
       <!-- 관리자 표시(그냥 텍스트) -->
       <div class="admin_text">· 관리자</div>
@@ -12,7 +14,7 @@
     <!-- 헤더 오른쪽 메뉴 -->
     <span>
       <!-- 로그아웃 메뉴 -->
-      <a href="../../app/admin/adminLogin.html" class="logout"> 로그아웃 </a>
+      <a href="${pageContext.request.contextPath}/app/admin/adminLogin.html" class="logout"> 로그아웃 </a>
     </span>
   </div>
 </header>

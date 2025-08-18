@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +7,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>게시글 수정 후 페이지</title>
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <link rel="stylesheet" href="./../../assets/css/myPageCare/carePostRe.css">
-  <script defer src="./../../assets/js/myPageCare/carePostRe.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPageCare/carePostRe.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/carePostRe.js"></script>
 </head>
 
 <body>
@@ -37,8 +39,8 @@
       </div>
       <!-- 게시글 수정 완료, 취소, 목록 버튼 -->
       <div class="buttons">
-        <a class="btn_list" href="./carePost.html">목록</a>
-        <a class="btn_cancle" href="./carePostDP.html">취소</a>
+        <a class="btn_list" href="${pageContext.request.contextPath}/carePost.jsp">목록</a>
+        <a class="btn_cancle" href="${pageContext.request.contextPath}/carePostDP.jsp">취소</a>
         <button type="button" class="btn_compelete" id="saveBtn">수정완료</button>
       </div>
     </section>
@@ -48,7 +50,7 @@
     <div class="modal-content">
       <p>수정이 완료되었습니다.</p>
       <div class="modal_buttons">
-        <a href="./../myPageCare/carePost.html"><button id="saveConfirmBtn">확인</button>
+        <a href="${pageContext.request.contextPath}/myPageCare/carePost.jsp"><button id="saveConfirmBtn">확인</button>
       </div></a>
     </div>
   </div>

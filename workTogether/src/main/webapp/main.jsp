@@ -1,14 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>함께 걸음</title>
-  <link rel="stylesheet" href="./assets/css/main.css">
-  <link rel="stylesheet" href="./assets/css/header.css">
-  <link rel="stylesheet" href="./assets/css/footer.css">
-  <script defer src="./assets/js/main/main.js"></script>
-  <script defer src="./assets/js/main/includeMain.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/main.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/includeMain.js"></script>
 
 </head>
 <body>
@@ -25,8 +27,8 @@
           <!-- 첫 번째 슬라이드 -->
           <li>
             <div class="slide-img">
-              <img class="banner_img" draggable="false" src="./assets/img/main/banner1.png">
-              <a draggable="false" href="https://www.newsflix.co.kr/news/articleView.html?idxno=18740">
+              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner1.png">
+              <a draggable="false" href="https://www.newsflix.co.kr/news/articleView.jsp?idxno=18740">
                 <h3>서초구, ‘2025년 서초장애인 한마음축제’ 19일 개최</h3>
                 <p>장애인과 비장애인이 함께하는 화합의 장…공연·체험·전시 다채롭게 구성</p>
               </a>
@@ -35,7 +37,7 @@
           <!-- 두번째 슬라이드 -->
           <li>
             <div class="slide-img">
-              <img class="banner_img" draggable="false" src="./assets/img/main/banner2.jfif">
+              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner2.jfif">
               <a draggable="false" href="https://mediahub.seoul.go.kr/archives/2014274">
                 <h3>걷고 싶은 길 걷기 좋은 길, 서초구 우면산 무장애숲길 2구간 개방</h3>
               </a>
@@ -44,7 +46,7 @@
           <!-- 세번째 슬라이드 -->
           <li>
             <div class="slide-img">
-              <img class="banner_img" draggable="false" src="./assets/img/main/banner3.jpg">
+              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner3.jpg">
               <a draggable="false" href="https://www.newsis.com/view/NISX20250725_0003266545">
                 <h3>김완선, 장애인 생산품 박람회 빛낸다…9월10일 폐막 공연</h3>
                 <p>보건복지부 주최·장애인직업재활시설협회 주관</p>
@@ -54,7 +56,7 @@
           <!-- 네번째 슬라이드 -->
           <li>
             <div class="slide-img">
-              <img class="banner_img" draggable="false" src="./assets/img/main/banner4.jpg">
+              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner4.jpg">
               <a draggable="false" href="https://www.catholictimes.org/article/20250213500028">
                 <h3>서울가톨릭사회복지회 서초구립 한우리정보문화센터, 중증장애인 운영 카페 개소</h3>
                 <p>‘아이갓에브리씽’ 외교타운점…지적·청각 장애 바리스타 2명 근무</p>
@@ -64,7 +66,7 @@
           <!-- 다섯번째 슬라이드 -->
           <li>
             <div class="slide-img">
-              <img class="banner_img" draggable="false" src="./assets/img/main/banner5.jpg">
+              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner5.jpg">
               <a draggable="false" href="https://www.fntoday.co.kr/news/articleView.html?idxno=360036">
                 <h3>서초구, ‘찾아가는 진료’로 건강 취약계층 돌본다…민·관 협력 의료돌봄 모델 확산</h3>
                 <p>의사와 간호사가 집으로…검진·처방·치료까지 원스톱</p>
@@ -74,7 +76,7 @@
           <!-- 여섯번째 슬라이드 -->
           <li>
             <div class="slide-img">
-              <img class="banner_img" draggable="false" src="./assets/img/main/banner6.png">
+              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner6.png">
               <a draggable="false" href="https://www.koreadisablednews.com/news/articleView.html?idxno=34979">
                 <h3>서초장애인자립생활지원센터, 장애인 대상 협업형 영상 창작 프로그램 운영</h3>
               </a>
@@ -103,7 +105,7 @@
             <!-- 추천 게시물 1 -->
             <li>
               <!-- 게시물 정보 -->
-              <a href="./app/post/postDetaillogin.html">
+              <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
                 <span class="board_list_number">1</span>
                 <span class="board_list_title">안녕하세요</span>
                 <span class="board_list_author">아무개</span>
@@ -113,7 +115,7 @@
             <!-- 추천 게시물 2 -->
             <li>
               <!-- 게시물 정보 -->
-              <a href="./app/post/postDetaillogin.html">
+              <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
                 <span class="board_list_number">1</span>
                 <span class="board_list_title">안녕하세요</span>
                 <span class="board_list_author">아무개</span>
@@ -123,7 +125,7 @@
             <!-- 추천 게시물 3 -->
             <li>
               <!-- 게시물 정보 -->
-              <a href="./app/post/postDetaillogin.html">
+              <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
                 <span class="board_list_number">1</span>
                 <span class="board_list_title">안녕하세요</span>
                 <span class="board_list_author">아무개</span>
@@ -133,7 +135,7 @@
             <!-- 추천 게시물 4 -->
             <li>
               <!-- 게시물 정보 -->
-              <a href="./app/post/postDetaillogin.html">
+              <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
                 <span class="board_list_number">1</span>
                 <span class="board_list_title">안녕하세요</span>
                 <span class="board_list_author">아무개</span>
@@ -148,7 +150,7 @@
         <!-- 지도 박스 -->
         <div class="explore_map">
           <!-- 지도 이미지 -->
-          <img src="./assets/img/main/map.PNG" class="map_img">
+          <img src="${pageContext.request.contextPath}/assets/img/main/map.PNG" class="map_img">
         </div>
         <!-- 인기 돌봄회원 박스 -->
         <div class="explore_care">
@@ -156,11 +158,11 @@
           <ul class="profile_list">
             <!-- 인기 돌봄회원 1 -->
             <li class="profile">
-              <a href ="./app/careMember/careMemberDetail.html" class="care_profile">
+              <a href ="${pageContext.request.contextPath}/app/careMember/careMemberDetail.jsp" class="care_profile">
                 <!-- 사진이랑 소개 -->
                 <div class="profile_info">
                   <div class="profile_pic_box">
-                    <img class="profile_pic" src="./assets/img/main/profilePicCare.png">
+                    <img class="profile_pic" src="${pageContext.request.contextPath}/assets/img/main/profilePicCare.png">
                   </div>
                   <span class="profile_text">
                     <div class="profile_name">김괭이dddd</div>
@@ -183,11 +185,11 @@
             </li>
             <!-- 인기 돌봄회원 2 -->
             <li class="profile">
-              <a href ="./app/careMember/careMemberDetail.html" class="care_profile">
+              <a href ="${pageContext.request.contextPath}/app/careMember/careMemberDetail.jsp" class="care_profile">
                 <!-- 사진이랑 소개 -->
                 <div class="profile_info">
                   <div class="profile_pic_box">
-                    <img class="profile_pic" src="./assets/img/main/profilePicCare.png">
+                    <img class="profile_pic" src="${pageContext.request.contextPath}/assets/img/main/profilePicCare.png">
                   </div>
                   <span class="profile_text">
                     <div class="profile_name">김괭이dddd</div>
@@ -207,11 +209,11 @@
             </li>
             <!-- 인기 돌봄회원 3 -->
             <li class="profile">
-              <a href ="./app/careMember/careMemberDetail.html" class="care_profile">
+              <a href ="${pageContext.request.contextPath}/app/careMember/careMemberDetail.jsp" class="care_profile">
                 <!-- 사진이랑 소개 -->
                 <div class="profile_info">
                   <div class="profile_pic_box">
-                    <img class="profile_pic" src="./assets/img/main/profilePicCare.png">
+                    <img class="profile_pic" src="${pageContext.request.contextPath}/assets/img/main/profilePicCare.png">
                   </div>
                   <span class="profile_text">
                     <div class="profile_name">김괭이dddd</div>
@@ -231,11 +233,11 @@
             </li>
             <!-- 인기 돌봄회원 4 -->
             <li class="profile">
-              <a href ="./app/careMember/careMemberDetail.html" class="care_profile">
+              <a href ="${pageContext.request.contextPath}/app/careMember/careMemberDetail.jsp" class="care_profile">
                 <!-- 사진이랑 소개 -->
                 <div class="profile_info">
                   <div class="profile_pic_box">
-                    <img class="profile_pic" src="./assets/img/main/profilePicCare.png">
+                    <img class="profile_pic" src="${pageContext.request.contextPath}/assets/img/main/profilePicCare.png">
                   </div>
                   <span class="profile_text">
                     <div class="profile_name">김괭이dddd</div>
