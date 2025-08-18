@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,21 +15,21 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- 게시물 수정  디테일 페이지-->
+    <!-- ê²ìë¬¼ ìì   ëíì¼ íì´ì§-->
     <form action="">
       <nav class="post_title">
         <ul>
-          <li class="post_name"> 안녕하세요</li>
+          <li class="post_name"> ìëíì¸ì</li>
           <li>
             <ul class="post_info">
               <li>
-                <div>등록자명</div>
+                <div>ë±ë¡ìëª</div>
               </li>
               <li class="post_member">
-                <div>홍길동</div>
+                <div>íê¸¸ë</div>
               </li>
               <li>
-                <div>등록일</div>
+                <div>ë±ë¡ì¼</div>
               </li>
               <li class="post_day">
                 <div>2025-08-09</div>
@@ -36,7 +38,7 @@
           </li>
           <li>
             <ul class="post_info">
-              <li>조회수</li>
+              <li>ì¡°íì</li>
               <li class="post_view">
                 <div>4</div>
               </li>
@@ -44,24 +46,24 @@
           </li>
         </ul>
       </nav>
-      <div class="api">글쓰기 api?</div>
+      <div class="api">ê¸ì°ê¸° api?</div>
       <div class="input">
         <textarea></textarea>
         <input type="text">
       </div>
       <div class="button">
-        <button class="list"><a href="./postMain.html">목록</a></button>
-        <button class="button_write">수정하기</button>
+        <button class="list"><a href="./postMain.html">ëª©ë¡</a></button>
+        <button class="button_write">ìì íê¸°</button>
       </div>
     </form>
   </main>
-  <!-- 수정 확인 모달 -->
+  <!-- ìì  íì¸ ëª¨ë¬ -->
   <div class="notmodal" id="editModal">
     <div class="modal_box">
-      <p>수정하시겠습니까?</p>
+      <p>ìì íìê² ìµëê¹?</p>
       <div class="modal_buttons">
-        <a href="./postDetaillogin.html"><button id="check">확인</button></a>
-        <button id="cancle">취소</button>
+        <a href="./postDetaillogin.html"><button id="check">íì¸</button></a>
+        <button id="cancle">ì·¨ì</button>
       </div>
     </div>
   </div>

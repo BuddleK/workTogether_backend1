@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,23 +16,23 @@
 
 <body>
   <div id="header"></div>
-  <!-- 공지사항 디테일 페이지 -->
+  <!-- ê³µì§ì¬í­ ëíì¼ íì´ì§ -->
   <main>
     <form action="">
-      <!-- 공지사항 상세정보 -->
+      <!-- ê³µì§ì¬í­ ìì¸ì ë³´ -->
       <nav class="post_title">
         <ul>
-          <li class="post_name">공지사항입니다</li>
+          <li class="post_name">ê³µì§ì¬í­ìëë¤</li>
           <li>
             <ul class="post_info">
               <li>
-                <div>등록자명</div>
+                <div>ë±ë¡ìëª</div>
               </li>
               <li class="post_member">
-                <div>관리자</div>
+                <div>ê´ë¦¬ì</div>
               </li>
               <li>
-                <div>등록일</div>
+                <div>ë±ë¡ì¼</div>
               </li>
               <li class="post_day">
                 <div>2025-08-09</div>
@@ -39,7 +41,7 @@
           </li>
           <li>
             <ul class="post_info">
-              <li>조회수</li>
+              <li>ì¡°íì</li>
               <li class="post_view">
                 <div>4</div>
               </li>
@@ -50,13 +52,13 @@
       <nav class="post_content">
         <ul>
           <li>
-            <div>안녕하세요</div>
+            <div>ìëíì¸ì</div>
           </li>
         </ul>
       </nav>
     </form>
     <div class="button">
-      <button class="button_list"><a href="./postMain.html">목록</a></button>
+      <button class="button_list"><a href="./postMain.html">ëª©ë¡</a></button>
     </div>
   </main>
   <div id="footer"></div>

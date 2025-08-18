@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,28 +15,28 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- 공지사항, 일반 게시글 목록 섹션 -->
+    <!-- ê³µì§ì¬í­, ì¼ë° ê²ìê¸ ëª©ë¡ ì¹ì -->
     <form action="" method="get">
       <nav class="post_top">
         <ul>
-          <li class="number"><div>번호</div></li>
-          <li class="posttitle"><div>제목</div></li>
-          <li class="name"><div>작성자</div></li>
-          <li class="view"><div>조회수</div></li>
-          <li class="postday"><div>작성일</div></li>
+          <li class="number"><div>ë²í¸</div></li>
+          <li class="posttitle"><div>ì ëª©</div></li>
+          <li class="name"><div>ìì±ì</div></li>
+          <li class="view"><div>ì¡°íì</div></li>
+          <li class="postday"><div>ìì±ì¼</div></li>
         </ul>
       </nav>
-      <!-- 공지사항 섹션 -->
+      <!-- ê³µì§ì¬í­ ì¹ì -->
       <nav class="post_notify">
         <ul>
           <li class="number">
-            <div>공지</div>
+            <div>ê³µì§</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postArlim.html">사이트 이용시 주의사항</a></div>
+            <div><a href="./postArlim.html">ì¬ì´í¸ ì´ì©ì ì£¼ìì¬í­</a></div>
           </li>
           <li class="name">
-            <div>관리자</div>
+            <div>ê´ë¦¬ì</div>
           </li>
           <li class="view">
             <div>5</div>
@@ -47,13 +49,13 @@
       <nav class="post_notify">
         <ul>
           <li class="number">
-            <div>공지</div>
+            <div>ê³µì§</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postArlim.html">사이트 이용시 주의사항</a></div>
+            <div><a href="./postArlim.html">ì¬ì´í¸ ì´ì©ì ì£¼ìì¬í­</a></div>
           </li>
           <li class="name">
-            <div>관리자</div>
+            <div>ê´ë¦¬ì</div>
           </li>
           <li class="view">
             <div>5</div>
@@ -66,13 +68,13 @@
       <nav class="post_notify">
         <ul>
           <li class="number">
-            <div>공지</div>
+            <div>ê³µì§</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postArlim.html">사이트 이용시 주의사항</a></div>
+            <div><a href="./postArlim.html">ì¬ì´í¸ ì´ì©ì ì£¼ìì¬í­</a></div>
           </li>
           <li class="name">
-            <div>관리자</div>
+            <div>ê´ë¦¬ì</div>
           </li>
           <li class="view">
             <div>5</div>
@@ -84,20 +86,20 @@
       </nav>
       <nav class="notify_open">
         <ul>
-          <li>숨은 공지 펼치기(2개) v</li>
+          <li>ì¨ì ê³µì§ í¼ì¹ê¸°(2ê°) v</li>
         </ul>
       </nav>
-      <!-- 일반 게시글 섹션 -->
+      <!-- ì¼ë° ê²ìê¸ ì¹ì -->
       <nav class="post_member">
         <ul>
           <li class="number">
             <div>10</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postDetaillogin.html">안녕하세요</a></div>
+            <div><a href="./postDetaillogin.html">ìëíì¸ì</a></div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -113,10 +115,10 @@
             <div>9</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postDetailNotlogin.html">안녕하세요</a></div>
+            <div><a href="./postDetailNotlogin.html">ìëíì¸ì</a></div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -132,10 +134,10 @@
             <div>8</div>
           </li>
           <li class="posttitle">
-            <div onclick="postTitle()" class="postTitle">안녕하세요</div>
+            <div onclick="postTitle()" class="postTitle">ìëíì¸ì</div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -151,10 +153,10 @@
             <div>7</div>
           </li>
           <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
+            <div><a href="">ìëíì¸ì</a></div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -170,10 +172,10 @@
             <div>6</div>
           </li>
           <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
+            <div><a href="">ìëíì¸ì</a></div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -189,10 +191,10 @@
             <div>5</div>
           </li>
           <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
+            <div><a href="">ìëíì¸ì</a></div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -208,10 +210,10 @@
             <div>4</div>
           </li>
           <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
+            <div><a href="">ìëíì¸ì</a></div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -227,10 +229,10 @@
             <div>3</div>
           </li>
           <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
+            <div><a href="">ìëíì¸ì</a></div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -246,10 +248,10 @@
             <div>2</div>
           </li>
           <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
+            <div><a href="">ìëíì¸ì</a></div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -265,10 +267,10 @@
             <div>1</div>
           </li>
           <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
+            <div><a href="">ìëíì¸ì</a></div>
           </li>
           <li class="name">
-            <div>홍길동</div>
+            <div>íê¸¸ë</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -278,16 +280,16 @@
           </li>
         </ul>
       </nav>
-      <!-- 검색 섹션 -->
+      <!-- ê²ì ì¹ì -->
       <nav class="search">
         <ul>
-          <li><div>제목/내용 v</div></li>
+          <li><div>ì ëª©/ë´ì© v</div></li>
           <li><input type="text"></li>
           <li><a href=""><img src="./../../assets/img/post/search.png" alt=""></a></li>
-          <button type="button" onclick="postWrite()" class="postWrite"><a href="./postWrite.html">글쓰기</a></button>
+          <button type="button" onclick="postWrite()" class="postWrite"><a href="./postWrite.html">ê¸ì°ê¸°</a></button>
         </ul>
       </nav>
-      <!-- 페이지네이션 -->
+      <!-- íì´ì§ë¤ì´ì -->
       <nav class="page">
         <ul>
           <a href="">
@@ -311,11 +313,11 @@
         </ul>
       </nav>
     </form>
-    <!-- 비로그인 회원이 글쓰기 버튼 클릭시 모달 -->
+    <!-- ë¹ë¡ê·¸ì¸ íìì´ ê¸ì°ê¸° ë²í¼ í´ë¦­ì ëª¨ë¬ -->
     <div class="modal">
       <div class="modal-content">
         <button id="sendxbutton"><a href="./../login/login.html">X</a></button>
-        <p>로그인이 필요합니다</p>
+        <p>ë¡ê·¸ì¸ì´ íìí©ëë¤</p>
       </div>
     </div>
   </main>
