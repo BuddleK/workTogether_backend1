@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,10 +7,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Care_PostDetailPage</title>
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <link rel="stylesheet" href="./../../assets/css/myPageCare/careReferenceCheck.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPageCare/careReferenceCheck.css">
 </head>
 
 <body>
@@ -42,7 +44,7 @@
 <!-- 버튼 클릭시 a태그 링클 이동 -->
       <div class="buttons">
         
-        <a class="btn_list" href="./careReference.html">목록</a>
+        <a class="btn_list" href="${pageContext.request.contextPath}/careReference.jsp">목록</a>
 
       </div>
     </section>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +7,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>care_Messeagereturn</title>
-  <link rel="stylesheet" href="./../../assets/css/myPageCare/careMessageReturn.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/myPageCare/careMessageReturn.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPageCare/careMessageReturn.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/careMessageReturn.js"></script>
 </head>
 
 <body>
@@ -19,15 +21,15 @@
 
     <nav class="sidebar">
       <ul>
-        <li><a href="./careProfile.html"><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
-        <li><a href="./careModify.html">개인정보 수정</a></li>
-        <li><a href="./careMark.html">찜한 목록</a></li>
-        <li><a href="./careMatching.html">매칭 기록</a></li>
-        <li><a href="./careMessage.html">쪽지함</a></li>
-        <li><a href="./carePost.html">게시글 관리</a></li>
-        <li><a href="./carePointreturn.html">포인트 환급</a></li>
-        <li><a href="./careReference.html">1 대 1 문의</a></li>
-        <li><a href="./careExit.html">회원 탈퇴</a></li>
+        <li><a href="${pageContext.request.contextPath}/careProfile.jsp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
+        <li><a href="${pageContext.request.contextPath}/careModify.jsp">개인정보 수정</a></li>
+        <li><a href="${pageContext.request.contextPath}/careMark.jsp">찜한 목록</a></li>
+        <li><a href="${pageContext.request.contextPath}/careMatching.jsp">매칭 기록</a></li>
+        <li><a href="${pageContext.request.contextPath}/careMessage.jsp">쪽지함</a></li>
+        <li><a href="${pageContext.request.contextPath}/carePost.jsp">게시글 관리</a></li>
+        <li><a href="${pageContext.request.contextPath}/carePointreturn.jsp">포인트 환급</a></li>
+        <li><a href="${pageContext.request.contextPath}/careReference.jsp">1 대 1 문의</a></li>
+        <li><a href="${pageContext.request.contextPath}/careExit.jsp">회원 탈퇴</a></li>
       </ul>
     </nav>
 
@@ -38,9 +40,9 @@
       <!-- 받은 쪽지와 보낸 쪽지로 이동 할 수 있는 칸 -->
       <nav class="div_choose">
         <ul>
-          <li class="send"><a href="./careMessage.html">받은 쪽지</a></li>
+          <li class="send"><a href="${pageContext.request.contextPath}/careMessage.jsp">받은 쪽지</a></li>
           <li>|</li>
-          <li class="reseive"><a href="./careMessageReturn.html"><strong>보낸 쪽지</strong></a></li>
+          <li class="reseive"><a href="${pageContext.request.contextPath}/careMessageReturn.jsp"><strong>보낸 쪽지</strong></a></li>
         </ul>
       </nav>
       <!-- 페이지 분류 창 -->
