@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,27 +15,27 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- 글쓴이가 자신 게시글보는 디테일 페이지 -->
+    <!-- ê¸ì´ì´ê° ìì  ê²ìê¸ë³´ë ëíì¼ íì´ì§ -->
     <form action="">
       <nav class="post_title">
         <ul>
-          <li class="post_name">안녕하세요</li>
+          <li class="post_name">ìëíì¸ì</li>
           <li>
             <ul class="post_info">
               <li>
-                <div>등록자명</div>
+                <div>ë±ë¡ìëª</div>
               </li>
               <li class="post_member">
-                <div>홍길동</div>
+                <div>íê¸¸ë</div>
               </li>
               <li>
-                <div>등록일</div>
+                <div>ë±ë¡ì¼</div>
               </li>
               <li class="post_day">
                 <div>2025-08-09</div>
               </li>
               <li>
-                <div>수정일</div>
+                <div>ìì ì¼</div>
               </li>
               <li class="post_modifyDay">
                 <div>2025-08-10</div>
@@ -42,7 +44,7 @@
           </li>
           <li>
             <ul class="post_info">
-              <li>조회수</li>
+              <li>ì¡°íì</li>
               <li class="post_view"><div>4</div></li>
             </ul>
           </li>
@@ -51,51 +53,51 @@
       <nav class="post_content">
         <ul>
           <li>
-            <div>안녕하세요</div>
+            <div>ìëíì¸ì</div>
           </li>
           <li class="button">
-            <a href="./postMain.html"><button type="button" class="button_list">목록</button></a>
-            <button type="button" class="button_delete">삭제</button>
-            <a href="./postModify.html"><button type="button" class="button_enroll">수정</button></a>
+            <a href="./postMain.html"><button type="button" class="button_list">ëª©ë¡</button></a>
+            <button type="button" class="button_delete">ì­ì </button>
+            <a href="./postModify.html"><button type="button" class="button_enroll">ìì </button></a>
           </li>
         </ul>
       </nav>
-      <!-- 댓글 섹션 -->
-      <div class="post_total_reply"><div>댓글[1]</div></div>
+      <!-- ëê¸ ì¹ì -->
+      <div class="post_total_reply"><div>ëê¸[1]</div></div>
       <nav class="post_reply">
         <ul>
-          <li>홍길*</li>
+          <li>íê¸¸*</li>
           <li>2025-08-09</li>
         </ul>
         <ul class="reply_content">
-          <li>댓글 내용</li>
+          <li>ëê¸ ë´ì©</li>
         </ul>
       </nav>
       <nav class="post_reply">
         <ul>
-          <li>홍길*</li>
+          <li>íê¸¸*</li>
           <li>2025-08-09</li>
         </ul>
         <ul class="reply_content">
-          <li>댓글 내용</li>
+          <li>ëê¸ ë´ì©</li>
         </ul>
       </nav>
-      <!-- 댓글 작성 섹션 -->
+      <!-- ëê¸ ìì± ì¹ì -->
       <nav class="reply_write">
         <ul>
-          <li>댓글 작성</li>
-          <li><input type="text" placeholder="댓글 작성중"><button>작성</button></li>
+          <li>ëê¸ ìì±</li>
+          <li><input type="text" placeholder="ëê¸ ìì±ì¤"><button>ìì±</button></li>
         </ul>
       </nav>
     </form>
   </main>
-  <!-- 게시글 삭제 확인 모달 -->
+  <!-- ê²ìê¸ ì­ì  íì¸ ëª¨ë¬ -->
   <div class="checkmodal" id="editModal">
     <div class="modal_box">
-      <p>이 게시글을 삭제하시겠습니까?</p>
+      <p>ì´ ê²ìê¸ì ì­ì íìê² ìµëê¹?</p>
       <div class="modal_buttons">
-        <a href="./postMain.html"><button id="check">확인</button></a>
-        <button id="cancle">취소</button>
+        <a href="./postMain.html"><button id="check">íì¸</button></a>
+        <button id="cancle">ì·¨ì</button>
       </div>
     </div>
   </div>
