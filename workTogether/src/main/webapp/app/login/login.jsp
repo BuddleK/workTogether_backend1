@@ -1,15 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인페이지</title>
-    <link rel="stylesheet" href="./../../assets/css/login/login.css" />
-    <link rel="stylesheet" href="./../../assets/css/header.css" />
-    <link rel="stylesheet" href="./../../assets/css/footer.css" />
-    <script defer src="./../../assets/js/main/include.js"></script>
-    <script defer src="./../../assets/js/login/login.js"></script>
-    <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/login/login.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/login/login.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
   </head>
 
   <body>
@@ -46,9 +48,9 @@
               </button>
             </div>
             <div class="link_box">
-              <a href="./../../app/login/findId.html">아이디 찾기</a>
-              <a href="./../../app/login/findPassword.html">비밀번호 찾기</a>
-              <a href="./../../app/sign/terms.html">회원가입</a>
+              <a href="${pageContext.request.contextPath}/app/login/findId.html">아이디 찾기</a>
+              <a href="${pageContext.request.contextPath}/app/login/findPassword.html">비밀번호 찾기</a>
+              <a href="${pageContext.request.contextPath}/app/sign/terms.html">회원가입</a>
             </div>
           </div>
         </form>
