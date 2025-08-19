@@ -15,55 +15,55 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë©ë´ ì¬ì´ëë° ì¹ì -->
+    <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
         <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="./normalPwCheck.html">ê°ì¸ì ë³´ ìì </a></li>
-        <li><a href="./normalMark.html">ì°í ëª©ë¡</a></li>
-        <li><a href="./normalheart.html">íí¸ ëª©ë¡</a></li>
-        <li><a href="./normalMatching.html">ë§¤ì¹­ ê¸°ë¡</a></li>
-        <li><a href="./normalsendMesseage.html">ìª½ì§í¨</a></li>
-        <li><a href="./normalPost.html">ê²ìê¸ ê´ë¦¬</a></li>
-        <li><a href="./normalPoint.html">í¬ì¸í¸ ì¶©ì </a></li>
-        <li><a href="./normalReference.html">1 ë 1 ë¬¸ì</a></li>
-        <li><a href="./normalQuit.html">íì íí´</a></li>
+        <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
+        <li><a href="./normalMark.html">찜한 목록</a></li>
+        <li><a href="./normalheart.html">하트 목록</a></li>
+        <li><a href="./normalMatching.html">매칭 기록</a></li>
+        <li><a href="./normalsendMesseage.html">쪽지함</a></li>
+        <li><a href="./normalPost.html">게시글 관리</a></li>
+        <li><a href="./normalPoint.html">포인트 충전</a></li>
+        <li><a href="./normalReference.html">1 대 1 문의</a></li>
+        <li><a href="./normalQuit.html">회원 탈퇴</a></li>
       </ul>
     </nav>
     <form action="" method="get">
       <div class="div_mark">
-        <!-- ë©ë´ ì ëª© -->
-        <div class="title">ìª½ì§í¨</div>
-        <!-- ë°ì ìª½ì§, ë³´ë¸ ìª½ì§ ì´ë -->
+        <!-- 메뉴 제목 -->
+        <div class="title">쪽지함</div>
+        <!-- 받은 쪽지, 보낸 쪽지 이동 -->
         <nav class="div_choose">
           <ul>
-            <li class="send"><a href="./normalsendMesseage.html">ë°ì ìª½ì§</a></li>
+            <li class="send"><a href="./normalsendMesseage.html">받은 쪽지</a></li>
             <li>|</li>
-            <li class="reseive"><a href="./normalreseiveMesseage.html">ë³´ë¸ ìª½ì§</a></li>
+            <li class="reseive"><a href="./normalreseiveMesseage.html">보낸 쪽지</a></li>
           </ul>
         </nav>
-        <!-- ë°ì ìª½ì§ ì»¬ë¼ -->
+        <!-- 받은 쪽지 컬럼 -->
         <nav class="mark_nav">
           <ul>
             <li><input onclick="toggleMarksAll()" id="checkbox_col" name="mark_check_col" type="checkbox"></li>
             <li class="name_col">
-              <div>ë³´ë¸ ì¬ë</div>
+              <div>보낸 사람</div>
             </li>
             <li class="location_col">
-              <div>ì ëª©</div>
+              <div>제목</div>
             </li>
             <li class="phone_col">
-              <div>ë ì§</div>
+              <div>날짜</div>
             </li>
             <li class="read_col">
-              <div>ì½ì ìí</div>
+              <div>읽음 상태</div>
             </li>
           </ul>
         </nav>
-        <!-- ë°ì ìª½ì§ ëª©ë¡ ë¦¬ì¤í¸ -->
+        <!-- 받은 쪽지 목록 리스트 -->
         <ul class="mark_list">
         </ul>
-        <!-- íì´ì§ë¤ì´ì -->
+        <!-- 페이지네이션 -->
         <nav class="page">
           <ul>
             <li><a href="">&lt;</a></li>
@@ -74,88 +74,88 @@
             <li><a href="">&gt;</a></li>
           </ul>
         </nav>
-        <!-- ë°ì ìª½ì§ ì­ì  ë²í¼ -->
+        <!-- 받은 쪽지 삭제 버튼 -->
         <div class="div_delete">
-          <button type="button" onclick="delMarks()" id="delete">ì­ì </button>
+          <button type="button" onclick="delMarks()" id="delete">삭제</button>
         </div>
       </div>
     </form>
   
   </main>
-<!-- ìª½ì§ row í´ë¦­ì ëì¤ë ëª¨ë¬ì°½ -->
+<!-- 쪽지 row 클릭시 나오는 모달창 -->
   <div class="modal_bg" id="msgModal">
     <div class="modal_box">
       <div class="modal_read">
-        <span class="modal_title">ë°ì ìª½ì§ ì½ê¸°</span>
+        <span class="modal_title">받은 쪽지 읽기</span>
         <span class="modal_close" onclick="closeMsgModal()">&times;</span>
       </div>
       <div class="modal_info">
         <div class="sender_info">
-          <span>ë³´ë¸ ì¬ë : </span>í°ë¼ë¸ì¬ì°ë£¨ì¤ | <span class="sender_id">Trano</span>
+          <span>보낸 사람 : </span>티라노사우루스 | <span class="sender_id">Trano</span>
         </div>
         <div class="message_content">
-          ëëëë ì¡ì ê³µë£¡ íë¼ê¸°ë ìë¨¹ì§
+          나는나는 육식 공룡 풀떼기는 안먹지
         </div>
       </div>
-      <!-- í´ë¹ ëª¨ë¬ì ìë ëª¨ë¬ì°½ -->
+      <!-- 해당 모달에 있는 모달창 -->
       <div class="modal_button">
-        <button class="btn_reply">ëµì¥</button>
-        <button class="btn_delete">ì­ì </button>
+        <button class="btn_reply">답장</button>
+        <button class="btn_delete">삭제</button>
       </div>
     </div>
   </div>
-  <!-- ëµì¥ ë²í¼ í´ë¦­ ì ëª¨ë¬ ì¶ë ¥ -->
+  <!-- 답장 버튼 클릭 시 모달 출력 -->
   <div class="modal_bg" id="sendMsgModal">
     <div class="modal_box">
       <div class="modal_read">
-        <span class="modal_title">ìª½ì§ ë³´ë´ê¸°</span>
+        <span class="modal_title">쪽지 보내기</span>
         <span class="modal_close" onclick="closeSendMsgModal()">&times;</span>
       </div>
       <div class="modal_info">
         <div class="sender_info">
-          <span>ë°ë ì¬ë : </span>ì¤íê³ ì¬ì°ë£¨ì¤ | <span class="sender_id">stago</span>
+          <span>받는 사람 : </span>스태고사우루스 | <span class="sender_id">stago</span>
         </div>
-        <textarea id="message_textarea" placeholder="ë´ì©ì ìë ¥íì¸ì"></textarea>
+        <textarea id="message_textarea" placeholder="내용을 입력하세요"></textarea>
       </div>
       <div class="modal_button">
-        <button class="btn_send">ë³´ë´ê¸°</button>
-        <button class="btn_cancel">ì·¨ì</button>
+        <button class="btn_send">보내기</button>
+        <button class="btn_cancel">취소</button>
       </div>
     </div>
   </div>
-  <!-- ë³´ë´ê¸° ë²í¼ í´ë¦­ ì ëª¨ë¬ ì¶ë ¥ -->
+  <!-- 보내기 버튼 클릭 시 모달 출력 -->
   <div class="modal_bg" id="sendSuccessModal">
     <div class="modal_box modal_send">
-      <p class="send_message">ìª½ì§ë¥¼ ë³´ëìµëë¤.</p>
+      <p class="send_message">쪽지를 보냈습니다.</p>
       <div class="modal_button">
-        <button class="btn_confirm" onclick="closeSendModal()">íì¸</button>
+        <button class="btn_confirm" onclick="closeSendModal()">확인</button>
       </div>
     </div>
   </div>
-  <!-- ì­ì  ë²í¼ í´ë¦­ ì ëª¨ë¬ ì¶ë ¥ -->
+  <!-- 삭제 버튼 클릭 시 모달 출력 -->
   <div class="modal_bg" id="deleteMsgModal">
     <div class="modal_box confirm_modal">
-      <p class="confirm_text">ì ë§ë¡ ìª½ì§ë¥¼ ì­ì íìê² ìµëê¹?</p>
+      <p class="confirm_text">정말로 쪽지를 삭제하시겠습니까?</p>
       <div class="confirm_buttons">
-        <button class="btn_confirm" onclick="confirmDelete()">íì¸</button>
-        <button class="btn_cancel" onclick="closeDeleteModal()">ì·¨ì</button>
+        <button class="btn_confirm" onclick="confirmDelete()">확인</button>
+        <button class="btn_cancel" onclick="closeDeleteModal()">취소</button>
       </div>
     </div>
   </div>
-  <!-- ì­ì  ëª¨ë¬ìì íì¸ í´ë¦­ì ëª¨ë¬ ì¶ë ¥ -->
+  <!-- 삭제 모달에서 확인 클릭시 모달 출력 -->
   <div class="modal_bg" id="sendSuccessModal">
     <div class="modal_box modal_send">
-      <p class="send_message">ìª½ì§ê° ì­ì ëììµëë¤.</p>
+      <p class="send_message">쪽지가 삭제되었습니다.</p>
       <div class="modal_button">
-        <button class="btn_confirm" onclick="closeSendModal()">íì¸</button>
+        <button class="btn_confirm" onclick="closeSendModal()">확인</button>
       </div>
     </div>
   </div>
-  <!-- ë³´ë¸ ìª½ì§ íì´ì§ìì ì¬ì©íë ëª¨ë¬ -->
+  <!-- 보낸 쪽지 페이지에서 사용하는 모달 -->
   <div class="modal_bg" id="sentMsgReadModal">
     <div class="modal_box read_modal">
       <div class="modal_header">
-        <span class="modal_title">ë³´ë¸ ìª½ì§ ì½ê¸°</span>
+        <span class="modal_title">보낸 쪽지 읽기</span>
         <span class="modal_close" onclick="closeSentMsgModal()">&times;</span>
       </div>
     </div>

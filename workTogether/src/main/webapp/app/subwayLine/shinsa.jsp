@@ -19,15 +19,15 @@
   <main>
 
     <div class="station_info">
-      <!-- í´ë¹ ì§íì²  ì­ ì¬ì§ -->
+      <!-- 해당 지하철 역 사진 -->
 
       <div class="station_img">
         <img src="./../../assets/img/subwayLine/shinsa.png" alt="">
       </div>
 
       <div class="station_exit">
-        <!-- ì­ ì ë³´ -->
-        <div> ì ì¬ì­ </div>
+        <!-- 역 정보 -->
+        <div> 신사역 </div>
       </div>
 
       <div class="line_number">
@@ -36,12 +36,12 @@
       </div>
     </div>
 
-    <!-- ì§ë api -->
+    <!-- 지도 api -->
     <div class="map_api">
       <div>
         <img src="./../../assets/img/subwayLine/KakaoTalk_20250806_170707522_07.png" alt="">
       </div>
-      <a href="./subway.html"><button>ëª©ë¡</button></a>
+      <a href="./subway.html"><button>목록</button></a>
 
     </div>
 
