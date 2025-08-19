@@ -1,4 +1,4 @@
-package com.wt.app.user;
+package com.wt.app.admin;
 
 import java.io.IOException;
 
@@ -9,18 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 
-public class UserLoginController implements Execute {
+public class AdminLoginController implements Execute{
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-
-
-        Result result = new Result();
-        result.setPath("/app/login/login.jsp"); // 로그인 JSP 경로
-        result.setRedirect(false);
-        return result;
+		// TODO Auto-generated method stub
+		Result result = new Result();
+		result.setRedirect(false);
+		result.setPath("/app/admin/adminLogin.jsp");
+		return null;
 	}
 }

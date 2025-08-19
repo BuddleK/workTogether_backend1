@@ -25,7 +25,7 @@
             <div class="id_box">
               <input
                 type="text"
-                name="id"
+                name="userid"
                 id="id_input"
                 placeholder="USER ID"
               />
@@ -33,16 +33,16 @@
             <div class="pw_box">
               <input
                 type="password"
-                name="pw"
+                name="userPassword"
                 id="pw_input"
                 placeholder="PASSWORD"
               />
-            </div>
+            </div>           
             <div class="bt_box">
-              <button type="button" onclick="islogin()" type="button">
+              <button type="submit" name="usersType" value="C">
                 돌봄 로그인
               </button>
-              <button type="button" onclick="islogin()" type="button">
+              <button type="submit" name="usersType" value="N">
                 일반 로그인
               </button>
             </div>

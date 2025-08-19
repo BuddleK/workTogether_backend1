@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="normalUsers">
+	<insert id="insert" parameterType="com.wt.app.dto.NormalUsersDTO">
+	  <selectKey resultType="int" keyProperty="normalNumber" order="BEFORE">
+      select seq_normal_users.NEXTVAL from dual
+    </selectKey>
+    insert into tbl_normal_users (
+      normal_number, users_number, normal_users_level
+    ) VALUES (
+      #{normalNumber}, #{usersNumber}, #{normalUsersLevel}
+    )
+	</insert>
+
+</mapper>
