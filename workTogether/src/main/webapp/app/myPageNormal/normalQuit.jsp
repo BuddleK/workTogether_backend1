@@ -6,11 +6,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Normal_Quit</title>
-  <link rel="stylesheet" href="./../../assets/css/myPageNormal/normalQuit.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/myPageNormal/normalQuit.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPageNormal/normalQuit.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalQuit.js"></script>
 </head>
 </head>
 
@@ -20,7 +20,7 @@
     <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
-        <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
+        <li><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
         <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
         <li><a href="./normalMark.html">찜한 목록</a></li>
         <li><a href="./normalheart.html">하트 목록</a></li>
@@ -86,7 +86,7 @@
     <div class="modal_box">
       <p>성공적으로 회원을 탈퇴 하셨습니다.</p>
       <div class="modal_buttons">
-        <a href="./../../main.html"><button type="button" id="doneOkBtn">확인</button></a>
+        <a href="${pageContext.request.contextPath}/main.html"><button type="button" id="doneOkBtn">확인</button></a>
       </div>
     </div>
   </div>

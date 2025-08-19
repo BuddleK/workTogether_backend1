@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기
-  fetch('./../../app/modal/modalDeleteReportedPost.html')
+  fetch('./../../app/modal/modalDeleteReportedPost.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('modalDeleteReportedPost').innerHTML = data;
@@ -12,7 +12,7 @@ const modalDeleteReportedPost = document.getElementById(
   "modalDeleteReportedPost"
 );
 
-const link = "./../../app/admin/report.html";
+const link = "./../../app/admin/report.jsp";
 function linkHref() {
   location.href = link;
 }

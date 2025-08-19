@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // html 문서에 모달 불러오기
-  fetch('./../../app/modal/modalDeleteNewsFinished.html')
+  fetch('./../../app/modal/modalDeleteNewsFinished.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('modalDeleteNewsFinished').innerHTML = data;
@@ -15,8 +15,8 @@ const modalDeleteNewsFinished = document.getElementById("modalDeleteNewsFinished
 const newsTitle = "오늘의 뉴스";
 
 
-const link = "./../../app/admin/newsBoard.html";
-const link2 = "./../../app/admin/bannerBoard.html";
+const link = "./../../app/admin/newsBoard.jsp";
+const link2 = "./../../app/admin/bannerBoard.jsp";
 
 function linkHref() {
   location.href=link;

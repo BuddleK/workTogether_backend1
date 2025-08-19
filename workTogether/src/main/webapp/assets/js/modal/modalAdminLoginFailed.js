@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // html 문서에 모달 불러오기
-  fetch('./../../app/modal/modalAdminLoginFailed.html')
+  fetch('./../../app/modal/modalAdminLoginFailed.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('modalAdminLoginFailed').innerHTML = data;

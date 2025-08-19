@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Normal_Matching</title>
-  <link rel="stylesheet" href="./../../assets/css/myPageNormal/normalMatching.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/myPageNormal/normalMatching.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPageNormal/normalMatching.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalMatching.js"></script>
 </head>
 <body>
   <div id="header"></div>
@@ -17,7 +17,7 @@
     <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
-        <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
+        <li><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
         <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
         <li><a href="./normalMark.html">찜한 목록</a></li>
         <li><a href="./normalheart.html">하트 목록</a></li>
