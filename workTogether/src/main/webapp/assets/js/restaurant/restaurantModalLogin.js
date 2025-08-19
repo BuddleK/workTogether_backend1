@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // html 문서에 모달 불러오기
-  fetch('./restaurantModalLogin.html')
+  fetch('./restaurantModalLogin.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('restaurantModalLogin').innerHTML = data;
@@ -30,7 +30,7 @@ function restaurantModalLoginNone(){
 //확인 버튼
 function restaurantModalLoginCheck(){
   restaurantModalLoginNone();
-  location.href="./../login/login.html";
+  location.href="./../login/login.jsp";
 }
 //취소 버튼
 function restaurantModalLoginCancel(){
