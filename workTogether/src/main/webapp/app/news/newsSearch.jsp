@@ -2,74 +2,72 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ê²ìê²°ê³¼ íì´ì§</title>
-  <link rel="stylesheet" href="./../../assets/css/news/newsSearch.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/news/newsSearch.js"></script>
+  <title>검색결과 페이지</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/news/newsSearch.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/news/newsSearch.js"></script>
 </head>
-
 <body>
   <div id="header"></div>
   <main>
-    <!-- ê²ì ê²°ê³¼ íì´ì§ ì»¨íì´ë -->
+    <!-- 검색 결과 페이지 컨테이너 -->
     <div class="search_result_container">
-      <!-- ê²ì ê²°ê³¼ íë©ë´(ìë©ë´) -->
+      <!-- 검색 결과 탑메뉴(소메뉴) -->
       <div class="search_result_topmenu">
-        <!-- ì ì²´ ë´ì¤ íì´ì§ ì ëª© -->
-        <div class="title">ê²ì ê²°ê³¼</div>
-        <!-- ê²ì ì°½ ë° -->
+        <!-- 전체 뉴스 페이지 제목 -->
+        <div class="title">검색 결과</div>
+        <!-- 검색 창 바 -->
         <div class="searchbar">
-          <!-- ê²ì ê²°ê³¼ ë³´ë´ì£¼ê¸° ìí í¼ -->
+          <!-- 검색 결과 보내주기 위한 폼 -->
           <form action="get">
-            <!-- ê²ì ìë ¥ ì°½ -->
+            <!-- 검색 입력 창 -->
             <input type="text" class="underbar">
           </form>
-          <!-- ê²ì ë²í¼ -->
+          <!-- 검색 버튼 -->
           <button class="search_btn">
-            <!-- ê²ì ë²í¼ ì´ë¯¸ì§ -->
-            <img class="searchIcon" src="./../../assets/img/news/searchIcon.png" alt="ê²ììì´ì½">
+            <!-- 검색 버튼 이미지 -->
+            <img class="searchIcon" src="${pageContext.request.contextPath}/assets/img/news/searchIcon.png" alt="검색아이콘">
           </button>
         </div>
       </div>
-      <!-- ê²ì ê²°ê³¼ ì¹´ë ë¦¬ì¤í¸ -->
+      <!-- 검색 결과 카드 리스트 -->
       <div class="search_result_card">
         <ul>
           <li>
-            <!-- ë´ì¤ ë§í¬ ì´ë ì¹´ë ë¦¬ì¤í¸ -->
+            <!-- 뉴스 링크 이동 카드 리스트 -->
             <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <p class="cardtitle">ìì´êµ¬, âê²½ê³ì ì§ë¥ì¸â ìí ë§ì¶¤í íìµê³µê° ê°ì</p>
+                <p class="cardtitle">서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</p>
                 <p>https://www.barrierfreenews.com/news/....</p>
               </a></div>
           </li>
           <li>
-            <!-- ë´ì¤ ë§í¬ ì´ë ì¹´ë ë¦¬ì¤í¸ -->
+            <!-- 뉴스 링크 이동 카드 리스트 -->
             <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <p class="cardtitle">ìì´êµ¬, âê²½ê³ì ì§ë¥ì¸â ìí ë§ì¶¤í íìµê³µê° ê°ì</p>
+                <p class="cardtitle">서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</p>
                 <p>https://www.barrierfreenews.com/news/....</p>
               </a></div>
           </li>
           <li>
-            <!-- ë´ì¤ ë§í¬ ì´ë ì¹´ë ë¦¬ì¤í¸ -->
+            <!-- 뉴스 링크 이동 카드 리스트 -->
             <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <p class="cardtitle">ìì´êµ¬, âê²½ê³ì ì§ë¥ì¸â ìí ë§ì¶¤í íìµê³µê° ê°ì</p>
+                <p class="cardtitle">서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</p>
                 <p>https://www.barrierfreenews.com/news/....</p>
               </a></div>
           </li>
           <li>
-            <!-- ë´ì¤ ë§í¬ ì´ë ì¹´ë ë¦¬ì¤í¸ -->
+            <!-- 뉴스 링크 이동 카드 리스트 -->
             <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <p class="cardtitle">ìì´êµ¬, âê²½ê³ì ì§ë¥ì¸â ìí ë§ì¶¤í íìµê³µê° ê°ì</p>
+                <p class="cardtitle">서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</p>
                 <p>https://www.barrierfreenews.com/news/....</p>
               </a></div>
           </li>
         </ul>
-        <!-- íì´ì§ ë¤ì´ì -->
+        <!-- 페이지 네이션 -->
         <div class="pagination">
           &lt; <span class="active">1</span> 2 3 4 ... &gt;
         </div>
@@ -78,5 +76,4 @@
   </main>
   <div id="footer"></div>
 </body>
-
 </html>

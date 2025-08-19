@@ -6,30 +6,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post_Modify</title>
-  <link rel="stylesheet" href="./../../assets/css/post/postModify.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/post/postModify.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/post/postModify.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/post/postModify.js"></script>
 </head>
 <body>
   <div id="header"></div>
   <main>
-    <!-- ê²ìë¬¼ ìì   ëíì¼ íì´ì§-->
+    <!-- 게시물 수정  디테일 페이지-->
     <form action="">
       <nav class="post_title">
         <ul>
-          <li class="post_name"> ìëíì¸ì</li>
+          <li class="post_name"> 안녕하세요</li>
           <li>
             <ul class="post_info">
               <li>
-                <div>ë±ë¡ìëª</div>
+                <div>등록자명</div>
               </li>
               <li class="post_member">
-                <div>íê¸¸ë</div>
+                <div>홍길동</div>
               </li>
               <li>
-                <div>ë±ë¡ì¼</div>
+                <div>등록일</div>
               </li>
               <li class="post_day">
                 <div>2025-08-09</div>
@@ -38,7 +38,7 @@
           </li>
           <li>
             <ul class="post_info">
-              <li>ì¡°íì</li>
+              <li>조회수</li>
               <li class="post_view">
                 <div>4</div>
               </li>
@@ -46,24 +46,24 @@
           </li>
         </ul>
       </nav>
-      <div class="api">ê¸ì°ê¸° api?</div>
+      <div class="api">글쓰기 api?</div>
       <div class="input">
         <textarea></textarea>
         <input type="text">
       </div>
       <div class="button">
-        <button class="list"><a href="./postMain.html">ëª©ë¡</a></button>
-        <button class="button_write">ìì íê¸°</button>
+        <button class="list"><a href="${pageContext.request.contextPath}/app/post/postMain.jsp">목록</a></button>
+        <button class="button_write">수정하기</button>
       </div>
     </form>
   </main>
-  <!-- ìì  íì¸ ëª¨ë¬ -->
+  <!-- 수정 확인 모달 -->
   <div class="notmodal" id="editModal">
     <div class="modal_box">
-      <p>ìì íìê² ìµëê¹?</p>
+      <p>수정하시겠습니까?</p>
       <div class="modal_buttons">
-        <a href="./postDetaillogin.html"><button id="check">íì¸</button></a>
-        <button id="cancle">ì·¨ì</button>
+        <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp"><button id="check">확인</button></a>
+        <button id="cancle">취소</button>
       </div>
     </div>
   </div>
