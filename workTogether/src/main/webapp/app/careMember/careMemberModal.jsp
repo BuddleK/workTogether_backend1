@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- 모달 컨테이너 -->
 <div id="modal">
   <!-- 모달 창 -->
@@ -6,7 +7,7 @@
     <div class="modal_body_confirm">
       <!-- 모달 닫기 버튼 -->
       <div class="modal_x_box">
-        <img onclick="turnOffModal()" class="modal_x" src="./../../assets/img/main/xIcon.png">
+        <img onclick="turnOffModal()" class="modal_x" src="${pageContext.request.contextPath}/assets/img/main/xIcon.png">
       </div>
       <!-- 모달 내용 -->
       <p id="modal_text">

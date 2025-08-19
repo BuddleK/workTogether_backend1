@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,15 +6,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>함께 걸음</title>
-  <link rel="stylesheet" href="./../../assets/css/careMember/careMemberDetail.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/careMember/careMemberDetail.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/careMember/careMemberDetail.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/careMember/careMemberDetail.js"></script>
 
-  <link rel="stylesheet" href="./../../assets/css/careMember/careMemberModal.css">
-  <script defer src="./../../assets/js/careMember/careMemberModal.js"></script>
-  <script defer src="./../../assets/js/careMember/careMemberModalLogin.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/careMember/careMemberModal.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/careMember/careMemberModal.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/careMember/careMemberModalLogin.js"></script>
 </head>
 
 <body>
@@ -30,11 +31,11 @@
             <!-- 프로필 픽 박스 -->
             <div class="profile_pic_box">
               <div id="heart_img_box">
-                <img draggable="false" onclick="switchHeart()" id="heart_img" src="./../../assets/img/careMember/heart_icon.png">
+                <img draggable="false" onclick="switchHeart()" id="heart_img" src="${pageContext.request.contextPath}/assets/img/careMember/heart_icon.png">
               </div>
               <!-- 프로필 사진 -->
               <div class="profile_pic_frame">
-                <img class="profile_pic" src="./../../assets/img/careMember/profilePicCare.png">
+                <img class="profile_pic" src="${pageContext.request.contextPath}/assets/img/careMember/profilePicCare.png">
               </div>
               <!-- 프로필 정보 칸 -->
               <div class="profile_intro">

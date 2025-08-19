@@ -1,16 +1,17 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>함께 걸음</title>
-  <link rel="stylesheet" href="./../../assets/css/careMember/careMember.css">
-  <link rel="stylesheet" href="./../../assets/css/careMember/careMemberModal.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/careMember/careMember.js"></script>
-  <script defer src="./../../assets/js/careMember/careMemberModalLogin.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/careMember/careMember.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/careMember/careMemberModal.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/careMember/careMember.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/careMember/careMemberModalLogin.js"></script>
 </head>
 <body>
   <div id="header"></div>
@@ -39,7 +40,7 @@
         <!-- 검색 버튼 -->
         <div id="search_icon_box">
           <!-- 검색 버튼 이미지 -->
-          <img id="search_icon" src="./../../assets/img/careMember/search_icon.png">
+          <img id="search_icon" src="${pageContext.request.contextPath}/assets/img/careMember/search_icon.png">
         </div>
       </div>
       <div id="day_list">
