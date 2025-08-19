@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기
-  fetch("./../../app/modal/modalCareModifyReject.html")
+  fetch("./../../app/modal/modalCareModifyReject.jsp")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("modalCareModifyReject").innerHTML = data;
@@ -13,7 +13,7 @@ const modalCareModifyReject = document.getElementById("modalCareModifyReject");
 //input 요소 담을 변수
 let input;
 
-const link = "./../../app/admin/careCareer.html";
+const link = "./../../app/admin/careCareer.jsp";
 function linkHref() {
   location.href = link;
 }

@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // html 문서에 모달 불러오기
-  fetch('./../../app/modal/modalDeleteNotice.html')
+  fetch('./../../app/modal/modalDeleteNotice.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('modalDeleteNotice').innerHTML = data;
@@ -29,7 +29,7 @@ function modalDeleteNoticeNone(){
   document.onkeydown = null; // onkeydown 이벤트 제거
 }
 
-const link = "./../../app/admin/notice.html"
+const link = "./../../app/admin/notice.jsp"
 function linkHref() {
   location.href=link;
 }
