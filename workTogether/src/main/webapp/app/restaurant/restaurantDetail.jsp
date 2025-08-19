@@ -1,19 +1,17 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>함께 걸음 - 가게 디테일</title>
-  <link rel="stylesheet" href="./../../assets/css/restaurant/restaurantDetail.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <link rel="stylesheet" href="./../../assets/css/restaurant/restaurantModal.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/restaurant/restaurantDetail.js"></script>
-  <script defer src="./../../assets/js/restaurant/restaurantModalLogin.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/restaurant/restaurantDetail.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/restaurant/restaurantModal.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/restaurant/restaurantDetail.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/restaurant/restaurantModalLogin.js"></script>
 </head>
 <body>
   <!-- 헤더 -->
@@ -32,7 +30,7 @@
         <div class="detail_info_area">
           <!-- 음식점 이미지 -->
           <div class="restaurant_img_box">
-            <img id="restaurant_img" src="./../../assets/img/restaurant/re0.jpg">
+            <img id="restaurant_img" src="${pageContext.request.contextPath}/assets/img/restaurant/re0.jpg">
           </div>
           <!-- 음식점 소개 영역 -->
           <div class="restaurant_info">
@@ -63,7 +61,7 @@
         <div class="detail_map_area">
           <!-- 지도 이미지 -->
           <div class="map_img_box">
-            <img class="map_img" src="./../../assets/img/restaurant/map.PNG">
+            <img class="map_img" src="${pageContext.request.contextPath}/assets/img/restaurant/map.PNG">
           </div>
           <div id="short_info">
             <div>
@@ -80,7 +78,7 @@
               <p id="short_parking">주차장: O</p>
               <p id="short_disabled_parking">장애인주차장: O</p>
               <div id="star_img_box">
-                <img draggable="false" id="star_img" onclick="switchStar()" src="./../../assets/img/restaurant/star.png">
+                <img draggable="false" id="star_img" onclick="switchStar()" src="${pageContext.request.contextPath}/assets/img/restaurant/star.png">
                 <span>찜하기</span>
               </div>
               <button type="button" id="list_button" onclick="goToList()">목록</button>
