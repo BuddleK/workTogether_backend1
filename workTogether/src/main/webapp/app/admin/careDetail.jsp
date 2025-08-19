@@ -5,18 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원 상세페이지(일반)</title>
-    <link rel="stylesheet" href="./../../assets/css/admin/" />
-    <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
-    <link rel="stylesheet" href="./../../assets/css/footer.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/careDetail.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
-    <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
-    <script defer src="./../../assets/js/modal/modalEditName.js"></script>
-    <script defer src="./../../assets/js/modal/modalDeleteMember.js"></script>
-    <script defer src="./../../assets/js/modal/modalPointRefundLog.js"></script>
-    <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/careDetail.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/modal/modalEditName.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/modal/modalDeleteMember.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/modal/modalPointRefundLog.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
   </head>
   <body>
     <div id="header"></div>

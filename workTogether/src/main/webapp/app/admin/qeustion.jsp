@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1:1 문의 사항 관리</title>
-    <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
-    <link rel="stylesheet" href="./../../assets/css/footer.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/question.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
-    <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/question.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
   </head>
 
   <body>
@@ -49,180 +49,179 @@
             <div class="table_content">
               <ul class="table_body">
                 <li class="body_number">
-                  <a href="./../../app/admin/questionDetail.html">1</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">1</a>
                 </li>
                 <li class="body_title">
-                  <a href="./../../app/admin/questionDetail.html"
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html"
                     >오늘 날씨가 좋네요</a
                   >
                 </li>
                 <li class="body_name">
-                  <a href="./../../app/admin/questionDetail.html">김옥순</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">김옥순</a>
                 </li>
                 <li class="body_id">
-                  <a href="./../../app/admin/questionDetail.html">abc123</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">abc123</a>
                 </li>
                 <li class="body_date">
-                  <a href="./../../app/admin/questionDetail.html">2025-08-09</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">2025-08-09</a>
                 </li>
                 <li class="body_type">
-                  <a href="./../../app/admin/questionDetail.html">Y</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">Y</a>
                 </li>
               </ul>
               <ul class="table_body">
                 <li class="body_number">
-                  <a href="./../../app/admin/questionDetail.html">2</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">2</a>
                 </li>
                 <li class="body_title">
-                  <a href="./../../app/admin/questionDetail.html"
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html"
                     >정마담한테는 밑에서 한장</a
                   >
                 </li>
                 <li class="body_name">
-                  <a href="./../../app/admin/questionDetail.html">고니</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">고니</a>
                 </li>
                 <li class="body_id">
-                  <a href="./../../app/admin/questionDetail.html">gstop</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">gstop</a>
                 </li>
                 <li class="body_date">
-                  <a href="./../../app/admin/questionDetail.html">2025-08-09</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">2025-08-09</a>
                 </li>
                 <li class="body_type">
-                  <a href="./../../app/admin/questionDetail.html">N</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">N</a>
                 </li>
               </ul>
               <ul class="table_body">
                 <li class="body_number">
-                  <a href="./../../app/admin/questionDetail.html">3</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">3</a>
                 </li>
                 <li class="body_title">
-                  <a href="./../../app/admin/questionDetail.html"
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html"
                     >거 죽기 딱 좋은 날씨네</a
                   >
                 </li>
                 <li class="body_name">
-                  <a href="./../../app/admin/questionDetail.html">준구</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">준구</a>
                 </li>
                 <li class="body_id">
-                  <a href="./../../app/admin/questionDetail.html">helpplz</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">helpplz</a>
                 </li>
                 <li class="body_date">
-                  <a href="./../../app/admin/questionDetail.html">2025-08-09</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">2025-08-09</a>
                 </li>
                 <li class="body_type">
-                  <a href="./../../app/admin/questionDetail.html">N</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">N</a>
                 </li>
               </ul>
               <ul class="table_body">
                 <li class="body_number">
-                  <a href="./../../app/admin/questionDetail.html">4</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">4</a>
                 </li>
                 <li class="body_title">
-                  <a href="./../../app/admin/questionDetail.html"
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html"
                     >묻고 떠블로 가</a
                   >
                 </li>
                 <li class="body_name">
-                  <a href="./../../app/admin/questionDetail.html">곽철용</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">곽철용</a>
                 </li>
                 <li class="body_id">
-                  <a href="./../../app/admin/questionDetail.html">irondragon</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">irondragon</a>
                 </li>
                 <li class="body_date">
-                  <a href="./../../app/admin/questionDetail.html">2025-08-09</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">2025-08-09</a>
                 </li>
                 <li class="body_type">
-                  <a href="./../../app/admin/questionDetail.html">N</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">N</a>
                 </li>
               </ul>
               <ul class="table_body">
                 <li class="body_number">
-                  <a href="./../../app/admin/questionDetail.html">5</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">5</a>
                 </li>
                 <li class="body_title">
-                  <a href="./../../app/admin/questionDetail.html"
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html"
                     >모히또 가서 몰디브 한잔</a
                   >
                 </li>
                 <li class="body_name">
-                  <a href="./../../app/admin/questionDetail.html">이병헌</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">이병헌</a>
                 </li>
                 <li class="body_id">
-                  <a href="./../../app/admin/questionDetail.html">twohands</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">twohands</a>
                 </li>
                 <li class="body_date">
-                  <a href="./../../app/admin/questionDetail.html">2025-08-09</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">2025-08-09</a>
                 </li>
                 <li class="body_type">
-                  <a href="./../../app/admin/questionDetail.html">Y</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">Y</a>
                 </li>
               </ul>
               <ul class="table_body">
                 <li class="body_number">
-                  <a href="./../../app/admin/questionDetail.html">6</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">6</a>
                 </li>
                 <li class="body_title">
-                  <a href="./../../app/admin/questionDetail.html"
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html"
                     >어찌 내가 왕이 될 상인가</a
                   >
                 </li>
                 <li class="body_name">
-                  <a href="./../../app/admin/questionDetail.html">광해</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">광해</a>
                 </li>
                 <li class="body_id">
-                  <a href="./../../app/admin/questionDetail.html">slave02</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">slave02</a>
                 </li>
                 <li class="body_date">
-                  <a href="./../../app/admin/questionDetail.html">2025-08-09</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">2025-08-09</a>
                 </li>
                 <li class="body_type">
-                  <a href="./../../app/admin/questionDetail.html">Y</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">Y</a>
                 </li>
               </ul>
               <ul class="table_body">
                 <li class="body_number">
-                  <a href="./../../app/admin/questionDetail.html">7</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">7</a>
                 </li>
                 <li class="body_title">
-                  <a href="./../../app/admin/questionDetail.html"
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html"
                     >어이가 없네</a
                   >
                 </li>
                 <li class="body_name">
-                  <a href="./../../app/admin/questionDetail.html">유아인</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">유아인</a>
                 </li>
                 <li class="body_id">
-                  <a href="./../../app/admin/questionDetail.html"
-                    >understandguy</a
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">understandguy</a
                   >
                 </li>
                 <li class="body_date">
-                  <a href="./../../app/admin/questionDetail.html">2025-08-09</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">2025-08-09</a>
                 </li>
                 <li class="body_type">
-                  <a href="./../../app/admin/questionDetail.html">N</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">N</a>
                 </li>
               </ul>
               <ul class="table_body">
                 <li class="body_number">
-                  <a href="./../../app/admin/questionDetail.html">8</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">8</a>
                 </li>
                 <li class="body_title">
-                  <a href="./../../app/admin/questionDetail.html"
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html"
                     >납득이 안가잔아 납득이</a
                   >
                 </li>
                 <li class="body_name">
-                  <a href="./../../app/admin/questionDetail.html">납득이</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">납득이</a>
                 </li>
                 <li class="body_id">
-                  <a href="./../../app/admin/questionDetail.html">bibibigo</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">bibibigo</a>
                 </li>
                 <li class="body_date">
-                  <a href="./../../app/admin/questionDetail.html">2025-08-09</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">2025-08-09</a>
                 </li>
                 <li class="body_type">
-                  <a href="./../../app/admin/questionDetail.html">Y</a>
+                  <a href="${pageContext.request.contextPath}/app/admin/questionDetail.html">Y</a>
                 </li>
               </ul>
             </div>
