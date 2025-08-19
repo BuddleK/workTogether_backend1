@@ -2,80 +2,78 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ë´ì¤íì´ì§</title>
-  <link rel="stylesheet" href="./../../assets/css/news/news.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/news/news.js"></script>
+  <title>뉴스페이지</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/news/news.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/news/news.js"></script>
 </head>
-
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë´ì¤ íì´ì§ ì»¨íì´ë -->
+    <!-- 뉴스 페이지 컨테이너 -->
     <div class="news_container">
-      <!-- ë´ì¤ íë©ë´(ìë©ë´) -->
+      <!-- 뉴스 탑메뉴(소메뉴) -->
       <div class="news_topmenu">
-        <!-- ì ì²´ ë³´ê¸° íì´ì§ ì´ë ë²í¼ -->
-        <div class="all_news"><a href="./../../app/news/newsList.html">&plus;ì ì²´ë³´ê¸°</a></div>
-        <!-- ë´ì¤ íì´ì§ ì ëª© -->
+        <!-- 전체 보기 페이지 이동 버튼 -->
+        <div class="all_news"><a href="${pageContext.request.contextPath}/app/news/newsList.jsp">&plus;전체보기</a></div>
+        <!-- 뉴스 페이지 제목 -->
         <div class="title">NEWS</div>
-        <!-- ê²ì ì°½ ë° -->
+        <!-- 검색 창 바 -->
         <div class="searchbar">
-          <!-- ê²ì ê²°ê³¼ ë³´ë´ì£¼ê¸° ìí í¼ -->
+          <!-- 검색 결과 보내주기 위한 폼 -->
           <form action="get">
-            <!-- ê²ì ìë ¥ ì°½ -->
+            <!-- 검색 입력 창 -->
             <input type="text" class="underbar">
           </form>
-          <!-- ê²ì ë²í¼ -->
+          <!-- 검색 버튼 -->
           <button class="search_btn">
-            <!-- ê²ì ë²í¼ ì´ë¯¸ì§ -->
-            <img class="searchIcon" src="./../../assets/img/news/searchIcon.png" alt="ê²ììì´ì½">
+            <!-- 검색 버튼 이미지 -->
+            <img class="searchIcon" src="${pageContext.request.contextPath}/assets/img/news/searchIcon.png" alt="검색아이콘">
           </button>
         </div>
       </div>
-      <!-- ì¬ë¼ì´ë ë² ë ë© -->
+      <!-- 슬라이드 베너 랩 -->
       <div class="slides_wrap">
-        <!-- ë² ë div -->
+        <!-- 베너 div -->
         <div class="slides">
           <div class="cardlist">
-            <!-- ë´ì¤ ë§í¬ì´ë ì¹´ë -->
-            <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <h1>ìì´êµ¬, âê²½ê³ì ì§ë¥ì¸â ìí ë§ì¶¤í íìµê³µê° ê°ì</h1><br>
-                ì´í¥ì¬ ê¸°ì : ìì¸ ìì´êµ¬ê° ê²½ê³ì ì§ë¥ì¸ì ìí ì êµ­ ìµì´ì ë§ì¶¤í íìíìµì§ì ê³µê°ì¸ âìì´ ë®ìì¸íë¦¬ íìíìµì¼í°âë¥¼ ì§ë 25ì¼ ê°ìíê³  ë³¸ê²©ì ì¸ ì´ìì ë¤ì´ê°ë¤. ....
+            <!-- 뉴스 링크이동 카드 -->
+            <div class="card"><a draggable="false" href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
+                <h1>서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</h1><br>
+                이흥재 기자 : 서울 서초구가 경계선지능인을 위한 전국 최초의 맞춤형 평생학습지원 공간인 ‘서초 낮은울타리 평생학습센터’를 지난 25일 개소하고 본격적인 운영에 들어갔다. ....
               </a></div>
           </div>
           <div class="cardlist">
-            <!-- ë´ì¤ ë§í¬ì´ë ì¹´ë -->
+            <!-- 뉴스 링크이동 카드 -->
             <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <h1>ìì´êµ¬, âê²½ê³ì ì§ë¥ì¸â ìí ë§ì¶¤í íìµê³µê° ê°ì</h1><br>
-                ì´í¥ì¬ ê¸°ì : ìì¸ ìì´êµ¬ê° ê²½ê³ì ì§ë¥ì¸ì ìí ì êµ­ ìµì´ì ë§ì¶¤í íìíìµì§ì ê³µê°ì¸ âìì´ ë®ìì¸íë¦¬ íìíìµì¼í°âë¥¼ ì§ë 25ì¼ ê°ìíê³  ë³¸ê²©ì ì¸ ì´ìì ë¤ì´ê°ë¤. ....
+                <h1>서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</h1><br>
+                이흥재 기자 : 서울 서초구가 경계선지능인을 위한 전국 최초의 맞춤형 평생학습지원 공간인 ‘서초 낮은울타리 평생학습센터’를 지난 25일 개소하고 본격적인 운영에 들어갔다. ....
               </a></div>
           </div>
           <div class="cardlist">
-            <!-- ë´ì¤ ë§í¬ì´ë ì¹´ë -->
+            <!-- 뉴스 링크이동 카드 -->
             <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <h1>ìì´êµ¬, âê²½ê³ì ì§ë¥ì¸â ìí ë§ì¶¤í íìµê³µê° ê°ì</h1><br>
-                ì´í¥ì¬ ê¸°ì : ìì¸ ìì´êµ¬ê° ê²½ê³ì ì§ë¥ì¸ì ìí ì êµ­ ìµì´ì ë§ì¶¤í íìíìµì§ì ê³µê°ì¸ âìì´ ë®ìì¸íë¦¬ íìíìµì¼í°âë¥¼ ì§ë 25ì¼ ê°ìíê³  ë³¸ê²©ì ì¸ ì´ìì ë¤ì´ê°ë¤. ....
+                <h1>서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</h1><br>
+                이흥재 기자 : 서울 서초구가 경계선지능인을 위한 전국 최초의 맞춤형 평생학습지원 공간인 ‘서초 낮은울타리 평생학습센터’를 지난 25일 개소하고 본격적인 운영에 들어갔다. ....
               </a></div>
           </div>
           <div class="cardlist">
-            <!-- ë´ì¤ ë§í¬ì´ë ì¹´ë -->
+            <!-- 뉴스 링크이동 카드 -->
             <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <h1>ìì´êµ¬, âê²½ê³ì ì§ë¥ì¸â ìí ë§ì¶¤í íìµê³µê° ê°ì</h1><br>
-                ì´í¥ì¬ ê¸°ì : ìì¸ ìì´êµ¬ê° ê²½ê³ì ì§ë¥ì¸ì ìí ì êµ­ ìµì´ì ë§ì¶¤í íìíìµì§ì ê³µê°ì¸ âìì´ ë®ìì¸íë¦¬ íìíìµì¼í°âë¥¼ ì§ë 25ì¼ ê°ìíê³  ë³¸ê²©ì ì¸ ì´ìì ë¤ì´ê°ë¤. ....
+                <h1>서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</h1><br>
+                이흥재 기자 : 서울 서초구가 경계선지능인을 위한 전국 최초의 맞춤형 평생학습지원 공간인 ‘서초 낮은울타리 평생학습센터’를 지난 25일 개소하고 본격적인 운영에 들어갔다. ....
               </a></div>
           </div>
           <div class="cardlist">
-            <!-- ë´ì¤ ë§í¬ì´ë ì¹´ë -->
+            <!-- 뉴스 링크이동 카드 -->
             <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <h1>ìì´êµ¬, âê²½ê³ì ì§ë¥ì¸â ìí ë§ì¶¤í íìµê³µê° ê°ì</h1><br>
-                ì´í¥ì¬ ê¸°ì : ìì¸ ìì´êµ¬ê° ê²½ê³ì ì§ë¥ì¸ì ìí ì êµ­ ìµì´ì ë§ì¶¤í íìíìµì§ì ê³µê°ì¸ âìì´ ë®ìì¸íë¦¬ íìíìµì¼í°âë¥¼ ì§ë 25ì¼ ê°ìíê³  ë³¸ê²©ì ì¸ ì´ìì ë¤ì´ê°ë¤. ....
+                <h1>서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</h1><br>
+                이흥재 기자 : 서울 서초구가 경계선지능인을 위한 전국 최초의 맞춤형 평생학습지원 공간인 ‘서초 낮은울타리 평생학습센터’를 지난 25일 개소하고 본격적인 운영에 들어갔다. ....
               </a></div>
           </div>
         </div>
@@ -85,5 +83,4 @@
   </main>
   <div id="footer"></div>
 </body>
-
 </html>

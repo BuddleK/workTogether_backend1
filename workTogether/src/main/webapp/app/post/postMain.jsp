@@ -6,37 +6,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post</title>
-  <link rel="stylesheet" href="./../../assets/css/post/postMain.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/post/postMain.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/post/postMain.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/post/postMain.js"></script>
 </head>
 <body>
   <div id="header"></div>
   <main>
-    <!-- ê³µì§ì¬í­, ì¼ë° ê²ìê¸ ëª©ë¡ ì¹ì -->
+    <!-- 공지사항, 일반 게시글 목록 섹션 -->
     <form action="" method="get">
       <nav class="post_top">
         <ul>
-          <li class="number"><div>ë²í¸</div></li>
-          <li class="posttitle"><div>ì ëª©</div></li>
-          <li class="name"><div>ìì±ì</div></li>
-          <li class="view"><div>ì¡°íì</div></li>
-          <li class="postday"><div>ìì±ì¼</div></li>
+          <li class="number"><div>번호</div></li>
+          <li class="posttitle"><div>제목</div></li>
+          <li class="name"><div>작성자</div></li>
+          <li class="view"><div>조회수</div></li>
+          <li class="postday"><div>작성일</div></li>
         </ul>
       </nav>
-      <!-- ê³µì§ì¬í­ ì¹ì -->
+      <!-- 공지사항 섹션 -->
       <nav class="post_notify">
         <ul>
           <li class="number">
-            <div>ê³µì§</div>
+            <div>공지</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postArlim.html">ì¬ì´í¸ ì´ì©ì ì£¼ìì¬í­</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">사이트 이용시 주의사항</a></div>
           </li>
           <li class="name">
-            <div>ê´ë¦¬ì</div>
+            <div>관리자</div>
           </li>
           <li class="view">
             <div>5</div>
@@ -49,13 +49,13 @@
       <nav class="post_notify">
         <ul>
           <li class="number">
-            <div>ê³µì§</div>
+            <div>공지</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postArlim.html">ì¬ì´í¸ ì´ì©ì ì£¼ìì¬í­</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">사이트 이용시 주의사항</a></div>
           </li>
           <li class="name">
-            <div>ê´ë¦¬ì</div>
+            <div>관리자</div>
           </li>
           <li class="view">
             <div>5</div>
@@ -68,13 +68,13 @@
       <nav class="post_notify">
         <ul>
           <li class="number">
-            <div>ê³µì§</div>
+            <div>공지</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postArlim.html">ì¬ì´í¸ ì´ì©ì ì£¼ìì¬í­</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">사이트 이용시 주의사항</a></div>
           </li>
           <li class="name">
-            <div>ê´ë¦¬ì</div>
+            <div>관리자</div>
           </li>
           <li class="view">
             <div>5</div>
@@ -86,20 +86,20 @@
       </nav>
       <nav class="notify_open">
         <ul>
-          <li>ì¨ì ê³µì§ í¼ì¹ê¸°(2ê°) v</li>
+          <li>숨은 공지 펼치기(2개) v</li>
         </ul>
       </nav>
-      <!-- ì¼ë° ê²ìê¸ ì¹ì -->
+      <!-- 일반 게시글 섹션 -->
       <nav class="post_member">
         <ul>
           <li class="number">
             <div>10</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postDetaillogin.html">ìëíì¸ì</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">안녕하세요</a></div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -115,10 +115,10 @@
             <div>9</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postDetailNotlogin.html">ìëíì¸ì</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postDetailNotlogin.jsp">안녕하세요</a></div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -134,10 +134,10 @@
             <div>8</div>
           </li>
           <li class="posttitle">
-            <div onclick="postTitle()" class="postTitle">ìëíì¸ì</div>
+            <div onclick="postTitle()" class="postTitle">안녕하세요</div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -153,10 +153,10 @@
             <div>7</div>
           </li>
           <li class="posttitle">
-            <div><a href="">ìëíì¸ì</a></div>
+            <div><a href="">안녕하세요</a></div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -172,10 +172,10 @@
             <div>6</div>
           </li>
           <li class="posttitle">
-            <div><a href="">ìëíì¸ì</a></div>
+            <div><a href="">안녕하세요</a></div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -191,10 +191,10 @@
             <div>5</div>
           </li>
           <li class="posttitle">
-            <div><a href="">ìëíì¸ì</a></div>
+            <div><a href="">안녕하세요</a></div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -210,10 +210,10 @@
             <div>4</div>
           </li>
           <li class="posttitle">
-            <div><a href="">ìëíì¸ì</a></div>
+            <div><a href="">안녕하세요</a></div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -229,10 +229,10 @@
             <div>3</div>
           </li>
           <li class="posttitle">
-            <div><a href="">ìëíì¸ì</a></div>
+            <div><a href="">안녕하세요</a></div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -248,10 +248,10 @@
             <div>2</div>
           </li>
           <li class="posttitle">
-            <div><a href="">ìëíì¸ì</a></div>
+            <div><a href="">안녕하세요</a></div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -267,10 +267,10 @@
             <div>1</div>
           </li>
           <li class="posttitle">
-            <div><a href="">ìëíì¸ì</a></div>
+            <div><a href="">안녕하세요</a></div>
           </li>
           <li class="name">
-            <div>íê¸¸ë</div>
+            <div>홍길동</div>
           </li>
           <li class="view">
             <div>3</div>
@@ -280,16 +280,16 @@
           </li>
         </ul>
       </nav>
-      <!-- ê²ì ì¹ì -->
+      <!-- 검색 섹션 -->
       <nav class="search">
         <ul>
-          <li><div>ì ëª©/ë´ì© v</div></li>
+          <li><div>제목/내용 v</div></li>
           <li><input type="text"></li>
-          <li><a href=""><img src="./../../assets/img/post/search.png" alt=""></a></li>
-          <button type="button" onclick="postWrite()" class="postWrite"><a href="./postWrite.html">ê¸ì°ê¸°</a></button>
+          <li><a href=""><img src="${pageContext.request.contextPath}/assets/img/post/search.png" alt=""></a></li>
+          <button type="button" onclick="postWrite()" class="postWrite"><a href="${pageContext.request.contextPath}/app/post/postWrite.jsp">글쓰기</a></button>
         </ul>
       </nav>
-      <!-- íì´ì§ë¤ì´ì -->
+      <!-- 페이지네이션 -->
       <nav class="page">
         <ul>
           <a href="">
@@ -313,11 +313,11 @@
         </ul>
       </nav>
     </form>
-    <!-- ë¹ë¡ê·¸ì¸ íìì´ ê¸ì°ê¸° ë²í¼ í´ë¦­ì ëª¨ë¬ -->
+    <!-- 비로그인 회원이 글쓰기 버튼 클릭시 모달 -->
     <div class="modal">
       <div class="modal-content">
-        <button id="sendxbutton"><a href="./../login/login.html">X</a></button>
-        <p>ë¡ê·¸ì¸ì´ íìí©ëë¤</p>
+        <button id="sendxbutton"><a href="${pageContext.request.contextPath}/app/login/login.jsp">X</a></button>
+        <p>로그인이 필요합니다</p>
       </div>
     </div>
   </main>

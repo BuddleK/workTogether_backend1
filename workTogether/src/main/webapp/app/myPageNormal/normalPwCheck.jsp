@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,28 +14,28 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë©ë´ ì¬ì´ëë° ì¹ì -->
+    <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
         <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="./normalPwCheck.html">ê°ì¸ì ë³´ ìì </a></li>
-        <li><a href="./normalMark.html">ì°í ëª©ë¡</a></li>
-        <li><a href="./normalheart.html">íí¸ ëª©ë¡</a></li>
-        <li><a href="./normalMatching.html">ë§¤ì¹­ ê¸°ë¡</a></li>
-        <li><a href="./normalsendMesseage.html">ìª½ì§í¨</a></li>
-        <li><a href="./normalPost.html">ê²ìê¸ ê´ë¦¬</a></li>
-        <li><a href="./normalPoint.html">í¬ì¸í¸ ì¶©ì </a></li>
-        <li><a href="./normalReference.html">1 ë 1 ë¬¸ì</a></li>
-        <li><a href="./normalQuit.html">íì íí´</a></li>
+        <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
+        <li><a href="./normalMark.html">찜한 목록</a></li>
+        <li><a href="./normalheart.html">하트 목록</a></li>
+        <li><a href="./normalMatching.html">매칭 기록</a></li>
+        <li><a href="./normalsendMesseage.html">쪽지함</a></li>
+        <li><a href="./normalPost.html">게시글 관리</a></li>
+        <li><a href="./normalPoint.html">포인트 충전</a></li>
+        <li><a href="./normalReference.html">1 대 1 문의</a></li>
+        <li><a href="./normalQuit.html">회원 탈퇴</a></li>
       </ul>
     </nav>
-    <!-- ë¹ë°ë²í¸ íì¸ ì¹ì -->
+    <!-- 비밀번호 확인 섹션 -->
     <div class="pw_check">
       <form action="" method="get"> 
-        ë¹ë°ë²í¸<input id="pw_input" type="password" placeholder="ë¹ë°ë²í¸ 8ìë¦¬ ìë ¥">
-        <div id="pwaccord">ì¼ì¹íì§ ìë ë¹ë°ë²í¸ ìëë¤</div>
+        비밀번호<input id="pw_input" type="password" placeholder="비밀번호 8자리 입력">
+        <div id="pwaccord">일치하지 않는 비밀번호 입니다</div>
       </form>
-      <button type="button" onclick="chPw()" class="checkBtn">ë¹ë°ë²í¸ íì¸</button>
+      <button type="button" onclick="chPw()" class="checkBtn">비밀번호 확인</button>
     </div>
   </main>
   <div id="footer"></div>

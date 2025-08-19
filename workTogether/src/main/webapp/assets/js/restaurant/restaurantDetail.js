@@ -118,7 +118,7 @@ function switchStar(){
 }
 
 function goToList(){
-  location.href=`./restaurant.html?leNum=`+leNum+`&adNum=`+adNum;
+  location.href=`./restaurant.jsp?leNum=`+leNum+`&adNum=`+adNum;
 }
 
 // 이미지 변경

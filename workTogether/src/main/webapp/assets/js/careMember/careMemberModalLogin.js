@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // html 문서에 모달 불러오기
-  fetch('./careMemberModalLogin.html')
+  fetch('./careMemberModalLogin.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('careMemberModalLogin').innerHTML = data;
@@ -30,7 +30,7 @@ function careMemberModalLoginNone(){
 //확인 버튼
 function careMemberModalLoginCheck(){
   careMemberModalLoginNone();
-  location.href="./../login/login.html";
+  location.href="./../login/login.jsp";
 }
 //취소 버튼
 function careMemberModalLoginCancel(){
