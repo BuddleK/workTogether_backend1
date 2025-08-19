@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,55 +16,55 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë©ë´ ì¬ì´ëë° ì¹ì -->
+    <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
         <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="./normalPwCheck.html">ê°ì¸ì ë³´ ìì </a></li>
-        <li><a href="./normalMark.html">ì°í ëª©ë¡</a></li>
-        <li><a href="./normalheart.html">íí¸ ëª©ë¡</a></li>
-        <li><a href="./normalMatching.html">ë§¤ì¹­ ê¸°ë¡</a></li>
-        <li><a href="./normalsendMesseage.html">ìª½ì§í¨</a></li>
-        <li><a href="./normalPost.html">ê²ìê¸ ê´ë¦¬</a></li>
-        <li><a href="./normalPoint.html">í¬ì¸í¸ ì¶©ì </a></li>
-        <li><a href="./normalReference.html">1 ë 1 ë¬¸ì</a></li>
-        <li><a href="./normalQuit.html">íì íí´</a></li>
+        <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
+        <li><a href="./normalMark.html">찜한 목록</a></li>
+        <li><a href="./normalheart.html">하트 목록</a></li>
+        <li><a href="./normalMatching.html">매칭 기록</a></li>
+        <li><a href="./normalsendMesseage.html">쪽지함</a></li>
+        <li><a href="./normalPost.html">게시글 관리</a></li>
+        <li><a href="./normalPoint.html">포인트 충전</a></li>
+        <li><a href="./normalReference.html">1 대 1 문의</a></li>
+        <li><a href="./normalQuit.html">회원 탈퇴</a></li>
       </ul>
     </nav>
     <form action="" method="get">
       <div class="div_mark">
-        <!-- ë©ë´ ì ëª© -->
-        <div class="title">ìª½ì§í¨</div>
-        <!-- ë°ì ìª½ì§, ë³´ë¸ ìª½ì§ë¡ ì´ë -->
+        <!-- 메뉴 제목 -->
+        <div class="title">쪽지함</div>
+        <!-- 받은 쪽지, 보낸 쪽지로 이동 -->
         <nav class="div_choose">
           <ul> 
-            <li class="send"><a href="./normalsendMesseage.html">ë°ì ìª½ì§</a></li>
+            <li class="send"><a href="./normalsendMesseage.html">받은 쪽지</a></li>
             <li>|</li>
-            <li class="reseive"><a href="./normalreseiveMesseage.html">ë³´ë¸ ìª½ì§</a></li>
+            <li class="reseive"><a href="./normalreseiveMesseage.html">보낸 쪽지</a></li>
           </ul>
         </nav>
         <nav class="mark_nav">
-          <!-- ë³´ë¸ ìª½ì§ ì»¬ë¼ -->
+          <!-- 보낸 쪽지 컬럼 -->
           <ul>
             <li><input onclick="toggleMarksAll()" id="checkbox_col" name="mark_check_col" type="checkbox"></li>
             <li class="name_col">
-              <div>ë³´ë¸ ì¬ë</div>
+              <div>보낸 사람</div>
             </li>
             <li class="location_col">
-              <div>ì ëª©</div>
+              <div>제목</div>
             </li>
             <li class="phone_col">
-              <div>ë ì§</div>
+              <div>날짜</div>
             </li>
             <li class="read_col">
-              <div>ì½ì ìí</div>
+              <div>읽음 상태</div>
             </li>
           </ul>
         </nav>
-        <!-- ë³´ë¸ ìª½ì§ ëª©ë¡ ë¦¬ì¤í¸ -->
+        <!-- 보낸 쪽지 목록 리스트 -->
         <ul class="mark_list">
         </ul>
-        <!-- íì´ì§ë¤ì´ì -->
+        <!-- 페이지네이션 -->
         <nav class="page">
           <ul>
             <li><a href="">&lt;</a></li>
@@ -76,26 +75,26 @@
             <li><a href="">&gt;</a></li>
           </ul>
         </nav>
-        <!-- ë³´ë¸ ìª½ì§ ì­ì  ë²í¼ -->
+        <!-- 보낸 쪽지 삭제 버튼 -->
         <div class="div_delete">
-          <button type="button" onclick="delMarks()" id="delete">ì­ì </button>
+          <button type="button" onclick="delMarks()" id="delete">삭제</button>
         </div>
       </div>
     </form>
 
   </main>
-  <!-- ë³´ë¸ ìª½ì§ íì¸ ëª¨ë¬ -->
+  <!-- 보낸 쪽지 확인 모달 -->
   <div class="modal">
     <div class="modal-content">
       <button id="sendxbutton">X</button>
-      <p>ë³´ë¸ ìª½ì§ ì½ê¸°</p>
+      <p>보낸 쪽지 읽기</p>
       <div class="sendmember">
-        <div>ë°ë ì¬ë : íê¸¸ë | honggildong123</div>
+        <div>받는 사람 : 홍길동 | honggildong123</div>
       </div>
       <div class="content">
-        <div>ìª½ì§ ë´ì©</div>
+        <div>쪽지 내용</div>
       </div>
-      <button type="button" id="deleteBtn">ì­ì </button>
+      <button type="button" id="deleteBtn">삭제</button>
     </div>
   </div>
 

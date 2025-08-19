@@ -1,14 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="./../../assets/css/post/postDetaillogin.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/post/postDetaillogin.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/post/postDetaillogin.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetaillogin.js"></script>
 </head>
 <body>
   <div id="header"></div>
@@ -54,9 +56,9 @@
             <div>안녕하세요</div>
           </li>
           <li class="button">
-            <a href="./postMain.html"><button type="button" class="button_list">목록</button></a>
+            <a href="${pageContext.request.contextPath}/app/post/postMain.jsp"><button type="button" class="button_list">목록</button></a>
             <button type="button" class="button_delete">삭제</button>
-            <a href="./postModify.html"><button type="button" class="button_enroll">수정</button></a>
+            <a href="${pageContext.request.contextPath}/app/post/postModify.jsp"><button type="button" class="button_enroll">수정</button></a>
           </li>
         </ul>
       </nav>
@@ -94,7 +96,7 @@
     <div class="modal_box">
       <p>이 게시글을 삭제하시겠습니까?</p>
       <div class="modal_buttons">
-        <a href="./postMain.html"><button id="check">확인</button></a>
+        <a href="${pageContext.request.contextPath}/app/post/postMain.jsp"><button id="check">확인</button></a>
         <button id="cancle">취소</button>
       </div>
     </div>

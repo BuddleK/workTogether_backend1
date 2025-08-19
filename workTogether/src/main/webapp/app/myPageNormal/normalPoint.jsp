@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,74 +17,74 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë©ë´ ì¬ì´ëë° ì¹ì -->
+    <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
         <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="./normalPwCheck.html">ê°ì¸ì ë³´ ìì </a></li>
-        <li><a href="./normalMark.html">ì°í ëª©ë¡</a></li>
-        <li><a href="./normalheart.html">íí¸ ëª©ë¡</a></li>
-        <li><a href="./normalMatching.html">ë§¤ì¹­ ê¸°ë¡</a></li>
-        <li><a href="./normalsendMesseage.html">ìª½ì§í¨</a></li>
-        <li><a href="./normalPost.html">ê²ìê¸ ê´ë¦¬</a></li>
-        <li><a href="./normalPoint.html">í¬ì¸í¸ ì¶©ì </a></li> 
-        <li><a href="./normalReference.html">1 ë 1 ë¬¸ì</a></li>
-        <li><a href="./normalQuit.html">íì íí´</a></li>
+        <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
+        <li><a href="./normalMark.html">찜한 목록</a></li>
+        <li><a href="./normalheart.html">하트 목록</a></li>
+        <li><a href="./normalMatching.html">매칭 기록</a></li>
+        <li><a href="./normalsendMesseage.html">쪽지함</a></li>
+        <li><a href="./normalPost.html">게시글 관리</a></li>
+        <li><a href="./normalPoint.html">포인트 충전</a></li> 
+        <li><a href="./normalReference.html">1 대 1 문의</a></li>
+        <li><a href="./normalQuit.html">회원 탈퇴</a></li>
       </ul>
     </nav>
     <div class="div_mark">
-      <!-- ë©ë´ ì ëª© -->
-      <div class="title">ê°ì¸ì ë³´ ìì </div>  
-      <!-- ì£¼ìì¬í­  íì-->
+      <!-- 메뉴 제목 -->
+      <div class="title">개인정보 수정</div>  
+      <!-- 주의사항  표시-->
       <div class="arlim">
         <nav>
           <ul>
-            <li>ðì í¬ í¨ê»ê±¸ìì íìëì ê°ì¸ ì ë³´ë¥¼ ì ì¤í ì·¨ê¸íë©°, íìëì ëì ìì´ ê¸°ì¬íì  íìì ë³´ë¥¼ ê³µê°íì§ ììµëë¤.</li>
-            <li>íìëì ê°ì¸ ì ë³´ë¥¼ ìì íê² ë³´í¸íê¸° ìí´ ìµì ì ë¤íê³  ììµëë¤. </li>
-            <li>íìëì ì ë³´ë¥¼ í¹ì í  ì ìë ê²ì ìë ¥ì ì§ìí´ ì£¼ìê¸¸ ë°ëëë¤.</li>
+            <li>🛈저희 함께걸음은 회원님의 개인 정보를 신중히 취급하며, 회원님의 동의 없이 기재하신 회원정보를 공개하지 않습니다.</li>
+            <li>회원님의 개인 정보를 안전하게 보호하기 위해 최선을 다하고 있습니다. </li>
+            <li>회원님의 정보를 특정할 수 있는 것은 입력을 지양해 주시길 바랍니다.</li>
           </ul>
         </nav>
       </div>
       <form action="" method="get"> 
-        <!-- í¬ì¸í¸  ì¶©ì , ì¶©ì  ë´ì­ ì¹ì -->
+        <!-- 포인트  충전, 충전 내역 섹션 -->
         <div class="point_have">
-          <div class="point_have_title">í¬ì¸í¸ ìì¡</div>
-          <div class="point_point">10000 í¬ì¸í¸</div>
+          <div class="point_have_title">포인트 잔액</div>
+          <div class="point_point">10000 포인트</div>
           <div class="button">
-            <button type="button" id="chargeBtn">í¬ì¸í¸ ì¶©ì </button>
-            <button type="button" id="chargehis">ì¶©ì  ë´ì­</button>
+            <button type="button" id="chargeBtn">포인트 충전</button>
+            <button type="button" id="chargehis">충전 내역</button>
           </div>
         </div>
-        <!-- í¬ì¸í¸ ì¬ì© ë´ì­ ì¹ì -->
+        <!-- 포인트 사용 내역 섹션 -->
         <div class="point_use">
-          <div class="point_use_title">í¬ì¸í¸ ì¬ì© ë´ì­</div>
+          <div class="point_use_title">포인트 사용 내역</div>
           <nav class="month">
             <ul>
               <li>&lt;</li>
-              <li>8ì</li>
+              <li>8월</li>
               <li>&gt;</li>
             </ul>
           </nav>
           <div class="point_total_use">
-            <div class="point_month">8ì ì´ ì¬ì© í¬ì¸í¸ : 10,000p</div>
+            <div class="point_month">8월 총 사용 포인트 : 10,000p</div>
             <nav class="point_day">
               <ul>
-                <li>ëªì¼ : ëë´íì ì´ë¦</li>
-                <li>ëªì¼ : ëë´íì ì´ë¦</li>
-                <li>ëªì¼ : ëë´íì ì´ë¦</li>
-                <li>ëªì¼ : ëë´íì ì´ë¦</li>
+                <li>몇일 : 돌봄회원 이름</li>
+                <li>몇일 : 돌봄회원 이름</li>
+                <li>몇일 : 돌봄회원 이름</li>
+                <li>몇일 : 돌봄회원 이름</li>
               </ul>
             </nav>
           </div>
         </div>
       </form>
     </div>
-    <!-- í¬ì¸í¸ ì¶©ì  ëª¨ë¬ -->
+    <!-- 포인트 충전 모달 -->
     <div class="modal">
       <div class="modal-content">
-        <p>í¬ì¸í¸ ì¶©ì </p>
+        <p>포인트 충전</p>
         <div class="payapi">
-          <div>ê²°ì  api</div>
+          <div>결제 api</div>
         </div>
         <div class="charge">
           <div><input type="text"></div>
@@ -94,38 +93,38 @@
           <ul class="charge_point">
             <li>
               <ul>
-                <li><div>ì¶©ì  ì  í¬ì¸í¸</div></li>
-                <li><div>ì¶©ì ëì´ìë í¬ì¸í¸</div></li>
+                <li><div>충전 전 포인트</div></li>
+                <li><div>충전되어있는 포인트</div></li>
               </ul>
             </li>
             <li>
               <ul>
-                <li><div>ì¶©ì  í  í¬ì¸í¸</div></li>
-                <li><div>ì¶©ì  í  í¬ì¸í¸</div></li>
+                <li><div>충전 할 포인트</div></li>
+                <li><div>충전 할 포인트</div></li>
               </ul>
             </li>
             <li>
               <ul>
-                <li><div>ì¶©ì  í í¬ì¸í¸</div></li>
-                <li><div>ì¶©ì  ì  í¬ì¸í¸+ì¶©ì  í  í¬ì¸í¸</div></li>
+                <li><div>충전 후 포인트</div></li>
+                <li><div>충전 전 포인트+충전 할 포인트</div></li>
               </ul>
             </li>
           </ul>
         </nav>
-        <button type="button" id="deleteBtn">ì·¨ì</button>
-        <button type="button" onclick="openpointcharge()" id="completeBtn">ìë£</button>
+        <button type="button" id="deleteBtn">취소</button>
+        <button type="button" onclick="openpointcharge()" id="completeBtn">완료</button>
       </div>
     </div>
-    <!-- í¬ì¸í¸ ì¶©ì  ë´ì­ ëª¨ë¬ -->
+    <!-- 포인트 충전 내역 모달 -->
     <div class="modal_history">
       <div class="modal-content">
-        <p>í¬ì¸í¸ ì¶©ì  ë´ì­</p>
+        <p>포인트 충전 내역</p>
         <div class="charge_history">
           <div>
             <nav class="charge_month">
               <ul>
                 <li><button type="button">&lt;</button></li>
-                <li><div>8ì</div></li>
+                <li><div>8월</div></li>
                 <li><button type="button">&gt;</button></li>
               </ul>
             </nav>
@@ -133,16 +132,16 @@
           <div>
             <nav class="charge_day">
               <ul>
-                <li>2ì¼ : 100,000</li>
-                <li>2ì¼ : 100,000</li>
-                <li>2ì¼ : 100,000</li>
-                <li>2ì¼ : 100,000</li>
+                <li>2일 : 100,000</li>
+                <li>2일 : 100,000</li>
+                <li>2일 : 100,000</li>
+                <li>2일 : 100,000</li>
               </ul>
             </nav>
           </div>
         </div>
-        <button type="button" id="deletebutton">ì·¨ì</button>
-        <button type="button" onclick="openpointhis()" id="completeBtn">ìë£</button>
+        <button type="button" id="deletebutton">취소</button>
+        <button type="button" onclick="openpointhis()" id="completeBtn">완료</button>
       </div>
     </div>
   </main>

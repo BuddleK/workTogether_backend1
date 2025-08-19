@@ -1,17 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>검색결과 페이지</title>
-  <link rel="stylesheet" href="./../../assets/css/news/newsSearch.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/news/newsSearch.js"></script>
+  <title>검색결과 페이지</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/news/newsSearch.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/news/newsSearch.js"></script>
 </head>
-
 <body>
   <div id="header"></div>
   <main>
@@ -31,7 +31,7 @@
           <!-- 검색 버튼 -->
           <button class="search_btn">
             <!-- 검색 버튼 이미지 -->
-            <img class="searchIcon" src="./../../assets/img/news/searchIcon.png" alt="검색아이콘">
+            <img class="searchIcon" src="${pageContext.request.contextPath}/assets/img/news/searchIcon.png" alt="검색아이콘">
           </button>
         </div>
       </div>
@@ -76,5 +76,4 @@
   </main>
   <div id="footer"></div>
 </body>
-
 </html>

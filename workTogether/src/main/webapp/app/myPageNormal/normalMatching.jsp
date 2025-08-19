@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,82 +14,82 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë©ë´ ì¬ì´ëë° ì¹ì -->
+    <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
         <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="./normalPwCheck.html">ê°ì¸ì ë³´ ìì </a></li>
-        <li><a href="./normalMark.html">ì°í ëª©ë¡</a></li>
-        <li><a href="./normalheart.html">íí¸ ëª©ë¡</a></li>
-        <li><a href="./normalMatching.html">ë§¤ì¹­ ê¸°ë¡</a></li>
-        <li><a href="./normalsendMesseage.html">ìª½ì§í¨</a></li>
-        <li><a href="./normalPost.html">ê²ìê¸ ê´ë¦¬</a></li>
-        <li><a href="./normalPoint.html">í¬ì¸í¸ ì¶©ì </a></li>
-        <li><a href="./normalReference.html">1 ë 1 ë¬¸ì</a></li>
-        <li><a href="./normalQuit.html">íì íí´</a></li>
+        <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
+        <li><a href="./normalMark.html">찜한 목록</a></li>
+        <li><a href="./normalheart.html">하트 목록</a></li>
+        <li><a href="./normalMatching.html">매칭 기록</a></li>
+        <li><a href="./normalsendMesseage.html">쪽지함</a></li>
+        <li><a href="./normalPost.html">게시글 관리</a></li>
+        <li><a href="./normalPoint.html">포인트 충전</a></li>
+        <li><a href="./normalReference.html">1 대 1 문의</a></li>
+        <li><a href="./normalQuit.html">회원 탈퇴</a></li>
       </ul>
     </nav>
     <div class="div_mark">
-      <!-- ë©ë´ ì ëª© -->
-      <div class="title">ë§¤ì¹­ ê¸°ë¡</div>
+      <!-- 메뉴 제목 -->
+      <div class="title">매칭 기록</div>
       <form action="" method="get">
-        <!-- ì íì -->
+        <!-- 월 표시 -->
         <nav class="month">
           <ul>
-            <li><a href="">1ì</a></li>
-            <li><a href="">2ì</a></li>
-            <li><a href="">3ì</a></li>
-            <li><a href="">4ì</a></li>
-            <li><a href="">5ì</a></li>
-            <li><a href="">6ì</a></li>
-            <li><a href="">7ì</a></li>
-            <li><a href="">8ì</a></li> 
-            <li><a href="">9ì</a></li>
-            <li><a href="">10ì</a></li>
-            <li><a href="">11ì</a></li>
-            <li><a href="">12ì</a></li>
+            <li><a href="">1월</a></li>
+            <li><a href="">2월</a></li>
+            <li><a href="">3월</a></li>
+            <li><a href="">4월</a></li>
+            <li><a href="">5월</a></li>
+            <li><a href="">6월</a></li>
+            <li><a href="">7월</a></li>
+            <li><a href="">8월</a></li> 
+            <li><a href="">9월</a></li>
+            <li><a href="">10월</a></li>
+            <li><a href="">11월</a></li>
+            <li><a href="">12월</a></li>
           </ul>
         </nav>
-        <!-- ë§¤ì¹­ ê¸°ë¡ íì ì¹ì -->
+        <!-- 매칭 기록 표시 섹션 -->
         <nav class="matching">
           <ul>
             <li>
-              <div>2ì¼ ê¹ê´­ì´ ëë´íì | ì´ì© ìê° : 09 : 00 ~ 18 : 00
-              í¬ì¸í¸ ì¬ì© : 10,000</div>
+              <div>2일 김괭이 돌봄회원 | 이용 시간 : 09 : 00 ~ 18 : 00
+              포인트 사용 : 10,000</div>
               <div class="matchingbutton">
-                <button type="button" id="complete">ì´ì©ìë£</button>
-                <button type="button" id="cancel">ì·¨ì</button>
+                <button type="button" id="complete">이용완료</button>
+                <button type="button" id="cancel">취소</button>
               </div>
             </li>
           </ul>
         </nav>
-        <!-- ë§¤ì¹­ ê¸°ë¡ íì ì¹ì -->
+        <!-- 매칭 기록 표시 섹션 -->
         <nav class="matching">
           <ul>
             <li>
-              <div>2ì¼ ê¹ê´­ì´ ëë´íì | ì´ì© ìê° : 09 : 00 ~ 18 : 00
-                í¬ì¸í¸ ì¬ì© : 10,000</div>
+              <div>2일 김괭이 돌봄회원 | 이용 시간 : 09 : 00 ~ 18 : 00
+                포인트 사용 : 10,000</div>
               <div class="matchingbutton">
-                <button type="button" id="complete">ì´ì©ìë£</button>
-                <button type="button" id="cancel">ì·¨ì</button>
+                <button type="button" id="complete">이용완료</button>
+                <button type="button" id="cancel">취소</button>
               </div>
             </li>
           </ul>
         </nav>
-        <!-- ë§¤ì¹­ ê¸°ë¡ íì ì¹ì -->
+        <!-- 매칭 기록 표시 섹션 -->
         <nav class="matching">
           <ul>
             <li>
-              <div>2ì¼ ê¹ê´­ì´ ëë´íì | ì´ì© ìê° : 09 : 00 ~ 18 : 00
-                í¬ì¸í¸ ì¬ì© : 10,000</div>
+              <div>2일 김괭이 돌봄회원 | 이용 시간 : 09 : 00 ~ 18 : 00
+                포인트 사용 : 10,000</div>
               <div class="matchingbutton">
-                <button type="button" id="complete">ì´ì©ìë£</button>
-                <button type="button" id="cancel">ì·¨ì</button>
+                <button type="button" id="complete">이용완료</button>
+                <button type="button" id="cancel">취소</button>
               </div>
             </li>
           </ul>
         </nav>
-        <!-- íì´ì§ë¤ì´ì -->
+        <!-- 페이지네이션 -->
         <nav class="page">
           <ul>
             <li><a href="">&lt;</a></li>
@@ -107,14 +106,14 @@
   </main>
   <div class="completemodal">
     <div class="modal-content">
-      <p>ì´ì©ì´ ìë£ ëììµëë¤.</p>
-      <button type="button" onclick="completeModalClose()" id="completeBtn">íì¸</button>
+      <p>이용이 완료 되었습니다.</p>
+      <button type="button" onclick="completeModalClose()" id="completeBtn">확인</button>
     </div>
   </div>
   <div class="cancelmodal">
     <div class="modal-content">
-      <p>ì´ì©ì´ ì·¨ì ëììµëë¤.</p>
-      <button type="button" onclick="cancelModalClose()" id="cancelBtn">íì¸</button>
+      <p>이용이 취소 되었습니다.</p>
+      <button type="button" onclick="cancelModalClose()" id="cancelBtn">확인</button>
     </div>
   </div>
   <div id="footer"></div>

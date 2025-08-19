@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,113 +13,113 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë©ë´ ì¬ì´ëë° ì¹ì -->
+    <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
         <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="./normalPwCheck.html">ê°ì¸ì ë³´ ìì </a></li>
-        <li><a href="./normalMark.html">ì°í ëª©ë¡</a></li>
-        <li><a href="./normalheart.html">íí¸ ëª©ë¡</a></li>
-        <li><a href="./normalMatching.html">ë§¤ì¹­ ê¸°ë¡</a></li>
-        <li><a href="./normalsendMesseage.html">ìª½ì§í¨</a></li>
-        <li><a href="./normalPost.html">ê²ìê¸ ê´ë¦¬</a></li>
-        <li><a href="./normalPoint.html">í¬ì¸í¸ ì¶©ì </a></li>
-        <li><a href="./normalReference.html">1 ë 1 ë¬¸ì</a></li>
-        <li><a href="./normalQuit.html">íì íí´</a></li>
+        <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
+        <li><a href="./normalMark.html">찜한 목록</a></li>
+        <li><a href="./normalheart.html">하트 목록</a></li>
+        <li><a href="./normalMatching.html">매칭 기록</a></li>
+        <li><a href="./normalsendMesseage.html">쪽지함</a></li>
+        <li><a href="./normalPost.html">게시글 관리</a></li>
+        <li><a href="./normalPoint.html">포인트 충전</a></li>
+        <li><a href="./normalReference.html">1 대 1 문의</a></li>
+        <li><a href="./normalQuit.html">회원 탈퇴</a></li>
       </ul>
     </nav>
     <form action="" method="get">
       <div class="div_mark">
-        <!-- ë©ë´ ì ëª© -->
-        <div class="title">1 ë 1 ë¬¸ì</div>
+        <!-- 메뉴 제목 -->
+        <div class="title">1 대 1 문의</div>
         <nav class="div_choose">
           <ul>
-            <li>1 ë 1 ë¬¸ì ëª©ë¡</li>
+            <li>1 대 1 문의 목록</li>
           </ul>
         </nav>
-        <!-- ë¬¸ì ëª©ë¡ ì»¬ë¼ -->
+        <!-- 문의 목록 컬럼 -->
         <nav class="mark_nav">
           <ul>
             <li class="name">
-              <div>ìì±ì</div>
+              <div>작성자</div>
             </li>
             <li class="referencetitle">
-              <div>ì ëª©</div>
+              <div>제목</div>
             </li>
             <li class="day">
-              <div>ì ì²­ ë ì§</div>
+              <div>신청 날짜</div>
             </li>
             <li class="check">
-              <div>íì¸ ì¬ë¶</div>
+              <div>확인 여부</div>
             </li>
           </ul>
         </nav>
-        <!-- ë¬¸ì ëª©ë¡ ë¦¬ì¤í¸ -->
+        <!-- 문의 목록 리스트 -->
         <nav class="mark_list">
           <ul>
             <li class="name">
-              <div>ìì±ì</div>
+              <div>작성자</div>
             </li>
             <li class="referencetitle">
-              <a href="./normalReferenceDetail.html"><div>ì ëª©</div></a>
+              <a href="./normalReferenceDetail.html"><div>제목</div></a>
             </li>
             <li class="day">
-              <div>ì ì²­ ë ì§</div>
+              <div>신청 날짜</div>
             </li>
             <li class="check">
-              <div>íì¸ ì¬ë¶</div>
-            </li>
-          </ul>
-        </nav>
-        <nav class="mark_list">
-          <ul>
-            <li class="name">
-              <div>ìì±ì</div>
-            </li>
-            <li class="referencetitle">
-              <a href="./normalReferenceDetail.html"><div>ì ëª©</div></a>
-            </li>
-            <li class="day">
-              <div>ì ì²­ ë ì§</div>
-            </li>
-            <li class="check">
-              <div>íì¸ ì¬ë¶</div>
+              <div>확인 여부</div>
             </li>
           </ul>
         </nav>
         <nav class="mark_list">
           <ul>
             <li class="name">
-              <div>ìì±ì</div>
+              <div>작성자</div>
             </li>
             <li class="referencetitle">
-              <a href="./normalReferenceDetail.html"><div>ì ëª©</div></a>
+              <a href="./normalReferenceDetail.html"><div>제목</div></a>
             </li>
             <li class="day">
-              <div>ì ì²­ ë ì§</div>
+              <div>신청 날짜</div>
             </li>
             <li class="check">
-              <div>íì¸ ì¬ë¶</div>
+              <div>확인 여부</div>
             </li>
           </ul>
         </nav>
         <nav class="mark_list">
           <ul>
             <li class="name">
-              <div>ìì±ì</div>
+              <div>작성자</div>
             </li>
             <li class="referencetitle">
-              <a href="./normalReferenceDetail.html"><div>ì ëª©</div></a>
+              <a href="./normalReferenceDetail.html"><div>제목</div></a>
             </li>
             <li class="day">
-              <div>ì ì²­ ë ì§</div>
+              <div>신청 날짜</div>
             </li>
             <li class="check">
-              <div>íì¸ ì¬ë¶</div>
+              <div>확인 여부</div>
             </li>
           </ul>
         </nav>
-        <!-- íì´ì§ë¤ì´ì -->
+        <nav class="mark_list">
+          <ul>
+            <li class="name">
+              <div>작성자</div>
+            </li>
+            <li class="referencetitle">
+              <a href="./normalReferenceDetail.html"><div>제목</div></a>
+            </li>
+            <li class="day">
+              <div>신청 날짜</div>
+            </li>
+            <li class="check">
+              <div>확인 여부</div>
+            </li>
+          </ul>
+        </nav>
+        <!-- 페이지네이션 -->
         <nav class="page">
           <ul>
             <li><a href="">&lt;</a></li>
@@ -131,9 +130,9 @@
             <li><a href="">&gt;</a></li>
           </ul>
         </nav>
-        <!-- ë¬¸ì ë±ë¡íê¸° ë²í¼ -->
+        <!-- 문의 등록하기 버튼 -->
         <div class="div_delete">
-          <button><a href="./normalReferenceUp.html">ë±ë¡</a></button>
+          <button><a href="./normalReferenceUp.html">등록</a></button>
         </div>
       </div>
     </form>

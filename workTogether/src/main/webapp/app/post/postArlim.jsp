@@ -1,17 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="./../../assets/css/post/postArlim.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/post/postDetaillogin.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/post/postArlim.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetaillogin.js"></script>
 </head>
-
 <body>
   <div id="header"></div>
   <!-- 공지사항 디테일 페이지 -->
@@ -56,10 +56,9 @@
       </nav>
     </form>
     <div class="button">
-      <button class="button_list"><a href="./postMain.html">목록</a></button>
+      <button class="button_list"><a href="${pageContext.request.contextPath}/app/post/postMain.jsp">목록</a></button>
     </div>
   </main>
   <div id="footer"></div>
 </body>
-
 </html>

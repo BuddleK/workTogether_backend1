@@ -1,14 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post</title>
-  <link rel="stylesheet" href="./../../assets/css/post/postMain.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/post/postMain.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/post/postMain.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/post/postMain.js"></script>
 </head>
 <body>
   <div id="header"></div>
@@ -31,7 +33,7 @@
             <div>공지</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postArlim.html">사이트 이용시 주의사항</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">사이트 이용시 주의사항</a></div>
           </li>
           <li class="name">
             <div>관리자</div>
@@ -50,7 +52,7 @@
             <div>공지</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postArlim.html">사이트 이용시 주의사항</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">사이트 이용시 주의사항</a></div>
           </li>
           <li class="name">
             <div>관리자</div>
@@ -69,7 +71,7 @@
             <div>공지</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postArlim.html">사이트 이용시 주의사항</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">사이트 이용시 주의사항</a></div>
           </li>
           <li class="name">
             <div>관리자</div>
@@ -94,7 +96,7 @@
             <div>10</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postDetaillogin.html">안녕하세요</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">안녕하세요</a></div>
           </li>
           <li class="name">
             <div>홍길동</div>
@@ -113,7 +115,7 @@
             <div>9</div>
           </li>
           <li class="posttitle">
-            <div><a href="./postDetailNotlogin.html">안녕하세요</a></div>
+            <div><a href="${pageContext.request.contextPath}/app/post/postDetailNotlogin.jsp">안녕하세요</a></div>
           </li>
           <li class="name">
             <div>홍길동</div>
@@ -283,8 +285,8 @@
         <ul>
           <li><div>제목/내용 v</div></li>
           <li><input type="text"></li>
-          <li><a href=""><img src="./../../assets/img/post/search.png" alt=""></a></li>
-          <button type="button" onclick="postWrite()" class="postWrite"><a href="./postWrite.html">글쓰기</a></button>
+          <li><a href=""><img src="${pageContext.request.contextPath}/assets/img/post/search.png" alt=""></a></li>
+          <button type="button" onclick="postWrite()" class="postWrite"><a href="${pageContext.request.contextPath}/app/post/postWrite.jsp">글쓰기</a></button>
         </ul>
       </nav>
       <!-- 페이지네이션 -->
@@ -314,7 +316,7 @@
     <!-- 비로그인 회원이 글쓰기 버튼 클릭시 모달 -->
     <div class="modal">
       <div class="modal-content">
-        <button id="sendxbutton"><a href="./../login/login.html">X</a></button>
+        <button id="sendxbutton"><a href="${pageContext.request.contextPath}/app/login/login.jsp">X</a></button>
         <p>로그인이 필요합니다</p>
       </div>
     </div>
