@@ -6,11 +6,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>돌봄 회원 신청 성공</title>
-    <link rel="stylesheet" href="./../../assets/css/login/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/sign/signCareSuccess.css" />
-      <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/login/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/sign/signCareSuccess.css" />
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
   </head>
   <body>
   <div id="header"></div>
@@ -22,7 +22,7 @@
               돌봄 회원 등록 신청이 완료되었습니다.
             </div>
             <div class="content_box_value">
-              <a href="./../../app/login/login.html">로그인하기</a>
+              <a href="${pageContext.request.contextPath}/app/login/login.html">로그인하기</a>
             </div>
           </div>
         </div>

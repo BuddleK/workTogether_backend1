@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원관리</title>
-    <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
-    <link rel="stylesheet" href="./../../assets/css/footer.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/userManager.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
-    <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/userManager.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
   </head>
 
   <body>
@@ -50,202 +50,202 @@
               <div class="table_md">
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/userDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">1</a>
                   </li>
                   <li class="body_name">
-                    <a href="./../../app/admin/userDetail.html">거북이</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">거북이</a>
                   </li>
                   <li class="body_id">
-                    <a href="./../../app/admin/userDetail.html">tutleman08</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">tutleman08</a>
                   </li>
 
                   <li class="body_email">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >bingo@naver.com</a
                     >
                   </li>
                   <li class="body_phone">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >010-1234-5678</a
                     >
                   </li>
                   <li class="body_type">
-                    <a href="./../../app/admin/userDetail.html">일반</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">일반</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/careDetail.html">2</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.html">2</a>
                   </li>
                   <li class="body_name">
-                    <a href="./../../app/admin/careDetail.html">거북이</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.html">거북이</a>
                   </li>
                   <li class="body_id">
-                    <a href="./../../app/admin/careDetail.html">tutleman08</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.html">tutleman08</a>
                   </li>
 
                   <li class="body_email">
-                    <a href="./../../app/admin/careDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.html"
                       >bingo@naver.com</a
                     >
                   </li>
                   <li class="body_phone">
-                    <a href="./../../app/admin/careDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.html"
                       >010-1234-5678</a
                     >
                   </li>
                   <li class="body_type">
-                    <a href="./../../app/admin/careDetail.html">돌봄</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.html">돌봄</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/userDetail.html">3</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">3</a>
                   </li>
                   <li class="body_name">
-                    <a href="./../../app/admin/userDetail.html">거북이</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">거북이</a>
                   </li>
                   <li class="body_id">
-                    <a href="./../../app/admin/userDetail.html">tutleman08</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">tutleman08</a>
                   </li>
 
                   <li class="body_email">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >bingo@naver.com</a
                     >
                   </li>
                   <li class="body_phone">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >010-1234-5678</a
                     >
                   </li>
                   <li class="body_type">
-                    <a href="./../../app/admin/userDetail.html">일반</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">일반</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/userDetail.html">4</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">4</a>
                   </li>
                   <li class="body_name">
-                    <a href="./../../app/admin/userDetail.html">거북이</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">거북이</a>
                   </li>
                   <li class="body_id">
-                    <a href="./../../app/admin/userDetail.html">tutleman08</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">tutleman08</a>
                   </li>
 
                   <li class="body_email">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >bingo@naver.com</a
                     >
                   </li>
                   <li class="body_phone">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >010-1234-5678</a
                     >
                   </li>
                   <li class="body_type">
-                    <a href="./../../app/admin/userDetail.html">일반</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">일반</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/userDetail.html">5</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">5</a>
                   </li>
                   <li class="body_name">
-                    <a href="./../../app/admin/userDetail.html">거북이</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">거북이</a>
                   </li>
                   <li class="body_id">
-                    <a href="./../../app/admin/userDetail.html">tutleman08</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">tutleman08</a>
                   </li>
 
                   <li class="body_email">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >bingo@naver.com</a
                     >
                   </li>
                   <li class="body_phone">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >010-1234-5678</a
                     >
                   </li>
                   <li class="body_type">
-                    <a href="./../../app/admin/userDetail.html">일반</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">일반</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/userDetail.html">6</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">6</a>
                   </li>
                   <li class="body_name">
-                    <a href="./../../app/admin/userDetail.html">거북이</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">거북이</a>
                   </li>
                   <li class="body_id">
-                    <a href="./../../app/admin/userDetail.html">tutleman08</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">tutleman08</a>
                   </li>
 
                   <li class="body_email">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >bingo@naver.com</a
                     >
                   </li>
                   <li class="body_phone">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >010-1234-5678</a
                     >
                   </li>
                   <li class="body_type">
-                    <a href="./../../app/admin/userDetail.html">일반</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">일반</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/userDetail.html">7</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">7</a>
                   </li>
                   <li class="body_name">
-                    <a href="./../../app/admin/userDetail.html">거북이</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">거북이</a>
                   </li>
                   <li class="body_id">
-                    <a href="./../../app/admin/userDetail.html">tutleman08</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">tutleman08</a>
                   </li>
 
                   <li class="body_email">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >bingo@naver.com</a
                     >
                   </li>
                   <li class="body_phone">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >010-1234-5678</a
                     >
                   </li>
                   <li class="body_type">
-                    <a href="./../../app/admin/userDetail.html">일반</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">일반</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/userDetail.html">8</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">8</a>
                   </li>
                   <li class="body_name">
-                    <a href="./../../app/admin/userDetail.html">거북이</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">거북이</a>
                   </li>
                   <li class="body_id">
-                    <a href="./../../app/admin/userDetail.html">tutleman08</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">tutleman08</a>
                   </li>
 
                   <li class="body_email">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >bingo@naver.com</a
                     >
                   </li>
                   <li class="body_phone">
-                    <a href="./../../app/admin/userDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html"
                       >010-1234-5678</a
                     >
                   </li>
                   <li class="body_type">
-                    <a href="./../../app/admin/userDetail.html">일반</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.html">일반</a>
                   </li>
                 </ul>
               </div>

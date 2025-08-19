@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>돌봄 회원 환급 관리</title>
-    <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
-    <link rel="stylesheet" href="./../../assets/css/footer.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/refund.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
-    <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/refund.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
   </head>
 
   <body>
@@ -47,52 +47,52 @@
             </div>
             <div class="table_content">
               <ul class="table_body">
-                <li class="body_number"><a href="./../../app/admin/refundDetail.html">1</a></li>
-                <li class="body_name"><a href="./../../app/admin/refundDetail.html">가나다</a></li>
-                <li class="body_id"><a href="./../../app/admin/refundDetail.html">abc123</a></li>
-                <li class="body_date"><a href="./../../app/admin/refundDetail.html">2025-08-09</a></li>
-                <li class="body_refund_date"><a href="./../../app/admin/refundDetail.html">2025-08-09</a></li>
-                <li class="body_type"><a href="./../../app/admin/refundDetail.html">Y</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">1</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2025-08-09</a></li>
+                <li class="body_refund_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2025-08-09</a></li>
+                <li class="body_type"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">Y</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="./../../app/admin/refundDetail.html">2</a></li>
-                <li class="body_name"><a href="./../../app/admin/refundDetail.html">가나다</a></li>
-                <li class="body_id"><a href="./../../app/admin/refundDetail.html">abc123</a></li>
-                <li class="body_date"><a href="./../../app/admin/refundDetail.html">2025-08-09</a></li>
-                <li class="body_refund_date"><a href="./../../app/admin/refundDetail.html">2025-08-09</a></li>
-                <li class="body_type"><a href="./../../app/admin/refundDetail.html">Y</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2025-08-09</a></li>
+                <li class="body_refund_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2025-08-09</a></li>
+                <li class="body_type"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">Y</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="./../../app/admin/refundDetail.html">3</a></li>
-                <li class="body_name"><a href="./../../app/admin/refundDetail.html">가나다</a></li>
-                <li class="body_id"><a href="./../../app/admin/refundDetail.html">abc123</a></li>
-                <li class="body_date"><a href="./../../app/admin/refundDetail.html">2025-08-09</a></li>
-                <li class="body_refund_date"><a href="./../../app/admin/refundDetail.html">NaN</a></li>
-                <li class="body_type"><a href="./../../app/admin/refundDetail.html">N</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">3</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2025-08-09</a></li>
+                <li class="body_refund_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">NaN</a></li>
+                <li class="body_type"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">N</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="./../../app/admin/refundDetail.html">4</a></li>
-                <li class="body_name"><a href="./../../app/admin/refundDetail.html">가나다</a></li>
-                <li class="body_id"><a href="./../../app/admin/refundDetail.html">abc123</a></li>
-                <li class="body_date"><a href="./../../app/admin/refundDetail.html">2025-08-09</a></li>
-                <li class="body_refund_date"><a href="./../../app/admin/refundDetail.html">NaN</a></li>
-                <li class="body_type"><a href="./../../app/admin/refundDetail.html">N</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">4</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2025-08-09</a></li>
+                <li class="body_refund_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">NaN</a></li>
+                <li class="body_type"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">N</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="./../../app/admin/refundDetail.html">5</a></li>
-                <li class="body_name"><a href="./../../app/admin/refundDetail.html">가나다</a></li>
-                <li class="body_id"><a href="./../../app/admin/refundDetail.html">abc123</a></li>
-                <li class="body_date"><a href="./../../app/admin/refundDetail.html">2025-08-09</a></li>
-                <li class="body_refund_date"><a href="./../../app/admin/refundDetail.html">2025-08-09</a></li>
-                <li class="body_type"><a href="./../../app/admin/refundDetail.html">Y</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">5</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2025-08-09</a></li>
+                <li class="body_refund_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2025-08-09</a></li>
+                <li class="body_type"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">Y</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="./../../app/admin/refundDetail.html">6</a></li>
-                <li class="body_name"><a href="./../../app/admin/refundDetail.html">가나다</a></li>
-                <li class="body_id"><a href="./../../app/admin/refundDetail.html">abc123</a></li>
-                <li class="body_date"><a href="./../../app/admin/refundDetail.html">2025-08-09</a></li>
-                <li class="body_refund_date"><a href="./../../app/admin/refundDetail.html">NaN</a></li>
-                <li class="body_type"><a href="./../../app/admin/refundDetail.html">N</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">6</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">2025-08-09</a></li>
+                <li class="body_refund_date"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">NaN</a></li>
+                <li class="body_type"><a href="${pageContext.request.contextPath}/app/admin/refundDetail.html">N</a></li>
               </ul>
           </div>
         </div>
