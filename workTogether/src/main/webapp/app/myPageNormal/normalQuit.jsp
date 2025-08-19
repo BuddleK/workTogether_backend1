@@ -18,76 +18,76 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë©ë´ ì¬ì´ëë° ì¹ì -->
+    <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
         <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="./normalPwCheck.html">ê°ì¸ì ë³´ ìì </a></li>
-        <li><a href="./normalMark.html">ì°í ëª©ë¡</a></li>
-        <li><a href="./normalheart.html">íí¸ ëª©ë¡</a></li>
-        <li><a href="./normalMatching.html">ë§¤ì¹­ ê¸°ë¡</a></li>
-        <li><a href="./normalsendMesseage.html">ìª½ì§í¨</a></li>
-        <li><a href="./normalPost.html">ê²ìê¸ ê´ë¦¬</a></li>
-        <li><a href="./normalPoint.html">í¬ì¸í¸ ì¶©ì </a></li>
-        <li><a href="./normalReference.html">1 ë 1 ë¬¸ì</a></li>
-        <li><a href="./normalQuit.html">íì íí´</a></li>
+        <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
+        <li><a href="./normalMark.html">찜한 목록</a></li>
+        <li><a href="./normalheart.html">하트 목록</a></li>
+        <li><a href="./normalMatching.html">매칭 기록</a></li>
+        <li><a href="./normalsendMesseage.html">쪽지함</a></li>
+        <li><a href="./normalPost.html">게시글 관리</a></li>
+        <li><a href="./normalPoint.html">포인트 충전</a></li>
+        <li><a href="./normalReference.html">1 대 1 문의</a></li>
+        <li><a href="./normalQuit.html">회원 탈퇴</a></li>
       </ul>
     </nav>
     <div class="div_mark">
-      <!-- ë©ë´ ì ëª© -->
-      <div class="title">íì íí´</div>
-      <!-- ì£¼ìì¬í­ íì -->
+      <!-- 메뉴 제목 -->
+      <div class="title">회원 탈퇴</div>
+      <!-- 주의사항 표시 -->
       <div class="arlim">
         <nav>
           <ul>
-            <li>ð ë ì´ìì ì´ì©ì ìíì§ ìë ë¶íìí ì¬ì´í¸ì ëí íì íí´ ì²ë¦¬</li>
-            <li class="li_color">Â· ë³¸ ìë¹ì¤ë ë³¸ì¸ì¸ì¦ ë´ì­ì ê¸°ë°ì¼ë¡ ì ê³µëë ìë¹ì¤ë¡, íì íí´ì 60ì¼ê° íìê°ìì´ ë¶ê°íë©° ê·¸ì ë°ë¥¸ ë¶ì´ìµì ì±ì ì§ì§ ììµëë¤. </li>
-            <li class="li_color">Â· íì íí´ì ë³´ì í í¬ì¸í¸ë ì ë¶ ìë©¸ ë©ëë¤.</li>
+            <li>🛈 더 이상의 이용을 원하지 않는 불필요한 사이트의 대한 회원 탈퇴 처리</li>
+            <li class="li_color">· 본 서비스는 본인인증 내역을 기반으로 제공되는 서비스로, 회원 탈퇴시 60일간 회원가입이 불가하며 그에 따른 불이익은 책임 지지 않습니다. </li>
+            <li class="li_color">· 회원 탈퇴시 보유한 포인트는 전부 소멸 됩니다.</li>
           </ul>
         </nav>
       </div>
       <form action="" method="get">
-        <!-- íì íí´ ë°ì¤ -->
+        <!-- 회원 탈퇴 박스 -->
         <div class="exit-box">
           <div class="exit-row">
-            <div class="exit-label">íí´ ë ì§</div>
+            <div class="exit-label">탈퇴 날짜</div>
             <div class="exit-value">2025 - 08 - 03</div>
           </div>
           <div class="exit-row">
-            <div class="exit-label">íí´ ì¬ì </div>
+            <div class="exit-label">탈퇴 사유</div>
             <div class="exit-value">
               <select class="exit-select">
-                <option disabled selected>íí´ ì¬ì ë¥¼ ìë ¥íì¬ ì£¼ì­ìì¤.</option>
-                <option>ìë¹ì¤ ì´ì© ë¶í¸</option>
-                <option>ê°ì¸ì ë³´ ì°ë ¤</option>
-                <option>ì¬ê°ì ìì  ìì</option>
-                <option>ê¸°í</option>
+                <option disabled selected>탈퇴 사유를 입력하여 주십시오.</option>
+                <option>서비스 이용 불편</option>
+                <option>개인정보 우려</option>
+                <option>재가입 예정 없음</option>
+                <option>기타</option>
               </select>
             </div>
           </div>
         </div>
-        <!-- íí´íê¸° ë²í¼ -->
-        <button type="button" onclick="openQuitModal()" id="next">ë¤ì</button>
+        <!-- 탈퇴하기 버튼 -->
+        <button type="button" onclick="openQuitModal()" id="next">다음</button>
       </form>
     </div>
   </main>
-  <!-- íì¸ ëª¨ë¬ì°½ -->
+  <!-- 확인 모달창 -->
   <div class="checkmodal" id="checkModal">
     <div class="modal_box">
-      <p>ì ë§ë¡ íì íí´ë¥¼ ì§ííìê² ìµëê¹?</p>
-      <p>â»ë¯¸ì¬ì© í¬ì¸í¸ë ìë©¸ë©ëë¤</p>
+      <p>정말로 회원 탈퇴를 진행하시겠습니까?</p>
+      <p>※미사용 포인트는 소멸됩니다</p>
       <div class="modal_buttons">
-        <button type="button" onclick="showDoneModal()" id="checkBtn">íì¸</button>
-        <button type="button" onclick="cancelQuit()" id="cancelBtn">ì·¨ì</button>
+        <button type="button" onclick="showDoneModal()" id="checkBtn">확인</button>
+        <button type="button" onclick="cancelQuit()" id="cancelBtn">취소</button>
       </div>
     </div>
   </div>
-  <!-- ìë£ ëª¨ë¬ì°½ -->
+  <!-- 완료 모달창 -->
   <div class="modal" id="doneModal">
     <div class="modal_box">
-      <p>ì±ê³µì ì¼ë¡ íìì íí´ íì¨ìµëë¤.</p>
+      <p>성공적으로 회원을 탈퇴 하셨습니다.</p>
       <div class="modal_buttons">
-        <a href="./../../main.html"><button type="button" id="doneOkBtn">íì¸</button></a>
+        <a href="./../../main.html"><button type="button" id="doneOkBtn">확인</button></a>
       </div>
     </div>
   </div>

@@ -16,32 +16,32 @@
 <body>
   <div id="header"></div>
   <main>
-    <!-- ìì±í ë¬¸ìì¬í­ ëíì¼ íì´ì§ -->
+    <!-- 작성한 문의사항 디테일 페이지 -->
     <section class="careReferenceCheck">
       <div class="title">
-        <h2>ìëíì¸ì</h2>
+        <h2>안녕하세요</h2>
       </div>
       <div class="careReferenceCheck_info">
-        <span>ë±ë¡ìëª : ìë¬´ê°</span>
-        <span>ë±ë¡ì¼ : 2025-08-04</span><br>
+        <span>등록자명 : 아무개</span>
+        <span>등록일 : 2025-08-04</span><br>
       </div>
       <div class="careReferenceCheck_content">
-        ëì´ ëë¬´ ìíëë¤. <br>
-        ë¤í¬ëª¨ë ì¶ê°í´ì£¼ì¸ì. <br>
+        눈이 너무 아픕니다. <br>
+        다크모드 추가해주세요. <br>
 
-        ìë¬´ê°ì¬ë¦¼
+        아무개올림
       </div>
-      <!-- ê´ë¦¬ìê° ë¬ìì¤ ë¬¸ì ëµë³ -->
+      <!-- 관리자가 달아준 문의 답변 -->
       <section class="reply">
         <div class="comment">
-          <div class="author">ê´ë¦¬ì</div>
-          <div class="cmt_content">ì¤ë ë¬¸ìì£¼ì  ë´ì©ì ëí´ì ì²ë¦¬í ê²°ê³¼ë ì´ë ê² ë¬ìµëë¤. ë°ìë¤ì´ì¸ì.</div>
+          <div class="author">관리자</div>
+          <div class="cmt_content">오늘 문의주신 내용에 대해서 처리한 결과는 이렇게 됬습니다. 받아들이세요.</div>
           <div class="date">2025-08-02</div>
         </div>
       </section>
-      <!-- ë¬¸ì ëª©ë¡ì¼ë¡ ê°ë ë²í¼ -->
+      <!-- 문의 목록으로 가는 버튼 -->
       <div class="buttons">
-        <a href="./normalReference.html"><button class="btn_list">ëª©ë¡</button>
+        <a href="./normalReference.html"><button class="btn_list">목록</button>
       </div></a>
     </section>
   </main>
