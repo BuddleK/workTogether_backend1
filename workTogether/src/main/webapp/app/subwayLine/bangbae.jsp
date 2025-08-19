@@ -38,7 +38,7 @@
       <div>
         <img src="${pageContext.request.contextPath}/assets/img/subwayLine/KakaoTalk_20250806_170707522_07.png" alt="">
       </div>
-      <a href="./subway.html"><button>목록</button></a>
+      <a href="${pageContext.request.contextPath}/subway.jsp"><button>목록</button></a>
     </div>
 
 

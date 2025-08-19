@@ -34,84 +34,84 @@
               <div class="table_content">
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
                       >202 5-08-09</a
                     >
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
                   </li>
                 </ul>
               </div>

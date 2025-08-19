@@ -51,21 +51,21 @@
               <div class="table_md">
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">방울청년</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">방울청년</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">47</a>
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button
@@ -79,21 +79,21 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">2</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">2</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">방울청년</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">방울청년</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">47</a>
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button
@@ -107,21 +107,21 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">3</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">3</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">방울청년</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">방울청년</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">47</a>
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button
@@ -135,21 +135,21 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">4</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">4</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">방울청년</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">방울청년</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">47</a>
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button
@@ -163,21 +163,21 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">5</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">5</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">방울청년</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">방울청년</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">47</a>
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button
@@ -191,21 +191,21 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">6</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">6</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">방울청년</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">방울청년</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">35</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">35</a>
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button
@@ -219,21 +219,21 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">7</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">7</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">방울청년</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">방울청년</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">47</a>
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button
@@ -270,7 +270,7 @@
                 </li>
               </ul>
               <div class="add">
-                <a href="${pageContext.request.contextPath}/app/admin/noticeAdd.html" class="add_btn"
+                <a href="${pageContext.request.contextPath}/app/admin/noticeAdd.jsp" class="add_btn"
                   >등록</a
                 >
               </div>

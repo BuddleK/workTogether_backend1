@@ -46,46 +46,46 @@
             </div>
             <div class="table_content">
               <ul class="table_body">
-                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">1</a></li>
-                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">가나다</a></li>
-                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">abc123</a></li>
-                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">2025-08-09</a></li>
-                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">반려</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">1</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">2025-08-09</a></li>
+                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">반려</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">2</a></li>
-                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">가나다</a></li>
-                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">abc123</a></li>
-                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">2025-08-09</a></li>
-                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">승인</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">2</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">2025-08-09</a></li>
+                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">승인</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">3</a></li>
-                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">가나다</a></li>
-                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">abc123</a></li>
-                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">2025-08-09</a></li>
-                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">승인</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">3</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">2025-08-09</a></li>
+                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">승인</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">4</a></li>
-                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">가나다</a></li>
-                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">abc123</a></li>
-                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">2025-08-09</a></li>
-                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">승인</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">4</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">2025-08-09</a></li>
+                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">승인</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">5</a></li>
-                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">가나다</a></li>
-                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">abc123</a></li>
-                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">2025-08-09</a></li>
-                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">승인</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">5</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">2025-08-09</a></li>
+                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">승인</a></li>
               </ul>
               <ul class="table_body">
-                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">6</a></li>
-                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">가나다</a></li>
-                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">abc123</a></li>
-                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">2025-08-09</a></li>
-                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.html">반려</a></li>
+                <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">6</a></li>
+                <li class="body_name"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">가나다</a></li>
+                <li class="body_id"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">abc123</a></li>
+                <li class="body_date"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">2025-08-09</a></li>
+                <li class="body_condition"><a href="${pageContext.request.contextPath}/app/admin/careRequestDetail.jsp">반려</a></li>
               </ul>
           </div>
         </div>

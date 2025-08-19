@@ -17,15 +17,15 @@
     <nav class="main_sidebar">
       <ul>
         <li><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
-        <li><a href="./normalMark.html">찜한 목록</a></li>
-        <li><a href="./normalheart.html">하트 목록</a></li>
-        <li><a href="./normalMatching.html">매칭 기록</a></li>
-        <li><a href="./normalsendMesseage.html">쪽지함</a></li>
-        <li><a href="./normalPost.html">게시글 관리</a></li>
-        <li><a href="./normalPoint.html">포인트 충전</a></li>
-        <li><a href="./normalReference.html">1 대 1 문의</a></li>
-        <li><a href="./normalQuit.html">회원 탈퇴</a></li>
+        <li><a href="${pageContext.request.contextPath}/normalPwCheck.jsp">개인정보 수정</a></li>
+        <li><a href="${pageContext.request.contextPath}/normalMark.jsp">찜한 목록</a></li>
+        <li><a href="${pageContext.request.contextPath}/normalheart.jsp">하트 목록</a></li>
+        <li><a href="${pageContext.request.contextPath}/normalMatching.jsp">매칭 기록</a></li>
+        <li><a href="${pageContext.request.contextPath}/normalsendMesseage.jsp">쪽지함</a></li>
+        <li><a href="${pageContext.request.contextPath}/normalPost.jsp">게시글 관리</a></li>
+        <li><a href="${pageContext.request.contextPath}/normalPoint.jsp">포인트 충전</a></li>
+        <li><a href="${pageContext.request.contextPath}/normalReference.jsp">1 대 1 문의</a></li>
+        <li><a href="${pageContext.request.contextPath}/normalQuit.jsp">회원 탈퇴</a></li>
       </ul>
     </nav>
     <form action="" method="get">
@@ -61,7 +61,7 @@
               <div>작성자</div>
             </li>
             <li class="referencetitle">
-              <a href="./normalReferenceDetail.html"><div>제목</div></a>
+              <a href="${pageContext.request.contextPath}/normalReferenceDetail.jsp"><div>제목</div></a>
             </li>
             <li class="day">
               <div>신청 날짜</div>
@@ -77,7 +77,7 @@
               <div>작성자</div>
             </li>
             <li class="referencetitle">
-              <a href="./normalReferenceDetail.html"><div>제목</div></a>
+              <a href="${pageContext.request.contextPath}/normalReferenceDetail.jsp"><div>제목</div></a>
             </li>
             <li class="day">
               <div>신청 날짜</div>
@@ -93,7 +93,7 @@
               <div>작성자</div>
             </li>
             <li class="referencetitle">
-              <a href="./normalReferenceDetail.html"><div>제목</div></a>
+              <a href="${pageContext.request.contextPath}/normalReferenceDetail.jsp"><div>제목</div></a>
             </li>
             <li class="day">
               <div>신청 날짜</div>
@@ -109,7 +109,7 @@
               <div>작성자</div>
             </li>
             <li class="referencetitle">
-              <a href="./normalReferenceDetail.html"><div>제목</div></a>
+              <a href="${pageContext.request.contextPath}/normalReferenceDetail.jsp"><div>제목</div></a>
             </li>
             <li class="day">
               <div>신청 날짜</div>
@@ -132,7 +132,7 @@
         </nav>
         <!-- 문의 등록하기 버튼 -->
         <div class="div_delete">
-          <button><a href="./normalReferenceUp.html">등록</a></button>
+          <button><a href="${pageContext.request.contextPath}/normalReferenceUp.jsp">등록</a></button>
         </div>
       </div>
     </form>
