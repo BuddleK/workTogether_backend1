@@ -40,7 +40,7 @@
       </section>
       <!-- 문의 목록으로 가는 버튼 -->
       <div class="buttons">
-        <a href="./normalReference.html"><button class="btn_list">목록</button>
+        <a href="${pageContext.request.contextPath}/normalReference.jsp"><button class="btn_list">목록</button>
       </div></a>
     </section>
   </main>

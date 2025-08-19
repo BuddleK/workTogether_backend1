@@ -3,7 +3,7 @@
   <ul>
     <div class="blank"></div>
     <li class="side_attach">
-      <a href="${pageContext.request.contextPath}/app/admin/userManager.html">
+      <a href="${pageContext.request.contextPath}/app/admin/userManager.jsp">
         회원관리
       </a>
     </li>
@@ -11,12 +11,12 @@
       <li class="side_attach">일반 게시글 관리</li>
       <ul class="side_menu side_normal_board">
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/notice.html">
+          <a href="${pageContext.request.contextPath}/app/admin/notice.jsp">
             공지사항 관리
           </a>
         </li>
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/report.html">
+          <a href="${pageContext.request.contextPath}/app/admin/report.jsp">
             신고글 관리
           </a>
         </li>
@@ -27,19 +27,19 @@
       <li class="side_attach">뉴스 게시글 관리</li>
       <ul class="side_menu side_news_board">
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/newsBoard.html">
+          <a href="${pageContext.request.contextPath}/app/admin/newsBoard.jsp">
             뉴스 게시물
           </a>
         </li>
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/bannerBoard.html">
+          <a href="${pageContext.request.contextPath}/app/admin/bannerBoard.jsp">
             배너 게시물
           </a>
         </li>
       </ul>
     </div>
     <li class="side_attach">
-      <a href="${pageContext.request.contextPath}/app/admin/refund.html">
+      <a href="${pageContext.request.contextPath}/app/admin/refund.jsp">
         돌봄회원 환급 관리
       </a>
     </li>
@@ -47,19 +47,19 @@
       <li class="side_attach">돌봄 회원 신청</li>
       <ul class="side_menu side_news_board">
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/careRequest.html">
+          <a href="${pageContext.request.contextPath}/app/admin/careRequest.jsp">
             신청 관리
           </a>
         </li>
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/careCareer.html">
+          <a href="${pageContext.request.contextPath}/app/admin/careCareer.jsp">
             수정 관리
           </a>
         </li>
       </ul>
     </div>
     <li class="side_attach">
-      <a href="qeustion.html">
+      <a href="qeustion.jsp">
         1:1 문의사항
       </a>
     </li>
