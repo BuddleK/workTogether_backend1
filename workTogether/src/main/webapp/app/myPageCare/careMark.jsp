@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
 
-  <link rel="stylesheet" href="./../../assets/css/myPageCare/careMark.css">
-  <script defer src="./../../assets/js/myPageCare/careMark.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPageCare/careMark.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/careMark.js"></script>
 </head>
 
 <body>
