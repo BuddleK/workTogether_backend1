@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +17,7 @@
     <div id="header"></div>
     <main>
       <section class="login">
-        <form action="" method="">
+        <form action="${pageContext.request.contextPath}/user/login.us" method="post">
           <div class="box">
             <div class="box_title">
               <p>login</p>

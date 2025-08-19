@@ -1,4 +1,3 @@
-// src/main/java/com/wt/app/dto/AdminDTO.java
 package com.wt.app.dto;
 
 public class AdminDTO {

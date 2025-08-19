@@ -55,7 +55,7 @@ public class UserFrontController extends HttpServlet {
 
 	            case "/user/join.us":
 	                result = new Result();
-	                result.setPath("/app/user/join.jsp"); 
+	                result.setPath("/app/sign/join.jsp"); 
 	                result.setRedirect(false);
 	                break;
 
@@ -69,7 +69,7 @@ public class UserFrontController extends HttpServlet {
 
 	            case "/user/login.us":
 	                result = new Result();
-	                result.setPath("/app/user/login.jsp");
+	                result.setPath("/app/login/login.jsp");
 	                result.setRedirect(false);
 	                break;
 
@@ -78,7 +78,7 @@ public class UserFrontController extends HttpServlet {
 	                    response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
 	                    return;
 	                }
-	                result = new UserLoginOkController().execute(request, response);
+	                result = new UserLoginOkController().Execute(request, response);
 	                break;
 
 	            case "/user/logoutOk.us":
@@ -91,7 +91,7 @@ public class UserFrontController extends HttpServlet {
 
 	             case "/user/findId.us":
 	                 result = new Result();
-	                 result.setPath("/app/user/findId.jsp");
+	                 result.setPath("/app/login/findId.jsp");
 	                 result.setRedirect(false);
 	                 break;
 
@@ -103,9 +103,9 @@ public class UserFrontController extends HttpServlet {
 	                 result = new UserFindIdOkController().execute(request, response);
 	                 break;
 
-	             case "/user/findPw.us":
+	             case "/user/findPassword.us":
 	                 result = new Result();
-	                 result.setPath("/app/user/findPw.jsp");
+	                 result.setPath("/app/login/findPassworld.jsp");
 	                 result.setRedirect(false);
 	                 break;
 

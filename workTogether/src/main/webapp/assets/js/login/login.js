@@ -4,7 +4,7 @@ const pwInput = document.getElementById("pw_input");
 let failCnt = 1;
 
 function islogin() {
-  if (idInput.value === "test" && pwInput.value === "test") {
+  if (idInput.value === userId && pwInput.value === userPw) {
     alert("로그인 성공!");
     location.href = "./../../main.html";
     failCnt = 1;
@@ -19,6 +19,7 @@ function islogin() {
     }
   }
 }
+
 
 window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기

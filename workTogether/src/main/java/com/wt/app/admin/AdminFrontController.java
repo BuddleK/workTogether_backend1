@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
 import com.wt.app.Result;
-import com.wt.app.admin.controller.AdminLoginOkController;
+import com.wt.app.admin.AdminLoginOkController;
 
 public class AdminFrontController extends HttpServlet {
     private static final long serialVersionUID = 1L;

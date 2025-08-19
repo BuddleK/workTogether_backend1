@@ -1,19 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>배너 게시글 관리</title>
-    <link rel="stylesheet" href="./../../assets/css/admin/" />
-    <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
-    <link rel="stylesheet" href="./../../assets/css/footer.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/bannerBoard.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
-    <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
-    <script defer src="./../../assets/js/modal/modalDeleteNews.js"></script>
-    <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/bannerBoard.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/modal/modalDeleteNews.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
   </head>
 
   <body>
@@ -46,13 +47,13 @@
               <div class="table">
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/bannerDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/bannerDetail.html">뉴스 제목</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">뉴스 제목</a>
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/bannerDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button class="delete_btn" onclick="modalDeleteNewsShow()">
@@ -62,13 +63,13 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/bannerDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/bannerDetail.html">뉴스 제목</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">뉴스 제목</a>
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/bannerDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button class="delete_btn" onclick="modalDeleteNewsShow()">
@@ -78,13 +79,13 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/bannerDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/bannerDetail.html">뉴스 제목</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">뉴스 제목</a>
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/bannerDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button class="delete_btn" onclick="modalDeleteNewsShow()">
@@ -94,13 +95,13 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/bannerDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/bannerDetail.html">뉴스 제목</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">뉴스 제목</a>
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/bannerDetail.html">2025-08-09</a>
+                    <a href=".${pageContext.request.contextPath}/app/admin/bannerDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button class="delete_btn" onclick="modalDeleteNewsShow()">
@@ -110,13 +111,13 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/bannerDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/bannerDetail.html">뉴스 제목</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">뉴스 제목</a>
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/bannerDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button class="delete_btn" onclick="modalDeleteNewsShow()">
@@ -126,13 +127,13 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/bannerDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/bannerDetail.html">뉴스 제목</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">뉴스 제목</a>
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/bannerDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button class="delete_btn" onclick="modalDeleteNewsShow()">
@@ -142,13 +143,13 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/bannerDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/bannerDetail.html">뉴스 제목</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">뉴스 제목</a>
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/bannerDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/bannerDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_delete">
                     <button class="delete_btn" onclick="modalDeleteNewsShow()">
@@ -181,7 +182,7 @@
                 </li>
               </ul>
               <div class="add">
-                <a href="./../../app/admin/bannerUpdate.html" class="add_btn"
+                <a href="${pageContext.request.contextPath}/app/admin/bannerUpdate.html" class="add_btn"
                   >등록</a
                 >
               </div>

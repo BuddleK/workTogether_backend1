@@ -1,16 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>뉴스 수정</title>
+    <title>뉴스 상세페이지</title>
     <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
     <link rel="stylesheet" href="./../../assets/css/footer.css" />
     <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/newsBoardAdd.css" />
+    <link
+      rel="stylesheet"
+      href="./../../assets/css/admin/newsBoardDetail.css"
+    />
     <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
     <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
+    <script defer src="./../../assets/js/admin/newsBoardDetail.js"></script>
+    <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
   </head>
   <body>
     <div id="header"></div>
@@ -25,25 +30,22 @@
           <div class="date_content">2025-08-10</div>
         </div>
         <div class="add_content">
-          <div class="board_option"></div>
+          <div class="board_title">뉴스내용</div>
           <textarea name="news" id="news" placeholder="">
-        날씨가 너무 덥다... 진짜.... 괜히 긴 바지 입었네</textarea
+          뉴스내용은 이러합니다.</textarea
           >
         </div>
         <div class="add_link">
           <div class="add_link_title">뉴스링크</div>
-          <input
-            type="text"
-            class="link_input"
-            placeholder="수정 링크를 넣어주세요"
-          />
+          <input type="text" class="link_input" />
         </div>
         <div class="add_btn">
-          <button class="cancle" type="button">취소</button>
-          <button class="add" type="button">수정 완료</button>
+          <button class="cancle" onclick="cancle()">취소</button>
+          <button class="add" onclick="modalUpdateShow()">수정</button>
         </div>
       </section>
     </main>
     <div id="footer"></div>
+    <div id="modalUpdate"></div>
   </body>
 </html>

@@ -5,15 +5,16 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.wt.app.user.dto.UserDTO; // ★ 경로 확인
+import com.wt.app.dto.UserDTO;
 import com.wt.config.MyBatisConfig;
 
 public class UserDAO {
     public SqlSession sqlSession;
 
     public UserDAO() {
-        sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true); // auto-commit
+        sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
     }
+   
 
     public int countByUserId(String userId) {
         return sqlSession.selectOne("com.wt.app.user.dao.UserMapper.countByUserId", userId);
@@ -45,15 +46,15 @@ public class UserDAO {
         return sqlSession.selectOne("com.wt.app.user.dao.UserMapper.findUserIdByNamePhoneType", p);
     }
 
-    /** 이름+이메일로 user_id 찾기 (비번찾기에서 검증용) */
-    public String findUserIdByNameEmail(String userName, String userEmail) {
+    /** 이름+이메일로 user_id 찾기 */
+    public String findUserIdByNameEmail(String userName, String userPhone) {
         Map<String, Object> p = new HashMap<>();
         p.put("userName", userName);
-        p.put("userEmail", userEmail);
-        return sqlSession.selectOne("com.wt.app.user.dao.UserMapper.findUserIdByNameEmail", p);
+        p.put("userEmail", userPhone);
+        return sqlSession.selectOne("com.wt.app.user.dao.UserMapper.findUserIdByNamePhone", p);
     }
 
-    /** (비번찾기) 아이디/이름/휴대전화/유형 일치 여부 */
+    /** (비번찾기)  */
     public boolean existsUserForPw(String userId, String userName, String userPhone, String userType) {
         Map<String, Object> p = new HashMap<>();
         p.put("userId", userId);
@@ -64,7 +65,7 @@ public class UserDAO {
         return cnt != null && cnt > 0;
     }
 
-    /** 비밀번호 업데이트 (user_id 기준) */
+    /** 비밀번호 업데이트 */
     public int updatePasswordById(String userId, String newPw) {
         Map<String, Object> p = new HashMap<>();
         p.put("userId", userId);

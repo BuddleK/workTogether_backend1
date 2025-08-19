@@ -26,8 +26,7 @@ public class UserJoinOkController {
         String userName = request.getParameter("userName");
         String userPhone = request.getParameter("userPhone");
         String userEmail = request.getParameter("userEmail");
-        String userType = request.getParameter("userType"); // "care" or "normal"
-
+        String userType = request.getParameter("userType"); 
         userDTO.setUserId(userId);
         userDTO.setUserPassword(userPw);
         userDTO.setUserName(userName);
@@ -41,7 +40,7 @@ public class UserJoinOkController {
             String level = request.getParameter("normalLevel"); 
             dao.insertNormal(userNumber, level);
         } else if ("care".equalsIgnoreCase(userType)) {
-            // TODO: 돌봄회원 테이블 insert 추가 예정 (자격증, 계좌 등)
+           
         }
 
         result.setPath(request.getContextPath() + "/app/user/login.jsp");

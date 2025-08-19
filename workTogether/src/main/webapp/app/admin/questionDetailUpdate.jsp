@@ -1,19 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1:1문의 사항</title>
+    <title>1:1문의 사항 수정</title>
     <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
     <link rel="stylesheet" href="./../../assets/css/footer.css" />
     <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/questionDetail.css" />
+    <link
+      rel="stylesheet"
+      href="./../../assets/css/admin/questionDetailUpdate.css"
+    />
     <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
     <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
     <script
       defer
-      src="./../../assets/js/modal/modalQuestionAnswered.js"
+      src="./../../assets/js/admin/questionDetailUpdate.js"
     ></script>
     <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
   </head>
@@ -33,7 +36,7 @@
           </div>
           <div class="qna">
             <div class="qna_title">문의사항 내용</div>
-            <div class="qna_content">눈이 너무아퍼요</div>
+            <div class="qna_content">눈이 너무 아파요</div>
           </div>
         </div>
         <div class="notice_content">
@@ -46,18 +49,18 @@
           </div>
         </div>
         <div class="notice_btn">
-          <button class="list" onclick="cancle()" type="button">목록</button>
+          <button class="list" type="button">목록</button>
           <button
             class="delete"
             onclick="modalQuestionAnsweredShow()"
             type="button"
           >
-            답변 달기
+            수정완료
           </button>
         </div>
       </section>
     </main>
     <div id="footer"></div>
-    <div id="modalQuestionAnswered"></div>
+    <div id="modalQuestionAnsweredUpdate"></div>
   </body>
 </html>

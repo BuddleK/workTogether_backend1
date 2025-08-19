@@ -35,7 +35,7 @@ public class UserFindPwOkController {
         if (userId == null) {
             request.setAttribute("error", "일치하는 정보가 없습니다.");
         } else {
-            request.setAttribute("foundId", userId);   // JSP에서 ${foundId} 출력
+            request.setAttribute("foundId", userId);
         }
 
         result.setPath("/app/user/findId.jsp");

@@ -1,20 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원 상세페이지(일반)</title>
-    <link rel="stylesheet" href="./../../assets/css/admin/" />
     <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
     <link rel="stylesheet" href="./../../assets/css/footer.css" />
     <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/careDetail.css" />
+    <link rel="stylesheet" href="./../../assets/css/admin/userDetail.css" />
     <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
     <script defer src="./../../assets/js/main/includeAdmin.js"></script>
     <script defer src="./../../assets/js/admin/admin.js"></script>
     <script defer src="./../../assets/js/modal/modalEditName.js"></script>
     <script defer src="./../../assets/js/modal/modalDeleteMember.js"></script>
-    <script defer src="./../../assets/js/modal/modalPointRefundLog.js"></script>
+    <script defer src="./../../assets/js/modal/modalPointChargeLog.js"></script>
     <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
   </head>
   <body>
@@ -91,27 +91,21 @@
                 </div>
               </div>
               <div class="detail_content_point">
-                <div class="table_head table_head_point">포인트 잔액</div>
+                <div class="table_head_point">포인트 잔액</div>
                 <div class="table_point_detail">
                   <input type="text" readonly />
-                  <button onclick="modalPointRefundLogShow()" type="button">
-                    환급내역 조회
+                  <button onclick="modalPointChargeLogShow()" type="button">
+                    충전내역 조회
                   </button>
-                </div>
-              </div>
-              <div class="detail_content_account">
-                <div class="table_head_account">계좌 수정</div>
-                <div class="table_detail table_pw_detail">
-                  <input type="text" placeholder="카카오뱅크 3333-05-8985942" />
-                  <button class="update_btn" type="button">수정</button>
                 </div>
               </div>
             </div>
             <div class="delete">
               <button
-                type="button"
+                type="submit"
                 class="delete_btn"
                 onclick="modalDeleteMemberShow()"
+                type="button"
               >
                 삭제
               </button>
@@ -123,6 +117,6 @@
     <div id="footer"></div>
     <div id="modalEditName"></div>
     <div id="modalDeleteMember"></div>
-    <div id="modalPointRefundLog"></div>
+    <div id="modalPointChargeLog"></div>
   </body>
 </html>

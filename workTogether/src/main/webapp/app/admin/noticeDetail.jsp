@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,17 +8,10 @@
     <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
     <link rel="stylesheet" href="./../../assets/css/footer.css" />
     <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/reportDetail.css" />
+    <link rel="stylesheet" href="./../../assets/css/admin/noticeDetail.css" />
     <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
     <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <!-- <script
-      defer
-      src="./../../assets/js/modal/modalDeleteReportedPost.js"
-    ></script> -->
-    <script
-      defer
-      src="./../../assets/js/modal/modalDeletePostReason.js"
-    ></script>
+    <script defer src="./../../assets/js/admin/noticeDetail.js"></script>
     <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
   </head>
   <body>
@@ -40,7 +34,7 @@
           </div>
         </div>
         <div class="notice_content">
-          <textarea name="content" id="content" readonly>
+          <textarea name="content" id="content">
             이 좁은 세상에 나를 남겨두고
             홀로 떠나기가 얼마나 힘이 들었니
             못다 한 사랑은 잠시 가슴에 묻어둬
@@ -75,26 +69,16 @@
             그때 다시 만날 그날이 오면
             지워줄게</textarea
           >
-          <div class="reply">
-            <div class="reply_cnt">댓글 (1)</div>
-            <div class="line"></div>
-            <div class="reply_content">너는 잘 모르는구나?</div>
-            <div class="reply_content">너는 잘 모르는구나?</div>
-          </div>
         </div>
         <div class="notice_btn">
-          <button class="list" onclick="linkHref()" type="button">목록</button>
-          <button
-            class="delete"
-            onclick="modalDeletePostReasonShow()"
-            type="button"
-          >
-            삭제
+          <button class="list" onclick="cancle()" type="button">목록</button>
+          <button class="update" onclick="modalUpdateShow()" type="button">
+            수정
           </button>
         </div>
       </section>
     </main>
     <div id="footer"></div>
-    <div id="modalDeletePostReason"></div>
+    <div id="modalUpdate"></div>
   </body>
 </html>

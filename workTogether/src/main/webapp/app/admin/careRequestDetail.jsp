@@ -1,34 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>돌봄회원 이력 수정 신청관리</title>
-    <link rel="stylesheet" href="./../../assets/css/admin/" />
+    <title>돌봄회원 신청관리</title>
     <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
     <link rel="stylesheet" href="./../../assets/css/footer.css" />
     <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
     <link
       rel="stylesheet"
-      href="./../../assets/css/admin/careCareerDetailUpdate.css"
+      href="./../../assets/css/admin/careRequestDetail.css"
     />
     <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
     <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
     <script
       defer
-      src="./../../assets/js/modal/modalCareModifyFinished.js"
+      src="./../../assets/js/modal/modalCareAllowRejectFinished.js"
     ></script>
     <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
   </head>
+
   <body>
     <div id="header"></div>
     <main>
       <div id="sidebar"></div>
       <section class="care_box">
         <div class="box_title">
-          <h1>돌봄 회원 이력 수정 신청관리</h1>
+          <h1>돌봄 회원 신청관리</h1>
         </div>
         <form action="" method="" class="table_form">
           <div class="table">
@@ -58,24 +57,24 @@
           <div class="btn_area">
             <button
               class="cancle"
-              onclick="modalCareModifyRejectShow()"
+              onclick="modalCareAllowRejectShow()"
               type="button"
             >
               반려 처리
             </button>
             <button
               class="submit"
-              onclick="modalCareModifyFinishedShow()"
+              onclick="modalCareAllowFinishedShow()"
               type="button"
             >
-              돌봄 회원 수정 신청 완료
+              승인 완료
             </button>
           </div>
         </form>
       </section>
     </main>
     <div id="footer"></div>
-    <div id="modalCareModifyFinished"></div>
-    <div id="modalCareModifyReject"></div>
+    <div id="modalCareAllowReject"></div>
+    <div id="modalCareAllowFinished"></div>
   </body>
 </html>
