@@ -6,11 +6,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입성공</title>
-    <link rel="stylesheet" href="./../../assets/css/login/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/sign/signSucces.css" />
-      <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/login/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/sign/signSucces.css" />
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
   </head>
   <body>
 <div id="header"></div>
@@ -22,9 +22,9 @@
               <span>OOO</span> 님 회원가입 축하드립니다.
             </div>
             <div class="content_box_value">
-              <a href="./../../app/login/login.html">로그인하기</a>
+              <a href="${pageContext.request.contextPath}/app/login/login.html">로그인하기</a>
               <div class="line"></div>
-              <a href="./../../main.html">메인으로</a>
+              <a href="${pageContext.request.contextPath}/main.html">메인으로</a>
             </div>
           </div>
         </div>

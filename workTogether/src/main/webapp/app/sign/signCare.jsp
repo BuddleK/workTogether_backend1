@@ -7,11 +7,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>회원가입(돌봄)</title>
-  <link rel="stylesheet" href="./../../assets/css/sign/basic.css">
-  <link rel="stylesheet" href="./../../assets/css/sign/signCare.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/sign/basic.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/sign/signCare.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
 </head>
 
 <body>

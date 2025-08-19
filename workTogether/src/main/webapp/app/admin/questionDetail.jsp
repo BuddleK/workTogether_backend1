@@ -5,18 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1:1문의 사항</title>
-    <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
-    <link rel="stylesheet" href="./../../assets/css/footer.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/questionDetail.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
-    <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/questionDetail.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
     <script
       defer
-      src="./../../assets/js/modal/modalQuestionAnswered.js"
+      src="${pageContext.request.contextPath}/assets/js/modal/modalQuestionAnswered.js"
     ></script>
-    <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
   </head>
   <body>
     <div id="header"></div>
