@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>신고글 관리</title>
-    <link rel="stylesheet" href="./../../assets/css/headerAdmin.css" />
-    <link rel="stylesheet" href="./../../assets/css/footer.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/report.css" />
-    <link rel="stylesheet" href="./../../assets/css/admin/sidebar.css" />
-    <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/report.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
   </head>
 
   <body>
@@ -34,84 +34,84 @@
               <div class="table_content">
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
                       >202 5-08-09</a
                     >
                   </li>
                   <li class="body_cnt">
-                    <a href="./../../app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/reportDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="./../../app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/reportDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="./../../app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/reportDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="./../../app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
                   </li>
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="./../../app/admin/reportDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="./../../app/admin/reportDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html"
                       >사이트 이용시 주의 사항</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="./../../app/admin/reportDetail.html">2025-08-09</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">2025-08-09</a>
                   </li>
                   <li class="body_cnt">
-                    <a href="./../../app/admin/reportDetail.html">47</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.html">47</a>
                   </li>
                 </ul>
               </div>
