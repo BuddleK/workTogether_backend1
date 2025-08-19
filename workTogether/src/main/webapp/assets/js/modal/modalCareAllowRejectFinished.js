@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기
-  fetch("./../../app/modal/modalCareAllowReject.html")
+  fetch("./../../app/modal/modalCareAllowReject.jsp")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("modalCareAllowReject").innerHTML = data;
@@ -13,7 +13,7 @@ const modalCareAllowReject = document.getElementById("modalCareAllowReject");
 //input 요소 담을 변수
 let input;
 
-const link = "./../../app/admin/careRequest.html";
+const link = "./../../app/admin/careRequest.jsp";
 function linkHref() {
   location.href = link;
 }
@@ -62,7 +62,7 @@ modalCareAllowRejectNone();
 
 window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기
-  fetch("./../../app/modal/modalCareAllowFinished.html")
+  fetch("./../../app/modal/modalCareAllowFinished.jsp")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("modalCareAllowFinished").innerHTML = data;

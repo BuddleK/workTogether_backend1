@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // html 문서에 모달 불러오기
-  fetch('./../../app/modal/modalPointChargeLog.html')
+  fetch('./../../app/modal/modalPointChargeLog.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('modalPointChargeLog').innerHTML = data;

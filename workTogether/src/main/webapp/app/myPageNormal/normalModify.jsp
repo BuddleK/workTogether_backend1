@@ -1,106 +1,105 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Normal_Modify</title>
-  <link rel="stylesheet" href="./../../assets/css/myPageNormal/normalModify.css">
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/myPageNormal/normalmodify.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPageNormal/normalModify.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalmodify.js"></script>
 </head>
 </head>
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë©ë´ ì¬ì´ëë° ì¹ì -->
+    <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
       <ul>
-        <li><img src="./../../assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="./normalPwCheck.html">ê°ì¸ì ë³´ ìì </a></li>
-        <li><a href="./normalMark.html">ì°í ëª©ë¡</a></li>
-        <li><a href="./normalheart.html">íí¸ ëª©ë¡</a></li>
-        <li><a href="./normalMatching.html">ë§¤ì¹­ ê¸°ë¡</a></li>
-        <li><a href="./normalsendMesseage.html">ìª½ì§í¨</a></li>
-        <li><a href="./normalPost.html">ê²ìê¸ ê´ë¦¬</a></li>
-        <li><a href="./normalPoint.html">í¬ì¸í¸ ì¶©ì </a></li>
-        <li><a href="./normalReference.html">1 ë 1 ë¬¸ì</a></li>
-        <li><a href="./normalQuit.html">íì íí´</a></li>
+        <li><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
+        <li><a href="./normalPwCheck.html">개인정보 수정</a></li>
+        <li><a href="./normalMark.html">찜한 목록</a></li>
+        <li><a href="./normalheart.html">하트 목록</a></li>
+        <li><a href="./normalMatching.html">매칭 기록</a></li>
+        <li><a href="./normalsendMesseage.html">쪽지함</a></li>
+        <li><a href="./normalPost.html">게시글 관리</a></li>
+        <li><a href="./normalPoint.html">포인트 충전</a></li>
+        <li><a href="./normalReference.html">1 대 1 문의</a></li>
+        <li><a href="./normalQuit.html">회원 탈퇴</a></li>
       </ul>
     </nav>
     <div class="div_mark">
-      <!-- ë©ë´ ì ëª© -->
-      <div class="title">ê°ì¸ì ë³´ ìì </div>
-      <!-- ì£¼ìì¬í­ íì -->
+      <!-- 메뉴 제목 -->
+      <div class="title">개인정보 수정</div>
+      <!-- 주의사항 표시 -->
       <div class="arlim">
         <nav>
           <ul>
-            <li>ð ì í¬ í¨ê»ê±¸ìì íìëì ê°ì¸ ì ë³´ë¥¼ ì ì¤í ì·¨ê¸íë©°, íìëì ëì ìì´ ê¸°ì¬íì  íìì ë³´ë¥¼ ê³µê°íì§ ììµëë¤.</li>
-            <li>íìëì ê°ì¸ ì ë³´ë¥¼ ìì íê² ë³´í¸íê¸° ìí´ ìµì ì ë¤íê³  ììµëë¤. </li>
-            <li>íìëì ì ë³´ë¥¼ í¹ì í  ì ìë ê²ì ìë ¥ì ì§ìí´ ì£¼ìê¸¸ ë°ëëë¤.</li>
+            <li>🛈 저희 함께걸음은 회원님의 개인 정보를 신중히 취급하며, 회원님의 동의 없이 기재하신 회원정보를 공개하지 않습니다.</li>
+            <li>회원님의 개인 정보를 안전하게 보호하기 위해 최선을 다하고 있습니다. </li>
+            <li>회원님의 정보를 특정할 수 있는 것은 입력을 지양해 주시길 바랍니다.</li>
           </ul>
         </nav>
       </div>
-      <!-- íì ì ë³´ ì¹ì -->
+      <!-- 회원 정보 섹션 -->
       <form action="" method="get">
         <div>
-          <div>íì ì ë³´</div>
+          <div>회원 정보</div>
         </div>
         <nav class="normalmodify">
           <ul>
             <li class="member">
               <ul>
-                <li class="info">ì±ëª</li>
-                <li class="myinfo">ì´ë¦</li>
+                <li class="info">성명</li>
+                <li class="myinfo">이름</li>
               </ul>
             </li>
             <li class="member">
               <ul>
-                <li class="info">ìí</li>
-                <li class="myinfo">ë ë²¨</li>
+                <li class="info">상태</li>
+                <li class="myinfo">레벨</li>
               </ul>
             </li>
             <li class="member">
               <ul>
-                <li class="info">ì£¼ì</li>
+                <li class="info">주소</li>
                 <li class="myinfo">
                   <ul>
-                    <li><input type="text" placeholder="ì°í¸ë²í¸"></li>
-                    <li><input type="text" placeholder="ì£¼ì"><button  type="button" id="mailbutton">ì°í¸ë²í¸ ì°¾ê¸°</button></li>
-                    <li><input type="text" placeholder="ìì¸ì£¼ì"><button  type="button" id="addressbutton">íì¸</button></li>
+                    <li><input type="text" placeholder="우편번호"></li>
+                    <li><input type="text" placeholder="주소"><button  type="button" id="mailbutton">우편번호 찾기</button></li>
+                    <li><input type="text" placeholder="상세주소"><button  type="button" id="addressbutton">확인</button></li>
                   </ul>
                 </li>
               </ul>
             </li>
             <li class="member">
               <ul>
-                <li class="info">ì íë²í¸</li>
-                <li class="myinfo"><input type="text" placeholder="010-1234-5678"><button type="button" id="phonebutton">ìì </button></li>
+                <li class="info">전화번호</li>
+                <li class="myinfo"><input type="text" placeholder="010-1234-5678"><button type="button" id="phonebutton">수정</button></li>
               </ul>
             </li>
             <li class="member">
               <ul>
-                <li class="info">ìì´ë</li>
-                <li class="myinfo">ìì´ë</li>
+                <li class="info">아이디</li>
+                <li class="myinfo">아이디</li>
               </ul>
             </li>
             <li class="member">
               <ul>
-                <li class="info">ì´ë©ì¼</li>
-                <li class="myinfo"><input type="text" placeholder="ì´ë©ì¼"><button type="button" id="emailbutton">ìì </button></li>
+                <li class="info">이메일</li>
+                <li class="myinfo"><input type="text" placeholder="이메일"><button type="button" id="emailbutton">수정</button></li>
               </ul>
             </li>
             <li class="member">
               <ul>
-                <li class="info">ë¹ë°ë²í¸</li>
+                <li class="info">비밀번호</li>
                 <li class="myinfo">
                   <ul>
-                    <li><input id="pwInput" type="password" placeholder="ë¹ë°ë²í¸ ìë ¥"></li>
-                    <li><input id="newPwIntput" type="password" placeholder="ì ë¹ë°ë²í¸ ìë ¥"><button type="button" id="pwbutton">íì¸</button></li>
-                    <li><div class="pwCheck" >ë¹ë°ë²í¸ê° ì¼ì¹íì§ììµëë¤</div></li>
+                    <li><input id="pwInput" type="password" placeholder="비밀번호 입력"></li>
+                    <li><input id="newPwIntput" type="password" placeholder="새 비밀번호 입력"><button type="button" id="pwbutton">확인</button></li>
+                    <li><div class="pwCheck" >비밀번호가 일치하지않습니다</div></li>
                   </ul>
               </ul>
             </li>
@@ -109,35 +108,35 @@
       </form>
     </div>
   </main>
-  <!-- ì ë³´ ìì  íì¸ ëª¨ë¬ë¤ -->
+  <!-- 정보 수정 확인 모달들 -->
   <div class="modal_address">
     <div class="modal-content">
-      <p>ì£¼ì ìì ì´ ìë£ ëììµëë¤.</p>
-      <button type="button" onclick="openaddressModalClose()" id="saveConfirmBtn">íì¸</button>
+      <p>주소 수정이 완료 되었습니다.</p>
+      <button type="button" onclick="openaddressModalClose()" id="saveConfirmBtn">확인</button>
     </div>
   </div>
   <div class="modal_email">
     <div class="modal-content">
-      <p>ì´ë©ì¼ ìì ì´ ìë£ ëììµëë¤.</p>
-      <button type="button" onclick="openemailModalClose()" id="saveConfirmBtn">íì¸</button>
+      <p>이메일 수정이 완료 되었습니다.</p>
+      <button type="button" onclick="openemailModalClose()" id="saveConfirmBtn">확인</button>
     </div>
   </div>
   <div class="modal_pw">
     <div class="modal-content">
-      <p>ë¹ë°ë²í¸ ìì ì´ ìë£ ëììµëë¤.</p>
-      <button type="button" onclick="openpwModalClose()" id="saveConfirmBtn">íì¸</button>
+      <p>비밀번호 수정이 완료 되었습니다.</p>
+      <button type="button" onclick="openpwModalClose()" id="saveConfirmBtn">확인</button>
     </div>
   </div> 
   <div class="modal_phone">
     <div class="modal-content">
-      <p>ì íë²í¸ ìì ì´ ìë£ ëììµëë¤.</p>
-      <button type="button" onclick="openphoneModalClose()" id="saveConfirmBtn">íì¸</button>
+      <p>전화번호 수정이 완료 되었습니다.</p>
+      <button type="button" onclick="openphoneModalClose()" id="saveConfirmBtn">확인</button>
     </div>
   </div> 
   <div class="modal_mail">
     <div class="modal-content">
-      <p>ì°í¸ë²í¸ ì°¾ê¸° api?</p>
-      <button type="button" onclick="openmailModalClose()" id="saveConfirmBtn">íì¸</button>
+      <p>우편번호 찾기 api?</p>
+      <button type="button" onclick="openmailModalClose()" id="saveConfirmBtn">확인</button>
     </div>
   </div>
   <div id="footer"></div>

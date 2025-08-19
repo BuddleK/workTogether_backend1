@@ -1,13 +1,13 @@
 window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기
-  fetch("./../../app/modal/modalCareModifyFinished.html")
+  fetch("./../../app/modal/modalCareModifyFinished.jsp")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("modalCareModifyFinished").innerHTML = data;
     });
 });
 
-const link = "./../../app/admin/careCareer.html";
+const link = "./../../app/admin/careCareer.jsp";
 function linkHref() {
   location.href = link;
 }
@@ -47,7 +47,7 @@ modalCareModifyFinishedNone();
 
 window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기
-  fetch("./../../app/modal/modalCareModifyReject.html")
+  fetch("./../../app/modal/modalCareModifyReject.jsp")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("modalCareModifyReject").innerHTML = data;

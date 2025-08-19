@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,24 +6,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Normal_Reference_Up</title>
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <link rel="stylesheet" href="./../../assets/css/myPageNormal/normalReferenceUp.css">
-  <script defer src="./../../assets/js/myPageNormal/normalReferenceUp.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPageNormal/normalReferenceUp.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalReferenceUp.js"></script>
 </head>
 
 <body>
   <div id="header"></div>
   <main>
-    <!-- ë¬¸ì ìì± ëíì¼ íì´ì§ -->
+    <!-- 문의 작성 디테일 페이지 -->
     <section class="reference_dp">
       <div class="title">
-        <h2>[ë¬¸ì] ë¤í¬ëª¨ë ìì²­</h2>
+        <h2>[문의] 다크모드 요청</h2>
       </div>
       <div class="reference_info">
-        <span>ë±ë¡ìëª : ìë¬´ê°</span>
-        <span>ë±ë¡ì¼ : 2025-08-04</span><br>
+        <span>등록자명 : 아무개</span>
+        <span>등록일 : 2025-08-04</span><br>
       </div>
       <div class="tools">
       </div>
@@ -32,18 +31,18 @@
         <textarea></textarea>
       </div>
       <div class="buttons">
-        <a href="./normalReference.html"><button class="btn_list">ëª©ë¡</button></a>
-        <a href="./normalReference.html"><button class="btn_cancle">ì·¨ì</button></a>
-        <button class="btn_compelete">ë±ë¡</button>
+        <a href="./normalReference.html"><button class="btn_list">목록</button></a>
+        <a href="./normalReference.html"><button class="btn_cancle">취소</button></a>
+        <button class="btn_compelete">등록</button>
       </div>
     </section>
   </main>
-  <!-- ë¬¸ìì¬í­ ë±ë¡ íì¸ ëª¨ë¬ -->
+  <!-- 문의사항 등록 확인 모달 -->
   <div class="modal" id="editModal">
     <div class="modal_box">
-      <p>ë¬¸ìê° ë±ë¡ ëììµëë¤.</p>
+      <p>문의가 등록 되었습니다.</p>
       <div class="modal_buttons">
-        <a href="./normalReference.html"><button id="check">íì¸</button></a>
+        <a href="./normalReference.html"><button id="check">확인</button></a>
       </div>
     </div>
   </div>

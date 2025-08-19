@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // html 문서에 모달 불러오기
-  fetch('./careMemberModal.html')
+  fetch('./careMemberModal.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('modal').innerHTML = data;

@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // html 문서에 모달 불러오기
-  fetch('./../../app/modal/modalDeletePostReason.html')
+  fetch('./../../app/modal/modalDeletePostReason.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('modalDeletePostReason').innerHTML = data;
@@ -21,7 +21,7 @@ function modalDeletePostReasonShow() {
   modalDeletePostReason.style.display = "flex";
 }
 
-const link = "./../../app/admin/report.html"
+const link = "./../../app/admin/report.jsp"
 function linkHref() {
   location.href=link;
 }

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,160 +6,160 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RB</title>
-  <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <link rel="stylesheet" href="./../../assets/css/subwayLine/subway.css">
-  <script defer src="./../../assets/js/subwayLine/subway.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/subwayLine/subway.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/subwayLine/subway.js"></script>
 </head>
 
 <body>
   <div id="header"></div>
 
   <main>
-    <h1>ì§íì²  ë¸ì ë</h1>
+    <h1>지하철 노선도</h1>
     <div class="subway">
       <div class="subway_subwayLine">
-        <button id="all"> ì ì²´ </button>
-        <button id="line2"> 2í¸ì  </button>
-        <button id="line3"> 3í¸ì  </button>
-        <button id="line4"> 4í¸ì  </button>
-        <button id="line7"> 7í¸ì  </button>
-        <button id="line9"> 9í¸ì  </button>
-        <button id="dxline"> ì ë¶ë¹ì  </button>
+        <button id="all"> 전체 </button>
+        <button id="line2"> 2호선 </button>
+        <button id="line3"> 3호선 </button>
+        <button id="line4"> 4호선 </button>
+        <button id="line7"> 7호선 </button>
+        <button id="line9"> 9호선 </button>
+        <button id="dxline"> 신분당선 </button>
       </div>
     </div>
-    <!-- ìì´ ì ì²´ ì§íì²  ë¸ì ë -->
+    <!-- 서초 전체 지하철 노선도 -->
     <div class="map_section">
       <div class="subway_allline_img">
-        <img src="./../../assets/img/subwayLine/allline.png" alt="ì ì²´í¸ì ì¬ì§">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/allline.png" alt="전체호선사진">
       </div>
-      <!-- ìì´ 2í¸ì  ì§íì²  ë¸ì ë -->
+      <!-- 서초 2호선 지하철 노선도 -->
       <div class="subway_line2_img">
-        <img src="./../../assets/img/subwayLine/line2.png" alt="2í¸ì ì¬ì§">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/line2.png" alt="2호선사진">
       </div>
-      <!-- ìì´ 3í¸ì  ì§íì²  ë¸ì ë -->
+      <!-- 서초 3호선 지하철 노선도 -->
       <div class="subway_line3_img">
-        <img src="./../../assets/img/subwayLine/line3.png" alt="3í¸ì ì¬ì§">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/line3.png" alt="3호선사진">
       </div>
-      <!-- ìì´ 4í¸ì  ì§íì²  ë¸ì ë -->
+      <!-- 서초 4호선 지하철 노선도 -->
       <div class="subway_line4_img">
-        <img src="./../../assets/img/subwayLine/line4.png" alt="4í¸ì ì¬ì§">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/line4.png" alt="4호선사진">
       </div>
-      <!-- ìì´ 7í¸ì  ì§íì²  ë¸ì ë -->
+      <!-- 서초 7호선 지하철 노선도 -->
       <div class="subway_line7_img">
-        <img src="./../../assets/img/subwayLine/line7.png" alt="7í¸ì ì¬ì§">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/line7.png" alt="7호선사진">
       </div>
-      <!-- ìì´ 9í¸ì  ì§íì²  ë¸ì ë -->
+      <!-- 서초 9호선 지하철 노선도 -->
       <div class="subway_line9_img">
-        <img src="./../../assets/img/subwayLine/line9.png" alt="9í¸ì ì¬ì§">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/line9.png" alt="9호선사진">
       </div>
-      <!-- ìì´ ì ë¶ë¹ì  ì§íì²  ë¸ì ë -->
+      <!-- 서초 신분당선 지하철 노선도 -->
       <div class="subway_dxline_img">
-        <img src="./../../assets/img/subwayLine/dxline.png" alt="ì ë¶ë¹ì ì¬ì§">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/dxline.png" alt="신분당선사진">
       </div>
 
-      <!-- ì ì²´ ì­ ëª©ë¡ -->
+      <!-- 전체 역 목록 -->
       <div class="station_list" id="allline_station">
-        <h3>ì ì²´ ì­ ëª©ë¡</h3>
+        <h3>전체 역 목록</h3>
         <ul>
-          <!-- ìì´ ì§ëê°ë ì­ ì´ë¦, ì ë³´ ì¹¸ -->
-          <li class="station_name"><a href="./../../app/subwayLine/dongjack.html">ëì</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gubanpo.html">êµ¬ë°í¬</a></li>
-          <li class="station-name"><a href="./../../app/subwayLine/shinbanpo.html">ì ë°í¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gosukterminner.html">ê³ ìí°ë¯¸ë</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/sapeung.html">ì¬í</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/sinnonehyun.html">ì ë¼í</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/chungshindae.html">ì´ì ëìêµ¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/nebang.html">ë´ë°©</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/banpo.html">ë°í¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/nonehyune.html">ë¼í</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/sadang.html">ì¬ë¹</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/bangbae.html">ë°©ë°°</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/seacho.html">ìì´</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gyudae.html">êµë</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gangnam.html">ê°ë¨</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/shinsa.html">ì ì¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/yangjae.html">ìì¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/yangjeaforest.html">ìì¬ìë¯¼ìì²</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/chunggyae.html">ì²­ê³ì°ìêµ¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/jameone.html">ì ì</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/nambuterminer.html">ë¨ë¶í°ë¯¸ë</a></li>
+          <!-- 서초 지나가는 역 이름, 정보 칸 -->
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/dongjack.html">동작</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gubanpo.html">구반포</a></li>
+          <li class="station-name"><a href="${pageContext.request.contextPath}/app/subwayLine/shinbanpo.html">신반포</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gosukterminner.html">고속터미널</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/sapeung.html">사평</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/sinnonehyun.html">신논현</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/chungshindae.html">총신대입구</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/nebang.html">내방</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/banpo.html">반포</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/nonehyune.html">논현</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/sadang.html">사당</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/bangbae.html">방배</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/seacho.html">서초</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gyudae.html">교대</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gangnam.html">강남</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/shinsa.html">신사</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/yangjae.html">양재</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/yangjeaforest.html">양재시민의숲</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/chunggyae.html">청계산입구</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/jameone.html">잠원</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/nambuterminer.html">남부터미널</a></li>
         </ul>
       </div>
 
       <div class="station_list" id="line2_stations">
-        <!-- ìì´ 2í¸ì  ì´ë¦, ì ë³´ ì¹¸ -->
+        <!-- 서초 2호선 이름, 정보 칸 -->
 
-        <h3>2í¸ì  ì­ ëª©ë¡</h3>
+        <h3>2호선 역 목록</h3>
         <ul>
-          <li class="station_name"><a href="./../../app/subwayLine/sadang.html">ì¬ë¹</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/bangbae.html">ë°©ë°°</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/seacho.html">ìì´</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gyudae.html">êµë</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gangnam.html">ê°ë¨</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/sadang.html">사당</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/bangbae.html">방배</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/seacho.html">서초</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gyudae.html">교대</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gangnam.html">강남</a></li>
         </ul>
       </div>
 
       <div class="station_list" id="line3_stations">
-        <!-- ìì´ 3í¸ì  ì´ë¦, ì ë³´ ì¹¸ -->
-        <h3>3í¸ì  ì­ ëª©ë¡</h3>
+        <!-- 서초 3호선 이름, 정보 칸 -->
+        <h3>3호선 역 목록</h3>
         <ul>
-          <li class="station_name"><a href="./../../app/subwayLine/shinsa.html">ì ì¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/jameone.html">ì ì</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gosukterminner.html">ê³ ìí°ë¯¸ë</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gyudae.html">êµë</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/nambuterminer.html">ë¨ë¶í°ë¯¸ë</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/dongjack.html">ìì¬</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/shinsa.html">신사</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/jameone.html">잠원</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gosukterminner.html">고속터미널</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gyudae.html">교대</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/nambuterminer.html">남부터미널</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/dongjack.html">양재</a></li>
         </ul>
       </div>
 
       <div class="station_list" id="line4_stations">
-        <!-- ìì´ 4í¸ì  ì´ë¦, ì ë³´ ì¹¸ -->
-        <h3>4í¸ì  ì­ ëª©ë¡</h3>
+        <!-- 서초 4호선 이름, 정보 칸 -->
+        <h3>4호선 역 목록</h3>
         <ul>
-          <li class="station_name"><a href="./../../app/subwayLine/dongjack.html">ëì</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/chungshindae.html">ì´ì ëìêµ¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/sadang.html">ì¬ë¹</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/dongjack.html">동작</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/chungshindae.html">총신대입구</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/sadang.html">사당</a></li>
         </ul>
       </div>
 
       <div class="station_list" id="line7_stations">
-        <!-- ìì´ 7í¸ì  ì´ë¦, ì ë³´ ì¹¸ -->
-        <h3>7í¸ì  ì­ ëª©ë¡</h3>
+        <!-- 서초 7호선 이름, 정보 칸 -->
+        <h3>7호선 역 목록</h3>
         <ul>
-          <li class="station_name"><a href="./../../app/subwayLine/chungshindae.html">ì´ì ëìêµ¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/nebang.html">ë´ë°©</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gosukterminner.html">ê³ ìí°ë¯¸ë</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/banpo.html">ë°í¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/nonehyune.html">ë¼í</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/chungshindae.html">총신대입구</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/nebang.html">내방</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gosukterminner.html">고속터미널</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/banpo.html">반포</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/nonehyune.html">논현</a></li>
         </ul>
       </div>
 
       <div class="station_list" id="line9_stations">
-        <!-- ìì´ 9í¸ì  ì´ë¦, ì ë³´ ì¹¸ -->
-        <h3>9í¸ì  ì­ ëª©ë¡</h3>
+        <!-- 서초 9호선 이름, 정보 칸 -->
+        <h3>9호선 역 목록</h3>
         <ul>
-          <li class="station_name"><a href="./../../app/subwayLine/dongjack.html">ëì</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gubanpo.html">êµ¬ë°í¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/shinbanpo.html">ì ë°í¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gosukterminner.html">ê³ ìí°ë¯¸ë</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/sapeung.html">ì¬í</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/dongjack.html">ì ë¼í</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/dongjack.html">동작</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gubanpo.html">구반포</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/shinbanpo.html">신반포</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gosukterminner.html">고속터미널</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/sapeung.html">사평</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/dongjack.html">신논현</a></li>
         </ul>
       </div>
 
       <div class="station_list" id="dxline_stations">
-        <!-- ìì´ ì ë¶ë¹ì  ì´ë¦, ì ë³´ ì¹¸ -->
-        <h3>ì ë¶ë¹ì  ì­ ëª©ë¡</h3>
+        <!-- 서초 신분당선 이름, 정보 칸 -->
+        <h3>신분당선 역 목록</h3>
         <ul>
-          <li class="station_name"><a href="./../../app/subwayLine/shinsa.html">ì ì¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/nonehyune.html">ë¼í</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/sinnonehyun.html">ì ë¼í</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/gangnam.html">ê°ë¨</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/yangjae.html">ìì¬</a></li>
-          <li class="station_name"><a href="./../../app/subwayLine/yangjeaforest.html">ìì¬ìë¯¼ìì²</a></li>
-          <li class="station_item"><a href="./../../app/subwayLine/chunggyae.html">ì²­ê³ì°ìêµ¬</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/shinsa.html">신사</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/nonehyune.html">논현</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/sinnonehyun.html">신논현</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/gangnam.html">강남</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/yangjae.html">양재</a></li>
+          <li class="station_name"><a href="${pageContext.request.contextPath}/app/subwayLine/yangjeaforest.html">양재시민의숲</a></li>
+          <li class="station_item"><a href="${pageContext.request.contextPath}/app/subwayLine/chunggyae.html">청계산입구</a></li>
         </ul>
       </div>
     </div>

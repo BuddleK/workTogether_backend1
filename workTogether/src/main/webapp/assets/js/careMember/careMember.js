@@ -21,7 +21,7 @@ for (let i = 0; i < 8; i++) {
   // 매개변수로 i값 넣어주기
   str += i;
   // 하트 이미지 url 추가, 프로필 사진, 이름들을 담은 요소들을 추가
-  str += `)" class="heart_img" src="./../../assets/img/careMember/heart_icon.png"></div><a href="./careMemberDetail.html" class="profile"><div class="profile_pic_box"><img class="profile_pic" src="./../../assets/img/careMember/profilePicCare.png"></div><div class="profile_name">`;
+  str += `)" class="heart_img" src="./../../assets/img/careMember/heart_icon.png"></div><a href="./careMemberDetail.jsp" class="profile"><div class="profile_pic_box"><img class="profile_pic" src="./../../assets/img/careMember/profilePicCare.png"></div><div class="profile_name">`;
   // 이름
   str += `김괭이`;
   // 날짜 행 클래스 추가
