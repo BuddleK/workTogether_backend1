@@ -18,8 +18,9 @@
     <!-- 지도 페이지 컨테이너 -->
     <div class="map_container">
       <!-- 지도 api 칸 -->
-      <div class="map_api"><img class="map_img" src="${pageContext.request.contextPath}/assets/img/map/mapImg.png" alt="지도그림">
-        <div class="site_info">지도를 클릭 시 해당 가게 설명이 나옵니다</div>
+      <div class="map_api">
+		<img class="map_img" src="${pageContext.request.contextPath}/assets/img/map/mapImg.png" alt="지도그림">
+ 		<div class="site_info">지도를 클릭 시 해당 가게 설명이 나옵니다</div>
       </div>
       <!-- 지도 클릭 시 사이드바 -->
       <div class="sidebar">
