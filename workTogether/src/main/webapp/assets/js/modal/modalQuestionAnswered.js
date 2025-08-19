@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기
-  fetch("./../../app/modal/modalQuestionAnswered.html")
+  fetch("./../../app/modal/modalQuestionAnswered.jsp")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("modalQuestionAnswered").innerHTML = data;
@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
 //모달 요소 가져오기
 const modalQuestionAnswered = document.getElementById("modalQuestionAnswered");
 
-const link = "./../../app/admin/qeustion.html";
+const link = "./../../app/admin/qeustion.jsp";
 function linkHref() {
   location.href = link;
 }
