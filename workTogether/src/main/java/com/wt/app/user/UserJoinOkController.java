@@ -38,7 +38,7 @@ public class UserJoinOkController {
 
         if ("normal".equalsIgnoreCase(userType)) {
             String level = request.getParameter("normalLevel"); 
-            dao.insertNormal(userNumber, level);
+            userDAO.insertNormal(userNumber, level);
         } else if ("care".equalsIgnoreCase(userType)) {
            
         }

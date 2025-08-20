@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +19,9 @@
   <div id="header"></div>
   <main>
     <section class="sign">
-      <form action="" method="" class="sign_form">
+      <form action="${pageContext.request.contextPath}/users/" method="post" class="sign_form">
         <div class="sign_box sign_title">
-          <p>회원가입</p>
+          <p>일반 회원가입</p>
         </div>
         <div class="sign_box sign_id">
           <p>아이디</p>
@@ -91,17 +91,7 @@
           <p>상세 주소</p>
           <input type="text" placeholder="" class="detail_address">
         </div>
-        <div class="sign_box sign_choice">
-          <p>회원 유형 선택</p>
-          <label for="normal">
-            <input type="radio" id="normal" name="type" value="normal" checked onclick="checkNormal()" />
-            일반회원
-          </label>
-          <label for="care">
-            <input type="radio" id="care" name="type" value="care" onclick="checkCare()" />
-            돌봄회원
-          </label>
-        </div>
+        
         <div class="section_normal">
 
           <div class="sign_box sign_level">
@@ -121,25 +111,7 @@
             </label>
           </div>
         </div>
-        <div class="section_care">
-          <div class="file">
-            <input type="file" readonly>
-          </div>
-          <div class="file">
-            <input type="file" readonly>
-          </div>
-          <div class="sign_box sign_level">
-            <div class="file_title">
-              첨부파일
-            </div>
-            <ul>
-              <li>운전면허증</li>
-              <li>운전면허증</li>
-              <li>운전면허증</li>
-              <li>운전면허증</li>
-            </ul>
-          </div>
-        </div>
+       
         <div class="sign_box sign_btn">
           <button onclick="nextPg()">가입하기</button>
         </div>

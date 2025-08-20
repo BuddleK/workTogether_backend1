@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,12 +7,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>약관</title>
-  <link rel="stylesheet" href="./../../assets/css/sign/basic.css">
-  <link rel="stylesheet" href="./../../assets/css/sign/terms.css">
-    <link rel="stylesheet" href="./../../assets/css/header.css">
-  <link rel="stylesheet" href="./../../assets/css/footer.css">
-  <script defer src="./../../assets/js/main/include.js"></script>
-  <script defer src="./../../assets/js/sign/terms.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/sign/basic.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/sign/terms.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/sign/terms.js"></script>
   <!-- <link rel="stylesheet" href=""> -->
 </head>
 
@@ -70,7 +70,8 @@
           </p>
         </div>
         <div class="next_btn">
-          <button onclick="goNext()">다음으로</button>
+          <button onclick="goNextNormal()" type="button">일반회원가입</button>
+          <button onclick="goNextCare()" type="button">돌봄회원가입</button>
         </div>
       </form>
     </section>

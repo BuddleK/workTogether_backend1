@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.user.dao.UserDAO;
-import com.wt.app.user.dto.UserDTO;
 
 public class UserJoinController implements Execute {
 	@Override
