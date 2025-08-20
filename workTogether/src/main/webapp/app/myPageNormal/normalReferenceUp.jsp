@@ -31,8 +31,8 @@
         <textarea></textarea>
       </div>
       <div class="buttons">
-        <a href="./normalReference.html"><button class="btn_list">목록</button></a>
-        <a href="./normalReference.html"><button class="btn_cancle">취소</button></a>
+        <a href="${pageContext.request.contextPath}/normalReference.jsp"><button class="btn_list">목록</button></a>
+        <a href="${pageContext.request.contextPath}/normalReference.jsp"><button class="btn_cancle">취소</button></a>
         <button class="btn_compelete">등록</button>
       </div>
     </section>
@@ -42,7 +42,7 @@
     <div class="modal_box">
       <p>문의가 등록 되었습니다.</p>
       <div class="modal_buttons">
-        <a href="./normalReference.html"><button id="check">확인</button></a>
+        <a href="${pageContext.request.contextPath}/normalReference.jsp"><button id="check">확인</button></a>
       </div>
     </div>
   </div>

@@ -10,4 +10,7 @@ public class CareUsersDAO {
 	public CareUsersDAO() {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
+	
+	
+	
 }
