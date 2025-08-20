@@ -65,7 +65,7 @@
           <p>상세 주소</p>
           <input type="text" placeholder="">
         </div>
-        <div class="sign_box sign_choice">
+        <!-- <div class="sign_box sign_choice">
           <p>회원 유형 선택</p>
           <label for="normal">
             <input type="radio" id="normal" name="type" value="normal" checked />
@@ -75,7 +75,7 @@
             <input type="radio" id="care" name="type" value="care" />
             돌봄회원
           </label>
-        </div>
+        </div> -->
         <div class="file">
           <input type="text" readonly>
           <button>파일첨부</button>
