@@ -42,14 +42,14 @@ public class CareMarkDTO {
 //	    shops_intro_text VARCHAR2(2000)
 //	);
 	
-	int favoritesNumber;
-	int usersNumber;
-	int favoritesShopsNumber;
-	String favoritesCreatedDate;
+	private int favoritesNumber;
+	private int usersNumber;
+	private int favoritesShopsNumber;
+	private String favoritesCreatedDate;
 	
-	String shopsName;
-	String shopsRoadAddress;
-	String shopsPhone;
+	private String shopsName;
+	private String shopsRoadAddress;
+	private String shopsPhone;
 	private List<CareMarkDTO> rows;
 	
 	

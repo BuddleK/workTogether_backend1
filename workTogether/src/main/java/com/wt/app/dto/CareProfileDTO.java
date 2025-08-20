@@ -61,43 +61,43 @@ public class CareProfileDTO {
 //	    CONSTRAINT fk_day_care FOREIGN KEY (care_number) REFERENCES tbl_care_users(care_number) ON DELETE CASCADE
 //	);
 	
-	int profilesFilesNumber;
-	String profilesFilesType;
-	String profilesFilesName;
-	String profilesFilesPath;
-	int profilesFilesSizeBytes;
-	String profilesCreatedDate;
+	private int profilesFilesNumber;
+	private String profilesFilesType;
+	private String profilesFilesName;
+	private String profilesFilesPath;
+	private int profilesFilesSizeBytes;
+	private String profilesCreatedDate;
 	
-	int careNumber;
-	char dayMonday;
-	char dayTuesday;
-	char dayWednesday;
-	char dayThursday;
-	char dayFriday;
-	char daySaturday;
-	char daySunday;
+	private int careNumber;
+	private char dayMonday;
+	private char dayTuesday;
+	private char dayWednesday;
+	private char dayThursday;
+	private char dayFriday;
+	private char daySaturday;
+	private char daySunday;
 	
-	int licenseFilesNumber;
-	String licenseFilesType;
-	String licenseFilesName;
-	String licenseFilesPath;
-	int licenseFilesSizeBytes;
-	String licenseCreatedDate;
+	private int licenseFilesNumber;
+	private String licenseFilesType;
+	private String licenseFilesName;
+	private String licenseFilesPath;
+	private int licenseFilesSizeBytes;
+	private String licenseCreatedDate;
 	
-	int accountFilesNumber;
-	String accountFilesType;
-	String accountFilesName;
-	String accountFilesPath;
-	int accountFilesSizeBytes;
-	String accountCreatedDate;
+	private int accountFilesNumber;
+	private String accountFilesType;
+	private String accountFilesName;
+	private String accountFilesPath;
+	private int accountFilesSizeBytes;
+	private String accountCreatedDate;
 	
-	int usersNumber;
-	String usersPostsalCode;
-	String usersAddressLine1;
-	String usersAddressLine2;
+	private int usersNumber;
+	private String usersPostsalCode;
+	private String usersAddressLine1;
+	private String usersAddressLine2;
 	
-	String careIntroText;
-	char careAccept; //DEFAULT 'N' CHECK (care_accept IN ('Y', 'N')),
+	private String careIntroText;
+	private char careAccept; //DEFAULT 'N' CHECK (care_accept IN ('Y', 'N')),
 	
 	public int getProfilesFilesNumber() {
 		return profilesFilesNumber;
