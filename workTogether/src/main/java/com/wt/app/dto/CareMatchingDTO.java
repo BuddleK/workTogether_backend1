@@ -15,14 +15,85 @@ public class CareMatchingDTO {
 //	    CONSTRAINT fk_match_normal FOREIGN KEY (normal_number) REFERENCES tbl_normal_users(normal_number) ON DELETE CASCADE
 //	);
 	
-	int matchNumber;
-	int careNumber;
-	int normalNumber;
-	String matchDate;
-	String matchMatchTime;
-	int matchPoints;
-	char matchStatus; //DEFAULT 'S' CHECK (match_status IN ('C', 'S', 'D')), -- C: 완료, S: 진행, D: 취소
+	private int matchNumber;
+	private int careNumber;
+	private int normalNumber;
+	private String matchDate;
+	private String matchMatchTime;
+	private int matchPoints;
+	private char matchStatus; //DEFAULT 'S' CHECK (match_status IN ('C', 'S', 'D')), -- C: 완료, S: 진행, D: 취소
 	
+
+	public int getMatchNumber() {
+		return matchNumber;
+	}
+
+
+	public void setMatchNumber(int matchNumber) {
+		this.matchNumber = matchNumber;
+	}
+
+
+	public int getCareNumber() {
+		return careNumber;
+	}
+
+
+	public void setCareNumber(int careNumber) {
+		this.careNumber = careNumber;
+	}
+
+
+	public int getNormalNumber() {
+		return normalNumber;
+	}
+
+
+	public void setNormalNumber(int normalNumber) {
+		this.normalNumber = normalNumber;
+	}
+
+
+	public String getMatchDate() {
+		return matchDate;
+	}
+
+
+	public void setMatchDate(String matchDate) {
+		this.matchDate = matchDate;
+	}
+
+
+	public String getMatchMatchTime() {
+		return matchMatchTime;
+	}
+
+
+	public void setMatchMatchTime(String matchMatchTime) {
+		this.matchMatchTime = matchMatchTime;
+	}
+
+
+	public int getMatchPoints() {
+		return matchPoints;
+	}
+
+
+	public void setMatchPoints(int matchPoints) {
+		this.matchPoints = matchPoints;
+	}
+
+
+	public char getMatchStatus() {
+		return matchStatus;
+	}
+
+
+	public void setMatchStatus(char matchStatus) {
+		this.matchStatus = matchStatus;
+	}
+
+
 	@Override
 	public String toString() {
 		return "CareMatchingDTO [matchNumber=" + matchNumber + ", careNumber=" + careNumber + ", normalNumber="
