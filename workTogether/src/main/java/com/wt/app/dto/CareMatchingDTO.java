@@ -15,6 +15,20 @@ public class CareMatchingDTO {
 //	    CONSTRAINT fk_match_normal FOREIGN KEY (normal_number) REFERENCES tbl_normal_users(normal_number) ON DELETE CASCADE
 //	);
 	
+//	CREATE TABLE tbl_normal_users (
+//		    normal_number NUMBER,
+//		    users_name VARCHAR2(50) NOT NULL,
+//		    users_email VARCHAR2(255) NOT NULL UNIQUE,
+//		    users_phone VARCHAR2(30) NOT NULL,
+//		    users_postsal_code VARCHAR2(10) NOT NULL,
+//		    users_address_line1 VARCHAR2(255) NOT NULL,
+//		    users_address_line2 VARCHAR2(255) NOT NULL,
+//		    normal_users_level CHAR(1) NOT NULL CHECK (normal_users_level IN ('1', '2', '3', '4')),
+//		    users_number NUMBER NOT NULL UNIQUE,
+//		    CONSTRAINT pk_normal_users PRIMARY KEY(normal_number),
+//		    CONSTRAINT fk_normal_users FOREIGN KEY (users_number) REFERENCES tbl_users (users_number) ON DELETE CASCADE
+//		);
+	
 	private int matchNumber;
 	private int careNumber;
 	private int normalNumber;
@@ -22,7 +36,18 @@ public class CareMatchingDTO {
 	private String matchMatchTime;
 	private int matchPoints;
 	private char matchStatus; //DEFAULT 'S' CHECK (match_status IN ('C', 'S', 'D')), -- C: 완료, S: 진행, D: 취소
-	
+	private String usersName;
+
+
+	public String getUsersName() {
+		return usersName;
+	}
+
+
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
+
 
 	public int getMatchNumber() {
 		return matchNumber;

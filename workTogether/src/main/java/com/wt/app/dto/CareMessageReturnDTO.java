@@ -1,5 +1,7 @@
 package com.wt.app.dto;
 
+import java.util.List;
+
 public class CareMessageReturnDTO {
 //	-- 쪽지
 //	CREATE TABLE tbl_message (
@@ -19,6 +21,16 @@ public class CareMessageReturnDTO {
 	private String MESSAGECONTENTS;
 	private String MESSAGEDATE;
 	private char ISREAD; //DEFAULT 'N' CHECK (is_read IN ('Y', 'N'))
+	private List<CareMessageDTO> deleteTargets;
+	
+	
+	
+	public List<CareMessageDTO> getDeleteTargets() {
+		return deleteTargets;
+	}
+	public void setDeleteTargets(List<CareMessageDTO> deleteTargets) {
+		this.deleteTargets = deleteTargets;
+	}
 	public int getMessageNumber() {
 		return messageNumber;
 	}
@@ -55,12 +67,13 @@ public class CareMessageReturnDTO {
 	public void setISREAD(char iSREAD) {
 		ISREAD = iSREAD;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "CareMessageDTO [messageNumber=" + messageNumber + ", careNumber=" + careNumber + ", normalNumber="
+		return "CareMessageReturnDTO [messageNumber=" + messageNumber + ", careNumber=" + careNumber + ", normalNumber="
 				+ normalNumber + ", MESSAGECONTENTS=" + MESSAGECONTENTS + ", MESSAGEDATE=" + MESSAGEDATE + ", ISREAD="
-				+ ISREAD + "]";
+				+ ISREAD + ", deleteTargets=" + deleteTargets + "]";
 	}
+	
+	
+	
 }
