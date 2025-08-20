@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class AdminDTO {
+public class AdminLoginDTO {
 	
     private int adminNumber;
     private String adminId;

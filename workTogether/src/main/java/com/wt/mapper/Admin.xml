@@ -7,5 +7,4 @@
 		where admin_id = #{adminId} and admin_password = #{adminPassword}
 	</select>
 
-
 </mapper>

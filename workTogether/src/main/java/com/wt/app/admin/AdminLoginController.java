@@ -18,6 +18,6 @@ public class AdminLoginController implements Execute{
 		Result result = new Result();
 		result.setRedirect(false);
 		result.setPath("/app/admin/adminLogin.jsp");
-		return null;
+		return result;
 	}
 }

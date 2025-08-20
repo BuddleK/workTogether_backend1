@@ -14,7 +14,7 @@ public class GetSubwayLineDTO {
 	}
 	public void setLineName(String lineName) {
 		this.lineName = lineName;
-	}
+	} 
 	
 	@Override
 	public String toString() {
