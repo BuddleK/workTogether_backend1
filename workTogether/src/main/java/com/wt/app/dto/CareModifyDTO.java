@@ -18,15 +18,15 @@ public class CareModifyDTO {
 //	    users_updated_date DATE
 //	);
 	
-	int usersNumber;
-	String usersName;
-	String usersPostsalCode;
-	String usersAddressLine1;
-	String usersAddressLine2;
-	String usersPhone;
-	String usersId;
-	String usersEmail;
-	String usersPassword;
+	private int usersNumber;
+	private String usersName;
+	private String usersPostsalCode;
+	private String usersAddressLine1;
+	private String usersAddressLine2;
+	private String usersPhone;
+	private String usersId;
+	private String usersEmail;
+	private String usersPassword;
 	public int getUsersNumber() {
 		return usersNumber;
 	}

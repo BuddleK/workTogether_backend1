@@ -32,8 +32,8 @@ public class CareExitDTO {
 //	    CONSTRAINT fk_match_normal FOREIGN KEY (normal_number) REFERENCES tbl_normal_users(normal_number) ON DELETE CASCADE
 //	);
 	
-	int usersNumber;
-	int matchNumber;
+	private int usersNumber;
+	private int matchNumber;
 	public int getUsersNumber() {
 		return usersNumber;
 	}

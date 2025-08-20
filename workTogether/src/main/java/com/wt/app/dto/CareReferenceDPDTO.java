@@ -13,11 +13,11 @@ public class CareReferenceDPDTO {
 //	    CONSTRAINT fk_ref_users FOREIGN KEY (reference_users_number) REFERENCES tbl_users(users_number) ON DELETE CASCADE
 //	);
 	
-	int referenceNumber;
-	int referenceUsers;
-	String referenceTitle;
-	String referenceCreatedDate;
-	String referenceContent;
+	private int referenceNumber;
+	private int referenceUsers;
+	private String referenceTitle;
+	private String referenceCreatedDate;
+	private String referenceContent;
 	public int getReferenceNumber() {
 		return referenceNumber;
 	}
