@@ -2,35 +2,22 @@ package com.wt.app.dto;
 
 public class NewsMainDTO {
 
-	뉴스 번호
-	뉴스 제목
-	뉴스 링크
-	뉴스 파일
+//	배너 뉴스 번호
+//	배너 뉴스 제목
+//	배너 뉴스 내용
+//	배너 뉴스 링크
+//	배너 뉴스 이미지 경로
+	
 	private int bannerNewsNumber;
-	private int adminNumber;
-	private int bannerImageFilesNumber;
 	private String bannerTitle;
 	private String bannerContent;
 	private String bannerLinkUrl;
-	private String bannerCreatedDate;
-	private String bannerUpdatedDate;
+	private String banner_files_path;
 	public int getBannerNewsNumber() {
 		return bannerNewsNumber;
 	}
 	public void setBannerNewsNumber(int bannerNewsNumber) {
 		this.bannerNewsNumber = bannerNewsNumber;
-	}
-	public int getAdminNumber() {
-		return adminNumber;
-	}
-	public void setAdminNumber(int adminNumber) {
-		this.adminNumber = adminNumber;
-	}
-	public int getBannerImageFilesNumber() {
-		return bannerImageFilesNumber;
-	}
-	public void setBannerImageFilesNumber(int bannerImageFilesNumber) {
-		this.bannerImageFilesNumber = bannerImageFilesNumber;
 	}
 	public String getBannerTitle() {
 		return bannerTitle;
@@ -50,23 +37,16 @@ public class NewsMainDTO {
 	public void setBannerLinkUrl(String bannerLinkUrl) {
 		this.bannerLinkUrl = bannerLinkUrl;
 	}
-	public String getBannerCreatedDate() {
-		return bannerCreatedDate;
+	public String getBanner_files_path() {
+		return banner_files_path;
 	}
-	public void setBannerCreatedDate(String bannerCreatedDate) {
-		this.bannerCreatedDate = bannerCreatedDate;
-	}
-	public String getBannerUpdatedDate() {
-		return bannerUpdatedDate;
-	}
-	public void setBannerUpdatedDate(String bannerUpdatedDate) {
-		this.bannerUpdatedDate = bannerUpdatedDate;
+	public void setBanner_files_path(String banner_files_path) {
+		this.banner_files_path = banner_files_path;
 	}
 	@Override
 	public String toString() {
-		return "NewsBannerDTO [bannerNewsNumber=" + bannerNewsNumber + ", adminNumber=" + adminNumber
-				+ ", bannerImageFilesNumber=" + bannerImageFilesNumber + ", bannerTitle=" + bannerTitle
-				+ ", bannerContent=" + bannerContent + ", bannerLinkUrl=" + bannerLinkUrl + ", bannerCreatedDate="
-				+ bannerCreatedDate + ", bannerUpdatedDate=" + bannerUpdatedDate + "]";
+		return "NewsMainDTO [bannerNewsNumber=" + bannerNewsNumber + ", bannerTitle=" + bannerTitle + ", bannerContent="
+				+ bannerContent + ", bannerLinkUrl=" + bannerLinkUrl + ", banner_files_path=" + banner_files_path + "]";
 	}
+	
 }
