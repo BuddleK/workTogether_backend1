@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="CareMark">
+	<!-- 찜 목록 전체 조회 -->
 	<select id="markAll" parameterType="CareMarkDTO">
 		<![CDATA[
 		SELECT * FROM (
@@ -16,6 +17,14 @@
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
 		]]>
 	</select>
+	
+	<!-- 찜 삭제 쿼리 -->
+	<delete id="markDelete">
+		delete from tbl_shops_favorites
+		where favorites_number = #{rows}
+	</delete>
+	
+	
 </mapper>
 
 
