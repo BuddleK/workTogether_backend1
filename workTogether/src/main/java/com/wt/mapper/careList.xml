@@ -4,36 +4,36 @@
 <mapper namespace="careList">
 	<!-- 돌봄회원 리스트 모음집 -->
 	<!-- 프사, 이름, 날짜, 소개글, 간단지역, 하트 -->
-	<select id="list">
-		<!-- user 테이블 추출 -->
+	<!-- <select id="list">
+		user 테이블 추출
 		select u.users_number, u.users_name, u.users_address_line1
-		<!-- care 테이블 추출 -->
+		care 테이블 추출
 		c.care_number, c.care_intro_text, c.care_profiles_photo_number
-		<!-- 프로필 사진 -->
+		프로필 사진
 		fp.profiles_files_number, fp.profiles_files_type, fp.profiles_files_name, fp.profiles_files_path
-		<!-- 가능 날짜 => case문을 사용해야 하는지 질문 -->
+		가능 날짜 => case문을 사용해야 하는지 질문
 		d.care_number, (select * from tbl_day d where c.care_number = d.care_number and d.care_number = c.care_number)
-		<!-- hearts 테이블 추출 -->
+		hearts 테이블 추출
 		case when h.hearts_normal_number is not null then 'Y' else 'N' end as 'is_heart_checked'
-		<!-- user, care 조인 -->
+		user, care 조인
 		from tbl_cares_users c left join tbl_users u on c.users_number = u.users_number
-		<!-- file, care 조인 -->
+		file, care 조인
 		left join tbl_files_profiles fp on c.care_profiles_photo_number = fp.profiles_files_number
-		<!-- day, care 조인 -->
+		day, care 조인
 		left join tbl_day d on c.care_number = d.care_number
-		<!-- user, care 조인 -->
+		user, care 조인
 		left join tbl_hearts h on c.care_number = h.hearts_care_number
 		and h.hearts_care_number = #{usersNumber}
-	</select>
+	</select> -->
 	
 	<select id="detail">
-		select u.users_number, u.users_name, u.users_address_line1
+		select u.users_number, u.users_name, u.users_address_line1,
 		<!-- care 테이블 추출 -->
-		c.care_number, c.care_intro_text, c.care_profiles_photo_number
+		c.care_number, c.care_intro_text, c.care_profiles_photo_number,
 		<!-- 프로필 사진 -->
-		fp.profiles_files_number, fp.profiles_files_type, fp.profiles_files_name, fp.profiles_files_path
+		fp.profiles_files_number, fp.profiles_files_type, fp.profiles_files_name, fp.profiles_files_path,
 		<!-- 가능 날짜 => case문을 사용해야 하는지 질문 -->
-		d.care_number, (select * from tbl_day d where c.care_number = d.care_number and d.care_number = c.care_number)
+		d.care_number, (select * from tbl_day d where c.care_number = d.care_number and d.care_number = c.care_number),
 		<!-- hearts 테이블 추출 -->
 		case when h.hearts_normal_number is not null then 'Y' else 'N' end as 'is_heart_checked'
 		<!-- user, care 조인 -->
