@@ -13,12 +13,12 @@ public class CareMessageReturnDTO {
 //	   CONSTRAINT FK_NORMAL FOREIGN KEY(NORMAL_number) REFERENCES TBL_CARE_USERS(CARE_number) ON DELETE CASCADE
 //	);
 	
-	int messageNumber;
-	int careNumber;
-	int normalNumber;
-	String MESSAGECONTENTS;
-	String MESSAGEDATE;
-	char ISREAD; //DEFAULT 'N' CHECK (is_read IN ('Y', 'N'))
+	private int messageNumber;
+	private int careNumber;
+	private int normalNumber;
+	private String MESSAGECONTENTS;
+	private String MESSAGEDATE;
+	private char ISREAD; //DEFAULT 'N' CHECK (is_read IN ('Y', 'N'))
 	public int getMessageNumber() {
 		return messageNumber;
 	}
