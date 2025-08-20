@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class CareSginDTO {
+public class CareSignDTO {
 //    care_number NUMBER,
 //    users_name VARCHAR2(50) NOT NULL,
 //    users_email VARCHAR2(255) NOT NULL UNIQUE,

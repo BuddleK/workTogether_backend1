@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class NormalSginDTO {
+public class NormalSignDTO {
 
 //	normal_number NUMBER,
 //    users_name VARCHAR2(50) NOT NULL,
