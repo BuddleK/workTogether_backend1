@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MyPageNormal">
+	<!-- 페이지 입장 시 비밀번호 입력 -->
+	<select id="checkPw">
+		SELECT COUNT(USERS_PASSWORD) FROM TBL_USERS
+		WHERE USERS_PASSWORD = ${usersPassword};
+	</select>
+	
+	<!-- 개인정보 수정 -->
+	<update id="normalModify">
+		
+	</update>
+</mapper>
