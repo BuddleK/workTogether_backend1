@@ -4,7 +4,6 @@ public class NormalMatchingDTO {
 	private int matchNumber;
 	private int careNumber;
 	private int normalNumber;
-	
 	private String matchDate;
 	private String matchTime;
 	private int matchPoints;
