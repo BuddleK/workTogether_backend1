@@ -72,12 +72,12 @@ public class UsersFrontController extends HttpServlet {
 
 	            case "/users/joinNormal.us":
 	    			System.out.println("일반회원 회원가입 처리 요청");
-	                result = new NormalUserJoinController().Execute(request, response);
+	                result = new NormalUserJoinOkController().Execute(request, response);
 	                break;
 	                
 	            case "/users/joinCare.us":
 	    			System.out.println("돌봄회원 회원가입 처리 요청");
-	                result = new CareUsersJoinController().Execute(request, response);
+	                result = new CareUsersJoinOkController().Execute(request, response);
 	                break;
 	                
 	            case "/users/joinOk.us":
