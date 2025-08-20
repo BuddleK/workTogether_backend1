@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header id="site_header">
   <div id="header_upper">
     <span>
@@ -9,14 +10,20 @@
       </a>
     </span>
     <span>
-      <!-- 로그인 메뉴 -->
-      <a href="${pageContext.request.contextPath}/login/login.jsp">
-        로그인
-      </a>
-      <!-- 회원가입 메뉴 -->
-      <a href="${pageContext.request.contextPath}/sign/terms.jsp">
-        회원가입
-      </a>
+    	<c:choose>
+    		<c:when test="${empty sessionScope.usersNumber}">
+		     	<!-- 로그인 메뉴 -->
+		      	<a href="${pageContext.request.contextPath}/서블릿 경로">로그인</a>
+		      	<!-- 회원가입 메뉴 -->
+		      	<a href="${pageContext.request.contextPath}/서블릿 경로">회원가입</a>
+    		</c:when>
+    		<c:otherwise>
+    			<!-- 로그인 메뉴 -->
+		      	<a href="${pageContext.request.contextPath}/서블릿 경로">마이페이지</a>
+    			<!-- 로그아웃 메뉴 -->
+				<a href="${pageContext.request.contextPath}/서블릿 경로">로그아웃</a>
+			</c:otherwise>
+    	</c:choose>
     </span>
   </div>
   <!-- 네비게이션 -->

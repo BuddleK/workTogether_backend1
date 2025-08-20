@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header id="site_header_login">
   <div>
     <!-- 헤더 왼쪽 메뉴 -->
@@ -14,7 +15,7 @@
     <!-- 헤더 오른쪽 메뉴 -->
     <span>
       <!-- 로그아웃 메뉴 -->
-      <a href="${pageContext.request.contextPath}/app/admin/adminLogin.html" class="logout"> 로그아웃 </a>
+      <a href="${pageContext.request.contextPath}/app/admin/adminLogin.jsp" class="logout"> 로그아웃 </a>
     </span>
   </div>
 </header>

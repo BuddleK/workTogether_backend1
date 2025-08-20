@@ -46,15 +46,15 @@
               <div class="table">
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >뉴스 제목</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >2025-08-09</a
                     >
                   </li>
@@ -70,15 +70,15 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >뉴스 제목</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >2025-08-09</a
                     >
                   </li>
@@ -94,15 +94,15 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >뉴스 제목</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >2025-08-09</a
                     >
                   </li>
@@ -118,15 +118,15 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >뉴스 제목</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >2025-08-09</a
                     >
                   </li>
@@ -142,15 +142,15 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >뉴스 제목</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >2025-08-09</a
                     >
                   </li>
@@ -166,15 +166,15 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >뉴스 제목</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >2025-08-09</a
                     >
                   </li>
@@ -190,15 +190,15 @@
                 </ul>
                 <ul class="table_body">
                   <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html">1</a>
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp">1</a>
                   </li>
                   <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >뉴스 제목</a
                     >
                   </li>
                   <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.html"
+                    <a href="${pageContext.request.contextPath}/app/admin/newsBoadDetail.jsp"
                       >2025-08-09</a
                     >
                   </li>
@@ -237,7 +237,7 @@
                 </li>
               </ul>
               <div class="add">
-                <a href="${pageContext.request.contextPath}/app/admin/newsBoardAdd.html" class="add_btn"
+                <a href="${pageContext.request.contextPath}/app/admin/newsBoardAdd.jsp" class="add_btn"
                   >등록</a
                 >
               </div>
