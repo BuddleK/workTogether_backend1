@@ -13,8 +13,8 @@ public class PostsListDTO {
 	private String postsTitle;
 	private int usersNumber;
 	private String usersName;
-	private int viewCount;
-	private String createdDate;
+	private int postsViewCount;
+	private String postsCreatedDate;
 	public int getPostsNumber() {
 		return postsNumber;
 	}
@@ -39,23 +39,23 @@ public class PostsListDTO {
 	public void setUsersName(String usersName) {
 		this.usersName = usersName;
 	}
-	public int getViewCount() {
-		return viewCount;
+	public int getPostsViewCount() {
+		return postsViewCount;
 	}
-	public void setViewCount(int viewCount) {
-		this.viewCount = viewCount;
+	public void setPostsViewCount(int postsViewCount) {
+		this.postsViewCount = postsViewCount;
 	}
-	public String getCreatedDate() {
-		return createdDate;
+	public String getPostsCreatedDate() {
+		return postsCreatedDate;
 	}
-	public void setCreatedDate(String createdDate) {
-		this.createdDate = createdDate;
+	public void setPostsCreatedDate(String postsCreatedDate) {
+		this.postsCreatedDate = postsCreatedDate;
 	}
 	@Override
 	public String toString() {
 		return "PostsListDTO [postsNumber=" + postsNumber + ", postsTitle=" + postsTitle + ", usersNumber="
-				+ usersNumber + ", usersName=" + usersName + ", viewCount=" + viewCount + ", createdDate=" + createdDate
-				+ "]";
+				+ usersNumber + ", usersName=" + usersName + ", postsViewCount=" + postsViewCount
+				+ ", postsCreatedDate=" + postsCreatedDate + "]";
 	}
 	
 }
