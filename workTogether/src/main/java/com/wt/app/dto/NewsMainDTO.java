@@ -1,19 +1,11 @@
 package com.wt.app.dto;
 
-public class NewsBannerDTO {
-//	-- 뉴스 베너
-//	CREATE TABLE tbl_news_banners (
-//	    banner_news_number NUMBER PRIMARY KEY,
-//	    admin_number NUMBER NOT NULL,
-//	    banner_image_files_number NUMBER,
-//	    banner_title VARCHAR2(300) NOT NULL,
-//	    banner_content VARCHAR2(4000),
-//	    banner_link_url VARCHAR2(1000) NOT NULL,
-//	    banner_created_date DATE NOT NULL,
-//	    banner_updated_date DATE,
-//	    CONSTRAINT fk_banner_admin FOREIGN KEY (admin_number) REFERENCES tbl_admin(admin_number) ON DELETE CASCADE,
-//	    CONSTRAINT fk_banner_image FOREIGN KEY (banner_image_files_number) REFERENCES tbl_files_banner(banner_files_number) ON DELETE CASCADE
-//	);
+public class NewsMainDTO {
+
+	뉴스 번호
+	뉴스 제목
+	뉴스 링크
+	뉴스 파일
 	private int bannerNewsNumber;
 	private int adminNumber;
 	private int bannerImageFilesNumber;

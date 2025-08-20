@@ -20,7 +20,7 @@
    </update>
    
    <!-- 일반 뉴스 삭제 쿼리 작성-->
-   <delete id="delete" parameterType="newsNumber">
+   <delete id="delete" parameterType="int">
    		DELETE FROM tbl_news
    		WHERE news_number = #{newsNumber}
    </delete>
