@@ -12,7 +12,7 @@ public class NewsMainDTO {
 	private String bannerTitle;
 	private String bannerContent;
 	private String bannerLinkUrl;
-	private String banner_files_path;
+	private String bannerFilePath;
 	public int getBannerNewsNumber() {
 		return bannerNewsNumber;
 	}
@@ -37,16 +37,15 @@ public class NewsMainDTO {
 	public void setBannerLinkUrl(String bannerLinkUrl) {
 		this.bannerLinkUrl = bannerLinkUrl;
 	}
-	public String getBanner_files_path() {
-		return banner_files_path;
+	public String getBannerFilePath() {
+		return bannerFilePath;
 	}
-	public void setBanner_files_path(String banner_files_path) {
-		this.banner_files_path = banner_files_path;
+	public void setBannerFilePath(String bannerFilePath) {
+		this.bannerFilePath = bannerFilePath;
 	}
 	@Override
 	public String toString() {
 		return "NewsMainDTO [bannerNewsNumber=" + bannerNewsNumber + ", bannerTitle=" + bannerTitle + ", bannerContent="
-				+ bannerContent + ", bannerLinkUrl=" + bannerLinkUrl + ", banner_files_path=" + banner_files_path + "]";
+				+ bannerContent + ", bannerLinkUrl=" + bannerLinkUrl + ", bannerFilePath=" + bannerFilePath + "]";
 	}
-	
 }
