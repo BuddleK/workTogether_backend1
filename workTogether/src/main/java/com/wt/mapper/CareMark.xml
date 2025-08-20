@@ -10,6 +10,7 @@
 				SELECT s.shops_name, s.shops_road_address, s.shops_phone
 				FROM tbl_shops_favorites f JOIN tbl_shops s 
 				ON f.favorites_shops_number = s.shops_number
+				where f.users_number = #{usersNumber}
 				ORDER BY f.favorites_created_date DESC
 			) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
