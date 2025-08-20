@@ -2,7 +2,7 @@ package com.wt.app.news.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.wt.app.dto.NewsDTO;
+import com.wt.app.dto.NewsListDTO;
 import com.wt.config.MyBatisConfig;
 
 public class NewsDAO {
@@ -13,19 +13,19 @@ public class NewsDAO {
 	}
 	
 	//뉴스 추가 메소드
-	public void add(NewsDTO newsDTO) {
+	public void add(NewsListDTO newsDTO) {
 		sqlSession.insert("news.add", newsDTO);
 	}
 	
 	//뉴스 불러오기 메소드
-	public NewsDTO findById(int newsNumber) {
-		NewsDTO newsDTO = null;
+	public NewsListDTO findById(int newsNumber) {
+		NewsListDTO newsDTO = null;
 		newsDTO = sqlSession.selectOne("news.findById", newsNumber);
 		return newsDTO;
 	}
 	
 	//뉴스 수정 메소드
-	public void edit(NewsDTO newsDTO) {
+	public void edit(NewsListDTO newsDTO) {
 		sqlSession.update("news.edit", newsDTO);
 	}
 	

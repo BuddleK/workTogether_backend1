@@ -1,16 +1,11 @@
 package com.wt.app.dto;
 
-public class NewsDTO {
-//	-- 일반 뉴스
-//	CREATE TABLE tbl_news (
-//	    news_number NUMBER PRIMARY KEY,
-//	    admin_number NUMBER NOT NULL,
-//	    news_title VARCHAR2(300) NOT NULL,
-//	    news_link_url VARCHAR2(1000),
-//	    news_created_date DATE NOT NULL,
-//	    news_updated_date DATE,
-//	    CONSTRAINT fk_news_admin FOREIGN KEY (admin_number) REFERENCES tbl_admin(admin_number) ON DELETE CASCADE
-//	);
+public class NewsListDTO {
+
+//	뉴스 번호
+//	뉴스 제목
+//	뉴스 링크
+	
 	private int newsNumber;
 	private int adminNumber;
 	private String newsTitle;
