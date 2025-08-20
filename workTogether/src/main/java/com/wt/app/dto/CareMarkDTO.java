@@ -1,5 +1,7 @@
 package com.wt.app.dto;
 
+import java.util.List;
+
 public class CareMarkDTO {
 	
 //	-- 가게 찜
@@ -48,6 +50,8 @@ public class CareMarkDTO {
 	String shopsName;
 	String shopsRoadAddress;
 	String shopsPhone;
+	private List<CareMarkDTO> rows;
+	
 	
 	public int getFavoritesNumber() {
 		return favoritesNumber;
@@ -92,6 +96,14 @@ public class CareMarkDTO {
 		this.shopsPhone = shopsPhone;
 	}
 	
+	
+	
+	public List<CareMarkDTO> getrows() {
+		return rows;
+	}
+	public void setrows(List<CareMarkDTO> rows) {
+		this.rows = rows;
+	}
 	@Override
 	public String toString() {
 		return "CareMarkDTO [favoritesNumber=" + favoritesNumber + ", usersNumber=" + usersNumber
