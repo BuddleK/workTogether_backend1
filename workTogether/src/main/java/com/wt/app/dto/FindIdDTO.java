@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class FindId {
+public class FindIdDTO {
 	//users_name VARCHAR2(50) NOT NULL,
 	//users_phone VARCHAR2(30) NOT NULL,
 	//users_type CHAR(1) CHECK (users_type IN ('C', 'N')) NOT NULL,

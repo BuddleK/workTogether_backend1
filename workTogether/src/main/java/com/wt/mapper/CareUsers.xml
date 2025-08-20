@@ -18,8 +18,9 @@
 		#{careIntroText}, #{careCertificateFilesNum}, #{carePassbookFilesNum},
 		#{careProfilesPhotoNumber}, #{careAccept}, #{usersNumber})
 	</insert>
-
 	<select id="findId" parameterType="FindidDTO" resultType="int">
-		
+		select count(*)
+		from tbl_care_users
+		where
 	</select>
 </mapper>

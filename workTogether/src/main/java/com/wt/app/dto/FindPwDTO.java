@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class FindPw {
+public class FindPwDTO {
 	private int usetNumber;
 	private String usersName;
 	private String usersPhone;
