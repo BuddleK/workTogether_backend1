@@ -15,11 +15,11 @@ public class CarePostDTO {
 //	    CONSTRAINT fk_posts_users FOREIGN KEY (users_number) REFERENCES tbl_users(users_number) ON DELETE CASCADE
 //	);
 	
-	int postsNumber;
-	String postsTitle;
-	int usersNumber;
-	String postsCreatedDate;
-	String postsUpdatedDate;
+	private int postsNumber;
+	private String postsTitle;
+	private int usersNumber;
+	private String postsCreatedDate;
+	private String postsUpdatedDate;
 	public int getPostsNumber() {
 		return postsNumber;
 	}

@@ -24,16 +24,16 @@ public class CareReferenceCheckDTO {
 //	    CONSTRAINT fk_refreply_admin FOREIGN KEY (admin_number) REFERENCES tbl_admin(admin_number) ON DELETE CASCADE
 //	);
 	
-	int referenceNumber;
-	int referenceUsers;
-	String referenceTitle;
-	String referenceCreated;
-	String referenceContent;
-	int reply_referenceReplyNumber;
-	int adminNumber;
-	String replyContent;
-	String replyCreatedDate;
-	String replyUpdatedDate;
+	private int referenceNumber;
+	private int referenceUsers;
+	private String referenceTitle;
+	private String referenceCreated;
+	private String referenceContent;
+	private int reply_referenceReplyNumber;
+	private int adminNumber;
+	private String replyContent;
+	private String replyCreatedDate;
+	private String replyUpdatedDate;
 	public int getReferenceNumber() {
 		return referenceNumber;
 	}
