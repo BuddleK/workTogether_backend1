@@ -1,8 +1,6 @@
 package com.wt.app.dto;
 
-public class SubwayLineDTO {
-//    line_number NUMBER PRIMARY KEY,
-//	  line_name VARCHAR2(20) NOT NULL UNIQUE
+public class GetSubwayLineDTO {
 	private int lineNumber;
 	private String lineName;
 	public int getLineNumber() {
