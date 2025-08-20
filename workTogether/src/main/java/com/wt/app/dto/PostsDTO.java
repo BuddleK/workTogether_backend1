@@ -1,26 +1,22 @@
 package com.wt.app.dto;
 
 public class PostsDTO {
-//	-- 게시글
-//	CREATE TABLE tbl_posts (
-//	    posts_number NUMBER PRIMARY KEY,
-//	    posts_title VARCHAR2(300) NOT NULL,
-//	    users_number NUMBER NOT NULL,
-//	    posts_content VARCHAR2(4000) NOT NULL,
-//	    posts_view_count NUMBER DEFAULT 0 NOT NULL,
-//	    posts_created_date DATE NOT NULL,
-//	    posts_updated_date DATE,
-//	    posts_report_count NUMBER DEFAULT 0 NOT NULL,
-//	    CONSTRAINT fk_posts_users FOREIGN KEY (users_number) REFERENCES tbl_users(users_number) ON DELETE CASCADE
-//	);
+	
+//	게시글 번호
+//	게시글 제목
+//	작성자 번호
+//	작성자 이름
+//	조회수
+//	작성일
+//	내용
+
 	private int postsNumber;
 	private String postsTitle;
 	private int usersNumber;
-	private String postsContent;
+	private String usersName;
 	private int postsViewCount;
 	private String postsCreatedDate;
-	private String postsUpdatedDate;
-	private int postsReportCount;
+	private String postsContent;
 	public int getPostsNumber() {
 		return postsNumber;
 	}
@@ -39,11 +35,11 @@ public class PostsDTO {
 	public void setUsersNumber(int usersNumber) {
 		this.usersNumber = usersNumber;
 	}
-	public String getPostsContent() {
-		return postsContent;
+	public String getUsersName() {
+		return usersName;
 	}
-	public void setPostsContent(String postsContent) {
-		this.postsContent = postsContent;
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
 	}
 	public int getPostsViewCount() {
 		return postsViewCount;
@@ -57,23 +53,17 @@ public class PostsDTO {
 	public void setPostsCreatedDate(String postsCreatedDate) {
 		this.postsCreatedDate = postsCreatedDate;
 	}
-	public String getPostsUpdatedDate() {
-		return postsUpdatedDate;
+	public String getPostsContent() {
+		return postsContent;
 	}
-	public void setPostsUpdatedDate(String postsUpdatedDate) {
-		this.postsUpdatedDate = postsUpdatedDate;
-	}
-	public int getPostsReportCount() {
-		return postsReportCount;
-	}
-	public void setPostsReportCount(int postsReportCount) {
-		this.postsReportCount = postsReportCount;
+	public void setPostsContent(String postsContent) {
+		this.postsContent = postsContent;
 	}
 	@Override
 	public String toString() {
 		return "PostsDTO [postsNumber=" + postsNumber + ", postsTitle=" + postsTitle + ", usersNumber=" + usersNumber
-				+ ", postsContent=" + postsContent + ", postsViewCount=" + postsViewCount + ", postsCreatedDate="
-				+ postsCreatedDate + ", postsUpdatedDate=" + postsUpdatedDate + ", postsReportCount=" + postsReportCount
-				+ "]";
+				+ ", usersName=" + usersName + ", postsViewCount=" + postsViewCount + ", postsCreatedDate="
+				+ postsCreatedDate + ", postsContent=" + postsContent + "]";
 	}
+	
 }
