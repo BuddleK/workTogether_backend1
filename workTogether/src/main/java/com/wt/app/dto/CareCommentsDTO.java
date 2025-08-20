@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class CommentsDTO {
+public class CareCommentsDTO {
 	private int commentsNumber;
 	private int normalNumber;
 	private int careNumber;

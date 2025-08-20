@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="login">
+	<select id="admin" parameterType="AdminLoginDTO" resultType="int">
+		select admin_number 
+		from tbl_admin
+		where admin_id = #{adminId} and admin_password = #{adminPassword}
+	</select>
+	<select id="user" parameterType="UserLoginDTO" resultType="int">
+		SELECT users_number 
+		from tbl_users 
+		where users_number = #{usersNumber} and users_type = #{usersType}
+	</select>
+	
+	
+	 <select id="select" parameterType="int" resultType="FileDTO">
+      SELECT file_system_name, file_original_name, board_number
+      FROM tbl_file
+      WHERE board_number = #{boardNumber}
+      
+      (${users_number}, ${users_id}, ${users_password}, ${users_type})
+   </select>
+   
+</mapper>

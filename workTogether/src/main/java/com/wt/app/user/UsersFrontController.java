@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.example.app.member.LoginController;
+//import com.example.app.member.LoginController;
 import com.wt.app.Result;
 
 /**
@@ -70,20 +70,25 @@ public class UsersFrontController extends HttpServlet {
 	                result = new UsersLogoutController().Execute(request, response);
 	                break;
 
-	            case "/users/joinNormal.us":
+	            case "/users/Normaljoin.us":
 	    			System.out.println("일반회원 회원가입 처리 요청");
-	                result = new NormalUserJoinController().Execute(request, response);
+	    			request.getRequestDispatcher("/app/sign/terms.jsp").forward(request, response);
 	                break;
 	                
-	            case "/users/joinCare.us":
+	            case "/users/Carejoin.us":
 	    			System.out.println("돌봄회원 회원가입 처리 요청");
-	                result = new CareUsersJoinController().Execute(request, response);
+	    			request.getRequestDispatcher("/app/sign/terms.jsp").forward(request, response);	    			
 	                break;
 	                
-	            case "/users/joinOk.us":
-	            	System.out.println("공통으로 회원가입 성공시");
-	                result = new UsersJoinOkController().Execute(request, response);
+	            case "/users/NormaljoinOk.us":
+	            	System.out.println("일반회원 회원가입 성공시");
+	                result = new NormalJoinOkController().Execute(request, response);
 	                break;
+	                
+	            case "/users/CarejoinOk.us":
+	            	System.out.println("돌봄회원 회원가입 성공시");
+	                result = new CareJoinOkController().Execute(request, response);
+	                break; 
 
 	        }
 

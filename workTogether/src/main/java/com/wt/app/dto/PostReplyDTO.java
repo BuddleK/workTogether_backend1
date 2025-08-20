@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class ReplyDTO {
+public class PostReplyDTO {
 	private int replyNumber;
 	private int postsNumber;
 	private int usersNumber;
