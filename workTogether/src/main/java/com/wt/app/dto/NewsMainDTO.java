@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class NewsBannerDTO {
+public class NewsMainDTO {
 //	-- 뉴스 베너
 //	CREATE TABLE tbl_news_banners (
 //	    banner_news_number NUMBER PRIMARY KEY,

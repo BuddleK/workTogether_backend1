@@ -1,6 +1,14 @@
 package com.wt.app.dto;
 
 public class PostsListDTO {
+	
+//	게시글 번호
+//	게시글 제목
+//	작성자 번호
+//	작성자 이름
+//	조회수
+//	작성일
+	
 	private int postsNumber;
 	private String postsTitle;
 	private int usersNumber;

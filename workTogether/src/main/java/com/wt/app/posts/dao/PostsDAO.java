@@ -2,7 +2,7 @@ package com.wt.app.posts.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.wt.app.dto.NewsDTO;
+import com.wt.app.dto.NewsListDTO;
 import com.wt.config.MyBatisConfig;
 
 public class PostsDAO {
