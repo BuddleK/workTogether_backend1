@@ -7,6 +7,7 @@ public class CareCommentsDTO {
 	private String commentsContent;
 	private String commentsCreatedDate;
 	private String commentsUpdatedDate;
+	private String usersName;
 	public int getCommentsNumber() {
 		return commentsNumber;
 	}
