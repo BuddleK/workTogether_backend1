@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class ShopsFavorites {
+public class ShopsFavoritesActionDTO {
 	private int favoritesNumber;
 	private int userNumber;
 	private int favoritesShopsNumber;

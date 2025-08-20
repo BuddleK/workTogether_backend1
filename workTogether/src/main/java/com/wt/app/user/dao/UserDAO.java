@@ -1,13 +1,11 @@
 package com.wt.app.user.dao;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.ibatis.session.SqlSession;
+
+import com.wt.config.MyBatisConfig;
 
 /*import com.wt.app.dto.UserDTO;
 import com.wt.app.dto.UsersDTO;*/
-import com.wt.config.MyBatisConfig;
 
 public class UserDAO {
     public SqlSession sqlSession;
