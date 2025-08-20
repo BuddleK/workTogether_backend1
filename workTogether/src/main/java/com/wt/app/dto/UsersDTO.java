@@ -13,9 +13,9 @@ public class UsersDTO {
     private String usersPostalCode;
     private String usersAddressLine1;
     private String usersAddressLine2;
-    private Date usersCreatedDate;
-    private Date usersUpdatedDate;
-	
+    private String usersCreatedDate;
+    private String usersUpdatedDate;
+	//
     public int getUsersNumber() {
 		return usersNumber;
 	}
