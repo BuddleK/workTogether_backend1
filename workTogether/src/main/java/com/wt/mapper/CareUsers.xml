@@ -19,8 +19,11 @@
 		#{careProfilesPhotoNumber}, #{careAccept}, #{usersNumber})
 	</insert>
 	<select id="findId" parameterType="FindidDTO" resultType="int">
-		select count(*)
-		from tbl_care_users
-		where
+		select u.users_id
+		from  tbl_care_users c, tbl_users u
+		where c.users_number = u.users_number
+		and c.USERS_NAME = #{userName} AND c.USERS_PHONE = #{userPhone};
 	</select>
+	
+	
 </mapper>
