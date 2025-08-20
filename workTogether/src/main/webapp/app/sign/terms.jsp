@@ -70,7 +70,8 @@
           </p>
         </div>
         <div class="next_btn">
-          <button onclick="goNext()">다음으로</button>
+          <button onclick="goNextNormal()" type="button">일반회원가입</button>
+          <button onclick="goNextCare()" type="button">돌봄회원가입</button>
         </div>
       </form>
     </section>

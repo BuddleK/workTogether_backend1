@@ -91,7 +91,7 @@
           <p>상세 주소</p>
           <input type="text" placeholder="" class="detail_address">
         </div>
-        <div class="sign_box sign_choice">
+        <!-- <div class="sign_box sign_choice">
           <p>회원 유형 선택</p>
           <label for="normal">
             <input type="radio" id="normal" name="type" value="normal" checked onclick="checkNormal()" />
@@ -101,7 +101,7 @@
             <input type="radio" id="care" name="type" value="care" onclick="checkCare()" />
             돌봄회원
           </label>
-        </div>
+        </div> -->
         <div class="section_normal">
 
           <div class="sign_box sign_level">
@@ -119,25 +119,6 @@
               <input type="radio" id="level4" name="level" value="level">보행 가능(휠체어
               없음)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp[4레벨]
             </label>
-          </div>
-        </div>
-        <div class="section_care">
-          <div class="file">
-            <input type="file" readonly>
-          </div>
-          <div class="file">
-            <input type="file" readonly>
-          </div>
-          <div class="sign_box sign_level">
-            <div class="file_title">
-              첨부파일
-            </div>
-            <ul>
-              <li>운전면허증</li>
-              <li>운전면허증</li>
-              <li>운전면허증</li>
-              <li>운전면허증</li>
-            </ul>
           </div>
         </div>
         <div class="sign_box sign_btn">
