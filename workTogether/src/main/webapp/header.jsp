@@ -18,7 +18,7 @@
 		      	<a href="${pageContext.request.contextPath}/서블릿 경로">회원가입</a>
     		</c:when>
     		<c:otherwise>
-    			<!-- 로그인 메뉴 -->
+    			<!-- 마이페이지 메뉴 -->
 		      	<a href="${pageContext.request.contextPath}/서블릿 경로">마이페이지</a>
     			<!-- 로그아웃 메뉴 -->
 				<a href="${pageContext.request.contextPath}/서블릿 경로">로그아웃</a>
