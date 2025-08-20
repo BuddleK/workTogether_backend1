@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="CareUser">
+<mapper namespace="CareProfile">
 	<!-- 프로필 사진 수정 쿼리작성 -->
 	<update id="profileProfile">
 		update tbl_files_profiles set profiles_files_type=#{profilesFilesType}, profiles_files_name=#{profilesFilesName}, profiles_files_path=#{profilesFilesPath},
