@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.wt.app.dto.UserDTO;
 import com.wt.app.dto.UsersDTO;
 import com.wt.config.MyBatisConfig;
 
