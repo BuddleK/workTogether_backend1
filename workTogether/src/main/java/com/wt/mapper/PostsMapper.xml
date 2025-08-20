@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="posts">
+	<!-- 일반 게시물 추가 쿼리 작성 -->
+   <insert id="add" parameterType="NewsDTO">
+		INSERT INTO tbl_posts(posts_number, posts_title, users_number, posts_content, posts_view_count, posts_created_date, posts_updated_date, posts_report_count)
+		VALUES (seq_board_posts.nextval, #{postsTitle}, #{usersNumber}, #{postsContent}, TO_DATE(#{postsCreatedDate}, 'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{postsUpdatedDate}, 'YYYY-MM-DD HH24:MI:SS'), #{postsReportCount})
+   </insert>
+   <!-- 일반 게시물 불러오기 쿼리 작성-->
+   <select id="findById" parameterType="int" resultType="PostsDTO">
+   		SELECT * FROM tbl_posts
+   		WHERE posts_number = #{postsNumber}
+   </select>
+   <!-- 일반 게시물 수정 쿼리 작성-->
+   <update id="edit" parameterType="PostsDTO">
+   		UPDATE tbl_posts SET posts_title = #{postsTitle}, users_number = #{usersNumber}, posts_content = #{postsContent}, posts_view_count = #{postsViewCount}, posts_created_date = TO_DATE(#{postsCreatedDate}, 'YYYY-MM-DD HH24:MI:SS'), posts_updated_date = TO_DATE(#{postsUpdatedDate}, 'YYYY-MM-DD HH24:MI:SS'), posts_report_count = #{postsReportCount}
+   		WHERE posts_number = #{postsNumber}
+   </update>
+   <!-- 일반 게시물 삭제 쿼리 작성-->
+   <delete id="delete" parameterType="postsNumber">
+   		DELETE FROM tbl_posts
+   		WHERE posts_number = #{postsNumber}
+   </delete>
+</mapper>
