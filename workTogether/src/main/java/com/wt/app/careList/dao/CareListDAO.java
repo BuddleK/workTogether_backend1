@@ -1,5 +1,6 @@
 package com.wt.app.careList.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,8 +36,17 @@ public class CareListDAO {
 		}
 		
 	// 하트 삭제
-		public void deleteHeart( ) {
+		public void deleteHeart() {
 			sqlSession.delete("careList.deleteHeart");
+		}
+		
+	// 쪽지 보내기(첫 시도)
+		public void startMessage(int careNumber, int userNumber) {
+		    Map<String, Object> numbers = new HashMap<>();
+		    numbers.put("careNumber", careNumber);
+		    numbers.put("userNumber", userNumber);
+
+		    sqlSession.insert("careList.startMessage", numbers);
 		}
 	
 }
