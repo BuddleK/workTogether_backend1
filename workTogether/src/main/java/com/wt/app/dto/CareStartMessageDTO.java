@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class MessageDTO {
+public class CareStartMessageDTO {
 	private int messageNumber;
 	private int careNumber;
 	private int normalNumber;
