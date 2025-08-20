@@ -18,8 +18,20 @@
     <!-- 지도 페이지 컨테이너 -->
     <div class="map_container">
       <!-- 지도 api 칸 -->
-      <div class="map_api"><img class="map_img" src="${pageContext.request.contextPath}/assets/img/map/mapImg.png" alt="지도그림">
-        <div class="site_info">지도를 클릭 시 해당 가게 설명이 나옵니다</div>
+      <div class="map_api">
+		<%-- <img class="map_img" src="${pageContext.request.contextPath}/assets/img/map/mapImg.png" alt="지도그림"> --%>
+			<div id="map" style="width:500px;height:400px;"></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9f1ed8d49c70a5d2d213e83f145527e1"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	</script>
+ 		<div class="site_info">지도를 클릭 시 해당 가게 설명이 나옵니다</div>
       </div>
       <!-- 지도 클릭 시 사이드바 -->
       <div class="sidebar">
