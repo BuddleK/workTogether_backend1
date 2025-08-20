@@ -11,7 +11,7 @@ import com.wt.app.Result;
 import com.wt.app.dto.UsersDTO;
 import com.wt.app.user.dao.UserDAO;
 
-public class UsersJoinOkController implements Execute{
+public class CareJoinOkController implements Execute{
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)

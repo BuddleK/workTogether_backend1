@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@
     <section class="sign">
       <form action="" method="" class="sign_form">
         <div class="sign_box sign_title">
-          <p>회원가입</p>
+          <p>돌봄 회원가입</p>
         </div>
         <div class="sign_box sign_id">
           <p>아이디</p>
