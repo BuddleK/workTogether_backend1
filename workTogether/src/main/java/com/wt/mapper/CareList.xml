@@ -26,51 +26,87 @@
 		c.CARE_NUMBER = d.CARE_NUMBER
 	</select>
 
-<!-- 리스트에 있는 하나하나 번호 조회 -->
+	<!-- 리스트에 있는 하나하나 번호 조회 -->
 	<select id="listNumber" resultType="int">
 		select c.care_number
-		from tbl_care_users c left join tbl_users u on c.users_number =
+		from
+		tbl_care_users c left join tbl_users u on c.users_number =
 		u.users_number
-		left join tbl_files_profiles fp on c.care_profiles_photo_number =
+		left join tbl_files_profiles fp on
+		c.care_profiles_photo_number =
 		fp.profiles_files_number
-		left join tbl_day d on c.care_number = d.care_number
-		LEFT OUTER JOIN tbl_day d ON c.CARE_NUMBER = d.CARE_NUMBER
+		left join
+		tbl_day d on c.care_number = d.care_number
+		LEFT OUTER JOIN tbl_day d ON
+		c.CARE_NUMBER = d.CARE_NUMBER
 	</select>
-	
+
 	<!-- 로그인한 유저가 하트를 누른 유저에 대한 유저의 번호 조회 -->
 	<select id="listHeartNumber" resultType="int">
-		SELECT HEARTS_CARE_NUMBER  FROM tbl_hearts WHERE HEARTS_NORMAL_NUMBER = #{userId}
+		SELECT
+		HEARTS_CARE_NUMBER FROM tbl_hearts WHERE HEARTS_NORMAL_NUMBER =
+		#{userId}
 	</select>
-	
-	
-	<select id="list" resultType="CareListDTO">
-		select u.users_number,
-    	c.users_name, c.users_address_line1, c.care_number, c.care_intro_text, c.care_profiles_photo_number,
-    	fp.profiles_files_number, fp.profiles_files_type, fp.profiles_files_name, fp.profiles_files_path,
-    	d.DAY_MONDAY, d.DAY_TUESDAY, d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY, d.DAY_SUNDAY,
-    	CASE  WHEN h.HEARTS_CARE_NUMBER IS NOT NULL THEN 'Y' ELSE 'N' END AS heart_checked
-		FROM tbl_care_users c
-		LEFT JOIN tbl_users u ON c.users_number = u.users_number
-		LEFT JOIN tbl_files_profiles fp ON c.care_profiles_photo_number = fp.profiles_files_number
-		LEFT JOIN tbl_day d ON c.care_number = d.care_number
-		LEFT JOIN tbl_hearts h ON c.care_number = h.HEARTS_CARE_NUMBER AND h.HEARTS_NORMAL_NUMBER = #{userId}
-		WHERE c.CARE_ACCEPT = 'Y'
-		ORDER BY c.care_number
+
+	<!-- 전체 리스트 불러오기 -->
+	<select id="listAll" resultType="CareListDTO">
+			<![CDATA[
+				SELECT * FROM (
+					SELECT ROWNUM AS rnum, subquery.*
+					FROM (
+							select u.users_number,
+    						c.users_name, c.users_address_line1, c.care_number, c.care_intro_text, c.care_profiles_photo_number,
+    						fp.profiles_files_number, fp.profiles_files_type, fp.profiles_files_name, fp.profiles_files_path,
+    						d.DAY_MONDAY, d.DAY_TUESDAY, d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY, d.DAY_SUNDAY,
+    						CASE  WHEN h.HEARTS_CARE_NUMBER IS NOT NULL THEN 'Y' ELSE 'N' END AS heart_checked
+							FROM tbl_care_users c
+							LEFT JOIN tbl_users u ON c.users_number = u.users_number
+							LEFT JOIN tbl_files_profiles fp ON c.care_profiles_photo_number = fp.profiles_files_number
+							LEFT JOIN tbl_day d ON c.care_number = d.care_number
+							LEFT JOIN tbl_hearts h ON c.care_number = h.HEARTS_CARE_NUMBER AND h.HEARTS_NORMAL_NUMBER = #{userId}
+							WHERE c.CARE_ACCEPT = 'Y'
+							ORDER BY c.care_number
+		) subquery
+	) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
+	]]>
 	</select>
-	
+
+	<!-- 전체 리스트 개수 -->
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(care_number)
+		FROM
+		tbl_care_users
+		WHERE CARE_ACCEPT = 'Y'
+	</select>
+
 	<select id="detail" resultType="CareListDTO">
-		SELECT c.care_number, c.users_name, c.CARE_INTRO_TEXT, d.DAY_MONDAY, d.DAY_TUESDAY, d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY, d.DAY_SUNDAY
-		FROM TBL_CARE_USERS c 
-		LEFT JOIN TBL_DAY d ON c.CARE_NUMBER = d.CARE_NUMBER
-		WHERE c.CARE_ACCEPT = 'Y';
+		SELECT c.care_number,
+		c.users_name, c.CARE_INTRO_TEXT, d.DAY_MONDAY, d.DAY_TUESDAY,
+		d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY,
+		d.DAY_SUNDAY
+		FROM TBL_CARE_USERS c
+		LEFT JOIN TBL_DAY d ON c.CARE_NUMBER
+		= d.CARE_NUMBER
+		WHERE c.CARE_ACCEPT =
+		'Y';
 	</select>
+
 	
-	<select id="detailComments" resultType="CareCommentsDTO">
-		SELECT COMMENTS_NUMBER, nu.USERS_NAME, CARE_NUMBER, COMMENTS_CONTENT, COMMENTS_CREATED_DATE, COMMENTS_UPDATED_DATE
-		FROM TBL_COMMENTS cm
-		LEFT JOIN TBL_NORMAL_USERS nu ON cm.NORMAL_NUMBER = nu.NORMAL_NUMBER
-		WHERE cm.CARE_NUMBER = #{careNumber}
-	</select>
+	<!-- 하트 추가 -->
+	<insert id="addHeart" parameterType="CareHeartDTO">
+		INSERT INTO TBL_HEARTS
+		(HEARTS_NORMAL_NUMBER, HEARTS_CARE_NUMBER)
+		VALUES(#{normalNumber},
+		#{careNumber})
+	</insert>
+
+	<!-- 하트 삭제 -->
+	<delete id="deleteHeart" parameterType="int">
+		delete from TBL_HEARTS
+		where
+		hearts_normal_number =
+		#{heartsNormalNumber}
+	</delete>
 
 </mapper>
 
