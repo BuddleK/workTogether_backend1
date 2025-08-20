@@ -11,20 +11,7 @@ public class CareProfileDTO {
 //	    profiles_files_size_bytes NUMBER,
 //	    profiles_created_date DATE NOT NULL
 //	);
-	
-//	-- 날짜
-//	CREATE TABLE tbl_day (
-//	    care_number NUMBER PRIMARY KEY,
-//	    day_monday CHAR(1) DEFAULT 'N' CHECK (day_monday IN ('Y', 'N')),
-//	    day_tuesday CHAR(1) DEFAULT 'N' CHECK (day_tuesday IN ('Y', 'N')),
-//	    day_wednesday CHAR(1) DEFAULT 'N' CHECK (day_wednesday IN ('Y', 'N')),
-//	    day_thursday CHAR(1) DEFAULT 'N' CHECK (day_thursday IN ('Y', 'N')),
-//	    day_friday CHAR(1) DEFAULT 'N' CHECK (day_friday IN ('Y', 'N')),
-//	    day_saturday CHAR(1) DEFAULT 'N' CHECK (day_saturday IN ('Y', 'N')),
-//	    day_sunday CHAR(1) DEFAULT 'N' CHECK (day_sunday IN ('Y', 'N')),
-//	    CONSTRAINT fk_day_care FOREIGN KEY (care_number) REFERENCES tbl_care_users(care_number) ON DELETE CASCADE
-//	);
-	
+//	
 //	-- 파일 자격증
 //CREATE TABLE tbl_files_license (
 //    license_files_number NUMBER PRIMARY KEY,
@@ -45,20 +32,34 @@ public class CareProfileDTO {
 //	    account_created_date DATE NOT NULL
 //	)
 	
-	
-//	-- 회원
-//	CREATE TABLE tbl_users (
-//	    users_number NUMBER ,
-//	    CONSTRAINT pk_tbl_users PRIMARY KEY (users_number),
-//	    users_postsal_code VARCHAR2(10) NOT NULL,
-//	    users_address_line1 VARCHAR2(255) NOT NULL,
-//	    users_address_line2 VARCHAR2(255) NOT NULL,
-//	);
-	
+
 //	-- 돌봄 회원
-//	CREATE TABLE tbl_care_users (
-//	    care_intro_text VARCHAR2(150),
-//	    care_accept CHAR(1) DEFAULT 'N' CHECK (care_accept IN ('Y', 'N')),
+//	care_number NUMBER,
+//    users_name VARCHAR2(50) NOT NULL,
+//    users_email VARCHAR2(255) NOT NULL UNIQUE,
+//    users_phone VARCHAR2(30) NOT NULL,
+//    users_postsal_code VARCHAR2(10) NOT NULL,
+//    users_address_line1 VARCHAR2(255) NOT NULL,
+//    users_address_line2 VARCHAR2(255) NOT NULL,
+//    care_intro_text VARCHAR2(150),
+//    care_certificate_files_num NUMBER NOT NULL,
+//    care_passbook_files_num NUMBER NOT NULL,
+//    care_profiles_photo_number NUMBER,
+//    care_accept CHAR(1) DEFAULT 'N' CHECK (care_accept IN ('Y', 'N')),
+//    users_number NUMBER NOT NULL UNIQUE,
+	
+//	-- 날짜
+//	CREATE TABLE tbl_day (
+//	    care_number NUMBER PRIMARY KEY,
+//	    day_monday CHAR(1) DEFAULT 'N' CHECK (day_monday IN ('Y', 'N')),
+//	    day_tuesday CHAR(1) DEFAULT 'N' CHECK (day_tuesday IN ('Y', 'N')),
+//	    day_wednesday CHAR(1) DEFAULT 'N' CHECK (day_wednesday IN ('Y', 'N')),
+//	    day_thursday CHAR(1) DEFAULT 'N' CHECK (day_thursday IN ('Y', 'N')),
+//	    day_friday CHAR(1) DEFAULT 'N' CHECK (day_friday IN ('Y', 'N')),
+//	    day_saturday CHAR(1) DEFAULT 'N' CHECK (day_saturday IN ('Y', 'N')),
+//	    day_sunday CHAR(1) DEFAULT 'N' CHECK (day_sunday IN ('Y', 'N')),
+//	    CONSTRAINT fk_day_care FOREIGN KEY (care_number) REFERENCES tbl_care_users(care_number) ON DELETE CASCADE
+//	);
 	
 	int profilesFilesNumber;
 	String profilesFilesType;

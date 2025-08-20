@@ -23,8 +23,6 @@ public class ShopsListDTO {
 	private char shopsDisabledParking;
 	private char shopsTakeout ;
 	private String shopsIntroText ;
-	
-	
     private int shopsFilesNumber;
     private String shopsFilesName;
     private String shopsFilesPath;

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.admin.dao.AdminDAO;
-import com.wt.app.dto.AdminDTO;
+import com.wt.app.dto.AdminLoginDTO;
 
 public class AdminLoginOkController implements Execute{
 
@@ -19,7 +19,7 @@ public class AdminLoginOkController implements Execute{
 			throws ServletException, IOException {
 				
 		AdminDAO adminDAO = new AdminDAO();
-		AdminDTO adminDTO = new AdminDTO();
+		AdminLoginDTO adminDTO = new AdminLoginDTO();
 		Result result = new Result();
 		
 		request.setCharacterEncoding("UTF-8");

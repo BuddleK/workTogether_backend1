@@ -26,7 +26,7 @@ public class ShopsFavoritesActionDTO {
 	public String getFavoritesCreatedDate() {
 		return favoritesCreatedDate;
 	}
-	public void setFavoritesCreatedDate(String favoritesCreatedDate) {
+	public void setFavoritesCreatedDate(String favoritesCreatedDate) {           
 		this.favoritesCreatedDate = favoritesCreatedDate;
 	}
 	@Override

@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>관리자로그인</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}assets/css/admin/basic.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}assets/css/admin/adminLogin.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}assets/css/headerAdmin.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}assets/css/footer.css" />
-    <script defer src="${pageContext.request.contextPath}assets/js/main/includeAdmin.js"></script>
-    <script defer src="${pageContext.request.contextPath}assets/js/admin/adminlogin.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/adminLogin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/adminlogin.js"></script>
   </head>
 
   <body>
