@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CareMessageReturn">
+	<!-- 보낸 쪽지 목록 전체 조회 -->
+	<select id="messageAll" parameterType="CareMessageReturnDTO">
+		<![CDATA[
+		SELECT * FROM (
+			SELECT ROWNUM AS rnum, subquery.*
+			FROM (
+				SELECT normal_number, MESSAGE_CONTENTS, MESSAGE_DATE, IS_READ
+				FROM tbl_message
+				where care_number = #{careNumber}
+				ORDER BY message_number DESC
+			) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
+		]]>
+	</select>
+
+	<!-- 쪽지 삭제 쿼리 -->
+	<delete id="MessageDelete">
+		delete from tbl_message
+		where message_number = #{deleteTargets}
+	</delete>
+
+
+
+
+</mapper>
+
+
+

@@ -1,5 +1,7 @@
 package com.wt.app.dto;
 
+import java.util.List;
+
 public class CarePostDTO {
 	
 //	-- 게시글
@@ -20,6 +22,16 @@ public class CarePostDTO {
 	private int usersNumber;
 	private String postsCreatedDate;
 	private String postsUpdatedDate;
+	private List<CareMarkDTO> rows;
+	
+	
+	
+	public List<CareMarkDTO> getRows() {
+		return rows;
+	}
+	public void setRows(List<CareMarkDTO> rows) {
+		this.rows = rows;
+	}
 	public int getPostsNumber() {
 		return postsNumber;
 	}
@@ -50,12 +62,14 @@ public class CarePostDTO {
 	public void setPostsUpdatedDate(String postsUpdatedDate) {
 		this.postsUpdatedDate = postsUpdatedDate;
 	}
-	
 	@Override
 	public String toString() {
 		return "CarePostDTO [postsNumber=" + postsNumber + ", postsTitle=" + postsTitle + ", usersNumber=" + usersNumber
-				+ ", postsCreatedDate=" + postsCreatedDate + ", postsUpdatedDate=" + postsUpdatedDate + "]";
+				+ ", postsCreatedDate=" + postsCreatedDate + ", postsUpdatedDate=" + postsUpdatedDate + ", rows=" + rows
+				+ "]";
 	}
+	
+	
 	
 	
 	
