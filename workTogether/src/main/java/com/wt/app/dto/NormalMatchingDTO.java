@@ -1,20 +1,13 @@
 package com.wt.app.dto;
 
 public class NormalMatchingDTO {
-//    match_number NUMBER PRIMARY KEY,
-//    care_number NUMBER NOT NULL,
-//    normal_number NUMBER NOT NULL,
-//    match_date DATE NOT NULL,
-//    match_time VARCHAR2(20) NOT NULL,
-//    match_points NUMBER NOT NULL,
-//    match_status CHAR(1) DEFAULT 'S' CHECK (match_status IN ('C', 'S', 'D'))
-	int matchNumber;
-	int careNumber;
-	int NormalNumber;
-	String matchDate;
-	String matchTime;
-	int matchPoints;
-	char matchStatus;
+	private int matchNumber;
+	private int careNumber;
+	private int normalNumber;
+	private String matchDate;
+	private String matchTime;
+	private int matchPoints;
+	private char matchStatus;
 
 	public int getMatchNumber() {
 		return matchNumber;
@@ -33,11 +26,11 @@ public class NormalMatchingDTO {
 	}
 
 	public int getNormalNumber() {
-		return NormalNumber;
+		return normalNumber;
 	}
 
 	public void setNormalNumber(int normalNumber) {
-		NormalNumber = normalNumber;
+		this.normalNumber = normalNumber;
 	}
 
 	public String getMatchDate() {
@@ -74,8 +67,8 @@ public class NormalMatchingDTO {
 
 	@Override
 	public String toString() {
-		return "NormalMatchingDTO [matchNumber=" + matchNumber + ", careNumber=" + careNumber + ", NormalNumber="
-				+ NormalNumber + ", matchDate=" + matchDate + ", matchTime=" + matchTime + ", matchPoints="
+		return "NormalMatchingDTO [matchNumber=" + matchNumber + ", careNumber=" + careNumber + ", normalNumber="
+				+ normalNumber + ", matchDate=" + matchDate + ", matchTime=" + matchTime + ", matchPoints="
 				+ matchPoints + ", matchStatus=" + matchStatus + "]";
 	}
 
