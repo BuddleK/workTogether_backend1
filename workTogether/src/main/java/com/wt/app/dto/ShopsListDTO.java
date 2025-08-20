@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class ShopsDTO {
+public class ShopsListDTO {
 	private int shopsNumber;
 	private String shopsBranchName;
 	private String shopsBizMidCategory;
@@ -23,8 +23,6 @@ public class ShopsDTO {
 	private char shopsDisabledParking;
 	private char shopsTakeout ;
 	private String shopsIntroText ;
-	
-	
     private int shopsFilesNumber;
     private String shopsFilesName;
     private String shopsFilesPath;

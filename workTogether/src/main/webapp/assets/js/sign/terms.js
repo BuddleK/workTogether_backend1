@@ -27,15 +27,27 @@ function hrefLink() {
   location.href = link;
 }
 
-function goNext() {
-  event.preventDefault();
+function goNextNormal() {
   // all.checked =
   //   terms.map((term) => term.checked).filter((checked) => checked).length ===
   //   terms.length;
   if (all.checked) {
     alert("전체 동의 완료!!");
-    alert("회원가입페이지로 이동합니다.");
-    hrefLink();
+    alert("일반 회원가입페이지로 이동합니다.");
+    location.href="./../../app/sign/signNormal.jsp"
+  } else {
+    alert("전체 동의를 하셔야만 합니다.");
+  }
+}
+
+function goNextCare() {
+  // all.checked =
+  //   terms.map((term) => term.checked).filter((checked) => checked).length ===
+  //   terms.length;
+  if (all.checked) {
+    alert("전체 동의 완료!!");
+    alert("돌봄 회원가입페이지로 이동합니다.");
+    location.href="./../../app/sign/signCare.jsp"
   } else {
     alert("전체 동의를 하셔야만 합니다.");
   }

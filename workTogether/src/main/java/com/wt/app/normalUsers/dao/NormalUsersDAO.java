@@ -10,7 +10,8 @@ public class NormalUsersDAO {
 	public SqlSession sqlSession;
 
 	public NormalUsersDAO() {
-		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true)};
+		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
+	}
 	
 		public void insert(NormalUserDTO normalUserDTO) {
 			sqlSession.insert("normalUsers.insert", normalUserDTO);

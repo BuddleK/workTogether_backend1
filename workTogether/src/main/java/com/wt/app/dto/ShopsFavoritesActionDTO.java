@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class ShopsFavorites {
+public class ShopsFavoritesActionDTO {
 	private int favoritesNumber;
 	private int userNumber;
 	private int favoritesShopsNumber;
@@ -26,7 +26,7 @@ public class ShopsFavorites {
 	public String getFavoritesCreatedDate() {
 		return favoritesCreatedDate;
 	}
-	public void setFavoritesCreatedDate(String favoritesCreatedDate) {
+	public void setFavoritesCreatedDate(String favoritesCreatedDate) {           
 		this.favoritesCreatedDate = favoritesCreatedDate;
 	}
 	@Override

@@ -11,7 +11,7 @@ import com.wt.app.Result;
 import com.wt.app.dto.UsersDTO;
 import com.wt.app.user.dao.UserDAO;
 
-public class UsersJoinOkController implements Execute{
+public class CareJoinOkController implements Execute{
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
@@ -22,7 +22,8 @@ public class UsersJoinOkController implements Execute{
 		Result result = new Result();
 
 		request.setCharacterEncoding("UTF-8");
-		usersDTO.setUsersType(request.getParameter("usersType"));
+		//공통 으로 들어가는 것들
+		usersDTO.setUsersType(request.getParameter("usersType")); //n or c
 		usersDTO.setUsersType(request.getParameter("usersId"));
 		usersDTO.setUsersType(request.getParameter("usersName"));
 		usersDTO.setUsersType(request.getParameter("usersPassword"));
@@ -31,6 +32,8 @@ public class UsersJoinOkController implements Execute{
 		usersDTO.setUsersType(request.getParameter("usersPostalCode"));
 		usersDTO.setUsersType(request.getParameter("usersAddressLine1"));
 		usersDTO.setUsersType(request.getParameter("usersAddressLine2"));
+		
+		//일반
 		
 		
 		return null;
