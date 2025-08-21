@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="CareProfile">
+<mapper namespace="careProfile">
 	<!-- 프로필 사진 수정 쿼리작성 -->
 	<update id="profileProfile">
 		update tbl_files_profiles set profiles_files_type=#{profilesFilesType}, profiles_files_name=#{profilesFilesName}, profiles_files_path=#{profilesFilesPath},
@@ -19,7 +19,7 @@
 	<!-- 프로필 이력 수정 쿼리작성 -->
 	<!-- 주요이력 ??? -->
 	<update id="profileLicense">
-		update tbl_files_license set 
+		update tbl_files_license join tbl_files_account set 
 		where tbl_care_users.care_number = #{careNumber}
 	</update>
 
@@ -36,7 +36,13 @@
 	</update>
 
 
-
-
+	<!-- 프로필 정보 조회 -->
+	<select id="profileSelect" parameterType="careProfileDTO">
+		select  사진, 요일, 주소, 소개글
+		from (select * from tbl_day d join tbl_care_users c on d.care_number=c.care_number) AS a 
+		join tbl_files_profiles b on a.care_profiles_photo_number=b.profiles_files_number
+		where care_number = #{careNumber}
+		
+	</select>
 
 </mapper>
