@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/adminLogin.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
-    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
-    <script defer src="${pageContext.request.contextPath}/assets/js/admin/adminlogin.js"></script>
+<%--     <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/adminlogin.js"></script> --%>
   </head>
 
   <body>

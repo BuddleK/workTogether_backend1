@@ -1,4 +1,4 @@
-package com.wt.app.careUsers.dao;
+package com.wt.app.user.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
