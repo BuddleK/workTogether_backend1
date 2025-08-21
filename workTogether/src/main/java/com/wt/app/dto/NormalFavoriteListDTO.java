@@ -2,15 +2,15 @@ package com.wt.app.dto;
 
 public class NormalFavoriteListDTO {
 	// 가게 찜 테이블
-	private int favoritesNumber;
-	private int userNumber;
-	private int shopsNumber;
-	private int createdDate;
+	private int favoritesNumber; // 찜 번호
+	private int userNumber;	// 전체 유저 번호
+	private int shopsNumber; // 가게 번호
+	private int createdDate; // 생성 일
 
 	// 가게 테이블
-	private String shopsName;
-	private String shopsRoadAddr;
-	private String shopsPhone;
+	private String shopsName; // 가게 이름
+	private String shopsRoadAddr; // 가게 도로명 주소
+	private String shopsPhone; // 가게 폰번호
 
 	public int getFavoritesNumber() {
 		return favoritesNumber;

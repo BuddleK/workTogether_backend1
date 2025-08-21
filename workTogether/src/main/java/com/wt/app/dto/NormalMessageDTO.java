@@ -1,13 +1,15 @@
 package com.wt.app.dto;
 
 public class NormalMessageDTO {
-	private int messageNumber;
-	private int careNumber;
-	private int normalNumber;
-	private char senderType;
-	private String messageContent;
-	private String messageDate;
-	private char isRead;
+	// 쪽지 테이블
+	private int messageNumber; // 쪽지 번호
+	private int careNumber; // 돌봄 회원 번호
+	private int normalNumber; // 일반 회원 번호	
+	private String messageContent; // 쪽지 내용
+	private String messageDate; // 쪽지 날짜
+	private char isRead; // 읽음 여부
+	
+	private char senderType; // 보낸 쪽지/받은 쪽지
 
 	public int getMessageNumber() {
 		return messageNumber;
