@@ -73,13 +73,85 @@
 					<div class="restaurant_board">
 						<!-- 음식점 카드 영역 윗줄(2개) -->
 						<div class="restaurant_row">
-							
+							<c:choose>
+								<c:when test="${not empty shopsList}">
+									<c:forEach var="shop" items="${shopsList}">
+										<div class="restaurant_card">
+											<a class="go_detail"
+												href="${pageContext.request.contextPath}/shops/shopsListOk.sh?shopsNumber=${shop.shopsNumber}">
+												<!-- href="./../restaurant/restaurantDetail.jsp?restaurant=0&leNum=1&adNum=2"> -->
+												<div class="restaurant_name">
+													<c:out value="${shop.getShopsName()}" />
+													<!-- 좌표 확인용 -->
+													<c:out value="${shop.getShopsBranchName()}" />
+												</div>
+											</a>
+											<div class="restaurant_introduce">
+												<div class="restaurant_info">
+													<div>
+														<c:out value="${shop.getShopsAdminDong()}" />
+													</div>
+													<div>
+														<c:out value="${shop.getShopsIntroText()}" />
+													</div>
+													<div>
+														영업 시간 :
+														<c:out value="${shop.getShopsWorkingHours()}" />
+													</div>
+												</div>
+												<div class="restaurant_mark">
+													<div onclick="togleStar(0)" class="star_img_box">
+														<img class="star_img"
+															src="./../../assets/img/restaurant/star.png"
+															data-favorite="<c:out value='${shop.getIsFavorite()}'/>">
+													</div>
+													<div>찜하기</div>
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<div>
+										<div align="center">등록된 가게가 없습니다.</div>
+									</div>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<!-- 음식점 카드 영역 아랫줄(2개) -->
-						<div class="restaurant_row"></div>
+						<!-- <div class="restaurant_row"></div> -->
 					</div>
 					<!-- 페이지네이션 -->
-					<div class="restaurant_pagenation">페이지네이션</div>
+					<div class="restaurant_pagenation">
+						<ul class="paging">
+							<c:if test="${prev}">
+								<li><a
+									href="${pageContext.request.contextPath}/shops/shopsListOk.sh?page=${startPage - 1}"
+									class="prev">&lt;</a></li>
+							</c:if>
+							<c:set var="realStartPage"
+								value="${startPage < 0 ? 0 : startPage}" />
+							<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+								<c:choose>
+									<c:when test="${!(i == page) }">
+										<li><a
+											href="${pageContext.request.contextPath}/shops/shopsListOk.sh?page=${i}">
+												<c:out value="${i}" />
+										</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="#" class="active"> <c:out value="${i}" />
+										</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							<c:if test="${next}">
+								<li><a
+									href="${pageContext.request.contextPath}/shops/shopsListOk.sh?page=${endPage + 1}"
+									class="next">&gt;</a>
+							</c:if>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -89,4 +161,7 @@
 	<!-- 로그인 요청 모달 -->
 	<div id="restaurantModalLogin"></div>
 </body>
+<script>
+	let userNumber = "${sessionScope.memberNumber}";
+</script>
 </html>
