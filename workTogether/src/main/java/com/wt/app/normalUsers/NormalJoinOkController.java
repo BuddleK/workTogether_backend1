@@ -43,7 +43,7 @@ public class NormalJoinOkController implements Execute {
             try {
                 dto.setUsersNumber(Integer.parseInt(usersNumberParam));
             } catch (NumberFormatException e) {
-                System.out.println("[Normal] usersNumber 파싱 실패: " + usersNumberParam);
+                System.out.println("Normal usersNumber 파싱 실패: " + usersNumberParam);
             }
         }
 
