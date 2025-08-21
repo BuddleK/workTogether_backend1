@@ -71,6 +71,11 @@ public class UsersFrontController extends HttpServlet {
 			System.out.println("로그인 처리 요청");
 			result = new UsersLoginOkController().Execute(request, response);
 			break;
+			
+		case "/cares/loginOk.us":
+			System.out.println("로그인 처리 요청");
+			result = new UsersLoginOkController().Execute(request, response);
+			break;
 
 		case "/users/logoutOk.us":
 			System.out.println("로그아웃 처리 요청");
