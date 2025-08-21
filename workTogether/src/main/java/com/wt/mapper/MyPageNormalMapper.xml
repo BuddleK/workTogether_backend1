@@ -8,7 +8,7 @@
 	</select>
 	
 	<!-- 개인정보 수정 -->
-	<update id="normalModify">
+	<update id="normalModify" parameterType="NormalModifyDTO">
 		
 	</update>
 </mapper>
