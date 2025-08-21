@@ -17,9 +17,9 @@ public class CareListCommentsDAO {
 	}
 	
 	//후기 목록
-	public List<CareCommentsDTO> selectAll (int careNumber) {
+	public List<CareCommentsDTO> selectAll (Map<String, Integer> pageMap) {
 		System.out.println("모든 후기 조회하기 - selectAll 메소드 실행 : " );
-		List<CareCommentsDTO> list = sqlSession.selectList("commentsList.commentsListAll", careNumber);
+		List<CareCommentsDTO> list = sqlSession.selectList("commentsList.commentsListAll", pageMap);
 		System.out.println("조회결과 : " + list);
 		return list;
 	}
