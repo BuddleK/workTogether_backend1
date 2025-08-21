@@ -13,7 +13,7 @@
     <!-- 헤더 윗 줄 왼쪽 메뉴 -->
     <span>
       <!-- 로그인 메뉴 -->
-      <a href="${pageContext.request.contextPath}/app/login/login.jsp">
+      <a href="${pageContext.request.contextPath}/users/login.us">
         로그인
       </a>
       <!-- 회원가입 메뉴 -->

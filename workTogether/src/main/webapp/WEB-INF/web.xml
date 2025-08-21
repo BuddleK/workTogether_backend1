@@ -23,7 +23,7 @@
   
   <servlet>
   	<servlet-name>User</servlet-name>
-  	<servlet-class>com.wt.app.user.UserFrontController</servlet-class>
+  	<servlet-class>com.wt.app.user.UsersFrontController</servlet-class>
   </servlet>
   
   <servlet-mapping>

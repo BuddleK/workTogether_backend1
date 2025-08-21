@@ -1,10 +1,12 @@
 package com.wt.app.dto;
 
 public class UsersLoginDTO {
-	private int userNumber;
-	private String userId;
-    private String usersPassword;
-    private char userType;
+	//전체 유저 테이블
+	private int userNumber;			//회원 번호
+	private String userId;			//회원 아이디
+    private String usersPassword;	//회원 비밀번호
+    private char userType;			//회원 타입
+    
 	public int getUserNumber() {
 		return userNumber;
 	}
