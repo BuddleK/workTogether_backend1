@@ -2,15 +2,16 @@ package com.wt.app.dto;
 
 public class NormalModifyDTO {
 	private int UserNumber;
-	private int NormalNumber;
+	private int normalNumber;
 	private String usersName;
+	private String userId;
 	private char normalUsersLevel;
-	private String UsersPostCode;
-	private String UsersAddrLine1;
-	private String UsersAddrLine2;
-	private String UsersPhone;
-	private String UsersEmail;
-	private String UsersPassword;
+	private String usersPostCode;
+	private String usersAddrLine1;
+	private String usersAddrLine2;
+	private String usersPhone;
+	private String usersEmail;
+	private String usersPassword;
 
 	public int getUserNumber() {
 		return UserNumber;
@@ -21,11 +22,11 @@ public class NormalModifyDTO {
 	}
 
 	public int getNormalNumber() {
-		return NormalNumber;
+		return normalNumber;
 	}
 
 	public void setNormalNumber(int normalNumber) {
-		NormalNumber = normalNumber;
+		this.normalNumber = normalNumber;
 	}
 
 	public String getUsersName() {
@@ -34,6 +35,14 @@ public class NormalModifyDTO {
 
 	public void setUsersName(String usersName) {
 		this.usersName = usersName;
+	}
+	
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public char getNormalUsersLevel() {
@@ -45,59 +54,61 @@ public class NormalModifyDTO {
 	}
 
 	public String getUsersPostCode() {
-		return UsersPostCode;
+		return usersPostCode;
 	}
 
 	public void setUsersPostCode(String usersPostCode) {
-		UsersPostCode = usersPostCode;
+		this.usersPostCode = usersPostCode;
 	}
 
 	public String getUsersAddrLine1() {
-		return UsersAddrLine1;
+		return usersAddrLine1;
 	}
 
 	public void setUsersAddrLine1(String usersAddrLine1) {
-		UsersAddrLine1 = usersAddrLine1;
+		this.usersAddrLine1 = usersAddrLine1;
 	}
 
 	public String getUsersAddrLine2() {
-		return UsersAddrLine2;
+		return usersAddrLine2;
 	}
 
 	public void setUsersAddrLine2(String usersAddrLine2) {
-		UsersAddrLine2 = usersAddrLine2;
+		this.usersAddrLine2 = usersAddrLine2;
 	}
 
 	public String getUsersPhone() {
-		return UsersPhone;
+		return usersPhone;
 	}
 
 	public void setUsersPhone(String usersPhone) {
-		UsersPhone = usersPhone;
+		this.usersPhone = usersPhone;
 	}
 
 	public String getUsersEmail() {
-		return UsersEmail;
+		return usersEmail;
 	}
 
 	public void setUsersEmail(String usersEmail) {
-		UsersEmail = usersEmail;
+		this.usersEmail = usersEmail;
 	}
 
 	public String getUsersPassword() {
-		return UsersPassword;
+		return usersPassword;
 	}
 
 	public void setUsersPassword(String usersPassword) {
-		UsersPassword = usersPassword;
+		this.usersPassword = usersPassword;
 	}
 
 	@Override
 	public String toString() {
-		return "NormalModifyDTO [UserNumber=" + UserNumber + ", NormalNumber=" + NormalNumber + ", usersName="
-				+ usersName + ", normalUsersLevel=" + normalUsersLevel + ", UsersPostCode=" + UsersPostCode
-				+ ", UsersAddrLine1=" + UsersAddrLine1 + ", UsersAddrLine2=" + UsersAddrLine2 + ", UsersPhone="
-				+ UsersPhone + ", UsersEmail=" + UsersEmail + ", UsersPassword=" + UsersPassword + "]";
+		return "NormalModifyDTO [UserNumber=" + UserNumber + ", normalNumber=" + normalNumber + ", usersName="
+				+ usersName + ", normalUsersLevel=" + normalUsersLevel + ", usersPostCode=" + usersPostCode
+				+ ", usersAddrLine1=" + usersAddrLine1 + ", usersAddrLine2=" + usersAddrLine2 + ", usersPhone="
+				+ usersPhone + ", usersEmail=" + usersEmail + ", usersPassword=" + usersPassword + "]";
 	}
+
+
 
 }
