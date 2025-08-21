@@ -17,7 +17,7 @@
     <div id="header"></div>
     <main>
       <section class="login">
-        <form action="${pageContext.request.contextPath}/user/login.us" method="post">
+        <form action="${pageContext.request.contextPath}/users/login.us" method="post">
           <div class="box">
             <div class="box_title">
               <p>login</p>

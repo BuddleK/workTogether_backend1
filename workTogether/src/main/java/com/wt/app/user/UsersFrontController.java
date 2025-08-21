@@ -10,10 +10,9 @@ import javax.servlet.http.HttpSession;
 
 //import com.example.app.member.LoginController;
 import com.wt.app.Result;
-import com.wt.app.careUsers.CareJoinOkController;
-import com.wt.app.careUsers.UsersLoginController;
-import com.wt.app.careUsers.UsersLoginOkController;
-import com.wt.app.careUsers.UsersLogoutController;
+//import com.wt.app.careUsers.CaresUsersLoginOkController;
+import com.wt.app.careUsers.careUsersLoginOkController;
+import com.wt.app.normalUsers.NormalUsersLoginOkController;
 
 /**
  * Servlet implementation class AdminFrontController
@@ -62,40 +61,56 @@ public class UsersFrontController extends HttpServlet {
 
 		switch (target) {
 
-		case "/users/login.us":
-			System.out.println("로그인 페이지 요청");
-			result = new UsersLoginController().Execute(request, response);
-			break;
-
-		case "/users/loginOk.us":
-			System.out.println("로그인 처리 요청");
-			result = new UsersLoginOkController().Execute(request, response);
-			break;
-
-		case "/users/logoutOk.us":
-			System.out.println("로그아웃 처리 요청");
-			result = new UsersLogoutController().Execute(request, response);
-			break;
-
+//		case "/users/login.us":
+//			System.out.println("일반/돌봄 로그인 페이지 요청");
+//			result = new UsersLoginController.Execute(request, response);
+//			break;
+		
 		case "/users/Normaljoin.us":
 			System.out.println("일반회원 회원가입 처리 요청");
 			request.getRequestDispatcher("/app/sign/terms.jsp").forward(request, response);
 			break;
 
-		case "/users/Carejoin.us":
+		case "/care/Carejoin.us":
 			System.out.println("돌봄회원 회원가입 처리 요청");
 			request.getRequestDispatcher("/app/sign/terms.jsp").forward(request, response);
 			break;
-
-		case "/users/NormaljoinOk.us":
-			System.out.println("일반회원 회원가입 성공시");
-			result = new NormalJoinOkController().Execute(request, response);
-			break;
-
-		case "/users/CarejoinOk.us":
+			
+			
+		case "/cares/CarejoinOk.us":
 			System.out.println("돌봄회원 회원가입 성공시");
 			result = new CareJoinOkController().Execute(request, response);
 			break;
+
+		case "/normal/NormaljoinOk.us":
+			System.out.println("일반회원 회원가입 성공시");
+			result = new NormalJoinOkController().Execute(request, response);
+			break;
+			
+		case "/users/login.us":
+			System.out.println("일반/돌봄 로그인 페이지 요청");
+			result = new UsersLoginController().Execute(request, response);
+			break;
+			
+		case "/normal/loginOk.us":
+			System.out.println("일반 로그인 처리 요청");
+			result = new NormalUsersLoginOkController().Execute(request, response);
+			break;
+			
+		case "/cares/loginOk.us":
+			System.out.println("돌봄 로그인 처리 요청");
+			result = new careUsersLoginOkController().Execute(request, response);
+			break;
+
+			
+		case "/users/logoutOk.us":
+			System.out.println("로그아웃 처리 요청");
+			result = new UsersLogoutController().Execute(request, response);
+			break;
+
+		
+
+		
 
 		case "/member/sendSMS.me":
 			System.out.println("핸드폰 인증 요청");

@@ -3,10 +3,10 @@ const pwInput = document.getElementById("pw_input");
 
 let failCnt = 1;
 
-function islogin() {
+/* function islogin() {
   if (idInput.value === userId && pwInput.value === userPw) {
     alert("로그인 성공!");
-    location.href = "./../../main.html";
+    location.href = "./../../main.j";
     failCnt = 1;
   } else {
     alert("아이디 또는 비밀번호가 올바르지 않습니다.");
@@ -18,7 +18,7 @@ function islogin() {
       return;
     }
   }
-}
+} */
 
 
 window.addEventListener("DOMContentLoaded", () => {

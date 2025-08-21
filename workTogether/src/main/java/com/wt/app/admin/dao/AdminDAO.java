@@ -16,7 +16,7 @@ public class AdminDAO {
     public int login(AdminLoginDTO AdminLoginDTO) { 
     	Integer memberNumber =
     		 sqlSession.selectOne("admin.login", AdminLoginDTO); 
-    	return memberNumber == null ? -1 : 1 ; 
+    	return memberNumber == null ? -1 : memberNumber ; 
     	}
 
 }

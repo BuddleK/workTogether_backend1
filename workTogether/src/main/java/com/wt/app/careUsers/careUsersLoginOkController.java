@@ -9,7 +9,7 @@ import com.wt.app.Result;
 import com.wt.app.dto.UsersLoginDTO;
 import com.wt.app.careUsers.dao.CareUsersDAO;
 
-public class UsersLoginOkController implements Execute {
+public class careUsersLoginOkController implements Execute {
 
     @Override
     public Result Execute(HttpServletRequest request, HttpServletResponse response)

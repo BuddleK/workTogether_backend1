@@ -4,10 +4,12 @@ public class FindIdDTO {
 	//users_name VARCHAR2(50) NOT NULL,
 	//users_phone VARCHAR2(30) NOT NULL,
 	//users_type CHAR(1) CHECK (users_type IN ('C', 'N')) NOT NULL,
-	private int userNumber;
-	private String usersName;
-	private String usersPhone;
-	private char usersType;
+	
+	//유저테이블
+	private int userNumber;		//회원 번호
+	private String usersName;	//회원 이름
+	private String usersPhone;	//회원 전화번호
+	private char usersType;		//회원 타입
 	
 	
 	
