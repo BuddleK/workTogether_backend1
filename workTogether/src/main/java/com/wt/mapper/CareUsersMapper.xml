@@ -43,12 +43,12 @@
 		AND u.users_id = #{usersId}
 		AND u.users_type = #{usersType}
 	</select>
-	<select id="checkId" parameterType="string" resultType="int">
+	<select id="checkId" parameterType="String" resultType="int">
 		SELECT count(*)
 		FROM tbl_users
 		WHERE users_id = #{usersId}
 	</select>
-	<select id="checkEmail" parameterType="string" resultType="int">
+	<select id="checkEmail" parameterType="String" resultType="int">
 		SELECT count(*)
 		FROM tbl_care_member
 		WHERE users_email = #{usersEmail}

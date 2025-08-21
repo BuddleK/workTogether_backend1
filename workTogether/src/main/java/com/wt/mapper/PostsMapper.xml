@@ -1,24 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="posts">
-	<!-- 일반 게시물 추가 쿼리 작성 -->
-   <insert id="add" parameterType="NewsDTO">
-		INSERT INTO tbl_posts(posts_number, posts_title, users_number, posts_content, posts_view_count, posts_created_date, posts_updated_date, posts_report_count)
-		VALUES (seq_board_posts.nextval, #{postsTitle}, #{usersNumber}, #{postsContent}, TO_DATE(#{postsCreatedDate}, 'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{postsUpdatedDate}, 'YYYY-MM-DD HH24:MI:SS'), #{postsReportCount})
-   </insert>
-   <!-- 일반 게시물 불러오기 쿼리 작성-->
-   <select id="findById" parameterType="int" resultType="PostsDTO">
-   		SELECT * FROM tbl_posts
-   		WHERE posts_number = #{postsNumber}
+<!-- 수업 때 실습한 xml 파일을 붙여넣기해 두었음. 수정 필요 -->
+ <!-- 전체 게시글 조회 -->
+   <select id="selectAll" resultType="PostsListDTO">
+   <![CDATA[
+   SELECT * FROM (
+      SELECT ROWNUM AS rnum, subquery.*
+      FROM (
+         SELECT m.member_number, m.member_id, b.board_number, b.board_title, b.board_content, b.board_date, 
+         b.board_read_count
+         FROM tbl_member m JOIN tbl_board b 
+         ON m.member_number = b.member_number
+         ORDER BY b.board_date DESC
+      ) subquery
+   ) WHERE rnum BETWEEN #{startRow} AND #{endRow}   
+   ]]>
    </select>
-   <!-- 일반 게시물 수정 쿼리 작성-->
-   <update id="edit" parameterType="PostsDTO">
-   		UPDATE tbl_posts SET posts_title = #{postsTitle}, users_number = #{usersNumber}, posts_content = #{postsContent}, posts_view_count = #{postsViewCount}, posts_created_date = TO_DATE(#{postsCreatedDate}, 'YYYY-MM-DD HH24:MI:SS'), posts_updated_date = TO_DATE(#{postsUpdatedDate}, 'YYYY-MM-DD HH24:MI:SS'), posts_report_count = #{postsReportCount}
-   		WHERE posts_number = #{postsNumber}
+   
+   <!-- 게시글 총 개수 -->
+   <select id="getTotal" resultType="int">
+      SELECT COUNT(board_number)
+      FROM tbl_board   
+   </select>
+   
+   <!--  게시글 추가 -->
+<!--    <insert id="insert" parameterType="BoardDTO">
+      INSERT INTO TBL_BOARD (board_number, board_title, board_content, member_number)
+      VALUES(seq_board.nextval, #{boardTitle}, #{boardContent}, #{memberNumber})   
+   </insert>
+   방금 생성된 시퀀스 값 가져오기
+   <select id="getCurrentBoardNumber" resultType="int">
+      SELECT seq_board.CURRVAL
+      FROM DUAL
+   </select> -->
+   
+   <!-- 게시글 추가 -->
+   <!--  useGeneratedKeys와 keyProperty 활용
+      MyBatis의 useGeneratedKeys 속성과 CURRVAL를 조합하여 시퀀스 값을 객체 필드에 매핑    -->
+   <insert id="insert" parameterType="BoardDTO">
+      <selectKey keyProperty="boardNumber" resultType="int" order="BEFORE">
+         SELECT seq_board.CURRVAL FROM DUAL
+      </selectKey>
+      INSERT INTO tbl_board(board_number, board_title, board_content, member_number)
+      VALUES(seq_board.nextval, #{boardTitle}, #{boardContent}, #{memberNumber})
+   </insert>
+   
+   
+   <!-- 조회수 쿼리 -->
+   <update id="updateReadCount" parameterType="int">
+      update tbl_board
+      set board_read_count = board_read_count + 1
+      where board_number = (#{boardNumber})
    </update>
-   <!-- 일반 게시물 삭제 쿼리 작성-->
-   <delete id="delete" parameterType="postsNumber">
-   		DELETE FROM tbl_posts
-   		WHERE posts_number = #{postsNumber}
+   
+   <!-- 게시글 삭제 쿼리 -->
+   <delete id="delete" parameterType="int">
+      delete from tbl_board
+      where board_number = (#{board_number})
    </delete>
+   
+   <!-- 게시글 수정쿼리 -->
+   <update id="update" parameterType="BoardDTO">
+      UPDATE tbl_board
+      SET board_title=#{boardTitle}, board_content =#{boardContent}
+      <!-- , board_update = #{boardUpdate} 수정일 -->
+      where board_number = (#{boardNumber})
+   </update>
+
+   <!-- 게시글 상세(1건조회) -->
+   <select id="select" parameterType="int" resultType="BoardListDTO">
+      <![CDATA[
+      SELECT m.member_number, m.member_id, b.board_number, b.board_title, b.board_content, b.board_date, b.board_read_count
+      FROM tbl_member m JOIN tbl_board b
+      ON b.member_number = m.member_number
+      WHERE b.board_number = (#{board_number})
+      ]]>
+   </select>
 </mapper>
