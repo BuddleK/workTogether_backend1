@@ -17,7 +17,7 @@
     <jsp:include page="/header.jsp" />
     <main>
       <section class="login">
-        <form action="${pageContext.request.contextPath}/users/login.us" method="post">
+        <form action="${pageContext.request.contextPath}/cares/loginOk.us" method="post">
           <div class="box">
             <div class="box_title">
               <p>login</p>
@@ -42,9 +42,9 @@
               <button type="submit" name="usersType" value="C">
                 돌봄 로그인
               </button>
-              <button type="submit" name="usersType" value="N">
+              <!-- <button type="submit" name="usersType" value="N">
                 일반 로그인
-              </button>
+              </button> -->
             </div>
             <div class="link_box">
               <a href="${pageContext.request.contextPath}/app/login/findId.html">아이디 찾기</a>
