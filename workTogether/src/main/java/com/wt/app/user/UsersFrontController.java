@@ -90,6 +90,7 @@ public class UsersFrontController extends HttpServlet {
 		case "/users/login.us":
 			System.out.println("일반/돌봄 로그인 페이지 요청");
 			result = new UsersLoginController().Execute(request, response);
+			System.out.println("리절트");
 			break;
 			
 		case "/normal/loginOk.us":
@@ -120,7 +121,7 @@ public class UsersFrontController extends HttpServlet {
 			break;
 		}
 
-		if (result != null) {
+		if (result != null && result.getPath() != null) {
 			if (result.isRedirect()) {
 				response.sendRedirect(result.getPath());
 			} else {

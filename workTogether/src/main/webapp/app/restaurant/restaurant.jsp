@@ -15,7 +15,7 @@
 </head>
 <body>
   <!-- 헤더 -->
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <!-- 메인 -->
   <main>
     <!-- 메인 바디 -->
@@ -91,7 +91,7 @@
     </div>
   </main>
   <!-- 푸터 -->
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
   <!-- 로그인 요청 모달 -->
   <div id="restaurantModalLogin"></div>
 </body>

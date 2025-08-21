@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
   </head>
   <body>
-    <div id="header"></div>
+    <jsp:include page="/header_admin.jsp" />
     <main>
       <section class="notice_detail">
         <div class="notice_info">
@@ -58,7 +58,7 @@
         </div>
       </section>
     </main>
-    <div id="footer"></div>
+    <jsp:include page="/footer.jsp" />
     <div id="modalQuestionAnswered"></div>
   </body>
 </html>

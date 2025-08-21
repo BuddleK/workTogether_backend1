@@ -13,7 +13,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/news/news.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 뉴스 페이지 컨테이너 -->
     <div class="news_container">
@@ -81,6 +81,6 @@
     </div>
     </div>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html>

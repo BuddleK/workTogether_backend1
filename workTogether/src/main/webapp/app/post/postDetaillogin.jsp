@@ -13,7 +13,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetaillogin.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 글쓴이가 자신 게시글보는 디테일 페이지 -->
     <form action="">
@@ -101,6 +101,6 @@
       </div>
     </div>
   </div>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html>

@@ -13,7 +13,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/post/postMain.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 공지사항, 일반 게시글 목록 섹션 -->
     <form action="" method="get">
@@ -321,6 +321,6 @@
       </div>
     </div>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html>

@@ -27,8 +27,9 @@ public class CareUsersDAO {
     }
     
     public int login(UsersLoginDTO UsersLoginDTO) { 
+    	System.out.println("고르");
     	Integer CareUsersNumber =
-    		 sqlSession.selectOne("Care.login", UsersLoginDTO); 
+    		 sqlSession.selectOne("care.login", UsersLoginDTO); 
     	return CareUsersNumber == null ? -1 : CareUsersNumber ; 
     	}
 
