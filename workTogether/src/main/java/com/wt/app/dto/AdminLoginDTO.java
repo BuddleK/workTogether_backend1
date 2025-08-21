@@ -2,10 +2,10 @@ package com.wt.app.dto;
 
 public class AdminLoginDTO {
 	
-    private int adminNumber;
-    private String adminId;
-    private String adminName;
-    private String adminPassword;
+    private int adminNumber; 		//관리자 번호
+    private String adminId;			//관리자 아이디
+    private String adminName;		//관리자 이름
+    private String adminPassword;	//관리자 비밀번호
     
   
     public int getAdminNumber() {

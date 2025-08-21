@@ -1,4 +1,4 @@
-package com.wt.app.careUsers;
+package com.wt.app.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -48,7 +48,7 @@ public class CareJoinOkController implements Execute {
             try {
                 dto.setUsersNumber(Integer.parseInt(usersNumberParam));
             } catch (NumberFormatException e) {
-                System.out.println("[Care] usersNumber 파싱 실패: " + usersNumberParam);
+                System.out.println("[Care] usersNumber : " + usersNumberParam);
             }
         }
 
@@ -57,7 +57,7 @@ public class CareJoinOkController implements Execute {
 
         Result result = new Result();
         result.setRedirect(true);
-        result.setPath(request.getContextPath() + "/care/login.us?join=success");
+        result.setPath(request.getContextPath() + "/care/login.us");
         return result;
     }
 }

@@ -21,25 +21,27 @@ public class CareSignDTO {
 //    users_type CHAR(1) CHECK (users_type IN ('C', 'N')) NOT NULL,
 //    users_created_date DATE DEFAULT sysdate,
 //    users_updated_date DATE DEFAULT sysdate,
-	private int careNumber;
-	private String usersName;
-	private String usersEmail;
-	private String usersPhone;
-	private String usersPostsalCode;
-	private String usersAddressLine1;
-	private String usersAddressLine2;
-	private String careIntroText;
-	private String careCertificateFilesNum;
-	private String carePassbookFilesNum;
-	private String careProfilesPhotoNumber;
-	private String careAccept;
+	//돌봄 유저 테이블
+	private int careNumber;					//돌봄회원 번호
+	private String usersName;				//돌봄회원 이름
+	private String usersEmail;				//돌봄회원 이메일
+	private String usersPhone;				//돌봄회원 전화번호
+	private String usersPostsalCode;		//돌봄회원 우편번호
+	private String usersAddressLine1;		//돌봄회원 주소 1
+	private String usersAddressLine2;		//돌봄회원 상세주소
+	private String careIntroText;			//돌봄회원 소개글
+	private String careCertificateFilesNum;	//돌봄회원 자격증 파일번호
+	private String carePassbookFilesNum;	//돌봄회원 통장파일 번호
+	private String careProfilesPhotoNumber; //돌봄회원 사진 번호
+	private String careAccept;				//돌봄회원 승인여부
 	
-	private int usersNumber;
-	private String usersId;
-	private String usersPassword;
-	private char usersType;
-	private String usersCreateDate;
-	private String usersUpdatedDate;
+	//전체 유저 테이블
+	private int usersNumber;				//회원 번호
+	private String usersId;					//회원 아이디
+	private String usersPassword;			//회원 비밀번호
+	private char usersType;					//회원 타입
+	private String usersCreateDate;			//회원 생성날짜
+	private String usersUpdatedDate;		//회원 수정날짜
 	
 	
 	public int getCareNumber() {

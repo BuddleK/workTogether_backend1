@@ -3,14 +3,14 @@
 
 <mapper namespace="shops">
 	<!-- 가게 리스트 페이지 -->
-	<select id="list" parameterType="shopsDTO">
+	<select id="list" parameterType="ShopsDTO">
 		select shops_number,shops_branch_name,shops_road_address, shops_admin_dong, shops_phone, shops_working_hours,
 		case when f.favorites_number is not null then 'Y' else 'N' end as "is_favorite"
 		from tbl_shops s left join tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
 		and f.users_number = #{userNumber}
 	</select>
 	<!-- 가게 세부 -->
-	<select id="detail" parameterType="shopsDTO">		
+	<select id="detail" parameterType="ShopsDTO">		
 		select s.shops_number, s.shops_name, s.shops_biz_mid_category, s.shops_phone, s.shops_intro_text, s.shops_takeout, s.shops_files_number,
 		s.shops_floor_1f, s.shops_ramp, s.shops_entrance_step, s.shops_entrance_threshold, s.shops_toilet_step, s.shops_toilet_threshold, s.shops_disabled_toilet, s.shops_elevator, s.shops_parking, s.shops_disabled_parking,
 		s.shops_latitude, s.shops_longitude,
