@@ -1,1 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="marker">
+	<!-- 지도에 표시할 정보 가져오기 -->
+   <select id="get" parameterType="string" resultType="MarkerDTO">
+   		SELECT shops_number, shops_name, shops_branch_name, shops_road_address, shops_working_hours, shops_phone, shops_takeout, shops_intro_text
+FROM tbl_shops WHERE = #{shopsNumber}
+   </select>
+   
+	<!-- 찜 생성쿼리 -->
+   <insert id="add" parameterType="NewsDTO">
+		INSERT INTO TBL_SHOPS_FAVORITES (favorites_number, users_number, favorites_shops_number, favorites_created_date)
+		VALUES(1, 4, 2, SYSDATE);
+   </insert>
+
+</mapper>
