@@ -37,7 +37,7 @@
 
 
 	<!-- 프로필 정보 조회 -->
-	<select id="profileSelect" parameterType="careProfileDTO">
+	<select id="profileSelect" parameterType="CareProfileDTO">
 		select  사진, 요일, 주소, 소개글
 		from (select * from tbl_day d join tbl_care_users c on d.care_number=c.care_number) AS a 
 		join tbl_files_profiles b on a.care_profiles_photo_number=b.profiles_files_number

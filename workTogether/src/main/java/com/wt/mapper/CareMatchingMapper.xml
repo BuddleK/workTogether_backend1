@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="careMatching">
 	<!-- 매칭 추가 -->
-	<insert id="matchingAdd" parameterType="careMatchingDTO">
+	<insert id="matchingAdd" parameterType="CareMatchingDTO">
 		<selectKey keyProperty="matchingNumber" resultType="int" order="BEFORE">
 			SELECT seq_matchings.CURRVAL FROM DUAL
 		</selectKey>
@@ -12,7 +12,7 @@
 
 
 	<!-- 매칭기록 월별 조회 -->
-	<select id="matchingMonth" parameterType="careMatchingDTO">
+	<select id="matchingMonth" parameterType="CareMatchingDTO">
 		<![CDATA[
 		SELECT * FROM (
 			SELECT ROWNUM AS rnum, subquery.*
