@@ -20,7 +20,7 @@
 /* 메인 */
 main{
   background-color: #FFE7C9;
-  height: calc(100vh - 220px);
+  height: 100vh;
   display: flex;
   justify-content: center;
 }
@@ -139,7 +139,7 @@ main{
 /* 음식점 카드 */
 .restaurant_card{
   background-color: #FFF8EF;
-  opacity: 0;
+  /* opacity: 0; */
   flex: 1;
   margin: 5px;
   /* display: none; */

@@ -2,6 +2,7 @@ package com.wt.app.dto;
 
 public class ShopsListDTO {
 	private int shopsNumber;
+	private String shopsName;
 	private String shopsBranchName;
 	private String shopsBizMidCategory;
 	private String shopsRoadAddress;
@@ -33,6 +34,12 @@ public class ShopsListDTO {
 	
 	
 	
+	public String getShopsName() {
+		return shopsName;
+	}
+	public void setShopsName(String shopsName) {
+		this.shopsName = shopsName;
+	}
 	public String getShopsFilesName() {
 		return shopsFilesName;
 	}
@@ -197,12 +204,12 @@ public class ShopsListDTO {
 	}
 	@Override
 	public String toString() {
-		return "ShopsDTO [shopsNumber=" + shopsNumber + ", shopsBranchName=" + shopsBranchName
-				+ ", shopsBizMidCategory=" + shopsBizMidCategory + ", shopsRoadAddress=" + shopsRoadAddress
-				+ ", shopsAdminDong=" + shopsAdminDong + ", shopsLegalDong=" + shopsLegalDong + ", shopsLatitude="
-				+ shopsLatitude + ", shopsLongitude=" + shopsLongitude + ", shopsPhone=" + shopsPhone
-				+ ", shopsWorkingHours=" + shopsWorkingHours + ", shopsFloor1f=" + shopsFloor1f + ", shopsRamp="
-				+ shopsRamp + ", shopsEntranceStep=" + shopsEntranceStep + ", shopsEntranceThresshold="
+		return "ShopsListDTO [shopsNumber=" + shopsNumber + ", shopsName=" + shopsName + ", shopsBranchName="
+				+ shopsBranchName + ", shopsBizMidCategory=" + shopsBizMidCategory + ", shopsRoadAddress="
+				+ shopsRoadAddress + ", shopsAdminDong=" + shopsAdminDong + ", shopsLegalDong=" + shopsLegalDong
+				+ ", shopsLatitude=" + shopsLatitude + ", shopsLongitude=" + shopsLongitude + ", shopsPhone="
+				+ shopsPhone + ", shopsWorkingHours=" + shopsWorkingHours + ", shopsFloor1f=" + shopsFloor1f
+				+ ", shopsRamp=" + shopsRamp + ", shopsEntranceStep=" + shopsEntranceStep + ", shopsEntranceThresshold="
 				+ shopsEntranceThresshold + ", shopsToiletStep=" + shopsToiletStep + ", shopsToiletThreshold="
 				+ shopsToiletThreshold + ", shopsDisabledToilet=" + shopsDisabledToilet + ", shopsElevator="
 				+ shopsElevator + ", shops_parking=" + shops_parking + ", shopsDisabledParking=" + shopsDisabledParking
@@ -210,6 +217,8 @@ public class ShopsListDTO {
 				+ shopsFilesNumber + ", shopsFilesName=" + shopsFilesName + ", shopsFilesPath=" + shopsFilesPath
 				+ ", shopsFilesType=" + shopsFilesType + ", isFavorite=" + isFavorite + "]";
 	}
+	
+	
 	
 	
 	
