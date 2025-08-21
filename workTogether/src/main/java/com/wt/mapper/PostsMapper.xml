@@ -8,14 +8,24 @@
    SELECT * FROM (
       SELECT ROWNUM AS rnum, subquery.*
       FROM (
-         SELECT m.member_number, m.member_id, b.board_number, b.board_title, b.board_content, b.board_date, 
+         SELECT ?.posts_number, m.member_id, ?.posts_title, b.board_title, b.board_content, b.board_date, 
          b.board_read_count
          FROM tbl_member m JOIN tbl_board b 
          ON m.member_number = b.member_number
          ORDER BY b.board_date DESC
       ) subquery
-   ) WHERE rnum BETWEEN #{startRow} AND #{endRow}   
+   ) WHERE rnum BETWEEN #{startRow} AND #{endRow}
    ]]>
+   
+   
+   
+<!--    PostsListDTO
+	private int postsNumber;
+	private String postsTitle;
+	private int usersNumber;
+	private String usersName;
+	private int postsViewCount;
+	private String postsCreatedDate; -->
    </select>
    
    <!-- 게시글 총 개수 -->
