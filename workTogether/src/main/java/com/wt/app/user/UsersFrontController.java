@@ -8,11 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.example.app.member.CheckIdOkController;
 //import com.example.app.member.LoginController;
 import com.wt.app.Result;
-//import com.wt.app.careUsers.CaresUsersLoginOkController;
-import com.wt.app.careUsers.careUsersLoginOkController;
-import com.wt.app.normalUsers.NormalUsersLoginOkController;
 
 /**
  * Servlet implementation class AdminFrontController
@@ -71,7 +69,7 @@ public class UsersFrontController extends HttpServlet {
 			request.getRequestDispatcher("/app/sign/terms.jsp").forward(request, response);
 			break;
 
-		case "/care/Carejoin.us":
+		case "/cares/Carejoin.us":
 			System.out.println("돌봄회원 회원가입 처리 요청");
 			request.getRequestDispatcher("/app/sign/terms.jsp").forward(request, response);
 			break;
@@ -87,6 +85,15 @@ public class UsersFrontController extends HttpServlet {
 			result = new NormalJoinOkController().Execute(request, response);
 			break;
 			
+		case "/normal/checkIdOk.us":
+			System.out.println("일반 아이디 중복 확인 요청");
+			result = new NormalCheckIdOkController().Execute(request, response);
+			break;
+			
+		case "/cares/checkIdOk.us":
+			System.out.println("돌봄 아이디 중복 확인 요청");
+			result = new CareCheckIdOkController().Execute(request, response);
+			break;
 		case "/users/login.us":
 			System.out.println("일반/돌봄 로그인 페이지 요청");
 			result = new UsersLoginController().Execute(request, response);
@@ -99,23 +106,31 @@ public class UsersFrontController extends HttpServlet {
 			
 		case "/cares/loginOk.us":
 			System.out.println("돌봄 로그인 처리 요청");
-			result = new careUsersLoginOkController().Execute(request, response);
+			result = new CareUsersLoginOkController().Execute(request, response);
 			break;
 
 			
-		case "/users/logoutOk.us":
-			System.out.println("로그아웃 처리 요청");
-			result = new UsersLogoutController().Execute(request, response);
+		case "/normal/logoutOk.us":
+			System.out.println("일반 로그아웃 처리 요청");
+			result = new NormalUsersLogoutController().Execute(request, response);
 			break;
 
+		case "/cares/logoutOk.us":
+			System.out.println("돌봄 로그아웃 처리 요청");
+			result = new CareUsersLogoutController().Execute(request, response);
+			break;
 		
-
-		
-
-		case "/member/sendSMS.me":
+		case "/normal/sendSMS.us":
 			System.out.println("핸드폰 인증 요청");
 			break;
-		case "/member/verifyCode.me":
+		case "/cares/sendSMS.us":
+			System.out.println("핸드폰 인증 요청");
+			break;
+			
+		case "/normal/verifyCode.us":
+			System.out.println("인증번호 확인 요청");
+			break;
+		case "/cares/verifyCode.us":
 			System.out.println("인증번호 확인 요청");
 			break;
 		}
