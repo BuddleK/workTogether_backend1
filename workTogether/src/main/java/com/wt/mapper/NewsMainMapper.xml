@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="newsBanner">
+<mapper namespace="newsMain">
 	<!-- 배너 뉴스 추가 쿼리 작성 -->
-   <insert id="add" parameterType="NewsBannerDTO">
+   <insert id="add" parameterType="NewsMainDTO">
 		INSERT INTO tbl_news_banners(banner_news_number, admin_number, banner_image_files_number, banner_title, banner_content, banner_link_url, banner_created_date, banner_updated_date)
 		VALUES (seq_news_items.nextval, #{adminNumber}, #{bannerImageFilesNumber}, #{newsTitle}, #{bannerContent}, #{bannerLinkUrl}, TO_DATE(#{bannerCreatedDate}, 'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{bannerUpdatedDate}, 'YYYY-MM-DD HH24:MI:SS'))
    </insert>
    
    <!-- 배너 뉴스 불러오기 쿼리 작성-->
-   <select id="findById" parameterType="int" resultType="NewsBannerDTO">
+   <select id="findById" parameterType="int" resultType="NewsMainDTO">
    		SELECT * FROM tbl_news_banners
    		WHERE news_number = #{bannerNewsNumber}
    </select>
    
    <!-- 배너 뉴스 수정 쿼리 작성-->
-   <update id="edit" parameterType="NewsBannerDTO">
+   <update id="edit" parameterType="NewsMainDTO">
    		UPDATE tbl_news_banners SET news_title = #{newsTitle}, news_link_url = #{newsLinkUrl}, news_created_date = TO_DATE(#{newsCreatedDate}, 'YYYY-MM-DD HH24:MI:SS'), news_updated_date = TO_DATE(#{newsUpdatedDate}, 'YYYY-MM-DD HH24:MI:SS')
    		WHERE news_number = #{bannerNewsNumber}
    </update>
