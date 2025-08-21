@@ -110,8 +110,15 @@
 	</delete>
 	
 	<!-- 문의 조회 -->
-	<select id="normalReferenceListSearch">
-	
+	<select id="normalReferenceListSearch" resultType="NormalReferenceListDTO">
+		SELECT 
+		    n.users_name,        
+		    r.reference_title,        
+		    r.reference_created_date, 
+		    r.reference_answered_yn  
+		FROM tbl_reference r
+		JOIN tbl_normal_users n
+		    ON r.reference_users_number = n.users_number;
 	</select>
-	
+		
 </mapper>
