@@ -1,7 +1,7 @@
 package com.wt.app.dto;
 
 public class CareExitDTO {
-	
+
 //	-- 회원
 //	CREATE TABLE tbl_users (
 //	    users_number NUMBER ,
@@ -18,7 +18,7 @@ public class CareExitDTO {
 //	    users_created_date DATE NOT NULL,
 //	    users_updated_date DATE
 //	);
-	
+
 //	-- 매칭
 //	CREATE TABLE tbl_matchings (
 //	    match_number NUMBER PRIMARY KEY,
@@ -31,26 +31,29 @@ public class CareExitDTO {
 //	    CONSTRAINT fk_match_care FOREIGN KEY (care_number) REFERENCES tbl_care_users(care_number) ON DELETE CASCADE,
 //	    CONSTRAINT fk_match_normal FOREIGN KEY (normal_number) REFERENCES tbl_normal_users(normal_number) ON DELETE CASCADE
 //	);
-	
+
 	private int usersNumber;
 	private int matchNumber;
+
 	public int getUsersNumber() {
 		return usersNumber;
 	}
+
 	public void setUsersNumber(int usersNumber) {
 		this.usersNumber = usersNumber;
 	}
+
 	public int getMatchNumber() {
 		return matchNumber;
 	}
+
 	public void setMatchNumber(int matchNumber) {
 		this.matchNumber = matchNumber;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "CareExitDTO [usersNumber=" + usersNumber + ", matchNumber=" + matchNumber + "]";
 	}
-	
-	
+
 }
