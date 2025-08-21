@@ -1,16 +1,18 @@
 package com.wt.app.dto;
 
 public class FindPwDTO {
-	private int usetNumber;
-	private String usersName;
-	private String usersPhone;
-	private char usersType;
-	private String usersId;
-	public int getUsetNumber() {
-		return usetNumber;
+	//전체 유저 테이블
+	private int usersNumber;	//회원 번호
+	private String usersName;	//회원 이름
+	private String usersPhone;	//회원 전화번호
+	private char usersType;		//회원 유형
+	private String usersId;		//회원 아이디
+	
+	public int getusersNumber() {
+		return usersNumber;
 	}
-	public void setUsetNumber(int usetNumber) {
-		this.usetNumber = usetNumber;
+	public void setusersNumber(int usersNumber) {
+		this.usersNumber = usersNumber;
 	}
 	public String getUsersName() {
 		return usersName;
@@ -38,7 +40,7 @@ public class FindPwDTO {
 	}
 	@Override
 	public String toString() {
-		return "FindPw [usetNumber=" + usetNumber + ", usersName=" + usersName + ", usersPhone=" + usersPhone
+		return "FindPw [usersNumber=" + usersNumber + ", usersName=" + usersName + ", usersPhone=" + usersPhone
 				+ ", usersType=" + usersType + ", usersId=" + usersId + "]";
 	}
 	

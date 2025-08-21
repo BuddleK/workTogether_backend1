@@ -17,7 +17,7 @@ public class CareModifyDTO {
 //	    users_created_date DATE NOT NULL,
 //	    users_updated_date DATE
 //	);
-	
+
 	private int usersNumber;
 	private String usersName;
 	private String usersPostsalCode;
@@ -27,62 +27,79 @@ public class CareModifyDTO {
 	private String usersId;
 	private String usersEmail;
 	private String usersPassword;
+
 	public int getUsersNumber() {
 		return usersNumber;
 	}
+
 	public void setUsersNumber(int usersNumber) {
 		this.usersNumber = usersNumber;
 	}
+
 	public String getUsersName() {
 		return usersName;
 	}
+
 	public void setUsersName(String usersName) {
 		this.usersName = usersName;
 	}
+
 	public String getUsersPostsalCode() {
 		return usersPostsalCode;
 	}
+
 	public void setUsersPostsalCode(String usersPostsalCode) {
 		this.usersPostsalCode = usersPostsalCode;
 	}
+
 	public String getUsersAddressLine1() {
 		return usersAddressLine1;
 	}
+
 	public void setUsersAddressLine1(String usersAddressLine1) {
 		this.usersAddressLine1 = usersAddressLine1;
 	}
+
 	public String getUsersAddressLine2() {
 		return usersAddressLine2;
 	}
+
 	public void setUsersAddressLine2(String usersAddressLine2) {
 		this.usersAddressLine2 = usersAddressLine2;
 	}
+
 	public String getUsersPhone() {
 		return usersPhone;
 	}
+
 	public void setUsersPhone(String usersPhone) {
 		this.usersPhone = usersPhone;
 	}
+
 	public String getUsersId() {
 		return usersId;
 	}
+
 	public void setUsersId(String usersId) {
 		this.usersId = usersId;
 	}
+
 	public String getUsersEmail() {
 		return usersEmail;
 	}
+
 	public void setUsersEmail(String usersEmail) {
 		this.usersEmail = usersEmail;
 	}
+
 	public String getUsersPassword() {
 		return usersPassword;
 	}
+
 	public void setUsersPassword(String usersPassword) {
 		this.usersPassword = usersPassword;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		return "careModifyDTO [usersNumber=" + usersNumber + ", usersName=" + usersName + ", usersPostsalCode="
@@ -90,6 +107,5 @@ public class CareModifyDTO {
 				+ usersAddressLine2 + ", usersPhone=" + usersPhone + ", usersId=" + usersId + ", usersEmail="
 				+ usersEmail + ", usersPassword=" + usersPassword + "]";
 	}
-	
-	
+
 }

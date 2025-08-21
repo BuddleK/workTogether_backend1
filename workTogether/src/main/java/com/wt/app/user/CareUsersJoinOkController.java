@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
+import com.wt.app.careUsers.dao.CareUsersDAO;
 import com.wt.app.user.dao.UserDAO;
 
 public class CareUsersJoinOkController implements Execute{
@@ -21,7 +22,7 @@ public class CareUsersJoinOkController implements Execute{
 		String usersId = request.getParameter("usersId");
 		String usersEmail = request.getParameter("usersEmail");
 		
-		UserDAO userDAO = new UserDAO();
+		CareUsersDAO userDAO = new CareUsersDAO();
 		
 		if (!userDAO.checkId(usersId)) {
 		      Result result = new Result();
