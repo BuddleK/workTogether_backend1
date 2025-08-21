@@ -13,15 +13,15 @@
     	<c:choose>
     		<c:when test="${empty sessionScope.usersNumber}">
 		     	<!-- 로그인 메뉴 -->
-		      	<a href="${pageContext.request.contextPath}/서블릿 경로">로그인</a>
+		      	<a href="${pageContext.request.contextPath}/app/login/login.jsp">로그인</a>
 		      	<!-- 회원가입 메뉴 -->
-		      	<a href="${pageContext.request.contextPath}/서블릿 경로">회원가입</a>
+		      	<a href="${pageContext.request.contextPath}/app/sign/terms.jsp">회원가입</a>
     		</c:when>
     		<c:otherwise>
     			<!-- 마이페이지 메뉴 -->
-		      	<a href="${pageContext.request.contextPath}/서블릿 경로">마이페이지</a>
+		      	<a href="${pageContext.request.contextPath}/app/myPageCare/carePwcheck.jsp">마이페이지</a>
     			<!-- 로그아웃 메뉴 -->
-				<a href="${pageContext.request.contextPath}/서블릿 경로">로그아웃</a>
+				<a href="${pageContext.request.contextPath}/app/main.jsp">로그아웃</a>
 			</c:otherwise>
     	</c:choose>
     </span>
@@ -33,14 +33,14 @@
       <!-- 지도메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/map/map.jsp">
+          <a href="${pageContext.request.contextPath}/app/map/map.jsp">
             · 지도
           </a>
         </div>
       </li>
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/subwayLine/subway.jsp">
+          <a href="${pageContext.request.contextPath}/app/subwayLine/subway.jsp">
             · 지하철 노선도
           </a>
         </div>
@@ -48,7 +48,7 @@
       <!-- 가게 리스트 메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/restaurant/restaurant.jsp">
+          <a href="${pageContext.request.contextPath}/app/restaurant/restaurant.jsp">
             · 가게 리스트
           </a>
         </div>
@@ -56,7 +56,7 @@
       <!-- 뉴스 게시판 메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/news/news.jsp">
+          <a href="${pageContext.request.contextPath}/app/news/news.jsp">
             · 뉴스 게시판
           </a>
         </div>
@@ -64,7 +64,7 @@
       <!-- 일반 게시판 메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/post/postMain.jsp">
+          <a href="${pageContext.request.contextPath}/app/post/postMain.jsp">
             · 일반 게시판
           </a>
         </div>
@@ -72,7 +72,7 @@
       <!-- 돌본 회원 리스트 메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/careMember/careMember.jsp">
+          <a href="${pageContext.request.contextPath}/app/careMember/careMember.jsp">
             · 돌봄 회원 리스트
           </a>
         </div>

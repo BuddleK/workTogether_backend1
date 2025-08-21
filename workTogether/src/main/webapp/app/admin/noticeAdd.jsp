@@ -15,7 +15,7 @@
     <script defer src="${pageContext.request.contextPath}/assets/js/admin/noticeAdd.js"></script>
   </head>
   <body>
-    <div id="header"></div>
+   	<jsp:include page="/header_admin.jsp" />
     <main>
       <div id="sidebar"></div>
       <section class="detail_page">
@@ -46,6 +46,6 @@
         </div>
       </section>
     </main>
-    <div id="footer"></div>
+    <jsp:include page="/footer.jsp" />
   </body>
 </html>
