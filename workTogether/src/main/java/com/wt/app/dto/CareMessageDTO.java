@@ -1,24 +1,14 @@
 package com.wt.app.dto;
 
 public class CareMessageDTO {
-//	-- 쪽지
-//	CREATE TABLE tbl_message (
-//	   message_number NUMBER PRIMARY KEY,
-//	   care_number NUMBER NOT NULL,
-//	   normal_number NUMBER NOT NULL,
-//	   MESSAGE_CONTENTS VARCHAR2(4000) NOT NULL,
-//	   MESSAGE_DATE DATE NOT NULL,
-//	   IS_READ CHAR(1) DEFAULT 'N' CHECK (is_read IN ('Y', 'N')),
-//	   CONSTRAINT FK_CARE FOREIGN KEY(CARE_number) REFERENCES TBL_CARE_USERS(CARE_number) ON DELETE CASCADE,
-//	   CONSTRAINT FK_NORMAL FOREIGN KEY(NORMAL_number) REFERENCES TBL_CARE_USERS(CARE_number) ON DELETE CASCADE
-//	);
-	
 	private int messageNumber;
 	private int careNumber;
 	private int normalNumber;
-	private String MESSAGECONTENTS;
-	private String MESSAGEDATE;
-	private char ISREAD; //DEFAULT 'N' CHECK (is_read IN ('Y', 'N'))
+	private char senderType;
+	private String messageContent;
+	private String messageDate;
+	private char isRead;
+	
 	public int getMessageNumber() {
 		return messageNumber;
 	}
@@ -37,35 +27,38 @@ public class CareMessageDTO {
 	public void setNormalNumber(int normalNumber) {
 		this.normalNumber = normalNumber;
 	}
-	public String getMESSAGECONTENTS() {
-		return MESSAGECONTENTS;
+	public char getSenderType() {
+		return senderType;
 	}
-	public void setMESSAGECONTENTS(String mESSAGECONTENTS) {
-		MESSAGECONTENTS = mESSAGECONTENTS;
+	public void setSenderType(char senderType) {
+		this.senderType = senderType;
 	}
-	public String getMESSAGEDATE() {
-		return MESSAGEDATE;
+	public String getMessageContent() {
+		return messageContent;
 	}
-	public void setMESSAGEDATE(String mESSAGEDATE) {
-		MESSAGEDATE = mESSAGEDATE;
+	public void setMessageContent(String messageContent) {
+		this.messageContent = messageContent;
 	}
-	public char getISREAD() {
-		return ISREAD;
+	public String getMessageDate() {
+		return messageDate;
 	}
-	public void setISREAD(char iSREAD) {
-		ISREAD = iSREAD;
+	public void setMessageDate(String messageDate) {
+		this.messageDate = messageDate;
 	}
-	
-	
+	public char getIsRead() {
+		return isRead;
+	}
+	public void setIsRead(char isRead) {
+		this.isRead = isRead;
+	}
 	@Override
 	public String toString() {
-		return "CareMessageDTO [messageNumber=" + messageNumber + ", careNumber=" + careNumber + ", normalNumber="
-				+ normalNumber + ", MESSAGECONTENTS=" + MESSAGECONTENTS + ", MESSAGEDATE=" + MESSAGEDATE + ", ISREAD="
-				+ ISREAD + "]";
+		return "NormalMessageDTO [messageNumber=" + messageNumber + ", careNumber=" + careNumber + ", normalNumber="
+				+ normalNumber + ", senderType=" + senderType + ", messageContent=" + messageContent + ", messageDate="
+				+ messageDate + ", isRead=" + isRead + "]";
 	}
 	
 	
-
-
+	
 	
 }
