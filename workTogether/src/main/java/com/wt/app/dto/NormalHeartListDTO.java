@@ -2,21 +2,21 @@ package com.wt.app.dto;
 
 import java.util.List;
 
-public class NormalHeartListDTO<T> {
-	int careNumber;
-	List<T> profilesFilesNumber;
+public class NormalHeartListDTO {
+	private int careNumber;
+//	private List<T> profilesFilesNumber;
 
-	String userName;
+	private String userName;
 
-	char dayMonday;
-	char dayTuesday;
-	char dayWednesday;
-	char dayThursday;
-	char dayFriday;
-	char daySaturday;
-	char daySunday;
+	private char dayMonday;
+	private char dayTuesday;
+	private char dayWednesday;
+	private char dayThursday;
+	private char dayFriday;
+	private char daySaturday;
+	private char daySunday;
 
-	String careIntroText;
+	private String careIntroText;
 
 	public int getCareNumber() {
 		return careNumber;

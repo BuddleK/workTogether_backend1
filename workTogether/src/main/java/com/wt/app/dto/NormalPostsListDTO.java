@@ -1,10 +1,10 @@
 package com.wt.app.dto;
 
 public class NormalPostsListDTO {
-	int postsNumber;
-	int userNumber;
-	String postsTitle;
-	String postsCreatedDate;
+	private int postsNumber;
+	private int userNumber;
+	private String postsTitle;
+	private String postsCreatedDate;
 
 	public int getPostsNumber() {
 		return postsNumber;

@@ -1,14 +1,14 @@
 package com.wt.app.dto;
 
 public class NormalFavoriteListDTO {
-	int favoritesNumber;
-	int userNumber;
-	int shopsNumber;
-	int createdDate;
+	private int favoritesNumber;
+	private int userNumber;
+	private int shopsNumber;
+	private int createdDate;
 
-	String shopsName;
-	String shopsRoadAddr;
-	String shopsPhone;
+	private String shopsName;
+	private String shopsRoadAddr;
+	private String shopsPhone;
 
 	public int getFavoritesNumber() {
 		return favoritesNumber;
