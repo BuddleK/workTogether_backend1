@@ -4,7 +4,7 @@
 	<!-- 지도에 표시할 마크 가져오기 -->
    <select id="get" parameterType="int" resultType="MarkerDTO">
    		SELECT shops_number, shops_name, shops_branch_name, shops_road_address, shops_working_hours, shops_phone, shops_takeout, shops_intro_text
-FROM tbl_shops WHERE = (#{shopsNumber})
+FROM tbl_shops WHERE shops_number = #{shopsNumber}
    </select>
 	<!-- 찜 추가 -->
 	<insert id="favoriteAdd" parameterType="ShopsFavoritesActionDTO">
