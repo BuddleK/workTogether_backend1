@@ -51,11 +51,12 @@ public class AdminFrontController extends HttpServlet {
 		switch (target) {
 		case "/admin/login.ad":
 			System.out.println("관리자 로그인페이지 요청");
-//			request.getRequestDispatcher("/app/admin/adminLogin.jsp").forward(request, response);
+			request.getRequestDispatcher("/app/admin/adminLogin.jsp").forward(request, response);
 			result = new AdminLoginController().Execute(request, response);
 			break;
 		case "/admin/loginOk.ad":
 			System.out.println("관리자 로그인 처리 요청");
+			request.getRequestDispatcher("/app/admin/userManager.jsp").forward(request, response);
 			result = new AdminLoginOkController().Execute(request, response);
 			break;
 		case "/admin/logoutOk.ad":

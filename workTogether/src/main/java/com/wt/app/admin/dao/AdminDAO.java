@@ -12,12 +12,11 @@ public class AdminDAO {
     	sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
     }
     
-    public int login(AdminLoginDTO adminDTO) {
-        Integer adminNumber = sqlSession.selectOne("admin.login", adminDTO);
-        if (adminNumber == null) { 
-        	return 0;
-        }
-        return adminNumber;
-    }
+	
+    public int login(AdminLoginDTO AdminLoginDTO) { 
+    	Integer memberNumber =
+    		 sqlSession.selectOne("admin.login", AdminLoginDTO); 
+    	return memberNumber == null ? -1 : 1 ; 
+    	}
 
 }

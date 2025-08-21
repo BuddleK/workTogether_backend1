@@ -1,4 +1,4 @@
-package com.wt.app.user;
+package com.wt.app.normalUsers;
 
 import java.io.IOException;
 
@@ -24,3 +24,4 @@ public class UsersLogoutController implements Execute{
 	}
 	
 }
+

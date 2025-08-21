@@ -2,26 +2,25 @@ package com.wt.app.dto;
 
 public class UsersLoginDTO {
 	private int userNumber;
-	private int userId;
-    private int usersPassword;
+	private String userId;
+    private String usersPassword;
     private char userType;
-    
 	public int getUserNumber() {
 		return userNumber;
 	}
 	public void setUserNumber(int userNumber) {
 		this.userNumber = userNumber;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public int getUsersPassword() {
+	public String getUsersPassword() {
 		return usersPassword;
 	}
-	public void setUsersPassword(int usersPassword) {
+	public void setUsersPassword(String usersPassword) {
 		this.usersPassword = usersPassword;
 	}
 	public char getUserType() {
