@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,7 +15,7 @@
   </head>
 
   <body>
-    <div id="header"></div>
+    <jsp:include page="/header_admin.jsp" />
     <main>
       <section class="login">
         <form action="${pageContext.request.contextPath}/admin/loginOk.ad" method="post">
@@ -35,6 +36,6 @@
         </form>
       </section>
     </main>
-    <div id="footer"></div>
+    <jsp:include page="/footer.jsp" />
   </body>
 </html>

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <header>
 
   </header>
@@ -122,7 +122,7 @@
       <button id="success_button">확인</button>
     </div>
   </div>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 
 </body>
 

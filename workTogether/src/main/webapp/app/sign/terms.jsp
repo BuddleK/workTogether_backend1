@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <section class="terms">
       <form action="" method="">
@@ -76,7 +76,7 @@
       </form>
     </section>
   </main>
-<div id="footer"></div>
+<jsp:include page="/footer.jsp" />
 
 </body>
 

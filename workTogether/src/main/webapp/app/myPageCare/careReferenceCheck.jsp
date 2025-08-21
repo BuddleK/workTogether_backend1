@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
 
 <!-- 페이지 세부 정보 -->
@@ -49,7 +49,7 @@
       </div>
     </section>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 
 </body>
 

@@ -12,7 +12,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalMatching.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
@@ -116,7 +116,7 @@
       <button type="button" onclick="cancelModalClose()" id="cancelBtn">확인</button>
     </div>
   </div>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 
 </html>
