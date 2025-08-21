@@ -1,7 +1,7 @@
 const id = document.getElementById("id");
 const pw = document.getElementById("pw");
 
-link = "./../../app/admin/userManager.html";
+link = "./../../app/admin/userManager.jsp";
 
 function loginSuccess() {
   if (id.value === "admin" && pw.value === "admin") {
