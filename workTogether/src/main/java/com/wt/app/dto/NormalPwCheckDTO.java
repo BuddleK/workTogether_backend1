@@ -1,8 +1,8 @@
 package com.wt.app.dto;
 
 public class NormalPwCheckDTO {
-	int usersNumber;
-	String usersPassword;
+	private int usersNumber;
+	private String usersPassword;
 
 	public int getUsersNumber() {
 		return usersNumber;

@@ -2,17 +2,12 @@ package com.wt.app.dto;
 
 import java.util.List;
 
-public class SubwayStationDTO<T> {
-//  stations_id NUMBER PRIMARY KEY,
-//  line_number NUMBER NOT NULL,
-//  stations_name VARCHAR2(100) NOT NULL,
-//  stations_address VARCHAR2(100) NOT NULL,
-//  stations_photo_id NUMBER,
-	int stationsId;
-	int lineNumber;
-	String stationsName;
-	String stationsAddress;
-	List<T> stationsPhoto;
+public class SubwayStationDTO {
+	private int stationsId;
+	private int lineNumber;
+	private String stationsName;
+	private String stationsAddress;
+//	private List<T> stationsPhoto;
 
 	public int getStationsId() {
 		return stationsId;
