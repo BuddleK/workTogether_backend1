@@ -17,34 +17,36 @@ public class AdminLoginOkController implements Execute{
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-				
-		AdminDAO adminDAO = new AdminDAO();
+
 		AdminLoginDTO adminDTO = new AdminLoginDTO();
+		AdminDAO adminDAO = new AdminDAO();
+		int adminNumber = 1;
 		Result result = new Result();
+		String path = null;
 		
-		request.setCharacterEncoding("UTF-8");
+		String adminId = request.getParameter("adminId"); //아이디 저장 처리할 때 재사용
+	    String adminPassword = request.getParameter("adminPassword");
+	    String remember = request.getParameter("remember");
+	    HttpSession session = request.getSession(); //++++++세션저장
 		
 		adminDTO.setAdminId(request.getParameter("adminId"));
         adminDTO.setAdminPassword(request.getParameter("adminPassword"));
         
         
-        int adminNumber = adminDAO.login(adminDTO);
+        adminNumber = adminDAO.login(adminDTO);
         
-        if (adminNumber > 0) {
+        if (adminNumber != -1) {
             // 로그인 성공 → 세션 저장 후 관리자 화면으로
-            HttpSession session = request.getSession();
+        	path = "/app/admin/userManager.jsp";
             session.setAttribute("adminNumber", adminNumber);
-            session.setAttribute("adminId", adminDTO.getAdminId());
-
-            result.setRedirect(true);
-            // 메인 없이 바로 관리자 로그인 후 JSP로 이동
-            result.setPath(request.getContextPath() + "/app/admin/userManager.jsp");
+            System.out.println("세션값 : " + adminNumber);
+            
+          
         } else {
-            // 로그인 실패 → 로그인 페이지로 리다이렉트
-            result.setRedirect(true);
-            result.setPath(request.getContextPath() + "/admin/login.ad?error=1");
+        	 path = "/admin/adminlogin.ad?login=fail";
         }
-
+        result.setRedirect(true); //세션에 저장된 값은 유지
+        result.setPath(path);
         return result;
 	}
 	
