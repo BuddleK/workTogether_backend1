@@ -19,7 +19,7 @@
 	<!-- 프로필 이력 수정 쿼리작성 -->
 	<!-- 주요이력 ??? -->
 	<update id="profileLicense">
-		update tbl_files_license set 
+		update tbl_files_license join tbl_files_account set 
 		where tbl_care_users.care_number = #{careNumber}
 	</update>
 
