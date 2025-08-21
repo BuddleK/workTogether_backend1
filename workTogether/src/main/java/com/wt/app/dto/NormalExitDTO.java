@@ -1,7 +1,7 @@
 package com.wt.app.dto;
 
 public class NormalExitDTO {
-	int normalNumber;
+	private int normalNumber;
 
 	public int getNormalNumber() {
 		return normalNumber;

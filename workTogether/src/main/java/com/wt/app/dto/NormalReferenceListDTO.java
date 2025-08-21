@@ -1,13 +1,13 @@
 package com.wt.app.dto;
 
 public class NormalReferenceListDTO {
-	int referenceNumber;
-	int usersNumber;
+	private int referenceNumber;
+	private int usersNumber;
 
-	String usersName;
-	String referenceTitle;
-	String referenceCreatedDate;
-	boolean answeredYn;
+	private String usersName;
+	private String referenceTitle;
+	private String referenceCreatedDate;
+	private boolean answeredYn;
 
 	public int getReferenceNumber() {
 		return referenceNumber;
