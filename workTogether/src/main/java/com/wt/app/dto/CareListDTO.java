@@ -2,164 +2,233 @@ package com.wt.app.dto;
 
 public class CareListDTO {
 //	-- 회원
-	private int users_number;
-	private char users_type;
-	private String users_id;
-	private String users_name;
-	private String users_address_line1;
+	private int usersNumber;
+	private char usersType;
+	private String usersId;
+	private String usersName;
+	private String usersAddressLine1;
 //	-- 돌봄 회원
-	private int care_number;
-	private String care_intro_text;
-	private String care_profiles_photo_number;
+	private int careNumber;
+	private String careIntroText;
+	private String careProfilesPhotoNumber;
 
 //	날짜
-	private char day_monday;
-	private char day_tuesday;
-	private char day_wednesday;
-	private char day_thursday;
-	private char day_friday;
-	private char day_saturday;
-	private char day_sunday;
+	private char dayMonday;
+	private char dayTuesday;
+	private char dayWednesday;
+	private char dayThursday;
+	private char dayFriday;
+	private char daySaturday;
+	private char daySunday;
 
 //		-- 파일 프로필
-	private String profiles_files_type;
-	private String profiles_files_name;
-	private String profiles_files_path;
+	private String profilesFilesType;
+	private String profilesFilesName;
+	private String profilesFilesPath;
 //		-- 하트
-	private int hearts_normal_number;
-	private int hearts_care_number;
-	public int getUsers_number() {
-		return users_number;
+	private int heartsNormalNumber;
+	private int heartsCareNumber;
+	
+//		--쪽지(단방향 시작)
+	private int messageNumber;
+	private String messageContent;
+	
+	public int getMessageNumber() {
+		return messageNumber;
 	}
-	public void setUsers_number(int users_number) {
-		this.users_number = users_number;
+
+	public void setMessageNumber(int messageNumber) {
+		this.messageNumber = messageNumber;
 	}
-	public char getUsers_type() {
-		return users_type;
+
+
+	public int getUsersNumber() {
+		return usersNumber;
 	}
-	public void setUsers_type(char users_type) {
-		this.users_type = users_type;
+
+	public void setUsersNumber(int usersNumber) {
+		this.usersNumber = usersNumber;
 	}
-	public String getUsers_id() {
-		return users_id;
+
+	public char getUsersType() {
+		return usersType;
 	}
-	public void setUsers_id(String users_id) {
-		this.users_id = users_id;
+
+	public void setUsersType(char usersType) {
+		this.usersType = usersType;
 	}
-	public String getUsers_name() {
-		return users_name;
+
+	public String getUsersId() {
+		return usersId;
 	}
-	public void setUsers_name(String users_name) {
-		this.users_name = users_name;
+
+	public void setUsersId(String usersId) {
+		this.usersId = usersId;
 	}
-	public String getUsers_address_line1() {
-		return users_address_line1;
+
+	public String getUsersName() {
+		return usersName;
 	}
-	public void setUsers_address_line1(String users_address_line1) {
-		this.users_address_line1 = users_address_line1;
+
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
 	}
-	public int getCare_number() {
-		return care_number;
+
+	public String getUsersAddressLine1() {
+		return usersAddressLine1;
 	}
-	public void setCare_number(int care_number) {
-		this.care_number = care_number;
+
+	public void setUsersAddressLine1(String usersAddressLine1) {
+		this.usersAddressLine1 = usersAddressLine1;
 	}
-	public String getCare_intro_text() {
-		return care_intro_text;
+
+	public int getCareNumber() {
+		return careNumber;
 	}
-	public void setCare_intro_text(String care_intro_text) {
-		this.care_intro_text = care_intro_text;
+
+	public void setCareNumber(int careNumber) {
+		this.careNumber = careNumber;
 	}
-	public String getCare_profiles_photo_number() {
-		return care_profiles_photo_number;
+
+	public String getCareIntroText() {
+		return careIntroText;
 	}
-	public void setCare_profiles_photo_number(String care_profiles_photo_number) {
-		this.care_profiles_photo_number = care_profiles_photo_number;
+
+	public void setCareIntroText(String careIntroText) {
+		this.careIntroText = careIntroText;
 	}
-	public char getDay_monday() {
-		return day_monday;
+
+	public String getCareProfilesPhotoNumber() {
+		return careProfilesPhotoNumber;
 	}
-	public void setDay_monday(char day_monday) {
-		this.day_monday = day_monday;
+
+	public void setCareProfilesPhotoNumber(String careProfilesPhotoNumber) {
+		this.careProfilesPhotoNumber = careProfilesPhotoNumber;
 	}
-	public char getDay_tuesday() {
-		return day_tuesday;
+
+	public char getDayMonday() {
+		return dayMonday;
 	}
-	public void setDay_tuesday(char day_tuesday) {
-		this.day_tuesday = day_tuesday;
+
+	public void setDayMonday(char dayMonday) {
+		this.dayMonday = dayMonday;
 	}
-	public char getDay_wednesday() {
-		return day_wednesday;
+
+	public char getDayTuesday() {
+		return dayTuesday;
 	}
-	public void setDay_wednesday(char day_wednesday) {
-		this.day_wednesday = day_wednesday;
+
+	public void setDayTuesday(char dayTuesday) {
+		this.dayTuesday = dayTuesday;
 	}
-	public char getDay_thursday() {
-		return day_thursday;
+
+	public char getDayWednesday() {
+		return dayWednesday;
 	}
-	public void setDay_thursday(char day_thursday) {
-		this.day_thursday = day_thursday;
+
+	public void setDayWednesday(char dayWednesday) {
+		this.dayWednesday = dayWednesday;
 	}
-	public char getDay_friday() {
-		return day_friday;
+
+	public char getDayThursday() {
+		return dayThursday;
 	}
-	public void setDay_friday(char day_friday) {
-		this.day_friday = day_friday;
+
+	public void setDayThursday(char dayThursday) {
+		this.dayThursday = dayThursday;
 	}
-	public char getDay_saturday() {
-		return day_saturday;
+
+	public char getDayFriday() {
+		return dayFriday;
 	}
-	public void setDay_saturday(char day_saturday) {
-		this.day_saturday = day_saturday;
+
+	public void setDayFriday(char dayFriday) {
+		this.dayFriday = dayFriday;
 	}
-	public char getDay_sunday() {
-		return day_sunday;
+
+	public char getDaySaturday() {
+		return daySaturday;
 	}
-	public void setDay_sunday(char day_sunday) {
-		this.day_sunday = day_sunday;
+
+	public void setDaySaturday(char daySaturday) {
+		this.daySaturday = daySaturday;
 	}
-	public String getProfiles_files_type() {
-		return profiles_files_type;
+
+	public char getDaySunday() {
+		return daySunday;
 	}
-	public void setProfiles_files_type(String profiles_files_type) {
-		this.profiles_files_type = profiles_files_type;
+
+	public void setDaySunday(char daySunday) {
+		this.daySunday = daySunday;
 	}
-	public String getProfiles_files_name() {
-		return profiles_files_name;
+
+	public String getProfilesFilesType() {
+		return profilesFilesType;
 	}
-	public void setProfiles_files_name(String profiles_files_name) {
-		this.profiles_files_name = profiles_files_name;
+
+	public void setProfilesFilesType(String profilesFilesType) {
+		this.profilesFilesType = profilesFilesType;
 	}
-	public String getProfiles_files_path() {
-		return profiles_files_path;
+
+	public String getProfilesFilesName() {
+		return profilesFilesName;
 	}
-	public void setProfiles_files_path(String profiles_files_path) {
-		this.profiles_files_path = profiles_files_path;
+
+	public void setProfilesFilesName(String profilesFilesName) {
+		this.profilesFilesName = profilesFilesName;
 	}
-	public int getHearts_normal_number() {
-		return hearts_normal_number;
+
+	public String getProfilesFilesPath() {
+		return profilesFilesPath;
 	}
-	public void setHearts_normal_number(int hearts_normal_number) {
-		this.hearts_normal_number = hearts_normal_number;
+
+	public void setProfilesFilesPath(String profilesFilesPath) {
+		this.profilesFilesPath = profilesFilesPath;
 	}
-	public int getHearts_care_number() {
-		return hearts_care_number;
+
+	public int getHeartsNormalNumber() {
+		return heartsNormalNumber;
 	}
-	public void setHearts_care_number(int hearts_care_number) {
-		this.hearts_care_number = hearts_care_number;
+
+	public void setHeartsNormalNumber(int heartsNormalNumber) {
+		this.heartsNormalNumber = heartsNormalNumber;
 	}
+
+	public int getHeartsCareNumber() {
+		return heartsCareNumber;
+	}
+
+	public void setHeartsCareNumber(int heartsCareNumber) {
+		this.heartsCareNumber = heartsCareNumber;
+	}
+
+	public String getMessageContent() {
+		return messageContent;
+	}
+
+	public void setMessageContent(String messageContent) {
+		this.messageContent = messageContent;
+	}
+
 	@Override
 	public String toString() {
-		return "CareListDTO [users_number=" + users_number + ", users_type=" + users_type + ", users_id=" + users_id
-				+ ", users_name=" + users_name + ", users_address_line1=" + users_address_line1 + ", care_number="
-				+ care_number + ", care_intro_text=" + care_intro_text + ", care_profiles_photo_number="
-				+ care_profiles_photo_number + ", day_monday=" + day_monday + ", day_tuesday=" + day_tuesday
-				+ ", day_wednesday=" + day_wednesday + ", day_thursday=" + day_thursday + ", day_friday=" + day_friday
-				+ ", day_saturday=" + day_saturday + ", day_sunday=" + day_sunday + ", profiles_files_type="
-				+ profiles_files_type + ", profiles_files_name=" + profiles_files_name + ", profiles_files_path="
-				+ profiles_files_path + ", hearts_normal_number=" + hearts_normal_number + ", hearts_care_number="
-				+ hearts_care_number + "]";
+		return "CareListDTO [usersNumber=" + usersNumber + ", usersType=" + usersType + ", usersId=" + usersId
+				+ ", usersName=" + usersName + ", usersAddressLine1=" + usersAddressLine1 + ", careNumber=" + careNumber
+				+ ", careIntroText=" + careIntroText + ", careProfilesPhotoNumber=" + careProfilesPhotoNumber
+				+ ", dayMonday=" + dayMonday + ", dayTuesday=" + dayTuesday + ", dayWednesday=" + dayWednesday
+				+ ", dayThursday=" + dayThursday + ", dayFriday=" + dayFriday + ", daySaturday=" + daySaturday
+				+ ", daySunday=" + daySunday + ", profilesFilesType=" + profilesFilesType + ", profilesFilesName="
+				+ profilesFilesName + ", profilesFilesPath=" + profilesFilesPath + ", heartsNormalNumber="
+				+ heartsNormalNumber + ", heartsCareNumber=" + heartsCareNumber + ", messageNumber=" + messageNumber
+				+ ", messageContent=" + messageContent + "]";
 	}
+
+	
+
+	
+	
+	
+	
 
 	
 	

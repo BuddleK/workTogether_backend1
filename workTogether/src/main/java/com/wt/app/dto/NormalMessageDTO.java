@@ -1,66 +1,64 @@
 package com.wt.app.dto;
 
-public class NormalMessageListDTO {
+public class NormalMessageDTO {
 	private int messageNumber;
 	private int careNumber;
 	private int normalNumber;
-	private String messageContents;
+	private char senderType;
+	private String messageContent;
 	private String messageDate;
-	private boolean isRead;
-
+	private char isRead;
+	
 	public int getMessageNumber() {
 		return messageNumber;
 	}
-
 	public void setMessageNumber(int messageNumber) {
 		this.messageNumber = messageNumber;
 	}
-
 	public int getCareNumber() {
 		return careNumber;
 	}
-
 	public void setCareNumber(int careNumber) {
 		this.careNumber = careNumber;
 	}
-
 	public int getNormalNumber() {
 		return normalNumber;
 	}
-
 	public void setNormalNumber(int normalNumber) {
 		this.normalNumber = normalNumber;
 	}
-
-	public String getMessageContents() {
-		return messageContents;
+	public char getSenderType() {
+		return senderType;
 	}
-
-	public void setMessageContents(String messageContents) {
-		this.messageContents = messageContents;
+	public void setSenderType(char senderType) {
+		this.senderType = senderType;
 	}
-
+	public String getMessageContent() {
+		return messageContent;
+	}
+	public void setMessageContent(String messageContent) {
+		this.messageContent = messageContent;
+	}
 	public String getMessageDate() {
 		return messageDate;
 	}
-
 	public void setMessageDate(String messageDate) {
 		this.messageDate = messageDate;
 	}
-
-	public boolean isRead() {
+	public char getIsRead() {
 		return isRead;
 	}
-
-	public void setRead(boolean isRead) {
+	public void setIsRead(char isRead) {
 		this.isRead = isRead;
 	}
-
 	@Override
 	public String toString() {
-		return "NormalMessageListDTO [messageNumber=" + messageNumber + ", careNumber=" + careNumber + ", normalNumber="
-				+ normalNumber + ", messageContents=" + messageContents + ", messageDate=" + messageDate + ", isRead="
-				+ isRead + "]";
+		return "NormalMessageDTO [messageNumber=" + messageNumber + ", careNumber=" + careNumber + ", normalNumber="
+				+ normalNumber + ", senderType=" + senderType + ", messageContent=" + messageContent + ", messageDate="
+				+ messageDate + ", isRead=" + isRead + "]";
 	}
-
+	
+	
+	
+	
 }

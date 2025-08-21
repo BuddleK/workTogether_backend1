@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="postReply">
+
+<!-- 댓글 달기 -->
+	<insert id="replyAdd" parameterType="PostReplyDTO">
+		INSERT INTO TBL_REPLY
+		(REPLY_NUMBER, POSTS_NUMBER, USERS_NUMBER, REPLY_CONTENT, REPLY_CREATED_DATE, REPLY_UPDATED_DATE)
+		VALUES(seq_board_comments.nextval, #{postsNumber}, #{usersNumber}, #{replyContent}, sysdate, sysdate);
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="replyUpdate" parameterType="PostReplyDTO">
+		UPDATE TBL_REPLY
+		SET REPLY_CONTENT = #{replyContent}, REPLY_UPDATED_DATE = SYSDATE
+		WHERE REPLY_NUMBER = #{replyNumber} AND USERS_NUMBER = #{usersNumber}
+	</update>
+	
+	<select id="listAll" parameterType="PostReplyDTO">
+		SELECT COALESCE(c.users_name, n.users_name) AS writer_name, r.reply_content, r.reply_updated_date
+		FROM tbl_reply r
+		LEFT JOIN tbl_normal_users n ON r.users_number = n.users_number
+		LEFT JOIN tbl_care_users c ON r.users_number = c.users_number;
+	</select>
+	
+	<delete id="replyDelete">
+		delete tbl_reply
+		where reply_number = #{replyNumber} and user_number = #{userNumber}
+	</delete>
+
+</mapper>

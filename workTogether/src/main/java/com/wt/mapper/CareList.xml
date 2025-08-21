@@ -107,6 +107,12 @@
 		hearts_normal_number =
 		#{heartsNormalNumber}
 	</delete>
+	
+	<insert id="startMessage" parameterType="CareHeartDTO">
+		INSERT INTO RICEBALL.TBL_MESSAGE
+		(MESSAGE_NUMBER, CARE_NUMBER, NORMAL_NUMBER, SENDER_TYPE, MESSAGE_CONTENTS, MESSAGE_DATE, IS_READ)
+		VALUES(seq_messages.nextval, #{careNumber}, #{normalNumber}, 'N', #{messageContent}, SYSDATE , 'N');
+	</insert>
 
 </mapper>
 
