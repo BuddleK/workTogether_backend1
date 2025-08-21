@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="CarePost">
+<mapper namespace="carePost">
 	<!-- 게시글 목록 전체 조회 -->
-	<select id="postAll" parameterType="CarePostDTO">
+	<select id="postAll" parameterType="carePostDTO">
 		<![CDATA[
 		SELECT * FROM (
 			SELECT ROWNUM AS rnum, subquery.*
@@ -17,7 +17,7 @@
 	</select>
 
 	<!-- 게시글 삭제 쿼리 -->
-	<delete id="PostDelete">
+	<delete id="postDelete">
 		delete from tbl_posts
 		where posts_number = #{rows}
 	</delete>
