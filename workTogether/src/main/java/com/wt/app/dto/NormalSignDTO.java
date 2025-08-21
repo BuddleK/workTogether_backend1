@@ -12,21 +12,24 @@ public class NormalSignDTO {
 //    normal_users_level CHAR(1) NOT NULL CHECK (normal_users_level IN ('1', '2', '3', '4')),
 //    users_number NUMBER NOT NULL UNIQUE,
 	
-	private int normalNumber;
-	private String usersName;
-	private String usersEmail;
-	private String usersPhone;
-	private String usersPostsalCode;
-	private String usersAddressLine1;
-	private String usersAddressLine2;
-	private char normalUsersLevel;
+	//일반 유저 테이블
+	private int normalNumber;			//일반회원 번호
+	private String usersName;			//일반회원 이름
+	private String usersEmail;			//일반회원 이메일
+	private String usersPhone;			//일반회원 전화번호
+	private String usersPostsalCode;	//일반회원 우편번호
+	private String usersAddressLine1;	//일반회원 주소1
+	private String usersAddressLine2;	//일반회원 상세주소
+	private char normalUsersLevel;		//일반회원 상태
 	
-	private int usersNumber;
-	private String usersId;
-	private String usersPassword;
-	private char usersType;
-	private String usersCreateDate;
-	private String usersUpdatedDate;
+	//전체 유저 테이블
+	private int usersNumber;			//회원 번호
+	private String usersId;				//회원 아이디
+	private String usersPassword;		//회원 비밀번호
+	private char usersType;				//회원 타입
+	private String usersCreateDate;		//회원 생성일
+	private String usersUpdatedDate;	//회원 수정일
+	
 	public int getNormalNumber() {
 		return normalNumber;
 	}
