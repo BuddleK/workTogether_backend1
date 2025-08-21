@@ -13,7 +13,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetaillogin.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <!-- 공지사항 디테일 페이지 -->
   <main>
     <form action="">
@@ -59,6 +59,6 @@
       <button class="button_list"><a href="${pageContext.request.contextPath}/app/post/postMain.jsp">목록</a></button>
     </div>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html>

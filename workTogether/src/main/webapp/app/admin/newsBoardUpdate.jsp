@@ -14,7 +14,7 @@
     <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
   </head>
   <body>
-    <div id="header"></div>
+    <jsp:include page="/header_admin.jsp" />
     <main>
       <section class="add_section">
         <div class="add_data">
@@ -45,6 +45,6 @@
         </div>
       </section>
     </main>
-    <div id="footer"></div>
+    <jsp:include page="/footer.jsp" />
   </body>
 </html>

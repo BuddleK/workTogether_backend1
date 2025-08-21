@@ -13,7 +13,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/map/map.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 지도 페이지 컨테이너 -->
     <div class="map_container">
@@ -72,7 +72,7 @@
       </div>
     </div>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
   <!-- 모달창 -->
   <article class="modalbox">
     <!-- 비로그인 시 체크 모달 -->

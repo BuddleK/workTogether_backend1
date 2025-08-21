@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
 
   <main>
     <div class="station_info">
@@ -43,7 +43,7 @@
 
 
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 
 </html>
