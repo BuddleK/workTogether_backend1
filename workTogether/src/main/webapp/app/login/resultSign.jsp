@@ -13,7 +13,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
   </head>
   <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
     <main>
       <section class="result">
         <div class="result_content">
@@ -36,6 +36,6 @@
         </div>
       </section>
     </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
   </body>
 </html>

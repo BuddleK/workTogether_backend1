@@ -14,7 +14,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/carePwCheck.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
           <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
 
@@ -41,7 +41,7 @@
     </form>
   </div>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 
   </body>
 

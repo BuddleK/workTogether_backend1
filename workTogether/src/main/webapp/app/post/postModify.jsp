@@ -13,7 +13,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/post/postModify.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 게시물 수정  디테일 페이지-->
     <form action="">
@@ -67,6 +67,6 @@
       </div>
     </div>
   </div>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html>

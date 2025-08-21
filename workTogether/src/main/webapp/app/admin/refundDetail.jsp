@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
   </head>
   <body>
-    <div id="header"></div>
+    <jsp:include page="/header_admin.jsp" />
     <main>
       <div id="sidebar"></div>
       <section class="care_box">
@@ -54,7 +54,7 @@
         </form>
       </section>
     </main>
-    <div id="footer"></div>
+    <jsp:include page="/footer.jsp" />
     <div id="modalRefundFinished"></div>
   </body>
 </html>

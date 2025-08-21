@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <div id="header"></div>
+    <jsp:include page="/header.jsp" />
     <main>
       <section class="login">
         <form action="${pageContext.request.contextPath}/user/login.us" method="post">
@@ -55,7 +55,7 @@
         </form>
       </section>
     </main>
-    <div id="footer"></div>
+    <jsp:include page="/footer.jsp" />
     <div id="modalAdminLoginFailed"></div>
   </body>
 </html>

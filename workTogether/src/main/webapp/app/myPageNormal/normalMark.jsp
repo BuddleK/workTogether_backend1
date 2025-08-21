@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <nav class="main_sidebar">
       <ul>
@@ -85,7 +85,7 @@
       </div>
     </div>
   </div>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 
 </html>
