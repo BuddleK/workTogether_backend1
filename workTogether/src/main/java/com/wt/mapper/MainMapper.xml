@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main">
+	
+	<!-- 뉴스배너 -->
+	<select id="newsBanner" parameterType="NewsBannerDTO">
+	
+	</select>
+	
+	<!-- 추천활동 -->
+	
+	
+	<!-- 게시판 -->
+	<select id="post" parameterType="PostsDTO">
+	
+	</select>
+	
+	<!-- 지도 마커 -->
+	<select id="map" parameterType="MarkerDTO">
+	
+	</select>
+	
+	<!-- 돌봄 회원 -->
+	<select id="care" parameterType="CareListDTO">
+	
+	</select>
+
+</mapper>
+
+
+
