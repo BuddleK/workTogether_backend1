@@ -1,11 +1,13 @@
 package com.wt.app.dto;
 
 public class NormalFavoriteListDTO {
+	// 가게 찜 테이블
 	private int favoritesNumber;
 	private int userNumber;
 	private int shopsNumber;
 	private int createdDate;
 
+	// 가게 테이블
 	private String shopsName;
 	private String shopsRoadAddr;
 	private String shopsPhone;

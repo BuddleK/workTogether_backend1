@@ -3,11 +3,14 @@ package com.wt.app.dto;
 import java.util.List;
 
 public class NormalHeartListDTO {
-	private int careNumber;
-//	private List<T> profilesFilesNumber;
+	//돌봄 유저 테이블
+	private int careNumber; // 돌봄 유저 번호
+//	private List<T> profilesFilesNumber; // 프로필 파일 번호
 
-	private String userName;
+	//전체 유저 테이블
+	private String userName; // 전체 유저 번호
 
+	//요일 테이블
 	private char dayMonday;
 	private char dayTuesday;
 	private char dayWednesday;
@@ -16,7 +19,8 @@ public class NormalHeartListDTO {
 	private char daySaturday;
 	private char daySunday;
 
-	private String careIntroText;
+	//돌봄 유저 테이블
+	private String careIntroText; //
 
 	public int getCareNumber() {
 		return careNumber;
@@ -26,13 +30,13 @@ public class NormalHeartListDTO {
 		this.careNumber = careNumber;
 	}
 
-	public List<T> getProfilesFilesNumber() {
-		return profilesFilesNumber;
-	}
-
-	public void setProfilesFilesNumber(List<T> profilesFilesNumber) {
-		this.profilesFilesNumber = profilesFilesNumber;
-	}
+//	public List<T> getProfilesFilesNumber() {
+//		return profilesFilesNumber;
+//	}
+//
+//	public void setProfilesFilesNumber(List<T> profilesFilesNumber) {
+//		this.profilesFilesNumber = profilesFilesNumber;
+//	}
 
 	public String getUserName() {
 		return userName;

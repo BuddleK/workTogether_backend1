@@ -1,6 +1,7 @@
 package com.wt.app.dto;
 
 public class NormalMatchingDTO {
+	// 
 	private int matchNumber;
 	private int careNumber;
 	private int normalNumber;
