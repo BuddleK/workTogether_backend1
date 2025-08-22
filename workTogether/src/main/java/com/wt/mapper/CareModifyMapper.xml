@@ -3,26 +3,97 @@
 
 <mapper namespace="careModify">
 	
+	<!-- 회원 이름 조회 -->
+	<select id="nameSelect">
+		SELECT c.users_name
+		FROM   tbl_care_users c
+		WHERE  c.users_number = (
+    		SELECT u.users_number
+    		FROM tbl_users u
+    		WHERE u.users_number = #{usersNumber}) 
+	</select>
+	
+	<!-- 회원 주소 조회 -->
+	<select id="addressSelect">
+		SELECT c.users_postsal_code, c.users_address_line1, c.users_address_line2
+		FROM   tbl_care_users c
+		WHERE  c.users_number = (
+    		SELECT u.users_number
+    		FROM tbl_users u
+    		WHERE u.users_number = #{usersNumber})
+	</select>
+	
+	<!-- 회원 전화번호 조회 -->
+	<select id="phoneSelect">
+		SELECT c.users_phone
+		FROM   tbl_care_users c
+		WHERE  c.users_number = (
+    		SELECT u.users_number
+    		FROM tbl_users u
+    		WHERE u.users_number = #{usersNumber}) 
+	</select>
+	
+	<!-- 회원 아이디 조회 -->
+	<select id="idSelect">
+		SELECT users_id
+		FROM   tbl_users
+    	WHERE users_number = #{usersNumber} 
+	</select>
+	
+	<!-- 회원 이메일 조회 -->
+	<select id="emailSelect">
+		SELECT c.users_email
+		FROM   tbl_care_users c
+		WHERE  c.users_number = (
+    		SELECT u.users_number
+    		FROM tbl_users u
+    		WHERE u.users_number = #{usersNumber}) 
+	</select>
+	
+	<!-- 회원 비밀번호 조회 -->
+	<select id="passwordSelect">
+		SELECT users_password
+		FROM   tbl_users
+    	WHERE users_number = #{usersNumber} 
+	</select>
+	
+	
 	<!-- 개인정보 주소 수정 쿼리작성 -->
-	<update id="profileAddress">
-		update tbl_users set users_postsal_code = #{usersPostsalCode}, users_address_line1 = #{usersAddressLine1}, users_address_line2 = #{usersAddressLine2}
-		where tbl_users.users_number = #{usersNumber}
+	<update id="addressUpdate">
+		UPDATE tbl_care_users c
+		SET c.users_postsal_code  = #{usersPostsalCode},
+    		c.users_address_line1 = #{usersAddressLine1},
+    		c.users_address_line2 = #{usersAddressLine2}
+		WHERE c.users_number = (
+    		SELECT u.users_number
+    		FROM tbl_users u
+    		WHERE u.users_number = #{usersNumber})
 	</update>
 	
 	<!-- 전화번호 수정 쿼리작성 -->
-	<update id="profilePhone">
-		update tbl_users set users_phone = #{usersPhone}
-		where tbl_users.users_number = #{usersNumber}
+	<update id="phoneUpdate">
+		UPDATE tbl_care_users c
+		SET c.users_postsal_code  = #{usersPostsalCode},
+    		c.users_address_line1 = #{usersAddressLine1},
+    		c.users_address_line2 = #{usersAddressLine2}
+		WHERE c.users_number = (
+    		SELECT u.users_number
+    		FROM tbl_users u
+    		WHERE u.users_number = #{usersNumber})
 	</update>
 	
 	<!-- 이메일 수정 쿼리작성 -->
-	<update id="profileEmail">
-		update tbl_users set users_email = #{usersEmail}
-		where tbl_users.users_number = #{usersNumber}
+	<update id="emailupdate">
+		UPDATE tbl_care_users c
+		SET c.users_email  = #{usersEmail}
+		WHERE c.users_number = (
+    		SELECT u.users_number
+    		FROM tbl_users u
+    		WHERE u.users_number = #{usersNumber})
 	</update>
 	
 	<!-- 비밀번호 수정 쿼리작성 -->
-	<update id="profilePassword">
+	<update id="passwordupdate">
 		update tbl_users set users_password = #{usersPassword}
 		where tbl_users.users_number = #{usersNumber}
 	</update>
