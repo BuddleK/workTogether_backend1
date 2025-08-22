@@ -6,9 +6,7 @@
 		<selectKey keyProperty="matchingNumber" resultType="int" order="BEFORE">
 			SELECT seq_matchings.CURRVAL FROM DUAL
 		</selectKey>
-		<selectKey keyProperty="matchingNumber" resultType="int" order="BEFORE">
-			SELECT seq_matchings.CURRVAL FROM DUAL
-		</selectKey>
+		
 	</insert>
 
 
