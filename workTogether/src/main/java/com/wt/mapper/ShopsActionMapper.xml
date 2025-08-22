@@ -33,10 +33,20 @@
 		from tbl_shops s 
 		left join tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
 		left join tbl_files_shops fs on s.shops_files_number = fs.shops_files_number
-		where s.shops_number = #{shopsNumber} and f.users_number =  #{userNumber}
+		where s.shops_number = #{shopsNumber} and f.users_number = #{userNumber}
 	</select>
 	
+	<select id="adminDong" resultType="AdminDongListDTO">
+	select shops_admin_dong from tbl_shops where shops_admin_dong IN ('양재동','방배동', '서초동', '잠원동')  group by shops_admin_dong
+	union
+	SELECT * FROM dual
+		
+	</select>
 	
+	<!-- <select id="legalDong" resultType="ShopsLitDTO">
+		SELECT shops_legal_dong FROM tbl_shops GROUP BY SHOPS_legal_DONG
+	</select>
+	 -->
 	<!-- 찜 추가 -->
 	<!-- <insert id="favoriteAdd" parameterType="ShopsFavoritesActionDTO">
 		insert into tbl_shops_favorites

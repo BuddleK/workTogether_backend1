@@ -37,29 +37,21 @@
 					<!-- 지역 목록 -->
 					<ul class="region_list">
 						<!-- 지역 -->
-						<li onclick="reClicked(0)" class="region_button">
+						<!-- <li onclick="reClicked(0)" class="region_button">
 							<div class="region_mark"></div> 방배동
-						</li>
-						<!-- 지역 -->
-						<li onclick="reClicked(1)" class="region_button">
-							<div class="region_mark"></div> 반포동
-						</li>
-						<!-- 지역 -->
-						<li onclick="reClicked(2)" class="region_button">
-							<div class="region_mark"></div> 서초동
-						</li>
-						<!-- 지역 -->
-						<li onclick="reClicked(3)" class="region_button">
-							<div class="region_mark"></div> 양재동
-						</li>
-						<!-- 지역 -->
-						<li onclick="reClicked(4)" class="region_button">
-							<div class="region_mark"></div> 내곡동
-						</li>
-						<!-- 지역 -->
-						<li onclick="reClicked(5)" class="region_button">
-							<div class="region_mark"></div> 잠원동
-						</li>
+						</li> -->
+						<c:choose>
+							<c:when test="${not empty adminDongList}">
+								<c:forEach var="dong" items="${adminDongList }" varStatus="status">
+									<li onclick="reClicked(${status.index })" class="region_button">
+									<div class="region_mark"></div>  
+										<c:choose>
+											<c:when test="${dong.getShopsAdminDong()== 'X' }">기타</c:when>
+											<c:otherwise> <c:out value="${dong.getShopsAdminDong() }"></c:out> </c:otherwise>
+										</c:choose>
+								</c:forEach>
+							</c:when>
+						</c:choose>
 					</ul>
 					<!-- 동 선택 영역 -->
 					<div class="region_small">
@@ -78,7 +70,7 @@
 									<c:forEach var="shop" items="${shopsList}">
 										<div class="restaurant_card">
 											<a class="go_detail"
-												href="${pageContext.request.contextPath}/shops/shopsListOk.sh?shopsNumber=${shop.shopsNumber}">
+												href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${shop.shopsNumber}">
 												<!-- href="./../restaurant/restaurantDetail.jsp?restaurant=0&leNum=1&adNum=2"> -->
 												<div class="restaurant_name">
 													<c:out value="${shop.getShopsName()}" />
