@@ -18,11 +18,19 @@ public class MyPageNormalDAO {
 		return (Integer) sqlSession.selectOne("myPageNormal.checkPw", usersPassword) < 1;
 	}
 
-	public List<NormalModifyDTO> normalSearch() {
-		System.out.println("모든 게시글 조회하기 - normalSearch 메소드 실행");
-		List<NormalModifyDTO> list = sqlSession.selectList(null);
+	public List<NormalModifyDTO> normalSearch(String usersId) {
+		System.out.println("모든 게시글 조회하기 - normalSearch 메소드 실행" + usersId);
+		List<NormalModifyDTO> list = sqlSession.selectList("myPageNormal.normalSearch", usersId);
 		System.out.println("조회결과 : " + list);
 		return list;
 	}
+	
+	public void normalModify(NormalModifyDTO normalModifyDTO){
+		System.out.println("게시글 수정 - normalModify 메소드 실행"+ normalModifyDTO);
+		int result = sqlSession.update("myPageNormal.normalModify", normalModifyDTO);
+		System.out.println("업데이트 결과 : " + result);
+	}
+	
+	
 
 }
