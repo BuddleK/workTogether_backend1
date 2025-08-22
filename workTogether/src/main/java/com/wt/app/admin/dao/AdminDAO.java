@@ -14,9 +14,14 @@ public class AdminDAO {
     
 	
     public int login(AdminLoginDTO AdminLoginDTO) { 
-    	Integer memberNumber =
+    	Integer adminNumber =
     		 sqlSession.selectOne("admin.login", AdminLoginDTO); 
-    	return memberNumber == null ? -1 : memberNumber ; 
+    	return adminNumber == null ? -1 : adminNumber ; 
     	}
+
+   
+    public String getAdminName(int adminNumber) {
+        return sqlSession.selectOne("admin.getAdminName", adminNumber);
+    }
 
 }

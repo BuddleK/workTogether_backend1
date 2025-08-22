@@ -18,7 +18,7 @@ public class AdminLoginOkController implements Execute{
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		System.out.println("ㅎㅇ");
+		
 		AdminLoginDTO adminDTO = new AdminLoginDTO();
 		AdminDAO adminDAO = new AdminDAO();
 		int adminNumber = 1;
