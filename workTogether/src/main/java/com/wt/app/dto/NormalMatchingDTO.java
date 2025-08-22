@@ -1,13 +1,14 @@
 package com.wt.app.dto;
 
 public class NormalMatchingDTO {
-	private int matchNumber;
-	private int careNumber;
-	private int normalNumber;
-	private String matchDate;
-	private String matchTime;
-	private int matchPoints;
-	private char matchStatus;
+	// 매칭 테이블
+	private int matchNumber; // 매칭 번호
+	private int careNumber;	// 돌봄 회원 번호
+	private int normalNumber; // 일반 회원 번호
+	private String matchDate; // 매칭 날짜
+	private String matchTime; // 매칭 시간
+	private int matchPoints; // 매칭 포인트
+	private char matchStatus; // 매칭 상태
 
 	public int getMatchNumber() {
 		return matchNumber;
