@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="newsList">
+   <!-- 일반 뉴스 전체 불러오기 쿼리-->
+   <select id="getNewsList" resultType="NewsListDTO">
+   		SELECT ROWNUM AS rnum, subquery.*
+		FROM (SELECT news_number, news_title, news_link_url, news_created_date
+		FROM tbl_news
+		ORDER BY news_created_date DESC
+		) subquery
+   </select>
+   
+   <!-- 배너 뉴스 전체 불러오기 쿼리 -->
+   <select id="getNewsMain" resultType="NewsMainDTO">
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (SELECT banner_news_number, banner_title, banner_content, banner_link_url, banner_files_path
+		FROM TBL_NEWS_BANNERS b JOIN TBL_FILES_BANNER f ON BANNER_FILES_NUMBER = BANNER_FILES_NUMBER ORDER BY b.BANNER_CREATED_DATE DESC
+		) subquery;
+   </select>
+</mapper>
