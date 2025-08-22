@@ -4,7 +4,7 @@ public class NormalModifyDTO {
 	private int UserNumber;
 	private int normalNumber;
 	private String usersName;
-	private String userId;
+	private String usersId;
 	private char normalUsersLevel;
 	private String usersPostCode;
 	private String usersAddrLine1;
@@ -36,13 +36,13 @@ public class NormalModifyDTO {
 	public void setUsersName(String usersName) {
 		this.usersName = usersName;
 	}
-	
-	public String getUserId() {
-		return userId;
+
+	public String getUsersId() {
+		return usersId;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUsersId(String usersId) {
+		this.usersId = usersId;
 	}
 
 	public char getNormalUsersLevel() {
@@ -104,11 +104,10 @@ public class NormalModifyDTO {
 	@Override
 	public String toString() {
 		return "NormalModifyDTO [UserNumber=" + UserNumber + ", normalNumber=" + normalNumber + ", usersName="
-				+ usersName + ", normalUsersLevel=" + normalUsersLevel + ", usersPostCode=" + usersPostCode
-				+ ", usersAddrLine1=" + usersAddrLine1 + ", usersAddrLine2=" + usersAddrLine2 + ", usersPhone="
-				+ usersPhone + ", usersEmail=" + usersEmail + ", usersPassword=" + usersPassword + "]";
+				+ usersName + ", usersId=" + usersId + ", normalUsersLevel=" + normalUsersLevel + ", usersPostCode="
+				+ usersPostCode + ", usersAddrLine1=" + usersAddrLine1 + ", usersAddrLine2=" + usersAddrLine2
+				+ ", usersPhone=" + usersPhone + ", usersEmail=" + usersEmail + ", usersPassword=" + usersPassword
+				+ "]";
 	}
-
-
 
 }

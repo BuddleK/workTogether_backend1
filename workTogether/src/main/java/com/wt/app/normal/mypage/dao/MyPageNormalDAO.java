@@ -4,7 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.NormalFavoriteListDTO;
+import com.wt.app.dto.NormalMatchingDTO;
 import com.wt.app.dto.NormalModifyDTO;
+import com.wt.app.dto.NormalPostsListDTO;
+import com.wt.app.dto.NormalReferenceListDTO;
 import com.wt.config.MyBatisConfig;
 
 public class MyPageNormalDAO {
@@ -19,18 +23,55 @@ public class MyPageNormalDAO {
 	}
 
 	public List<NormalModifyDTO> normalSearch(String usersId) {
-		System.out.println("모든 게시글 조회하기 - normalSearch 메소드 실행" + usersId);
+		System.out.println("개인 정보 조회하기 - normalSearch 메소드 실행" + usersId);
 		List<NormalModifyDTO> list = sqlSession.selectList("myPageNormal.normalSearch", usersId);
 		System.out.println("조회결과 : " + list);
 		return list;
 	}
-	
-	public void normalModify(NormalModifyDTO normalModifyDTO){
-		System.out.println("게시글 수정 - normalModify 메소드 실행"+ normalModifyDTO);
+
+	public void normalModify(NormalModifyDTO normalModifyDTO) {
+		System.out.println("개인 정보 수정 - normalModify 메소드 실행" + normalModifyDTO);
 		int result = sqlSession.update("myPageNormal.normalModify", normalModifyDTO);
 		System.out.println("업데이트 결과 : " + result);
 	}
-	
-	
 
+	public List<NormalFavoriteListDTO> normalfavoriteListSearch() {
+		System.out.println("찜 목록 조회하기 - normalfavoriteListSearch 메소드 실행");
+		List<NormalFavoriteListDTO> list = sqlSession.selectList("myPageNormal.normalfavoriteListSearch");
+		System.out.println("조회결과 : " + list);
+		return list;
+	}
+
+	public void normalfavoriteListDelete(NormalFavoriteListDTO normalFavoriteListDTO) {
+		System.out.println("찜 목록 삭제하기 - normalfavoriteListDelete 메소드 실행" + normalFavoriteListDTO);
+		sqlSession.delete("myPageNormal.normalfavoriteListDelete", normalFavoriteListDTO);
+		System.out.println("찜 목록 삭제하기 실행 완료");
+	}
+
+	public List<NormalMatchingDTO> normalMatchingSearch() {
+		System.out.println("매칭 목록 조회하기 - normalMatchingSearch 메소드 실행");
+		List<NormalMatchingDTO> list = sqlSession.selectList("myPageNormal.normalMatchingSearch");
+		System.out.println("조회결과 : " + list);
+		return list;
+	}
+
+	public List<NormalPostsListDTO> normalPostsListSearch(int usersNumber) {
+		System.out.println("게시물 리스트 조회하기 - normalPostsListSearch 메소드 실행" + usersNumber);
+		List<NormalPostsListDTO> list = sqlSession.selectList("myPageNormal.normalPostsListSearch", usersNumber);
+		System.out.println("조회결과 : " + list);
+		return list;
+	}
+
+	public void normalPostsListDelete(NormalPostsListDTO normalPostsListDTO) {
+		System.out.println("게시물 리스트 삭제하기 - normalPostsListDelete 메소드 실행" + normalPostsListDTO);
+		sqlSession.delete("myPageNormal.normalPostsListDelete", normalPostsListDTO);
+		System.out.println("게시물 리스트 삭제하기 실행 완료");
+	}
+
+	public List<NormalReferenceListDTO> normalReferenceListSearch() {
+		System.out.println("문의 목록 조회하기 - normalReferenceListSearch 메소드 실행");
+		List<NormalReferenceListDTO> list = sqlSession.selectList("myPageNormal.normalReferenceListSearch");
+		System.out.println("조회결과 : " + list);
+		return list;
+	}
 }
