@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fileNotice">
+
+	<!-- 파일 추가 -->
+    <insert id="insert" parameterType="FileNoticeDTO">
+        INSERT INTO tbl_files_notice (notice_files_number, notice_files_type,
+        	notice_files_name, notice_files_path, notice_files_size_bytes,
+            notice_created_date) 
+        VALUES (seq_files.NEXTVAL, #{noticeFilesType}, #{noticeFilesName},
+            #{noticeFilesPath}, #{noticeFilesSizeBytes}, SYSDATE)
+    </insert>
+
+    <!-- 파일 조회 (뉴스번호 기준 조회) -->
+    <select id="select" parameterType="int" resultType="FileNoticeDTO">
+        SELECT f.notice_files_number,f.notice_files_type, f.notice_files_name,
+               f.notice_files_path, f.notice_files_size_bytes,
+               f.notice_created_date
+        FROM tbl_news n
+        JOIN tbl_files_notice f
+          ON f.notice_files_number = n.files_number
+        WHERE n.news_number = #{newsNumber}
+    </select>
+
+    <!-- 파일 삭제 (뉴스번호 기준 삭제) -->
+    <delete id="delete" parameterType="int">
+        DELETE FROM tbl_files_notice
+        WHERE notice_files_number = (
+        	SELECT files_number
+        	FROM tbl_news
+        	WHERE news_number = #{newsNumber})
+    </delete>
+    
+    <!-- 뉴스번호로 연결된 파일번호 조회 -->
+    <select id="getNoticeFilesNumber" parameterType="int" resultType="int">
+    	SELECT files_number
+    	FROM tbl_news
+    	WHERE news_number = #{newsNumber}
+	</select>
+
+    
+</mapper>
