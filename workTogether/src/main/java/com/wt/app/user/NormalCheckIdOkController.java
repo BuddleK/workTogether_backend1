@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.normalUsers.dao.NormalUsersDAO;
+import com.wt.app.users.dao.NormalUsersDAO;
 
 public class NormalCheckIdOkController implements Execute {
 	@Override

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.careUsers.dao.CareUsersDAO;
+import com.wt.app.users.dao.CareUsersDAO;
 
 public class CareCheckIdOkController implements Execute{
 
