@@ -74,4 +74,8 @@ public class MyPageNormalDAO {
 		System.out.println("조회결과 : " + list);
 		return list;
 	}
+	
+	public void normalExit(int usersNumber) {
+		sqlSession.delete("myPageNormal.normalExit", usersNumber);
+	}
 }

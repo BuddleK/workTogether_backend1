@@ -120,5 +120,10 @@
 		JOIN tbl_normal_users n
 		    ON r.reference_users_number = n.users_number;
 	</select>
-		
+	
+	<!-- 일반 회원 탈퇴 -->
+	<delete id="normalExit" parameterType="int">
+		DELETE FROM TBL_NORMAL_USERS
+		WHERE users_number = #{userNumber};
+	</delete>
 </mapper>
