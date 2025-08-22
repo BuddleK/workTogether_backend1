@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <div id="header"></div>
+    <jsp:include page="/header_admin.jsp" />
     <main>
       <div id="sidebar"></div>
       <section class="userManager">
@@ -144,6 +144,6 @@
       </section>
     </main>
 
-    <div id="footer"></div>
+    <jsp:include page="/footer.jsp" />
   </body>
 </html>

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 문의 작성 디테일 페이지 -->
     <section class="reference_dp">
@@ -46,6 +46,6 @@
       </div>
     </div>
   </div>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html>

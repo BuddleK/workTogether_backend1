@@ -12,7 +12,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalPwCheck.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 메뉴 사이드바 섹션 -->
     <nav class="main_sidebar">
@@ -38,6 +38,6 @@
       <button type="button" onclick="chPw()" class="checkBtn">비밀번호 확인</button>
     </div>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html>

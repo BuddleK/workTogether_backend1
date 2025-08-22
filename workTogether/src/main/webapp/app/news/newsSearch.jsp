@@ -13,7 +13,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/news/newsSearch.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 검색 결과 페이지 컨테이너 -->
     <div class="search_result_container">
@@ -74,6 +74,6 @@
       </div>
     </div>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html>

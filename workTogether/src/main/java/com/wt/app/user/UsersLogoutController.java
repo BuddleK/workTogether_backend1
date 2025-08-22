@@ -1,4 +1,4 @@
-package com.wt.app.careUsers;
+package com.wt.app.user;
 
 import java.io.IOException;
 

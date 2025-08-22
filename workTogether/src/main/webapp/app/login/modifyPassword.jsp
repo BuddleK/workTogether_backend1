@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
     <script defer src="${pageContext.request.contextPath}/assets/js/login/modifyPassword.js"></script>
   </head>
   <body>
-    <div id="header"></div>
+    <jsp:include page="/header.jsp" />
     <main>
       <section class="findId">
         <form action="" method="">
@@ -60,6 +60,6 @@
       </section>
     </main>
 
-    <div id="footer"></div>
+    <jsp:include page="/footer.jsp" />
   </body>
 </html>

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 작성한 문의사항 디테일 페이지 -->
     <section class="careReferenceCheck">
@@ -44,7 +44,7 @@
       </div></a>
     </section>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 
 </body>
 

@@ -13,7 +13,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetailNotlogin.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 글쓴이가 아니거나 비로그인 일때 보이는 게시글 디테일 페이지 -->
     <form action="">
@@ -120,6 +120,6 @@
       </div>
     </div>
   </div>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html>

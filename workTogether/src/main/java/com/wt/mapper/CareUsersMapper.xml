@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Care">
-	<select id="login" parameterType="UserLoginDTO" resultType="int">
+<mapper namespace="care">
+	<select id="login" parameterType="UsersLoginDTO" resultType="int">
 		SELECT u.users_number
 		FROM tbl_users u
-		JOIN tbl_care_member c ON c.users_number = u.users_number
 		WHERE u.users_id = #{usersId}
 		AND u.users_password = #{usersPassword}
 		AND u.users_type = 'C'
 	</select>
-	<insert id="sign" parameterType="CareSginDTO">
+	<!-- <insert id="sign" parameterType="CareSginDTO">
 		INSERT INTO tbl_care_member (
 			care_number, users_name, users_email,
 			users_phone, users_postsal_code,
@@ -52,5 +51,5 @@
 		SELECT count(*)
 		FROM tbl_care_member
 		WHERE users_email = #{usersEmail}
-	</select>
+	</select> -->
 </mapper>

@@ -15,21 +15,21 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
           <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
 
     <nav class="sidebar">
       <ul>
-        <li><a href="${pageContext.request.contextPath}/careProfile.jsp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
-        <li><a href="${pageContext.request.contextPath}/careModify.jsp">개인정보 수정</a></li>
-        <li><a href="${pageContext.request.contextPath}/careMark.jsp">찜한 목록</a></li>
-        <li><a href="${pageContext.request.contextPath}/careMatching.jsp">매칭 기록</a></li>
-        <li><a href="${pageContext.request.contextPath}/careMessage.jsp">쪽지함</a></li>
-        <li><a href="${pageContext.request.contextPath}/carePost.jsp">게시글 관리</a></li>
-        <li><a href="${pageContext.request.contextPath}/carePointreturn.jsp">포인트 환급</a></li>
-        <li><a href="${pageContext.request.contextPath}/careReference.jsp">1 대 1 문의</a></li>
-        <li><a href="${pageContext.request.contextPath}/careExit.jsp">회원 탈퇴</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careProfile.jsp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careModify.jsp">개인정보 수정</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careMark.jsp">찜한 목록</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careMatching.jsp">매칭 기록</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careMessage.jsp">쪽지함</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/carePost.jsp">게시글 관리</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/carePointreturn.jsp">포인트 환급</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careReference.jsp">1 대 1 문의</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careExit.jsp">회원 탈퇴</a></li>
       </ul>
     </nav>
 
@@ -197,7 +197,7 @@
       </div>
     </div>
   </div>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 
 </html>

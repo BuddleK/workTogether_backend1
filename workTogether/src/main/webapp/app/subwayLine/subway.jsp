@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
 
   <main>
     <h1>지하철 노선도</h1>
@@ -165,7 +165,7 @@
     </div>
 
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 
 </html>

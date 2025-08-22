@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <section class="sign">
       <form action="${pageContext.request.contextPath}/users/" method="post" class="sign_form">
@@ -118,7 +118,7 @@
       </form>
     </section>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 </body>
 
 </html>

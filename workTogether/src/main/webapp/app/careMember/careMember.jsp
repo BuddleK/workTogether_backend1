@@ -14,7 +14,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/careMember/careMemberModalLogin.js"></script>
 </head>
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
     <!-- 돌봄회원 리스트 페이지 컨테이너  -->
     <div class="main_body">
@@ -88,7 +88,7 @@
       </div>
     </div>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
   <div id="careMemberModalLogin"></div>
 </body>
 </html> 

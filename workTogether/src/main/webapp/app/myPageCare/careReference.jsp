@@ -15,21 +15,21 @@
 </head>
 
 <body>
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <main>
           <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
 
     <nav class="main_sidebar">
       <ul>
-        <li><a href="${pageContext.request.contextPath}/careProfile.html"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
-        <li><a href="${pageContext.request.contextPath}/careModify.html">개인정보 수정</a></li>
-        <li><a href="${pageContext.request.contextPath}/careMark.html">찜한 목록</a></li>
-        <li><a href="${pageContext.request.contextPath}/careMatching.html">매칭 기록</a></li>
-        <li><a href="${pageContext.request.contextPath}/careMessage.html">쪽지함</a></li>
-        <li><a href="${pageContext.request.contextPath}/carePost.html">게시글 관리</a></li>
-        <li><a href="${pageContext.request.contextPath}/carePointreturn.html">포인트 환급</a></li>
-        <li><a href="${pageContext.request.contextPath}/careReference.html">1 대 1 문의</a></li>
-        <li><a href="${pageContext.request.contextPath}/careExit.html">회원 탈퇴</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careProfile.jsp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careModify.jsp">개인정보 수정</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careMark.jsp">찜한 목록</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careMatching.jsp">매칭 기록</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careMessage.jsp">쪽지함</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/carePost.jsp">게시글 관리</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/carePointreturn.jsp">포인트 환급</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careReference.jsp">1 대 1 문의</a></li>
+        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careExit.jsp">회원 탈퇴</a></li>
       </ul>
     </nav>
 
@@ -63,13 +63,13 @@
       <nav class="mark_list">
             <ul>
               <li><input type="checkbox"></li>
-              <li class="name"><a href="${pageContext.request.contextPath}/myPageCare/careReferenceCheck.html">
+              <li class="name"><a href="${pageContext.request.contextPath}/myPageCare/careReferenceCheck.jsp">
                 <div>아무개</div>
               </a></li>
-              <li class="posttitle"><a href="${pageContext.request.contextPath}/myPageCare/careReferenceCheck.html">
+              <li class="posttitle"><a href="${pageContext.request.contextPath}/myPageCare/careReferenceCheck.jsp">
                 <div>안녕하세요</div>
               </a></li>
-              <li class="day"><a href="${pageContext.request.contextPath}/myPageCare/careReferenceCheck.html">
+              <li class="day"><a href="${pageContext.request.contextPath}/myPageCare/careReferenceCheck.jsp">
                 <div>2025-08-11</div>
               </a></li>
           
@@ -90,11 +90,11 @@
       </nav>
       <!-- 등록 버튼 클릭시 a태그로 이동 -->
       <div class="div_delete">
-        <a href="${pageContext.request.contextPath}/careReferenceDP.html"><button>등록</button></a>
+        <a href="${pageContext.request.contextPath}/careReferenceDP.jsp"><button>등록</button></a>
       </div>
     </div>
   </main>
-  <div id="footer"></div>
+  <jsp:include page="/footer.jsp" />
 
 </body>
 

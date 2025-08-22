@@ -1,21 +1,23 @@
 package com.wt.app.dto;
 
 public class UsersLoginDTO {
-	private int userNumber;
-	private String userId;
-    private String usersPassword;
-    private char userType;
+	//전체 유저 테이블
+	private int usersNumber;			//회원 번호
+	private String usersId;			//회원 아이디
+    private String usersPassword;	//회원 비밀번호
+    private char userType;			//회원 타입
+    
 	public int getUserNumber() {
-		return userNumber;
+		return usersNumber;
 	}
 	public void setUserNumber(int userNumber) {
-		this.userNumber = userNumber;
+		this.usersNumber = userNumber;
 	}
 	public String getUserId() {
-		return userId;
+		return usersId;
 	}
 	public void setUserId(String userId) {
-		this.userId = userId;
+		this.usersId = userId;
 	}
 	public String getUsersPassword() {
 		return usersPassword;
@@ -31,7 +33,7 @@ public class UsersLoginDTO {
 	}
 	@Override
 	public String toString() {
-		return "UsersLoginDTO [userNumber=" + userNumber + ", userId=" + userId + ", usersPassword=" + usersPassword
+		return "UsersLoginDTO [usersNumber=" + usersNumber + ", usersId=" + usersId + ", usersPassword=" + usersPassword
 				+ ", userType=" + userType + "]";
 	}
     

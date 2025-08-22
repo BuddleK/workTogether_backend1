@@ -9,7 +9,7 @@ import com.wt.app.Result;
 import com.wt.app.dto.UsersLoginDTO;
 import com.wt.app.normalUsers.dao.NormalUsersDAO;
 
-public class UsersLoginOkController implements Execute {
+public class NormalUsersLoginOkController implements Execute {
 
     @Override
     public Result Execute(HttpServletRequest request, HttpServletResponse response)
@@ -49,4 +49,6 @@ public class UsersLoginOkController implements Execute {
 
         return result;
     }
+    
+    
 }

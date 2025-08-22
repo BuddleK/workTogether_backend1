@@ -13,9 +13,9 @@
    </settings>
    
    <!-- DTO 별칭 설정 -->
-   <!-- <typeAliases>
-   	<typeAlias type="" alias=""/>
-   </typeAliases> -->
+ 	<typeAliases>
+   		<typeAlias type="com.wt.app.dto.UsersLoginDTO" alias="UsersLoginDTO"></typeAlias>
+   </typeAliases> 
    
    <environments default="oracle">
       <environment id="oracle">
@@ -29,8 +29,8 @@
       </environment>
    </environments>
    
-   <!-- <mappers>
-      <mapper resource="" />
-   </mappers> -->
+  <mappers>
+      <mapper resource="com/wt/mapper/CareUsersMapper.xml" />
+   </mappers> 
    
 </configuration>
