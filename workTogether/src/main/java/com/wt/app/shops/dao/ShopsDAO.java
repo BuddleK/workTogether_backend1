@@ -3,6 +3,7 @@ package com.wt.app.shops.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.session.SqlSession;
 
 import com.wt.app.dto.ShopsListDTO;
@@ -27,5 +28,13 @@ public class ShopsDAO {
 		public int getTotal() {
 			System.out.println("가게 총 개수 조회 - getTotal 메소드 실행");
 			return sqlSession.selectOne("shops.getTotal");
+		}
+		
+	// 법정 동명 가져오기 (ex => 방배동, 양재동)
+		public List<ShopsListDTO> adminDongSelect() {
+			System.out.println("법정 동명 가져오기 - adminDongSelect 실행");
+			List<ShopsListDTO> list = sqlSession.selectList("shops.adminDong");
+			System.out.println("조회결과 : " + list);
+			return list;
 		}
 }
