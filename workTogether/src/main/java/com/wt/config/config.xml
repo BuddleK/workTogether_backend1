@@ -15,6 +15,7 @@
    <!-- DTO 별칭 설정 -->
  	<typeAliases>
    		<typeAlias type="com.wt.app.dto.UsersLoginDTO" alias="UsersLoginDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.ShopsListDTO" alias="ShopsListDTO"></typeAlias>
    </typeAliases> 
    
    <environments default="oracle">
@@ -31,6 +32,7 @@
    
   <mappers>
       <mapper resource="com/wt/mapper/CareUsersMapper.xml" />
+      <mapper resource="com/wt/mapper/ShopsActionMapper.xml" />
    </mappers> 
    
 </configuration>
