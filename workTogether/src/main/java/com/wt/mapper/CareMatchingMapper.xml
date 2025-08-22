@@ -6,9 +6,9 @@
 		<selectKey keyProperty="matchingNumber" resultType="int" order="BEFORE">
 			SELECT seq_matchings.CURRVAL FROM DUAL
 		</selectKey>
-		<!-- 조인을 조인! -->
-		INSERT INTO tbl_matching(match_number, care_number, normal_number, match_date, match_match_time, match_points, match_status)
-		VALUES(seq_matchings.nextval, #{careNumber}, #{normalNumber}, #{matchDate}, #{matchMatchTime}, #{matchPoints}, #{matchStatus})
+		<selectKey keyProperty="matchingNumber" resultType="int" order="BEFORE">
+			SELECT seq_matchings.CURRVAL FROM DUAL
+		</selectKey>
 	</insert>
 
 
@@ -21,7 +21,7 @@
 				SELECT m.match_date, n.users_name, m.match_match_time, m.match_points, m.match_status
 				FROM tbl_matchings m JOIN tbl_normal_users n 
 				ON m.normal_number = n.normal_number
-				where m.users_number = #{usersNumber} and 
+				where m.users_number = #{usersNumber}
 				ORDER BY m.match_date DESC
 			) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	

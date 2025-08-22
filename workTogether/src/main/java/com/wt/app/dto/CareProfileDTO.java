@@ -47,6 +47,18 @@ public class CareProfileDTO {
 //    care_accept CHAR(1) DEFAULT 'N' CHECK (care_accept IN ('Y', 'N')),
 //    users_number NUMBER NOT NULL UNIQUE,
 
+//	-- 회원
+//	CREATE TABLE tbl_users (
+//	    users_number NUMBER,
+//	    users_id VARCHAR2(30) NOT NULL UNIQUE,
+//	    users_password VARCHAR2(255) NOT NULL,
+//	    users_type CHAR(1) CHECK (users_type IN ('C', 'N')) NOT NULL,
+//	    users_created_date DATE DEFAULT sysdate,
+//	    users_updated_date DATE DEFAULT sysdate,
+//	    users_point number default 0,
+//	    CONSTRAINT pk_tbl_users PRIMARY KEY (users_number)
+//	);
+	
 //	-- 날짜
 //	CREATE TABLE tbl_day (
 //	    care_number NUMBER PRIMARY KEY,

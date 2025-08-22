@@ -2,20 +2,67 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="careProfile">
+
+	<!-- 프로필 사진 조회 -->
+	<select id="profileSelect" resultType="CareProfileDTO">
+		SELECT c.care_number, c.users_name, p.profiles_files_path
+		FROM   tbl_care_users c
+		JOIN   tbl_files_profiles p
+       	ON c.care_profiles_photo_number = p.profiles_files_number
+		WHERE  c.care_number = #{careNumber};
+	</select>
+	
+	<!-- 프로필 요일 조회 -->
+	<select id="daySelect" resultType="CareProfileDTO">
+		SELECT day_monday,day_tuesday,day_wednesday,day_thursday,day_friday,day_saturday,day_sunday
+    	FROM   tbl_day
+    	WHERE  care_number = #{careNumber}
+	</select>
+	
+	<!-- 프로필 주소 조회 -->
+	<select id="addressSelect" resultType="CareProfileDTO">
+		SELECT u.users_id, c.users_postsal_code, c.users_address_line1, c.users_address_line2
+		FROM   tbl_users u
+		JOIN   tbl_care_users c
+       	ON u.users_number = c.users_number
+		WHERE  u.users_number = #{usersNumber}
+	</select>
+	
+	<!-- 프로필 소개글 조회 -->
+	<select id="introSelect" resultType="CareProfileDTO">
+		SELECT u.users_id, c.care_intro_text
+		FROM   tbl_users u
+		JOIN   tbl_care_users c
+       	ON u.users_number = c.users_number
+		WHERE  u.users_number = #{usersNumber}
+	</select>
+	
 	<!-- 프로필 사진 수정 쿼리작성 -->
-	<update id="profileProfile">
+	<update id="profileUpdate" parameterType="CareProfileDTO">
 		update tbl_files_profiles set
 		profiles_files_type=#{profilesFilesType},
 		profiles_files_name=#{profilesFilesName},
 		profiles_files_path=#{profilesFilesPath},
 		profiles_files_size_bytes=#{profilesFilesSizeBytes},
-		profiles_files_created_date=#{profilesCreatedDate}
+		profiles_created_date=#{profilesCreatedDate}
 		where
 		tbl_files_profiles.profiles_files_number = #{profilesFilesNumber}
 	</update>
-
+	
+<!-- 	<!-- 프로필 사진 삭제 -->
+	<delete id="profilrDelete" parameterType="CareProfileDTO">
+		DELETE FROM tbl_files_profiles
+		WHERE profiles_files_number = #{profilesFilesNumber}
+	</delete>
+	프로필 사진 추가
+	<insert id="profileInsert" parameterType="CareProfileDTO">
+		INSERT INTO tbl_files_profiles
+		VALUES (#{profilesFilesNumber}, #{profilesFilesType}, #{profilesFilesName},#{profilesFilesPath},
+		#{profilesFilesSizeBytes},#{profilesCreatedDate})	
+	</insert> -->
+	
 	<!-- 프로필 요일 수정 쿼리작성 -->
-	<update id="profileDay">
+	<update id="dayUpdate" parameterType="CareProfileDTO">
 		update tbl_day set day_monday = #{dayMonday},
 		day_tuesday = #{dayTuesday}, day_wednesday = #{dayWednesday},
 		day_thursday = #{dayThursday}, day_friday = #{dayFriday},
@@ -25,41 +72,39 @@
 		#{careNumber}
 	</update>
 
-	<!-- 프로필 이력 수정 쿼리작성 -->
-	<!-- 주요이력 ??? -->
-	<update id="profileLicense">
-		update tbl_files_license join tbl_files_account set
-		where tbl_care_users.care_number = #{careNumber}
-	</update>
+<!-- 	<!-- 프로필 이력 수정 쿼리작성 -->
+	<update id="licenseUpdate" parameterType="CareProfileDTO">
+		SELECT a.*, l.*
+FROM   tbl_care_users c
+    		JOIN   tbl_files_account a ON c.care_passbook_files_num = a.account_files_number
+    		JOIN   tbl_files_license l ON c.care_certificate_files_num = l.license_files_number
+    		WHERE  c.care_number = 7;
+	</update> -->
 
 	<!-- 프로필 주소 수정 쿼리작성 -->
-	<update id="profileAddress">
-		update tbl_users set users_postsal_code =
-		#{usersPostsalCode}, users_address_line1 = #{usersAddressLine1},
-		users_address_line2 = #{usersAddressLine2}
-		where tbl_users.users_number
-		= #{usersNumber}
+	<update id="addressUpdate" parameterType="CareProfileDTO">
+		UPDATE tbl_care_users c
+		SET c.users_postsal_code  = #{usersPostsalCode},
+    		c.users_address_line1 = #{usersAddressLine1},
+    		c.users_address_line2 = #{usersAddressLine2}
+		WHERE c.users_number = (
+    		SELECT u.users_number
+    		FROM tbl_users u
+    		WHERE u.users_number = #{usersNumber})
 	</update>
 
 	<!-- 프로필 소개글 수정 쿼리작성 -->
-	<update id="profileIntro">
+	<update id="introUpdate" parameterType="CareProfileDTO">
 		update tbl_care_users set care_intro_text =
 		#{careIntroText}
 		where tbl_care_users.care_number = #{careNumber}
 	</update>
 
 
-	<!-- 프로필 정보 조회 -->
-	<select id="profileSelect" parameterType="CareProfileDTO">
+	
 
-		select *
-		from (select *
-		from tbl_day d join tbl_care_users c on d.care_number=c.care_number) a
-		join tbl_files_profiles b on
-		a.care_profiles_photo_number=b.profiles_files_number
-		where
-		a.users_number = #{usersNumber};
+		
 
-	</select>
+	
 
 </mapper>
