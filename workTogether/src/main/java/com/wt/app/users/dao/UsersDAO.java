@@ -1,4 +1,4 @@
-package com.wt.app.user.dao;
+package com.wt.app.users.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import com.wt.app.dto.FindIdDTO;

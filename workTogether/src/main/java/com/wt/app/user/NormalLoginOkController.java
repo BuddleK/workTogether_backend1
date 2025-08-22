@@ -1,13 +1,16 @@
 package com.wt.app.user;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.dto.UsersLoginDTO;
-import com.wt.app.normalUsers.dao.NormalUsersDAO;
+import com.wt.app.users.dao.NormalUsersDAO;
 
 public class NormalLoginOkController implements Execute {
 
@@ -24,7 +27,7 @@ public class NormalLoginOkController implements Execute {
 
         // 2) DTO 구성
         UsersLoginDTO dto = new UsersLoginDTO();
-        dto.setUserId(usersId);
+        dto.setUsersId(usersId);
         dto.setUsersPassword(usersPassword);
         dto.setUserType('N'); // 일반회원 고정
 

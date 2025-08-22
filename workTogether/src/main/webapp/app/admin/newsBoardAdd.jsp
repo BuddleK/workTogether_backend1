@@ -22,6 +22,7 @@
     <jsp:include page="/header_admin.jsp" />
     <main>
       <section class="add_section">
+      <form id="write-form">
         <div class="add_data">
           <div class="title">뉴스제목</div>
           <div class="title_content">뉴스교실</div>
@@ -47,11 +48,11 @@
           <button
             class="add"
             onclick="modalAddNewsFinishedShow()"
-            type="button"
-          >
+            type="button">
             추가 완료
           </button>
         </div>
+        </form>
       </section>
     </main>
     <jsp:include page="/footer.jsp" />
