@@ -50,7 +50,7 @@ function showCards(num, value){
   villages[value].style.backgroundColor = '#1D3266';
   villages[value].style.color = 'white';
   // 음식점 카드 네 번 생성
-  for(let i = 0 ;i < 4;i++){
+  /*for(let i = 0 ;i < 4;i++){
     // 현재 레스토랑 수 만큼 카드 생성
     if(i < restaurants.length){
       let c =` ` + (num) + ` ` + (value) + ` ` + (i);
@@ -72,7 +72,7 @@ function showCards(num, value){
       reCards[i].style.opacity = 0;
     }
     
-  }
+  }*/
 
   
 

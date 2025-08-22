@@ -1,10 +1,11 @@
 package com.wt.app.dto;
 
 public class NormalPostsListDTO {
-	private int postsNumber;
-	private int userNumber;
-	private String postsTitle;
-	private String postsCreatedDate;
+	// 게시물 테이블
+	private int postsNumber; // 게시판 번호
+	private int userNumber; // 전체 유저 번호
+	private String postsTitle; // 게시판 제목
+	private String postsCreatedDate; // 게시판 생성 일
 
 	public int getPostsNumber() {
 		return postsNumber;
