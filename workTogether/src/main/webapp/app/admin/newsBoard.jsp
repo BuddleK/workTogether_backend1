@@ -1,101 +1,122 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>뉴스 게시글 관리</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/newsBoard.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>뉴스 게시글 관리</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/footer.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/admin/newsBoard.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
+
+<script defer
+	src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+<script defer
+	src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
+<script defer
+	src="${pageContext.request.contextPath}/assets/js/modal/modalDeleteNews.js"></script>
 </head>
 <body>
-  <jsp:include page="/header_admin.jsp" />
+	<jsp:include page="/header_admin.jsp" />
+	<!-- <div id="header"></div>-->
 
-  <div class="container">
-    <div class="write-btn-wrap">
-      <a href="${pageContext.request.contextPath}/admin/news/newsWrite.ad" class="write-btn">등록</a>
-    </div>
+	<main>
+		<div id="sidebar"></div>
 
-    <!-- 목록 헤더 -->
-    <div class="board-list">
-      <div class="board-header">
-        <span class="no">번호</span>
-        <span class="title">제목</span>
-        <span class="date">작성일</span>
-        <span class="hit">관리</span>
-      </div>
+		<section class="userManager">
+			<div class="searchcontent">
+				<div class="title">
+					<h1>뉴스 게시글 관리</h1>
+				</div>
 
-      <!-- 목록 바디 -->
-      <div class="board-body">
-        <c:choose>
-          <c:when test="${not empty newsList}">
-            <c:forEach var="news" items="${newsList}">
-              <div class="board-row">
-                <div class="board-item no">
-                  <a href="${pageContext.request.contextPath}/admin/news/newsReadOk.ad?newsNumber=${news.newsNumber}">
-                    ${news.newsNumber}
-                  </a>
-                </div>
+				<!-- 검색 폼 -->
+				<form
+					action="${pageContext.request.contextPath}/admin/newsBoardSearch"
+					method="get">
+					<div class="searchbox">
+						<select name="column" class="search_column">
+							<option value="number">번호</option>
+							<option value="title">제목</option>
+							<option value="date">작성일</option>
+						</select> <input type="text" name="keyword" />
+						<button type="submit">검색</button>
+					</div>
+				</form>
 
-                <div class="board-item title">
-                  <a href="${pageContext.request.contextPath}/admin/news/newsReadOk.ad?newsNumber=${news.newsNumber}">
-                    <c:out value="${news.newsTitle}" />
-                  </a>
-                </div>
+				<!-- 게시글 테이블 -->
+				<div class="table">
+					<div class="board_column">
+						<div class="board_head board_number">번호</div>
+						<div class="board_head board_title">제목</div>
+						<div class="board_head board_date">작성일</div>
+					</div>
 
-                <div class="board-item date">
-                  <c:out value="${news.newsCreatedDate}" />
-                </div>
+					<div class="table_content">
+						<div class="table">
+							<c:forEach var="news" items="${newsList}">
+								<ul class="table_body">
+									<li class="body_number"><a
+										href="${pageContext.request.contextPath}/admin/newsBoardDetail?id=${news.id}">${news.id}</a>
+									</li>
+									<li class="body_content"><a
+										href="${pageContext.request.contextPath}/admin/newsBoardDetail?id=${news.id}">
+											${news.title} </a></li>
+									<li class="body_date"><a
+										href="${pageContext.request.contextPath}/admin/newsBoardDetail?id=${news.id}">
+											${news.date} </a></li>
+									<li class="body_delete">
+										<button class="delete_btn"
+											onclick="modalDeleteNewsShow(${news.id})" type="button">
+											삭제</button>
+									</li>
+								</ul>
+							</c:forEach>
+						</div>
+					</div>
 
-                <div class="board-item hit">
-                  <!-- 로그인한 관리자 본인 글만 삭제 버튼 노출 -->
-                  <c:if test="${sessionScope.adminNumber == news.adminNumber}">
-                    <form action="${pageContext.request.contextPath}/admin/news/newsDeleteOk.ad" method="post"
-                          onsubmit="return confirm('정말 삭제하시겠습니까?');" style="display:inline;">
-                      <input type="hidden" name="newsNumber" value="${news.newsNumber}">
-                      <button type="submit" class="delete_btn">삭제</button>
-                    </form>
-                  </c:if>
-                </div>
-              </div>
-            </c:forEach>
-          </c:when>
+					<!-- 페이징 -->
+					<div class="paging_box">
+						<ul class="paging">
+							<li class="prev"><a href="?page=${pagination.prevPage}">&lt;</a>
+							</li>
+							<c:forEach begin="1" end="${pagination.totalPages}" var="i">
+								<li
+									class="page_number <c:if test='${i == pagination.currentPage}'>active</c:if>">
+									<a href="?page=${i}">${i}</a>
+								</li>
+							</c:forEach>
+							<li class="next"><a href="?page=${pagination.nextPage}">&gt;</a>
+							</li>
+						</ul>
 
-          <c:otherwise>
-            <div style="padding:24px;text-align:center;color:#777;">등록된 뉴스가 없습니다.</div>
-          </c:otherwise>
-        </c:choose>
-      </div>
-    </div>
+						<!-- 등록 버튼 -->
+						<div class="add">
+							<a
+								href="${pageContext.request.contextPath}/app/admin/newsBoardAdd.jsp"
+								class="add_btn">등록</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 
-    <!-- 페이징 -->
-    <div class="pagination">
-      <ul>
-        <c:if test="${prev}">
-          <li><a href="${pageContext.request.contextPath}/admin/news/newsListOk.ad?page=${startPage - 1}" class="prev">&lt;</a></li>
-        </c:if>
+	<div id="footer"></div>
+	<div id="modalDeleteNews"></div>
+	<script>
+    	let adminNumber = "${sessionScope.adminNumber}";
+    </script>
 
-        <c:set var="realStartPage" value="${startPage < 0 ?0 : startPage}" />
-        <c:forEach var="i" begin="${realStartPage}" end="${endPage}">
-          <c:choose>
-            <c:when test="${i == page}">
-              <li><a href="${pageContext.request.contextPath}/admin/news/adminListOk.ad?page=${i}">
-          				<c:out value="${i}" />
-          			</a></li>
-            </c:when>
-            <c:otherwise>
-              <li><a href="#" class="active">
-          				<c:out value="${i}" />
-          			</a></li>
-            </c:otherwise>
-          </c:choose>
-        </c:forEach>
-
-        <c:if test="${next}">
-          <li><a href="${pageContext.request.contextPath}/admin/news/newsListOk.ad?page=${endPage + 1}" class="next">&gt;</a></li>
-        </c:if>
-      </ul>
-    </div>
-  </div>
 </body>
 </html>

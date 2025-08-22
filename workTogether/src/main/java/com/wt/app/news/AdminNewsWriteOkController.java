@@ -27,14 +27,20 @@ public class AdminNewsWriteOkController implements Execute{
 	        Result result = new Result();
 
 	        // 1) 로그인 관리자 확인
+			/*
+			 * Integer adminNumber = (Integer)
+			 * request.getSession().getAttribute("adminNumber"); if (adminNumber == null) {
+			 * System.out.println("오류: 로그인된 관리자가 없습니다");
+			 * result.setPath("/app/admin/login.jsp"); result.setRedirect(false); return
+			 * result; }
+			 */
+
 	        Integer adminNumber = (Integer) request.getSession().getAttribute("adminNumber");
 	        if (adminNumber == null) {
-	            System.out.println("오류: 로그인된 관리자가 없습니다");
-	            result.setPath("/app/admin/login.jsp");
-	            result.setRedirect(false);
-	            return result;
+	            adminNumber = 1; 
+	            request.getSession().setAttribute("adminNumber", adminNumber);
+	            System.out.println("adminNumber=" + adminNumber);
 	        }
-
 	        // 2) 업로드 경로/설정
 	        final String UPLOAD_DIR  = "upload";
 	        final String UPLOAD_PATH = request.getServletContext().getRealPath("/") + UPLOAD_DIR + File.separator;
@@ -54,9 +60,9 @@ public class AdminNewsWriteOkController implements Execute{
 	        // 4) 뉴스 DTO 채움
 	        AdminNewsBoardDTO newsDTO = new AdminNewsBoardDTO();
 	        newsDTO.setAdminNumber(adminNumber);
-	        newsDTO.setNewsTitle(mr.getParameter("newsTitle"));
-	        newsDTO.setNewsContent(mr.getParameter("newsContent"));
-	        newsDTO.setNewsLinkUrl(mr.getParameter("newsLinkUrl"));
+	        newsDTO.setNewsTitle(mr.getParameter("title"));
+	        newsDTO.setNewsContent(mr.getParameter("content"));
+	        newsDTO.setNewsLinkUrl(mr.getParameter("link"));
 
 	        // 5) 파일 1개만 처리해서 tbl_files_notice 저장 → PK 받아서 newsDTO에 연결
 	        Integer filesNumber = null;

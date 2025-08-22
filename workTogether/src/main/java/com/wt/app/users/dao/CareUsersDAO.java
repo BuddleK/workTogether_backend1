@@ -1,4 +1,4 @@
-package com.wt.app.careUsers.dao;
+package com.wt.app.users.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -27,7 +27,6 @@ public class CareUsersDAO {
     }
     
     public int login(UsersLoginDTO UsersLoginDTO) { 
-    	System.out.println("고르");
     	Integer CareUsersNumber =
     		 sqlSession.selectOne("Care.login", UsersLoginDTO); 
     	return CareUsersNumber == null ? -1 : CareUsersNumber ; 

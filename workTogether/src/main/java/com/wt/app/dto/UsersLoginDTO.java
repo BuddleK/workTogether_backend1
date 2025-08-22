@@ -5,7 +5,7 @@ public class UsersLoginDTO {
 	private int usersNumber;			//회원 번호
 	private String usersId;			//회원 아이디
     private String usersPassword;	//회원 비밀번호
-    private char userType;			//회원 타입
+    private char usersType;			//회원 타입
     
 	public int getUserNumber() {
 		return usersNumber;
@@ -26,15 +26,15 @@ public class UsersLoginDTO {
 		this.usersPassword = usersPassword;
 	}
 	public char getUserType() {
-		return userType;
+		return usersType;
 	}
 	public void setUserType(char userType) {
-		this.userType = userType;
+		this.usersType = userType;
 	}
 	@Override
 	public String toString() {
 		return "UsersLoginDTO [usersNumber=" + usersNumber + ", usersId=" + usersId + ", usersPassword=" + usersPassword
-				+ ", userType=" + userType + "]";
+				+ ", userType=" + usersType + "]";
 	}
     
 	
