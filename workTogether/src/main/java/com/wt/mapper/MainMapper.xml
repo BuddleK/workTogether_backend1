@@ -18,7 +18,7 @@
 	
 	<!-- 게시판 -->
 	<select id="post" parameterType="PostsDTO">
-	
+
 	</select>
 	
 	<!-- 지도 마커 -->
@@ -28,7 +28,7 @@
 	
 	<!-- 돌봄 회원 -->
 	<select id="care" parameterType="CareListDTO">
-	
+		select care_profiles_photo_number, users_name, care_intro_text, 
 	</select>
 
 </mapper>
