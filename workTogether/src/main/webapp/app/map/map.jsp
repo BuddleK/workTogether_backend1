@@ -32,6 +32,7 @@
 		var map = new kakao.maps.Map(container, options);
 	</script>
  		<div class="site_info">지도를 클릭 시 해당 가게 설명이 나옵니다</div>
+ 		<a href="${pageContext.request.contextPath}/post/postMain.po">일반게시판으로 슝~</a>
       </div>
       <!-- 지도 클릭 시 사이드바 -->
       <div class="sidebar">

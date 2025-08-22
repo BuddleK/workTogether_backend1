@@ -51,5 +51,14 @@
   	<url-pattern>*.sh</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>Posts</servlet-name>
+  	<servlet-class>com.wt.app.posts.PostsFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Posts</servlet-name>
+  	<url-pattern>*.po</url-pattern>
+  </servlet-mapping>
   
 </web-app>
