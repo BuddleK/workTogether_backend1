@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="careReferenceDP">
+<!-- 게시글 추가 -->
+	<!--  useGeneratedKeys와 keyProperty 활용
+		MyBatis의 useGeneratedKeys 속성과 CURRVAL를 조합하여 시퀀스 값을 객체 필드에 매핑	 -->
+	<insert id="referenceInsert" parameterType="CareReferenceDPDTO">
+		<selectKey keyProperty="boardNumber" resultType="int" order="BEFORE">
+			SELECT seq_reference.nextVal FROM DUAL
+		</selectKey>
+		INSERT INTO tbl_reference(reference_number, reference_users_number, reference_title, 
+		reference_created_date, reference_content, reference_answered_yn)
+		VALUES(#{referenceNumber}, #{referenceUsersNumber}, #{referenceTitle}, 
+		#{referenceCreatedDate}, #{referenceContent}, #{referenceAnsweredYn})
+	</insert>
 
 
 
