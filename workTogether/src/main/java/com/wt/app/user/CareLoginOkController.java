@@ -22,7 +22,7 @@ public class CareLoginOkController implements Execute {
         String remember = request.getParameter("remember");
 
         UsersLoginDTO dto = new UsersLoginDTO();
-        dto.setUserId(usersId);
+        dto.setUsersId(usersId);
         dto.setUsersPassword(usersPassword);
         dto.setUserType('C');
 

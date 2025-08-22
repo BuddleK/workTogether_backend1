@@ -102,23 +102,23 @@ public class UsersFrontController extends HttpServlet {
 			
 		case "/normal/loginOk.us":
 			System.out.println("일반 로그인 처리 요청");
-			result = new NormalUsersLoginOkController().Execute(request, response);
+			result = new NormalLoginOkController().Execute(request, response);
 			break;
 			
 		case "/cares/loginOk.us":
 			System.out.println("돌봄 로그인 처리 요청");
-			result = new CareUsersLoginOkController().Execute(request, response);
+			result = new CareLoginOkController().Execute(request, response);
 			break;
 
 			
 		case "/normal/logoutOk.us":
 			System.out.println("일반 로그아웃 처리 요청");
-			result = new NormalUsersLogoutController().Execute(request, response);
+			result = new NormalLogoutController().Execute(request, response);
 			break;
 
 		case "/cares/logoutOk.us":
 			System.out.println("돌봄 로그아웃 처리 요청");
-			result = new CareUsersLogoutController().Execute(request, response);
+			result = new CareLogoutController().Execute(request, response);
 			break;
 		
 		case "/normal/sendSMS.us":
@@ -136,7 +136,7 @@ public class UsersFrontController extends HttpServlet {
 			break;
 		}
 
-		if (result != null && result.getPath() != null) {
+		if (result != null ) {
 			if (result.isRedirect()) {
 				response.sendRedirect(result.getPath());
 			} else {

@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/careRequest.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
-    <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
   </head>
 
   <body>

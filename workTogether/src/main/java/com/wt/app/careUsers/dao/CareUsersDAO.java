@@ -29,7 +29,7 @@ public class CareUsersDAO {
     public int login(UsersLoginDTO UsersLoginDTO) { 
     	System.out.println("고르");
     	Integer CareUsersNumber =
-    		 sqlSession.selectOne("care.login", UsersLoginDTO); 
+    		 sqlSession.selectOne("Care.login", UsersLoginDTO); 
     	return CareUsersNumber == null ? -1 : CareUsersNumber ; 
     	}
 

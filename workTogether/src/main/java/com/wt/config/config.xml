@@ -31,6 +31,7 @@
    
   <mappers>
       <mapper resource="com/wt/mapper/CareUsersMapper.xml" />
+      <mapper resource="com/wt/mapper/LoginMapper.xml" />
    </mappers> 
    
 </configuration>
