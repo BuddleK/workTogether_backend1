@@ -8,11 +8,9 @@
 		WHERE u.users_number = (
     	SELECT c.users_number
     	FROM tbl_care_users c
-    	JOIN tbl_matchings m ON c.care_number = m.care_number
+    	JOIN tbl_matchings m ON c.users_number = m.care_number
     	WHERE m.match_status IN ('C', 'D')
-      	AND c.care_number = #{careNumber}
-);
-);
+      	AND c.users_number = #{usersNumber});
 	</delete>
 
 </mapper>

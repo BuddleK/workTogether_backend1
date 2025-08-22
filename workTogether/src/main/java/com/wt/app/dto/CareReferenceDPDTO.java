@@ -18,52 +18,50 @@ public class CareReferenceDPDTO {
 	private String referenceTitle;
 	private String referenceCreatedDate;
 	private String referenceContent;
-
+	private char referenceAnsweredYn;
 	public int getReferenceNumber() {
 		return referenceNumber;
 	}
-
 	public void setReferenceNumber(int referenceNumber) {
 		this.referenceNumber = referenceNumber;
 	}
-
 	public int getReferenceUsers() {
 		return referenceUsers;
 	}
-
 	public void setReferenceUsers(int referenceUsers) {
 		this.referenceUsers = referenceUsers;
 	}
-
 	public String getReferenceTitle() {
 		return referenceTitle;
 	}
-
 	public void setReferenceTitle(String referenceTitle) {
 		this.referenceTitle = referenceTitle;
 	}
-
 	public String getReferenceCreatedDate() {
 		return referenceCreatedDate;
 	}
-
 	public void setReferenceCreatedDate(String referenceCreatedDate) {
 		this.referenceCreatedDate = referenceCreatedDate;
 	}
-
 	public String getReferenceContent() {
 		return referenceContent;
 	}
-
 	public void setReferenceContent(String referenceContent) {
 		this.referenceContent = referenceContent;
 	}
-
+	public char getReferenceAnsweredYn() {
+		return referenceAnsweredYn;
+	}
+	public void setReferenceAnsweredYn(char referenceAnsweredYn) {
+		this.referenceAnsweredYn = referenceAnsweredYn;
+	}
 	@Override
 	public String toString() {
 		return "CareReferenceDPDTO [referenceNumber=" + referenceNumber + ", referenceUsers=" + referenceUsers
 				+ ", referenceTitle=" + referenceTitle + ", referenceCreatedDate=" + referenceCreatedDate
-				+ ", referenceContent=" + referenceContent + "]";
+				+ ", referenceContent=" + referenceContent + ", referenceAnsweredYn=" + referenceAnsweredYn + "]";
 	}
+
+	
 
 }
