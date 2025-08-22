@@ -18,14 +18,14 @@
   <jsp:include page="/header.jsp" />
   <main>
     <section class="sign">
-      <form action="" method="" class="sign_form">
+      <form action="${pageContext.request.contextPath}/cares/Carejoin.us" method="post" class="sign_form">
         <div class="sign_box sign_title">
           <p>돌봄 회원가입</p>
         </div>
         <div class="sign_box sign_id">
           <p>아이디</p>
           <input type="text" placeholder="8자리 이상, 문자 숫자 포함">
-          <button>중복확인</button>
+          <button type="button">중복확인</button>
         </div>
         <div class="sign_box sign_password">
           <p>비밀번호</p>
@@ -49,17 +49,17 @@
         </div>
         <div class="sign_box sign_phone">
           <input type="text" placeholder="인증번호 6자리 입력">
-          <button>인증번호 확인</button>
+          <button type="button">인증번호 확인</button>
         </div>
-        <div class="sign_box sign_author">
+<!--         <div class="sign_box sign_author">
           <input type="text" placeholder="">
           <input type="text" placeholder="01:00" readonly class="timer" />
-          <button>인증번호 확인</button>
-        </div>
+          <button type="button">인증번호 확인</button>
+        </div> -->
         <div class="sign_box sign_address">
           <p>주소</p>
           <input type="text" placeholder="">
-          <button>우편 주소</button>
+          <button type="button">우편 주소</button>
         </div>
         <div class="sign_box address_detail">
           <p>상세 주소</p>

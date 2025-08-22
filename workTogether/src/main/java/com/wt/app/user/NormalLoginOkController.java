@@ -1,4 +1,4 @@
-package com.wt.app.normalUsers;
+package com.wt.app.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,7 +9,7 @@ import com.wt.app.Result;
 import com.wt.app.dto.UsersLoginDTO;
 import com.wt.app.normalUsers.dao.NormalUsersDAO;
 
-public class NormalUsersLoginOkController implements Execute {
+public class NormalLoginOkController implements Execute {
 
     @Override
     public Result Execute(HttpServletRequest request, HttpServletResponse response)

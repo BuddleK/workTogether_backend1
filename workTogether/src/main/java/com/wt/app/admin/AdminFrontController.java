@@ -8,6 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Result;
+import com.wt.app.news.AdminNewsDeleteOkController;
+import com.wt.app.news.AdminNewsListOkController;
+import com.wt.app.news.AdminNewsReadOkController;
+import com.wt.app.news.AdminNewsUpdateController;
+import com.wt.app.news.AdminNewsUpdateOkController;
+import com.wt.app.news.AdminNewsWriteController;
+import com.wt.app.news.AdminNewsWriteOkController;
 
 /**
  * Servlet implementation class AdminFrontController
@@ -63,6 +70,42 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("관리자 로그아웃 처리 요청");
 			result = new AdminLogoutController().Execute(request, response);
 			break;
+			
+		case "/admin/news/newsListOk.ad":
+            System.out.println("뉴스 목록 처리 요청");
+            result = new AdminNewsListOkController().Execute(request, response);
+            System.out.println(result);
+            break;
+
+        case "/admin/news/newsReadOk.ad":
+            System.out.println("뉴스 상세 페이지 처리 요청");
+            result = new AdminNewsReadOkController().Execute(request, response);
+            break;
+
+        case "/admin/news/newsWrite.ad":
+            System.out.println("뉴스 작성 페이지 이동 요청");
+            result = new AdminNewsWriteController().Execute(request, response);
+            break;
+
+        case "/admin/news/newsWriteOk.ad":
+            System.out.println("뉴스 작성 완료 요청");
+            result = new AdminNewsWriteOkController().Execute(request, response);
+            break;
+
+        case "/admin/news/newsDeleteOk.ad":
+            System.out.println("뉴스 삭제 완료 요청");
+            result = new AdminNewsDeleteOkController().Execute(request, response);
+            break;
+
+        case "/admin/news/newsUpdate.ad":
+            System.out.println("뉴스 수정 페이지 이동 요청");
+            result = new AdminNewsUpdateController().Execute(request, response);
+            break;
+
+        case "/admin/news/newsUpdateOk.ad":
+            System.out.println("뉴스 수정 완료 요청");
+            result = new AdminNewsUpdateOkController().Execute(request, response);
+            break;
 		}
 		
 		if (result != null && result.getPath() != null) {
