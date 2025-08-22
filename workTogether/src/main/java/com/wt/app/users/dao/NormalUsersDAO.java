@@ -1,4 +1,4 @@
-package com.wt.app.normalUsers.dao;
+package com.wt.app.users.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -13,8 +13,8 @@ public class NormalUsersDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	public void sign(NormalSignDTO caresginDTO) {
-		sqlSession.insert("NormalUsers.sign", caresginDTO);
+	public void sign(NormalSignDTO caresignDTO) {
+		sqlSession.insert("NormalUsers.sign", caresignDTO);
 	}
 
 	public boolean checkId(String usersId) {

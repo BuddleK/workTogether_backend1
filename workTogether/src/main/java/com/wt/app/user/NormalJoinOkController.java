@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.dto.NormalSignDTO;
-import com.wt.app.normalUsers.dao.NormalUsersDAO;
+import com.wt.app.users.dao.NormalUsersDAO;
 
 public class NormalJoinOkController implements Execute {
 
