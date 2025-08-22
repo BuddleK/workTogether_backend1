@@ -13,10 +13,10 @@ public class UsersLoginDTO {
 	public void setUserNumber(int userNumber) {
 		this.usersNumber = userNumber;
 	}
-	public String getUserId() {
+	public String getUsersId() {
 		return usersId;
 	}
-	public void setUserId(String userId) {
+	public void setUsersId(String userId) {
 		this.usersId = userId;
 	}
 	public String getUsersPassword() {
