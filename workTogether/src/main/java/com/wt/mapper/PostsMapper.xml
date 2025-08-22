@@ -5,33 +5,22 @@
  <!-- 전체 게시글 조회 -->
    <select id="selectAll" resultType="PostsListDTO">
    <![CDATA[
-   SELECT * FROM (
-      SELECT ROWNUM AS rnum, subquery.*
-      FROM (
-         SELECT ?.posts_number, m.member_id, ?.posts_title, b.board_title, b.board_content, b.board_date, 
-         b.board_read_count
-         FROM tbl_member m JOIN tbl_board b 
-         ON m.member_number = b.member_number
-         ORDER BY b.board_date DESC
-      ) subquery
-   ) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+			SELECT posts_number, posts_title, users_number,
+			nvl((SELECT users_name FROM TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)),
+			posts_view_count, posts_created_date
+			FROM tbl_posts p
+			ORDER BY posts_created_date DESC
+		) subquery
+	) WHERE rnum BETWEEN #{startRow} AND #{endRow}
    ]]>
-   
-   
-   
-<!--    PostsListDTO
-	private int postsNumber;
-	private String postsTitle;
-	private int usersNumber;
-	private String usersName;
-	private int postsViewCount;
-	private String postsCreatedDate; -->
    </select>
    
    <!-- 게시글 총 개수 -->
    <select id="getTotal" resultType="int">
-      SELECT COUNT(board_number)
-      FROM tbl_board   
+      SELECT COUNT(posts_number) FROM tbl_posts  
    </select>
    
    <!--  게시글 추가 -->
@@ -48,43 +37,53 @@
    <!-- 게시글 추가 -->
    <!--  useGeneratedKeys와 keyProperty 활용
       MyBatis의 useGeneratedKeys 속성과 CURRVAL를 조합하여 시퀀스 값을 객체 필드에 매핑    -->
-   <insert id="insert" parameterType="BoardDTO">
-      <selectKey keyProperty="boardNumber" resultType="int" order="BEFORE">
-         SELECT seq_board.CURRVAL FROM DUAL
+   <insert id="insert" parameterType="PostsDTO">
+      <selectKey keyProperty="postsNumber" resultType="int" order="BEFORE">
+         SELECT seq_board_posts.nextval
       </selectKey>
-      INSERT INTO tbl_board(board_number, board_title, board_content, member_number)
-      VALUES(seq_board.nextval, #{boardTitle}, #{boardContent}, #{memberNumber})
+      INSERT INTO tbl_posts(posts_number, posts_title, users_number, posts_content, posts_view_count, posts_created_date, posts_updated_date, posts_report_count)
+      VALUES(#{postsNumber}, #{postsTitle}, #{usersNumber}, #{postsContent}, #{postsViewCount}, SYSDATE, null, 0)
    </insert>
    
-   
-   <!-- 조회수 쿼리 -->
-   <update id="updateReadCount" parameterType="int">
-      update tbl_board
-      set board_read_count = board_read_count + 1
-      where board_number = (#{boardNumber})
+   <!-- 조회수 추가 쿼리 -->
+	<update id="updateReadCount" parameterType="int">
+		update tbl_posts set posts_view_count = posts_view_count + 1
+		where posts_number = #{posts_number}
    </update>
    
    <!-- 게시글 삭제 쿼리 -->
    <delete id="delete" parameterType="int">
-      delete from tbl_board
-      where board_number = (#{board_number})
+      delete from tbl_posts where posts_number = #{posts_number}
    </delete>
    
    <!-- 게시글 수정쿼리 -->
-   <update id="update" parameterType="BoardDTO">
-      UPDATE tbl_board
-      SET board_title=#{boardTitle}, board_content =#{boardContent}
-      <!-- , board_update = #{boardUpdate} 수정일 -->
-      where board_number = (#{boardNumber})
+   <update id="update" parameterType="PostsDTO">
+		UPDATE tbl_posts
+		SET posts_title=#{postsTitle}, POSTS_CONTENT = #{postsContent}, POSTS_UPDATED_DATE = SYSDATE
+		where POSTS_NUMBER = #{posts_number}
    </update>
 
    <!-- 게시글 상세(1건조회) -->
-   <select id="select" parameterType="int" resultType="BoardListDTO">
-      <![CDATA[
-      SELECT m.member_number, m.member_id, b.board_number, b.board_title, b.board_content, b.board_date, b.board_read_count
-      FROM tbl_member m JOIN tbl_board b
-      ON b.member_number = m.member_number
-      WHERE b.board_number = (#{board_number})
+   <select id="select" parameterType="int" resultType="PostsListDTO">
+		<![CDATA[      
+		SELECT posts_number, posts_title, users_number,
+		nvl((SELECT users_name FROM TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)),
+		posts_view_count, posts_created_date, POSTS_CONTENT 
+		FROM tbl_posts p
+		WHERE posts_number = #{posts_number}
       ]]>
    </select>
+   
+   	<!-- 게시글 검색 쿼리 -->
+   	<select id="search" parameterType="String" resultType="PostsListDTO">
+   	   <![CDATA[
+		SELECT * FROM (
+   		SELECT ROWNUM AS rnum, subquery.*
+		FROM (SELECT posts_number, posts_title, users_number, nvl((SELECT users_name FROM TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)), posts_view_count, posts_created_date
+		FROM TBL_POSTS p WHERE POSTS_TITLE || POSTS_CONTENT LIKE '%${keyWord}%' ORDER BY POSTS_CREATED_DATE) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+   		]]> 
+   	</select>
+   
+   
 </mapper>
