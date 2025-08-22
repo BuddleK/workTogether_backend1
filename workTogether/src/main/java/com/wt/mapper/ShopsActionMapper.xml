@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="shops">
 	<!-- 가게 리스트 페이지 -->
 	<select id="listAll" parameterType="int" resultType="ShopsListDTO">
@@ -24,17 +23,21 @@
 	</select>
 	
 	<!-- 가게 세부 -->
-	<select id="detail" parameterType="int" resultType="ShopsListDTO">		
-		select s.shops_number, s.shops_name, s.shops_biz_mid_category, s.shops_phone, s.shops_intro_text, s.shops_takeout, s.shops_files_number,
-		s.shops_floor_1f, s.shops_ramp, s.shops_entrance_step, s.shops_entrance_threshold, s.shops_toilet_step, s.shops_toilet_threshold, s.shops_disabled_toilet, s.shops_elevator, s.shops_parking, s.shops_disabled_parking,
-		s.shops_latitude, s.shops_longitude,
-		case when f.favorites_number is not null then 'Y' else 'N' end as "is_favorite",
-		fs.shops_files_number, fs.shops_files_type, fs.shops_files_name, fs.shops_files_path
-		from tbl_shops s 
-		left join tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
-		left join tbl_files_shops fs on s.shops_files_number = fs.shops_files_number
-		where s.shops_number = #{shopsNumber} and f.users_number = #{userNumber}
-	</select>
+	<select id="detail" parameterType="map" resultType="ShopsListDTO">		
+	select s.shops_number, s.shops_name, s.shops_biz_mid_category, s.shops_phone, s.shops_intro_text,
+			s.shops_branch_name, s.shops_road_address, s.shops_working_hours, s.shops_entrance_threshold,
+	       s.shops_takeout, s.shops_files_number,
+	       s.shops_floor_1f, s.shops_ramp, s.shops_entrance_step, s.shops_entrance_threshold, 
+	       s.shops_toilet_step, s.shops_toilet_threshold, s.shops_disabled_toilet, 
+	       s.shops_elevator, s.shops_parking, s.shops_disabled_parking,
+	       s.shops_latitude, s.shops_longitude,
+	       fs.shops_files_number, fs.shops_files_type, fs.shops_files_name, fs.shops_files_path
+			from tbl_shops s 
+			left join tbl_files_shops fs 
+	   		 on s.shops_files_number = fs.shops_files_number
+			where s.shops_number = #{shopsNumber}
+</select>
+
 	
 	<select id="adminDong" resultType="AdminDongListDTO">
 	select shops_admin_dong from tbl_shops where shops_admin_dong IN ('양재동','방배동', '서초동', '잠원동')  group by shops_admin_dong
@@ -48,10 +51,10 @@
 	</select>
 	 -->
 	<!-- 찜 추가 -->
-	<!-- <insert id="favoriteAdd" parameterType="ShopsFavoritesActionDTO">
+	 <insert id="favoriteAdd">
 		insert into tbl_shops_favorites
-		values (seq_shops_favorites.nextval, #{userNumber}, #{shopsNumber}, sysdate)
-	</insert> -->
+		values (seq_shops_favorites.nextval, #{userNumber}, #{favoritesShopsNumber}, sysdate)
+	</insert> 
 	<!-- 찜 삭제 -->
 	<!-- <delete id="favoriteDelete" parameterType="ShopsFavoritesActionDTO">
 		delete from tbl_shops_favorites
