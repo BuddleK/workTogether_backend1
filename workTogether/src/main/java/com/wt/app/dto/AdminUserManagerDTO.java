@@ -1,12 +1,13 @@
 package com.wt.app.dto;
 
 public class AdminUserManagerDTO {
-	private int userNumber;
-	private String userName;
-	private String userId;
-	private String userEmail;
-	private String userPhone;
-	private char userType;
+	// 전체 유저 테이블
+	private int userNumber; // 전체 유저 넘버
+	private String userName; // 일반 or 돌봄 유저 이름
+	private String userId; // 전체 유저 아이디
+	private String userEmail; // 일반 or 돌봄 유저 이메일
+	private String userPhone; // 일반 or 돌봄 유저 전화번호
+	private char userType; // 유저 타입
 
 	public int getUserNumber() {
 		return userNumber;
