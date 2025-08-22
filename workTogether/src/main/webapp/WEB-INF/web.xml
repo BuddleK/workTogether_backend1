@@ -51,5 +51,15 @@
   	<url-pattern>*.sh</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+  	<servlet-name>Favorite</servlet-name>
+  	<servlet-class>com.wt.app.shops.FavoriteFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Favorite</servlet-name>
+  	<url-pattern>*.fa</url-pattern>
+  </servlet-mapping>
+  
   
 </web-app>
