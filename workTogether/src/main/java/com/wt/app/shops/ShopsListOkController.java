@@ -26,26 +26,26 @@ public class ShopsListOkController implements Execute {
 
 		
 
-		String tmp = request.getParameter("pg");
-		int pg = (tmp == null) ? 1 : Integer.valueOf(tmp);
-		int rowCnt = 4;
-		int pgCnt = 4;
+		String tmp = request.getParameter("page");
+		int page = (tmp == null) ? 1 : Integer.valueOf(tmp);
+		int rowCount = 4;
+		int pageCount = 4;
 
-		int startRow = (pg - 1) * rowCnt + 1;
-		int endRow = startRow + rowCnt - 1;
+		int startRow = (page - 1) * rowCount + 1;
+		int endRow = startRow + rowCount - 1;
 
 		Map<String, Integer> pageMap = new HashMap<>();
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
 		
 		// 게시글 목록 조회
-				List<ShopsListDTO> shopsList = shopsDAO.shopSelectAll(pageMap);
-				request.setAttribute("shopsList", shopsList);
+		List<ShopsListDTO> shopsList = shopsDAO.shopSelectAll(pageMap);
+		request.setAttribute("shopsList", shopsList);
 
 		int total = shopsDAO.getTotal();
-		int realEndPage = (int) Math.ceil(total / (double) rowCnt);
-		int endPage = (int) (Math.ceil(pg / (double) pgCnt) * pgCnt);
-		int startPage = endPage - (pgCnt - 1);
+		int realEndPage = (int) Math.ceil(total / (double) rowCount);
+		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount);
+		int startPage = endPage - (pageCount - 1);
 
 		endPage = Math.min(endPage, realEndPage);
 
@@ -53,7 +53,7 @@ public class ShopsListOkController implements Execute {
 		boolean prev = startPage > 1;
 		boolean next = endPage < realEndPage;
 
-		request.setAttribute("page", pg);
+		request.setAttribute("page", page);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("prev", prev);
@@ -65,6 +65,11 @@ public class ShopsListOkController implements Execute {
 		System.out.println(
 				"startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
+		
+		
+		//법정 동명 전부 가져오기
+		List<ShopsListDTO> adminDongList = shopsDAO.adminDongSelect();
+		request.setAttribute("adminDongList", adminDongList);
 
 		result.setPath("/app/restaurant/restaurant.jsp");
 		result.setRedirect(false);

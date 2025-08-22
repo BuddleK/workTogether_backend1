@@ -16,6 +16,7 @@
  	<typeAliases>
    		<typeAlias type="com.wt.app.dto.UsersLoginDTO" alias="UsersLoginDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.ShopsListDTO" alias="ShopsListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.AdminDongListDTO" alias="AdminDongListDTO"></typeAlias>
    </typeAliases> 
    
    <environments default="oracle">

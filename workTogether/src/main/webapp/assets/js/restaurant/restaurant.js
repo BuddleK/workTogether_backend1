@@ -11,10 +11,6 @@ const reCards = document.getElementsByClassName("restaurant_card");
 // 음식점 찜하기(별)이미지들 가져오기
 const reStars = document.getElementsByClassName("star_img");
 
-//로그인 여부
-let isLogin = false;
-
-
 
 // 동 목록
 var arr = [
@@ -27,11 +23,7 @@ var arr = [
 ];
 
 // 음식점 더미데이터
-var restaurants = [
-  ['비엔나커피하우스', '서울특별시 서초구 방배로 126', '평일 08:30 - 23:00 | 주말 11:00 - 23:00', '02-585-1683'],
-  ['아트메이저', '서울특별시 서초구 서초대로 114', '월~금 : 08:30 ~ 21:50 토,일 : 09:00 ~ 21:50', '02-521-6239'],
-  ['스타벅스', '서울특별시 서초구 방배로 84 (방배동,유성빌딩 지상1층)', '매장 07:00 - 21:00 딜리버스 10:00 - 20:30~18시', '-']
-];
+
 
 // 음식점 카드 표출 함수(매개변수 : 지역, 동 인덱스)
 function showCards(num, value){
