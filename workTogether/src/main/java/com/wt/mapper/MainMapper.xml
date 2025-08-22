@@ -4,10 +4,16 @@
 	
 	<!-- 뉴스배너 -->
 	<select id="newsBanner" parameterType="NewsBannerDTO">
-	
+		select banner_news_number, banner_image_files_number, banner_title, banner_link_url
+		from tbl_news_banners
 	</select>
 	
-	<!-- 추천활동 -->
+	<!-- 추천가게 찜 많은 순으로 정렬-->
+	<select id="shops" parameterType="PostsDTO">
+		SELECT shops_number, shops_name, shops_intro_text, count(*)
+		from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
+		GROUP BY shops_number, shops_name, shops_intro_text;
+	</select>
 	
 	
 	<!-- 게시판 -->
