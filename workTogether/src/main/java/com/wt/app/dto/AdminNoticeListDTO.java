@@ -1,11 +1,12 @@
 package com.wt.app.dto;
 
 public class AdminNoticeListDTO {
-	private int noticeNumber;
-	private String noticeTitle;
-	private String adminNumber;
-	private int noticeViewCount;
-	private String noticeCreatedDate;
+	//공지 테이블
+	private int noticeNumber; // 공지 번호
+	private String noticeTitle; // 공지 제목
+	private String adminNumber; // 관리자 번호
+	private int noticeViewCount; // 공지 조회 수
+	private String noticeCreatedDate; // 공지 생성 일
 
 	public int getNoticeNumber() {
 		return noticeNumber;

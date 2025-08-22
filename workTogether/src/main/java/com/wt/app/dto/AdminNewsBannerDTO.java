@@ -1,9 +1,10 @@
 package com.wt.app.dto;
 
 public class AdminNewsBannerDTO {
-	private int newsNumber;
-	private String newsTitle;
-	private String newsCreatedDate;
+	//뉴스 테이블
+	private int newsNumber; // 뉴스 번호
+	private String newsTitle; // 뉴스 제목
+	private String newsCreatedDate; // 뉴스 생성일
 
 	public int getNewsNumber() {
 		return newsNumber;
