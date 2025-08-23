@@ -1,4 +1,4 @@
-package com.wt.app.news;
+package com.wt.app.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,13 +12,13 @@ import com.wt.app.Result;
 /**
  * Servlet implementation class AdminFrontController
  */
-public class NewsFrontController extends HttpServlet {
+public class AdminNewsFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NewsFrontController() {
+    public AdminNewsFrontController() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -15,5 +15,5 @@ public class AdminCareApproveRequestDTO {
 	public String toString() {
 		return "AdminCareApproveRequestDTO [usersNumber=" + usersNumber + "]";
 	}
-	
+
 }

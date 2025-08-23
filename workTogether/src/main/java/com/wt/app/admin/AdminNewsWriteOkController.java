@@ -1,4 +1,4 @@
-package com.wt.app.news;
+package com.wt.app.admin;
 
 import java.io.File;
 import java.io.IOException;

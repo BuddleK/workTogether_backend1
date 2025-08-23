@@ -1,4 +1,4 @@
-package com.wt.app.news.dao;
+package com.wt.app.admin.dao;
 
 import java.util.List;
 import java.util.Map;

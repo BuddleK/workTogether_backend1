@@ -1,4 +1,4 @@
-package com.wt.app.news;
+package com.wt.app.admin;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 
-public class AdminNewsDeleteOkController implements Execute{
+public class AdminNewsUpdateController implements Execute{
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminFile">
+
+	<!-- 자격증 파일 다운로드 -->
+	<select id="downloadLicense" parameterType="int"
+		resultType="AdminFileDownloadDTO">
+    <![CDATA[
+      SELECT
+        license_files_number, license_files_name, license_files_path,
+        license_files_type, license_files_size_bytes,
+        TO_CHAR(license_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate
+      FROM tbl_files_license
+      WHERE license_files_number = #{value}
+    ]]>
+	</select>
+
+	<!-- 통장 사본 파일 다운로드 -->
+	<select id="downloadAccount" parameterType="int"
+		resultType="AdminFileDownloadDTO">
+    <![CDATA[
+      SELECT
+        account_files_number, account_files_name, account_files_path,
+        account_files_type, account_files_size_bytes,
+        TO_CHAR(account_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate
+      FROM tbl_files_account
+      WHERE account_files_number = #{value}
+    ]]>
+	</select>
+
+</mapper>
