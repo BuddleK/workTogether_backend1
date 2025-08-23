@@ -86,7 +86,7 @@
       </nav>
       <nav class="notify_open">
         <ul>
-          <li>숨은 공지 펼치기(2개) v</li>
+          <li>숨ㄴ은공ㅈ v</li>
         </ul>
       </nav>
       <!-- 일반 게시글 섹션 -->
@@ -293,7 +293,7 @@
       <nav class="page">
         <ul>
           <a href="">
-            <li>&lt;</li>
+            <li>&lt</li>
           </a>
           <a href="">
             <li>1</li>
@@ -308,7 +308,7 @@
             <li>4</li>
           </a>
           <a href="">
-            <li>&gt;</li>
+            <li>&gt</li>
           </a>
         </ul>
       </nav>

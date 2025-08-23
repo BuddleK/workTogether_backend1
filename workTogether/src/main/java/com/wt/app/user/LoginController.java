@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 
-public class NormalLogoutController implements Execute{
+public class LoginController implements Execute {
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		Result result = new Result();
-		request.getSession().invalidate(); // 세션 무효화
-		result.setPath("/login/login.us");
-		result.setRedirect(true);
+		result.setRedirect(false);
+		result.setPath("/app/users/login.jsp");
 		return result;
 	}
 

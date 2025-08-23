@@ -15,7 +15,6 @@ public class NormalJoinOkController implements Execute {
     public Result Execute(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("Normal JoinOkController 진입");
         request.setCharacterEncoding("UTF-8");
 
         String usersName = request.getParameter("usersName");
@@ -27,32 +26,31 @@ public class NormalJoinOkController implements Execute {
         String normalUsersLevel = request.getParameter("normalUsersLevel");
         String usersNumberParam = request.getParameter("usersNumber");
 
-        NormalSignDTO dto = new NormalSignDTO();
-        dto.setUsersName(usersName);
-        dto.setUsersEmail(usersEmail);
-        dto.setUsersPhone(usersPhone);
-        dto.setUsersPostsalCode(usersPostsalCode);
-        dto.setUsersAddressLine1(usersAddressLine1);
-        dto.setUsersAddressLine2(usersAddressLine2);
+        NormalSignDTO normalsignDTO = new NormalSignDTO();
+        normalsignDTO.setUsersName(usersName);
+        normalsignDTO.setUsersEmail(usersEmail);
+        normalsignDTO.setUsersPhone(usersPhone);
+        normalsignDTO.setUsersPostsalCode(usersPostsalCode);
+        normalsignDTO.setUsersAddressLine1(usersAddressLine1);
+        normalsignDTO.setUsersAddressLine2(usersAddressLine2);
 
         if (normalUsersLevel != null && !normalUsersLevel.isEmpty()) {
-            dto.setNormalUsersLevel(normalUsersLevel.trim().charAt(0));
+        	normalsignDTO.setNormalUsersLevel(normalUsersLevel.trim());
         }
 
         if (usersNumberParam != null && !usersNumberParam.isEmpty()) {
             try {
-                dto.setUsersNumber(Integer.parseInt(usersNumberParam));
+            	normalsignDTO.setUsersNumber(Integer.parseInt(usersNumberParam));
             } catch (NumberFormatException e) {
                 System.out.println("Normal usersNumber 파싱 실패: " + usersNumberParam);
             }
         }
 
-        NormalUsersDAO normalUsersDAO = new NormalUsersDAO();
-        normalUsersDAO.sign(dto);
+        new NormalUsersDAO().sign(normalsignDTO); 
 
         Result result = new Result();
         result.setRedirect(true);
-        result.setPath(request.getContextPath() + "/normal/login.us");
+        result.setPath(request.getContextPath() + "/users/login.us");
         return result;
     }
 }

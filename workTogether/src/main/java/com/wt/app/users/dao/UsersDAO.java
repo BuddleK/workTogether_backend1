@@ -1,40 +1,56 @@
 package com.wt.app.users.dao;
 
 import org.apache.ibatis.session.SqlSession;
+
 import com.wt.app.dto.FindIdDTO;
 import com.wt.app.dto.FindPwDTO;
+import com.wt.app.dto.UpdatePwDTO;
+import com.wt.app.dto.UsersDTO;
+import com.wt.app.dto.UsersLoginDTO;
 import com.wt.config.MyBatisConfig;
 
 public class UsersDAO {
-    private final SqlSession sqlSession;
 
-    public UsersDAO() {
-        this.sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
-    }
-    // 공통 회원 
-    public int insertUser(Object usersDTO) {
-        Integer usersNumber = sqlSession.selectOne("Users.insertUser", usersDTO);
-        return usersNumber == null ? -1 : usersNumber;
-    }
-    // 아이디 중복 검사
-    public boolean existsUserId(String usersId) {
-        Integer cnt = sqlSession.selectOne("Users.existsUserId", usersId);
-        return cnt != null && cnt > 0;
-    }
-    // 비밀번호 바꾸는 곳
-    public int updatePassword(String usersId, String newPassword) {
-        java.util.Map<String, Object> param = new java.util.HashMap<>();
-        param.put("usersId", newPassword != null ? usersId : null);
-        param.put("newPassword", newPassword);
-        return sqlSession.update("Users.updatePasswordByUserId", param);
-    }
-    // 아이디 찾기
-    public String findId(FindIdDTO dto) {
-        return sqlSession.selectOne("Users.findIdByNamePhoneType", dto);
-    }
-    // 비번 찾기 전에 인증하기
-    public boolean verifyForPwReset(FindPwDTO dto) {
-        Integer ok = sqlSession.selectOne("Users.verifyForPwReset", dto);
-        return ok != null && ok == 1;
+	public SqlSession sqlSession;
+	
+	public UsersDAO() {
+		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
+	}
+	
+	 /** 회원가입 */
+	 public long join(UsersDTO usersDTO) {
+	        sqlSession.insert("UserMapper.insertUser", usersDTO); 
+	        return usersDTO.getUsersNumber();
+	    }
+
+	    /** 아이디 중복체크: 사용 가능(true) / 불가(false) */
+	    public boolean checkId(String usersId) {
+	        Integer cnt = sqlSession.selectOne("UserMapper.countByUsersId", usersId);
+	        return cnt != null && cnt < 1;
+	    }
+
+	    /** 로그인: 일치하는 사용자 정보를 반환 (없으면 null) */
+	    public UsersDTO login(UsersLoginDTO usersLoginDTO) {
+	        return sqlSession.selectOne("UserMapper.login", usersLoginDTO);
+	    }
+
+	    /** 회원번호로 아이디 조회 (원시 long 그대로 전달 → 매퍼에서 #{value} 사용) */
+	    public String getUsersId(long usersNumber) {
+	        return sqlSession.selectOne("UserMapper.getUsersId", usersNumber);
+	    }
+
+	    /** 아이디 찾기: 이름+휴대전화(+유형)으로 users_id 문자열 반환 */
+	    public String findUserIdByNamePhone(FindIdDTO dto) {
+	        return sqlSession.selectOne("UserMapper.findUserIdByNamePhone", dto);
+	    }
+
+	    /** 비밀번호 찾기 검증(존재 시 usersNumber 반환) */
+	    public Long verifyForPwReset(FindPwDTO dto) {
+	        return sqlSession.selectOne("UserMapper.verifyForPwReset", dto);
+	    }
+
+	    /** 비밀번호 변경 (usersId 기준) */
+	    public int updatePasswordByUsersId(UpdatePwDTO dto) {
+	        return sqlSession.update("UserMapper.updatePasswordByUsersId", dto);
     }
 }

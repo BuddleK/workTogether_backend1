@@ -51,7 +51,17 @@
   	<url-pattern>*.sh</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+  <servlet>
+  	<servlet-name>Posts</servlet-name>
+  	<servlet-class>com.wt.app.posts.PostsFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Posts</servlet-name>
+  	<url-pattern>*.po</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
   	<servlet-name>Favorite</servlet-name>
   	<servlet-class>com.wt.app.shops.FavoriteFrontController</servlet-class>
   </servlet>
@@ -60,6 +70,5 @@
   	<servlet-name>Favorite</servlet-name>
   	<url-pattern>*.fa</url-pattern>
   </servlet-mapping>
-  
-  
+
 </web-app>
