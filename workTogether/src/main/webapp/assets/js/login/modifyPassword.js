@@ -1,45 +1,46 @@
-const input1 = document.getElementById("pw_input");
-const msg = document.getElementById("msg_box");
+// 비밀번호 수정: 형식검사 + 일치검사 후 폼 제출
+(function () {
+  const form = document.querySelector('form');
+  const pw1  = document.getElementById('pw_input');
+  const pw2  = document.getElementById('pw_check_input');
+  const box1 = document.getElementById('msg_box');    // 형식 오류 박스
+  const box2 = document.getElementById('msg_box2');   // 일치/불일치 박스
+  const ok   = document.querySelector('.correct_pw');
+  const err  = document.querySelector('.error_pw_check_msg');
 
-let isPw = false;
-let checkPw = false;
+  // 8자 이상 + 영문 + 숫자 + 특수문자 포함
+  const PATTERN = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*?_]).{8,}$/;
 
-input1.addEventListener("input", () => {
-  const val = input1.value;
-
-  const pattern = /^[a-zA-Z]+[0-9]+[!@#$%^&*?_]+.{0,7}$/;
-
-  if (pattern.test(val)) {
-    msg.style.display = "none";
-    isPw = true;
-  } else {
-    msg.style.display = "block";
-    isPw = false;
+  function validateRule() {
+    const valid = PATTERN.test(pw1.value);
+    if (box1) box1.style.display = valid ? 'none' : 'block';
+    return valid;
   }
-});
 
-const input2 = document.getElementById("pw_check_input");
-const msg2 = document.getElementById("msg_box2");
-const cp = document.querySelector(".correct_pw");
-const ep = document.querySelector(".error_pw_check_msg");
-input2.addEventListener("input", () => {
-  const val2 = input2.value;
-  if (input1.value === val2) {
-    msg2.style.display = "block";
-    ep.style.display = "none";
-    checkPw = true;
-  } else {
-    msg2.style.display = "block";
-    cp.style.display = "none";
-    ep.style.display = "block";
-    checkPw = false;
+  function validateMatch() {
+    const same = pw1.value.length > 0 && pw1.value === pw2.value;
+    if (box2)  box2.style.display = 'block';
+    if (ok)    ok.style.display   = same ? 'block' : 'none';
+    if (err)   err.style.display  = same ? 'none'  : 'block';
+    return same;
   }
-});
 
-function nextPg() {
-  if (!input1.value || !input2.value || !isPw || !checkPw) {
-    alert("값 입력");
-  } else {
-    location.href = "./../../../webapp/app/login/findPasswordResult.html";
-  }
-}
+  pw1?.addEventListener('input', () => {
+    validateRule();
+    if (pw2.value) validateMatch();
+  });
+
+  pw2?.addEventListener('input', validateMatch);
+
+  // JSP 버튼에서 onclick="nextPg()" 로 호출
+  window.nextPg = function () {
+    const ruleOk = validateRule();
+    const sameOk = validateMatch();
+    if (!ruleOk || !sameOk) {
+      alert('비밀번호를 형식에 맞게 동일하게 입력해주세요.');
+      return;
+    }
+    // form action은 /users/updatePwOk.us 로 설정되어 있어야 함
+    form?.submit();
+  };
+})();

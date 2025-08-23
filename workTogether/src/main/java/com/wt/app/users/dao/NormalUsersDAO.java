@@ -3,6 +3,7 @@ package com.wt.app.users.dao;
 import org.apache.ibatis.session.SqlSession;
 
 import com.wt.app.dto.NormalSignDTO;
+import com.wt.app.dto.NormalUsersDTO;
 import com.wt.app.dto.UsersLoginDTO;
 import com.wt.config.MyBatisConfig;
 
@@ -13,21 +14,12 @@ public class NormalUsersDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	public void sign(NormalSignDTO caresignDTO) {
-		sqlSession.insert("NormalUsers.sign", caresignDTO);
-	}
+	 public void insertNormalDetail(NormalUsersDTO normalusersdto) {
+	        sqlSession.insert("NormalUsersMapper.join", normalusersdto);
+	    }
 
-	public boolean checkId(String usersId) {
-		return (Integer) sqlSession.selectOne("Normal.checkId", usersId) < 1;
-	}
-
-	public boolean checkEmail(String usersEmail) {
-		return (Integer) sqlSession.selectOne("Normal.checkEmail", usersEmail) < 1;
-	}
+	 public void sign(NormalSignDTO dto) {
+	        sqlSession.insert("normalUsers.join", dto);
+	    }
 	
-	public int login(UsersLoginDTO UsersLoginDTO) { 
-    	Integer normalUsersNumber =
-    		 sqlSession.selectOne("Normal.login", UsersLoginDTO); 
-    	return normalUsersNumber == null ? -1 : normalUsersNumber ;
-    	}
 }

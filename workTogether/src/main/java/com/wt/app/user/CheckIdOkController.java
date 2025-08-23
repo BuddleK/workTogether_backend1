@@ -9,19 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.users.dao.CareUsersDAO;
+import com.wt.app.users.dao.UsersDAO;
 
-public class CareCheckIdOkController implements Execute{
+public class CheckIdOkController implements Execute {
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		CareUsersDAO careusersDAO = new CareUsersDAO();
+		request.setCharacterEncoding("UTF-8");
+
+		UsersDAO usersDAO = new UsersDAO();
 		Result result = new Result();
 
 		// 클라이언트에서 전달받은 usersId
 		String usersId = request.getParameter("usersId");
-		boolean isAvailable = careusersDAO.checkId(usersId);
+		boolean isAvailable = usersDAO.checkId(usersId);
 
 		// JSON 형식 응답 설정
 		response.setContentType("application/json");
@@ -33,9 +35,9 @@ public class CareCheckIdOkController implements Execute{
 			out.flush();
 		}
 
-		// Result 객체 반환(JSON 응답 처리 후 페이지 이동 없음)
-		result.setPath(null); // 페이지 이동이 없음을 명시
-		result.setRedirect(false); // 리다이렉트 설정(false로 유지)
+		// 직접 응답했으므로 페이지 이동 없음
+		result.setPath(null);
+		result.setRedirect(false);
 		return result;
 	}
 

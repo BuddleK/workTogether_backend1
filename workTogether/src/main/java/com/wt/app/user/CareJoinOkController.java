@@ -17,8 +17,7 @@ public class CareJoinOkController implements Execute {
     public Result Execute(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("Care JoinOkController 진입");
-        request.setCharacterEncoding("UTF-8");
+    	request.setCharacterEncoding("UTF-8");
 
         String usersName = request.getParameter("usersName");
         String usersEmail = request.getParameter("usersEmail");
@@ -27,39 +26,52 @@ public class CareJoinOkController implements Execute {
         String usersAddressLine1 = request.getParameter("usersAddressLine1");
         String usersAddressLine2 = request.getParameter("usersAddressLine2");
         String careIntroText = request.getParameter("careIntroText");
-        String careCertificateFilesNum= request.getParameter("careCertificateFilesNum");
-        String carePassbookFilesNum   = request.getParameter("carePassbookFilesNum");
-        String careProfilesPhotoNumber= request.getParameter("careProfilesPhotoNumber");
-        String careAccept             = request.getParameter("careAccept");
-        String usersNumberParam       = request.getParameter("usersNumber");
+        String usersNumberParam = request.getParameter("usersNumber");
 
-        CareSignDTO dto = new CareSignDTO();
-        dto.setUsersName(usersName);
-        dto.setUsersEmail(usersEmail);
-        dto.setUsersPhone(usersPhone);
-        dto.setUsersPostsalCode(usersPostsalCode);
-        dto.setUsersAddressLine1(usersAddressLine1);
-        dto.setUsersAddressLine2(usersAddressLine2);
-        dto.setCareIntroText(careIntroText);
-        dto.setCareCertificateFilesNum(careCertificateFilesNum);
-        dto.setCarePassbookFilesNum(carePassbookFilesNum);
-        dto.setCareProfilesPhotoNumber(careProfilesPhotoNumber);
-        dto.setCareAccept(careAccept == null || careAccept.trim().isEmpty() ? "N" : careAccept.trim());
+        String certParam = request.getParameter("careCertificateFilesNum");
+        String passParam = request.getParameter("carePassbookFilesNum");
+        String profParam = request.getParameter("careProfilesPhotoNumber");
+
+        CareSignDTO caresignDTO = new CareSignDTO();
+        caresignDTO.setUsersName(usersName);
+        caresignDTO.setUsersEmail(usersEmail);
+        caresignDTO.setUsersPhone(usersPhone);
+        caresignDTO.setUsersPostsalCode(usersPostsalCode);
+        caresignDTO.setUsersAddressLine1(usersAddressLine1);
+        caresignDTO.setUsersAddressLine2(usersAddressLine2);
+        caresignDTO.setCareIntroText(careIntroText);
 
         if (usersNumberParam != null && !usersNumberParam.isEmpty()) {
             try {
-                dto.setUsersNumber(Integer.parseInt(usersNumberParam));
+            	caresignDTO.setUsersNumber(Integer.parseInt(usersNumberParam)); // int 사용
             } catch (NumberFormatException e) {
-                System.out.println("[Care] usersNumber : " + usersNumberParam);
+                System.out.println("Care usersNumber 파싱 실패: " + usersNumberParam);
             }
         }
 
-        CareUsersDAO careUsersDAO = new CareUsersDAO();
-        careUsersDAO.sign(dto);
+        if (certParam != null && !certParam.isEmpty()) {
+            try { 
+            	caresignDTO.setCareCertificateFilesNum(Long.parseLong(certParam)); 
+            	}
+            catch (NumberFormatException e) { 
+            	System.out.println("cert 파싱 실패: " + certParam); 
+            	}
+        }
+        
+        if (passParam != null && !passParam.isEmpty()) {
+            try { caresignDTO.setCarePassbookFilesNum(Long.parseLong(passParam)); }
+            catch (NumberFormatException e) { System.out.println("pass 파싱 실패: " + passParam); }
+        }
+        if (profParam != null && !profParam.isEmpty()) {
+            try { caresignDTO.setCareProfilesPhotoNumber(Long.parseLong(profParam)); }
+            catch (NumberFormatException e) { System.out.println("prof 파싱 실패: " + profParam); }
+        }
+
+        new CareUsersDAO().sign(caresignDTO); // 매퍼: careUsers.join
 
         Result result = new Result();
         result.setRedirect(true);
-        result.setPath(request.getContextPath() + "/care/login.us");
+        result.setPath(request.getContextPath() + "/users/login.us");
         return result;
     }
 }
