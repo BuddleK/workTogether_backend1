@@ -1,14 +1,15 @@
 package com.wt.app.dto;
 
 public class AdminReferenceListDTO {
-	private int referenceNumber;
-	private String referenceTitle;
-	
-	private int userNumber;
-	private String userName;
-	
-	private String referenceCreatedDate;
-	private boolean answeredYn;
+	//문의 테이블
+	private int referenceNumber; // 문의 번호
+	private String referenceTitle; // 문의 제목
+	//전체 유저 테이블
+	private int userNumber; // 유저 번호
+	private String userName; // 일반 or 돌봄 유저 이름
+	//문의 테이블
+	private String referenceCreatedDate; // 문의 생성 일
+	private boolean answeredYn; // 답변 유무
 
 	public int getReferenceNumber() {
 		return referenceNumber;

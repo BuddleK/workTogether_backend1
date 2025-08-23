@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.ShopsFavoritesActionDTO;
 import com.wt.app.dto.ShopsListDTO;
 import com.wt.config.MyBatisConfig;
 
@@ -27,5 +28,18 @@ public class ShopsDAO {
 		public int getTotal() {
 			System.out.println("가게 총 개수 조회 - getTotal 메소드 실행");
 			return sqlSession.selectOne("shops.getTotal");
+		}
+		
+	// 법정 동명 가져오기 (ex => 방배동, 양재동)
+		public List<ShopsListDTO> adminDongSelect() {
+			System.out.println("법정 동명 가져오기 - adminDongSelect 실행");
+			List<ShopsListDTO> list = sqlSession.selectList("shops.adminDong");
+			System.out.println("조회결과 : " + list);
+			return list;
+		}
+		
+	// 찜하기
+		public void addFavorites(ShopsFavoritesActionDTO shopsFavoritesActionDTO) {
+			sqlSession.insert("shops.favoriteAdd",shopsFavoritesActionDTO);
 		}
 }

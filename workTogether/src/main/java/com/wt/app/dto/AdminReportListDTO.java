@@ -1,13 +1,14 @@
 package com.wt.app.dto;
 
 public class AdminReportListDTO {
-	private int reportNumber;
-	private int postNumber;
-	private int usersNumber;
-
-	private String postTitle;
-	private String postCreatedDate;
-	private int postsViewCount;
+	// 신고 테이블
+	private int reportNumber; // 신고 번호
+	private int postNumber; // 게시물 번호
+	private int usersNumber; // 전체 유저 번호
+	// 게시물 테이블
+	private String postTitle; // 게시물 제목
+	private String postCreatedDate; // 게시물 생성일
+	private int postsViewCount; // 게시물 조회수
 
 	public int getReportNumber() {
 		return reportNumber;

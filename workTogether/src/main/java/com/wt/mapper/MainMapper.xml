@@ -4,15 +4,34 @@
 	
 	<!-- 뉴스배너 -->
 	<select id="newsBanner" parameterType="NewsBannerDTO">
-	
+		select banner_news_number, banner_image_files_number, banner_title, banner_link_url
+		from tbl_news_banners
 	</select>
 	
-	<!-- 추천활동 -->
+	<!-- 추천가게 찜 많은 순으로 정렬-->
+	<select id="shops" parameterType="PostsDTO">
+		SELECT shops_number, shops_name, shops_intro_text, count(*)
+		from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
+		GROUP BY shops_number, shops_name, shops_intro_text
+		ORDER BY count(*) DESC
+	</select>
 	
 	
 	<!-- 게시판 -->
 	<select id="post" parameterType="PostsDTO">
-	
+		select * from (
+			SELECT p.posts_number, p.posts_title, a.users_name, p.posts_created_date
+			FROM tbl_posts p JOIN (
+				SELECT u.users_number, c.users_name
+				FROM tbl_users u
+				JOIN tbl_care_users c ON u.users_number = c.users_number
+				UNION
+				SELECT u.users_number, n.users_name
+				FROM tbl_users u
+				JOIN tbl_normal_users n ON u.users_number = n.users_number) a
+				ON p.USERS_NUMBER = a.USERS_NUMBER
+				ORDER BY p.POSTS_CREATED_DATE DESC)
+		where rownum <= 4
 	</select>
 	
 	<!-- 지도 마커 -->
@@ -22,7 +41,13 @@
 	
 	<!-- 돌봄 회원 -->
 	<select id="care" parameterType="CareListDTO">
-	
+		SELECT * FROM (
+    		SELECT h.hearts_care_number,
+           	COUNT(*) AS heart_count
+    		FROM tbl_hearts h
+    		GROUP BY h.hearts_care_number
+    		ORDER BY COUNT(*) DESC)
+		WHERE ROWNUM <= 4
 	</select>
 
 </mapper>
