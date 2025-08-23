@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMapper">
+
+  <!-- 회원 공통 INSERT (selectKey로 PK 세팅) -->
+  <insert id="insertUser" parameterType="com.wt.app.dto.UsersDTO">
+    <selectKey keyProperty="usersNumber" resultType="long" order="BEFORE">
+      SELECT seq_users.NEXTVAL FROM dual
+    </selectKey>
+    INSERT INTO tbl_users (
+      users_number, users_id, users_password, users_type,
+      users_created_date, users_updated_date, users_point
+    ) VALUES (
+      #{usersNumber}, #{usersId}, #{usersPassword}, #{usersType},
+      SYSDATE, NULL, NVL(#{usersPoint}, 0)
+    )
+  </insert>
+
+  <!-- 로그인 (날짜는 String으로 TO_CHAR) -->
+  <select id="login"
+          parameterType="com.wt.app.dto.UsersLoginDTO"
+          resultType="com.wt.app.dto.UsersDTO">
+    SELECT
+      u.users_number AS usersNumber,
+      u.users_id AS usersId,
+      u.users_password AS usersPassword,
+      u.users_type AS usersType,
+      TO_CHAR(u.users_created_date, 'YYYY-MM-DD HH24:MI:SS') AS usersCreatedDate,
+      TO_CHAR(u.users_updated_date, 'YYYY-MM-DD HH24:MI:SS') AS usersUpdatedDate,
+      u.users_point AS usersPoint
+    FROM tbl_users u
+    WHERE u.users_id = #{usersId}
+      AND u.users_password = #{usersPassword}
+  </select>
+
+  <!-- 아이디 중복 검사 (UsersDAO.checkId(String)과 매칭; 단일 파라미터 → #{value}) -->
+  <select id="countByUsersId" parameterType="string" resultType="int">
+    SELECT COUNT(*) FROM tbl_users WHERE users_id = #{value}
+  </select>
+
+ <select id="findUserIdByNamePhone"
+        parameterType="com.wt.app.dto.FindIdDTO"
+        resultType="string">
+  SELECT u.users_id
+  FROM tbl_users u
+  <choose>
+    <when test="usersType != null and (usersType == 'N' or usersType == 'n')">
+      JOIN tbl_normal_users n ON n.users_number = u.users_number
+      WHERE n.users_name  = #{usersName}
+        AND n.users_phone = #{usersPhone}
+        AND u.users_type  = 'N'
+    </when>
+    <when test="usersType != null and (usersType == 'C' or usersType == 'c')">
+      JOIN tbl_care_users c ON c.users_number = u.users_number
+      WHERE c.users_name  = #{usersName}
+        AND c.users_phone = #{usersPhone}
+        AND u.users_type  = 'C'
+    </when>
+    <otherwise>
+      WHERE (
+        EXISTS (SELECT 1 FROM tbl_normal_users n
+                WHERE n.users_number = u.users_number
+                  AND n.users_name  = #{usersName}
+                  AND n.users_phone = #{usersPhone})
+        OR
+        EXISTS (SELECT 1 FROM tbl_care_users c
+                WHERE c.users_number = u.users_number
+                  AND c.users_name  = #{usersName}
+                  AND c.users_phone = #{usersPhone})
+      )
+    </otherwise>
+  </choose>
+  FETCH FIRST 1 ROWS ONLY
+</select>
+
+  <!-- 비밀번호 찾기 검증: 일치 시 users_number(Long) 반환 -->
+  <select id="verifyForPwReset"
+          parameterType="com.wt.app.dto.FindPwDTO"
+          resultType="long">
+    SELECT u.users_number
+    FROM tbl_users u
+    <choose>
+      <when test="usersType != null and (usersType == 'N' or usersType == 'n')">
+        JOIN tbl_normal_users n ON n.users_number = u.users_number
+        WHERE u.users_id    = #{usersId}
+          AND n.users_name  = #{usersName}
+          AND n.users_phone = #{usersPhone}
+          AND u.users_type  = 'N'
+      </when>
+      <when test="usersType != null and (usersType == 'C' or usersType == 'c')">
+        JOIN tbl_care_users c ON c.users_number = u.users_number
+        WHERE u.users_id    = #{usersId}
+          AND c.users_name  = #{usersName}
+          AND c.users_phone = #{usersPhone}
+          AND u.users_type  = 'C'
+      </when>
+      <otherwise>
+        WHERE u.users_id = #{usersId}
+          AND (
+            EXISTS (
+              SELECT 1 FROM tbl_normal_users n
+              WHERE n.users_number = u.users_number
+                AND n.users_name  = #{usersName}
+                AND n.users_phone = #{usersPhone}
+            )
+            OR
+            EXISTS (
+              SELECT 1 FROM tbl_care_users c
+              WHERE c.users_number = u.users_number
+                AND c.users_name  = #{usersName}
+                AND c.users_phone = #{usersPhone}
+            )
+          )
+      </otherwise>
+    </choose>
+    FETCH FIRST 1 ROWS ONLY
+  </select>
+
+  <!-- 비밀번호 변경 -->
+  <update id="updatePasswordByUsersId"
+          parameterType="com.wt.app.dto.UpdatePwDTO">
+    UPDATE tbl_users
+       SET users_password = #{newPassword},
+           users_updated_date = SYSDATE
+     WHERE users_id = #{usersId}
+  </update>
+
+  <!-- (선택) 회원번호로 아이디 조회: DAO에서 long 그대로 전달 → #{value} 사용 -->
+  <select id="getUsersId" parameterType="long" resultType="string">
+    SELECT users_id FROM tbl_users WHERE users_number = #{value}
+  </select>
+
+</mapper>

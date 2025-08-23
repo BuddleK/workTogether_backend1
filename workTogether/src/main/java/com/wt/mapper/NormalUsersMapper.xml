@@ -1,51 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Normal">
-	<select id="login" parameterType="UserLoginDTO" resultType="int">
-		SELECT u.users_number
-		FROM tbl_users u
-		JOIN tbl_normal_member n ON n.users_number = u.users_number
-		WHERE u.users_id = #{usersId} 
-		AND u.users_password = #{usersPassword}
-		AND u.users_type = 'N'
-	</select>
-	<insert id="sign" parameterType="NormalSginDTO">
-		INSERT INTO tbl_normal_member (
-			normal_number, users_name, users_email,
-			users_phone, users_postsal_code, users_address_line1, users_address_line2,
-			normal_users_level, users_number
-		) VALUES (
-			seq_normal_member.nextval, #{usersName}, #{usersEmail},
-			#{usersPhone}, #{usersPostsalCode}, #{usersAddressLine1}, #{usersAddressLine2},
-			#{normalUsersLevel}, #{usersNumber}
-		)
-	</insert>
-	<select id="findId" parameterType="FindIdDTO" resultType="int">
-		SELECT u.users_id
-		FROM tbl_users u
-		JOIN tbl_normal_member n ON n.users_number = u.users_number
-		WHERE n.users_name = #{usersName} 
-		AND n.users_phone = #{usersPhone}
-		AND u.users_type = #{usersType}
-	</select>
-	<select id="findPw" parameterType="FindPwDTO" resultType="int">
-		SELECT u.users_password
-		FROM tbl_users u
-		JOIN tbl_normal_member n ON n.users_number = u.users_number
-		WHERE n.users_name = #{usersName} 
-		AND n.users_phone = #{usersPhone} 
-		AND u.users_id = #{usersId}
-		AND u.users_type = #{usersType}
-	</select>
-	<select id="checkId" parameterType="String" resultType="int">
-		SELECT count(*)
-    	FROM tbl_users
-    	WHERE users_id = #{usersId}
-	</select>
-	<select id="checkEmail" parameterType="String" resultType="int">
-		SELECT count(*)
-    	FROM tbl_normal_member
-    	WHERE users_email = #{usersEmail}
-	</select>
+<mapper namespace="NormalUsersMapper">
+
+  <insert id="join" parameterType="com.wt.app.dto.NormalUsersDTO">
+    INSERT INTO tbl_normal_users (
+      users_number, users_name, users_email, users_phone,
+      users_postsal_code, users_address_line1, users_address_line2,
+      normal_users_level
+    ) VALUES (
+      #{usersNumber}, #{usersName}, #{usersEmail}, #{usersPhone},
+      #{usersPostsalCode}, #{usersAddressLine1}, #{usersAddressLine2},
+      #{normalUsersLevel}
+    )
+  </insert>
+
 </mapper>

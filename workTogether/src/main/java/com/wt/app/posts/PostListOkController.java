@@ -1,4 +1,4 @@
-package com.wt.app.user;
+package com.wt.app.posts;
 
 import java.io.IOException;
 
@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 
-public class CareLogoutController implements Execute{
+public class PostListOkController implements Execute {
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("====postListOkController 실행====");
 		Result result = new Result();
-		request.getSession().invalidate(); // 세션 무효화
-		result.setPath("/login/login.us");
-		result.setRedirect(true);
+		result.setPath("/app/post/postMain.jsp");
+		result.setRedirect(false);
+		
 		return result;
 	}
-
+	
 }
