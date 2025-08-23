@@ -14,7 +14,7 @@ import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.FileNotice.dao.FileNoticeDAO;
 import com.wt.app.dto.AdminNewsBoardDTO;
-import com.wt.app.dto.FileNoticeDTO;
+import com.wt.app.dto.FilesLicenseDTO;
 import com.wt.app.news.dao.AdminNewsDAO;
 
 public class AdminNewsWriteOkController implements Execute{
@@ -80,7 +80,7 @@ public class AdminNewsWriteOkController implements Execute{
 	                String webPath = UPLOAD_DIR + "/" + fileSystemName;     // DB에는 웹 경로 저장
 
 	                // 파일 DTO 채워서 INSERT
-	                FileNoticeDTO fileDTO = new FileNoticeDTO();
+	                FilesLicenseDTO fileDTO = new FilesLicenseDTO();
 	                fileDTO.setFilesType(contentType);
 	                fileDTO.setFilesName(fileOriginalName);
 	                fileDTO.setFilesPath(webPath);

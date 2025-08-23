@@ -13,6 +13,7 @@ public class CareUsersDTO {
     private Long carePassbookFilesNum;
     private Long careProfilesPhotoNumber;
     private String careAccept;
+    
 	public Long getUsersNumber() {
 		return usersNumber;
 	}

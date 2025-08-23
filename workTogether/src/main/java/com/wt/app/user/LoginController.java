@@ -9,16 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 
-public class CareLogoutController implements Execute{
+public class LoginController implements Execute {
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		Result result = new Result();
-		request.getSession().invalidate(); // 세션 무효화
-		result.setPath("/login/login.us");
-		result.setRedirect(true);
+		result.setRedirect(false);
+		result.setPath("/app/users/login.jsp");
 		return result;
 	}
 

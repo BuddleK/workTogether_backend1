@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
   <script defer src="${pageContext.request.contextPath}/assets/js/sign/terms.js"></script>
-  <!-- <link rel="stylesheet" href=""> -->
 </head>
 
 <body>
