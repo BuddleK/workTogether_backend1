@@ -1,9 +1,10 @@
 package com.wt.app.dto;
 
 public class AdminNewsBannerDTO {
-	//뉴스 테이블
+	// 뉴스 테이블
 	private int newsNumber; // 뉴스 번호
 	private String newsTitle; // 뉴스 제목
+	private String newsLinkUrl; // 뉴스링크
 	private String newsCreatedDate; // 뉴스 생성일
 
 	public int getNewsNumber() {
@@ -22,6 +23,14 @@ public class AdminNewsBannerDTO {
 		this.newsTitle = newsTitle;
 	}
 
+	public String getNewsLinkUrl() {
+		return newsLinkUrl;
+	}
+
+	public void setNewsLinkUrl(String newsLinkUrl) {
+		this.newsLinkUrl = newsLinkUrl;
+	}
+
 	public String getNewsCreatedDate() {
 		return newsCreatedDate;
 	}
@@ -32,7 +41,8 @@ public class AdminNewsBannerDTO {
 
 	@Override
 	public String toString() {
-		return "AdminNewsBannerDTO [newsNumber=" + newsNumber + ", newsTitle=" + newsTitle + ", newsCreatedDate="
-				+ newsCreatedDate + "]";
+		return "AdminNewsBannerDTO [newsNumber=" + newsNumber + ", newsTitle=" + newsTitle + ", newsLinkUrl="
+				+ newsLinkUrl + ", newsCreatedDate=" + newsCreatedDate + "]";
 	}
+
 }
