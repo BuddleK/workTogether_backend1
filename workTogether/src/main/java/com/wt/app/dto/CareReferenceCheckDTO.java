@@ -12,16 +12,16 @@ public class CareReferenceCheckDTO {
 //	    CONSTRAINT fk_ref_users FOREIGN KEY (reference_users_number) REFERENCES tbl_users(users_number) ON DELETE CASCADE
 //	);
 //
-//	-- 문의 답변
-//	CREATE TABLE tbl_reference_reply (
-//	    reply_reference_reply_number NUMBER PRIMARY KEY,
-//	    reference_number NUMBER NOT NULL,
-//	    admin_number NUMBER NOT NULL,
-//	    reply_content VARCHAR2(2000) NOT NULL,
-//	    reply_created_date DATE NOT NULL,
-//	    reply_updated_date DATE,
-//	    CONSTRAINT fk_refreply_ref FOREIGN KEY (reference_number) REFERENCES tbl_reference(reference_number) ON DELETE CASCADE,
-//	    CONSTRAINT fk_refreply_admin FOREIGN KEY (admin_number) REFERENCES tbl_admin(admin_number) ON DELETE CASCADE
+//	-- 회원
+//	CREATE TABLE tbl_users (
+//	    users_number NUMBER,
+//	    users_id VARCHAR2(30) NOT NULL UNIQUE,
+//	    users_password VARCHAR2(255) NOT NULL,
+//	    users_type CHAR(1) CHECK (users_type IN ('C', 'N')) NOT NULL,
+//	    users_created_date DATE DEFAULT sysdate,
+//	    users_updated_date DATE DEFAULT sysdate,
+//	    users_point number default 0,
+//	    CONSTRAINT pk_tbl_users PRIMARY KEY (users_number)
 //	);
 
 	private int referenceNumber;
@@ -29,99 +29,59 @@ public class CareReferenceCheckDTO {
 	private String referenceTitle;
 	private String referenceCreated;
 	private String referenceContent;
-	private int reply_referenceReplyNumber;
-	private int adminNumber;
-	private String replyContent;
-	private String replyCreatedDate;
-	private String replyUpdatedDate;
-
+	private int usersNumber;
+	private String usersName;
 	public int getReferenceNumber() {
 		return referenceNumber;
 	}
-
 	public void setReferenceNumber(int referenceNumber) {
 		this.referenceNumber = referenceNumber;
 	}
-
 	public int getReferenceUsers() {
 		return referenceUsers;
 	}
-
 	public void setReferenceUsers(int referenceUsers) {
 		this.referenceUsers = referenceUsers;
 	}
-
 	public String getReferenceTitle() {
 		return referenceTitle;
 	}
-
 	public void setReferenceTitle(String referenceTitle) {
 		this.referenceTitle = referenceTitle;
 	}
-
 	public String getReferenceCreated() {
 		return referenceCreated;
 	}
-
 	public void setReferenceCreated(String referenceCreated) {
 		this.referenceCreated = referenceCreated;
 	}
-
 	public String getReferenceContent() {
 		return referenceContent;
 	}
-
 	public void setReferenceContent(String referenceContent) {
 		this.referenceContent = referenceContent;
 	}
-
-	public int getReply_referenceReplyNumber() {
-		return reply_referenceReplyNumber;
+	public int getUsersNumber() {
+		return usersNumber;
 	}
-
-	public void setReply_referenceReplyNumber(int reply_referenceReplyNumber) {
-		this.reply_referenceReplyNumber = reply_referenceReplyNumber;
+	public void setUsersNumber(int usersNumber) {
+		this.usersNumber = usersNumber;
 	}
-
-	public int getAdminNumber() {
-		return adminNumber;
+	public String getUsersName() {
+		return usersName;
 	}
-
-	public void setAdminNumber(int adminNumber) {
-		this.adminNumber = adminNumber;
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
 	}
-
-	public String getReplyContent() {
-		return replyContent;
-	}
-
-	public void setReplyContent(String replyContent) {
-		this.replyContent = replyContent;
-	}
-
-	public String getReplyCreatedDate() {
-		return replyCreatedDate;
-	}
-
-	public void setReplyCreatedDate(String replyCreatedDate) {
-		this.replyCreatedDate = replyCreatedDate;
-	}
-
-	public String getReplyUpdatedDate() {
-		return replyUpdatedDate;
-	}
-
-	public void setReplyUpdatedDate(String replyUpdatedDate) {
-		this.replyUpdatedDate = replyUpdatedDate;
-	}
-
 	@Override
 	public String toString() {
 		return "CareReferenceCheckDTO [referenceNumber=" + referenceNumber + ", referenceUsers=" + referenceUsers
 				+ ", referenceTitle=" + referenceTitle + ", referenceCreated=" + referenceCreated
-				+ ", referenceContent=" + referenceContent + ", reply_referenceReplyNumber="
-				+ reply_referenceReplyNumber + ", adminNumber=" + adminNumber + ", replyContent=" + replyContent
-				+ ", replyCreatedDate=" + replyCreatedDate + ", replyUpdatedDate=" + replyUpdatedDate + "]";
+				+ ", referenceContent=" + referenceContent + ", usersNumber=" + usersNumber + ", usersName=" + usersName
+				+ "]";
 	}
+	
+	
+	
 
 }
