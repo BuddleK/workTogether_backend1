@@ -1,4 +1,4 @@
-package com.wt.app.careModify.dao;
+package com.wt.app.careMyPage.dao;
 
 import java.util.List;
 import java.util.Map;

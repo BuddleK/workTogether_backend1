@@ -14,14 +14,27 @@
     		<c:when test="${empty sessionScope.usersNumber}">
 		     	<!-- 로그인 메뉴 -->
 		      	<a href="${pageContext.request.contextPath}/app/login/login.jsp">로그인</a>
+		      	<%-- <a href="${pageContext.request.contextPath}/login/login.us">로그인</a> --%>
 		      	<!-- 회원가입 메뉴 -->
 		      	<a href="${pageContext.request.contextPath}/app/sign/terms.jsp">회원가입</a>
+				<%-- <a href="${pageContext.request.contextPath}/sign/terms.??">회원가입</a> --%>
     		</c:when>
     		<c:otherwise>
-    			<!-- 마이페이지 메뉴 -->
-		      	<a href="${pageContext.request.contextPath}/app/myPageCare/carePwcheck.jsp">마이페이지</a>
-    			<!-- 로그아웃 메뉴 -->
+	    		<c:choose>
+    				<c:when test="${sessionScope.usersType == 'C'}">
+	    				<!--  돌봄 마이페이지 메뉴 -->
+			      		<a href="${pageContext.request.contextPath}/app/myPageCare/carePwcheck.jsp">마이페이지</a>
+			      		<%-- <a href="${pageContext.request.contextPath}/myPageCare/carePwcheck.??">마이페이지</a> --%>
+			    	</c:when>
+			    	<c:otherwise>
+			    		<!--  일반 마이페이지 메뉴 -->
+			      		<a href="${pageContext.request.contextPath}/app/myPageNormal/normalModify.jsp">마이페이지</a>
+			      		<%-- <a href="${pageContext.request.contextPath}/myPageNormal/normalModify.??">마이페이지</a> --%>
+			    	</c:otherwise>
+    			</c:choose>
+	    		<!-- 로그아웃 메뉴 -->
 				<a href="${pageContext.request.contextPath}/app/main.jsp">로그아웃</a>
+				<%-- <a href="${pageContext.request.contextPath}/logoutOk.us">로그아웃</a> --%>
 			</c:otherwise>
     	</c:choose>
     </span>

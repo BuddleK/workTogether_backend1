@@ -1,4 +1,4 @@
-package com.wt.app.careMark.dao;
+package com.wt.app.careMyPage.dao;
 
 import java.util.List;
 import java.util.Map;

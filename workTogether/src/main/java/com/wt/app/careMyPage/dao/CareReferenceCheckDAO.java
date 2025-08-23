@@ -1,4 +1,4 @@
-package com.wt.app.careReferenceCheck.dao;
+package com.wt.app.careMyPage.dao;
 
 import java.util.HashMap;
 import java.util.Map;

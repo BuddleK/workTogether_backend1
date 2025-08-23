@@ -1,4 +1,4 @@
-package com.wt.app.careExit.dao;
+package com.wt.app.careMyPage.dao;
 
 import org.apache.ibatis.session.SqlSession;
 

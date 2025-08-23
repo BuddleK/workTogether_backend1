@@ -64,11 +64,13 @@
 <!-- 	<!-- 프로필 이력 수정 쿼리작성 -->
 	<update id="licenseUpdate" parameterType="CareProfileDTO">
 		SELECT a.*, l.*
-FROM   tbl_care_users c
+		FROM   tbl_care_users c
     		JOIN   tbl_files_account a ON c.care_passbook_files_num = a.account_files_number
     		JOIN   tbl_files_license l ON c.care_certificate_files_num = l.license_files_number
     		WHERE  c.care_number = 7;
 	</update> -->
+	
+	
 
 	<!-- 프로필 주소 수정 쿼리작성 -->
 	<update id="addressUpdate" parameterType="CareProfileDTO">
