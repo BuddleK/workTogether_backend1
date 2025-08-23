@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminCare">
+
+	<!-- 가입신청 내역 조회 -->
+	<select id="selectPendingCareSignups" resultType="com.wt.app.dto.AdminCareSignupDTO">
+		SELECT
+			u.users_number, u.users_id AS usersId, TO_CHAR(u.users_created_date, 'YYYY-MM-DD HH24:MI:SS') AS 생성날짜,
+			c.users_name, c.users_email, c.users_phone, c.users_postsal_code, c.users_address_line1,
+			c.users_address_line2, c.care_intro_text, c.care_certificate_files_num,
+			c.care_passbook_files_num, c.care_profiles_photo_number, c.care_accept
+		FROM tbl_care_users c
+		JOIN tbl_users u 
+		ON u.users_number = c.users_number
+		WHERE c.care_accept = 'N'
+		ORDER BY u.users_created_date DESC
+	</select>
+
+	<!-- 가입신청 단건 조회 -->
+	<select id="selectCareSignupByUsersNumber" parameterType="int" resultType="AdminCareSignupDTO">
+		SELECT
+			u.users_number, u.users_id, TO_CHAR(u.users_created_date, 'YYYY-MM-DD HH24:MI:SS') AS 생성날짜,
+			c.users_name, c.users_email, c.users_phone, c.users_postsal_code,
+			c.users_address_line1, c.users_address_line2, c.care_intro_text, c.care_certificate_files_num,
+			c.care_passbook_files_num, c.care_profiles_photo_number, c.care_accept AS careAccept
+		FROM tbl_care_users c
+		JOIN tbl_users u 
+		ON u.users_number = c.users_number
+		WHERE c.users_number = #{value}
+	</select>
+
+	<!-- 가입 승인 / 반려 -->
+	<!-- 승인: care_accept = 'Y' -->
+	<update id="approveCareSignup" parameterType="int">
+		UPDATE
+			tbl_care_users
+			SET care_accept = 'Y'
+		WHERE users_number = #{value}
+	</update>
+
+	<!-- 반려안(1): care_users 만 삭제 -->
+	<delete id="rejectCareSignupOnlyCare" parameterType="int">
+		DELETE FROM tbl_care_users
+		WHERE users_number = #{value}
+	</delete>
+
+	<!-- 반려안(2): users 까지 삭제 (완전 거절 시) -->
+	<delete id="rejectCareSignupWithUser" parameterType="int">
+		DELETE FROM tbl_users
+		WHERE users_number = #{value}
+	</delete>
+
+	<!-- ========================= 첨부파일 단건 조회 (다운로드 등에 사용) ========================= -->
+	<!-- 자격증 파일 -->
+	<select id="selectLicenseFileById" parameterType="int" resultType="AdminCareFileDTO">
+		SELECT
+			license_files_number AS fileNumber, license_files_type AS fileType,
+			license_files_name AS fileName, license_files_path AS filePath,
+			license_files_size_bytes AS fileSizeBytes,
+			TO_CHAR(license_created_date, 'YYYY-MM-DD HH24:MI:SS') AS createdDate
+		FROM tbl_files_license
+		WHERE license_files_number = #{value}
+	</select>
+
+	<!-- 통장 사본 파일 -->
+	<select id="selectAccountFileById" parameterType="int" resultType="AdminCareFileDTO">
+		SELECT
+			account_files_number AS fileNumber, account_files_type AS fileType,
+			account_files_name AS fileName, account_files_path AS filePath,
+			account_files_size_bytes AS fileSizeBytes,
+		TO_CHAR(account_created_date, 'YYYY-MM-DD HH24:MI:SS') AS createdDate
+		FROM tbl_files_account
+		WHERE account_files_number = #{value}
+	</select>
+
+	<!-- 프로필 사진 파일 -->
+	<select id="selectProfileFileById" parameterType="int" resultType="AdminCareFileDTO">
+		SELECT
+			profiles_files_number AS fileNumber, profiles_files_type AS fileType,
+			profiles_files_name AS fileName, profiles_files_path AS filePath,
+			profiles_files_size_bytes AS fileSizeBytes,
+			TO_CHAR(profiles_created_date, 'YYYY-MM-DD HH24:MI:SS') AS createdDate
+		FROM tbl_files_profiles
+		WHERE profiles_files_number = #{value}
+	</select>
+
+	<!-- 환급/이력수정 — 테이블 생성 후 구현 -->
+
+
+</mapper>
