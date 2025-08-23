@@ -137,6 +137,7 @@ public class MainDTO {
 	private String users_name;
 	private String posts_created_date;
 	
+	
 //지도 api
 	
 	private int care_number;
@@ -145,90 +146,129 @@ public class MainDTO {
 
 	private int favorites_shops_number;
 	private String shops_name;
+	
+	private int rownum;
+
 	public int getBanner_news_number() {
 		return banner_news_number;
 	}
+
 	public void setBanner_news_number(int banner_news_number) {
 		this.banner_news_number = banner_news_number;
 	}
+
 	public int getBanner_image_files_number() {
 		return banner_image_files_number;
 	}
+
 	public void setBanner_image_files_number(int banner_image_files_number) {
 		this.banner_image_files_number = banner_image_files_number;
 	}
+
 	public String getBanner_title() {
 		return banner_title;
 	}
+
 	public void setBanner_title(String banner_title) {
 		this.banner_title = banner_title;
 	}
+
 	public String getBanner_link_url() {
 		return banner_link_url;
 	}
+
 	public void setBanner_link_url(String banner_link_url) {
 		this.banner_link_url = banner_link_url;
 	}
+
 	public int getPosts_number() {
 		return posts_number;
 	}
+
 	public void setPosts_number(int posts_number) {
 		this.posts_number = posts_number;
 	}
+
 	public String getPosts_title() {
 		return posts_title;
 	}
+
 	public void setPosts_title(String posts_title) {
 		this.posts_title = posts_title;
 	}
+
 	public int getUsers_number() {
 		return users_number;
 	}
+
 	public void setUsers_number(int users_number) {
 		this.users_number = users_number;
 	}
+
 	public String getUsers_name() {
 		return users_name;
 	}
+
 	public void setUsers_name(String users_name) {
 		this.users_name = users_name;
 	}
+
 	public String getPosts_created_date() {
 		return posts_created_date;
 	}
+
 	public void setPosts_created_date(String posts_created_date) {
 		this.posts_created_date = posts_created_date;
 	}
+
 	public int getCare_number() {
 		return care_number;
 	}
+
 	public void setCare_number(int care_number) {
 		this.care_number = care_number;
 	}
+
 	public int getCare_profiles_photo_number() {
 		return care_profiles_photo_number;
 	}
+
 	public void setCare_profiles_photo_number(int care_profiles_photo_number) {
 		this.care_profiles_photo_number = care_profiles_photo_number;
 	}
+
 	public String getCare_intro_text() {
 		return care_intro_text;
 	}
+
 	public void setCare_intro_text(String care_intro_text) {
 		this.care_intro_text = care_intro_text;
 	}
+
 	public int getFavorites_shops_number() {
 		return favorites_shops_number;
 	}
+
 	public void setFavorites_shops_number(int favorites_shops_number) {
 		this.favorites_shops_number = favorites_shops_number;
 	}
+
 	public String getShops_name() {
 		return shops_name;
 	}
+
 	public void setShops_name(String shops_name) {
 		this.shops_name = shops_name;
 	}
+
+	public int getRownum() {
+		return rownum;
+	}
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
+
 	@Override
 	public String toString() {
 		return "MainDTO [banner_news_number=" + banner_news_number + ", banner_image_files_number="
@@ -237,8 +277,9 @@ public class MainDTO {
 				+ ", users_name=" + users_name + ", posts_created_date=" + posts_created_date + ", care_number="
 				+ care_number + ", care_profiles_photo_number=" + care_profiles_photo_number + ", care_intro_text="
 				+ care_intro_text + ", favorites_shops_number=" + favorites_shops_number + ", shops_name=" + shops_name
-				+ "]";
+				+ ", rownum=" + rownum + "]";
 	}
+	
 	
 	
 	

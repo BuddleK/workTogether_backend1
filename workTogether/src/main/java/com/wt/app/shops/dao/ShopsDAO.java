@@ -3,9 +3,9 @@ package com.wt.app.shops.dao;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.ShopsFavoritesActionDTO;
 import com.wt.app.dto.ShopsListDTO;
 import com.wt.config.MyBatisConfig;
 
@@ -36,5 +36,10 @@ public class ShopsDAO {
 			List<ShopsListDTO> list = sqlSession.selectList("shops.adminDong");
 			System.out.println("조회결과 : " + list);
 			return list;
+		}
+		
+	// 찜하기
+		public void addFavorites(ShopsFavoritesActionDTO shopsFavoritesActionDTO) {
+			sqlSession.insert("shops.favoriteAdd",shopsFavoritesActionDTO);
 		}
 }

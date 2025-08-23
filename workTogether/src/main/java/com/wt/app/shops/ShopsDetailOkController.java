@@ -52,7 +52,8 @@ public class ShopsDetailOkController implements Execute{
 //		System.out.println(files);
 //		System.out.println("===================");
 //		
-		
+		System.out.println(shopsListDTO);
+		System.out.println(shopsListDTO.getShopsName());
 		request.setAttribute("shops", shopsListDTO);
 		result.setPath("/app/restaurant/restaurantDetail.jsp");
 		result.setRedirect(false);		
