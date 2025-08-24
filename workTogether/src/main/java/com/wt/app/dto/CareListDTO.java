@@ -179,14 +179,5 @@ public class CareListDTO {
 	
 	
 	
-
-	
-
-	
-	
-	
-	
-
-	
 	
 }

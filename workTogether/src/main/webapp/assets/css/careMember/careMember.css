@@ -229,3 +229,8 @@ main{
 	    justify-content: center;
 
 }
+
+.profile_day {
+	display: flex;
+	    padding-top: 15px;
+}
