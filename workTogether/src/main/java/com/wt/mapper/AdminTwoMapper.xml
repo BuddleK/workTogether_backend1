@@ -1,26 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin">
+	<!-- 전체 유저 수 -->
+	<select id="getUserTotal" resultType="int">
+		SELECT COUNT(user_number)
+		FROM tbl_users
+	</select>
+	
+	<!-- 전체 공지 수 -->
+	<select id="getNoticeTotal" resultType="int">
+		SELECT COUNT(notice_number)
+		FROM tbl_notices
+	</select>
+	
 	<!-- 회원 정보 조회 -->
 	<select id="adminUserManager" resultType="AdiminUserManagerDTO">
+	<![CDATA[
+	SELECT *
+	FROM (
+	    SELECT ROWNUM AS rnum, subquery.*
+	    FROM (
+	        SELECT 
+	            u.users_number,
+	            COALESCE(n.users_name, c.users_name) AS users_name,
+	            u.users_id,
+	            COALESCE(n.users_email, c.users_email) AS users_email,
+	            COALESCE(n.users_phone, c.users_phone) AS users_phone,
+	            u.users_type
+	        FROM tbl_users u
+	        LEFT JOIN tbl_normal_users n 
+	            ON u.users_number = n.users_number
+	        LEFT JOIN tbl_care_users c 
+	            ON u.users_number = c.users_number
+	        ORDER BY u.users_number DESC
+	    ) subquery
+	) 
+	WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	]]>
+	</select>
+	
+	<!-- 회원 디테일 조회 -->
+	<select id="adminUserManagerDetail" parameterType="int" resultType="AdiminUserManagerDTO">
 		SELECT 
-		    u.users_number,
-		    COALESCE(n.users_name, c.users_name) AS users_name,
-		    u.users_id,
-		    COALESCE(n.users_email, c.users_email) AS users_email,
-		    COALESCE(n.users_phone, c.users_phone) AS users_phone,
-		    u.users_type
-		FROM tbl_users u
-		JOIN tbl_normal_users n 
-			ON u.users_number = n.users_number
-		JOIN tbl_care_users c 
-		    ON u.users_number = c.users_number
+            COALESCE(n.users_name, c.users_name) AS users_name,
+            u.users_type,
+            u.users_created_date,
+            COALESCE(n.users_address_line1, c.users_address_line1) AS users_address_line1,
+            COALESCE(n.users_address_line2, c.users_address_line2) AS users_address_line2,
+            COALESCE(n.users_phone, c.users_phone) AS users_phone,
+            COALESCE(n.users_email, c.users_email) AS users_email,
+            u.users_id,
+            u.users_password,
+            u.users_point
+        FROM tbl_users u
+        LEFT JOIN tbl_normal_users n 
+            ON u.users_number = n.users_number
+        LEFT JOIN tbl_care_users c 
+            ON u.users_number = c.users_number
+        WHERE u.users_number = #{usersNumber}
+        ORDER BY u.users_number DESC
 	</select>
 	
 	<!-- 공지사항 조회 -->
 	<select id="adminNoticeListSearch" resultType="AdminNoticeListDTO">
-		SELECT NOTICE_NUMBER , NOTICE_TITLE , ADMIN_NUMBER , NOTICE_VIEW_COUNT , NOTICE_CREATED_DATE 
-		FROM TBL_NOTICES
+	<![CDATA[
+	SELECT *
+	FROM (
+	    SELECT ROWNUM AS rnum, subquery.*
+	    FROM (
+			SELECT NOTICE_NUMBER , NOTICE_TITLE , ADMIN_NUMBER , NOTICE_VIEW_COUNT , NOTICE_CREATED_DATE 
+			FROM TBL_NOTICES
+		) subquery
+	) 
+	WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	]]>
 	</select>
 	
 	<!-- 공지사항 등록 -->
@@ -65,7 +118,7 @@
 	</insert>
 	
 	<!-- 베너 뉴스 조회 -->
-	<select id="adminNewsBannerselect" resultType="AdminNewsBannerDTO">
+	<select id="adminNewsBannerSelect" resultType="AdminNewsBannerDTO">
 		select news_number, news_title, news_created_date
 		from tbl_news
 	</select>
@@ -78,7 +131,7 @@
 	</update>
 	
 	<!-- 베너 뉴스 삭제 -->
-	<delete id="adminNewsBannerDelete" parameterType="AdminNewsBannerDTO">
+	<delete id="adminNewsBannerDelete" parameterType="int">
 		delete from tbl_news
 		where news_number = #{newsNumber}
 	</delete>

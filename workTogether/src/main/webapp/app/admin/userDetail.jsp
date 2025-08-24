@@ -26,8 +26,9 @@
           <div class="detail_title">
             <h1>회원 정보</h1>
           </div>
-          <form action="" method="" class="detail_form">
-            <div class="detail_content">
+          <form action="${pageContext.request.contextPath}/admin/adminUserManagerListOk.ad" method="post" 
+          		class="detail_form" enctype="multipart/form-data">
+<!--             <div class="detail_content">
               <div class="detail_content_name">
                 <div class="table_head_name">성명</div>
                 <div class="table_name_detail">
@@ -99,14 +100,14 @@
                   </button>
                 </div>
               </div>
-            </div>
+            </div> -->
+            
             <div class="delete">
               <button
                 type="submit"
                 class="delete_btn"
                 onclick="modalDeleteMemberShow()"
-                type="button"
-              >
+                type="button">
                 삭제
               </button>
             </div>
