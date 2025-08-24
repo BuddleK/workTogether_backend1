@@ -2,19 +2,13 @@ package com.wt.app.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Result;
-import com.wt.app.news.AdminNewsDeleteOkController;
-import com.wt.app.news.AdminNewsListOkController;
-import com.wt.app.news.AdminNewsReadOkController;
-import com.wt.app.news.AdminNewsUpdateController;
-import com.wt.app.news.AdminNewsUpdateOkController;
-import com.wt.app.news.AdminNewsWriteController;
-import com.wt.app.news.AdminNewsWriteOkController;
+
+
 
 /**
  * Servlet implementation class AdminFrontController
@@ -56,25 +50,27 @@ public class AdminFrontController extends HttpServlet {
 		Result result = new Result();
 		
 		switch (target) {
-		case "/admin/login.ad":
-			System.out.println("관리자 로그인페이지 요청");
-			request.getRequestDispatcher("/app/admin/adminLogin.jsp").forward(request, response);
-			result = new AdminLoginController().Execute(request, response);
-			break;
-		case "/admin/loginOk.ad":
-			System.out.println("관리자 로그인 처리 요청");
-			request.getRequestDispatcher("/app/admin/userManager.jsp").forward(request, response);
-			result = new AdminLoginOkController().Execute(request, response);
-			break;
-		case "/admin/logoutOk.ad":
-			System.out.println("관리자 로그아웃 처리 요청");
-			result = new AdminLogoutController().Execute(request, response);
-			break;
-			
-		case "/admin/news/newsListOk.ad":
+
+        /* =============== [Auth] =============== */
+        case "/admin/login.ad":
+            System.out.println("관리자 로그인 페이지 요청");
+            result = new AdminLoginController().Execute(request, response);
+            break;
+
+        case "/admin/loginOk.ad":
+            System.out.println("관리자 로그인 처리 요청");
+            result = new AdminLoginOkController().Execute(request, response);
+            break;
+
+        case "/admin/logoutOk.ad":
+            System.out.println("관리자 로그아웃 처리 요청");
+            result = new AdminLogoutController().Execute(request, response);
+            break;
+
+        /* =============== [News] =============== */
+        case "/admin/news/newsListOk.ad":
             System.out.println("뉴스 목록 처리 요청");
             result = new AdminNewsListOkController().Execute(request, response);
-            System.out.println(result);
             break;
 
         case "/admin/news/newsReadOk.ad":
@@ -106,15 +102,73 @@ public class AdminFrontController extends HttpServlet {
             System.out.println("뉴스 수정 완료 요청");
             result = new AdminNewsUpdateOkController().Execute(request, response);
             break;
-		}
-		
-		if (result != null && result.getPath() != null) {
-	         if (result.isRedirect()) {
-	            response.sendRedirect(result.getPath());
-	         } else {
-	            request.getRequestDispatcher(result.getPath()).forward(request, response);
-	         }
-	      }
-	}
 
+        /* =============== [Care 가입신청/파일] =============== */
+        case "/admin/care/list.ad":
+            System.out.println("가입신청 대기 목록 처리 요청");
+            result = new AdminCareListController().Execute(request, response);
+            break;
+
+        case "/admin/care/detail.ad":
+            System.out.println("가입신청 단건 상세 처리 요청");
+            result = new AdminCareDetailController().Execute(request, response);
+            break;
+
+        case "/admin/care/approve.ad":
+            System.out.println("가입신청 승인 처리 요청");
+            result = new AdminCareApproveController().Execute(request, response);
+            break;
+
+        case "/admin/care/reject.ad":
+            System.out.println("가입신청 반려 처리 요청");
+            result = new AdminCareRejectController().Execute(request, response);
+            break;
+
+        case "/admin/care/rejectAll.ad":
+            System.out.println("가입신청 일괄 반려 처리 요청");
+            result = new AdminCareRejectAllController().Execute(request, response);
+            break;
+
+        case "/admin/care/fileMeta.ad":
+            System.out.println("첨부파일 메타 조회 요청");
+            result = new AdminCareFileController().Execute(request, response);
+            break;
+
+        case "/admin/care/fileDownload.ad":
+            System.out.println("첨부파일 다운로드 요청");
+            result = new AdminCareFileDownloadController().Execute(request, response);
+            break;
+
+        /* =============== [Care 이력 수정] =============== */
+        /*case "/admin/careCareer/list.ad":
+            result = new AdminCareCareerListController().Execute(request, response);
+            break;
+
+        case "/admin/careCareer/detail.ad":
+            result = new AdminCareCareerDetailController().Execute(request, response);
+            break;
+
+        case "/admin/careCareer/updateStatus.ad":
+            result = new AdminCareCareerUpdateStatusController().Execute(request, response);
+            break;
+
+        default:
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;*/
+    }
+
+    // 공통 포워딩/리다이렉트
+    if (result != null && result.getPath() != null) {
+        if (result.isRedirect()) {
+            response.sendRedirect(result.getPath());
+        } else {
+            request.getRequestDispatcher(result.getPath()).forward(request, response);
+        }
+    } else {
+        // 컨트롤러 내부에서 직접 응답을 끝낸 경우를 제외하고는 오류로 처리
+        if (!response.isCommitted()) {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+    }
+}
 }
