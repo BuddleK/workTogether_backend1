@@ -46,9 +46,10 @@ public class MapFrontController extends HttpServlet {
 		System.out.println("MapFrontController 현재 경로 : " + target);
 		Result result = new Result();
 		switch(target) {
-		case "/map/mapMain.map"://예시
+		case "/map/mapMain.ma"://예시
 			System.out.println("지도 페이지 요청");
 			request.getRequestDispatcher("/app/map/map.jsp").forward(request, response);
+			System.out.println("요청완료");
 			break;
 		}
 	}
