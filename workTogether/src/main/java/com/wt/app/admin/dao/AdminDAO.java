@@ -94,11 +94,10 @@ public class AdminDAO {
 	/* ===== [News 연동 파일(tbl_files_notice)] ===== */
 
 	/** 파일 INSERT (mapper selectKey로 PK 주입됨) → 생성된 notice_files_number 반환 */
-	public int insertNoticeFile(FileNoticeDTO dto) {
-		sqlSession.insert("admin.fileNoticeInsert", dto);
-		return dto.getNoticeFilesNumber();
+	public int careInsertLicenseFile(FilesLicenseDTO dto) {
+	    sqlSession.insert("admin.careInsertLicenseFile", dto);
+	    return dto.getLicenseFilesNumber(); // PK 반환
 	}
-
 	public FileNoticeDTO selectNoticeFileByNews(int newsNumber) {
 		return sqlSession.selectOne("admin.fileNoticeSelect", newsNumber);
 	}

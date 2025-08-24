@@ -6,6 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>뉴스 상세페이지</title>
+
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
@@ -17,8 +18,16 @@
   <jsp:include page="/header_admin.jsp" />
 
   <main>
+    <!-- 목록으로 돌아가기 URL 생성 (page 파라미터 있을 때만 추가) -->
+    <c:url var="backUrl" value="/admin/news/newsListOk.ad">
+      <c:if test="${not empty param.page}">
+        <c:param name="page" value="${param.page}" />
+      </c:if>
+    </c:url>
+
     <form action="${pageContext.request.contextPath}/admin/news/newsUpdateOk.ad" method="post">
       <input type="hidden" name="newsNumber" value="${news.newsNumber}" />
+      <input type="hidden" name="page" value="${param.page}" />
 
       <section class="add_section">
         <div class="add_data">
@@ -48,9 +57,7 @@
         </div>
 
         <div class="add_btn">
-          <!-- 목록으로 -->
-          <a class="cancel" href="${pageContext.request.contextPath}/admin/news/newsListOk.ad<c:if test='${not empty param.page}'>?page=${param.page}</c:if>">취소</a>
-          <!-- 바로 제출 -->
+          <a class="cancel" href="${pageContext.request.contextPath}/admin/news/newsListOk.ad">취소</a>
           <button class="add" type="submit">수정</button>
         </div>
       </section>
