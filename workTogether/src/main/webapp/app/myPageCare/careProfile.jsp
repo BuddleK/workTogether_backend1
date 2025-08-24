@@ -70,14 +70,11 @@
                   <li>
                     <label class="license" for="license"> 자격증 1 </label>
                     <input type="file" id="license" placeholder="자격증 1">
+                    <button class="confrim">확인</button>
                   </li>
                   <li>
                     <label class="license" for="manuscript"> 계좌 사본 </label>
                     <input type="file" id="manuscript" placeholder="계좌 사본">
-                  </li>
-                  <li>
-                    <label class="license" for="experience"> 주요 이력 </label>
-                    <input type="text" id="experience" placeholder="이력">
                     <button class="confrim">확인</button>
                   </li>
                 </ul>
