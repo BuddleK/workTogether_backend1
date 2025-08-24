@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const starImg = document.getElementById("star_img");
+	const yesStarImg = document.querySelector(".st");
     const usersNumber = window.usersNumber;
     const shopsNumber = window.shopsNumber;
+	
 
     starImg?.addEventListener('click', async () => {
         if (!usersNumber) return alert("비로그인 상태입니다.");

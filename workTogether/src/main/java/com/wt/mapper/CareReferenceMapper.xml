@@ -7,7 +7,7 @@
 		SELECT * FROM (
 			SELECT ROWNUM AS rnum, subquery.*
 			FROM (
-				SELECT a.users_name, r.reference_title, r.reference_created_date, r.reference_answered_yn
+				SELECT a.USERS_NUMBER, r.REFERENCE_NUMBER, a.users_name, r.reference_title, r.reference_created_date, r.reference_answered_yn
 				FROM tbl_reference r JOIN (
 				SELECT u.users_number, c.users_name
 				FROM tbl_users u
@@ -17,7 +17,7 @@
 				FROM tbl_users u
 				JOIN tbl_normal_users n ON u.users_number = n.users_number) a
 				ON r.REFERENCE_users_NUMBER = a.USERS_NUMBER
-				WHERE a.users_number=2
+				WHERE a.users_number=#{usersNumber}
 				ORDER BY r.REFERENCE_CREATED_DATE DESC
 			) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
