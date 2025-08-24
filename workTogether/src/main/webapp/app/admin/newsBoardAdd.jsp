@@ -67,7 +67,7 @@
 					<button class="cancle" onclick="history.back();" type="button">취소</button>
 					<button class="add" type="submit">추가 완료</button>
 				</div>
-			</form>
+			</form>                            
 		</section>
 	</main>
 

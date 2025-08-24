@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,13 +17,13 @@
     />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
     <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
     <script
       defer
-      src="./../../assets/js/modal/modalCareModifyFinished.js"
+      src="${pageContext.request.contextPath}/assets/js/modal/modalCareModifyFinished.js"
     ></script>
-    <link rel="stylesheet" href="./../../assets/css/modalAdmin.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
   </head>
   <body>
     <jsp:include page="/header_admin.jsp" />
