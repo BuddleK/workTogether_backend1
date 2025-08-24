@@ -138,9 +138,19 @@
 								<c:out value="${shops.getShopsDisabledParking()}" />
 							</p>
 							<div id="star_img_box">
-								<img draggable="false" id="star_img"
+							<c:choose>
+								<c:when test="${isJim == 0 }">
+									<img draggable="false" id="star_img" class="noStar"
 									src="${pageContext.request.contextPath}/assets/img/restaurant/star.png"
 									data-shops-number="${shops.shopsNumber}" /> <span>찜하기</span>
+								</c:when>
+								<c:otherwise>
+									<img draggable="false" id="star_img" class="yesStar"
+									src="${pageContext.request.contextPath}/assets/img/restaurant/star.png"
+									data-shops-number="${shops.shopsNumber}" /> <span>찜하기</span>
+								</c:otherwise>
+							</c:choose>
+								
 							</div>
 							<button type="button" id="list_button" onclick="goToList()">목록</button>
 						</div>

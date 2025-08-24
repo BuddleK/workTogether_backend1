@@ -1,5 +1,6 @@
 package com.wt.app.shops.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +37,21 @@ public class ShopsDAO {
 			List<ShopsListDTO> list = sqlSession.selectList("shops.adminDong");
 			System.out.println("조회결과 : " + list);
 			return list;
+		}
+		
+	// 내가 찜 했는지 불러오기
+		public int selectFavorite(int usersNumber, int shopsNumber) {
+			System.out.println("selectFavorite 실행");
+			Map<String, Object> list = new HashMap<>();
+			list.put("usersNumber", usersNumber);
+			list.put("favoritesShopsNumber", shopsNumber);
+			String t = sqlSession.selectOne("shops.favoriteSelect", list);
+			System.out.println(t);
+			
+			Integer result = sqlSession.selectOne("shops.favoriteSelect");
+			
+			return result == null ? 0 : result;
+			
 		}
 		
 	// 찜하기
