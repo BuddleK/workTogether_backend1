@@ -96,11 +96,11 @@
     </ul>
   </nav>
   <script>
-		window.shopsNumber = "${shops.shopsNumber}";
+		window.usersType = "C";
 
-		window.usersNumber = null;
+		window.usersNumber = 1;
 
-		console.log(window.shopsNumber);
+		console.log(window.usersType);
 		console.log(window.usersNumber);
 	</script>
 </header> 

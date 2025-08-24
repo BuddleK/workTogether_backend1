@@ -261,5 +261,13 @@
   </main>
   <!-- 푸터 -->
   <div id="footer"></div>
+  <script>
+		window.usersType = 'C';
+
+		window.usersNumber = 1;
+
+		console.log(window.usersType);
+		console.log(window.usersNumber);
+	</script>
 </body>
 </html> 
