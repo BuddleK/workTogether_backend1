@@ -126,7 +126,7 @@
 					<ul class="paging">
 						<c:if test="${prev}">
 							<li><a
-								href="${pageContext.request.contextPath}/shops/shopsListOk.sh?page=${startPage - 1}"
+								href="${pageContext.request.contextPath}/careList/careListOk.cl?page=${startPage - 1}"
 								class="prev">&lt;</a></li>
 						</c:if>
 						<c:set var="realStartPage"
@@ -135,7 +135,7 @@
 							<c:choose>
 								<c:when test="${!(i == page) }">
 									<li><a
-										href="${pageContext.request.contextPath}/shops/shopsListOk.sh?page=${i}">
+										href="${pageContext.request.contextPath}/careList/careListOk.cl?page=${i}">
 											<c:out value="${i}" />
 									</a></li>
 								</c:when>
