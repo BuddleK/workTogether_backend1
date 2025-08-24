@@ -6,136 +6,145 @@
 
 main {
   width: 100%;
-  min-height: calc(100vh - 200px);
+  display: flex;
+  /* height: calc(100vh - 200px); */
+  background-color:antiquewhite;
+  justify-content: center;
+  min-width: 600px;
+  min-height: 80vh;
+  /* background-color: white; */
+}
+
+.context{
+  /* background-color: pink; */
+  width: 1100px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.post_area{
+  /* background-color: red; */
   display: flex;
   flex-direction: column;
 }
-form {
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  flex: 1;
-  margin: 10px 100px;
+.post_title{
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  padding : 5px 5px 5px 20px;
   font-size: 20px;
+  margin-top: 5px;
+  background-color: rgb(224, 224, 224);
+  padding: 5px 20px;
+}
+.post_info{
+  /* background-color: yellow; */
   display: flex;
-  flex-direction: column;
+  border-bottom: solid 1px black;
 }
-.post_title {
-  display: flex;
-  flex-direction: column;
+.post_columns{
+  background-color: rgb(224, 224, 224);
+  width: 100px;
+  text-align: center;
+  padding: 5px 0px;
 }
-.post_name {
-  font-size: 24px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  background-color: #f2f2f2;
-}
-.post_info {
-  display: flex;
-  flex-direction: row;
-  background-color: #f2f2f2;
-  border-bottom: 1px solid black;
-}
-.post_info li {
-  width: 150px;
-  margin-left: 10px;
-}
-.post_member,
-.post_day,
-.post_view,
-.post_modifyDay {
-  display: flex;
+.post_col{
+  background-color: white;
   flex: 1;
-  background-color: rgb(255, 255, 255);
+  padding-left: 5px;
+  padding: 5px 12px;
+  
 }
-.post_member div,
-.post_day div,
-.post_view div,
-.post_modifyDay div {
-  margin-left: 10px;
+#context_box{
+  background-color: white;
+  border: solid 1px black;
+  margin: 5px 0px;
+  padding: 30px 30px;
+  min-height: 400px;
 }
-
-.post_content {
-  margin-top: 10px;
-}
-
-.post_content ul li div {
-  border: 1px solid black;
-  height: 30vh;
-}
-.button {
+.button_area{
+  /* background-color: aqua; */
   display: flex;
   justify-content: end;
 }
+.reply_area{
+  background-color: white;
+  margin: 5px 0px;
+  padding: 10px 10px;
+  position: relative;
+}
+.reply_count{
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  padding : 5px 5px 5px 20px;
+}
+.reply_console{
+  display: flex;
+  border-bottom: solid 1px black;
+}
+.reply_write_box{
+  /* background-color: rebeccapurple; */
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  padding : 5px 5px 5px 20px;
+  background-color: white;
+}
+.reply{
+  border-bottom: solid 1px black;
+  padding : 5px 5px 5px 20px;
+  display: flex;
+}
+.reply_author{
+  width: 100px;
+  padding-right: 10px;
+  border-right: solid 2px black;
+}
+.reply_context{
+  padding-left: 10px;
+}
+#reply_input{
+  height:25px;
+  width: 100%;
+  padding : 5px 5px 5px 20px;
+}
+#reply_button{
+  width: 100px;
+  background-color: rgb(224, 224, 224);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#reply_button p{
+  font-size: 16px;
+}
+
+
+
 .button_list {
   width: 100px;
   height: 30px;
   border: 1px solid black;
   border-radius: 15px;
-  margin: 5px;
+  margin-left: 5px;
 }
 .button_delete {
   width: 100px;
   height: 30px;
   border: 1px solid black;
   border-radius: 15px;
-  margin: 5px;
   background-color: red;
   color: white;
+  margin-left: 5px;
 }
 .button_enroll {
   width: 100px;
   height: 30px;
   border: 1px solid black;
   border-radius: 15px;
-  margin: 5px;
   background-color: #2f52aa;
   color: white;
-}
-.post_total_reply {
-  padding-left: 30px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  height: 30px;
-  display: flex;
-  align-items: center;
-}
-.post_reply {
-  border-bottom: 1px solid black;
-}
-.post_reply ul {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 30px;
-  height: 30px;
-  align-items: center;
-}
-.reply_content {
-  border-top: 1px dotted black;
-}
-
-.reply_write {
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  border-left: 1px solid black;
-  margin-top: 10px;
-}
-
-.reply_write ul li {
-  border-top: 1px solid black;
-  height: 30px;
-  display: flex;
-  padding-left: 30px;
-  align-items: center;
-}
-.reply_write ul li input {
-  flex: 1;
-  height: 30px;
-  font-size: 20px;
-}
-.reply_write ul li button {
-  height: 30px;
-  width: 100px;
-  border-left: 1px solid black;
+  margin-left: 5px;
 }
 
 .checkmodal {
@@ -181,7 +190,7 @@ form {
 }
 
 #cancle {
-  background-color: red;
+  background-color: #2f52aa;
   color: white;
   border: 1px solid black;
 }
