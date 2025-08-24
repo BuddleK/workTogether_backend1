@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
-  <script defer src="${pageContext.request.contextPath}/assets/js/careMember/careMember.js"></script>
+  <%-- <script defer src="${pageContext.request.contextPath}/assets/js/careMember/careMember.js"></script> --%>
   <script defer src="${pageContext.request.contextPath}/assets/js/careMember/careMemberModalLogin.js"></script>
 </head>
 <body>
@@ -72,6 +72,28 @@
         <div class="card_row">
           <!-- 카드 행 리스트 ul1 -->
           <ul id="card_list_1">
+            <li class="care_card">
+    <div class="heart_img_box">
+      <img draggable="false" onclick="switchHeart(0)" class="heart_img" src="./../../assets/img/careMember/heart_icon.png">
+    </div>
+    <a href="./careMemberDetail.jsp" class="profile">
+      <div class="profile_pic_box">
+        <img class="profile_pic" src="./../../assets/img/careMember/profilePicCare.png">
+      </div>
+      <div class="profile_name">김괭이</div>
+      <div class="day_row">
+        <div class="day">화</div>
+        <div class="day">화</div>
+      </div>
+      <div class="profile_intro">
+        <div class="short_intro">안녕하세요!! 김괭입니다.</div>
+        <div class="long_intro">
+          <p>장애인 활동사 교육 이수 완료</p>
+          <p>서울 거주</p>
+        </div>
+      </div>
+    </a>
+  </li>
           </ul>
         </div>
         

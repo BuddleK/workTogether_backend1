@@ -18,6 +18,7 @@
    		<typeAlias type="com.wt.app.dto.ShopsListDTO" alias="ShopsListDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.AdminDongListDTO" alias="AdminDongListDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.ShopsFavoritesActionDTO" alias="ShopsFavoritesActionDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CareListDTO" alias="CareListDTO"></typeAlias>
    </typeAliases> 
    
    <environments default="oracle">
@@ -35,6 +36,7 @@
   <mappers>
       <mapper resource="com/wt/mapper/CareUsersMapper.xml" />
       <mapper resource="com/wt/mapper/ShopsActionMapper.xml" />
+      <mapper resource="com/wt/mapper/CareListMapper.xml" />
    </mappers> 
    
 </configuration>
