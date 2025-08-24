@@ -11,7 +11,7 @@
 	</insert>
 
 
-	<!-- 매칭기록 월별 조회 -->
+	<!-- 매칭기록 조회 -->
 	<select id="matchingMonth" parameterType="CareMatchingDTO">
 		<![CDATA[
 		SELECT * FROM (

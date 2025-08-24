@@ -70,5 +70,6 @@
   	<servlet-name>Favorite</servlet-name>
   	<url-pattern>*.fa</url-pattern>
   </servlet-mapping>
+  
 
 </web-app>
