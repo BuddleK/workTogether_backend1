@@ -1,11 +1,14 @@
 package com.wt.app.careList;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.wt.app.Result;
+import com.wt.app.shops.ShopsDetailOkController;
 
 /**
  * Servlet implementation class AdminFrontController
@@ -37,8 +40,34 @@ public class CareListFrontController extends HttpServlet {
 		doProcess(request, response);
 	}
 	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		String target = request.getRequestURI().substring(request.getContextPath().length());
+		System.out.println("BoardFrontController 현재 경로 : " + target);
+		Result result = new Result();
+		
+		
+		switch (target) {
+		case "/careList/careListOk.cl":
+			System.out.println("돌봄 목록 처리 요청");
+			// 임시로 이동처리
+			result = new CareListOkController().Execute(request, response);
+			System.out.println(result);
+			break;
+		case "/careList/careListDetailOk.cl" : 
+			System.out.println("돌봄 세부 페이지 처리 요청");
+			result = new CareListDetailOkController().Execute(request, response);
+			break;
+		
+		}
+		
+		if (result != null) {
+			if (result.isRedirect()) {
+				response.sendRedirect(result.getPath());
+			} else {
+				request.getRequestDispatcher(result.getPath()).forward(request, response);
+			}
+		}
 	}
 
 }

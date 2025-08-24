@@ -48,7 +48,7 @@
       <!-- 가게 리스트 메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/app/restaurant/restaurant.jsp">
+          <a href="${pageContext.request.contextPath}/shops/shopsListOk.sh">
             · 가게 리스트
           </a>
         </div>
@@ -72,7 +72,7 @@
       <!-- 돌본 회원 리스트 메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/app/careMember/careMember.jsp">
+          <a href="${pageContext.request.contextPath}/careList/careListOk.cl">
             · 돌봄 회원 리스트
           </a>
         </div>

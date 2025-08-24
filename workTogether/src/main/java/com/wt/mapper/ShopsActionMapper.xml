@@ -54,7 +54,12 @@
 	 <insert id="favoriteAdd">
 		insert into tbl_shops_favorites
 		values (seq_shops_favorites.nextval, #{userNumber}, #{favoritesShopsNumber}, sysdate)
-	</insert> 
+	</insert>
+	
+	<select id="favoriteSelect" resultType="int">
+		select favorites_number from tbl_shops_favorites where users_number = #{usersNumber} and favorites_shops_number = #{favoritesShopsNumber}
+	</select>
+	
 	<!-- 찜 삭제 -->
 	<!-- <delete id="favoriteDelete" parameterType="ShopsFavoritesActionDTO">
 		delete from tbl_shops_favorites

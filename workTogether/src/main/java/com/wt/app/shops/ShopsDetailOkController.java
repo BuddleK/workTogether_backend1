@@ -1,8 +1,6 @@
 package com.wt.app.shops;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,15 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 //import com.example.app.dto.FileDTO;
 import com.wt.app.Execute;
 import com.wt.app.Result;
+import com.wt.app.dto.ShopsFavoritesActionDTO;
 import com.wt.app.dto.ShopsListDTO;
+import com.wt.app.shops.dao.ShopsDAO;
 import com.wt.app.shops.dao.ShopsListDAO;
 
 public class ShopsDetailOkController implements Execute{
-
+	
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 			Result result = new Result();
+			
 		
 		//shopsNumber가 빈 문자열이거나 null인경우
 		String shopsNumberStr = request.getParameter("shopsNumber");
@@ -32,11 +33,11 @@ public class ShopsDetailOkController implements Execute{
 		
 		int shopsNumber = Integer.parseInt(shopsNumberStr);
 		
-		ShopsListDAO shopsDAO = new ShopsListDAO();
+		ShopsListDAO shopsListDAO = new ShopsListDAO();
 //		FileDAO fileDAO = new FileDAO();
 
 		//DB에서 게시글 가져오기
-		ShopsListDTO shopsListDTO = shopsDAO.select(shopsNumber);
+		ShopsListDTO shopsListDTO = shopsListDAO.select(shopsNumber);
 		
 		//게시글이 존재하지 않을 경우 처리
 		if(shopsListDTO == null) {
@@ -45,6 +46,20 @@ public class ShopsDetailOkController implements Execute{
 			result.setRedirect(true);
 			return result;
 		}
+		
+		//찜한 상태 가져오기
+		ShopsFavoritesActionDTO jimDTO = new ShopsFavoritesActionDTO();
+		ShopsDAO shopsDAO = new ShopsDAO();
+		String usersNumberStr = request.getParameter("usersNumber");
+		if(usersNumberStr == null || usersNumberStr.trim().isEmpty()){
+			usersNumberStr = 0 + "";
+		}
+		int usersNumber = Integer.parseInt(usersNumberStr);
+		
+		int isJim = shopsDAO.selectFavorite(usersNumber,shopsNumber);
+		System.out.println(isJim);
+		request.setAttribute("isJim", isJim);
+		
 		
 //		//첨부파일 가져오기
 //		List<FileDTO> files = fileDAO.select(boardNumber);
