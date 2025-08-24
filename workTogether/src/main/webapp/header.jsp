@@ -97,9 +97,8 @@
   </nav>
   <script>
 		window.usersType = "C";
-
 		window.usersNumber = 1;
-
+		
 		console.log(window.usersType);
 		console.log(window.usersNumber);
 	</script>
