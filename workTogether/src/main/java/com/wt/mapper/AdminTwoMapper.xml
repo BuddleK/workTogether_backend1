@@ -119,19 +119,25 @@
 	
 	<!-- 베너 뉴스 등록 -->
 	<insert id="adminNewsBannerInsert" parameterType="AdminNewsBannerDTO">
-		insert into (news_number, news_title, news_created_date, news_link_url)
-		values(#{newsNumber}, #{newsTitle}, #{newsCreatedDate}, #{newsLinkUrl})
+		insert into tbl_news_banners (banner_news_number, banner_title, banner_created_date, banner_link_url)
+		values(#{bannerNewsNumber}, #{bannerTitle}, #{bannerCreatedDate}, #{bannerLinkUrl})
 	</insert>
+	
+	<!-- 베너 뉴스 상세 -->
+	<select id="adminNewsBannerDetail" resultType="AdminNewsBannerDTO">
+		select banner_news_number, banner_title, banner_created_date, bannerImageFilesNumber, banner_link_url
+		from tbl_news_banners
+	</select>
 	
 	<!-- 베너 뉴스 조회 -->
 	<select id="adminNewsBannerSelect" resultType="AdminNewsBannerDTO">
-		select news_number, news_title, news_created_date
-		from tbl_news
+		select banner_news_number, banner_title, banner_created_date
+		from tbl_news_banners
 	</select>
 	
 	<!-- 베너 뉴스 수정 -->
 	<update id="adminNewsBannerUpdate" parameterType="AdminNewsBannerDTO">
-		update tbl_news
+		update tbl_news_banners
 		set news_title = #{newsTitle}, news_content = #{newsContent}, news_link_url = #{newsLinkUrl}
 		where news_number = #{newsNumber}
 	</update>
@@ -157,4 +163,17 @@
 		ORDER BY r.reference_number;
 	</select>
 	
+	<!-- 문의 상세 -->
+	<select id="adminReferenceDetail" resultType="AdminReferenceListDTO">
+		SELECT 
+		    r.reference_number,
+		    r.reference_title,
+		    r.reference_users_number,
+		    u.users_id,
+		    r.reference_created_date,
+		    r.reference_answered_yn
+		FROM tbl_reference r
+		JOIN tbl_users u 
+		     ON r.reference_users_number = u.users_number
+	</select>
 </mapper>
