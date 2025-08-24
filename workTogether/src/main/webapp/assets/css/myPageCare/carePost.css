@@ -69,6 +69,7 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  width : 100vw;
 }
 /* 전체 영역 제목 */
 .div_mark .title {
@@ -98,6 +99,7 @@ main {
   background-color: rgb(191, 201, 201);
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  
 }
 /* 페이지 분류 제목 */
 .mark_nav ul {

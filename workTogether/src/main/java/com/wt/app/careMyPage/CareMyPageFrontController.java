@@ -62,7 +62,7 @@ public class CareMyPageFrontController extends HttpServlet {
 			break;
 		case "/myPageCare/careModify.cp":
 			System.out.println("개인정보 수정 페이지 요청");
-			result = new CareProfileController().Execute(request, response);
+			result = new CareModifyController().Execute(request, response);
 			break;
 		case "/myPageCare/careMark.cp":
 			System.out.println("찜한목록 페이지 요청");
