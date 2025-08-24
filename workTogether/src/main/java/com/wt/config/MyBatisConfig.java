@@ -23,10 +23,7 @@ public class MyBatisConfig {
 			System.out.println("MyBatisConfig.java 초기화 발생");
 			e.printStackTrace();
 		}
-		
-		
 	}
-
 	public static SqlSessionFactory getSqlSessionFactory() {
 		return sqlSessionFactory;
 	}
