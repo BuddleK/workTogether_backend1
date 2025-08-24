@@ -32,27 +32,27 @@
             등록일
           </div>
           <div class="post_col">
-            <c:out value="${post.getPostsCreatedDate()}"/>
+            <c:out value="${page.getPostsViewCount()}"/>
           </div>
           <div class="post_columns">
             수정일
           </div>
           <div class="post_col">
-            2025-08-10
+            <c:out value="${post.getPostsUpdatedDate()}"/>
           </div>
           <div class="post_columns">
             조회수
           </div>
           <div class="post_col">
-            4
+            <c:out value="${post.getPostsUpdatedDate()}"/>
           </div>
         </div>
         <div id="context_box">
-          내용~
+            <c:out value="${post.getPostsContent()}"/>
         </div>
       </div>
       <div class="button_area">
-      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록</a></button>
+      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">로</button>
 		<!-- 신고 버튼 -->
 		<div class="del"><button class="button_del">신고</button></div>
       </div>
