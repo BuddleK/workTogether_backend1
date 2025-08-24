@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +73,12 @@
 				<!-- 카드 행 1 -->
 				<div class="card_row">
 					<!-- 카드 행 리스트 ul1 -->
+					
+					<!-- 카드1 -->
 					<ul id="card_list_1">
+					<c:choose>
+						<c:when test="${not empty careList }">
+						<c:forEach var="care" items="${careList}">
 						<li class="care_card">
 							<div class="heart_img_box">
 								<img draggable="false" onclick="switchHeart(0)"
@@ -83,20 +89,29 @@
 									<img class="profile_pic"
 										src="./../../assets/img/careMember/profilePicCare.png">
 								</div>
-								<div class="profile_name">김괭이</div>
+								<div class="profile_name">
+									<c:out value="${care.getUsersName() }"></c:out>
+								</div>
 								<div class="day_row">
 									<div class="day">화</div>
 									<div class="day">화</div>
 								</div>
 								<div class="profile_intro">
-									<div class="short_intro">안녕하세요!! 김괭입니다.</div>
+									<div class="short_intro">
+										<c:out value="${care.getCareIntroText() }"></c:out>
+									</div>
 									<div class="long_intro">
-										<p>장애인 활동사 교육 이수 완료</p>
-										<p>서울 거주</p>
+										<p>
+											<c:out value="${care.getProfilesFilesName() }"></c:out>
+										</p>
+										<p><c:out value="${care.usersAddressLine1() }"></c:out> 거주</p>
 									</div>
 								</div>
 						</a>
 						</li>
+						</c:forEach>
+						</c:when>
+					</c:choose>
 					</ul>
 				</div>
 

@@ -37,6 +37,7 @@
       <mapper resource="com/wt/mapper/CareUsersMapper.xml" />
       <mapper resource="com/wt/mapper/ShopsActionMapper.xml" />
       <mapper resource="com/wt/mapper/CareListMapper.xml" />
+      <mapper resource="com/wt/mapper/AdminMapper.xml" />
    </mappers> 
    
 </configuration>
