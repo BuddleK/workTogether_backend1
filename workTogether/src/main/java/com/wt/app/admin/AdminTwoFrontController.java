@@ -128,6 +128,14 @@ public class AdminTwoFrontController extends HttpServlet {
 			result.setRedirect(true);
 			break;
 		}
+		
+		if (result != null) {
+			if (result.isRedirect()) {
+				response.sendRedirect(result.getPath());
+			} else {
+				request.getRequestDispatcher(result.getPath()).forward(request, response);
+			}
+		}
 	}
 
 }

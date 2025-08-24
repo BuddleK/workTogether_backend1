@@ -71,6 +71,32 @@ public class MyPageNormalFrontController extends HttpServlet {
 		case "/myPageNormal/normalPostsList.mn":
 			System.out.println("마이페이지 일반회원 게시판 리스트 페이지 요청");
 			result.setRedirect(true);
+		case "/myPageNormal/normalPostsListDeleteOk.mn":
+			System.out.println("마이페이지 일반회원 게시판 삭제 완료 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalReferenceInsert.mn":
+			System.out.println("마이페이지 일반회원 문의 추가 페이지 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalReferenceInsertOk.mn":
+			System.out.println("마이페이지 일반회원 문의 추가 완료 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalReferenceList.mn":
+			System.out.println("마이페이지 일반회원 문의 리스트 페이지 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalExit.mn":
+			System.out.println("마이페이지 일반회원 회원탈퇴 페이지 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalExitOk.mn":
+			System.out.println("마이페이지 일반회원 회원탈퇴 완료 요청");
+			result.setRedirect(true);
+		}
+		
+		if (result != null) {
+			if (result.isRedirect()) {
+				response.sendRedirect(result.getPath());
+			} else {
+				request.getRequestDispatcher(result.getPath()).forward(request, response);
+			}
 		}
 	}
 }
