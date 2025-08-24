@@ -119,17 +119,17 @@ main {
 }
 /* 작성자 크기 중앙정렬 */
 .name div {
-  width: 100px;
+  width: 10%;
   text-align: center;
 }
 /* 제목 크기 중앙정렬 */
 .posttitle div {
-  width: 900px;
+  width: 40%;
   text-align: center;
 }
 /* 날짜 */
 .day div {
-  width: 200px;
+  width: 20%;
   text-align: center;
 }
 /* 게시글 글 목록 스타일 */
