@@ -65,7 +65,7 @@
 	</insert>
 	
 	<!-- 베너 뉴스 조회 -->
-	<select id="adminNewsBannerselect" resultType="AdminNewsBannerDTO">
+	<select id="adminNewsBannerSelect" resultType="AdminNewsBannerDTO">
 		select news_number, news_title, news_created_date
 		from tbl_news
 	</select>
@@ -78,7 +78,7 @@
 	</update>
 	
 	<!-- 베너 뉴스 삭제 -->
-	<delete id="adminNewsBannerDelete" parameterType="AdminNewsBannerDTO">
+	<delete id="adminNewsBannerDelete" parameterType="int">
 		delete from tbl_news
 		where news_number = #{newsNumber}
 	</delete>
