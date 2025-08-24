@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,8 +12,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/careCareer.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
-    <script defer src="./../../assets/js/main/includeAdmin.js"></script>
-    <script defer src="./../../assets/js/admin/admin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
+    <script defer src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
   </head>
 
   <body>
@@ -24,7 +25,7 @@
           <div class="title">
             <h1>돌봄 회원 이력 수정 관리</h1>
           </div>
-          <form action="" method="">
+          <form action="${pageContext.request.contextPath}/admin/careCareer/list.ad" method="get">
             <div class="searchbox">
               <select name="column" id="" class="search_column">
                 <option value="number">수정 신청 번호</option>
@@ -33,10 +34,11 @@
                 <option value="date">신청 날짜</option>
                 <option value="condition">상태</option>
               </select>
-              <input type="text" />
-              <button>검색</button>
+              <input type="text" name="keyword" value="${param.keyword}" />
+              <button type="submit">검색</button>
             </div>
           </form>
+          
           <div class="table">
             <div class="board_column">
               <div class="board_head board_number">수정 신청 번호</div>
@@ -45,6 +47,7 @@
               <div class="board_head board_date">신청 날짜</div>
               <div class="board_head board_condition">상태</div>
             </div>
+            
             <div class="table_content">
               <ul class="table_body">
                 <li class="body_number"><a href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">1</a></li>
