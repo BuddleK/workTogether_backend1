@@ -227,10 +227,10 @@
 	<!-- 뉴스 상세 (news_number) -->
 	<select id="newsSelectOne" parameterType="int"
 		resultType="com.wt.app.dto.AdminNewsBoardDTO"><![CDATA[
-    SELECT
-      n.news_number, n.admin_number, n.news_title,
-      n.news_content, n.news_link_url, n.files_number,
-      n.news_created_date, n.news_updated_date
+		SELECT
+      	n.news_number, n.admin_number, n.news_title,
+      	n.news_content, n.news_link_url, n.files_number,
+      	n.news_created_date, n.news_updated_date
     FROM tbl_news n
     WHERE n.news_number = #{value}
   ]]></select>
@@ -266,17 +266,17 @@
 	<!-- 파일 조회 (뉴스번호 기준) -->
 	<select id="fileNoticeSelect" parameterType="int"
 		resultType="com.wt.app.dto.FileNoticeDTO"><![CDATA[
-  SELECT
-    f.notice_files_number,
-    f.notice_files_type,
-    f.notice_files_name,
-    f.notice_files_path,
-    f.notice_files_size_bytes,
-    TO_CHAR(f.notice_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate
-  FROM tbl_news n
-  JOIN tbl_files_notice f
-    ON f.notice_files_number = n.files_number
-  WHERE n.news_number = #{value}
+		SELECT
+			f.notice_files_number,
+			f.notice_files_type,
+   			f.notice_files_name,
+	    	f.notice_files_path,	
+	    	f.notice_files_size_bytes,
+  		TO_CHAR(f.notice_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate
+		FROM tbl_news n
+		JOIN tbl_files_notice f
+	 	ON f.notice_files_number = n.files_number
+	 	WHERE n.news_number = #{value}
 ]]></select>
 
 	<!-- 파일 삭제 (뉴스번호 기준) -->
@@ -297,5 +297,61 @@
 		WHERE news_number =
 		#{value}
 	</select>
+	
+	  <!-- ==================== [Care: 이력수정 - 자격증/통장사본] ==================== -->
+  <!-- 자격증 이력 INSERT -->
+  <insert id="licenseModifyInsert" parameterType="LicenseModifyDTO">
+    <selectKey keyProperty="licenseModifyNumber" resultType="int" order="BEFORE">
+      SELECT seq_license_modify.NEXTVAL FROM DUAL
+    </selectKey>
+    INSERT INTO tbl_license_modify (
+      license_modify_number, users_number,
+      license_files_number, license_files_type, license_files_name,
+      license_files_path, license_files_size_bytes, license_created_date
+    ) VALUES (
+      #{licenseModifyNumber}, #{usersNumber},
+      #{licenseFilesNumber}, #{licenseFilesType}, #{licenseFilesName},
+      #{licenseFilesPath}, #{licenseFilesSizeBytes}, SYSDATE
+    )
+  </insert>
 
+  <!-- 통장사본 이력 INSERT -->
+  <insert id="accountModifyInsert" parameterType="AccountModifyDTO">
+    <selectKey keyProperty="accountModifyNumber" resultType="int" order="BEFORE">
+      SELECT seq_account_modify.NEXTVAL FROM DUAL
+    </selectKey>
+    INSERT INTO tbl_account_modify (
+      account_modify_number, users_number,
+      account_files_number, account_files_type, account_files_name,
+      account_files_path, account_files_size_bytes, account_created_date
+    ) VALUES (
+      #{accountModifyNumber}, #{usersNumber},
+      #{accountFilesNumber}, #{accountFilesType}, #{accountFilesName},
+      #{accountFilesPath}, #{accountFilesSizeBytes}, SYSDATE
+    )
+  </insert>
+
+  <!-- 자격증 이력: 특정 회원 최신 1건 -->
+  <select id="licenseModifyLatestByUser" parameterType="int" resultType="LicenseModifyDTO"><![CDATA[
+    SELECT *
+    FROM (
+      SELECT *
+      FROM tbl_license_modify
+      WHERE users_number = #{value}
+      ORDER BY license_created_date DESC, license_modify_number DESC
+    )
+    WHERE ROWNUM = 1
+  ]]></select>
+
+  <!-- 통장사본 이력: 특정 회원 최신 1건 -->
+  <select id="accountModifyLatestByUser" parameterType="int" resultType="AccountModifyDTO"><![CDATA[
+    SELECT *
+    FROM (
+      SELECT *
+      FROM tbl_account_modify
+      WHERE users_number = #{value}
+      ORDER BY account_created_date DESC, account_modify_number DESC
+    )
+    WHERE ROWNUM = 1
+  ]]></select>
 </mapper>
