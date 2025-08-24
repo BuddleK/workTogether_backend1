@@ -76,6 +76,12 @@
 	]]>
 	</select>
 	
+	<!-- 공지사항 상세 -->
+	<select id="adminNoticeDetail" resultType="AdminNoticeListDTO">
+		SELECT NOTICE_NUMBER , NOTICE_TITLE , ADMIN_NUMBER , NOTICE_VIEW_COUNT , NOTICE_CREATED_DATE, NOTICE_CONTENT 
+		FROM TBL_NOTICES
+	</select>
+	
 	<!-- 공지사항 등록 -->
 	<insert id="adminNoticeListInsert" parameterType="AdminNoticeListDTO">
 		insert into tbl_notices(notice_number, notice_title, notice_content)

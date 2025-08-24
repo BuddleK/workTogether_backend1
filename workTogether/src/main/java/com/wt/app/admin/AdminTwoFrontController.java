@@ -51,22 +51,33 @@ public class AdminTwoFrontController extends HttpServlet {
 		Result result = new Result();
 
 		switch (target) {
-		case "/admin/adminUserManagerListOk.ad":
+		case "/admin/adminUserManagerList.ad":
 			System.out.println("관리자 회원관리 페이지 요청");
-			result = new AdminUserManagerListOkController().Execute(request, response);
+			result = new AdminUserManagerListController().Execute(request, response);
 			break;
-		case "/admin/adminUserDetailOk.ad":
+		case "/admin/adminUserDetail.ad":
 			System.out.println("관리자 회원관리 디테일 페이지 요청");
-			result = new AdminUserDetailOkController().Execute(request, response);
+			result = new AdminUserDetailController().Execute(request, response);
 			break;
-		case "/admin/adminNoticeOk.ad":
+		case "/admin/adminNotice.ad":
 			System.out.println("관리자 공지사항 관리 페이지 요청");
 			break;
-		case "/admin/adminNoticeInsertOk.ad":
+		case "/admin/adminNoticeInsert.ad":
 			System.out.println("관리자 공지사항 추가 페이지 요청");
 			break;
+		case "/admin/adminNoticeInsertOk.ad":
+			System.out.println("관리자 공지사항 추가 완료 페이지 요청");
+			break;
+		case "/admin/adminNoticeDeleteOk.ad":
+			System.out.println("관리자 공지사항 삭제 완료 페이지 요청");
+			break;
+		case "/admin/adminNoticeUpdateOk.ad":
+			System.out.println("관리자 공지사항 수정 완료 페이지 요청");
+			break;
+		case "/admin/adminNoticeDetail.ad":
+			System.out.println("관리자 공지사항 상세 페이지 요청");
+			break;
 		}
-
 	}
 
 }
