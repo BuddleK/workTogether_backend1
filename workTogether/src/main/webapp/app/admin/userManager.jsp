@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,7 +50,7 @@
             <div class="table_big">
               <div class="table_md">
                 <ul class="table_body">
-                  <li class="body_number">
+                  <%-- <li class="body_number">
                     <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">1</a>
                   </li>
                   <li class="body_name">
@@ -246,7 +247,15 @@
                   </li>
                   <li class="body_type">
                     <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">일반</a>
-                  </li>
+                  </li> --%>
+                  <c:choose>
+                  	<c:when test="${not empty boardList}">
+                  		<c:forEach>
+                  			
+                  		</c:forEach>
+                  	</c:when>
+                  </c:choose>
+                  
                 </ul>
               </div>
             </div>

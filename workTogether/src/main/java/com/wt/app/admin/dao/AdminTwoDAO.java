@@ -1,6 +1,7 @@
 package com.wt.app.admin.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -18,7 +19,12 @@ public class AdminTwoDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public List<AdminUserManagerDTO> adminUserManager(){
+	public int getTotal() {
+		System.out.println("게시글 총 개수 조회 - getTotal 메소드 실행");
+		return sqlSession.selectOne("admin.getTotal");
+	}
+	
+	public List<AdminUserManagerDTO> adminUserManager(Map<String, Integer> pageMap){
 		List<AdminUserManagerDTO> list = sqlSession.selectList("admin.adminUserManager");
 		System.out.println("조회결과 : " + list);
 		return list;

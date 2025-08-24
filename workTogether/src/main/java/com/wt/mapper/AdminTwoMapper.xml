@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin">
+	<!-- 전체 유저 수 -->
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(user_number)
+		FROM tbl_users
+	</select>
+	
 	<!-- 회원 정보 조회 -->
 	<select id="adminUserManager" resultType="AdiminUserManagerDTO">
-		SELECT 
-		    u.users_number,
-		    COALESCE(n.users_name, c.users_name) AS users_name,
-		    u.users_id,
-		    COALESCE(n.users_email, c.users_email) AS users_email,
-		    COALESCE(n.users_phone, c.users_phone) AS users_phone,
-		    u.users_type
-		FROM tbl_users u
-		JOIN tbl_normal_users n 
-			ON u.users_number = n.users_number
-		JOIN tbl_care_users c 
-		    ON u.users_number = c.users_number
+	<![CDATA[
+	SELECT *
+	FROM (
+	    SELECT ROWNUM AS rnum, subquery.*
+	    FROM (
+	        SELECT 
+	            u.users_number,
+	            COALESCE(n.users_name, c.users_name) AS users_name,
+	            u.users_id,
+	            COALESCE(n.users_email, c.users_email) AS users_email,
+	            COALESCE(n.users_phone, c.users_phone) AS users_phone,
+	            u.users_type
+	        FROM tbl_users u
+	        LEFT JOIN tbl_normal_users n 
+	            ON u.users_number = n.users_number
+	        LEFT JOIN tbl_care_users c 
+	            ON u.users_number = c.users_number
+	        ORDER BY u.users_number DESC
+	    ) subquery
+	) 
+	WHERE rnum BETWEEN #{startRow} AND #{endRow}
+	]]>
 	</select>
 	
 	<!-- 공지사항 조회 -->
