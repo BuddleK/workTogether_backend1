@@ -15,81 +15,119 @@
 <body>
   <jsp:include page="/header.jsp" />
   <main>
-    <!-- 글쓴이가 자신 게시글보는 디테일 페이지 -->
-    <form action="">
-      <nav class="post_title">
-        <ul>
-          <li class="post_name">안녕하세요</li>
-          <li>
-            <ul class="post_info">
-              <li>
-                <div>등록자명</div>
-              </li>
-              <li class="post_member">
-                <div>홍길동</div>
-              </li>
-              <li>
-                <div>등록일</div>
-              </li>
-              <li class="post_day">
-                <div>2025-08-09</div>
-              </li>
-              <li>
-                <div>수정일</div>
-              </li>
-              <li class="post_modifyDay">
-                <div>2025-08-10</div>
-              </li>
-            </ul>
+    <div class="context">
+      <div class="post_area">
+        <div class="post_title">
+          제목
+        </div>
+        <div class="post_info">
+          <div class="post_columns">
+            등록자명
+          </div>
+          <div class="post_col">
+            홍길동
+          </div>
+          <div class="post_columns">
+            등록일
+          </div>
+          <div class="post_col">
+            2025-08-09
+          </div>
+          <div class="post_columns">
+            수정일
+          </div>
+          <div class="post_col">
+            2025-08-10
+          </div>
+          <div class="post_columns">
+            조회수
+          </div>
+          <div class="post_col">
+            4
+          </div>
+        </div>
+        <div id="context_box">
+          내용~
+        </div>
+      </div>
+      <div class="button_area">
+      	<a href="${pageContext.request.contextPath}/app/post/postMain.jsp"><button type="button" class="button_list">목록</button></a>
+      	<button type="button" class="button_delete">삭제</button>
+       	<a href="${pageContext.request.contextPath}/app/post/postModify.jsp"><button type="button" class="button_enroll">수정</button></a>
+      </div>
+      <div class="reply_area">
+        <div class="reply_count">
+          댓글 [2]
+        </div>
+        <ul class="reply_list">
+          <li class="reply">
+            <span class="reply_author">홍길동</span>
+            <span class="reply_context">형을 형이라 부르지 못하고</span>
           </li>
-          <li>
-            <ul class="post_info">
-              <li>조회수</li>
-              <li class="post_view"><div>4</div></li>
-            </ul>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
+          </li>
+          <li class="reply">
+            <span class="reply_author">클로렐라</span>
+            <span class="reply_context">정말 초록초록 해요</span>
           </li>
         </ul>
-      </nav>
-      <nav class="post_content">
-        <ul>
-          <li>
-            <div>안녕하세요</div>
-          </li>
-          <li class="button">
-            <a href="${pageContext.request.contextPath}/app/post/postMain.jsp"><button type="button" class="button_list">목록</button></a>
-            <button type="button" class="button_delete">삭제</button>
-            <a href="${pageContext.request.contextPath}/app/post/postModify.jsp"><button type="button" class="button_enroll">수정</button></a>
-          </li>
-        </ul>
-      </nav>
-      <!-- 댓글 섹션 -->
-      <div class="post_total_reply"><div>댓글[1]</div></div>
-      <nav class="post_reply">
-        <ul>
-          <li>홍길*</li>
-          <li>2025-08-09</li>
-        </ul>
-        <ul class="reply_content">
-          <li>댓글 내용</li>
-        </ul>
-      </nav>
-      <nav class="post_reply">
-        <ul>
-          <li>홍길*</li>
-          <li>2025-08-09</li>
-        </ul>
-        <ul class="reply_content">
-          <li>댓글 내용</li>
-        </ul>
-      </nav>
-      <!-- 댓글 작성 섹션 -->
-      <nav class="reply_write">
-        <ul>
-          <li>댓글 작성</li>
-          <li><input type="text" placeholder="댓글 작성중"><button>작성</button></li>
-        </ul>
-      </nav>
-    </form>
+      </div>
+      <div>
+        <div class="reply_write_box">댓글 작성</div>
+        <div class="reply_console">
+          <input id="reply_input" placeholder="댓글 작성 중">
+          <span type="button" id="reply_button">
+            <p>작성</p>
+          </span>
+        </div>
+      </div>
+    </div>
   </main>
   <!-- 게시글 삭제 확인 모달 -->
   <div class="checkmodal" id="editModal">
