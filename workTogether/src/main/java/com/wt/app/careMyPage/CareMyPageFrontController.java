@@ -54,43 +54,43 @@ public class CareMyPageFrontController extends HttpServlet {
 			break;
 		case "/myPageCare/carePwCheckOk.cp":
 			System.out.println("비밀번호 확인 페이지 처리 요청");
-			result = new CarePwCheckOkController().execute(request, response);
+			result = new CarePwCheckOkController().Execute(request, response);
 			break;
 		case "/myPageCare/careProfile.cp":
 			System.out.println("프로필 수정 페이지 요청");
-			result = new CareProfileController().execute(request, response);
+			result = new CareProfileController().Execute(request, response);
 			break;
 		case "/myPageCare/careModify.cp":
 			System.out.println("개인정보 수정 페이지 요청");
-			result = new CareProfileController().execute(request, response);
+			result = new CareProfileController().Execute(request, response);
 			break;
 		case "/myPageCare/careMark.cp":
 			System.out.println("찜한목록 페이지 요청");
-			result = new CareMarkController().execute(request, response);
+			result = new CareMarkController().Execute(request, response);
 			break;
 		case "/myPageCare/careMatching.cp":
 			System.out.println("매칭기록 페이지 요청");
-			result = new CareMatchingController().execute(request, response);
+			result = new CareMatchingController().Execute(request, response);
 			break;
 //		case "/myPageCare/careMesseage.cp":
 //			System.out.println("쪽지함 페이지 요청");
-//			result = new CareMesseageController().execute(request, response);
+//			result = new CareMesseageController().Execute(request, response);
 //			break;
 		case "/myPageCare/carePost.cp":
 			System.out.println("게시글 관리 페이지 요청");
-			result = new CarePostController().execute(request, response);
+			result = new CarePostController().Execute(request, response);
 			break;
 		case "/myPageCare/carePointreturn.cp":
 			System.out.println("포인트 환급 페이지 요청");
-			result = new CarePointreturnController().execute(request, response);
+			result = new CarePointreturnController().Execute(request, response);
 			break;
 		case "/myPageCare/careReference.cp":
 			System.out.println("1대1문의 페이지 요청");
-			result = new CareReferenceController().execute(request, response);
+			result = new CareReferenceController().Execute(request, response);
 			break;
 		case "/myPageCare/careExit.cp":
 			System.out.println("회원탈퇴 페이지 요청");
-			result = new CareExitController().execute(request, response);
+			result = new CareExitController().Execute(request, response);
 			break;
 		
 		}
