@@ -21,15 +21,15 @@
 
     <nav class="main_sidebar">
       <ul>
-        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careProfile.jsp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
-        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careModify.jsp">개인정보 수정</a></li>
-        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careMark.jsp">찜한 목록</a></li>
-        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careMatching.jsp">매칭 기록</a></li>
-        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careMessage.jsp">쪽지함</a></li>
-        <li><a href="${pageContext.request.contextPath}/app/myPageCare/carePost.jsp">게시글 관리</a></li>
-        <li><a href="${pageContext.request.contextPath}/app/myPageCare/carePointreturn.jsp">포인트 환급</a></li>
-        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careReference.jsp">1 대 1 문의</a></li>
-        <li><a href="${pageContext.request.contextPath}/app/myPageCare/careExit.jsp">회원 탈퇴</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보 수정</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp">찜한 목록</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp">매칭 기록</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careMesseage.cp">쪽지함</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/carePost.cp">게시글 관리</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/carePointreturn.cp">포인트 환급</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careReference.cp">1 대 1 문의</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careExit.cp">회원 탈퇴</a></li>
       </ul>
     </nav>
 
