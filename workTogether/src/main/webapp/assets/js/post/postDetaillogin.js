@@ -1,7 +1,6 @@
 
 const cancle = document.getElementById("cancle");
 const deletebutton = document.querySelector('.button_delete');
-
 const checkmodal = document.querySelector('.checkmodal');
 
 

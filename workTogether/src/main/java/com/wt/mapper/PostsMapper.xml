@@ -9,9 +9,9 @@
 		SELECT ROWNUM AS rnum, subquery.*
 		FROM (
 			SELECT posts_number, posts_title, users_number,
-			nvl((SELECT users_name FROM TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)),
-			posts_view_count, posts_created_date
-			FROM tbl_posts p
+			nvl((SELECT users_name FROM riceball.TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM riceball.TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)) as users_name,
+			posts_view_count, to_char(posts_created_date, 'yyyy-mm-dd') as posts_created_date
+			FROM riceball.tbl_posts p
 			ORDER BY posts_created_date DESC
 		) subquery
 	) WHERE rnum BETWEEN #{startRow} AND #{endRow}
@@ -64,11 +64,11 @@
    </update>
 
    <!-- 게시글 상세(1건조회) -->
-   <select id="select" parameterType="int" resultType="PostsListDTO">
+   <select id="select" parameterType="int" resultType="PostsDTO">
 		<![CDATA[      
 		SELECT posts_number, posts_title, users_number,
 		nvl((SELECT users_name FROM TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)),
-		posts_view_count, posts_created_date, POSTS_CONTENT 
+		posts_view_count, to_char(posts_created_date, 'yyyy-mm-dd'), POSTS_CONTENT 
 		FROM tbl_posts p
 		WHERE posts_number = #{posts_number}
       ]]>
