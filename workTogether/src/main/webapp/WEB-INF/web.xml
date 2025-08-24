@@ -81,5 +81,26 @@
      <url-pattern>*.cp</url-pattern>
   </servlet-mapping>
   
-	
+
+	<servlet>
+     <servlet-name>Map</servlet-name>
+     <servlet-class>com.wt.app.map.MapFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Map</servlet-name>
+     <url-pattern>*.ma</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>News</servlet-name>
+     <servlet-class>com.wt.app.news.NewsFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>News</servlet-name>
+     <url-pattern>*.ne</url-pattern>
+  </servlet-mapping>
+  
+ 
 </web-app>

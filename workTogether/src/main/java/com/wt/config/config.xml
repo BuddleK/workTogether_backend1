@@ -19,6 +19,11 @@
    		<typeAlias type="com.wt.app.dto.AdminDongListDTO" alias="AdminDongListDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.ShopsFavoritesActionDTO" alias="ShopsFavoritesActionDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.CareListDTO" alias="CareListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.PostsDTO" alias="PostsDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.PostsListDTO" alias="PostsListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.NewsListDTO" alias="NewsListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.NewsMainDTO" alias="NewsMainDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.MarkerDTO" alias="MarkerDTO"></typeAlias>
    </typeAliases> 
    
    <environments default="oracle">
@@ -38,6 +43,10 @@
       <mapper resource="com/wt/mapper/ShopsActionMapper.xml" />
       <mapper resource="com/wt/mapper/CareListMapper.xml" />
       <mapper resource="com/wt/mapper/AdminMapper.xml" />
+      <mapper resource="com/wt/mapper/PostsMapper.xml" />
+      <mapper resource="com/wt/mapper/MarkerMapper.xml" />
+      <mapper resource="com/wt/mapper/NewsMapper.xml" />
+      
    </mappers> 
    
 </configuration>

@@ -73,45 +73,62 @@
 				<!-- 카드 행 1 -->
 				<div class="card_row">
 					<!-- 카드 행 리스트 ul1 -->
-					
+
 					<!-- 카드1 -->
 					<ul id="card_list_1">
-					<c:choose>
-						<c:when test="${not empty careList }">
-						<c:forEach var="care" items="${careList}">
-						<li class="care_card">
-							<div class="heart_img_box">
-								<img draggable="false" 
-									class="heart_img"
-									src="./../../assets/img/careMember/heart_icon.png">
-							</div> <a href="./careMemberDetail.jsp" class="profile">
-								<div class="profile_pic_box">
-									<img class="profile_pic"
-										src="./../../assets/img/careMember/profilePicCare.png">
-								</div>
-								<div class="profile_name">
-									<c:out value="${care.getUsersName() }"></c:out>
-								</div>
-								<div class="day_row">
-									<div class="day">화</div>
-									<div class="day">화</div>
-								</div>
-								<div class="profile_intro">
-									<div class="short_intro">
-										<c:out value="${care.getCareIntroText() }"></c:out>
-									</div>
-									<div class="long_intro">
-										<p>
-											<c:out value="${care.getProfilesFilesName() }"></c:out>
-										</p>
-										<p><c:out value="${care.getUsersAddressLine1() }"></c:out> 거주</p>
-									</div>
-								</div>
-						</a>
-						</li>
-						</c:forEach>
-						</c:when>
-					</c:choose>
+						<c:choose>
+							<c:when test="${not empty careList }">
+								<c:forEach var="care" items="${careList}">
+									<li class="care_card">
+										<div class="heart_img_box">
+											<img draggable="false" class="heart_img"
+												src="./../../assets/img/careMember/heart_icon.png">
+										</div> <a href="${pageContext.request.contextPath}/careList/careListDetailOk.cl?usersNumber=${care.usersNumber}" class="profile">
+											<div class="profile_pic_box">
+												<img class="profile_pic"
+													src="./../../assets/img/careMember/profilePicCare.png">
+											</div>
+											
+											<div class="profile_name">
+												<c:out value="${care.getUsersName() }"></c:out>
+											</div> 
+											<div class="profile_day">
+												<c:if test="${care.getDayMonday() eq 'Y'}">
+												<div class="day">월</div>
+											</c:if> <c:if test="${care.getDayTuesday() eq 'Y'}">
+												<div class="day">화</div>
+											</c:if> <c:if test="${care.getDayWednesday() eq 'Y'}">
+												<div class="day">수</div>
+											</c:if> <c:if test="${care.getDayThursday() eq 'Y'}">
+												<div class="day">목</div>
+											</c:if> <c:if test="${care.getDayFriday() eq 'Y'}">
+												<div class="day">금</div>
+											</c:if> <c:if test="${care.getDaySaturday() eq 'Y'}">
+												<div class="day">토</div>
+											</c:if> <c:if test="${care.getDaySunday() eq 'Y'}">
+												<div class="day">일</div>
+											</c:if>					
+											</div>
+											
+											<div class="profile_intro">
+												<div class="short_intro">
+													<c:out value="${care.getCareIntroText() }"></c:out>
+												</div>
+												<div class="long_intro">
+													<p>
+														<c:out value="${care.getProfilesFilesName() }"></c:out>
+													</p>
+													<p>
+														<c:out value="${care.getUsersAddressLine1() }"></c:out>
+														거주
+													</p>
+												</div>
+											</div>
+									</a>
+									</li>
+								</c:forEach>
+							</c:when>
+						</c:choose>
 					</ul>
 				</div>
 

@@ -13,13 +13,13 @@ public class CareListDTO {
 	private String careProfilesPhotoNumber;
 
 //	날짜
-	private char dayMonday;
-	private char dayTuesday;
-	private char dayWednesday;
-	private char dayThursday;
-	private char dayFriday;
-	private char daySaturday;
-	private char daySunday;
+	private String dayMonday;
+	private String dayTuesday;
+	private String dayWednesday;
+	private String dayThursday;
+	private String dayFriday;
+	private String daySaturday;
+	private String daySunday;
 
 //		-- 파일 프로필
 	private String profilesFilesType;
@@ -80,46 +80,46 @@ public class CareListDTO {
 	public void setCareProfilesPhotoNumber(String careProfilesPhotoNumber) {
 		this.careProfilesPhotoNumber = careProfilesPhotoNumber;
 	}
-	public char getDayMonday() {
+	public String getDayMonday() {
 		return dayMonday;
 	}
-	public void setDayMonday(char dayMonday) {
+	public void setDayMonday(String dayMonday) {
 		this.dayMonday = dayMonday;
 	}
-	public char getDayTuesday() {
+	public String getDayTuesday() {
 		return dayTuesday;
 	}
-	public void setDayTuesday(char dayTuesday) {
+	public void setDayTuesday(String dayTuesday) {
 		this.dayTuesday = dayTuesday;
 	}
-	public char getDayWednesday() {
+	public String getDayWednesday() {
 		return dayWednesday;
 	}
-	public void setDayWednesday(char dayWednesday) {
+	public void setDayWednesday(String dayWednesday) {
 		this.dayWednesday = dayWednesday;
 	}
-	public char getDayThursday() {
+	public String getDayThursday() {
 		return dayThursday;
 	}
-	public void setDayThursday(char dayThursday) {
+	public void setDayThursday(String dayThursday) {
 		this.dayThursday = dayThursday;
 	}
-	public char getDayFriday() {
+	public String getDayFriday() {
 		return dayFriday;
 	}
-	public void setDayFriday(char dayFriday) {
+	public void setDayFriday(String dayFriday) {
 		this.dayFriday = dayFriday;
 	}
-	public char getDaySaturday() {
+	public String getDaySaturday() {
 		return daySaturday;
 	}
-	public void setDaySaturday(char daySaturday) {
+	public void setDaySaturday(String daySaturday) {
 		this.daySaturday = daySaturday;
 	}
-	public char getDaySunday() {
+	public String getDaySunday() {
 		return daySunday;
 	}
-	public void setDaySunday(char daySunday) {
+	public void setDaySunday(String daySunday) {
 		this.daySunday = daySunday;
 	}
 	public String getProfilesFilesType() {
@@ -178,15 +178,6 @@ public class CareListDTO {
 	}
 	
 	
-	
-
-	
-
-	
-	
-	
-	
-
 	
 	
 }
