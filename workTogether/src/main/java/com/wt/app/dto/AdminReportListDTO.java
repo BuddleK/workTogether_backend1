@@ -8,7 +8,7 @@ public class AdminReportListDTO {
 	// 게시물 테이블
 	private String postTitle; // 게시물 제목
 	private String postCreatedDate; // 게시물 생성일
-	private int postsViewCount; // 게시물 조회수
+	private int postsReportCount; // 게시물 조회수
 
 	public int getReportNumber() {
 		return reportNumber;
@@ -16,6 +16,14 @@ public class AdminReportListDTO {
 
 	public void setReportNumber(int reportNumber) {
 		this.reportNumber = reportNumber;
+	}
+
+	public int getPostsReportCount() {
+		return postsReportCount;
+	}
+
+	public void setPostsReportCount(int postsReportCount) {
+		this.postsReportCount = postsReportCount;
 	}
 
 	public int getPostNumber() {
@@ -50,19 +58,11 @@ public class AdminReportListDTO {
 		this.postCreatedDate = postCreatedDate;
 	}
 
-	public int getPostsViewCount() {
-		return postsViewCount;
-	}
-
-	public void setPostsViewCount(int postsViewCount) {
-		this.postsViewCount = postsViewCount;
-	}
-
 	@Override
 	public String toString() {
 		return "AdminReportListDTO [reportNumber=" + reportNumber + ", postNumber=" + postNumber + ", usersNumber="
 				+ usersNumber + ", postTitle=" + postTitle + ", postCreatedDate=" + postCreatedDate
-				+ ", postsViewCount=" + postsViewCount + "]";
+				+ ", postsReportCount=" + postsReportCount + "]";
 	}
 
 }
