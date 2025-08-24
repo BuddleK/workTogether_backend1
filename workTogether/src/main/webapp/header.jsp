@@ -46,7 +46,7 @@
       <!-- 지도메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/app/map/map.jsp">
+          <a href="${pageContext.request.contextPath}/map/mapMain.ma">
           <%-- <a href="${pageContext.request.contextPath}/map/mapMain.map"> --%>
             · 지도
           </a>
