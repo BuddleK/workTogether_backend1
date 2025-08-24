@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,20 +19,20 @@
     <div class="context">
       <div class="post_area">
         <div class="post_title">
-          제목
+          <c:out value="${post.getPostsNumber()}"/>
         </div>
         <div class="post_info">
           <div class="post_columns">
             등록자명
           </div>
           <div class="post_col">
-            홍길동
+            <c:out value="${post.getUsersName()}"/>
           </div>
           <div class="post_columns">
             등록일
           </div>
           <div class="post_col">
-            2025-08-09
+            <c:out value="${post.getPostsCreatedDate()}"/>
           </div>
           <div class="post_columns">
             수정일

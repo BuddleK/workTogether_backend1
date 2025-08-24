@@ -13,7 +13,9 @@ public class PostsDAO {
 	public SqlSession sqlSession;
 
 	public PostsDAO() {
+		System.out.println("생성자에서 문제가 생기는 것 같다");
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
+		System.out.println("확인해보자");
 	}
 	
 //	전체 게시글 조회 메소드
@@ -59,12 +61,12 @@ public class PostsDAO {
 // 게시글 수정 메소드
 	   public void update(PostsDTO postsDTO) {
 		   System.out.println("게시글 업데이트 실행 : ");
-		   int result = sqlSession.update("postss.update", postsDTO);
+		   int result = sqlSession.update("posts.update", postsDTO);
 		   System.out.println("게시물 업데이트 결과 : " + result);
 	   }
 
 // 게시글 상세 페이지 조회 메소드
-	   public PostsListDTO select(int postsNumber) {
+	   public PostsDTO select(int postsNumber) {
 	      System.out.println("게시글 상세 페이지 조회(단건조회)");
 	      return sqlSession.selectOne("posts.select", postsNumber);
 	   }

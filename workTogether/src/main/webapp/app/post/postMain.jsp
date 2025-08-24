@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,159 +63,26 @@
         </li>
       </ul>
       <ul class="post_list">
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">1</span>
-            <span class="post_tit">동해물과 백두산이 마르고 닳도록</span>
-            <span class="post_aut">작성자1</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">404</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">2</span>
-            <span class="post_tit">하느님이 보우하사 우리나라 만세</span>
-            <span class="post_aut">작성자2</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-            <span class="post_num">3</span>
-            <span class="post_tit">무궁화 삼천리 화려강산</span>
-            <span class="post_aut">작성자3</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">10</span>
-          </a>
-        </li>
+		<c:choose>
+			<c:when test="${not empty postsList}">
+				<c:forEach var="post" items="${postsList}">
+					<li class="post_columns">
+						<a href="${pageContext.request.contextPath}/post/postReadOk.po?postsNumber=${post.postsNumber}">
+            				<span class="post_num"><c:out value="${post.getPostsNumber()}"/></span>
+            				<span class="post_tit"><c:out value="${post.getPostsTitle()}"/></span>
+            				<span class="post_aut"><c:out value="${post.getUsersName()}"/></span>
+            				<span class="post_dat"><c:out value="${post.getPostsCreatedDate()}"/></span>
+            				<span class="post_rea"><c:out value="${post.getPostsViewCount()}"/></span>
+						</a>
+					</li>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+   				<div>
+   					<div colspan="5" align="center">등록된 게시물이 없습니다.</div>
+   				</div>
+			</c:otherwise>
+		</c:choose>
       </ul>
       <div class="search_box">
         <select id="search_criteria">
@@ -242,10 +110,39 @@
           글쓰기
         </div>
       </div>
-      <div class="post_util_page">
-        <div>
-          페이지네이션
-        </div>
+      <div class="pagination">
+        <ul>
+          <!-- 페이징 처리 -->
+<!--           <li><a href="#" class="prev">&lt;</a></li>
+          <li><a href="#" class="active">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#" class="next">&gt;</a></li> -->
+          
+          <c:if test="${prev}">
+          	<li><a href="${pageContext.request.contextPath}/post/postMain.po?page=${startPage - 1}" class="prev">&lt;</a></li>
+          </c:if>
+          <c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
+          <c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+          	<c:choose>
+          		<c:when test="${!(i == page) }">
+          			<li><a href="${pageContext.request.contextPath}/post/postMain.po?page=${i}">
+          				<c:out value="${i}" />
+          			</a></li>
+          		</c:when>
+          		<c:otherwise>
+          			<li><a href="#" class="active">
+          				<c:out value="${i}" />
+          			</a></li>
+          		</c:otherwise>
+          	</c:choose>
+          </c:forEach>
+          <c:if test="${next}">
+          	<li><a href="${pageContext.request.contextPath}/post/postMain.po?page=${endPage + 1}" class="next">&gt;</a>
+          </c:if>
+        </ul>
       </div>
     </div>
   </main>
@@ -257,5 +154,9 @@
         <p>로그인이 필요합니다</p>
       </div>
     </div>
+    <script>
+    	/* let usersNumber = "${sessionScope.memberNumber}"; */
+    	let usersNumber = 48;
+    </script>
 </body>
 </html>

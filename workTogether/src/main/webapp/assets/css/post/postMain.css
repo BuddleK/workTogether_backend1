@@ -112,17 +112,55 @@ main {
   position: absolute;
   right: 0%;
 }
-.post_util_page{
-  /* background-color:aquamarine; */
+
+
+
+
+
+/* ========== 페이징 스타일 ========== */
+.pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  align-items: center;
+  margin-top: 50px;
 }
-.post_util_button{
+
+.pagination > ul {
   display: flex;
-  justify-content:end;
+  list-style: none;
 }
+
+.pagination a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: rgb(255, 87, 87);
+  border-color: rgb(255, 87, 87);
+  color: #fff;
+}
+
+.pagination .active {
+  background-color: #333;
+  border-color: #333;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
 
 
 
