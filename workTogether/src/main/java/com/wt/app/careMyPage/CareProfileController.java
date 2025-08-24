@@ -15,6 +15,19 @@ public class CareProfileController implements Execute {
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
+		
+		String dayMonday = request.getParameter("dayMonday"); 
+		String dayTuesday = request.getParameter("dayTuesday"); 
+		String dayWednesday = request.getParameter("dayWednesday"); 
+		String dayThursday = request.getParameter("dayThursday"); 
+		String dayFriday = request.getParameter("dayFriday"); 
+		String daySaturday = request.getParameter("daySaturday"); 
+		String daySunday = request.getParameter("daySunday"); 
+        String usersPostsalCode = request.getParameter("usersPostsalCode");   
+        String usersAddressLine1 = request.getParameter("usersAddressLine1");   
+        String usersAddressLine2 = request.getParameter("usersAddressLine2");   
+        String careIntroText = request.getParameter("careIntroText");   // 소개글
+        String fileName = request.getParameter("file"); 
 
 		result.setPath("/app/myPageCare/careProfile.jsp");
 		result.setRedirect(false);

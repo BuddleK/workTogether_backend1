@@ -106,7 +106,6 @@ public class CareProfileDTO {
 	private String usersPostsalCode;
 	private String usersAddressLine1;
 	private String usersAddressLine2;
-
 	private String careIntroText;
 	private char careAccept; // DEFAULT 'N' CHECK (care_accept IN ('Y', 'N')),
 
