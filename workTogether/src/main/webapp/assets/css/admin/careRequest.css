@@ -18,7 +18,12 @@ main {
   left: 201px;
   height: 100%;
 }
-
+.empty {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 16px;
+  color: #555;
+}
 .title {
   width: 100%;
 }
@@ -84,7 +89,12 @@ main {
   width: 10%;
   height: 95%;
 }
-
+.table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* 테이블 높이 확보 */
+}
 .table_body {
   display: flex;
 }
