@@ -1,5 +1,7 @@
 package com.wt.app.careMyPage;
 
-public class CareProfileController {
+import com.wt.app.Execute;
+
+public class CareProfileController implements Execute{
 
 }

@@ -47,6 +47,7 @@
       <li>
         <div>
           <a href="${pageContext.request.contextPath}/app/map/map.jsp">
+          <%-- <a href="${pageContext.request.contextPath}/map/mapMain.map"> --%>
             · 지도
           </a>
         </div>
@@ -54,6 +55,7 @@
       <li>
         <div>
           <a href="${pageContext.request.contextPath}/app/subwayLine/subway.jsp">
+          <%-- <a href="${pageContext.request.contextPath}/app/subwayLine/subway.jsp"> --%>
             · 지하철 노선도
           </a>
         </div>
@@ -70,6 +72,7 @@
       <li>
         <div>
           <a href="${pageContext.request.contextPath}/app/news/news.jsp">
+          <%-- <a href="${pageContext.request.contextPath}/news/newsMain.news"> --%>
             · 뉴스 게시판
           </a>
         </div>
@@ -77,7 +80,7 @@
       <!-- 일반 게시판 메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/app/post/postMain.jsp">
+          <a href="${pageContext.request.contextPath}/post/postMain.po">
             · 일반 게시판
           </a>
         </div>
@@ -92,4 +95,12 @@
       </li>
     </ul>
   </nav>
+  <script>
+		window.shopsNumber = "${shops.shopsNumber}";
+
+		window.usersNumber = null;
+
+		console.log(window.shopsNumber);
+		console.log(window.usersNumber);
+	</script>
 </header> 
