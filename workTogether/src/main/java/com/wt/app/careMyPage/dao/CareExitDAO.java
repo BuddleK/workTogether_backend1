@@ -11,7 +11,7 @@ public class CareExitDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	//회원 삭제
-	public void careExit() {
+	public void careExit(int usersNUmber) {
 		System.out.println("회원 삭제하기 - careExit 메소드 실행 : ");
 		sqlSession.delete("careExit.careExit");
 	}
