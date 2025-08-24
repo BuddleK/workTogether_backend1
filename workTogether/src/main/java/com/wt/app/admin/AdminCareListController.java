@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.admin.dao.AdminCareDAO;
+import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminCareSignupDTO;
 
 public class AdminCareListController implements Execute {
@@ -23,11 +23,11 @@ public class AdminCareListController implements Execute {
 
 		Result result = new Result();
 
-		AdminCareDAO adminCareDAO = new AdminCareDAO();
+		AdminDAO adminCareDAO = new AdminDAO();
 
 		String temp = request.getParameter("page");
 		int page = (temp == null) ? 1 : Integer.parseInt(temp);
-		int rowCount = 10;
+		int rowCount = 7;
 		int pageCount = 5;
 
 		int startRow = (page - 1) * rowCount + 1;
@@ -38,7 +38,7 @@ public class AdminCareListController implements Execute {
 		pageMap.put("endRow", endRow);
 
 		List<AdminCareSignupDTO> list = adminCareDAO.pendingListPaged(pageMap);
-		int total = adminCareDAO.pendingCount();
+		int total = adminCareDAO.carePendingCount();
 
 		int realEndPage = (int) Math.ceil(total / (double) rowCount);
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount);

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.admin.dao.AdminCareDAO;
+import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminCareFileDTO;
 
 public class AdminCareFileDownloadController implements Execute{
@@ -40,13 +40,13 @@ public class AdminCareFileDownloadController implements Execute{
             return null;
         }
 
-        AdminCareDAO dao = new AdminCareDAO();
+        AdminDAO dao = new AdminDAO();
         AdminCareFileDTO fileInfo = null;
 
         if ("LICENSE".equalsIgnoreCase(type)) {
-            fileInfo = dao.fileLicense(fileNumber);
+            fileInfo = dao.careFileLicense(fileNumber);
         } else if ("ACCOUNT".equalsIgnoreCase(type)) {
-            fileInfo = dao.fileAccount(fileNumber);
+            fileInfo = dao.careFileAccount(fileNumber);
         } else {
             response.sendError(HttpServletResponse.SC_FORBIDDEN, "허용되지 않는 파일 타입입니다.");
             return null;

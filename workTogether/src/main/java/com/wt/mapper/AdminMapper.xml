@@ -23,18 +23,33 @@
 	<!-- 대기 목록 (페이지네이션: offset, limit) -->
 	<select id="carePendingListPaged" parameterType="map"
 		resultType="com.wt.app.dto.AdminCareSignupDTO"><![CDATA[
-    SELECT
-      u.users_number, u.users_id, u.users_created_date,
-      c.users_name, c.users_email, c.users_phone,
-      c.users_postsal_code, c.users_address_line1, c.users_address_line2,
-      c.care_intro_text, c.care_certificate_files_num,
-      c.care_passbook_files_num, c.care_profiles_photo_number, c.care_accept
-    FROM tbl_care_users c
-    JOIN tbl_users u ON u.users_number = c.users_number
-    WHERE c.care_accept = 'N'
-    ORDER BY u.users_created_date DESC
-    OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY
-  ]]></select>
+  SELECT *
+  FROM (
+    SELECT ROWNUM AS rnum, inner_t.*
+    FROM (
+      SELECT
+        u.users_number,
+        u.users_id,
+        u.users_created_date,
+        c.users_name,
+        c.users_email,
+        c.users_phone,
+        c.users_postsal_code,
+        c.users_address_line1,
+        c.users_address_line2,
+        c.care_intro_text,
+        c.care_certificate_files_num,
+        c.care_passbook_files_num,
+        c.care_profiles_photo_number,
+        c.care_accept
+      FROM tbl_care_users c
+      JOIN tbl_users u ON u.users_number = c.users_number
+      WHERE c.care_accept = 'N'
+      ORDER BY u.users_created_date DESC, u.users_number DESC
+    ) inner_t
+  )
+  WHERE rnum BETWEEN #{startRow} AND #{endRow}
+]]></select>
 
 	<!-- 대기 총 개수 -->
 	<select id="carePendingCount" resultType="int"><![CDATA[
@@ -205,9 +220,10 @@
 		UPDATE tbl_news
 		SET files_number = #{filesNumber},
 		news_updated_date = SYSDATE
-		WHERE news_number = #{newsNumber}
+		WHERE
+		news_number = #{newsNumber}
 	</update>
-	
+
 	<!-- 뉴스 상세 (news_number) -->
 	<select id="newsSelectOne" parameterType="int"
 		resultType="com.wt.app.dto.AdminNewsBoardDTO"><![CDATA[

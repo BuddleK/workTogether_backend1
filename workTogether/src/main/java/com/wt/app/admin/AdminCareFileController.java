@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.admin.dao.AdminCareDAO;
+import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminCareFileDTO;
 
 public class AdminCareFileController implements Execute {
@@ -37,18 +37,18 @@ public class AdminCareFileController implements Execute {
 			return null;
 		}
 
-		AdminCareDAO adminCareDAO = new AdminCareDAO();
+		AdminDAO adminCareDAO = new AdminDAO();
 		AdminCareFileDTO fileInfo = null;
 
 		switch (type.toUpperCase()) {
 		case "LICENSE":
-			fileInfo = adminCareDAO.fileLicense(fileNumber);
+			fileInfo = adminCareDAO.careFileLicense(fileNumber);
 			break;
 		case "ACCOUNT":
-			fileInfo = adminCareDAO.fileAccount(fileNumber);
+			fileInfo = adminCareDAO.careFileAccount(fileNumber);
 			break;
 		case "PROFILE":
-			fileInfo = adminCareDAO.fileProfile(fileNumber);
+			fileInfo = adminCareDAO.careFileProfile(fileNumber);
 			break;
 		default:
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST, "허용되지 않는 type 값입니다.");

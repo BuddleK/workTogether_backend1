@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.admin.dao.AdminCareDAO;
+import com.wt.app.admin.dao.AdminDAO;
 
 public class AdminCareRejectAllController implements Execute {
 
@@ -18,7 +18,7 @@ public class AdminCareRejectAllController implements Execute {
 		System.out.println("==== AdminCareRejectAllController 실행 ====");
 
 		Result result = new Result();
-		AdminCareDAO dao = new AdminCareDAO();
+		AdminDAO dao = new AdminDAO();
 
 		String usersNumberStr = request.getParameter("usersNumber");
 		if (usersNumberStr == null) {
@@ -41,7 +41,7 @@ public class AdminCareRejectAllController implements Execute {
 			System.out.println("사유: " + rejectReason);
 		}
 
-		dao.rejectAll(usersNumber);
+		dao.careRejectAll(usersNumber);
 		System.out.println("[RejectAll] 반려 처리 완료(유저까지 삭제) → usersNumber=" + usersNumber);
 
 		String page = request.getParameter("page");

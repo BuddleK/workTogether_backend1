@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.admin.dao.AdminCareDAO;
+import com.wt.app.admin.dao.AdminDAO;
 
 public class AdminCareApproveController implements Execute {
 
@@ -18,7 +18,7 @@ public class AdminCareApproveController implements Execute {
 		System.out.println("==== AdminCareApproveController 실행 ====");
 
 		Result result = new Result();
-		AdminCareDAO admincareDAO = new AdminCareDAO();
+		AdminDAO admincareDAO = new AdminDAO();
 
 		String usersNumberStr = request.getParameter("usersNumber");
 		if (usersNumberStr == null) {
@@ -35,7 +35,7 @@ public class AdminCareApproveController implements Execute {
 			return null;
 		}
 
-		admincareDAO.approve(usersNumber);
+		admincareDAO.careApprove(usersNumber);
 
 		String page = request.getParameter("page");
 		String redirectUrl = request.getContextPath() + "/admin/care/list.ad" + (page != null ? "?page=" + page : "");

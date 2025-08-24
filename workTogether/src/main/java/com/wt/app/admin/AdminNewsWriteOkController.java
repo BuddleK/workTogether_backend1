@@ -15,6 +15,7 @@ import com.wt.app.Result;
 import com.wt.app.FileNotice.dao.FileNoticeDAO;
 import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminNewsBoardDTO;
+import com.wt.app.dto.FileNoticeDTO;
 import com.wt.app.dto.FilesLicenseDTO;
 
 
@@ -82,21 +83,21 @@ public class AdminNewsWriteOkController implements Execute {
 				String webPath = UPLOAD_DIR + "/" + fileSystemName; // DB에는 웹 경로 저장
 
 				// 파일 DTO 채워서 INSERT
-				FilesLicenseDTO fileDTO = new FilesLicenseDTO();
-				fileDTO.setLicenseFilesType(contentType);
-				fileDTO.setLicenseFilesName(fileOriginalName);
-				fileDTO.setLicenseFilesPath(webPath);
-				fileDTO.setLicenseFilesSizeBytes(sizeBytes);
+				FileNoticeDTO fileDTO = new FileNoticeDTO();
+				fileDTO.setNoticeFilesType(contentType);
+				fileDTO.setNoticeFilesName(fileOriginalName);
+				fileDTO.setNoticeFilesPath(webPath);
+				fileDTO.setNoticeFilesSizeBytes(sizeBytes);
 
 				AdminDAO adminDAO = new AdminDAO();
-				adminDAO.careInsertLicenseFile(fileDTO);  // mapper에서 selectKey로 noticeFilesNumber 채워짐
+				adminDAO.insertNoticeFile(fileDTO);
 
-				filesNumber = fileDTO.getFilesNumber();
+				filesNumber = fileDTO.getNoticeFilesNumber();
 				System.out.println("업로드 된 파일 정보 : " + fileDTO);
 			}
 		}
 
-		newsDTO.setFilesNumber(filesNumber); // 첨부 없으면 null
+		newsDTO.setFilesNumber(filesNumber);
 
 		// 6) 뉴스 INSERT
 		AdminDAO newsDAO = new AdminDAO();
