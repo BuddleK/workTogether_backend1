@@ -10,10 +10,12 @@
 	
 	<!-- 추천가게 찜 많은 순으로 정렬-->
 	<select id="shops" parameterType="PostsDTO">
-		SELECT shops_number, shops_name, shops_intro_text, count(*)
-		from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
-		GROUP BY shops_number, shops_name, shops_intro_text
-		ORDER BY count(*) DESC
+		select * from (
+			SELECT shops_number, shops_name, shops_intro_text, count(*)
+			from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
+			GROUP BY shops_number, shops_name, shops_intro_text
+			ORDER BY count(*) DESC)
+		where rownum <= 4
 	</select>
 	
 	

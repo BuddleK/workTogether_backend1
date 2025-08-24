@@ -31,8 +31,7 @@ public class MyPageNormalDAO {
 
 	public void normalModify(NormalModifyDTO normalModifyDTO) {
 		System.out.println("개인 정보 수정 - normalModify 메소드 실행" + normalModifyDTO);
-		int result = sqlSession.update("myPageNormal.normalModify", normalModifyDTO);
-		System.out.println("업데이트 결과 : " + result);
+		sqlSession.update("myPageNormal.normalModify", normalModifyDTO);
 	}
 
 	public List<NormalFavoriteListDTO> normalfavoriteListSearch() {
@@ -68,6 +67,11 @@ public class MyPageNormalDAO {
 		System.out.println("게시물 리스트 삭제하기 실행 완료");
 	}
 
+	public int normalReferenceInsert(NormalReferenceListDTO normalReferenceListDTO) {
+		sqlSession.insert("myPageNormal.normalReferenceInsert", normalReferenceListDTO);
+		return normalReferenceListDTO.getReferenceNumber();
+	}
+	
 	public List<NormalReferenceListDTO> normalReferenceListSearch() {
 		System.out.println("문의 목록 조회하기 - normalReferenceListSearch 메소드 실행");
 		List<NormalReferenceListDTO> list = sqlSession.selectList("myPageNormal.normalReferenceListSearch");

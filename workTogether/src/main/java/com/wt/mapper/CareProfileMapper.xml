@@ -12,6 +12,19 @@
 		WHERE  c.care_number = #{careNumber};
 	</select>
 	
+	<!-- 프로필 사진 삭제 -->
+	<delete id="profilrDelete" parameterType="CareProfileDTO">
+		DELETE FROM tbl_files_profiles
+		WHERE profiles_files_number = #{profilesFilesNumber}
+	</delete>
+	
+	<!-- 프로필 사진 추가 -->
+	<insert id="profileInsert" parameterType="CareProfileDTO">
+		INSERT INTO tbl_files_profiles
+		VALUES (#{profilesFilesNumber}, #{profilesFilesType}, #{profilesFilesName},#{profilesFilesPath},
+		#{profilesFilesSizeBytes},#{profilesCreatedDate})	
+	</insert>
+	
 	<!-- 프로필 요일 조회 -->
 	<select id="daySelect" resultType="CareProfileDTO">
 		SELECT day_monday,day_tuesday,day_wednesday,day_thursday,day_friday,day_saturday,day_sunday
@@ -37,30 +50,6 @@
 		WHERE  u.users_number = #{usersNumber}
 	</select>
 	
-	<!-- 프로필 사진 수정 쿼리작성 -->
-	<update id="profileUpdate" parameterType="CareProfileDTO">
-		update tbl_files_profiles set
-		profiles_files_type=#{profilesFilesType},
-		profiles_files_name=#{profilesFilesName},
-		profiles_files_path=#{profilesFilesPath},
-		profiles_files_size_bytes=#{profilesFilesSizeBytes},
-		profiles_created_date=#{profilesCreatedDate}
-		where
-		tbl_files_profiles.profiles_files_number = #{profilesFilesNumber}
-	</update>
-	
-<!-- 	<!-- 프로필 사진 삭제 -->
-	<delete id="profilrDelete" parameterType="CareProfileDTO">
-		DELETE FROM tbl_files_profiles
-		WHERE profiles_files_number = #{profilesFilesNumber}
-	</delete>
-	프로필 사진 추가
-	<insert id="profileInsert" parameterType="CareProfileDTO">
-		INSERT INTO tbl_files_profiles
-		VALUES (#{profilesFilesNumber}, #{profilesFilesType}, #{profilesFilesName},#{profilesFilesPath},
-		#{profilesFilesSizeBytes},#{profilesCreatedDate})	
-	</insert> -->
-	
 	<!-- 프로필 요일 수정 쿼리작성 -->
 	<update id="dayUpdate" parameterType="CareProfileDTO">
 		update tbl_day set day_monday = #{dayMonday},
@@ -75,11 +64,13 @@
 <!-- 	<!-- 프로필 이력 수정 쿼리작성 -->
 	<update id="licenseUpdate" parameterType="CareProfileDTO">
 		SELECT a.*, l.*
-FROM   tbl_care_users c
+		FROM   tbl_care_users c
     		JOIN   tbl_files_account a ON c.care_passbook_files_num = a.account_files_number
     		JOIN   tbl_files_license l ON c.care_certificate_files_num = l.license_files_number
     		WHERE  c.care_number = 7;
 	</update> -->
+	
+	
 
 	<!-- 프로필 주소 수정 쿼리작성 -->
 	<update id="addressUpdate" parameterType="CareProfileDTO">

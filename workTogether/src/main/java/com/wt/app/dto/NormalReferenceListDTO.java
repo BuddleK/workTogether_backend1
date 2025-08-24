@@ -7,6 +7,7 @@ public class NormalReferenceListDTO {
 	private String usersName; // 유저 이름
 	private String referenceTitle; // 문의 제목
 	private String referenceCreatedDate; // 문의 생성 일
+	private String referenceContent;
 	private boolean answeredYn; // 답변여부
 
 	public int getReferenceNumber() {
@@ -49,6 +50,14 @@ public class NormalReferenceListDTO {
 		this.referenceCreatedDate = referenceCreatedDate;
 	}
 
+	public String getReferenceContent() {
+		return referenceContent;
+	}
+
+	public void setReferenceContent(String referenceContent) {
+		this.referenceContent = referenceContent;
+	}
+
 	public boolean isAnsweredYn() {
 		return answeredYn;
 	}
@@ -61,7 +70,7 @@ public class NormalReferenceListDTO {
 	public String toString() {
 		return "NormalReferenceListDTO [referenceNumber=" + referenceNumber + ", usersNumber=" + usersNumber
 				+ ", usersName=" + usersName + ", referenceTitle=" + referenceTitle + ", referenceCreatedDate="
-				+ referenceCreatedDate + ", answeredYn=" + answeredYn + "]";
+				+ referenceCreatedDate + ", referenceContent=" + referenceContent + ", answeredYn=" + answeredYn + "]";
 	}
 
 }
