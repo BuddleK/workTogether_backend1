@@ -1,4 +1,4 @@
-package com.wt.app.news;
+package com.wt.app.admin;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
+import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminNewsBoardDTO;
-import com.wt.app.news.dao.AdminNewsDAO;
 
 public class AdminNewsReadOkController implements Execute{
 
@@ -31,8 +31,8 @@ public class AdminNewsReadOkController implements Execute{
 	        int newsNumber = Integer.parseInt(newsNumberStr);
 
 	        // 2) DB 조회
-	        AdminNewsDAO newsDAO = new AdminNewsDAO();
-	        AdminNewsBoardDTO news = newsDAO.select(newsNumber);
+	        AdminDAO newsDAO = new AdminDAO();
+	        AdminNewsBoardDTO news = newsDAO.newsSelectOne(newsNumber);
 
 	        if (news == null) {
 	            System.out.println("존재하지 않는 뉴스입니다. newsNumber=" + newsNumber);
