@@ -1,0 +1,76 @@
+package com.wt.app.normal.mypage;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.wt.app.Result;
+
+/**
+ * Servlet implementation class MyPageNormalFrontController
+ */
+public class MyPageNormalFrontController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MyPageNormalFrontController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+	
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
+		String target = request.getRequestURI().substring(request.getContextPath().length());
+		System.out.println("현재경로 : " + target);
+		Result result = new Result();
+		
+		switch(target) {
+		case "/myPageNormal/checkPwOk.mn":
+			System.out.println("마이페이지 일반회원 비밀번호 확인 완료 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalModifyOk.mn":
+			System.out.println("마이페이지 일반회원 회원정보 수정 완료 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalfavoriteList.mn":
+			System.out.println("마이페이지 일반회원 가게 찜 리스트 페이지 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalfavoriteListDeleteOk.mn":
+			System.out.println("마이페이지 일반회원 가게 찜 삭제 완료 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalHeartList.mn":
+			System.out.println("마이페이지 일반회원 하트 리스트 페이지 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalHeartListDeleteOk.mn":
+			System.out.println("마이페이지 일반회원 하트 리스트 삭제 완료 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalMatching.mn":
+			System.out.println("마이페이지 일반회원 매칭 관리 페이지 요청");
+			result.setRedirect(true);
+		case "/myPageNormal/normalPostsList.mn":
+			System.out.println("마이페이지 일반회원 게시판 리스트 페이지 요청");
+			result.setRedirect(true);
+		}
+	}
+}

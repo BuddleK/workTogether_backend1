@@ -2,7 +2,6 @@ package com.wt.app.subway;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,7 +46,20 @@ public class SubwayFrontController extends HttpServlet {
 		System.out.println("현재경로 : " + target);
 		Result result = new Result();
 		
-		
+		switch(target) {
+		case "/subwayLine/subwayLine.sl":
+			System.out.println("지하철 노선 출력 요청");
+			result.setRedirect(true);
+			break;
+		case "/subwayLine/subwayStation.sl":
+			System.out.println("지하철 역명 출력 요청");
+			result.setRedirect(true);
+			break;
+		case "/subwayLine/subwayDetail.sl":
+			System.out.println("지하철 상세 페이지 요청");
+			result.setRedirect(true);
+			break;
+		}
 	}
 
 }
