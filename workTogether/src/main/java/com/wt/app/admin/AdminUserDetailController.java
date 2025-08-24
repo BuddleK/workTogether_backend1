@@ -12,7 +12,7 @@ import com.wt.app.Result;
 import com.wt.app.admin.dao.AdminTwoDAO;
 import com.wt.app.dto.AdminUserManagerDTO;
 
-public class AdminUserDetailOkController implements Execute {
+public class AdminUserDetailController implements Execute {
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
