@@ -23,6 +23,7 @@ public class CareExitOkController implements Execute {
 		Integer usersNumber = (Integer) request.getSession().getAttribute("usersNumber");
 
 		if (usersNumber != null) {
+			//if 매칭회원 유무
 			careExitDAO.careExit(usersNumber);
 			request.getSession().invalidate();
 		}
