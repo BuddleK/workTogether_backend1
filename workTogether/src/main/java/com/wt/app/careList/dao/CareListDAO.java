@@ -19,7 +19,7 @@ public class CareListDAO {
 //	전체 돌봄 회원 조회
 	public List<CareListDTO> selectAll(Map<String, Integer> pageMap) {
 		System.out.println("모든 돌봄 조회하기 - selectAll 메소드 실행 : " + pageMap);
-		List<CareListDTO> list = sqlSession.selectList("careList.listAll", pageMap);
+		List<CareListDTO> list = sqlSession.selectList("careList.listExecptHeart", pageMap);
 		System.out.println("조회결과 : " + list);
 		return list;
 	}

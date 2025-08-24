@@ -80,5 +80,15 @@
   	<url-pattern>*.cp</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+     <servlet-name>CareMyPage</servlet-name>
+     <servlet-class>com.wt.app.careMyPage.CareMyPageFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>CareMyPage</servlet-name>
+     <url-pattern>*.cp</url-pattern>
+  </servlet-mapping>
+  
 
 </web-app>
