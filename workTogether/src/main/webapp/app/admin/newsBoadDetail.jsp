@@ -34,8 +34,7 @@
         <div class="add_content">
           <div class="board_title">뉴스내용</div>
           <textarea name="news" id="news" placeholder="">
-          뉴스내용은 이러합니다.</textarea
-          >
+          뉴스내용은 이러합니다.</textarea>
         </div>
         <div class="add_link">
           <div class="add_link_title">뉴스링크</div>
@@ -43,7 +42,7 @@
         </div>
         <div class="add_btn">
           <button class="cancle" onclick="cancle()">취소</button>
-          <button class="add" onclick="modalUpdateShow()">수정</button>
+          <button class="add" type="submit" onclick="modalUpdateShow()">수정</button>
         </div>
       </section>
     </main>

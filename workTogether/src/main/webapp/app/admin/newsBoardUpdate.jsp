@@ -30,8 +30,7 @@
         <div class="add_content">
           <div class="board_option"></div>
           <textarea name="news" id="news" placeholder="">
-        날씨가 너무 덥다... 진짜.... 괜히 긴 바지 입었네</textarea
-          >
+        날씨가 너무 덥다... 진짜.... 괜히 긴 바지 입었네</textarea>
         </div>
         <div class="add_link">
           <div class="add_link_title">뉴스링크</div>
@@ -43,7 +42,7 @@
         </div>
         <div class="add_btn">
           <button class="cancle" type="button">취소</button>
-          <button class="add" type="button">수정 완료</button>
+          <button class="add" type="submit">수정 완료</button>
         </div>
       </section>
     </main>

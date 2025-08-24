@@ -3,7 +3,7 @@
 
 <mapper namespace="admin">
 	<!-- ========================= [Auth] ========================= -->
-	<select id="login" parameterType="com.wt.app.dto.AdminLoginDTO"
+	<select id="login" parameterType="AdminLoginDTO"
 		resultType="int">
 		SELECT admin_number
 		FROM tbl_admin

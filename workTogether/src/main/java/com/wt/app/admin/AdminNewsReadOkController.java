@@ -49,7 +49,7 @@ public class AdminNewsReadOkController implements Execute{
 	        request.setAttribute("news", news);
 	        request.setAttribute("mine", mine);
 
-	        result.setPath("/app/admin/newsBoadDetail.jsp");
+	        result.setPath("/app/admin/newsBoadDetail.ad");
 	        result.setRedirect(false);
 	        return result;
 	}
