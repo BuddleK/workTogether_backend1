@@ -109,6 +109,12 @@
 			AND users_number = #{userNumber};
 	</delete>
 	
+	<!-- 문의 등록 -->
+	<insert id="normalReferenceInsert" parameterType="NormalReferenceListDTO">
+		INSERT INTO tbl_reference 
+		VALUES ( #{referenceNumber}, #{usersNumber},#{referenceTitle}, #{referenceCreatedDate},#{referenceContent}, #{answeredYn})
+	</insert>
+	
 	<!-- 문의 조회 -->
 	<select id="normalReferenceListSearch" resultType="NormalReferenceListDTO">
 		SELECT 
