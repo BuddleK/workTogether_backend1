@@ -104,7 +104,7 @@
 										<p>
 											<c:out value="${care.getProfilesFilesName() }"></c:out>
 										</p>
-										<p><c:out value="${care.usersAddressLine1() }"></c:out> 거주</p>
+										<p><c:out value="${care.getUsersAddressLine1() }"></c:out> 거주</p>
 									</div>
 								</div>
 						</a>
