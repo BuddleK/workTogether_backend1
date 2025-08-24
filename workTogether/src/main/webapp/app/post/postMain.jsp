@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,304 +16,137 @@
 <body>
   <jsp:include page="/header.jsp" />
   <main>
-    <!-- 공지사항, 일반 게시글 목록 섹션 -->
-    <form action="" method="get">
-      <nav class="post_top">
-        <ul>
-          <li class="number"><div>번호</div></li>
-          <li class="posttitle"><div>제목</div></li>
-          <li class="name"><div>작성자</div></li>
-          <li class="view"><div>조회수</div></li>
-          <li class="postday"><div>작성일</div></li>
-        </ul>
-      </nav>
-      <!-- 공지사항 섹션 -->
-      <nav class="post_notify">
-        <ul>
-          <li class="number">
-            <div>공지</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">사이트 이용시 주의사항</a></div>
-          </li>
-          <li class="name">
-            <div>관리자</div>
-          </li>
-          <li class="view">
-            <div>5</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_notify">
-        <ul>
-          <li class="number">
-            <div>공지</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">사이트 이용시 주의사항</a></div>
-          </li>
-          <li class="name">
-            <div>관리자</div>
-          </li>
-          <li class="view">
-            <div>5</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_notify">
-        <ul>
-          <li class="number">
-            <div>공지</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">사이트 이용시 주의사항</a></div>
-          </li>
-          <li class="name">
-            <div>관리자</div>
-          </li>
-          <li class="view">
-            <div>5</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="notify_open">
-        <ul>
-          <li>숨ㄴ은공ㅈ v</li>
-        </ul>
-      </nav>
-      <!-- 일반 게시글 섹션 -->
-      <nav class="post_member">
-        <ul>
-          <li class="number">
-            <div>10</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">안녕하세요</a></div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_member">
-        <ul>
-          <li class="number">
-            <div>9</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="${pageContext.request.contextPath}/app/post/postDetailNotlogin.jsp">안녕하세요</a></div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_member">
-        <ul >
-          <li class="number">
-            <div>8</div>
-          </li>
-          <li class="posttitle">
-            <div onclick="postTitle()" class="postTitle">안녕하세요</div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_member">
-        <ul>
-          <li class="number">
-            <div>7</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_member">
-        <ul>
-          <li class="number">
-            <div>6</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_member">
-        <ul>
-          <li class="number">
-            <div>5</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_member">
-        <ul>
-          <li class="number">
-            <div>4</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_member">
-        <ul>
-          <li class="number">
-            <div>3</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_member">
-        <ul>
-          <li class="number">
-            <div>2</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <nav class="post_member">
-        <ul>
-          <li class="number">
-            <div>1</div>
-          </li>
-          <li class="posttitle">
-            <div><a href="">안녕하세요</a></div>
-          </li>
-          <li class="name">
-            <div>홍길동</div>
-          </li>
-          <li class="view">
-            <div>3</div>
-          </li>
-          <li class="postday">
-            <div>2025-08-09</div>
-          </li>
-        </ul>
-      </nav>
-      <!-- 검색 섹션 -->
-      <nav class="search">
-        <ul>
-          <li><div>제목/내용 v</div></li>
-          <li><input type="text"></li>
-          <li><a href=""><img src="${pageContext.request.contextPath}/assets/img/post/search.png" alt=""></a></li>
-          <button type="button" onclick="postWrite()" class="postWrite"><a href="${pageContext.request.contextPath}/app/post/postWrite.jsp">글쓰기</a></button>
-        </ul>
-      </nav>
-      <!-- 페이지네이션 -->
-      <nav class="page">
-        <ul>
-          <a href="">
-            <li>&lt</li>
+    <div class="context">
+      <div class="post_columns_top">
+        <span class="post_num">번호</span>
+        <span class="post_tit">제목</span>
+        <span class="post_aut">작성자</span>
+        <span class="post_dat">작성일</span>
+        <span class="post_rea">조회수</span>
+      </div>
+      <ul class="notice_list">
+        <li class="post_columns">
+          <a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">
+            <span class="post_num">공지</span>
+            <span class="post_tit">전화번호 인증 관련 안내사항</span>
+            <span class="post_aut">관리자</span>
+            <span class="post_dat">2025-08-20</span>
+            <span class="post_rea">404</span>
           </a>
-          <a href="">
-            <li>1</li>
+        </li>
+        <li class="post_columns">
+          <a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">
+            <span class="post_num">공지</span>
+            <span class="post_tit">안내</span>
+            <span class="post_aut">관리자</span>
+            <span class="post_dat">2025-08-20</span>
+            <span class="post_rea">404</span>
           </a>
-          <a href="">
-            <li>2</li>
+        </li>
+        <li class="post_columns">
+          <a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">
+            <span class="post_num">공지</span>
+            <span class="post_tit">이벤트 안내</span>
+            <span class="post_aut">관리자</span>
+            <span class="post_dat">2025-08-20</span>
+            <span class="post_rea">404</span>
           </a>
-          <a href="">
-            <li>3</li>
+        </li>
+        <li class="post_columns">
+          <a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">
+            <span class="post_num">공지</span>
+            <span class="post_tit">사이트 일정 안내</span>
+            <span class="post_aut">관리자</span>
+            <span class="post_dat">2025-08-20</span>
+            <span class="post_rea">404</span>
           </a>
-          <a href="">
-            <li>4</li>
-          </a>
-          <a href="">
-            <li>&gt</li>
-          </a>
+        </li>
+      </ul>
+      <ul class="post_list">
+		<c:choose>
+			<c:when test="${not empty postsList}">
+				<c:forEach var="post" items="${postsList}">
+					<li class="post_columns">
+						<a href="${pageContext.request.contextPath}/post/postReadOk.po?postsNumber=${post.postsNumber}">
+            				<span class="post_num"><c:out value="${post.getPostsNumber()}"/></span>
+            				<span class="post_tit"><c:out value="${post.getPostsTitle()}"/></span>
+            				<span class="post_aut"><c:out value="${post.getUsersName()}"/></span>
+            				<span class="post_dat"><c:out value="${post.getPostsCreatedDate()}"/></span>
+            				<span class="post_rea"><c:out value="${post.getPostsViewCount()}"/></span>
+						</a>
+					</li>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+   				<div>
+   					<div colspan="5" align="center">등록된 게시물이 없습니다.</div>
+   				</div>
+			</c:otherwise>
+		</c:choose>
+      </ul>
+      <div class="search_box">
+        <select id="search_criteria">
+          <!-- 제목 검색 -->
+          <option value="cri_title">
+            제목
+          </option>
+          <!-- 내용 검색 -->
+          <option value="cri_context">
+            내용
+          </option>
+          <!-- 제목 + 내용 검색 -->
+          <option value="cri_tc">
+            제목 + 내용
+          </option>
+        </select>
+        <!-- 검색 입력 창 -->
+        <input type="text" id="criteria" placeholder="검색어를 입력하세요">
+        <!-- 검색 버튼 -->
+        <span id="search_icon_box">
+          <!-- 검색 버튼 이미지 -->
+          <img id="search_icon" src="./../../assets/img/careMember/search_icon.png">
+        </span>
+        <div type="button" id="write_button">
+          글쓰기
+        </div>
+      </div>
+      <div class="pagination">
+        <ul>
+          <!-- 페이징 처리 -->
+<!--           <li><a href="#" class="prev">&lt;</a></li>
+          <li><a href="#" class="active">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#" class="next">&gt;</a></li> -->
+          
+          <c:if test="${prev}">
+          	<li><a href="${pageContext.request.contextPath}/post/postMain.po?page=${startPage - 1}" class="prev">&lt;</a></li>
+          </c:if>
+          <c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
+          <c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+          	<c:choose>
+          		<c:when test="${!(i == page) }">
+          			<li><a href="${pageContext.request.contextPath}/post/postMain.po?page=${i}">
+          				<c:out value="${i}" />
+          			</a></li>
+          		</c:when>
+          		<c:otherwise>
+          			<li><a href="#" class="active">
+          				<c:out value="${i}" />
+          			</a></li>
+          		</c:otherwise>
+          	</c:choose>
+          </c:forEach>
+          <c:if test="${next}">
+          	<li><a href="${pageContext.request.contextPath}/post/postMain.po?page=${endPage + 1}" class="next">&gt;</a>
+          </c:if>
         </ul>
-      </nav>
-    </form>
+      </div>
+    </div>
+  </main>
+  <jsp:include page="/footer.jsp" />
     <!-- 비로그인 회원이 글쓰기 버튼 클릭시 모달 -->
     <div class="modal">
       <div class="modal-content">
@@ -320,7 +154,9 @@
         <p>로그인이 필요합니다</p>
       </div>
     </div>
-  </main>
-  <jsp:include page="/footer.jsp" />
+    <script>
+    	/* let usersNumber = "${sessionScope.memberNumber}"; */
+    	let usersNumber = 48;
+    </script>
 </body>
 </html>
