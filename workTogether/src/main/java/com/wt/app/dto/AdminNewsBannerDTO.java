@@ -2,47 +2,58 @@ package com.wt.app.dto;
 
 public class AdminNewsBannerDTO {
 	// 뉴스 테이블
-	private int newsNumber; // 뉴스 번호
-	private String newsTitle; // 뉴스 제목
-	private String newsLinkUrl; // 뉴스링크
-	private String newsCreatedDate; // 뉴스 생성일
+	private int bannerNewsNumber; // 뉴스 번호
+	private String bannerTitle; // 뉴스 제목
+	private String bannerLinkUrl; // 뉴스링크
+	private String bannerCreatedDate; // 뉴스 생성일
 
-	public int getNewsNumber() {
-		return newsNumber;
+	private String bannerImageFilesNumber;
+
+	public int getBannerNewsNumber() {
+		return bannerNewsNumber;
 	}
 
-	public void setNewsNumber(int newsNumber) {
-		this.newsNumber = newsNumber;
+	public void setBannerNewsNumber(int bannerNewsNumber) {
+		this.bannerNewsNumber = bannerNewsNumber;
 	}
 
-	public String getNewsTitle() {
-		return newsTitle;
+	public String getBannerTitle() {
+		return bannerTitle;
 	}
 
-	public void setNewsTitle(String newsTitle) {
-		this.newsTitle = newsTitle;
+	public void setBannerTitle(String bannerTitle) {
+		this.bannerTitle = bannerTitle;
 	}
 
-	public String getNewsLinkUrl() {
-		return newsLinkUrl;
+	public String getBannerLinkUrl() {
+		return bannerLinkUrl;
 	}
 
-	public void setNewsLinkUrl(String newsLinkUrl) {
-		this.newsLinkUrl = newsLinkUrl;
+	public void setBannerLinkUrl(String bannerLinkUrl) {
+		this.bannerLinkUrl = bannerLinkUrl;
 	}
 
-	public String getNewsCreatedDate() {
-		return newsCreatedDate;
+	public String getBannerCreatedDate() {
+		return bannerCreatedDate;
 	}
 
-	public void setNewsCreatedDate(String newsCreatedDate) {
-		this.newsCreatedDate = newsCreatedDate;
+	public void setBannerCreatedDate(String bannerCreatedDate) {
+		this.bannerCreatedDate = bannerCreatedDate;
+	}
+
+	public String getBannerImageFilesNumber() {
+		return bannerImageFilesNumber;
+	}
+
+	public void setBannerImageFilesNumber(String bannerImageFilesNumber) {
+		this.bannerImageFilesNumber = bannerImageFilesNumber;
 	}
 
 	@Override
 	public String toString() {
-		return "AdminNewsBannerDTO [newsNumber=" + newsNumber + ", newsTitle=" + newsTitle + ", newsLinkUrl="
-				+ newsLinkUrl + ", newsCreatedDate=" + newsCreatedDate + "]";
+		return "AdminNewsBannerDTO [bannerNewsNumber=" + bannerNewsNumber + ", bannerTitle=" + bannerTitle
+				+ ", bannerLinkUrl=" + bannerLinkUrl + ", bannerCreatedDate=" + bannerCreatedDate
+				+ ", bannerImageFilesNumber=" + bannerImageFilesNumber + "]";
 	}
 
 }

@@ -51,22 +51,91 @@ public class AdminTwoFrontController extends HttpServlet {
 		Result result = new Result();
 
 		switch (target) {
-		case "/admin/adminUserManagerListOk.ad":
+		case "/admin/adminUserManagerList.ad":
 			System.out.println("관리자 회원관리 페이지 요청");
-			result = new AdminUserManagerListOkController().Execute(request, response);
+			result = new AdminUserManagerListController().Execute(request, response);
 			break;
-		case "/admin/adminUserDetailOk.ad":
+		case "/admin/adminUserDetail.ad":
 			System.out.println("관리자 회원관리 디테일 페이지 요청");
-			result = new AdminUserDetailOkController().Execute(request, response);
+			result = new AdminUserDetailController().Execute(request, response);
 			break;
-		case "/admin/adminNoticeOk.ad":
+		case "/admin/adminNotice.ad":
 			System.out.println("관리자 공지사항 관리 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNoticeInsert.ad":
+			System.out.println("관리자 공지사항 추가 페이지 요청");
+			result.setRedirect(true);
 			break;
 		case "/admin/adminNoticeInsertOk.ad":
-			System.out.println("관리자 공지사항 추가 페이지 요청");
+			System.out.println("관리자 공지사항 추가 완료 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNoticeDeleteOk.ad":
+			System.out.println("관리자 공지사항 삭제 완료 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNoticeUpdateOk.ad":
+			System.out.println("관리자 공지사항 수정 완료 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNoticeDetail.ad":
+			System.out.println("관리자 공지사항 상세 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminReportList.ad":
+			System.out.println("관리자 신고글 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminReportDeleteOk.ad":
+			System.out.println("관리자 신고글 삭제 완료 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNewsBannerInsert.ad":
+			System.out.println("관리자 뉴스 베너 쓰기 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNewsBannerInsertOk.ad":
+			System.out.println("관리자 뉴스 베너 추가 완료 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNewsBannerDetail.ad":
+			System.out.println("관리자 뉴스 베너 상세 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNewsBanner.ad":
+			System.out.println("관리자 뉴스 베너 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNewsBannerUpdate.ad":
+			System.out.println("관리자 뉴스 베너 수정 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNewsBannerUpdateOk.ad":
+			System.out.println("관리자 뉴스 베너 수정 완료 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminNewsBannerDeleteOk.ad":
+			System.out.println("관리자 뉴스 베너 삭제 완료 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminReferenceList.ad":
+			System.out.println("관리자 문의 관리 페이지 요청");
+			result.setRedirect(true);
+			break;
+		case "/admin/adminReferenceDetail.ad":
+			System.out.println("관리자 문의 상세 페이지 요청");
+			result.setRedirect(true);
 			break;
 		}
-
+		
+		if (result != null) {
+			if (result.isRedirect()) {
+				response.sendRedirect(result.getPath());
+			} else {
+				request.getRequestDispatcher(result.getPath()).forward(request, response);
+			}
+		}
 	}
 
 }

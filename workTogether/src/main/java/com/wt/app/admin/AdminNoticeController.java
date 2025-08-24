@@ -14,7 +14,7 @@ import com.wt.app.Result;
 import com.wt.app.admin.dao.AdminTwoDAO;
 import com.wt.app.dto.AdminNoticeListDTO;
 
-public class AdminNoticeOkController implements Execute {
+public class AdminNoticeController implements Execute {
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
