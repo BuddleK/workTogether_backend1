@@ -12,13 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.admin.dao.AdminTwoDAO;
-import com.wt.app.dto.AdminUserManagerDTO;
+import com.wt.app.dto.AdminNoticeListDTO;
 
-public class AdminUserManagerListOkController implements Execute {
+public class AdminNoticeOkController implements Execute {
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		AdminTwoDAO adminTwoDAO = new AdminTwoDAO();
 		Result result = new Result();
 
@@ -34,10 +35,10 @@ public class AdminUserManagerListOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
 
-		List<AdminUserManagerDTO> userlist = adminTwoDAO.adminUserManager(pageMap);
-		request.setAttribute("userList", userlist);
+		List<AdminNoticeListDTO> noticeList = adminTwoDAO.adminNoticeListSearch(pageMap);
+		request.setAttribute("noticeList", noticeList);
 
-		int total = adminTwoDAO.getUserTotal();
+		int total = adminTwoDAO.getNoticeTotal();
 		int realEndPage = (int) Math.ceil(total / (double) rowCount); // 실제 마지막 페이지(전체 게시글 기준으로 계산)
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount); // 현재 페이지 그룹에서의 마지막 페이지
 		int startPage = endPage - (pageCount - 1); // 현재 페이지 그룹에서의 첫 페이지
@@ -53,10 +54,10 @@ public class AdminUserManagerListOkController implements Execute {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
-
-		result.setPath("/admin/notice.jsp");
+		
+		result.setPath("/admin/userManager.jsp");
 		result.setRedirect(false);
-
+		
 		return result;
 	}
 

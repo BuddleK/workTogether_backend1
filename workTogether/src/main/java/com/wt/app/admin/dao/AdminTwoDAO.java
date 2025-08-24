@@ -19,13 +19,18 @@ public class AdminTwoDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	public int getTotal() {
+	public int getUserTotal() {
 		System.out.println("게시글 총 개수 조회 - getTotal 메소드 실행");
-		return sqlSession.selectOne("admin.getTotal");
+		return sqlSession.selectOne("admin.getUserTotal");
 	}
 
+	public int getNoticeTotal() {
+		System.out.println("게시글 총 개수 조회 - getTotal 메소드 실행");
+		return sqlSession.selectOne("admin.getNoticeTotal");
+	}
+	
 	public List<AdminUserManagerDTO> adminUserManager(Map<String, Integer> pageMap) {
-		List<AdminUserManagerDTO> list = sqlSession.selectList("admin.adminUserManager");
+		List<AdminUserManagerDTO> list = sqlSession.selectList("admin.adminUserManager", pageMap);
 		System.out.println("조회결과 : " + list);
 		return list;
 	}
@@ -35,8 +40,8 @@ public class AdminTwoDAO {
 		return sqlSession.selectOne("admin.adminUserManagerDetail", usersNumber);
 	}
 
-	public List<AdminNoticeListDTO> adminNoticeListSearch() {
-		List<AdminNoticeListDTO> list = sqlSession.selectList("admin.adminNoticeListSearch");
+	public List<AdminNoticeListDTO> adminNoticeListSearch(Map<String, Integer> pageMap) {
+		List<AdminNoticeListDTO> list = sqlSession.selectList("admin.adminNoticeListSearch", pageMap);
 		System.out.println("조회결과 : " + list);
 		return list;
 	}

@@ -306,9 +306,9 @@
 										</c:forEach>
 									</c:when>
 									<c:otherwise>
-										<dev>
-										<div colspan="6" align="center">등록된 유저가 없습니다.</div>
-										</dev>
+										<div>
+											<div colspan="6" align="center">등록된 유저가 없습니다.</div>
+										</div>
 									</c:otherwise>
 								</c:choose>
 							</ul>
