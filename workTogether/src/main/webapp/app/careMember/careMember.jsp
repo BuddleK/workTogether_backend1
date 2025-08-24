@@ -81,7 +81,7 @@
 						<c:forEach var="care" items="${careList}">
 						<li class="care_card">
 							<div class="heart_img_box">
-								<img draggable="false" onclick="switchHeart(0)"
+								<img draggable="false" 
 									class="heart_img"
 									src="./../../assets/img/careMember/heart_icon.png">
 							</div> <a href="./careMemberDetail.jsp" class="profile">

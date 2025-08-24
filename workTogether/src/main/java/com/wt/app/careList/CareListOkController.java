@@ -50,6 +50,13 @@ public class CareListOkController implements Execute  {
 		boolean prev= startPage>1;
 		boolean next = endPage < realEndPage;
 		
+		System.out.println(total);
+		request.setAttribute("page", page);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("prev", prev);
+		request.setAttribute("next", next);
+		
 		Result result = new Result();
 		result.setPath("/app/careMember/careMember.jsp");
 		return result;
