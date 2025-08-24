@@ -16,6 +16,15 @@ public class CarePwCheckOkController implements Execute {
 			throws ServletException, IOException {
 		Result result = new Result();
 
+		CarePwcheckDAO carePwCheckDAO = new CarePwCheckDAO(); 
+		
+		HttpSession session = request.getSession();
+		Integer usersNumber = (Integer) session.getAttribute("usersNumber");
+		
+		
+		
+		
+		
 		result.setPath("/app/myPageCare/careProfile.jsp");
 		result.setRedirect(false);
 		return result;

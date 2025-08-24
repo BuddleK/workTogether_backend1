@@ -15,7 +15,7 @@ public class CareModifyController implements Execute{
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
-		
+
 		result.setPath("/app/myPageCare/careModify.jsp");
 		result.setRedirect(false);
 		return result;
