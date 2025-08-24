@@ -19,6 +19,7 @@
 	</select>
 	
 	<!-- 찜 목록 전체 개수 -->
+	<select id="markTotal">
 		SELECT u.users_number, u.users_id,
        	COUNT(f.favorites_number) AS favorites_count
 		FROM tbl_users u
@@ -26,6 +27,8 @@
        	ON u.users_number = f.users_number
 		WHERE u.users_number = #{usersNumber}
 		GROUP BY u.users_number, u.users_id;
+	</select>
+		
 	
 	
 	<!-- 찜 삭제 쿼리 -->
