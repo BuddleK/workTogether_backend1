@@ -1,12 +1,14 @@
 package com.wt.app.dto;
 
 public class AdminNoticeListDTO {
-	//공지 테이블
+	// 공지 테이블
 	private int noticeNumber; // 공지 번호
 	private String noticeTitle; // 공지 제목
 	private String adminNumber; // 관리자 번호
 	private int noticeViewCount; // 공지 조회 수
 	private String noticeCreatedDate; // 공지 생성 일
+	// 공지 상세에 보이는 부분
+	private String noticeContent; // 공지 내용
 
 	public int getNoticeNumber() {
 		return noticeNumber;
@@ -48,11 +50,19 @@ public class AdminNoticeListDTO {
 		this.noticeCreatedDate = noticeCreatedDate;
 	}
 
+	public String getNoticeContent() {
+		return noticeContent;
+	}
+
+	public void setNoticeContent(String noticeContent) {
+		this.noticeContent = noticeContent;
+	}
+
 	@Override
 	public String toString() {
 		return "AdminNoticeListDTO [noticeNumber=" + noticeNumber + ", noticeTitle=" + noticeTitle + ", adminNumber="
 				+ adminNumber + ", noticeViewCount=" + noticeViewCount + ", noticeCreatedDate=" + noticeCreatedDate
-				+ "]";
+				+ ", noticeContent=" + noticeContent + "]";
 	}
 
 }
