@@ -61,9 +61,11 @@ public class PostsFrontController extends HttpServlet {
 			break;
 		case "/post/postWriteOk.po":
 			System.out.println("게시글 작성 완료 요청");
+			request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);
 			break;
 		case "/post/postDeleteOk.po":
 			System.out.println("게시글 삭제 완료 요청");
+			request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);
 			break;
 		case "/post/postUpdate.po":
 			System.out.println("게시글 수정 페이지 이동 요청");
@@ -71,6 +73,7 @@ public class PostsFrontController extends HttpServlet {
 			break;
 		case "/post/postUpdateOk.po":
 			System.out.println("게시글 수정 완료 요청");
+			request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);
 			break;
 		}
 		

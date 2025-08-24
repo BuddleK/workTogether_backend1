@@ -19,7 +19,7 @@
     <div class="context">
       <div class="post_area">
         <div class="post_title">
-          <c:out value="${post.getPostsNumber()}"/>
+          <c:out value="${post.getPostsTitle()}"/>
         </div>
         <div class="post_info">
           <div class="post_columns">
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="button_area">
-      	<button class="button_list"><a href="${pageContext.request.contextPath}/app/post/postMain.jsp">목록</a></button>
+      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록</a></button>
 		<!-- 신고 버튼 -->
 		<div class="del"><button class="button_del">신고</button></div>
       </div>
