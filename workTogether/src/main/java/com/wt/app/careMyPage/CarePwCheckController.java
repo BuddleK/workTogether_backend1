@@ -11,21 +11,14 @@ import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.users.dao.UsersDAO;
 
-public class CarePwCheckController implements Execute{
+public class CarePwCheckController implements Execute {
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-
-		UsersDAO usersDAO = new UsersDAO();
 		Result result = new Result();
-		HttpSession session = request.getSession();
-		
-		String usersPassword = request.getParameter("usersPassword");
-		Integer usersNumber = (Integer) session.getAttribute("usersNumber");
-		
-		
-		
+
+		result.setPath("/app/myPageCare/carePwCheck.jsp");
+		result.setRedirect(false);
 		return result;
-	}	
+	}
 }
