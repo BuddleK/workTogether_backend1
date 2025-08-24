@@ -9,17 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 
-public class CareMatchingController implements Execute{
+public class CareMatchingController implements Execute {
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-Result result = new Result();
-		
-		
+		Result result = new Result();
+
 		result.setPath("/app/myPageCare/careMatching.jsp");
-	    result.setRedirect(true);
-	     return result;
+		result.setRedirect(false);
+		return result;
 	}
-	
+
 }
