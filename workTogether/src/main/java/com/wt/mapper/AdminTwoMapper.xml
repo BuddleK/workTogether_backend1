@@ -33,6 +33,28 @@
 	]]>
 	</select>
 	
+	<!-- 회원 디테일 조회 -->
+	<select id="adminUserManagerDetail" parameterType="int" resultType="AdiminUserManagerDTO">
+		SELECT 
+            COALESCE(n.users_name, c.users_name) AS users_name,
+            u.users_type,
+            u.users_created_date,
+            COALESCE(n.users_address_line1, c.users_address_line1) AS users_address_line1,
+            COALESCE(n.users_address_line2, c.users_address_line2) AS users_address_line2,
+            COALESCE(n.users_phone, c.users_phone) AS users_phone,
+            COALESCE(n.users_email, c.users_email) AS users_email,
+            u.users_id,
+            u.users_password,
+            u.users_point
+        FROM tbl_users u
+        LEFT JOIN tbl_normal_users n 
+            ON u.users_number = n.users_number
+        LEFT JOIN tbl_care_users c 
+            ON u.users_number = c.users_number
+        WHERE u.users_number = #{usersNumber}
+        ORDER BY u.users_number DESC
+	</select>
+	
 	<!-- 공지사항 조회 -->
 	<select id="adminNoticeListSearch" resultType="AdminNoticeListDTO">
 		SELECT NOTICE_NUMBER , NOTICE_TITLE , ADMIN_NUMBER , NOTICE_VIEW_COUNT , NOTICE_CREATED_DATE 

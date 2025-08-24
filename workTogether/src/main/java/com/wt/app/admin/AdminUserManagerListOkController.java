@@ -19,12 +19,12 @@ public class AdminUserManagerListOkController implements Execute {
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AdminTwoDAO adminDAO = new AdminTwoDAO();
+		AdminTwoDAO adminTwoDAO = new AdminTwoDAO();
 		Result result = new Result();
 
 		String temp = request.getParameter("paging");
 		int page = (temp == null) ? 1 : Integer.valueOf(temp);
-		int rowCount = 10;
+		int rowCount = 7;
 		int pageCount = 5;
 
 		int startRow = (page - 1) * rowCount + 1; // 시작행(1, 11, 21, ..)
@@ -34,10 +34,10 @@ public class AdminUserManagerListOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
 
-		List<AdminUserManagerDTO> userlist = adminDAO.adminUserManager(pageMap);
-		request.setAttribute("userlist", userlist);
+		List<AdminUserManagerDTO> userlist = adminTwoDAO.adminUserManager(pageMap);
+		request.setAttribute("userList", userlist);
 
-		int total = adminDAO.getTotal();
+		int total = adminTwoDAO.getTotal();
 		int realEndPage = (int) Math.ceil(total / (double) rowCount); // 실제 마지막 페이지(전체 게시글 기준으로 계산)
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount); // 현재 페이지 그룹에서의 마지막 페이지
 		int startPage = endPage - (pageCount - 1); // 현재 페이지 그룹에서의 첫 페이지
