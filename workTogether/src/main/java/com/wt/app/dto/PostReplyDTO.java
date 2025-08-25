@@ -7,15 +7,8 @@ public class PostReplyDTO {
 	private String replyContent;
 	private String replyCreatedDate;
 	private String replyUpdatedDate;
-	
+	private String usersType;
 	private String usersName;
-	
-	public String getUsersName() {
-		return usersName;
-	}
-	public void setUsersName(String usersName) {
-		this.usersName = usersName;
-	}
 	public int getReplyNumber() {
 		return replyNumber;
 	}
@@ -52,12 +45,27 @@ public class PostReplyDTO {
 	public void setReplyUpdatedDate(String replyUpdatedDate) {
 		this.replyUpdatedDate = replyUpdatedDate;
 	}
+	public String getUsersType() {
+		return usersType;
+	}
+	public void setUsersType(String usersType) {
+		this.usersType = usersType;
+	}
+	public String getUsersName() {
+		return usersName;
+	}
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
 	@Override
 	public String toString() {
 		return "PostReplyDTO [replyNumber=" + replyNumber + ", postsNumber=" + postsNumber + ", usersNumber="
 				+ usersNumber + ", replyContent=" + replyContent + ", replyCreatedDate=" + replyCreatedDate
-				+ ", replyUpdatedDate=" + replyUpdatedDate + ", usersName=" + usersName + "]";
+				+ ", replyUpdatedDate=" + replyUpdatedDate + ", usersType=" + usersType + ", usersName=" + usersName
+				+ "]";
 	}
+	
+	
 	
 	
 	
