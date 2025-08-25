@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/careMember/careMemberDetail.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/careMember/careMemberDetail.js"></script> 
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/careMember/careMemberModal.css">
@@ -119,18 +119,16 @@
 						<!-- 후기 리스트 ul -->
 						<ul class="comment_list" >
 							<!-- 후기 리스트 li -->
-							<!-- <li class="comment">
+							 <li class="comment">
 								<div class="comment_div">
-									후기 리스트 순번
 									<div class="comment_number">1</div>
-									후기 리스트 작성자
 									<div class="comment_author">아무개</div>
-									후기 리스트 내용
 									<div class="comment_context">나중에 또 부탁드립니다.</div>
-									후기 리스트 날짜
+									<div class="comment_edit"> <button type=button>수정</button> </div>
+									<div class="comment_del"> <button type=button>삭제</button> </div>
 									<div class="comment_date">2025-08-02</div>
 								</div>
-							</li> -->
+							</li> 
 							<!-- 후기 리스트 li -->
 							
 						</ul>
@@ -139,7 +137,7 @@
 							<!-- 후기 입력 창 -->
 							<input type="text" id="comment_text" placeholder="후기를 작성하세요">
 							<!-- 후기 작성 버튼 -->
-							<button onclick="writeComment()" id="comment_button">작성</button>
+							<button id="comment_button">작성</button>
 						</div>
 					</div> <!-- 페이지 네이션 -->
 					<div id="comment_pagenation">
@@ -153,7 +151,7 @@
 </body>
 <script>
 	window.careNumber = "${care.usersNumber}"
-	window.normalNumber = 3;
+	window.normalNumber = 1;
 	console.log(window.careNumber);
 </script>
 </html>
