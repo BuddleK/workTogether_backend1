@@ -21,7 +21,8 @@ public class CommentDeleteOkController implements Execute{
 	     Gson gson = new Gson();
 	     
 	     try {
-	            int commentNumber = Integer.parseInt(request.getParameter("commentNumber"));
+	            int commentNumber = Integer.parseInt(request.getParameter("commentsNumber"));
+	            System.out.println(commentNumber+"값");
 	            dao.delete(commentNumber);
 
 	            response.setContentType("application/json; charset=utf-8");
