@@ -1,6 +1,7 @@
 package com.wt.app.comment.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -25,8 +26,8 @@ public class CommentDAO {
 	}
 	
 	//후기 삭제
-	public void delete(int commentNumber) {
-		sqlSession.delete("comment.delete", commentNumber);
+	public void delete(Map<String, Integer> numbers) {
+		sqlSession.delete("comment.delete", numbers);
 	}
 	
 	//후기 수정
