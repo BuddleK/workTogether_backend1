@@ -101,5 +101,15 @@
      <url-pattern>*.ne</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+     <servlet-name>Comments</servlet-name>
+     <servlet-class>com.wt.app.comment.CommentFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Comments</servlet-name>
+     <url-pattern>*.co</url-pattern>
+  </servlet-mapping>
+  
  
 </web-app>
