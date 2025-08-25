@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 	const commentBtn = document.querySelector("#comment_button");
 	
+	/*추가*/
 	commentBtn?.addEventListener("click", async () => {
 		const contentEl = document.querySelector("#comment_text");
 		const content = contentEl?.value.trim();
@@ -34,10 +35,50 @@ document.addEventListener("DOMContentLoaded", () => {
 		         alert("댓글 작성 중 오류가 발생했습니다.");
 		       }
 	});
+	
+	/* 수정 / 삭제 */
+	
+	if(commentListEl) {
+		commentListEl.addEventListener("click", async (e) => {
+			const target = e.target;
+			//삭제 
+			if(target.matches(".del_btn")) {
+				const normalNumber = target.dataset.number;
+				if(!normalNumber) return;
+				
+				if(confirm("후기를 삭제하십니까?")) {
+					try{
+						const response = await fetch(
+							`/comment/commentDeleteOk.co?careNumber=${encodeURIComponent(careNumber)}`,
+							{
+								method: "GET",
+								headers: {
+									"X-Requested-With": "XMLHttpRequest"
+								}
+							}
+						);
+						const result = await safeJson(response);
+						console.log(result)
+						if(result?.status === "success") {
+							alert("댓 삭제 완료");
+							await loadComments();
+							
+						}else {
+							alert("댓 삭제 실패")
+						}
+					}catch(error){
+						console.error("댓글 삭제 실패 catch", error);
+						alert("댓글 삭제 중 오류 발생으로 인해 실패하였습니다.")
+					}
+				}
+			}
+		})
+	}
 
 	console.log(careNumber + '유저넘버')
 	console.log(normalNumber + 'gkkgk')
 
+	/*불러오기*/
 	async function loadComments() {
 		if (!careNumber) return;
 
@@ -70,13 +111,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		comments.forEach((comment) => {
 			const isMyComment = String(comment.normalNumber) === String(normalNumber);
 			const li = document.createElement("li");
-
+			let num = 1;
 			li.innerHTML = `
 			<div class="comment_div">
-				<div class="comment_number">${comment.normalNumber}</div>
+				<div class="comment_number">${num++}</div>
 				<div class="comment_author">${comment.usersName}</div>
 				<div class="comment_context">${comment.commentsContent}</div>
-				<div class="comment_date">${comment.commentUpdatedDate}</div>
+				<div class="comment_edit" > <button class="edit_btn" data-number="${comment.commentsNumber}" type=button>수정</button> </div>
+				<div class="comment_del" > <button class="del_btn" data-number="${comment.commentsNumber}" type=button>삭제</button> </div>
+				<div class="comment_date">${comment.commentsUpdatedDate}</div>
 			</div>
 	        `;
 			frag.appendChild(li);
