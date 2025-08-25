@@ -68,7 +68,7 @@
 				<c:forEach var="post" items="${postsList}">
 					<li class="post_columns">
 						<a href="${pageContext.request.contextPath}/post/postReadOk.po?postsNumber=${post.postsNumber}">
-            				<span class="post_num"><c:out value="${post.getPostsNumber()}"/></span>
+            				<span class="post_num"><c:out value="${post.getRnum()}"/></span>
             				<span class="post_tit"><c:out value="${post.getPostsTitle()}"/></span>
             				<span class="post_aut"><c:out value="${post.getUsersName()}"/></span>
             				<span class="post_dat"><c:out value="${post.getPostsCreatedDate()}"/></span>
