@@ -80,7 +80,7 @@
 													</a>
 												</div>
 												<div class="users-item body_phone">
-													<a href="${pageContext.request.contextPath}	?usersNumber=${users.usersNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
 														<c:out value="${users.getUserPhone()}" />
 													</a>
 												</div>

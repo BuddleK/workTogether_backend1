@@ -23,7 +23,7 @@ public class FileNoticeDAO {
             System.out.println("파일 저장 완료 - DB에 저장된 행의 개수 : " + result);
 
             // 방금 저장된 파일 확인 (뉴스는 files_number로 연결되므로 PK 기준 조회 예시)
-            FilesLicenseDTO saved = selectByFilesNumber(dto.getFilesNumber());
+            FilesLicenseDTO saved = selectByFilesNumber(dto.getNoticeFilesNumber());
             System.out.println("db에서 가져온 파일 : " + saved);
         } catch (Exception e) {
             System.out.println("파일 저장이 실패되었습니다. : " + e.getMessage());

@@ -18,9 +18,6 @@ import com.wt.app.dto.AdminNewsBoardDTO;
 import com.wt.app.dto.FileNoticeDTO;
 import com.wt.app.dto.FilesLicenseDTO;
 
-
-
-
 public class AdminNewsWriteOkController implements Execute {
 
 	@Override

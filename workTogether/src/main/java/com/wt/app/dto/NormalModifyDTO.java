@@ -45,11 +45,11 @@ public class NormalModifyDTO {
 		this.usersId = usersId;
 	}
 
-	public char getNormalUsersLevel() {
+	public String getNormalUsersLevel() {
 		return normalUsersLevel;
 	}
 
-	public void setNormalUsersLevel(char normalUsersLevel) {
+	public void setNormalUsersLevel(String normalUsersLevel) {
 		this.normalUsersLevel = normalUsersLevel;
 	}
 
