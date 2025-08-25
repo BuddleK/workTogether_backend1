@@ -72,4 +72,8 @@ public class PostsDTO {
 				+ ", usersName=" + usersName + ", postsViewCount=" + postsViewCount + ", postsCreatedDate="
 				+ postsCreatedDate + ", postsUpdatedDate=" + postsUpdatedDate + ", postsContent=" + postsContent + "]";
 	}
+	
+	
+	
+	
 }

@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const btn = form.querySelector('button');
 
   // 맞는 비번이랑 이동할 페이지
-  const CORRECT_PW = '12345678';
-  const NEXT_PAGE = "${pageContext.request.contextPath}/app/myPageCare/careProfile.jsp";
+/*  const CORRECT_PW = '12345678';
+  const NEXT_PAGE = "${pageContext.request.contextPath}/app/myPageCare/careProfile.jsp";*/
 
   // 에러 문구는 처음에 숨기기
   errorDiv.style.display = 'none';
 
   // 버튼 누르면 체크 시작
-  btn.addEventListener('click', (e) => {
+/*  btn.addEventListener('click', (e) => {
     e.preventDefault();
 
     // 비번이 맞으면 에러 숨기고 다음 페이지로
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       errorDiv.textContent = '일치하지 않는 비밀번호 입니다';
       errorDiv.style.display = 'block';
       pwInput.focus();
-      pwInput.select();
+      pwInput.select();*/
     }
   });
 });
