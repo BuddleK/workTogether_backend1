@@ -35,6 +35,7 @@ public class PostReadOkController implements Execute {
 		
 		//DB에서 게시글 가져오기
 		PostsDTO postsDTO = postsDAO.select(postsNumber);
+		System.out.println(postsDTO);
 		
 		//게시글이 존재하지 않을 경우 처리
 		if(postsDTO == null) {
@@ -55,6 +56,11 @@ public class PostReadOkController implements Execute {
 		//로그인한 사용자가 작성자가 아닐 때만 조회수 증가
 		if(!Objects.equals(loginMemberNumber, postsWriterNumber)) {
 			postsDAO.updateReadCount(postsNumber);
+		}
+		
+		if(postsDTO.getPostsUpdatedDate() == null) {
+			System.out.println("널이당!");
+			postsDTO.setPostsUpdatedDate("-");
 		}
 		
 		request.setAttribute("post", postsDTO);
