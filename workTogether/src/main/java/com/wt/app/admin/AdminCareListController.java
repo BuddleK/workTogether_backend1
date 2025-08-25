@@ -60,7 +60,8 @@ public class AdminCareListController implements Execute {
 		System.out.println("list size : " + (list == null ? 0 : list.size()));
 		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 
-		result.setPath("/app/admin/careCareer.jsp");
+		// 이동 경로 (JSP 경로는 프로젝트 구조에 맞게)
+		result.setPath("/app/admin/careRequest.jsp");
 		result.setRedirect(false);
 		return result;
 	}
