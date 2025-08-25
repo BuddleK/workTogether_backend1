@@ -124,8 +124,8 @@
 									<div class="comment_number">1</div>
 									<div class="comment_author">아무개</div>
 									<div class="comment_context">나중에 또 부탁드립니다.</div>
-									<div class="comment_edit"> <button type=button>수정</button> </div>
-									<div class="comment_del"> <button type=button>삭제</button> </div>
+									<div class="comment_edit"> <button type=button class="edit_btn">수정</button> </div>
+									<div class="comment_del"> <button type=button class="del_btn">삭제</button> </div>
 									<div class="comment_date">2025-08-02</div>
 								</div>
 							</li> 
