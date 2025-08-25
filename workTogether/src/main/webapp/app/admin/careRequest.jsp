@@ -28,7 +28,7 @@
         </div>
 
         <!-- 검색(추후 연결) -->
-        <form action=""${pageContext.request.contextPath}/admin/careCareer/list.ad" method="get">
+        <form action="${pageContext.request.contextPath}/admin/careCareer/list.ad" method="get">
           <div class="searchbox">
             <select name="column" class="search_column">
               <option value="number">돌봄 회원 신청 번호</option>
@@ -52,7 +52,7 @@
           </div>
 
           <c:choose>
-            <c:when test="${empty list}">
+            <c:when test="${empty list}"><br>
               <div class="empty">대기 중인 신청이 없습니다.</div>
             </c:when>
             <c:otherwise>

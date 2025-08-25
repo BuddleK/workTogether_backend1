@@ -73,7 +73,7 @@ public class AdminNewsListOkController implements Execute{
         request.setAttribute("realEndPage", realEndPage);
 
         // 6) 포워드 경로
-        result.setPath("/app/admin/news/newsList.jsp");
+        result.setPath("/app/admin/newsList.jsp");
         result.setRedirect(false);
         return result;
 	}
