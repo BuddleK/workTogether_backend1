@@ -63,10 +63,10 @@ public class CommentFrontController extends HttpServlet {
 		    result = new CommentDeleteOkController().Execute(request, response);
 		    break;
 //
-//		case "/comment/commentUpdateOk.co":
-//		    System.out.println("댓글 수정 컨트롤러 진입");
-//		    result = new CommentUpdateOkController().execute(request, response);
-//		    break;
+		case "/comment/commentUpdateOk.co":
+		    System.out.println("댓글 수정 컨트롤러 진입");
+		    result = new CommentUpdateOkController().Execute(request, response);
+		    break;
 		}
 
 		if (result != null) {
