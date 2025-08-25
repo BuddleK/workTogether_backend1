@@ -71,7 +71,7 @@ public class CareMatchingDTO {
 	private String matchDate;
 	private String matchMatchTime;
 	private int matchPoints;
-	private char matchStatus; // DEFAULT 'S' CHECK (match_status IN ('C', 'S', 'D')), -- C: 완료, S: 진행, D: 취소
+	private String matchStatus; // DEFAULT 'S' CHECK (match_status IN ('C', 'S', 'D')), -- C: 완료, S: 진행, D: 취소
 	private String usersName;
 	private int usersNumber;
 	private String usersId;
@@ -111,10 +111,10 @@ public class CareMatchingDTO {
 	public void setMatchPoints(int matchPoints) {
 		this.matchPoints = matchPoints;
 	}
-	public char getMatchStatus() {
+	public String getMatchStatus() {
 		return matchStatus;
 	}
-	public void setMatchStatus(char matchStatus) {
+	public void setMatchStatus(String matchStatus) {
 		this.matchStatus = matchStatus;
 	}
 	public String getUsersName() {

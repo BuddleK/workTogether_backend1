@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% session.setAttribute("usersNumber", 1); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,6 +103,7 @@
   </main>
 
   <jsp:include page="/footer.jsp" />
+
 </body>
 
 </html>
