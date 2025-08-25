@@ -1,7 +1,9 @@
 package com.wt.app.dto;
 
 public class PostsListDTO {
+//  valid => 대림으로 들ㄹ어온 사람들 충ㄺ
 	
+//	토크
 //	게시글 번호
 //	게시글 제목
 //	작성자 번호
@@ -9,12 +11,19 @@ public class PostsListDTO {
 //	조회수
 //	작성일
 	
+	private int rnum;
 	private int postsNumber;
 	private String postsTitle;
 	private int usersNumber;
 	private String usersName;
 	private int postsViewCount;
 	private String postsCreatedDate;
+	public int getRnum() {
+		return rnum;
+	}
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
 	public int getPostsNumber() {
 		return postsNumber;
 	}
@@ -53,9 +62,10 @@ public class PostsListDTO {
 	}
 	@Override
 	public String toString() {
-		return "PostsListDTO [postsNumber=" + postsNumber + ", postsTitle=" + postsTitle + ", usersNumber="
-				+ usersNumber + ", usersName=" + usersName + ", postsViewCount=" + postsViewCount
+		return "PostsListDTO [rnum=" + rnum + ", postsNumber=" + postsNumber + ", postsTitle=" + postsTitle
+				+ ", usersNumber=" + usersNumber + ", usersName=" + usersName + ", postsViewCount=" + postsViewCount
 				+ ", postsCreatedDate=" + postsCreatedDate + "]";
 	}
+	
 	
 }
