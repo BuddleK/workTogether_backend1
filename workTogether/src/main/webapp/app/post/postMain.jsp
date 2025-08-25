@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
-  <script defer src="${pageContext.request.contextPath}/assets/js/post/postMain.js"></script>
+<%--   <script defer src="${pageContext.request.contextPath}/assets/js/post/postMain.js"></script> --%>
 </head>
 <body>
   <jsp:include page="/header.jsp" />
@@ -104,10 +104,10 @@
         <!-- 검색 버튼 -->
         <span id="search_icon_box">
           <!-- 검색 버튼 이미지 -->
-          <img id="search_icon" src="./../../assets/img/careMember/search_icon.png">
+          <img id="search_icon" src="${pageContext.request.contextPath}/assets/img/careMember/search_icon.png">
         </span>
         <div type="button" id="write_button">
-          글쓰기
+          <a href="${pageContext.request.contextPath}/post/postWrite.po" id="write_button_text" >글쓰기</a>
         </div>
       </div>
       <div class="pagination">
@@ -155,8 +155,8 @@
       </div>
     </div>
     <script>
-    	/* let usersNumber = "${sessionScope.memberNumber}"; */
-    	let usersNumber = 48;
+    	let usersNumber = "${sessionScope.memberNumber}"; 
+    	/* let usersNumber = 48; */
     </script>
 </body>
 </html>

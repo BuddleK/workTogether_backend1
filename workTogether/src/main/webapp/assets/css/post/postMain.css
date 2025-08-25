@@ -107,12 +107,13 @@ main {
 }
 #write_button{
   background-color: rgb(60, 61, 122);
-  color: white;
   padding: 7px 40px;
   position: absolute;
   right: 0%;
 }
-
+#write_button_text{
+  color: white;
+}
 
 
 

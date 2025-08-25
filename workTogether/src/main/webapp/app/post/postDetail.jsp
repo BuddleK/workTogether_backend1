@@ -32,7 +32,7 @@
             등록일
           </div>
           <div class="post_col">
-            <c:out value="${page.getPostsViewCount()}"/>
+            <c:out value="${post.getPostsCreatedDate()}"/>
           </div>
           <div class="post_columns">
             수정일
@@ -44,7 +44,7 @@
             조회수
           </div>
           <div class="post_col">
-            <c:out value="${post.getPostsUpdatedDate()}"/>
+            <c:out value="${post.getPostsViewCount()}"/>
           </div>
         </div>
         <div id="context_box">
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="button_area">
-      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">로</button>
+      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록으로</button>
 		<!-- 신고 버튼 -->
 		<div class="del"><button class="button_del">신고</button></div>
       </div>
@@ -166,5 +166,9 @@
     </div>
   </div>
   <jsp:include page="/footer.jsp" />
+  <script>
+    let usersNumber = "${sessionScope.memberNumber}";
+/*     let usersNumber = 48; */
+  </script>
 </body>
 </html>
