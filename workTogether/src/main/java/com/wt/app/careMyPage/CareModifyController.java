@@ -21,6 +21,7 @@ public class CareModifyController implements Execute{
 			throws ServletException, IOException {
 	System.out.println("fdssdfsfd");
 		CareModifyDAO careModifyDAO = new CareModifyDAO();
+		CareModifyDTO careModifyDTO = new CareModifyDTO();
 		Result result = new Result();
 		
 //		String usersNumber = Integer.parseInt(usersNumber);
@@ -31,7 +32,7 @@ public class CareModifyController implements Execute{
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return null;
 		}
-		AdminCareSignupDTO item = careModifyDAO.careSignupOne(usersNumber);
+		
 		
 		System.out.println("fds");
 		
