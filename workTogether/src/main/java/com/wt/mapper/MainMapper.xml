@@ -15,7 +15,7 @@
 			from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
 			GROUP BY shops_number, shops_name, shops_intro_text
 			ORDER BY count(*) DESC)
-		where rownum <= 4
+		where ROWNUM <= 4
 	</select>
 	
 	
@@ -43,13 +43,36 @@
 	
 	<!-- 돌봄 회원 -->
 	<select id="care" parameterType="CareListDTO">
-		SELECT * FROM (
-    		SELECT h.hearts_care_number,
-           	COUNT(*) AS heart_count
-    		FROM tbl_hearts h
-    		GROUP BY h.hearts_care_number
-    		ORDER BY COUNT(*) DESC)
-		WHERE ROWNUM <= 4
+		SELECT *
+		FROM (
+    		SELECT c.users_number AS usersNumber,
+           		c.users_name AS usersName,
+          		 c.care_intro_text,
+          		 c.care_profiles_photo_number AS profilesFilesNumber,
+           		fp.profiles_files_path AS profilesFilesPath,
+           		COUNT(h.hearts_care_number) AS heartsCareNumber,
+           		d.day_monday,
+           		d.day_tuesday,
+           		d.day_wednesday,
+           		d.day_thursday,
+           		d.day_friday,
+           		d.day_saturday,
+           		d.day_sunday
+    		FROM tbl_care_users c
+    		JOIN tbl_users u ON c.users_number = u.users_number
+    		LEFT JOIN tbl_files_profiles fp 
+           	ON c.care_profiles_photo_number = fp.profiles_files_number
+    		LEFT JOIN tbl_day d 
+           	ON c.users_number = d.users_number
+    		LEFT JOIN tbl_hearts h 
+           	ON c.users_number = h.hearts_care_number
+    		GROUP BY c.users_number, c.users_name, c.care_intro_text, 
+             	c.care_profiles_photo_number, fp.profiles_files_path,
+             	d.day_monday, d.day_tuesday, d.day_wednesday,
+             	d.day_thursday, d.day_friday, d.day_saturday, d.day_sunday
+   		 ORDER BY COUNT(h.hearts_care_number) DESC
+		)
+		WHERE ROWNUM <= 4;
 	</select>
 
 </mapper>
