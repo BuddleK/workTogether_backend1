@@ -20,9 +20,7 @@ public class PostListOkController implements Execute {
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("====postListOkController 실행====");
-		System.out.println("여기가 문젠가1");
 		PostsDAO postsDAO = new PostsDAO();
-		System.out.println("여기가 문젠가2");
 		Result result = new Result();
 		
 		
@@ -59,14 +57,13 @@ public class PostListOkController implements Execute {
 		
 		System.out.println("====페이징정보 확인====");
 		System.out.println("pageMap : " + pageMap);
-		System.out.println("boardList : " + postsList);
+		System.out.println("postsList : " + postsList);
 		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
 		
 		result.setPath("/app/post/postMain.jsp");
 		result.setRedirect(false);
 		
-		System.out.println("잘... 가져왔으려나");
 		
 		return result;
 	}

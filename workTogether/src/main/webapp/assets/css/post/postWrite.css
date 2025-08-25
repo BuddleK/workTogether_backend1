@@ -15,7 +15,7 @@ main {
   /* background-color: white; */
 }
 .context{
-  background-color: pink;
+
   width: 1100px;
   display: flex;
   flex-direction: column;

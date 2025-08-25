@@ -57,7 +57,8 @@ public class PostsFrontController extends HttpServlet {
 			break;
 		case "/post/postWrite.po":
 			System.out.println("게시글 작성 페이지 이동 요청");
-			request.getRequestDispatcher("/app/post/postWrite.jsp").forward(request, response);
+//			request.getRequestDispatcher("/app/post/postWrite.jsp").forward(request, response);
+			result = new PostWriteController().Execute(request, response);
 			break;
 		case "/post/postWriteOk.po":
 			System.out.println("게시글 작성 완료 요청");
