@@ -37,8 +37,8 @@ public class CareMarkController implements Execute {
 		pageMap.put("endRow", endRow);
 
 		// 게시글 목록 조회
-		List<CareMarkDTO> markList = careMarkDAO.markAll(pageMap);
-		request.setAttribute("boardList", boardList);
+		List<CareMarkDTO> markList = careMarkDAO.matchingMonth(pageMap);
+		request.setAttribute("markList", markList);
 
 		// 페이징 정보 설정
 		// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회
@@ -61,6 +61,12 @@ public class CareMarkController implements Execute {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
+		
+		System.out.println("====페이징정보 확인====");
+		System.out.println("pageMap : " + pageMap);
+		System.out.println("markList : " + markList);
+		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
+		System.out.println("====================");
 		
 		result.setPath("/app/myPageCare/careMark.jsp");
 		result.setRedirect(false);
