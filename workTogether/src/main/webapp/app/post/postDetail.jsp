@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/post/postDetailNotlogin.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
-  <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
+   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script> 
   <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetailNotlogin.js"></script>
 </head>
 <body>
@@ -32,7 +32,7 @@
             등록일
           </div>
           <div class="post_col">
-            <c:out value="${page.getPostsViewCount()}"/>
+            <c:out value="${post.getPostsCreatedDate()}"/>
           </div>
           <div class="post_columns">
             수정일
@@ -44,7 +44,7 @@
             조회수
           </div>
           <div class="post_col">
-            <c:out value="${post.getPostsUpdatedDate()}"/>
+            <c:out value="${post.getPostsViewCount()}"/>
           </div>
         </div>
         <div id="context_box">
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="button_area">
-      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">로</button>
+      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록으로</button>
 		<!-- 신고 버튼 -->
 		<div class="del"><button class="button_del">신고</button></div>
       </div>
@@ -79,7 +79,7 @@
     </div>
   </main>
   <!-- 신고 확인 모달 -->
-  <div class="checkmodal" id="editModal">
+  <!-- <div class="checkmodal" id="editModal">
     <div class="modal_box">
       <p>이 게시글을  신고하시겠습니까?</p>
       <div class="exit-value">
@@ -95,24 +95,28 @@
         <button id="cancle">취소</button>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- 자신이 이미 신고한 게시글일때 모달 -->
-  <div class="notmodal" id="editModal">
+  <!-- <div class="notmodal" id="editModal">
     <div class="modal_box">
       <p>이미 신고한 게시글입니다</p>
       <div class="modal_buttons">
         <button id="notcheck">확인</button>
       </div>
     </div>
-  </div>
-  <div class="reportmodal">
+  </div> -->
+  <!-- <div class="reportmodal">
     <div class="modal_box">
       <p>신고되었습니다</p>
       <div class="modal_buttons">
         <button id="reportcheck">확인</button>
       </div>
     </div>
-  </div>
+  </div> -->
   <jsp:include page="/footer.jsp" />
+  <script>
+    /* let usersNumber = "${sessionScope.memberNumber}"; */
+   let usersNumber = 3; 
+  </script>
 </body>
 </html>

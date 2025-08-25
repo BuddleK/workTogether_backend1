@@ -10,7 +10,6 @@ public class PostsDTO {
 //	작성일
 //	내용
 
-	
 	private int postsNumber;
 	private String postsTitle;
 	private int usersNumber;
@@ -73,7 +72,6 @@ public class PostsDTO {
 				+ ", usersName=" + usersName + ", postsViewCount=" + postsViewCount + ", postsCreatedDate="
 				+ postsCreatedDate + ", postsUpdatedDate=" + postsUpdatedDate + ", postsContent=" + postsContent + "]";
 	}
-	
 	
 	
 	
