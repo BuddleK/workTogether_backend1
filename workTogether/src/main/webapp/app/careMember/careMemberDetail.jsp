@@ -139,7 +139,7 @@
 							<!-- 후기 입력 창 -->
 							<input type="text" id="comment_text" placeholder="후기를 작성하세요">
 							<!-- 후기 작성 버튼 -->
-							<button onclick="writeComment()" id="comment_button">작성</button>
+							<button id="comment_button">작성</button>
 						</div>
 					</div> <!-- 페이지 네이션 -->
 					<div id="comment_pagenation">
