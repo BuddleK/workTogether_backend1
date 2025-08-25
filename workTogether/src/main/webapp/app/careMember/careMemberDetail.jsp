@@ -151,7 +151,7 @@
 </body>
 <script>
 	window.careNumber = "${care.usersNumber}"
-	window.normalNumber = 1;
+	window.usersNumber = 1;
 	console.log(window.careNumber);
 </script>
 </html>

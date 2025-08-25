@@ -14,6 +14,12 @@
 	</insert>
 	
 	<delete id="delete" parameterType="int">
-		delete from tbl_comments where comments_number = #{commentsNumber}
+		delete from tbl_comments where comments_number = #{commentsNumber} and normal_number = #{normalNumber}
 	</delete>
+	
+	<update id="update" parameterType="CommentDTO">
+    UPDATE RICEBALL.TBL_COMMENTS
+	SET COMMENTS_CONTENT=#{commentsContent}, COMMENTS_UPDATED_DATE = sysdate
+	WHERE COMMENTS_NUMBER=#{commentsNumber}
+  </update>
 </mapper>

@@ -332,3 +332,7 @@ main {
   /* background-color: blue; */
   text-align: center;
 }
+
+.comment_btn_group{
+	display: flex;
+}
