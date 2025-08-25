@@ -7,7 +7,7 @@ public class AdminUserManagerDTO {
 	private String userId; // 전체 유저 아이디
 	private String userEmail; // 일반 or 돌봄 유저 이메일
 	private String userPhone; // 일반 or 돌봄 유저 전화번호
-	private char userType; // 유저 타입
+	private String userType; // 유저 타입
 
 	// 유저 디테일 페이지를 위한 필드
 	private String usersCreatedDate; // 유저 생성일
@@ -97,11 +97,11 @@ public class AdminUserManagerDTO {
 	}
 
 	public int getUsers_point() {
-		return users_point;
+		return usersPoint;
 	}
 
 	public void setUsers_point(int users_point) {
-		this.users_point = users_point;
+		this.usersPoint = users_point;
 	}
 
 	@Override
@@ -109,8 +109,8 @@ public class AdminUserManagerDTO {
 		return "AdminUserManagerDTO [userNumber=" + userNumber + ", userName=" + userName + ", userId=" + userId
 				+ ", userEmail=" + userEmail + ", userPhone=" + userPhone + ", userType=" + userType
 				+ ", usersCreatedDate=" + usersCreatedDate + ", usersAddressLine1=" + usersAddressLine1
-				+ ", usersAddressLine2=" + usersAddressLine2 + ", usersPassword=" + usersPassword + ", users_point="
-				+ users_point + "]";
+				+ ", usersAddressLine2=" + usersAddressLine2 + ", usersPassword=" + usersPassword + ", usersPoint="
+				+ usersPoint + "]";
 	}
 
 }

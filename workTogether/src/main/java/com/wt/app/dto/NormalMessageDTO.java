@@ -7,7 +7,7 @@ public class NormalMessageDTO {
 	private int normalNumber; // 일반 회원 번호	
 	private String messageContent; // 쪽지 내용
 	private String messageDate; // 쪽지 날짜
-	private char isRead; // 읽음 여부
+	private String isRead; // 읽음 여부
 	
 	private char senderType; // 보낸 쪽지/받은 쪽지
 
