@@ -24,15 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		         const result = await safeJson(response);
 		         if (result?.status === "success") {
-		           alert("댓글이 작성되었습니다.");
+		           alert("후기 작성되었습니다.");
 		           if (contentEl) contentEl.value = "";
 		           await loadComments();
 		         } else {
-		           alert("댓글 작성에 실패했습니다.");
+		           alert("후기 작성에 실패했습니다.");
 		         }
 		       } catch (error) {
-		         console.error("댓글 작성 실패:", error);
-		         alert("댓글 작성 중 오류가 발생했습니다.");
+		         console.error("후기작성 실패:", error);
+		         alert("후기 작성 중 오류가 발생했습니다.");
 		       }
 	});
 	
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				if(confirm("후기를 삭제하십니까?")) {
 					try{
 						const response = await fetch(
-							`/comment/commentDeleteOk.co?careNumber=${encodeURIComponent(careNumber)}`,
+							`/comment/commentDeleteOk.co?commentsNumber=${encodeURIComponent(commentsNumber)}`,
 							{
 								method: "GET",
 								headers: {
@@ -60,15 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
 						const result = await safeJson(response);
 						console.log(result)
 						if(result?.status === "success") {
-							alert("댓 삭제 완료");
+							alert("후기 삭제 완료");
 							await loadComments();
 							
 						}else {
-							alert("댓 삭제 실패")
+							alert("후기 삭제 실패")
 						}
 					}catch(error){
 						console.error("댓글 삭제 실패 catch", error);
-						alert("댓글 삭제 중 오류 발생으로 인해 실패하였습니다.")
+						alert("후기 삭제 중 오류 발생으로 인해 실패하였습니다.")
 					}
 				}
 			}
