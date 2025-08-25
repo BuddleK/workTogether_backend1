@@ -14,14 +14,14 @@ public class CommentDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
+	//후기 목록
+		public List<CommentDTO> selectAll(int careNumber){
+			return sqlSession.selectList("comment.selectAll", careNumber);
+		}
+	
 	//후기 작성
 	public void insert(CommentDTO commentDTO) {
-		sqlSession.insert("comment.selectAll", commentDTO);
-	}
-	
-	//후기 목록
-	public List<CommentDTO> selectAll(int careNumber){
-		return sqlSession.selectList("comment.selectAll", careNumber);
+		sqlSession.insert("comment.insert", commentDTO);
 	}
 	
 	//후기 삭제
