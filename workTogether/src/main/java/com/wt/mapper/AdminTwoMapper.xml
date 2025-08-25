@@ -14,7 +14,7 @@
 	</select>
 	
 	<!-- 회원 정보 조회 -->
-	<select id="adminUserManager" resultType="AdiminUserManagerDTO">
+	<select id="adminUserManager" resultType="AdminUserManagerDTO">
 	<![CDATA[
 	SELECT *
 	FROM (
@@ -40,7 +40,7 @@
 	</select>
 	
 	<!-- 회원 디테일 조회 -->
-	<select id="adminUserManagerDetail" parameterType="int" resultType="AdiminUserManagerDTO">
+	<select id="adminUserManagerDetail" parameterType="int" resultType="AdminUserManagerDTO">
 		SELECT 
             COALESCE(n.users_name, c.users_name) AS users_name,
             u.users_type,
