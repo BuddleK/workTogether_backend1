@@ -7,6 +7,8 @@ public class CommentDTO {
     private String commentsContent;
     private String commentsCreatedDate;
     private String commentsUpdatedDate;
+    private String usersName;
+    
 	public int getCommentsNumber() {
 		return commentsNumber;
 	}
@@ -43,12 +45,19 @@ public class CommentDTO {
 	public void setCommentsUpdatedDate(String commentsUpdatedDate) {
 		this.commentsUpdatedDate = commentsUpdatedDate;
 	}
+	public String getUsersName() {
+		return usersName;
+	}
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
 	@Override
 	public String toString() {
 		return "CommentDTO [commentsNumber=" + commentsNumber + ", normalNumber=" + normalNumber + ", careNumber="
 				+ careNumber + ", commentsContent=" + commentsContent + ", commentsCreatedDate=" + commentsCreatedDate
-				+ ", commentsUpdatedDate=" + commentsUpdatedDate + "]";
+				+ ", commentsUpdatedDate=" + commentsUpdatedDate + ", usersName=" + usersName + "]";
 	}
+	
     
     
 }
