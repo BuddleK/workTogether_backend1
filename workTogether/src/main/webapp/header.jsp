@@ -47,7 +47,6 @@
       <li>
         <div>
           <a href="${pageContext.request.contextPath}/map/mapMain.ma">
-          <%-- <a href="${pageContext.request.contextPath}/map/mapMain.map"> --%>
             · 지도
           </a>
         </div>
@@ -55,7 +54,6 @@
       <li>
         <div>
           <a href="${pageContext.request.contextPath}/app/subwayLine/subway.jsp">
-          <%-- <a href="${pageContext.request.contextPath}/app/subwayLine/subway.jsp"> --%>
             · 지하철 노선도
           </a>
         </div>

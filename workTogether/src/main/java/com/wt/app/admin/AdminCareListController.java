@@ -61,7 +61,7 @@ public class AdminCareListController implements Execute {
 		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 
 		// 이동 경로 (JSP 경로는 프로젝트 구조에 맞게)
-		result.setPath("add/admin/careRequest.jsp");
+		result.setPath("/app/admin/careRequest.jsp");
 		result.setRedirect(false);
 		return result;
 	}
