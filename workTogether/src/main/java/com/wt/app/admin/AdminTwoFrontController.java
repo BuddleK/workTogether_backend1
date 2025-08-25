@@ -61,51 +61,51 @@ public class AdminTwoFrontController extends HttpServlet {
 			break;
 		case "/admin/adminNotice.ad":
 			System.out.println("관리자 공지사항 관리 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeController().Execute(request, response);
 			break;
 		case "/admin/adminNoticeInsert.ad":
 			System.out.println("관리자 공지사항 추가 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeInsertController().Execute(request, response);
 			break;
 		case "/admin/adminNoticeInsertOk.ad":
 			System.out.println("관리자 공지사항 추가 완료 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeInsertOkController().Execute(request, response);
 			break;
 		case "/admin/adminNoticeDeleteOk.ad":
 			System.out.println("관리자 공지사항 삭제 완료 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeDeleteOkController().Execute(request, response);
 			break;
 		case "/admin/adminNoticeUpdateOk.ad":
 			System.out.println("관리자 공지사항 수정 완료 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeUpdateOkController().Execute(request, response);
 			break;
 		case "/admin/adminNoticeDetail.ad":
 			System.out.println("관리자 공지사항 상세 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeDetailController().Execute(request, response);
 			break;
 		case "/admin/adminReportList.ad":
 			System.out.println("관리자 신고글 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminReportListController().Execute(request, response);
 			break;
 		case "/admin/adminReportDeleteOk.ad":
 			System.out.println("관리자 신고글 삭제 완료 요청");
-			result.setRedirect(true);
+			result = new AdminReportDeleteOkController().Execute(request, response);
 			break;
 		case "/admin/adminNewsBannerInsert.ad":
 			System.out.println("관리자 뉴스 베너 쓰기 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerInsertController().Execute(request, response);
 			break;
 		case "/admin/adminNewsBannerInsertOk.ad":
 			System.out.println("관리자 뉴스 베너 추가 완료 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerInsertOkController().Execute(request, response);
 			break;
 		case "/admin/adminNewsBannerDetail.ad":
 			System.out.println("관리자 뉴스 베너 상세 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerDetailController().Execute(request, response);
 			break;
 		case "/admin/adminNewsBanner.ad":
 			System.out.println("관리자 뉴스 베너 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerController().Execute(request, response);
 			break;
 		case "/admin/adminNewsBannerUpdate.ad":
 			System.out.println("관리자 뉴스 베너 수정 페이지 요청");

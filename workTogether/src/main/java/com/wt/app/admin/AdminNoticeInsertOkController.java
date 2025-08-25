@@ -52,19 +52,24 @@ public class AdminNoticeInsertOkController implements Execute{
 		Enumeration<String> fileNames = multipartRequest.getFileNames();
 		while(fileNames.hasMoreElements()) {
 			String name = fileNames.nextElement();
-			String setNoticeFilesName = multipartRequest.getFilesystemName(name);
+			String noticeFilesName = multipartRequest.getFilesystemName(name);
 			String fileOriginalName = multipartRequest.getOriginalFileName(name);
 			
-			if(setNoticeFilesName == null) {
+			if(noticeFilesName == null) {
 				continue;
 			}
 			
-			fileNoticeDTO.setNoticeFilesName(setNoticeFilesName);
-			fileNoticeDTO.setNoticeFilesNumber(noticeNumber);
+			fileNoticeDTO.setNoticeFilesName(noticeFilesName);
+			fileNoticeDTO.setNoticeNumber(noticeNumber);
 			
-			System.out.println("업로드 된 파일 정보 : " + fileDTO);
-			fileDAO.insert(fileDTO);
+			System.out.println("업로드 된 파일 정보 : " + fileNoticeDTO);
+			fileNoticeDAO.insert(fileNoticeDTO);
 		}
+		
+		result.setPath("/admin/adminNoticeInsertOk.ad");
+		result.setRedirect(false);
+		
+		return result;
 	}
 	
 }

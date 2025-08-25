@@ -1,11 +1,10 @@
 package com.wt.app.FileNotice.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.FileNoticeDTO;
 import com.wt.app.dto.FilesLicenseDTO;
 import com.wt.config.MyBatisConfig;
 
@@ -17,7 +16,7 @@ public class FileNoticeDAO {
 	}
 
 	// 파일 추가 메소드
-    public void insert(FilesLicenseDTO dto) {
+    public void insert(FileNoticeDTO dto) {
         System.out.println("파일 DAO - 파일 저장 " + dto);
         try {
             int result = sqlSession.insert("fileNotice.insert", dto);
