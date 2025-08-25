@@ -6,11 +6,34 @@ document.addEventListener("DOMContentLoaded", () => {
 	const commentBtn = document.querySelector("#comment_button");
 	
 	commentBtn?.addEventListener("click", async () => {
-		const contentEl = document.querySelector("comment_text");
+		const contentEl = document.querySelector("#comment_text");
 		const content = contentEl?.value.trim();
-		if (!content) return alert("댓글 내용을 입력해주세요.");
-		   if (!careNumber || !normalNumber) return alert("care || user Number의 값이 없습니다.");
-	})
+		if (!content) return alert("후기를 입력해주세요.");
+		   if (!careNumber || !normalNumber) return alert("care || userNumber의 값이 없습니다.");
+		   
+		   try {
+		         const response = await fetch("/comment/commentWriteOk.co", {
+		           method: "POST",
+		           headers: {
+		             "Content-Type": "application/json; charset=utf-8",
+		             "X-Requested-With": "XMLHttpRequest",
+		           },
+		           body: JSON.stringify({ careNumber, normalNumber, commentsContent: content }),
+		         });
+
+		         const result = await safeJson(response);
+		         if (result?.status === "success") {
+		           alert("댓글이 작성되었습니다.");
+		           if (contentEl) contentEl.value = "";
+		           await loadComments();
+		         } else {
+		           alert("댓글 작성에 실패했습니다.");
+		         }
+		       } catch (error) {
+		         console.error("댓글 작성 실패:", error);
+		         alert("댓글 작성 중 오류가 발생했습니다.");
+		       }
+	});
 
 	console.log(careNumber + '유저넘버')
 	console.log(normalNumber + 'gkkgk')

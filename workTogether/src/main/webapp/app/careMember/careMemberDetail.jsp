@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/careMember/careMemberDetail.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/careMember/careMemberDetail.js"></script> 
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/careMember/careMemberModal.css">
@@ -124,6 +124,8 @@
 									<div class="comment_number">1</div>
 									<div class="comment_author">아무개</div>
 									<div class="comment_context">나중에 또 부탁드립니다.</div>
+									<div class="comment_edit"> <button type=button>수정</button> </div>
+									<div class="comment_del"> <button type=button>삭제</button> </div>
 									<div class="comment_date">2025-08-02</div>
 								</div>
 							</li> 
@@ -149,7 +151,7 @@
 </body>
 <script>
 	window.careNumber = "${care.usersNumber}"
-	window.normalNumber = 0;
+	window.normalNumber = 1;
 	console.log(window.careNumber);
 </script>
 </html>
