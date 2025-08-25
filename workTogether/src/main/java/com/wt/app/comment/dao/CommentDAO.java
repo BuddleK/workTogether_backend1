@@ -26,11 +26,11 @@ public class CommentDAO {
 	
 	//후기 삭제
 	public void delete(int commentNumber) {
-		sqlSession.delete("reply.delete", commentNumber);
+		sqlSession.delete("comment.delete", commentNumber);
 	}
 	
 	//후기 수정
 	public void update(CommentDTO commentDTO) {
-		sqlSession.update("reply.update", commentDTO);
+		sqlSession.update("comment.update", commentDTO);
 	}
 }
