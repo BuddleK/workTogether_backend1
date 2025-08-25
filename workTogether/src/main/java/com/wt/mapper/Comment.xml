@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comment">
 	<select id="selectAll" resultType="CommentDTO">
-		select c.normal_number, nu.users_name, c.care_number, c.comments_content, c.comments_updated_date
+		select c.normal_number, nu.users_name, c.care_number, c.comments_content, c.comments_created_date, c.comments_updated_date
 		from tbl_comments c
 		left join tbl_normal_users nu on c.normal_number = nu.users_number
 		where c.care_number = #{careNumber}
