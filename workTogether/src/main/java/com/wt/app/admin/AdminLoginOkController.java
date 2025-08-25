@@ -38,7 +38,7 @@ public class AdminLoginOkController implements Execute{
         
         if (adminNumber != -1) {
             // 로그인 성공 → 세션 저장 후 관리자 화면으로
-        	path = "/app/admin/userManager.ad";
+        	path = "/admin/care/list.ad";
             session.setAttribute("adminNumber", adminNumber);
             System.out.println("세션값 : " + adminNumber);
             
