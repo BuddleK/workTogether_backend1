@@ -50,7 +50,7 @@ public class AdminNewsReadOkController implements Execute{
 	        request.setAttribute("mine", mine);
 
 	        result.setPath("/app/admin/newsBoadDetail.ad");
-	        result.setRedirect(false);
+	        result.setRedirect(true);
 	        return result;
 	}
 

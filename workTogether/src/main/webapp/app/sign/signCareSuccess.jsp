@@ -21,16 +21,19 @@
 <body>
 	<jsp:include page="/header.jsp" />
 	<main>
-		<section class="result">
-			<div class="result_content">
-				<div class="result_content_box">
-					<div class="content_box_title">돌봄 회원 등록 신청이 완료되었습니다.</div>
-					<div class="content_box_value">
-						<a href="${pageContext.request.contextPath}/users/login.us">로그인하기</a>
+		<form>
+			<section class="result">
+				<div class="result_content">
+					<div class="result_content_box">
+						<div class="content_box_title">돌봄 회원 등록 신청이 완료되었습니다.</div>
+						<div class="content_box_value">
+							<a href="${pageContext.request.contextPath}/users/login.us">로그인하기</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+
+		</form>
 	</main>
 	<jsp:include page="/footer.jsp" />
 </body>

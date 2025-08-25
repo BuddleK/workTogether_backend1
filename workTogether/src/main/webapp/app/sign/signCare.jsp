@@ -34,7 +34,7 @@
 					}
 				}).open();
 	}
-</script>	
+</script>
 </head>
 <body>
 	<jsp:include page="/header.jsp" />
@@ -130,10 +130,15 @@
 					<input type="text" name="careIntroText" placeholder="간단한 소개(선택)">
 				</div>
 
+				<!-- <input type="file" id="selectedFile" style="display: none;" /> <input
+					type="button" value="파일추가"
+					onclick="document.getElementById('selectedFile').click();" /> -->
 				<div class="file">
 					<input type="number" name="careCertificateFilesNum"
 						placeholder="자격증 파일번호">
-					<button type="button">파일첨부</button>
+					<input type="file" id="selectedFile" style="display: none;" /> <input
+					type="button" value="파일첨가"
+					onclick="document.getElementById('selectedFile').click();" />
 				</div>
 				<div class="file">
 					<input type="number" name="carePassbookFilesNum"

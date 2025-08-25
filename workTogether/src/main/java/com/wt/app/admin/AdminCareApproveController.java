@@ -22,8 +22,8 @@ public class AdminCareApproveController implements Execute {
 
 		String usersNumberStr = request.getParameter("usersNumber");
 		if (usersNumberStr == null) {
-			System.out.println("[Approve] usersNumber 파라미터 없음");
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			System.out.println(" usersNumber 파라미터 없음");
+			response.sendError(HtpServletResponse.SC_BAD_REQUEST);
 			return null;
 		}
 
