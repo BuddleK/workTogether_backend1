@@ -30,7 +30,7 @@ public class AdminNewsWriteController implements Execute{
 	            path = "/app/admin/login.jsp";
 	        } else {
 	            // 로그인 한 경우 → 뉴스 작성 페이지
-	            path = "/app/admin/news/newsWrite.jsp";
+	            path = "/admin/news/newsWriteOk.ad";
 	            request.setAttribute("adminName", adminDAO.getAdminName(adminNumber));
 	        }
 
