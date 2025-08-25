@@ -30,11 +30,11 @@ public class CarePwCheckOkController implements Execute {
 //		request.setAttribute("pwCheck", pwCheck);
 		
 		if(pwCheck) {
-            result.setPath("/myPageCare/careProfile.cp");
+            result.setPath("/app/myPageCare/careProfile.jsp");
             result.setRedirect(true);
         } else {
         	request.setAttribute("pwCheck", false);
-            result.setPath("/myPageCare/carePwCheck.cp");
+            result.setPath("/app/myPageCare/carePwCheck.jsp");
             result.setRedirect(false);
             request.setAttribute("errorMessage", "비밀번호가 올바르지 않습니다.");
         }

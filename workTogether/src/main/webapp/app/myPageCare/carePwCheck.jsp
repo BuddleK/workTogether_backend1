@@ -64,10 +64,10 @@
 				method="post">
 				비밀번호<input name="usersPassword" type="password" placeholder="비밀번호 8자리 입력">
 				<button type="submit">비밀번호 확인</button>
-			</form>
 			<c:if test="${not empty pwCheck and not pwCheck}">
 				<div>일치하지 않는 비밀번호 입니다</div>
 			</c:if>
+			</form>
 		</div>
 	</main>
 	<jsp:include page="/footer.jsp" />

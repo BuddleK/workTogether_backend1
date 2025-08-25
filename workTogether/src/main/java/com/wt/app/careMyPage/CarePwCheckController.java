@@ -15,7 +15,7 @@ public class CarePwCheckController implements Execute {
 			throws ServletException, IOException {
 		Result result = new Result();
 
-			
+		System.out.println("fdf");
 		result.setPath("/app/myPageCare/carePwCheck.jsp");
 		result.setRedirect(false);
 		return result;
