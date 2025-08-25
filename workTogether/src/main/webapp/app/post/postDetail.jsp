@@ -65,58 +65,6 @@
             <span class="reply_author">홍길동</span>
             <span class="reply_context">형을 형이라 부르지 못하고</span>
           </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
-          <li class="reply">
-            <span class="reply_author">클로렐라</span>
-            <span class="reply_context">정말 초록초록 해요</span>
-          </li>
         </ul>
       </div>
       <div>
