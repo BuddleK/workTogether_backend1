@@ -15,7 +15,7 @@ public class SubwayLineController implements Execute {
 	public Result Execute(HttpServletRequest request, HttpServletResponse response) {
 		Result result = new Result();
 
-		result.setPath("/admin/subwayLine.sw");
+		result.setPath("/subway/subway.jsp");
 		result.setRedirect(false);
 		return result;
 
