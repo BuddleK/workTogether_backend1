@@ -26,7 +26,31 @@
    		<typeAlias type="com.wt.app.dto.MarkerDTO" alias="MarkerDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.CommentDTO" alias="CommentDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.AdminUserManagerDTO" alias="AdminUserManagerDTO"></typeAlias>
+<<<<<<< HEAD
    		<typeAlias type="com.wt.app.dto.AdminNewsBannerDTO" alias="AdminNewsBannerDTO"></typeAlias>
+=======
+   		<typeAlias type="com.wt.app.dto.AdminNoticeListDTO" alias="AdminNoticeListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.AdminReportListDTO" alias="AdminReportListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.AdminNewsBannerDTO" alias="AdminNewsBannerDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.AdminReferenceListDTO" alias="AdminReferenceListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.GetSubwayLineDTO" alias="GetSubwayLineDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.SubwayStationDTO" alias="SubwayStationDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.NormalModifyDTO" alias="NormalModifyDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.NormalFavoriteListDTO" alias="NormalFavoriteListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.NormalHeartListDTO" alias="NormalHeartListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.NormalMatchingDTO" alias="NormalMatchingDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.NormalPostsListDTO" alias="NormalPostsListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.NormalReferenceListDTO" alias="NormalReferenceListDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CareMarkDTO" alias="CareMarkDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CareMatchingDTO" alias="CareMatchingDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CarePostDTO" alias="CarePostDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CareProfileDTO" alias="CareProfileDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CarePWCheckDTO" alias="CarePWCheckDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CareReferenceCheckDTO" alias="CareReferenceCheckDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CareReferenceDPDTO" alias="CareReferenceDPDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CareReferenceDTO" alias="CareReferenceDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.ReportDTO" alias="ReportDTO"></typeAlias>
+>>>>>>> main
    </typeAliases> 
    
    <environments default="oracle">
@@ -42,7 +66,7 @@
    </environments>
    
   <mappers>
-      <mapper resource="com/wt/mapper/CareUsersMapper.xml" />
+       <mapper resource="com/wt/mapper/CareUsersMapper.xml" />
       <mapper resource="com/wt/mapper/ShopsActionMapper.xml" />
       <mapper resource="com/wt/mapper/CareListMapper.xml" />
       <mapper resource="com/wt/mapper/AdminMapper.xml" />
@@ -50,7 +74,6 @@
       <mapper resource="com/wt/mapper/MarkerMapper.xml" />
       <mapper resource="com/wt/mapper/NewsMapper.xml" />
       <mapper resource="com/wt/mapper/Comment.xml" />
-      <mapper resource="com/wt/mapper/AdminTwoMapper.xml" />
    </mappers> 
    
 </configuration>

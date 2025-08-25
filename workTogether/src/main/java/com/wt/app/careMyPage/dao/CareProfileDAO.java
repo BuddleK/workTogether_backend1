@@ -67,16 +67,16 @@ public class CareProfileDAO {
 	
 	
 	
-	public CareProfileDTO addressUpdate(String usersPostsalCode,String usersPostsalCode,String usersPostsalCode,
-			int usersNumber) {
-		System.out.println("프로필 주소 수정");
-		Map<String, Object> address = new HashMap<>();
-		address.put("usersPostsalCode", usersPostsalCode);
-		address.put("usersPostsalCode", usersPostsalCode);
-		address.put("usersPostsalCode", usersPostsalCode);
-		address.put("usersNumber", usersNumber);
-		return sqlSession.selectOne("careProfile.addressUpdate", address);
-	}
+	/*
+	 * public CareProfileDTO addressUpdate(String usersPostsalCode,String
+	 * usersPostsalCode,String usersPostsalCode, int usersNumber) {
+	 * System.out.println("프로필 주소 수정"); Map<String, Object> address = new
+	 * HashMap<>(); address.put("usersPostsalCode", usersPostsalCode);
+	 * address.put("usersPostsalCode", usersPostsalCode);
+	 * address.put("usersPostsalCode", usersPostsalCode); address.put("usersNumber",
+	 * usersNumber); return sqlSession.selectOne("careProfile.addressUpdate",
+	 * address); }
+	 */
 	public CareProfileDTO introUpdate(String careIntroText, int careNumber) {
 		System.out.println("프로필 소개글 수정");
 		Map<String, Object> intro = new HashMap<>();

@@ -15,43 +15,33 @@ public class AdminUserManagerDTO {
 	private String usersAddressLine2; // 주소2
 	private String usersPassword; // 유저 패스워드
 	private int usersPoint; // 유저 포인트
-
 	public int getUserNumber() {
 		return userNumber;
 	}
-
 	public void setUserNumber(int userNumber) {
 		this.userNumber = userNumber;
 	}
-
 	public String getUserName() {
 		return userName;
 	}
-
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
 	public String getUserId() {
 		return userId;
 	}
-
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
 	public String getUserEmail() {
 		return userEmail;
 	}
-
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-
 	public String getUserPhone() {
 		return userPhone;
 	}
-
 	public void setUserPhone(String userPhone) {
 		this.userPhone = userPhone;
 	}
@@ -63,47 +53,44 @@ public class AdminUserManagerDTO {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-
 	public String getUsersCreatedDate() {
 		return usersCreatedDate;
 	}
-
 	public void setUsersCreatedDate(String usersCreatedDate) {
 		this.usersCreatedDate = usersCreatedDate;
 	}
-
 	public String getUsersAddressLine1() {
 		return usersAddressLine1;
 	}
-
 	public void setUsersAddressLine1(String usersAddressLine1) {
 		this.usersAddressLine1 = usersAddressLine1;
 	}
-
 	public String getUsersAddressLine2() {
 		return usersAddressLine2;
 	}
-
 	public void setUsersAddressLine2(String usersAddressLine2) {
 		this.usersAddressLine2 = usersAddressLine2;
 	}
-
 	public String getUsersPassword() {
 		return usersPassword;
 	}
-
 	public void setUsersPassword(String usersPassword) {
 		this.usersPassword = usersPassword;
 	}
+<<<<<<< HEAD
 
 	public int getUsersPoint() {
 		return usersPoint;
 	}
 
+=======
+	public int getUsersPoint() {
+		return usersPoint;
+	}
+>>>>>>> main
 	public void setUsersPoint(int usersPoint) {
 		this.usersPoint = usersPoint;
 	}
-
 	@Override
 	public String toString() {
 		return "AdminUserManagerDTO [userNumber=" + userNumber + ", userName=" + userName + ", userId=" + userId
@@ -113,4 +100,5 @@ public class AdminUserManagerDTO {
 				+ usersPoint + "]";
 	}
 
+	
 }
