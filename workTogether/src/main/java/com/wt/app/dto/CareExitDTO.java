@@ -49,7 +49,7 @@ public class CareExitDTO {
 
 	private int usersNumber;
 	private int careNumber;
-	private char matchStatus;
+	private String matchStatus;
 	public int getUsersNumber() {
 		return usersNumber;
 	}
@@ -62,10 +62,10 @@ public class CareExitDTO {
 	public void setCareNumber(int careNumber) {
 		this.careNumber = careNumber;
 	}
-	public char getMatchStatus() {
+	public String getMatchStatus() {
 		return matchStatus;
 	}
-	public void setMatchStatus(char matchStatus) {
+	public void setMatchStatus(String matchStatus) {
 		this.matchStatus = matchStatus;
 	}
 	@Override

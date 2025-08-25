@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.AccountModifyDTO;
 import com.wt.app.dto.AdminCareFileDTO;
 import com.wt.app.dto.AdminCareSignupDTO;
 import com.wt.app.dto.AdminFileDownloadDTO;
@@ -14,6 +15,7 @@ import com.wt.app.dto.AdminNewsBoardDTO;
 import com.wt.app.dto.AdminNewsBoardListDTO;
 import com.wt.app.dto.FileNoticeDTO;
 import com.wt.app.dto.FilesLicenseDTO;
+import com.wt.app.dto.LicenseModifyDTO;
 import com.wt.config.MyBatisConfig;
 
 public class AdminDAO {
@@ -40,7 +42,7 @@ public class AdminDAO {
 	/* ======================= [Care] ======================= */
 
 	public List<AdminCareSignupDTO> pendingListPaged(Map<String, Integer> pageMap) {
-	    return sqlSession.selectList("admin.carePendingListPaged", pageMap);
+		return sqlSession.selectList("admin.carePendingListPaged", pageMap);
 	}
 
 	public int carePendingCount() {
@@ -94,9 +96,9 @@ public class AdminDAO {
 	/* ===== [News 연동 파일(tbl_files_notice)] ===== */
 
 	/** 파일 INSERT (mapper selectKey로 PK 주입됨) → 생성된 notice_files_number 반환 */
-	public int insertNoticeFile(FileNoticeDTO dto) {
+	public int insertNoticeFile(FilesLicenseDTO dto) {
 		sqlSession.insert("admin.fileNoticeInsert", dto);
-		return dto.getNoticeFilesNumber();
+		return dto.getLicenseFilesNumber(); // PK 반환
 	}
 
 	public FileNoticeDTO selectNoticeFileByNews(int newsNumber) {
@@ -152,5 +154,52 @@ public class AdminDAO {
 	public int insertNews(AdminNewsBoardDTO dto) {
 		sqlSession.insert("admin.newsInsert", dto);
 		return dto.getNewsNumber();
+	}
+
+	/* ============ [Care 이력수정: 자격증/통장사본] ============ */
+	/* 자격증 이력 INSERT → 생성된 license_modify_number 반환 */
+	public int licenseModifyInsert(LicenseModifyDTO dto) {
+		sqlSession.insert("admin.licenseModifyInsert", dto);
+		return dto.getLicenseModifyNumber();
+	}
+
+	/* 통장사본 이력 INSERT → 생성된 account_modify_number 반환 */
+	public int accountModifyInsert(AccountModifyDTO dto) {
+		sqlSession.insert("admin.accountModifyInsert", dto);
+		return dto.getAccountModifyNumber();
+	}
+
+	/* 특정 회원의 최신 자격증 이력 1건 */
+	public LicenseModifyDTO licenseModifyLatestByUser(int usersNumber) {
+		return sqlSession.selectOne("admin.licenseModifyLatestByUser", usersNumber);
+	}
+
+	/* 특정 회원의 최신 통장사본 이력 1건 */
+	public AccountModifyDTO accountModifyLatestByUser(int usersNumber) {
+		return sqlSession.selectOne("admin.accountModifyLatestByUser", usersNumber);
+	}
+
+	/** 자격증 이력 적용: care_users 갱신 + 최신 PENDING 1건 APPLIED */
+	public int careerApplyLicense(int usersNumber) {
+		int u1 = sqlSession.update("admin.careerApplyLicense_UpdateCareUsers", usersNumber);
+		int u2 = sqlSession.update("admin.careerApplyLicense_MarkApplied", usersNumber);
+		return (u1 > 0 && u2 > 0) ? 1 : 0;
+	}
+
+	/** 자격증 이력 잔여 PENDING → CLEARED */
+	public int careerClearLicense(int usersNumber) {
+		return sqlSession.update("admin.careerClearLicense", usersNumber);
+	}
+
+	/** 통장사본 이력 적용: care_users 갱신 + 최신 PENDING 1건 APPLIED */
+	public int careerApplyAccount(int usersNumber) {
+		int u1 = sqlSession.update("admin.careerApplyAccount_UpdateCareUsers", usersNumber);
+		int u2 = sqlSession.update("admin.careerApplyAccount_MarkApplied", usersNumber);
+		return (u1 > 0 && u2 > 0) ? 1 : 0;
+	}
+
+	/** 통장사본 이력 잔여 PENDING → CLEARED */
+	public int careerClearAccount(int usersNumber) {
+		return sqlSession.update("admin.careerClearAccount", usersNumber);
 	}
 }

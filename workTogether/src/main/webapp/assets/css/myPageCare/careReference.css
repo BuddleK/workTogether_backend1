@@ -121,17 +121,17 @@ form {
 }
 
 .name div {
-  width: 100px;
+  width: 10vw;
   text-align: center;
 }
 
 .posttitle div {
-  width: 900px;
+  width: 30vw;
   text-align: center;
 }
 
 .day div {
-  width: 200px;
+  width: 20vw;
   text-align: center;
 }
 

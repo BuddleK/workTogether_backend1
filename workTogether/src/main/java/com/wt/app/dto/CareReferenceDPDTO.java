@@ -18,7 +18,7 @@ public class CareReferenceDPDTO {
 	private String referenceTitle;
 	private String referenceCreatedDate;
 	private String referenceContent;
-	private char referenceAnsweredYn;
+	private String referenceAnsweredYn;
 	public int getReferenceNumber() {
 		return referenceNumber;
 	}
@@ -49,10 +49,10 @@ public class CareReferenceDPDTO {
 	public void setReferenceContent(String referenceContent) {
 		this.referenceContent = referenceContent;
 	}
-	public char getReferenceAnsweredYn() {
+	public String getReferenceAnsweredYn() {
 		return referenceAnsweredYn;
 	}
-	public void setReferenceAnsweredYn(char referenceAnsweredYn) {
+	public void setReferenceAnsweredYn(String referenceAnsweredYn) {
 		this.referenceAnsweredYn = referenceAnsweredYn;
 	}
 	@Override

@@ -3,9 +3,10 @@
 <mapper namespace="carePwCheck">
 	<!-- 비밀번호 체크 -->
 	<select id="checkPw" parameterType="CarePWCheckDTO">
-		select users_number, users_password
-		from tbl_users
-		where users_number=#{usersNumber}
+		SELECT COUNT(*)
+		FROM tbl_users
+		WHERE users_number = #{usersNumber}
+		AND users_password = #{usersPassword};
 	</select>
 	
 </mapper>

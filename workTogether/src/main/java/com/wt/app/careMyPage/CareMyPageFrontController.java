@@ -61,7 +61,7 @@ public class CareMyPageFrontController extends HttpServlet {
 			break;
 		case "/myPageCare/careModify.cp":
 			System.out.println("개인정보 수정 페이지 요청");
-			result = new CareProfileController().Execute(request, response);
+			result = new CareModifyController().Execute(request, response);
 			break;
 		case "/myPageCare/careMark.cp":
 			System.out.println("찜한목록 페이지 요청");
@@ -71,10 +71,10 @@ public class CareMyPageFrontController extends HttpServlet {
 			System.out.println("매칭기록 페이지 요청");
 			result = new CareMatchingController().Execute(request, response);
 			break;
-//		case "/myPageCare/careMesseage.cp":
-//			System.out.println("쪽지함 페이지 요청");
-//			result = new CareMesseageController().Execute(request, response);
-//			break;
+		case "/myPageCare/careMesseage.cp":
+			System.out.println("쪽지함 페이지 요청");
+			result = new CareMesseageController().Execute(request, response);
+			break;
 		case "/myPageCare/carePost.cp":
 			System.out.println("게시글 관리 페이지 요청");
 			result = new CarePostController().Execute(request, response);

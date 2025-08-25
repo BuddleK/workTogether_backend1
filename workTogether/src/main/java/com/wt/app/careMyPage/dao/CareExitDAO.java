@@ -10,6 +10,8 @@ public class CareExitDAO {
 	public CareExitDAO(){
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
+	//매칭회원 있는지 조회
+	
 	//회원 삭제
 	public void careExit(int usersNUmber) {
 		System.out.println("회원 삭제하기 - careExit 메소드 실행 : ");

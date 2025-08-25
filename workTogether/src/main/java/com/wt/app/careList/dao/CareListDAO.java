@@ -48,5 +48,11 @@ public class CareListDAO {
 
 		    sqlSession.insert("careList.startMessage", numbers);
 		}
+		
+	// 돌봄 세부 페이지
+		public CareListDTO selectDetail(int usersCareNumber) {
+			System.out.println("돌봄 상세 페이지 조회");
+			return sqlSession.selectOne("careList.detail", usersCareNumber);
+		}
 	
 }

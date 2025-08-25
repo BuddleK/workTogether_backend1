@@ -51,7 +51,7 @@ public class CareReferenceDTO {
 	private int referenceUsersNumber;
 	private String referenceTitle;
 	private String referenceCreatedDate;
-	private char referenceAnsweredYN;
+	private String referenceAnsweredYN;
 
 	private int usersNumber;
 	private String usersName;
@@ -104,11 +104,11 @@ public class CareReferenceDTO {
 		this.referenceCreatedDate = referenceCreatedDate;
 	}
 
-	public char getReferenceAnsweredYN() {
+	public String getReferenceAnsweredYN() {
 		return referenceAnsweredYN;
 	}
 
-	public void setReferenceAnsweredYN(char referenceAnsweredYN) {
+	public void setReferenceAnsweredYN(String referenceAnsweredYN) {
 		this.referenceAnsweredYN = referenceAnsweredYN;
 	}
 

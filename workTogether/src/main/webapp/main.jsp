@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<% session.setAttribute("usersNumber", null); %>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +15,7 @@
 </head>
 <body>
   <!-- 헤더 -->
-  <div id="header"></div>
+  <jsp:include page="/header.jsp" />
   <!-- 메인 -->
   <main>
     <!-- 메인 바디 -->
@@ -260,14 +261,6 @@
     </div>
   </main>
   <!-- 푸터 -->
-  <div id="footer"></div>
-  <script>
-		window.usersType = 'C';
-
-		window.usersNumber = 1;
-
-		console.log(window.usersType);
-		console.log(window.usersNumber);
-	</script>
+  <jsp:include page="/footer.jsp" />
 </body>
 </html> 
