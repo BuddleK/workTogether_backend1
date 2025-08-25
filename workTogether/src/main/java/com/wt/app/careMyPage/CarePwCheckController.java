@@ -5,11 +5,9 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.users.dao.UsersDAO;
 
 public class CarePwCheckController implements Execute {
 	@Override
@@ -17,6 +15,7 @@ public class CarePwCheckController implements Execute {
 			throws ServletException, IOException {
 		Result result = new Result();
 
+		System.out.println("fdf");
 		result.setPath("/app/myPageCare/carePwCheck.jsp");
 		result.setRedirect(false);
 		return result;
