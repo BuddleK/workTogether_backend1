@@ -17,24 +17,26 @@ public class CarePwCheckOkController implements Execute {
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
-
-		CarePwCheckDAO carePwCheckDAO = new CarePwCheckDAO(); 
-		
 		HttpSession session = request.getSession();
+		CarePwCheckDAO carePwCheckDAO = new CarePwCheckDAO();
+		
 		Integer usersNumber = (Integer) session.getAttribute("usersNumber");
-		
-        String usersPassword = request.getParameter("usersPassword");
-        
-        int pwCheck = carePwCheckDAO.checkPw(usersNumber, usersPassword);
-		
-		if(pwCheck == 1) {
-			result.setPath("/myPageCare/careProfile.cp");
-			result.setRedirect(false);
-		}else {
-			result.setPath("/myPageCare/carePwCheck.cp");
-            result.setRedirect(false);
+		String inputPassword = request.getParameter("usersPassword");
+		boolean pwCheck = false;
+		if(usersNumber != null && inputPassword != null) {
+			pwCheck = carePwCheckDAO.checkPw(usersNumber, inputPassword);
 		}
+		request.setAttribute("pwCheck", pwCheck);
 		
+		if(pwCheck) {
+            result.setPath("/myPageCare/careMyPage.cp");
+            result.setRedirect(false);
+        } else {
+            result.setPath("/myPageCare/carePwCheck.cp");
+            result.setRedirect(false);
+            request.setAttribute("errorMessage", "비밀번호가 올바르지 않습니다.");
+        }
+
 		return result;
 	}
 
