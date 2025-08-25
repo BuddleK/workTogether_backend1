@@ -3,7 +3,7 @@
 
 <mapper namespace="admin">
 	<!-- ========================= [Auth] ========================= -->
-	<select id="login" parameterType="AdminLoginDTO"
+	<select id="login" parameterType="com.wt.app.dto.AdminLoginDTO"
 		resultType="int">
 		SELECT admin_number
 		FROM tbl_admin
@@ -300,7 +300,7 @@
 	
 	  <!-- ==================== [Care: 이력수정 - 자격증/통장사본] ==================== -->
   <!-- 자격증 이력 INSERT -->
-  <insert id="licenseModifyInsert" parameterType="LicenseModifyDTO">
+  <insert id="licenseModifyInsert" parameterType="com.wt.app.dto.LicenseModifyDTO">
     <selectKey keyProperty="licenseModifyNumber" resultType="int" order="BEFORE">
       SELECT seq_license_modify.NEXTVAL FROM DUAL
     </selectKey>
@@ -316,7 +316,7 @@
   </insert>
 
   <!-- 통장사본 이력 INSERT -->
-  <insert id="accountModifyInsert" parameterType="AccountModifyDTO">
+  <insert id="accountModifyInsert" parameterType="com.wt.app.dto.AccountModifyDTO">
     <selectKey keyProperty="accountModifyNumber" resultType="int" order="BEFORE">
       SELECT seq_account_modify.NEXTVAL FROM DUAL
     </selectKey>
@@ -332,7 +332,7 @@
   </insert>
 
   <!-- 자격증 이력: 특정 회원 최신 1건 -->
-  <select id="licenseModifyLatestByUser" parameterType="int" resultType="LicenseModifyDTO"><![CDATA[
+  <select id="licenseModifyLatestByUser" parameterType="int" resultType="com.wt.app.dto.LicenseModifyDTO"><![CDATA[
     SELECT *
     FROM (
       SELECT *
@@ -344,7 +344,7 @@
   ]]></select>
 
   <!-- 통장사본 이력: 특정 회원 최신 1건 -->
-  <select id="accountModifyLatestByUser" parameterType="int" resultType="AccountModifyDTO"><![CDATA[
+  <select id="accountModifyLatestByUser" parameterType="int" resultType="com.wt.app.dto.AccountModifyDTO"><![CDATA[
     SELECT *
     FROM (
       SELECT *
