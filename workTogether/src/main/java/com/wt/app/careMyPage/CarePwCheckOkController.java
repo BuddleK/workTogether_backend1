@@ -23,15 +23,17 @@ public class CarePwCheckOkController implements Execute {
 		Integer usersNumber = (Integer) session.getAttribute("usersNumber");
 		String inputPassword = request.getParameter("usersPassword");
 		boolean pwCheck = false;
+		
 		if(usersNumber != null && inputPassword != null) {
 			pwCheck = carePwCheckDAO.checkPw(usersNumber, inputPassword);
 		}
 //		request.setAttribute("pwCheck", pwCheck);
 		
 		if(pwCheck) {
-            result.setPath("/myPageCare/careMyPage.cp");
-            result.setRedirect(false);
+            result.setPath("/myPageCare/careProfile.cp");
+            result.setRedirect(true);
         } else {
+        	request.setAttribute("pwCheck", false);
             result.setPath("/myPageCare/carePwCheck.cp");
             result.setRedirect(false);
             request.setAttribute("errorMessage", "비밀번호가 올바르지 않습니다.");
