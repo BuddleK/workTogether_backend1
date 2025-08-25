@@ -5,7 +5,7 @@ public class NormalModifyDTO {
 	private int normalNumber;
 	private String usersName;
 	private String usersId;
-	private char normalUsersLevel;
+	private String normalUsersLevel;
 	private String usersPostCode;
 	private String usersAddrLine1;
 	private String usersAddrLine2;
