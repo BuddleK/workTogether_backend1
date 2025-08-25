@@ -132,7 +132,7 @@ public class AdminFrontController extends HttpServlet {
 			break;
 
 		case "/admin/care/fileMeta.ad":
-			System.out.println("첨부파일 메타 조회 요청");
+			System.out.println("첨부파일 조회 요청");
 			result = new AdminCareFileController().Execute(request, response);
 			break;
 
