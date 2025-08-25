@@ -4,7 +4,7 @@
 <mapper namespace="admin">
 	<!-- ========================= [Auth] ========================= -->
 	<!-- 로그인: admin_number 반환 -->
-	<select id="login" parameterType="com.wt.app.dto.AdminLoginDTO"
+	<select id="login" parameterType="AdminLoginDTO"
 		resultType="int">
 		SELECT admin_number
 		FROM tbl_admin
@@ -160,11 +160,6 @@
 	</insert>
 
 	<!-- ==================== [News] ==================== -->
-	<select id="newsGetTotal" resultType="int">
-		SELECT COUNT(*) FROM
-		tbl_news
-	</select>
-
 	<!-- 뉴스 등록: seq_news_items 사용 -->
 	<!-- 전체 조회 (페이지네이션: startRow, endRow) -->
 	<select id="newsSelectAll" parameterType="map"
@@ -223,7 +218,7 @@
 
 	<!-- ==================== [News 연동 파일: tbl_files_notice] ==================== -->
 	<!-- 파일 추가: seq_files 사용 -->
-	<insert id="fileNoticeInsert"
+<!-- 	<insert id="fileNoticeInsert"
 		parameterType="com.wt.app.dto.FileNoticeDTO">
 		<selectKey keyProperty="noticeFilesNumber" resultType="int"
 			order="BEFORE">
@@ -234,7 +229,7 @@
 		<![CDATA[
 			INSERT INTO tbl_files_notice (notice_files_number, notice_files_type, notice_files_name, notice_files_path, notice_files_size_bytes, notice_created_date) VALUES (#{noticeFilesNumber}, #{noticeFilesType}, #{noticeFilesName}, #{noticeFilesPath}, #{noticeFilesSizeBytes}, SYSDATE)
 		]]>
-	</insert>
+	</insert> -->
 
 	<!-- 파일 조회 (뉴스번호 기준) -->
 	<select id="fileNoticeSelect" parameterType="int"

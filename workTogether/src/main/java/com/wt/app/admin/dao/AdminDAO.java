@@ -148,9 +148,10 @@ public class AdminDAO {
 	}
 	
 	//뉴스 삭제
-	public void deleteNews(int newsNumber) {
+	public int deleteNews(int newsNumber) {
 		System.out.println("뉴스 삭제 - deleteNews 메소드 실행. 삭제할 뉴스 번호: " + newsNumber);
 		int deleteResult = sqlSession.delete("admin.newsDelete", newsNumber);
+		return deleteResult;
 	}
 	
 	//뉴스 파일번호 연결하기
