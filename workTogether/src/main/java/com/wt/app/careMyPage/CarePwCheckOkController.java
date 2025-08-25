@@ -26,7 +26,7 @@ public class CarePwCheckOkController implements Execute {
 		if(usersNumber != null && inputPassword != null) {
 			pwCheck = carePwCheckDAO.checkPw(usersNumber, inputPassword);
 		}
-		request.setAttribute("pwCheck", pwCheck);
+//		request.setAttribute("pwCheck", pwCheck);
 		
 		if(pwCheck) {
             result.setPath("/myPageCare/careMyPage.cp");

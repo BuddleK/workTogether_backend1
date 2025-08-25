@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class CarePwCheckDTO {
+public class CarePWCheckDTO {
 	private int usersNumber;
     private String usersPassword;
 	public int getUsersNumber() {

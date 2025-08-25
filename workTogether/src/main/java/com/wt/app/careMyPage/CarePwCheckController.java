@@ -16,7 +16,7 @@ public class CarePwCheckController implements Execute {
 		Result result = new Result();
 
 			
-		result.setPath("/myPageCare/carePwCheck.cp");
+		result.setPath("/app/myPageCare/carePwCheck.jsp");
 		result.setRedirect(false);
 		return result;
 	}
