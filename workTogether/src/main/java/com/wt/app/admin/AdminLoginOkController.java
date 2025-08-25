@@ -12,26 +12,25 @@ import com.wt.app.Result;
 import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminLoginDTO;
 
-public class AdminLoginOkController implements Execute {
-    @Override
-    public Result Execute(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+public class AdminLoginOkController implements Execute{
 
-        request.setCharacterEncoding("UTF-8");
+   @Override
+   public Result Execute(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
 
-		
-		AdminLoginDTO adminDTO = new AdminLoginDTO();
-		AdminDAO adminDAO = new AdminDAO();
-		int adminNumber = 1;
-		Result result = new Result();
-		String path = null;
-		
-		String adminId = request.getParameter("adminId"); //아이디 저장 처리할 때 재사용
-	    String adminPassword = request.getParameter("adminPassword");
-	    String remember = request.getParameter("remember");
-	    HttpSession session = request.getSession(); //++++++세션저장
-		
-		adminDTO.setAdminId(request.getParameter("adminId"));
+      
+      AdminLoginDTO adminDTO = new AdminLoginDTO();
+      AdminDAO adminDAO = new AdminDAO();
+      int adminNumber = 1;
+      Result result = new Result();
+      String path = null;
+      
+      String adminId = request.getParameter("adminId"); //아이디 저장 처리할 때 재사용
+       String adminPassword = request.getParameter("adminPassword");
+       String remember = request.getParameter("remember");
+       HttpSession session = request.getSession(); //++++++세션저장
+      
+      adminDTO.setAdminId(request.getParameter("adminId"));
         adminDTO.setAdminPassword(request.getParameter("adminPassword"));
         
         
@@ -39,25 +38,19 @@ public class AdminLoginOkController implements Execute {
         
         if (adminNumber != -1) {
             // 로그인 성공 → 세션 저장 후 관리자 화면으로
-        	path = "/admin/care/list.ad";
+           path = "/admin/care/list.ad";
             session.setAttribute("adminNumber", adminNumber);
             System.out.println("세션값 : " + adminNumber);
             
           
         } else {
-        	 path = "/admin/adminlogin.ad";
-        	System.out.println(adminNumber);
+            path = "/admin/login.ad";
+           System.out.println(adminNumber);
         }
-
-        // 로그인 성공: 세션 저장
-        HttpSession session = request.getSession();
-        session.setAttribute("adminNumber", adminNumber);
-        String adminName = adminDAO.getAdminName(adminNumber);
-        session.setAttribute("adminName", adminName);
-
-        // 이동 (예: 관리자 메인)
-        result.setPath(request.getContextPath() + "/admin/main.ad");
-        result.setRedirect(true);
+        result.setRedirect(true); //세션에 저장된 값은 유지
+        result.setPath(path);
         return result;
-    }
+   }
+   
+    
 }

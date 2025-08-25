@@ -4,20 +4,20 @@
 <mapper namespace="admin">
 	<!-- ========================= [Auth] ========================= -->
 	<!-- 로그인: admin_number 반환 -->
-<!-- 	<select id="login" parameterType="com.wt.app.dto.AdminLoginDTO"
-		resultType="java.lang.Integer">
+	<select id="login" parameterType="com.wt.app.dto.AdminLoginDTO"
+		resultType="int">
 		SELECT admin_number
 		FROM tbl_admin
 		WHERE admin_id = #{adminId}
 		AND admin_password = #{adminPassword}
-	</select> -->
-
+	</select>
 	<!-- 관리자 이름 조회 -->
 	<select id="getAdminName" parameterType="int"
 		resultType="string">
 		SELECT admin_name
 		FROM tbl_admin
-		WHERE admin_number = #{value}
+		WHERE admin_number =
+		#{value}
 	</select>
 
 	<!-- ==================== [Care: 가입신청/조회] ==================== -->
@@ -311,10 +311,13 @@
 		license_modify_number, users_number,
 		license_files_number, license_files_type, license_files_name,
 		license_files_path, license_files_size_bytes, license_created_date
-		) VALUES (
+		)
+		VALUES (
 		#{licenseModifyNumber}, #{usersNumber},
-		#{licenseFilesNumber}, #{licenseFilesType}, #{licenseFilesName},
-		#{licenseFilesPath}, #{licenseFilesSizeBytes}, SYSDATE
+		#{licenseFilesNumber},
+		#{licenseFilesType}, #{licenseFilesName},
+		#{licenseFilesPath},
+		#{licenseFilesSizeBytes}, SYSDATE
 		)
 	</insert>
 
@@ -329,10 +332,13 @@
 		account_modify_number, users_number,
 		account_files_number, account_files_type, account_files_name,
 		account_files_path, account_files_size_bytes, account_created_date
-		) VALUES (
+		)
+		VALUES (
 		#{accountModifyNumber}, #{usersNumber},
-		#{accountFilesNumber}, #{accountFilesType}, #{accountFilesName},
-		#{accountFilesPath}, #{accountFilesSizeBytes}, SYSDATE
+		#{accountFilesNumber},
+		#{accountFilesType}, #{accountFilesName},
+		#{accountFilesPath},
+		#{accountFilesSizeBytes}, SYSDATE
 		)
 	</insert>
 

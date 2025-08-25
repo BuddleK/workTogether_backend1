@@ -29,7 +29,6 @@ public class AdminDAO {
     public Integer login(AdminLoginDTO dto) {
         return sqlSession.selectOne("admin.login", dto);
     }
-
     public String getAdminName(int adminNumber) {
         return sqlSession.selectOne("admin.getAdminName", adminNumber);
     }
