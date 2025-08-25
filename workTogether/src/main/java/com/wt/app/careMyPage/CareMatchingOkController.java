@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
@@ -18,9 +19,16 @@ public class CareMatchingOkController implements Execute{
 		CareMatchingDAO careMatchingDAO = new CareMatchingDAO();
 		Result result = new Result();
 
+		HttpSession session = request.getSession();
+		Integer usersNumber = (Integer) session.getAttribute("usersNumber");
+		
+		 int matchingAdd = careMatchingDAO.matchingAdd(careMatchingDTO);
+		
+		
+		
 		
 
-		result.setPath("/app/main.jsp");
+		result.setPath("/myPageCare/careMatching.cp");
 		result.setRedirect(true);
 		return result;
 	}
