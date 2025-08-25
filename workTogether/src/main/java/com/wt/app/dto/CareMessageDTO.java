@@ -4,7 +4,7 @@ public class CareMessageDTO {
 	private int messageNumber;
 	private int careNumber;
 	private int normalNumber;
-	private char senderType;
+	private String senderType;
 	private String messageContent;
 	private String messageDate;
 	private char isRead;
@@ -33,11 +33,11 @@ public class CareMessageDTO {
 		this.normalNumber = normalNumber;
 	}
 
-	public char getSenderType() {
+	public String getSenderType() {
 		return senderType;
 	}
 
-	public void setSenderType(char senderType) {
+	public void setSenderType(String senderType) {
 		this.senderType = senderType;
 	}
 

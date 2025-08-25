@@ -3,7 +3,7 @@ package com.wt.app.dto;
 public class CareListDTO {
 //	-- 회원
 	private int usersNumber;
-	private char usersType;
+	private String usersType;
 	private String usersId;
 	private String usersName;
 	private String usersAddressLine1;
@@ -38,10 +38,10 @@ public class CareListDTO {
 	public void setUsersNumber(int usersNumber) {
 		this.usersNumber = usersNumber;
 	}
-	public char getUsersType() {
+	public String getUsersType() {
 		return usersType;
 	}
-	public void setUsersType(char usersType) {
+	public void setUsersType(String usersType) {
 		this.usersType = usersType;
 	}
 	public String getUsersId() {

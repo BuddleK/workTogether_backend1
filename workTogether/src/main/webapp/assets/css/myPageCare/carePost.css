@@ -98,6 +98,7 @@ main {
   background-color: rgb(191, 201, 201);
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  
 }
 /* 페이지 분류 제목 */
 .mark_nav ul {
@@ -117,17 +118,17 @@ main {
 }
 /* 작성자 크기 중앙정렬 */
 .name div {
-  width: 100px;
+  width: 10vw;
   text-align: center;
 }
 /* 제목 크기 중앙정렬 */
 .posttitle div {
-  width: 900px;
+  width: 40vw;
   text-align: center;
 }
 /* 날짜 */
 .day div {
-  width: 200px;
+  width: 20vw;
   text-align: center;
 }
 /* 게시글 글 목록 스타일 */

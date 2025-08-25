@@ -8,7 +8,7 @@ public class NormalMatchingDTO {
 	private String matchDate; // 매칭 날짜
 	private String matchTime; // 매칭 시간
 	private int matchPoints; // 매칭 포인트
-	private char matchStatus; // 매칭 상태
+	private String matchStatus; // 매칭 상태
 
 	public int getMatchNumber() {
 		return matchNumber;
