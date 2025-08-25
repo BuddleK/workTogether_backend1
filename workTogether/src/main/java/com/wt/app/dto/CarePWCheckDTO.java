@@ -1,6 +1,6 @@
 package com.wt.app.dto;
 
-public class CarePwCheck {
+public class CarePWCheckDTO {
 //	-- 회원
 //	CREATE TABLE tbl_users (
 //	    users_number NUMBER,
