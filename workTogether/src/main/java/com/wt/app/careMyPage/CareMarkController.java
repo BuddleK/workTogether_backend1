@@ -37,7 +37,7 @@ public class CareMarkController implements Execute {
 		pageMap.put("endRow", endRow);
 
 		// 게시글 목록 조회
-		List<CareMarkDTO> markList = careMarkDAO.matchingMonth(pageMap);
+		List<CareMarkDTO> markList = careMarkDAO.markAll(pageMap);
 		request.setAttribute("markList", markList);
 
 		// 페이징 정보 설정

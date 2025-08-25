@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,13 +37,14 @@
       </ul>
     </nav>
 
-    <form action="" method="get">
+    <form id="careMark-form" 
+    action="${pageContext.request.contextPath}/myPageCare/careMark.cp" method="post">
           <!-- 마이페이지 제목 -->
 
       <div class="div_mark">
         <div class="title">찜한 목록</div>
         <!-- 페이지 분류 제목 -->
-
+	
         <nav class="mark_nav">
           <ul>
             <li><input type="checkbox"></li>
@@ -58,66 +60,32 @@
           </ul>
         </nav>
         <!-- 페이지 상세 내역 -->
-        <nav class="mark_list"><a href="${pageContext.request.contextPath}/restaurant/restaurantDetail.jsp">
-            <ul>
-              <li><input type="checkbox"></li>
-              <li class="name">
-                <div>Cafedecen</div>
-              </li>
-              <li class="location">
-                <div>서울시 서초구</div>
-              </li>
-              <li class="phone">
-                <div>02)521-3512</div>
-              </li>
-            </ul>
-          </a>
-        </nav>
-        <!-- 페이지 상세 내역 2 -->
-        <nav class="mark_list"><a href="${pageContext.request.contextPath}/restaurant/restaurantDetail.jsp">
-          <ul>
-            <li><input type="checkbox"></li>
-            <li class="name">
-              <div>이름</div>
-            </li>
-            <li class="location">
-              <div>위치</div>
-            </li>
-            <li class="phone">
-              <div>전화번호</div>
-            </li>
-          </ul>
-        </a>
-        </nav>
-        <!-- 페이지 상세 내역 3  -->
-        <nav class="mark_list">
-          <ul>
-            <li><input type="checkbox"></li>
-            <li class="name">
-              <div>이름</div>
-            </li>
-            <li class="location">
-              <div>위치</div>
-            </li>
-            <li class="phone">
-              <div>전화번호</div>
-            </li>
-          </ul>
-        </nav>
-        <nav class="mark_list">
-          <ul>
-            <li><input type="checkbox"></li>
-            <li class="name">
-              <div>이름</div>
-            </li>
-            <li class="location">
-              <div>위치</div>
-            </li>
-            <li class="phone">
-              <div>전화번호</div>
-            </li>
-          </ul>
-        </nav>
+        <c:choose>
+        	<c:when test="${not empty markList}">
+        		<c:forEach var="mark" items="${markList}">
+			        <nav class="mark_list"><a href="${pageContext.request.contextPath}/shops/shopsListOk.sh">
+			            <ul>
+			              <li><input type="checkbox"></li>
+			              <li class="name">
+			                <c:out value="${shops.getShopNumber()}" />
+			              </li>
+			              <li class="location">
+			                <c:out value="${shops.getShopsRoadAddress()}" />
+			              </li>
+			              <li class="phone">
+			                <c:out value="${shops.getShopsPhone()}" />
+			              </li>
+			            </ul>
+			          </a>
+			        </nav>
+				</c:forEach>
+        	</c:when>
+        	<c:otherwise>
+   				<div>
+   					<div colspan="5" align="center">등록된 찜이 없습니다.</div>
+   				</div>
+   			</c:otherwise>
+        </c:choose>
 <!-- 페이지 이동 버튼 -->
         <nav class="page">
           <ul>
@@ -157,6 +125,9 @@
     </div>
   </div>
   <jsp:include page="/footer.jsp" />
+  <script>
+    	let memberNumber = "${sessionScope.memberNumber}";
+    </script>
 </body>
 
 </html>
