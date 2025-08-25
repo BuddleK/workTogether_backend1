@@ -1,7 +1,7 @@
 package com.wt.app.dto;
 
 public class PostsDTO {
-	
+//	PK 번호
 //	게시글 번호
 //	게시글 제목
 //	작성자 번호
@@ -10,12 +10,14 @@ public class PostsDTO {
 //	작성일
 //	내용
 
+	
 	private int postsNumber;
 	private String postsTitle;
 	private int usersNumber;
 	private String usersName;
 	private int postsViewCount;
 	private String postsCreatedDate;
+	private String posteUpdatedDate;
 	private String postsContent;
 	public int getPostsNumber() {
 		return postsNumber;
@@ -53,6 +55,12 @@ public class PostsDTO {
 	public void setPostsCreatedDate(String postsCreatedDate) {
 		this.postsCreatedDate = postsCreatedDate;
 	}
+	public String getPosteUpdatedDate() {
+		return posteUpdatedDate;
+	}
+	public void setPosteUpdatedDate(String posteUpdatedDate) {
+		this.posteUpdatedDate = posteUpdatedDate;
+	}
 	public String getPostsContent() {
 		return postsContent;
 	}
@@ -63,7 +71,8 @@ public class PostsDTO {
 	public String toString() {
 		return "PostsDTO [postsNumber=" + postsNumber + ", postsTitle=" + postsTitle + ", usersNumber=" + usersNumber
 				+ ", usersName=" + usersName + ", postsViewCount=" + postsViewCount + ", postsCreatedDate="
-				+ postsCreatedDate + ", postsContent=" + postsContent + "]";
+				+ postsCreatedDate + ", posteUpdatedDate=" + posteUpdatedDate + ", postsContent=" + postsContent + "]";
 	}
+	
 	
 }
