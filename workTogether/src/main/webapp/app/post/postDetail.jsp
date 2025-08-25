@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/post/postDetailNotlogin.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
-   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script> 
-  <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetailNotlogin.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/post/postDetail.js "></script>
+   <%-- <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script> --%> 
+  <%-- <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetailNotlogin.js"></script> --%>
 </head>
 <body>
   <jsp:include page="/header.jsp" />
@@ -52,7 +53,7 @@
         </div>
       </div>
       <div class="button_area">
-      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록으로</button>
+      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록으로</a></button>
 		<!-- 신고 버튼 -->
 		<div class="del"><button class="button_del">신고</button></div>
       </div>
@@ -60,11 +61,8 @@
         <div class="reply_count">
           댓글 [2]
         </div>
-        <ul class="reply_list">
-          <li class="reply">
-            <span class="reply_author">홍길동</span>
-            <span class="reply_context">형을 형이라 부르지 못하고</span>
-          </li>
+        <ul class="reply_list" id="reply_ul">
+          
         </ul>
       </div>
       <div>
@@ -116,7 +114,8 @@
   <jsp:include page="/footer.jsp" />
   <script>
     /* let usersNumber = "${sessionScope.memberNumber}"; */
-   let usersNumber = 3; 
+   let usersNumber = 48; 
+   window.postsNumber = "${post.postsNumber}"
   </script>
 </body>
 </html>
