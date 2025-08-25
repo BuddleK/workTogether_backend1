@@ -28,13 +28,13 @@ public class PostWriteController implements Execute{
 			path = "/app/login/login.jsp";
 		}else {
 			path = "/app/post/postWrite.jsp";
-			request.setAttribute("userId", "writeTest01");
+//			request.setAttribute("userId", postsDAO.get);
 		}
 		
 		path = "/app/post/postWrite.jsp";
 		request.setAttribute("userId", "writeTest01");
 		
-		result.setPath(path);
+		result.setPath("/app/post/postWrite.jsp");
 		result.setRedirect(false);
 		
 		return result;

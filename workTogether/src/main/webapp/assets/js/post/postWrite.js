@@ -8,7 +8,7 @@ const writecheckmodalmodal = document.querySelector('.writecheckmodal');
 const writemodal = document.querySelector('.writemodal');
 
 
-modify.addEventListener('click', function (e) {
+/*modify.addEventListener('click', function (e) {
   e.preventDefault();
   writecheckmodalmodal.style.display = 'block';
 });
@@ -21,3 +21,4 @@ check.addEventListener('click', function () {
 });
 
 
+*/
