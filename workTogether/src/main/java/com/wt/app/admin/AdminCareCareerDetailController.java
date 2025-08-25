@@ -16,7 +16,7 @@ public class AdminCareCareerDetailController implements Execute{
 			throws ServletException, IOException {
 		System.out.println("==== AdminCareCareerDetailController 실행 ====");
 
-        // 필수 파라미터: usersNumber (또는 modifyNumber를 사용할 계획이면 여기에 추가)
+        // 필수 파라미터 usersNumber 
         String usersNumberStr = request.getParameter("usersNumber");
         if (usersNumberStr == null || usersNumberStr.isBlank()) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "usersNumber 파라미터가 필요합니다.");
@@ -32,11 +32,9 @@ public class AdminCareCareerDetailController implements Execute{
         }
 
 
-        // 일단 usersNumber만 바인딩해두고 뷰에서 활용
         request.setAttribute("usersNumber", usersNumber);
 
         Result result = new Result();
-        // JSP 경로는 프로젝트 구조에 맞게 수정하세요.
         result.setPath("/app/admin/careCareerDetail.jsp");
         result.setRedirect(false);
         return result;

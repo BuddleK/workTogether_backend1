@@ -93,15 +93,22 @@ span {
   font-weight: bolder;
 }
 
-.next_btn {
+.next_btn > a {
   width: 100%;
   text-align: center;
+  gab 30px;
 }
 
-.next_btn > button {
+.next_btn > a > button {
   padding: 10px 80px;
   border-radius: 30px;
   color: white;
   background-color: #1d3266;
   border: none;
+  
+}
+
+.next_btn #normal {
+	background-color: #1d3266;
+	padding: 30px;
 }

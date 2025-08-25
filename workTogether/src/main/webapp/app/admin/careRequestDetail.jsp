@@ -37,7 +37,6 @@
 					<!-- 헤더 -->
 					<div class="thead">
 						<div class="thead_content thead_name">성명</div>
-						<div class="thead_content thead_birth">생년월일</div>
 						<div class="thead_content thead_phone">전화번호</div>
 						<div class="thead_content thead_email">이메일</div>
 						<div class="thead_content thead_detach">자격증 파일</div>
