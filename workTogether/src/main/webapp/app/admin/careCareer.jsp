@@ -59,78 +59,32 @@
 					</div>
 
 					<div class="table_content">
-						<ul class="table_body">
-							<li class="body_number"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">1</a></li>
-							<li class="body_name"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">가나다</a></li>
-							<li class="body_id"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">abc123</a></li>
-							<li class="body_date"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">2025-08-09</a></li>
-							<li class="body_condition"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">반려</a></li>
-						</ul>
-						<ul class="table_body">
-							<li class="body_number"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">2</a></li>
-							<li class="body_name"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">가나다</a></li>
-							<li class="body_id"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">abc123</a></li>
-							<li class="body_date"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">2025-08-09</a></li>
-							<li class="body_condition"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">승인</a></li>
-						</ul>
-						<ul class="table_body">
-							<li class="body_number"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">3</a></li>
-							<li class="body_name"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">가나다</a></li>
-							<li class="body_id"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">abc123</a></li>
-							<li class="body_date"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">2025-08-09</a></li>
-							<li class="body_condition"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">승인</a></li>
-						</ul>
-						<ul class="table_body">
-							<li class="body_number"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">4</a></li>
-							<li class="body_name"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">가나다</a></li>
-							<li class="body_id"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">abc123</a></li>
-							<li class="body_date"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">2025-08-09</a></li>
-							<li class="body_condition"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">승인</a></li>
-						</ul>
-						<ul class="table_body">
-							<li class="body_number"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">5</a></li>
-							<li class="body_name"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">가나다</a></li>
-							<li class="body_id"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">abc123</a></li>
-							<li class="body_date"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">2025-08-09</a></li>
-							<li class="body_condition"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">승인</a></li>
-						</ul>
-						<ul class="table_body">
-							<li class="body_number"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">6</a></li>
-							<li class="body_name"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">가나다</a></li>
-							<li class="body_id"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">abc123</a></li>
-							<li class="body_date"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">2025-08-09</a></li>
-							<li class="body_condition"><a
-								href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp">반려</a></li>
-						</ul>
+						<c:choose>
+							<c:when test="${empty list}">
+								<div class="empty">조회된 이력 수정 신청이 없습니다.</div>
+							</c:when>
+							<c:otherwise>
+								<c:forEach var="row" items="${list}">
+									<ul class="table_body">
+										<li class="body_number"><a
+											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.number}</a>
+										</li>
+										<li class="body_name"><a
+											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.name}</a>
+										</li>
+										<li class="body_id"><a
+											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.userId}</a>
+										</li>
+										<li class="body_date"><a
+											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.date}</a>
+										</li>
+										<li class="body_condition"><a
+											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.status}</a>
+										</li>
+									</ul>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>

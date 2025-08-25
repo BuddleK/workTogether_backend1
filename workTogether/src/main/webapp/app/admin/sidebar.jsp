@@ -27,7 +27,7 @@
       <li class="side_attach">뉴스 게시글 관리</li>
       <ul class="side_menu side_news_board">
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/newsBoard.jsp">
+          <a href="${pageContext.request.contextPath}/admin/news/newsListOk.ad">
             뉴스 게시물
           </a>
         </li>
@@ -47,12 +47,12 @@
       <li class="side_attach">돌봄 회원 신청</li>
       <ul class="side_menu side_news_board">
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/careRequest.jsp">
+          <a href="${pageContext.request.contextPath}/admin/care/list.ad">
             신청 관리
           </a>
         </li>
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/careCareer.jsp">
+          <a href="${pageContext.request.contextPath}/admin/careCareer/list.ad">
             수정 관리
           </a>
         </li>

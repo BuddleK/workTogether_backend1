@@ -23,21 +23,16 @@ public class AdminDAO {
 	private final SqlSession sqlSession;
 
 	public AdminDAO() {
-		// 필요 시 트랜잭션 사용하려면 false로 열고 수동 commit/rollback 하세요.
-		this.sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
-	}
+        sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
+    }
+//		로그인
+    public Integer login(AdminLoginDTO dto) {
+        return sqlSession.selectOne("admin.login", dto);
+    }
 
-	/* ======================= [Auth] ======================= */
-
-	/** 로그인 성공 시 admin_number, 실패 시 -1 */
-	public int login(AdminLoginDTO adminLoginDTO) {
-		Integer adminNumber = sqlSession.selectOne("admin.login", adminLoginDTO);
-		return adminNumber == null ? -1 : adminNumber;
-	}
-
-	public String getAdminName(int adminNumber) {
-		return sqlSession.selectOne("admin.getAdminName", adminNumber);
-	}
+    public String getAdminName(int adminNumber) {
+        return sqlSession.selectOne("admin.getAdminName", adminNumber);
+    }
 
 	/* ======================= [Care] ======================= */
 
