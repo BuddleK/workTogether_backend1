@@ -14,7 +14,7 @@
 	</select>
 	
 	<!-- 회원 정보 조회 -->
-	<select id="adminUserManager" resultType="com.wt.app.dto.AdiminUserManagerDTO">
+	<select id="adminUserManager" resultType="AdminUserManagerDTO">
 	<![CDATA[
 	SELECT *
 	FROM (
@@ -40,7 +40,7 @@
 	</select>
 	
 	<!-- 회원 디테일 조회 -->
-	<select id="adminUserManagerDetail" parameterType="int" resultType="com.wt.app.dto.AdiminUserManagerDTO">
+	<select id="adminUserManagerDetail" parameterType="int" resultType="AdminUserManagerDTO">
 		SELECT 
             COALESCE(n.users_name, c.users_name) AS users_name,
             u.users_type,
@@ -62,7 +62,7 @@
 	</select>
 	
 	<!-- 공지사항 조회 -->
-	<select id="adminNoticeListSearch" resultType="com.wt.app.dto.AdminNoticeListDTO">
+	<select id="adminNoticeListSearch" resultType="AdminUserManagerDTO">
 	<![CDATA[
 	SELECT *
 	FROM (
@@ -77,13 +77,13 @@
 	</select>
 	
 	<!-- 공지사항 상세 -->
-	<select id="adminNoticeDetail" resultType="com.wt.app.dto.AdminNoticeListDTO">
+	<select id="adminNoticeDetail" resultType="AdminUserManagerDTO">
 		SELECT NOTICE_NUMBER , NOTICE_TITLE , ADMIN_NUMBER , NOTICE_VIEW_COUNT , NOTICE_CREATED_DATE, NOTICE_CONTENT 
 		FROM TBL_NOTICES
 	</select>
 	
 	<!-- 공지사항 등록 -->
-	<insert id="adminNoticeListInsert" parameterType="com.wt.app.dto.AdminNoticeListDTO">
+	<insert id="adminNoticeListInsert" parameterType="AdminUserManagerDTO">
 		<selectKey keyProperty="noticeNumber" resultType="int" order="BEFORE">
 			SELECT seq_notices.nextVal FROM DUAL
 		</selectKey>
@@ -92,7 +92,7 @@
 	</insert>
 	
 	<!-- 공지사항 수정 -->
-	<update id="adminNoticeListUpdate" parameterType="com.wt.app.dto.AdminNoticeListDTO">
+	<update id="adminNoticeListUpdate" parameterType="AdminUserManagerDTO">
 		update tbl_notices
 		set notice_title = #{noticeTitle}, notice_content = #{noticeContent}
 		where notice_number = #{noticeNumber}
@@ -105,7 +105,7 @@
 	</delete>
 	
 	<!-- 신고글 조회 -->
-	<select id="adminReportListSelect" resultType="com.wt.app.dto.AdminReportListDTO">
+	<select id="adminReportListSelect" resultType="AdminUserManagerDTO">
 		SELECT 
 		    posts_number,
 		    posts_title ,
@@ -121,7 +121,7 @@
 	</delete>
 	
 	<!-- 베너 뉴스 등록 -->
-	<insert id="adminNewsBannerInsert" parameterType="com.wt.app.dto.AdminNewsBannerDTO">
+	<insert id="adminNewsBannerInsert" parameterType="AdminUserManagerDTO">
 		<selectKey keyProperty="bannerNewsNumber" resultType="int" order="BEFORE">
 			SELECT seq_news_banners.nextVal FROM DUAL
 		</selectKey>
@@ -130,13 +130,13 @@
 	</insert>
 	
 	<!-- 베너 뉴스 상세 -->
-	<select id="adminNewsBannerDetail" resultType="com.wt.app.dto.AdminNewsBannerDTO">
+	<select id="adminNewsBannerDetail" resultType="AdminUserManagerDTO">
 		select banner_news_number, banner_title, banner_created_date, bannerImageFilesNumber, banner_link_url
 		from tbl_news_banners
 	</select>
 	
 	<!-- 베너 뉴스 조회 -->
-	<select id="adminNewsBannerSelect" resultType="com.wt.app.dto.AdminNewsBannerDTO">
+	<select id="adminNewsBannerSelect" resultType="AdminUserManagerDTO">
 		select banner_news_number, banner_title, banner_created_date
 		from tbl_news_banners
 	</select>
@@ -155,7 +155,7 @@
 	</delete>
 	
 	<!-- 문의 조회 -->
-	<select id="adminReferenceListSelect" resultType="com.wt.app.dto.AdminReferenceListDTO">
+	<select id="adminReferenceListSelect" resultType="AdminUserManagerDTO">
 		SELECT 
 		    r.reference_number,
 		    r.reference_title,
@@ -170,7 +170,7 @@
 	</select>
 	
 	<!-- 문의 상세 -->
-	<select id="adminReferenceDetail" resultType="com.wt.app.dto.AdminReferenceListDTO">
+	<select id="adminReferenceDetail" resultType="AdminUserManagerDTO">
 		SELECT 
 		    r.reference_number,
 		    r.reference_title,

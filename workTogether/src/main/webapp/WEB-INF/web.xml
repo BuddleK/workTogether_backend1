@@ -20,6 +20,16 @@
   	<servlet-name>Admin</servlet-name>
   	<url-pattern>*.ad</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>AdminTwo</servlet-name>
+  	<servlet-class>com.wt.app.admin.AdminTwoFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>AdminTwo</servlet-name>
+  	<url-pattern>*.adt</url-pattern>
+  </servlet-mapping>
   
   <servlet>
   	<servlet-name>User</servlet-name>
@@ -39,6 +49,26 @@
   <servlet-mapping>
   	<servlet-name>CareList</servlet-name>
   	<url-pattern>*.cl</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>MyPageNormal</servlet-name>
+  	<servlet-class>com.wt.app.normal.MyPageNormalFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>MyPageNormal</servlet-name>
+  	<url-pattern>*.mn</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Subway</servlet-name>
+  	<servlet-class>com.wt.app.subway.SubwayFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Subway</servlet-name>
+  	<url-pattern>*.sw</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -70,6 +100,7 @@
   	<servlet-name>Favorite</servlet-name>
   	<url-pattern>*.fa</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   	<servlet-name>CareMyPage</servlet-name>
   	<servlet-class>com.wt.app.careMyPage.CareMyPageFrontController</servlet-class>

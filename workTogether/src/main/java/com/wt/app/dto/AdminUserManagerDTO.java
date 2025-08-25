@@ -56,11 +56,11 @@ public class AdminUserManagerDTO {
 		this.userPhone = userPhone;
 	}
 
-	public char getUserType() {
+	public String getUserType() {
 		return userType;
 	}
 
-	public void setUserType(char userType) {
+	public void setUserType(String userType) {
 		this.userType = userType;
 	}
 
@@ -96,12 +96,12 @@ public class AdminUserManagerDTO {
 		this.usersPassword = usersPassword;
 	}
 
-	public int getUsers_point() {
+	public int getUsersPoint() {
 		return usersPoint;
 	}
 
-	public void setUsers_point(int users_point) {
-		this.usersPoint = users_point;
+	public void setUsersPoint(int usersPoint) {
+		this.usersPoint = usersPoint;
 	}
 
 	@Override
