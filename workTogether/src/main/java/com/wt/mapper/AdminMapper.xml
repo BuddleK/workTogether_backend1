@@ -354,4 +354,100 @@
     )
     WHERE ROWNUM = 1
   ]]></select>
+  
+   <!-- 자격증 적용: care_users에 최신 PENDING 1건 반영 -->
+  <update id="careerApplyLicense_UpdateCareUsers" parameterType="int"><![CDATA[
+    UPDATE tbl_care_users cu
+       SET cu.care_certificate_files_num = (
+             SELECT x.license_files_number
+               FROM (
+                      SELECT lm.license_files_number
+                        FROM tbl_license_modify lm
+                       WHERE lm.users_number = #{value}
+                         AND lm.status = 'PENDING'
+                       ORDER BY lm.license_modify_number DESC
+                    ) x
+              WHERE ROWNUM = 1
+           )
+     WHERE cu.users_number = #{value}
+       AND EXISTS (
+             SELECT 1 FROM tbl_license_modify lm
+              WHERE lm.users_number = #{value}
+                AND lm.status = 'PENDING'
+           )
+  ]]></update>
+
+  <!-- 자격증: 최신 PENDING 1건 APPLIED -->
+  <update id="careerApplyLicense_MarkApplied" parameterType="int"><![CDATA[
+    UPDATE tbl_license_modify lm
+       SET lm.status = 'APPLIED',
+           lm.applied_date = SYSDATE
+     WHERE lm.users_number = #{value}
+       AND lm.license_modify_number = (
+             SELECT license_modify_number FROM (
+               SELECT license_modify_number
+                 FROM tbl_license_modify
+                WHERE users_number = #{value}
+                  AND status = 'PENDING'
+                ORDER BY license_modify_number DESC
+             ) WHERE ROWNUM = 1
+           )
+  ]]></update>
+
+  <!-- 자격증: 남은 PENDING 정리(CLEARED) -->
+  <update id="careerClearLicense" parameterType="int"><![CDATA[
+    UPDATE tbl_license_modify
+       SET status = 'CLEARED',
+           applied_date = NVL(applied_date, SYSDATE)
+     WHERE users_number = #{value}
+       AND status = 'PENDING'
+  ]]></update>
+
+  <!-- 통장사본 적용: care_users에 최신 PENDING 1건 반영 -->
+  <update id="careerApplyAccount_UpdateCareUsers" parameterType="int"><![CDATA[
+    UPDATE tbl_care_users cu
+       SET cu.care_passbook_files_num = (
+             SELECT x.account_files_number
+               FROM (
+                      SELECT am.account_files_number
+                        FROM tbl_account_modify am
+                       WHERE am.users_number = #{value}
+                         AND am.status = 'PENDING'
+                       ORDER BY am.account_modify_number DESC
+                    ) x
+              WHERE ROWNUM = 1
+           )
+     WHERE cu.users_number = #{value}
+       AND EXISTS (
+             SELECT 1 FROM tbl_account_modify am
+              WHERE am.users_number = #{value}
+                AND am.status = 'PENDING'
+           )
+  ]]></update>
+
+  <!-- 통장사본: 최신 PENDING 1건 APPLIED -->
+  <update id="careerApplyAccount_MarkApplied" parameterType="int"><![CDATA[
+    UPDATE tbl_account_modify am
+       SET am.status = 'APPLIED',
+           am.applied_date = SYSDATE
+     WHERE am.users_number = #{value}
+       AND am.account_modify_number = (
+             SELECT account_modify_number FROM (
+               SELECT account_modify_number
+                 FROM tbl_account_modify
+                WHERE users_number = #{value}
+                  AND status = 'PENDING'
+                ORDER BY account_modify_number DESC
+             ) WHERE ROWNUM = 1
+           )
+  ]]></update>
+
+  <!-- 통장사본: 남은 PENDING 정리(CLEARED) -->
+  <update id="careerClearAccount" parameterType="int"><![CDATA[
+    UPDATE tbl_account_modify
+       SET status = 'CLEARED',
+           applied_date = NVL(applied_date, SYSDATE)
+     WHERE users_number = #{value}
+       AND status = 'PENDING'
+  ]]></update>
 </mapper>
