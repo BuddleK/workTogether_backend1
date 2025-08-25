@@ -24,6 +24,7 @@
    		<typeAlias type="com.wt.app.dto.NewsListDTO" alias="NewsListDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.NewsMainDTO" alias="NewsMainDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.MarkerDTO" alias="MarkerDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.CommentDTO" alias="CommentDTO"></typeAlias>
    </typeAliases> 
    
    <environments default="oracle">
@@ -46,6 +47,7 @@
       <mapper resource="com/wt/mapper/PostsMapper.xml" />
       <mapper resource="com/wt/mapper/MarkerMapper.xml" />
       <mapper resource="com/wt/mapper/NewsMapper.xml" />
+      <mapper resource="com/wt/mapper/Comment.xml" />
       
    </mappers> 
    

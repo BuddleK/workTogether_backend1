@@ -54,28 +54,7 @@
 		#{userId}
 	</select>
 
-	<!-- 전체 리스트 불러오기 -->
-	<select id="listAll" resultType="CareListDTO">
-			<![CDATA[
-				SELECT * FROM (
-					SELECT ROWNUM AS rnum, subquery.*
-					FROM (
-							select u.users_number,
-    						c.users_name, c.users_address_line1, c.care_number, c.care_intro_text, c.care_profiles_photo_number,
-    						fp.profiles_files_number, fp.profiles_files_type, fp.profiles_files_name, fp.profiles_files_path,
-    						d.DAY_MONDAY, d.DAY_TUESDAY, d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY, d.DAY_SUNDAY,
-    						CASE  WHEN h.HEARTS_CARE_NUMBER IS NOT NULL THEN 'Y' ELSE 'N' END AS heart_checked
-							FROM tbl_care_users c
-							LEFT JOIN tbl_users u ON c.users_number = u.users_number
-							LEFT JOIN tbl_files_profiles fp ON c.care_profiles_photo_number = fp.profiles_files_number
-							LEFT JOIN tbl_day d ON c.care_number = d.care_number
-							LEFT JOIN tbl_hearts h ON c.care_number = h.HEARTS_CARE_NUMBER AND h.HEARTS_NORMAL_NUMBER = #{userId}
-							WHERE c.CARE_ACCEPT = 'Y'
-							ORDER BY c.care_number
-		) subquery
-	) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
-	]]>
-	</select>
+	
 
 	<!-- 전체 리스트 개수 -->
 	<select id="getTotal" resultType="int">
@@ -85,16 +64,17 @@
 		WHERE CARE_ACCEPT = 'Y'
 	</select>
 
-	<select id="detail" resultType="CareListDTO">
-		SELECT c.care_number,
+	<select id="detail"  resultType="CareListDTO">
+		SELECT c.users_number, c.users_address_line1,
 		c.users_name, c.CARE_INTRO_TEXT, d.DAY_MONDAY, d.DAY_TUESDAY,
 		d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY,
 		d.DAY_SUNDAY
 		FROM TBL_CARE_USERS c
-		LEFT JOIN TBL_DAY d ON c.CARE_NUMBER
-		= d.CARE_NUMBER
+		LEFT JOIN TBL_DAY d ON c.users_number
+		= d.users_number
 		WHERE c.CARE_ACCEPT =
-		'Y';
+		'Y' 
+		and c.users_number = #{usersNumber}
 	</select>
 
 	
@@ -119,6 +99,7 @@
 		(MESSAGE_NUMBER, CARE_NUMBER, NORMAL_NUMBER, SENDER_TYPE, MESSAGE_CONTENTS, MESSAGE_DATE, IS_READ)
 		VALUES(seq_messages.nextval, #{careNumber}, #{normalNumber}, 'N', #{messageContent}, SYSDATE , 'N');
 	</insert> -->
+	
 
 </mapper>
 
