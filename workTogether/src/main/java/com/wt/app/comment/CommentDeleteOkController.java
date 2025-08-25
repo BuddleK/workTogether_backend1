@@ -2,6 +2,8 @@ package com.wt.app.comment;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +23,13 @@ public class CommentDeleteOkController implements Execute{
 	     Gson gson = new Gson();
 	     
 	     try {
-	            int commentNumber = Integer.parseInt(request.getParameter("commentNumber"));
-	            dao.delete(commentNumber);
+	            int commentsNumber = Integer.parseInt(request.getParameter("commentsNumber"));
+	            int normalNumber = Integer.parseInt(request.getParameter("normalNumber"));
+	            Map<String, Integer> numbers = new HashMap<>();
+	            numbers.put("commentsNumber", commentsNumber);
+	            numbers.put("normalNumber", normalNumber);
+	            dao.delete(numbers);
+
 
 	            response.setContentType("application/json; charset=utf-8");
 	            PrintWriter out = response.getWriter();
