@@ -26,6 +26,7 @@
    		<typeAlias type="com.wt.app.dto.MarkerDTO" alias="MarkerDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.CommentDTO" alias="CommentDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.AdminUserManagerDTO" alias="AdminUserManagerDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.AdminNewsBannerDTO" alias="AdminNewsBannerDTO"></typeAlias>
    </typeAliases> 
    
    <environments default="oracle">
@@ -49,7 +50,7 @@
       <mapper resource="com/wt/mapper/MarkerMapper.xml" />
       <mapper resource="com/wt/mapper/NewsMapper.xml" />
       <mapper resource="com/wt/mapper/Comment.xml" />
-      <mapper resource="com/wt/mapper/AdminTwoMapper.xml"></mapper>
+      <mapper resource="com/wt/mapper/AdminTwoMapper.xml" />
    </mappers> 
    
 </configuration>

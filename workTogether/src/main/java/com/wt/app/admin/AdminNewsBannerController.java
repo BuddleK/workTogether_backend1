@@ -16,7 +16,7 @@ public class AdminNewsBannerController implements Execute{
 			throws ServletException, IOException {
 		Result result = new Result();
 		
-		result.setPath("/admin/adminNewsBanner.ad");
+		result.setPath("/admin/adminNewsBanner.adt");
 	    result.setRedirect(false);
 	    return result;
 	}
