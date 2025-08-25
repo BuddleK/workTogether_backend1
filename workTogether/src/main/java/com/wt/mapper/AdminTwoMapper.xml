@@ -84,6 +84,9 @@
 	
 	<!-- 공지사항 등록 -->
 	<insert id="adminNoticeListInsert" parameterType="AdminNoticeListDTO">
+		<selectKey keyProperty="noticeNumber" resultType="int" order="BEFORE">
+			SELECT seq_notices.nextVal FROM DUAL
+		</selectKey>
 		insert into tbl_notices(notice_number, notice_title, notice_content)
 		values(#{noticeNumber} #{noticeTitle}, #{noticeContent})
 	</insert>
@@ -119,6 +122,9 @@
 	
 	<!-- 베너 뉴스 등록 -->
 	<insert id="adminNewsBannerInsert" parameterType="AdminNewsBannerDTO">
+		<selectKey keyProperty="bannerNewsNumber" resultType="int" order="BEFORE">
+			SELECT seq_news_banners.nextVal FROM DUAL
+		</selectKey>
 		insert into tbl_news_banners (banner_news_number, banner_title, banner_created_date, banner_link_url)
 		values(#{bannerNewsNumber}, #{bannerTitle}, #{bannerCreatedDate}, #{bannerLinkUrl})
 	</insert>

@@ -111,6 +111,9 @@
 	
 	<!-- 문의 등록 -->
 	<insert id="normalReferenceInsert" parameterType="NormalReferenceListDTO">
+		<selectKey keyProperty="referenceNumber" resultType="int" order="BEFORE">
+			SELECT seq_news_banners.nextVal FROM DUAL
+		</selectKey>
 		INSERT INTO tbl_reference 
 		VALUES ( #{referenceNumber}, #{usersNumber},#{referenceTitle}, #{referenceCreatedDate},#{referenceContent}, #{answeredYn})
 	</insert>
