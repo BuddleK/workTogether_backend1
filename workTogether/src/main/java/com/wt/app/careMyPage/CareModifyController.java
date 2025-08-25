@@ -8,19 +8,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.careMyPage.dao.CareProfileDAO;
-import com.wt.app.dto.CareProfileDTO;
 
-public class CareProfileController implements Execute {
+public class CareModifyController implements Execute{
 
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
-		
-		result.setPath("/app/myPageCare/careProfile.jsp");
+
+		result.setPath("/app/myPageCare/careModify.jsp");
 		result.setRedirect(false);
 		return result;
 	}
-
+	
 }
