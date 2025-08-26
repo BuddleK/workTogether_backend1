@@ -1,24 +1,27 @@
-package com.wt.app.comment;
+package com.wt.app.news;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Result;
+import com.wt.app.posts.PostListOkController;
+import com.wt.app.posts.PostReadOkController;
 
 /**
- * Servlet implementation class FavoriteFrontController
+ * Servlet implementation class NewsFrontController
  */
-public class CommentFrontController extends HttpServlet {
+@WebServlet("/NewsFrontController")
+public class NewsFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CommentFrontController() {
+    public NewsFrontController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,34 +42,22 @@ public class CommentFrontController extends HttpServlet {
 		doProcess(request, response);
 	}
 	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		String target = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println(target);
+		System.out.println("NewsFrontController 현재 경로 : " + target);
 		Result result = new Result();
-
-		switch (target) {
 		
-		case "/comment/commentListOk.co":
-			System.out.println("댓글 목록 컨트롤러 진입");
-			result = new CommentListOkController().Execute(request, response);
+		switch(target) {
+		case "/news/newsMain.ne"://예시
+			System.out.println("뉴스 페이지 요청");
+//임시		request.getRequestDispatcher("/app/post/post.jsp").forward(request, response);
+			result = new NewsListOkController().Execute(request, response);
+			System.out.println(result);
 			break;
-		
-		case "/comment/commentWriteOk.co":
-			System.out.println("댓글 작성 컨트롤러 진입");
-			result = new CommentWriteOkController().Execute(request, response);
-			break;
-
-		
-		case "/comment/commentDeleteOk.co":
-		    System.out.println("댓글 삭제 컨트롤러 진입");
-		    result = new CommentDeleteOkController().Execute(request, response);
-		    break;
-//
-		case "/comment/commentUpdateOk.co":
-		    System.out.println("댓글 수정 컨트롤러 진입");
-		    result = new CommentUpdateOkController().Execute(request, response);
-		    break;
 		}
 
 		if (result != null) {

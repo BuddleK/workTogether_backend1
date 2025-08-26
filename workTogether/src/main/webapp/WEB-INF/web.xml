@@ -111,5 +111,14 @@
      <url-pattern>*.co</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+     <servlet-name>Reply</servlet-name>
+     <servlet-class>com.wt.app.posts.PostReplyFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>Reply</servlet-name>
+     <url-pattern>*.re</url-pattern>
+  </servlet-mapping>
  
 </web-app>

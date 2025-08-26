@@ -1,8 +1,9 @@
-package com.wt.app.comment;
+package com.wt.app.posts;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Result;
 
 /**
- * Servlet implementation class FavoriteFrontController
+ * Servlet implementation class PostReplyFrontController
  */
-public class CommentFrontController extends HttpServlet {
+public class PostReplyFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CommentFrontController() {
+    public PostReplyFrontController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,15 +27,18 @@ public class CommentFrontController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doProcess(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doProcess(request, response);
 	}
@@ -46,26 +50,23 @@ public class CommentFrontController extends HttpServlet {
 		Result result = new Result();
 
 		switch (target) {
-		
-		case "/comment/commentListOk.co":
-			System.out.println("댓글 목록 컨트롤러 진입");
-			result = new CommentListOkController().Execute(request, response);
-			break;
-		
-		case "/comment/commentWriteOk.co":
+		case "/reply/postReplyWriteOk.re":
 			System.out.println("댓글 작성 컨트롤러 진입");
-			result = new CommentWriteOkController().Execute(request, response);
+			result = new PostReplyWriteOkController().Execute(request, response);
 			break;
 
-		
-		case "/comment/commentDeleteOk.co":
+		case "/reply/postReplyListOk.re":
+			System.out.println("댓글 목록 컨트롤러 진입");
+			result = new PostReplyListOkController().Execute(request, response);
+			break;
+		case "/reply/postReplyDeleteOk.re":
 		    System.out.println("댓글 삭제 컨트롤러 진입");
-		    result = new CommentDeleteOkController().Execute(request, response);
+		    result = new PostReplyDeleteOkController().Execute(request, response);
 		    break;
-//
-		case "/comment/commentUpdateOk.co":
+
+		case "/reply/postReplyUpdateOk.re":
 		    System.out.println("댓글 수정 컨트롤러 진입");
-		    result = new CommentUpdateOkController().Execute(request, response);
+		    result = new PostReplyUpdateOkController().Execute(request, response);
 		    break;
 		}
 
@@ -77,5 +78,6 @@ public class CommentFrontController extends HttpServlet {
 			}
 		}
 	}
+
 
 }

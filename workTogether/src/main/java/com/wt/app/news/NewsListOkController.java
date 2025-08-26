@@ -1,4 +1,4 @@
-package com.wt.app.careMyPage;
+package com.wt.app.news;
 
 import java.io.IOException;
 
@@ -9,15 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 
-public class CarePwCheckController implements Execute {
+public class NewsListOkController implements Execute{
+
 	@Override
 	public Result Execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		Result result = new Result();
-
-		System.out.println("fdf");
-		result.setPath("/app/myPageCare/carePwCheck.jsp");
+		result.setPath("/app/news/news.jsp");
 		result.setRedirect(false);
 		return result;
 	}
+	
 }
