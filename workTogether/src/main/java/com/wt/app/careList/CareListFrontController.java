@@ -42,7 +42,7 @@ public class CareListFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		String target = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println("BoardFrontController 현재 경로 : " + target);
+		System.out.println("CareListFrontController 현재 경로 : " + target);
 		Result result = new Result();
 		
 		
@@ -56,6 +56,10 @@ public class CareListFrontController extends HttpServlet {
 		case "/careList/careListDetailOk.cl" : 
 			System.out.println("돌봄 세부 페이지 처리 요청");
 			result = new CareListDetailOkController().execute(request, response);
+			break;
+		case "/careList/careSendMsgOk.cl" : 
+			System.out.println("쪽지 페이지 처리 요청");
+			result = new CareListSendMsgOkController().execute(request, response);
 			break;
 		
 		}
