@@ -15,19 +15,19 @@
 <body>
   <jsp:include page="/header.jsp" />
   <main>
-    <div class="context">
-      <div class="post_area">
-        <div class="post_title">
-          <input id="input_title" placeholder="제목을 입력하세요">
-        </div>
-        <div id="context_box">
-          <textarea id="input_text" placeholder="내용을 입력하세요"></textarea>
-        </div>
-        <div class="button_area">
-        <button type="button" class="list"><a href="${pageContext.request.contextPath}/app/post/postMain.jsp">목록</a></button>
-        <button type="button" class="button_write">작성</button>
+    <form class="context" action="${pageContext.request.contextPath}/post/postWriteOk.po">
+      <!-- <form class="post_area"> -->
+      <div class="post_title">
+        <input id="input_title" placeholder="제목을 입력하세요">
       </div>
-    </div>
+      <div id="context_box">
+        <textarea id="input_text" placeholder="내용을 입력하세요"></textarea>
+      </div>
+      <div class="button_area">
+        <button type="button" class="list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록</a></button>
+        <button type="submit" class="button_write">작성</button>
+      </div>
+    </form>
   </main>
   <div class="writecheckmodal">
     <div class="modal_box">
