@@ -20,6 +20,10 @@ let failCnt = 1;
   }
 } */
 
+const loginErrorMessage = "${requestScope.loginError}";
+if (loginErrorMessage && loginErrorMessage.trim() !==""){
+  alert(loginErrorMessage);
+}
 
 window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기
