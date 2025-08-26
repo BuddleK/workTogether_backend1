@@ -25,11 +25,10 @@ public class SubwayListController implements Execute {
 		request.setAttribute("lines", lines);
 		
 		//알맞는 이미지 가져오기
-		List<SubwayStationDTO> stations = subwayDAO.subwayStationSearch();
-		request.setAttribute("stations", stations);
+		List<SubwayStationDTO> imgStations = subwayDAO.subwayStationSearch();
+		request.setAttribute("imgStations", imgStations);
 
 		//역 명 가져오기
-		
 		
 		result.setPath("/app/subwayLine/subway.jsp");
 		result.setRedirect(false);
