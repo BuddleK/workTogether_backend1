@@ -1,12 +1,12 @@
 package com.wt.app.careList.dao;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.wt.app.dto.CareListDTO;
+import com.wt.app.dto.MessageSRDTO;
 import com.wt.config.MyBatisConfig;
 
 public class CareListDAO {
@@ -41,14 +41,9 @@ public class CareListDAO {
 		}
 		
 	// 쪽지 보내기(첫 시도)
-		public void startMessage(int careNumber, int userNumber) {
-		    Map<String, Object> numbers = new HashMap<>();
-		    numbers.put("careNumber", careNumber);
-		    numbers.put("userNumber", userNumber);
-
-		    sqlSession.insert("careList.startMessage", numbers);
+		public void sendMsg(MessageSRDTO messageSTDTO) {
+			sqlSession.insert("message.insert", messageSTDTO);
 		}
-		
 	// 돌봄 세부 페이지
 		public CareListDTO selectDetail(int usersCareNumber) {
 			System.out.println("돌봄 상세 페이지 조회");
