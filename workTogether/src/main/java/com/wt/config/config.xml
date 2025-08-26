@@ -49,6 +49,7 @@
    		<typeAlias type="com.wt.app.dto.ReportDTO" alias="ReportDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.PostReplyDTO" alias="PostReplyDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.MessageSRDTO" alias="MessageSRDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.MainDTO" alias="MainDTO"></typeAlias>
    </typeAliases> 
    
    <environments default="oracle">
