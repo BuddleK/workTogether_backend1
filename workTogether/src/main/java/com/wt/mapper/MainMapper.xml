@@ -16,7 +16,7 @@
 			from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
 			GROUP BY shops_number, shops_name, shops_intro_text
 			ORDER BY count(*) DESC)
-		where ROWNUM <= 4
+		where ROWNUM <![CDATA[ <= ]]> 4
 	</select>
 	
 	<!-- 게시판 -->
@@ -73,7 +73,7 @@
              	d.day_thursday, d.day_friday, d.day_saturday, d.day_sunday
    		 ORDER BY COUNT(h.hearts_care_number) DESC
 		)
-		WHERE ROWNUM <= 4
+		WHERE ROWNUM <![CDATA[ <= ]]> 4
 	</select>
 
 </mapper>
