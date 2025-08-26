@@ -13,7 +13,7 @@ import com.wt.app.admin.dao.AdminDAO;
 public class AdminCareRejectAllController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("==== AdminCareRejectAllController 실행 ====");
 
