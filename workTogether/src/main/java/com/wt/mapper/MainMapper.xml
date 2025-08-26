@@ -3,14 +3,14 @@
 <mapper namespace="main">
 	
 	<!-- 뉴스배너 -->
-	<select id="newsBanner" parameterType="NewsBannerDTO">
+	<select id="newsBanner" resultType="NewsBannerDTO">
 		select nb.banner_news_number, nb.banner_image_files_number, nb.banner_title, nb.BANNER_CONTENT, fb.BANNER_FILES_PATH, nb.banner_link_url
 		from tbl_news_banners nb JOIN TBL_FILES_BANNER fb 
 		ON nb.BANNER_IMAGE_FILES_NUMBER = fb.BANNER_FILES_NUMBER;
 	</select>
 	
 <!-- 추천가게 찜 많은 순으로 정렬-->
- 	<select id="shops" parameterType="ShopsFavoritesActionDTO">
+ 	<select id="shops" resultType="ShopsFavoritesActionDTO">
 		select * from (
 			SELECT shops_number, shops_name, shops_intro_text, count(*)
 			from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
@@ -21,7 +21,7 @@
 	
 	<!-- 게시판 -->
 	<!-- where rownum <![CDATA[ <= ]]> 4 -->
- 	<select id="post" parameterType="PostsDTO">
+ 	<select id="post" resultType="PostsDTO">
 		select * from (
 			SELECT p.posts_number, p.posts_title, a.users_name, p.posts_created_date
 			FROM tbl_posts p JOIN (
@@ -34,16 +34,16 @@
 				JOIN tbl_normal_users n ON u.users_number = n.users_number) a
 				ON p.USERS_NUMBER = a.USERS_NUMBER
 				ORDER BY p.POSTS_CREATED_DATE DESC)
-			where ROWNUM  <= 4
+			where ROWNUM <![CDATA[ <= ]]> 4
 	</select>
 	
 	<!-- 지도 마커 -->
-	<select id="map" parameterType="MarkerDTO">
+	<select id="map" resultType="MarkerDTO">
 	
 	</select>
 	
 	<!-- 돌봄 회원 -->
-	<select id="care" parameterType="CareListDTO">
+	<select id="care" resultType="CareListDTO">
 		SELECT *
 		FROM (
     		SELECT c.users_number AS usersNumber,
