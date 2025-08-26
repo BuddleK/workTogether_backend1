@@ -67,7 +67,7 @@ public class CareJoinOkController implements Execute {
             catch (NumberFormatException e) { System.out.println("prof 파싱 실패: " + profParam); }
         }
 
-        new CareUsersDAO().sign(caresignDTO); // 매퍼: careUsers.join
+        new CareUsersDAO().sign(caresignDTO);
 
         Result result = new Result();
         result.setRedirect(true);

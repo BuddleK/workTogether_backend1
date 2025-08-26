@@ -19,7 +19,7 @@
   <section class="login">
     <form action="${pageContext.request.contextPath}/users/loginNormalOk.us" method="post">
       <div class="box">
-        <div class="box_title"><p>login</p></div>
+        <div class="box_title"><p>Normal login</p></div>
 
         <div class="id_box">
           <input type="text" name="usersId" id="id_input" placeholder="USER ID" required/>
