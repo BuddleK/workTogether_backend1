@@ -20,7 +20,7 @@ import com.wt.app.posts.dao.PostReplyDAO;
 public class PostReplyUpdateOkController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PostReplyDAO dao = new PostReplyDAO();
         Gson gson = new Gson();
