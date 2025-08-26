@@ -39,7 +39,7 @@
       MyBatis의 useGeneratedKeys 속성과 CURRVAL를 조합하여 시퀀스 값을 객체 필드에 매핑    -->
    <insert id="insert" parameterType="PostsDTO">
       <selectKey keyProperty="postsNumber" resultType="int" order="BEFORE">
-         SELECT seq_board_posts.nextval
+         SELECT seq_board_posts.nextval FROM dual
       </selectKey>
       INSERT INTO tbl_posts(posts_number, posts_title, users_number, posts_content, posts_view_count, posts_created_date, posts_updated_date, posts_report_count)
       VALUES(#{postsNumber}, #{postsTitle}, #{usersNumber}, #{postsContent}, 0, SYSDATE, null, 0)

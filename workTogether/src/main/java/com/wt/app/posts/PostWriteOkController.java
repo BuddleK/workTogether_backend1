@@ -24,9 +24,8 @@ public class PostWriteOkController implements Execute{
 		PostsDTO postsDTO = new PostsDTO();
 		Result result = new Result();
 		
-//		Integer memberNumber = (Integer)request.getSession().getAttribute("memberNumber");
-//		Integer memberNumber = (Integer)request.getAttribute("memberNumber");
-		Integer memberNumber = (Integer)40;
+		Integer memberNumber = (Integer)request.getSession().getAttribute("memberNumber");
+
 		
 		System.out.println("memberNumber : " + memberNumber);
 		

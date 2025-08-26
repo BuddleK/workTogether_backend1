@@ -65,13 +65,14 @@ public class PostsFrontController extends HttpServlet {
 //			request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);
 			result = new PostWriteOkController().execute(request, response);
 			break;
+		case "/post/postUpdate.po":
+			System.out.println("게시글 수정 페이지 이동 요청");
+//			request.getRequestDispatcher("/app/post/postModify.jsp").forward(request, response);
+			result = new PostModifyController().execute(request, response);
+			break;
 		case "/post/postDeleteOk.po":
 			System.out.println("게시글 삭제 완료 요청");
 			request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);
-			break;
-		case "/post/postUpdate.po":
-			System.out.println("게시글 수정 페이지 이동 요청");
-			request.getRequestDispatcher("/app/post/postModify.jsp").forward(request, response);
 			break;
 		case "/post/postUpdateOk.po":
 			System.out.println("게시글 수정 완료 요청");
