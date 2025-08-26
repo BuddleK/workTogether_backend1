@@ -56,7 +56,6 @@
           <a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">
             <span class="post_num">공지</span>
             <span class="post_tit">사이트 일정 안내</span>
-            <span class="post_aut">관리자</span>
             <span class="post_dat">2025-08-20</span>
             <span class="post_rea">404</span>
           </a>
@@ -155,7 +154,8 @@
       </div>
     </div>
     <script>
-    	let usersNumber = "${sessionScope.memberNumber}"; 
+    	let memberNumber = "${sessionScope.memberNumber}"; 
+    	/* console.log = "${sessionScope.memberNumber}"); */
     	/* let usersNumber = 48; */
     </script>
 </body>

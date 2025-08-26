@@ -14,7 +14,7 @@ import com.wt.app.posts.dao.PostsDAO;
 public class PostWriteController implements Execute{
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("==============PostWriteController 진입============");
 		
@@ -28,13 +28,13 @@ public class PostWriteController implements Execute{
 			path = "/app/login/login.jsp";
 		}else {
 			path = "/app/post/postWrite.jsp";
-			request.setAttribute("userId", "writeTest01");
+//			request.setAttribute("userId", postsDAO.get);
 		}
 		
 		path = "/app/post/postWrite.jsp";
 		request.setAttribute("userId", "writeTest01");
 		
-		result.setPath(path);
+		result.setPath("/app/post/postWrite.jsp");
 		result.setRedirect(false);
 		
 		return result;
