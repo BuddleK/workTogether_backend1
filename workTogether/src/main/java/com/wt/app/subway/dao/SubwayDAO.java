@@ -16,7 +16,7 @@ public class SubwayDAO {
 	}
 	
 	public List<GetSubwayLineDTO> subwayLineSearch(){
-		List<GetSubwayLineDTO> list = sqlSession.selectList("subway.subwayLineSearch");
+		List<GetSubwayLineDTO> list = sqlSession.selectList("subway.subwayListSearch");
 		return list;
 	}
 	

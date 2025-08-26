@@ -2,23 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="subway">
 	<!-- 노선도 조회 -->
-	<select id="subwayListSearch" resultType="com.wt.app.dto.GetSubwayLineDTO">
+	<select id="subwayListSearch" resultType="SubwayStationDTO">
 		SELECT 
-			LINE_NAME
-		FROM TBL_SUBWAY_LINES
-		ORDER BY LINE_NAME
-	</select>
-	
-	<!-- 역 목록 조회 -->
-	<select id="subwayStationSearch" resultType="com.wt.app.dto.GetSubwayLineDTO">
-		SELECT
-			stations_name
-		FROM TBL_SUBWAY_STATIONS
-		ORDER BY stations_name
+			l.line_number,
+	       l.line_name,
+	       s.stations_id,
+	       s.stations_name,
+	       s.stations_address,
+	       f.stations_files_number
+		FROM tbl_subway_lines l
+		JOIN tbl_subway_stations s
+		    ON l.line_number = s.line_number
+		LEFT JOIN tbl_files_stations f
+		    ON s.stations_photo_id = f.stations_files_number
+		ORDER BY l.line_number, s.stations_name;
 	</select>
 	
 	<!-- 역 세부정보 조회 -->
-	<select id="subwayDetailSearch" resultType="com.wt.app.dto.SubwayStationDTO">
+	<select id="subwayDetailSearch" resultType="SubwayStationDTO">
 		SELECT 
 		    f.stations_files_name,
 		    s.stations_name,
