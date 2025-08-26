@@ -54,31 +54,16 @@ public class MainFrontController extends HttpServlet {
 		System.out.println("PostsFrontController 현재 경로 : " + target);
 		Result result = new Result();
 		switch(target) {
-		case "/map/map.ma":
-			System.out.println("지도 페이지 요청");
-			result = new MapController().Execute(request, response);
+		case "/main.main":
+			System.out.println("메인 페이지 요청");
+			result = new MainController().execute(request, response);
 			System.out.println(result);
 			break;
-		case "/subwapyLine/subway.ma":
-			System.out.println("지하철 노선도 페이지 요청");
-			result = new SubwayListController().Execute(request, response);
+		case "/mainOk.main":
+			System.out.println("메인 페이지 처리 요청");
+			result = new MainOkController().execute(request, response);
 			System.out.println(result);
 			break;
-		case "/restaurant/restaurant.ma":
-		case "/shops/shopsDetailOk.sh":
-			System.out.println("가게 리스트 페이지 요청");
-			result = new RestautantController().Execute(request, response);
-			break;
-		case "/post/postReadOk.po":
-			System.out.println("일반 게시판 페이지 요청");
-			result = new PostController().Execute(request, response);
-			break;
-		case "/careList/careListDetailOk.cl":
-			System.out.println("돌봄 회원 리스트 페이지 요청");
-			result = new CareMemberController().Execute(request, response);
-			break;
-		
-		
 		}
 		
 		if (result != null) {

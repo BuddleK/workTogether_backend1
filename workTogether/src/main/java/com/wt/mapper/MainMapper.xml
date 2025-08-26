@@ -8,18 +8,19 @@
 		from tbl_news_banners
 	</select>
 	
-<!-- 	<!-- 추천가게 찜 많은 순으로 정렬-->
-<!-- 	<select id="shops" parameterType="PostsDTO">
+<!-- 추천가게 찜 많은 순으로 정렬-->
+ 	<select id="shops" parameterType="ShopsFavoritesActionDTO">
 		select * from (
 			SELECT shops_number, shops_name, shops_intro_text, count(*)
 			from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
 			GROUP BY shops_number, shops_name, shops_intro_text
 			ORDER BY count(*) DESC)
-		where rownum <![CDATA[ <= ]]> 4
-	</select> -->
+		where ROWNUM <= 4
+	</select>
 	
 	<!-- 게시판 -->
-<!-- 	<select id="post" parameterType="PostsDTO">
+	<!-- where rownum <![CDATA[ <= ]]> 4 -->
+ 	<select id="post" parameterType="PostsDTO">
 		select * from (
 			SELECT p.posts_number, p.posts_title, a.users_name, p.posts_created_date
 			FROM tbl_posts p JOIN (
@@ -32,8 +33,8 @@
 				JOIN tbl_normal_users n ON u.users_number = n.users_number) a
 				ON p.USERS_NUMBER = a.USERS_NUMBER
 				ORDER BY p.POSTS_CREATED_DATE DESC)
-			where rownum <![CDATA[ <= ]]> 4
-	</select> -->
+			where ROWNUM  <= 4
+	</select>
 	
 	<!-- 지도 마커 -->
 	<select id="map" parameterType="MarkerDTO">
@@ -71,7 +72,7 @@
              	d.day_thursday, d.day_friday, d.day_saturday, d.day_sunday
    		 ORDER BY COUNT(h.hearts_care_number) DESC
 		)
-		WHERE ROWNUM <= 4;
+		WHERE ROWNUM <= 4
 	</select>
 
 </mapper>
