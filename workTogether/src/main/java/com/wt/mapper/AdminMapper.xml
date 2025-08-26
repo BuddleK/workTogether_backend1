@@ -4,7 +4,7 @@
 <mapper namespace="admin">
 	<!-- ========================= [Auth] ========================= -->
 	<!-- 로그인: admin_number 반환 -->
-	<select id="login" parameterType="AdminLoginDTO"
+	<select id="login" parameterType="com.wt.app.dto.AdminLoginDTO"
 		resultType="int">
 		SELECT admin_number
 		FROM tbl_admin
@@ -12,7 +12,6 @@
 		#{adminId}
 		AND admin_password = #{adminPassword}
 	</select>
-	<!-- 관리자 이름 조회 -->
 	<select id="getAdminName" parameterType="int"
 		resultType="string">
 		SELECT admin_name
@@ -20,7 +19,6 @@
 		WHERE admin_number =
 		#{value}
 	</select>
-
 	<!-- ==================== [Care: 가입신청/조회] ==================== -->
 	<!-- 대기 목록 (페이지네이션: offset, limit) -->
 	<select id="carePendingListPaged" parameterType="map"
@@ -218,18 +216,13 @@
 
 	<!-- ==================== [News 연동 파일: tbl_files_notice] ==================== -->
 	<!-- 파일 추가: seq_files 사용 -->
-<!-- 	<insert id="fileNoticeInsert"
-		parameterType="com.wt.app.dto.FileNoticeDTO">
-		<selectKey keyProperty="noticeFilesNumber" resultType="int"
-			order="BEFORE">
-			<![CDATA[
-			SELECT seq_files.NEXTVAL FROM DUAL
-			]]>
-		</selectKey>
-		<![CDATA[
-			INSERT INTO tbl_files_notice (notice_files_number, notice_files_type, notice_files_name, notice_files_path, notice_files_size_bytes, notice_created_date) VALUES (#{noticeFilesNumber}, #{noticeFilesType}, #{noticeFilesName}, #{noticeFilesPath}, #{noticeFilesSizeBytes}, SYSDATE)
-		]]>
-	</insert> -->
+	<insert id="fileNoticeInsert1" parameterType="com.wt.app.dto.FileNoticeDTO"> 
+		<selectKey keyProperty="noticeFilesNumber" resultType="int" order="BEFORE"> 
+		<![CDATA[ SELECT seq_files.NEXTVAL FROM DUAL ]]> </selectKey> <![CDATA[ INSERT 
+		INTO tbl_files_notice (notice_files_number, notice_files_type, notice_files_name, 
+		notice_files_path, notice_files_size_bytes, notice_created_date) VALUES (#{noticeFilesNumber}, 
+		#{noticeFilesType}, #{noticeFilesName}, #{noticeFilesPath}, #{noticeFilesSizeBytes}, 
+		SYSDATE) ]]> </insert>
 
 	<!-- 파일 조회 (뉴스번호 기준) -->
 	<select id="fileNoticeSelect" parameterType="int"

@@ -44,7 +44,7 @@
 
 			<form
 				action="${pageContext.request.contextPath}/admin/careCareer/detail.ad"
-				method="post" class="table_form">
+				method="get" class="table_form">
 				<div class="table">
 					<div class="thead">
 						<div class="thead_content thead_name">성명</div>
