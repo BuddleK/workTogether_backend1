@@ -18,10 +18,10 @@
     <form class="context" action="${pageContext.request.contextPath}/post/postWriteOk.po">
       <!-- <form class="post_area"> -->
       <div class="post_title">
-        <input id="input_title" placeholder="제목을 입력하세요">
+        <input id="input_title" name="postTitle" placeholder="제목을 입력하세요">
       </div>
       <div id="context_box">
-        <textarea id="input_text" placeholder="내용을 입력하세요"></textarea>
+        <textarea id="input_text" name="postContext" placeholder="내용을 입력하세요"></textarea>
       </div>
       <div class="button_area">
         <button type="button" class="list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록</a></button>
@@ -47,5 +47,10 @@
     </div>
   </div>
   <jsp:include page="/footer.jsp" />
+      <script>
+    	let memberNumber = "${sessionScope.memberNumber}"; 
+    	/* console.log = "${sessionScope.memberNumber}"); */
+    	/* let usersNumber = 48; */
+    </script>
 </body>
 </html>
