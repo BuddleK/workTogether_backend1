@@ -14,7 +14,7 @@ import com.wt.app.dto.CareCareerRowDTO;
 
 public class AdminCareCareerListController implements Execute{
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		System.out.println("==== AdminCareCareerListController 1 실행 ====");

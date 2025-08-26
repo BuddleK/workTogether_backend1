@@ -18,7 +18,7 @@ import com.wt.app.dto.AdminNewsBoardListDTO;
 public class AdminNewsListOkController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("====AdminNewsListOkController 실행====");
 
