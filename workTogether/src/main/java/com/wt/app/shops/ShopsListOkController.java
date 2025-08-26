@@ -17,7 +17,7 @@ import com.wt.app.shops.dao.ShopsDAO;
 public class ShopsListOkController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("====shopsListOkController 실행====");
 
