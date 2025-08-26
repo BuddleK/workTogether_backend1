@@ -14,7 +14,7 @@ import com.wt.app.careMyPage.dao.CareMatchingDAO;
 public class CareMatchingOkController implements Execute{
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		CareMatchingDAO careMatchingDAO = new CareMatchingDAO();
 		Result result = new Result();

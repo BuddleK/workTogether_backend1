@@ -14,7 +14,7 @@ import com.wt.app.careMyPage.dao.CareMarkDAO;
 public class CareMarkOkController implements Execute{
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		CareMarkDAO careMarkDAO = new CareMarkDAO();
 		Result result = new Result();
