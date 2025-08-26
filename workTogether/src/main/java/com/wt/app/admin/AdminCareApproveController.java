@@ -13,7 +13,7 @@ import com.wt.app.admin.dao.AdminDAO;
 public class AdminCareApproveController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("==== AdminCareApproveController 실행 ====");
 
@@ -23,7 +23,7 @@ public class AdminCareApproveController implements Execute {
 		String usersNumberStr = request.getParameter("usersNumber");
 		if (usersNumberStr == null) {
 			System.out.println(" usersNumber 파라미터 없음");
-			response.sendError(HtpServletResponse.SC_BAD_REQUEST);
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return null;
 		}
 

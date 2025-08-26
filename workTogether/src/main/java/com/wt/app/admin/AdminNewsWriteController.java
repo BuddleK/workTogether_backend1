@@ -11,33 +11,25 @@ import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.admin.dao.AdminDAO;
 
-public class AdminNewsWriteController implements Execute{
+public class AdminNewsWriteController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		 System.out.println("==== AdminNewsWriteController 실행(작성 페이지 이동) ====");
+		System.out.println("==== AdminNewsWriteController 실행(작성 페이지 이동) ====");
 
-	        AdminDAO adminDAO = new AdminDAO();
-	        Result result = new Result();
-	        HttpSession session = request.getSession();
+		AdminDAO adminDAO = new AdminDAO(); // AdminDAO 객체는 일단 유지 (향후 다른 관리자 관련 기능 추가 대비)
+		Result result = new Result();
+		HttpSession session = request.getSession();
 
-	        Integer adminNumber = (Integer) session.getAttribute("adminNumber");
-	        String path = null;
+		Integer adminNumber = (Integer) session.getAttribute("adminNumber");
+		
+		//디비에 저장될건 필요 할 수 잇음
+		request.setAttribute("adminNumber", adminNumber);
 
-	        if (adminNumber == null) {
-	            // 로그인 안 한 경우 → 로그인 페이지
-	            path = "/app/admin/login.jsp";
-	        } else {
-	            // 로그인 한 경우 → 뉴스 작성 페이지
-	            path = "/admin/news/newsWriteOk.ad";
-	            request.setAttribute("adminName", adminDAO.getAdminName(adminNumber));
-	        }
-
-	        result.setPath("/app/admin/newsBoardAdd.jsp");
-	        result.setRedirect(false);
-
-	        return result;
+		//뉴스 작성 포워드
+		result.setPath("/admin/news/newsBoardAdd.jsp");
+		result.setRedirect(false);
+		return result;
 	}
-
 }

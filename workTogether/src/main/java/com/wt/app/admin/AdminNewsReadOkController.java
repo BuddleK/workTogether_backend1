@@ -11,47 +11,60 @@ import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminNewsBoardDTO;
+import com.wt.app.dto.FileNoticeDTO;
 
-public class AdminNewsReadOkController implements Execute{
+public class AdminNewsReadOkController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		 Result result = new Result();
 
-	        // 1) 파라미터 체크
-	        String newsNumberStr = request.getParameter("newsNumber");
-	        if (newsNumberStr == null || newsNumberStr.trim().isEmpty()) {
-	            System.out.println("newsNumber 값이 없습니다.");
-	            result.setPath("/admin/news/newsListOk.ad");
-	            result.setRedirect(true);
-	            return result;
-	        }
+		Result result = new Result();
+		AdminDAO adminDAO = new AdminDAO();
 
-	        int newsNumber = Integer.parseInt(newsNumberStr);
+		//newsNumber가 빈 문자열이거나 null인경우
+		String newsNumberStr = request.getParameter("newsNumber");
+		// 파라미터가 없거나 비어있으면 목록 페이지로 리다이렉트 (이전 BoardReadOkController와 유사)
+		if (newsNumberStr == null || newsNumberStr.trim().isEmpty()) {
+			System.out.println("newsNumber 값이 없어 뉴스 목록으로 이동합니다.");
+			result.setPath("/admin/news/newsList.jsp");
+			result.setRedirect(true);
+			return result;
+		}
 
-	        // 2) DB 조회
-	        AdminDAO newsDAO = new AdminDAO();
-	        AdminNewsBoardDTO news = newsDAO.newsSelectOne(newsNumber);
+		int newsNumber = 0;
+		
+		//숫자를 변환할 수 없는 문자열 입력시 예외처리로 프로그램은 돌아감
+		try {
+			newsNumber = Integer.parseInt(newsNumberStr);
+		} catch (NumberFormatException e) {
+			System.err.println("잘못된 뉴스 번호 형식: " + newsNumberStr + ". 뉴스 목록으로 이동합니다.");
+			result.setPath("/admin/news/newsList.jsp");
+			result.setRedirect(true);
+			return result;
+		}
 
-	        if (news == null) {
-	            System.out.println("존재하지 않는 뉴스입니다. newsNumber=" + newsNumber);
-	            result.setPath("/admin/news/newsListOk.ad");
-	            result.setRedirect(true);
-	            return result;
-	        }
+		//DB에서 뉴스 상세 정보 가져오기
+		AdminNewsBoardDTO newsDetail = adminDAO.select(newsNumber);
 
-	        // 3) 로그인 관리자와 글 작성자 비교 (수정/삭제 버튼 노출 제어용)
-	        Integer loginAdminNumber = (Integer) request.getSession().getAttribute("adminNumber");
-	        boolean mine = Objects.equals(loginAdminNumber, news.getAdminNumber());
+		//뉴스 게시글이 존재하지 않을 경우 처리
+		if (newsDetail == null) {
+			System.out.println("존재하지 않는 뉴스 번호입니다: " + newsNumber + ". 뉴스 목록으로 이동합니다.");
+			result.setPath("/admin/news/newsList.jsp");
+			result.setRedirect(true);
+			return result;
+		}
 
-	        // 4) 바인딩 및 이동
-	        request.setAttribute("news", news);
-	        request.setAttribute("mine", mine);
+		//첨부파일 가져오기 (파일은 하나만, 없어도 괜찮음)
+		FileNoticeDTO fileDetail = adminDAO.selectFileNotice(newsNumber);
+		System.out.println("뉴스 첨부파일: " + (fileDetail != null ? fileDetail.getNoticeFilesName() : "없음"));
 
-	        result.setPath("/app/admin/newsBoadDetail.ad");
-	        result.setRedirect(true);
-	        return result;
+		request.setAttribute("newsDetail", newsDetail);
+		request.setAttribute("fileDetail", fileDetail);
+
+		result.setPath("//admin/news/newsRead.jsp");
+		result.setRedirect(false);
+		return result;
 	}
 
 }

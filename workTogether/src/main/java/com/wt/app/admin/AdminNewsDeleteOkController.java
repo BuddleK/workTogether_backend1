@@ -15,67 +15,55 @@ import com.wt.app.dto.FileNoticeDTO;
 public class AdminNewsDeleteOkController implements Execute{
 
 		@Override
-	    public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	    public Result execute(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 
 	        System.out.println("==== AdminNewsDeleteOkController 실행 ====");
-
 	        Result result = new Result();
+			AdminDAO adminDAO = new AdminDAO();
 
-	        // 1) 파라미터 검증
-	        String newsNumberStr = request.getParameter("newsNumber");
-	        if (newsNumberStr == null || newsNumberStr.trim().isEmpty()) {
-	            System.out.println("삭제 실패: newsNumber 파라미터 없음");
+			// 1) newsNumber 파라미터 유효성 검증
+			String newsNumberStr = request.getParameter("newsNumber");
+			if (newsNumberStr == null || newsNumberStr.trim().isEmpty()) {
+				System.out.println("삭제 실패: newsNumber 파라미터가 없거나 비어 있습니다.");
+				result.setPath(request.getContextPath() + "/admin/news/newsListOk.ad");
+				result.setRedirect(true);
+				return result;
+			}
+
+			int newsNumber;
+			try {
+				newsNumber = Integer.parseInt(newsNumberStr); //문자열을 정수로 변환
+			} catch (NumberFormatException e) {
+				System.out.println("삭제 실패: newsNumber 파싱 오류. 숫자 형식이 아닙니다 -> " + newsNumberStr);
+				result.setPath(request.getContextPath() + "/admin/news/newsListOk.ad");
+				result.setRedirect(true);
+				return result;
+			}
+
+			try {
+				// 뉴스 본문 삭제
+				int deletedRows = adminDAO.deleteNews(newsNumber); 
+				System.out.println("뉴스 삭제 결과: " + deletedRows + "행 삭제됨. 뉴스 번호=" + newsNumber);
+
+			} catch (Exception e) {
+				System.err.println("뉴스 삭제 중 오류 발생: ");
+				e.printStackTrace(); 
 	            result.setPath(request.getContextPath() + "/admin/news/newsListOk.ad");
 	            result.setRedirect(true);
 	            return result;
-	        }
+			}
 
-	        int newsNumber;
-	        try {
-	            newsNumber = Integer.parseInt(newsNumberStr);
-	        } catch (NumberFormatException e) {
-	            System.out.println("삭제 실패: newsNumber 파싱 오류 -> " + newsNumberStr);
-	            result.setPath(request.getContextPath() + "/admin/news/newsListOk.ad");
-	            result.setRedirect(true);
-	            return result;
-	        }
+			// 삭제 완료 후 목록으로 이동
+			String page = request.getParameter("page"); 
+			String redirectPath = request.getContextPath() + "/admin/news/newsListOk.ad";
+			if (page != null && !page.isEmpty()) {
+				redirectPath += "?page=" + page;
+			}
+			result.setPath(redirectPath);
+			result.setRedirect(true); 
 
-	        AdminDAO dao = new AdminDAO();
-
-	        // 2) 첨부파일(공지 파일) 조회 → 물리 파일/DB 레코드 삭제
-	        try {
-	            FileNoticeDTO file = dao.selectNoticeFileByNews(newsNumber); // admin.fileNoticeSelect
-	            if (file != null && file.getNoticeFilesPath() != null) {
-	                // 물리 파일 삭제
-	                String root = request.getServletContext().getRealPath("/");
-	                File diskFile = new File(root, file.getNoticeFilesPath()); // 예: upload/abc.png
-	                if (diskFile.exists()) {
-	                    boolean deleted = diskFile.delete();
-	                    System.out.println("물리 파일 삭제 " + (deleted ? "성공" : "실패") + " : " + diskFile.getAbsolutePath());
-	                }
-	                // 파일 메타 삭제
-	                dao.deleteNoticeFileByNews(newsNumber); // admin.fileNoticeDelete
-	            }
-
-	            // 3) 뉴스 삭제
-	            int deletedRows = dao.newsDelete(newsNumber); // admin.newsDelete
-	            System.out.println("뉴스 삭제 결과 rows=" + deletedRows + ", newsNumber=" + newsNumber);
-
-	        } catch (Exception e) {
-	            // 운영 로그에 남기기
-	            e.printStackTrace();
-	            // 실패 시에도 목록으로 리다이렉트 (사용자 경험)
-	        }
-
-	        // 4) 목록으로 이동 (필요 시 page 유지)
-	        String page = request.getParameter("page");
-	        String to = request.getContextPath() + "/admin/news/newsListOk.ad";
-	        if (page != null && !page.isEmpty()) {
-	            to += "?page=" + page;
-	        }
-	        result.setPath(to);
-	        result.setRedirect(true);
-	        return result;
-	    }
+			System.out.println("==== AdminNewsDeleteOkController 처리 완료 ====");
+			return result;
+		}
 	}

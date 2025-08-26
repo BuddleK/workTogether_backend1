@@ -3,7 +3,7 @@ package com.wt.app.dto;
 public class NormalMatchingDTO {
 	// 매칭 테이블
 	private int matchNumber; // 매칭 번호
-	private int careNumber;	// 돌봄 회원 번호
+	private int careNumber; // 돌봄 회원 번호
 	private int normalNumber; // 일반 회원 번호
 	private String matchDate; // 매칭 날짜
 	private String matchTime; // 매칭 시간
@@ -58,11 +58,11 @@ public class NormalMatchingDTO {
 		this.matchPoints = matchPoints;
 	}
 
-	public char getMatchStatus() {
+	public String getMatchStatus() {
 		return matchStatus;
 	}
 
-	public void setMatchStatus(char matchStatus) {
+	public void setMatchStatus(String matchStatus) {
 		this.matchStatus = matchStatus;
 	}
 

@@ -14,7 +14,7 @@ public class CareExitDTO {
 //	);
 //	-- 돌봄 회원
 //	CREATE TABLE tbl_care_users (
-//	    care_number NUMBER,
+//	    users_number NUMBER,
 //	    users_name VARCHAR2(50) NOT NULL,
 //	    users_email VARCHAR2(255) NOT NULL UNIQUE,
 //	    users_phone VARCHAR2(30) NOT NULL,
@@ -26,14 +26,13 @@ public class CareExitDTO {
 //	    care_passbook_files_num NUMBER NOT NULL,
 //	    care_profiles_photo_number NUMBER,
 //	    care_accept CHAR(1) DEFAULT 'N' CHECK (care_accept IN ('Y', 'N')),
-//	    users_number NUMBER NOT NULL UNIQUE,
-//	    CONSTRAINT pk_care_users PRIMARY KEY(care_number),
+//	    CONSTRAINT pk_care_users PRIMARY KEY(users_number ),
 //	    CONSTRAINT fk_care_users FOREIGN KEY (users_number) REFERENCES tbl_users (users_number),
 //	    CONSTRAINT fk_care_cert_files FOREIGN KEY (care_certificate_files_num) REFERENCES tbl_files_license(license_files_number) ON DELETE CASCADE,
 //	    CONSTRAINT fk_care_passbook_files FOREIGN KEY (care_passbook_files_num) REFERENCES tbl_files_account(account_files_number) ON DELETE CASCADE,
 //	    CONSTRAINT fk_care_profiles_photo FOREIGN KEY (care_profiles_photo_number) REFERENCES tbl_files_profiles(profiles_files_number) ON DELETE CASCADE
 //	);
-
+//
 //	-- 매칭
 //	CREATE TABLE tbl_matchings (
 //	    match_number NUMBER PRIMARY KEY,
@@ -43,8 +42,8 @@ public class CareExitDTO {
 //	    match_match_time VARCHAR2(20) NOT NULL,
 //	    match_points NUMBER NOT NULL,
 //	    match_status CHAR(1) DEFAULT 'S' CHECK (match_status IN ('C', 'S', 'D')), -- C: 완료, S: 진행, D: 취소
-//	    CONSTRAINT fk_match_care FOREIGN KEY (care_number) REFERENCES tbl_care_users(care_number) ON DELETE CASCADE,
-//	    CONSTRAINT fk_match_normal FOREIGN KEY (normal_number) REFERENCES tbl_normal_users(normal_number) ON DELETE CASCADE
+//	    CONSTRAINT fk_match_care FOREIGN KEY (care_number) REFERENCES tbl_care_users(users_number ) ON DELETE CASCADE,
+//	    CONSTRAINT fk_match_normal FOREIGN KEY (normal_number) REFERENCES tbl_normal_users(users_number) ON DELETE CASCADE
 //	);
 
 	private int usersNumber;

@@ -90,9 +90,9 @@ public class AdminDAO {
 	/* ===== [News 연동 파일(tbl_files_notice)] ===== */
 
 	/** 파일 INSERT (mapper selectKey로 PK 주입됨) → 생성된 notice_files_number 반환 */
-	public int insertNoticeFile(FilesLicenseDTO dto) {
+	public int insertNoticeFile(FileNoticeDTO dto) {
 		sqlSession.insert("admin.fileNoticeInsert", dto);
-		return dto.getLicenseFilesNumber(); // PK 반환
+		return dto.getNoticeFilesNumber(); // PK 반환
 	}
 
 	public FileNoticeDTO selectNoticeFileByNews(int newsNumber) {
@@ -116,8 +116,89 @@ public class AdminDAO {
 	}
 
 	/* ======================= [News] ======================= */
+	// 뉴스 목룍 조회
+	public List<AdminNewsBoardListDTO> selectAll(Map<String, Integer> pageMap) {
+		System.out.println("모든 뉴스 조회하기 - selectAll로 : " + pageMap);
+		List<AdminNewsBoardListDTO> list = sqlSession.selectList("admin.newSelect", pageMap);
+		System.out.println("뉴스 조회 결과 : " + list);
+		return list;
+	}
+	
+	//뉴스 총 갯수
+	public int getNewsTotal() {
+		System.out.println("게시글 총 개수 조회 - getNewsTotal 메소드 실행");
+		return sqlSession.selectOne("admin.newsGetTotal");
+	}
+	
+	//뉴스 추가 후 자동으로 생성된 뉴스 번호 반환 파일 테이블에서도 사용 예 
+	public int insertNews(AdminNewsBoardDTO newsDTO) {
+		int insert = sqlSession.insert("admin.newsInsert", newsDTO);
+		return newsDTO.getNewsNumber();
+	}
+	
+	// 뉴스 수정
+	public void updateNews(AdminNewsBoardDTO newsDTO) {
+		int result = sqlSession.update("admin.newsUpdate", newsDTO);
+	}
+	
+	//뉴스 상세조회 단건
+	public AdminNewsBoardDTO select(int newsNumber) {
+		System.out.println("뉴스 상세 페이지 조회(단건조회)");
+	    return sqlSession.selectOne("admin.newsSelectOne", newsNumber);
+	}
+	
+	//뉴스 삭제
+	public int deleteNews(int newsNumber) {
+		System.out.println("뉴스 삭제 - deleteNews 메소드 실행. 삭제할 뉴스 번호: " + newsNumber);
+		int deleteResult = sqlSession.delete("admin.newsDelete", newsNumber);
+		return deleteResult;
+	}
+	
+	//뉴스 파일번호 연결하기
+	public void updateNewsFilesNumber(Map<String, Object> params) {
+		System.out.println("뉴스 파일 번호 업데이트 - updateNewsFilesNumber 메소드 실행. 파라미터: " + params);
+		int result = sqlSession.update("admin.newsUpdateFilesNumber", params);
+		
+	}
+	
+	//파일 등록
+	public int insertFileNotice(FileNoticeDTO fileDTO) {
+		System.out.println("뉴스 관련 파일 추가 - insertFileNotice 메소드 실행: " + fileDTO);
+		int insertResult = sqlSession.insert("admin.fileNoticeInsert", fileDTO);
+		return fileDTO.getNoticeFilesNumber();
+	}
+	
+	public FileNoticeDTO selectFileNotice(int newsNumber) {
+		System.out.println("뉴스에 연결된 파일 조회 - selectFileNotice 메소드 실행. 뉴스 번호: " + newsNumber);
+		FileNoticeDTO fileDetail = sqlSession.selectOne("admin.fileNoticeSelect", newsNumber);
+		if (fileDetail != null) {
+			System.out.println("뉴스 파일 조회 결과: " + fileDetail.getNoticeFilesName());
+		} else {
+			System.out.println(newsNumber + "번 뉴스에 연결된 파일 정보를 찾을 수 없습니다.");
+		}
+		return fileDetail;
+	}
 
-	public List<AdminNewsBoardListDTO> newsSelectAll(int startRow, int endRow) {
+	//파일 삭제 (뉴스번호 기준)
+	public void deleteFileNotice(int newsNumber) {
+		System.out.println("뉴스에 연결된 파일 삭제 - deleteFileNotice 메소드 실행. 뉴스 번호: " + newsNumber);
+		int deleteResult = sqlSession.delete("admin.fileNoticeDelete", newsNumber);
+		System.out.println("뉴스 파일 삭제 결과: " + deleteResult + " (1이면 성공)");
+	}
+
+	//뉴스 번호로 연결된 파일 번호 조회
+	public int getNoticeFilesNumberByNewsNumber(int newsNumber) {
+		System.out.println("뉴스 번호로 파일 번호 조회 - getNoticeFilesNumberByNewsNumber 메소드 실행. 뉴스 번호: " + newsNumber);
+		Integer filesNumber = sqlSession.selectOne("admin.fileNoticeGetNoticeFilesNumber", newsNumber);
+		if (filesNumber != null) {
+			System.out.println(newsNumber + "번 뉴스에 연결된 파일 번호: " + filesNumber);
+		} else {
+			System.out.println(newsNumber + "번 뉴스에 연결된 파일이 없거나 찾을 수 없습니다.");
+		}
+		return (filesNumber != null) ? filesNumber : 0; // 파일이 없을 경우 0 반환 (혹은 예외 처리)
+	}
+
+/*	public List<AdminNewsBoardListDTO> newsSelectAll(int startRow, int endRow) {
 		Map<String, Object> param = new HashMap<>();
 		param.put("startRow", startRow);
 		param.put("endRow", endRow);
@@ -128,7 +209,7 @@ public class AdminDAO {
 		return sqlSession.selectOne("admin.newsGetTotal");
 	}
 
-	/** 등록 시 mapper의 selectKey로 newsNumber가 dto에 세팅됩니다. */
+	*//** 등록 시 mapper의 selectKey로 newsNumber가 dto에 세팅됩니다. *//*
 	public void newsInsert(AdminNewsBoardDTO dto) {
 		sqlSession.insert("admin.newsInsert", dto);
 	}
@@ -148,7 +229,7 @@ public class AdminDAO {
 	public int insertNews(AdminNewsBoardDTO dto) {
 		sqlSession.insert("admin.newsInsert", dto);
 		return dto.getNewsNumber();
-	}
+	}*/
 
 	/* ============ [Care 이력수정: 자격증/통장사본] ============ */
 	/* 자격증 이력 INSERT → 생성된 license_modify_number 반환 */

@@ -45,9 +45,11 @@ public class AdminUserManagerDTO {
 	public void setUserPhone(String userPhone) {
 		this.userPhone = userPhone;
 	}
+
 	public String getUserType() {
 		return userType;
 	}
+
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
@@ -75,9 +77,17 @@ public class AdminUserManagerDTO {
 	public void setUsersPassword(String usersPassword) {
 		this.usersPassword = usersPassword;
 	}
+<<<<<<< HEAD
+
 	public int getUsersPoint() {
 		return usersPoint;
 	}
+
+=======
+	public int getUsersPoint() {
+		return usersPoint;
+	}
+>>>>>>> main
 	public void setUsersPoint(int usersPoint) {
 		this.usersPoint = usersPoint;
 	}

@@ -15,7 +15,7 @@ import com.wt.app.dto.AdminCareSignupDTO;
 public class AdminCareDetailController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("==== AdminCareDetailController 실행 ====");
 		Result result = new Result();
@@ -78,7 +78,6 @@ public class AdminCareDetailController implements Execute {
 		// 6) 포워드
 		result.setPath("/app/admin/careRequestDetail.jsp");
 		result.setRedirect(false);
-		System.out.println("==== 상세 포워드 → " + result.getPath() + " ====");
 		return result;
 	}
 }

@@ -15,7 +15,7 @@ import com.wt.app.dto.AdminLoginDTO;
 public class AdminLoginOkController implements Execute{
 
    @Override
-   public Result Execute(HttpServletRequest request, HttpServletResponse response)
+   public Result execute(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
 
       
@@ -44,7 +44,7 @@ public class AdminLoginOkController implements Execute{
             
           
         } else {
-            path = "/admin/login.ad";
+            path = "/admin/adminlogin.ad";
            System.out.println(adminNumber);
         }
         result.setRedirect(true); //세션에 저장된 값은 유지
