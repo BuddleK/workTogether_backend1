@@ -17,7 +17,7 @@
 
 <main>
   <section class="login">
-    <form action="${pageContext.request.contextPath}/users/loginOk.us" method="post">
+    <form action="${pageContext.request.contextPath}/users/loginNormalOk.us" method="post">
       <div class="box">
         <div class="box_title"><p>login</p></div>
 
@@ -29,8 +29,9 @@
         </div>
 
         <div class="bt_box">
-          <button type="submit">로그인</button>
+          <button type="submit">일반 로그인</button>
         </div>
+        
 
         <div class="link_box">
           <a href="${pageContext.request.contextPath}/users/findId.us">아이디 찾기</a>
