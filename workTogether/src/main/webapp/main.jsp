@@ -26,6 +26,7 @@
         <!-- 여기부터 슬라이드 박스 -->
         <ul class="slide-box">
           <!-- 첫 번째 슬라이드 -->
+          <c:forEach var="banner" items="${}"
           <li>
             <div class="slide-img">
               <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner1.png">
