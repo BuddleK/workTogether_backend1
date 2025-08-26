@@ -21,9 +21,9 @@
 	<!-- 로그인 (날짜는 String으로 TO_CHAR) -->
 	<select id="normalLogin"
 		parameterType="com.wt.app.dto.UsersDTO"
-		resultType="com.wt.app.dto.UsersDTO">
+		resultType="int">
 		SELECT
-		u.users_number AS usersNumber,
+		u.users_number AS usersNumber
 		FROM tbl_users u
 		WHERE u.users_id = #{usersId}
 		AND u.users_password = #{usersPassword}

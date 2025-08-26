@@ -62,6 +62,13 @@ public class UsersFrontController extends HttpServlet {
 			System.out.println("돌봄 로그인 처리 요청");
 			result = new LoginCareOkController().execute(request, response);
 			break;
+<<<<<<< HEAD
+=======
+		case "/users/loginCareOk.us":
+			System.out.println("돌봄 로그인 처리 요청");
+			result = new LoginCareOkController().execute(request, response); // 대문자 E
+			break;
+>>>>>>> main
 
 		// ===== 회원가입(일반) =====
 		case "/users/joinNormal.us":
