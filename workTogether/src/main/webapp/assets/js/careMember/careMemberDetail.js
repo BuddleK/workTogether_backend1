@@ -208,3 +208,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	loadComments();
 });
+
+
+function sendLetterButtonClick(){
+	
+}

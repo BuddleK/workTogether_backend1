@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/careMember/careMemberDetail.js"></script> 
+	src="${pageContext.request.contextPath}/assets/js/careMember/careMemberDetail.js"></script>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/careMember/careMemberModal.css">
@@ -77,19 +77,19 @@
 									정보(이력) :
 									<ul>
 										<!-- 프로필 이력 정보 리스트 -->
-										<li>
-											<c:out value="${care.getProfilesFilesName() }"></c:out>
+										<li><c:out value="${care.getProfilesFilesName() }"></c:out>
 										</li>
 										<!-- 프로필 이력 정보 리스트 -->
-										<li>· 
-											<c:out value="${care.getUsersAddressLine1() }"></c:out>
-										 거주</li>
+										<li>· <c:out value="${care.getUsersAddressLine1() }"></c:out>
+											거주
+										</li>
 									</ul>
 								</div>
 								<!-- 프로필 간단 소개 -->
 								<div class="profile_short_intro">
 									소개 :
-									<div>· 
+									<div>
+										·
 										<c:out value="${care.getCareIntroText() }"></c:out>
 									</div>
 								</div>
@@ -117,20 +117,24 @@
 							<div class="comment_date_column">날짜</div>
 						</div>
 						<!-- 후기 리스트 ul -->
-						<ul class="comment_list" >
+						<ul class="comment_list">
 							<!-- 후기 리스트 li -->
-							 <li class="comment">
+							<li class="comment">
 								<div class="comment_div">
 									<div class="comment_number">1</div>
 									<div class="comment_author">아무개</div>
 									<div class="comment_context">나중에 또 부탁드립니다.</div>
-									<div class="comment_edit"> <button type=button class="edit_btn">수정</button> </div>
-									<div class="comment_del"> <button type=button class="del_btn">삭제</button> </div>
+									<div class="comment_edit">
+										<button type=button class="edit_btn">수정</button>
+									</div>
+									<div class="comment_del">
+										<button type=button class="del_btn">삭제</button>
+									</div>
 									<div class="comment_date">2025-08-02</div>
 								</div>
-							</li> 
+							</li>
 							<!-- 후기 리스트 li -->
-							
+
 						</ul>
 						<!-- 후기 작성 박스 -->
 						<div class="input_box">
@@ -148,10 +152,13 @@
 		</div>
 	</main>
 	<jsp:include page="/footer.jsp" />
+	
 </body>
 <script>
 	window.careNumber = "${care.usersNumber}"
 	window.usersNumber = 1;
 	console.log(window.careNumber);
+	
+	
 </script>
 </html>
