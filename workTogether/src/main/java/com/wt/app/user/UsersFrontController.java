@@ -66,7 +66,7 @@ public class UsersFrontController extends HttpServlet {
 
         case "/users/joinNormalOk.us":
             System.out.println("일반회원 가입 처리 요청");
-            result = new NormalJoinOkController().Execute(request, response);
+            result = new NormalJoinOkController().execute(request, response);
             break;
 
         // ===== 회원가입(돌봄) =====
@@ -77,29 +77,29 @@ public class UsersFrontController extends HttpServlet {
 
         case "/users/joinCareOk.us":
             System.out.println("돌봄회원 가입 처리 요청");
-            result = new CareJoinOkController().Execute(request, response);
+            result = new CareJoinOkController().execute(request, response);
             break;
 
         // ===== 로그인/로그아웃 =====
         case "/users/login.us":
             System.out.println("로그인 페이지 요청");
-            result = new LoginController().Execute(request, response); // /app/login/login.jsp 로 포워드
+            result = new LoginController().execute(request, response); // /app/login/login.jsp 로 포워드
             break;
 
         case "/users/loginOk.us":
             System.out.println("로그인 처리 요청");
-            result = new LoginOkController().Execute(request, response); // 대문자 E
+            result = new LoginOkController().execute(request, response); // 대문자 E
             break;
 
         case "/users/logoutOk.us":
             System.out.println("로그아웃 처리 요청");
-            result = new LogoutOkController().Execute(request, response);
+            result = new LogoutOkController().execute(request, response);
             break;
 
         // ===== 아이디 중복 =====
         case "/users/checkIdOk.us":
             System.out.println("아이디 중복 확인 요청");
-            result = new CheckIdOkController().Execute(request, response);
+            result = new CheckIdOkController().execute(request, response);
             break;
 
         // ===== 아이디 찾기 =====
@@ -110,7 +110,7 @@ public class UsersFrontController extends HttpServlet {
 
         case "/users/findIdOk.us":
             System.out.println("아이디 찾기 처리 요청");
-            result = new FindIdOkController().Execute(request, response);
+            result = new FindIdOkController().execute(request, response);
             break;
 
         // ===== 비밀번호 찾기/변경 =====
@@ -121,12 +121,12 @@ public class UsersFrontController extends HttpServlet {
 
         case "/users/findPwOk.us":
             System.out.println("비밀번호 찾기 처리 요청");
-            result = new FindPwOkController().Execute(request, response);
+            result = new FindPwOkController().execute(request, response);
             break;
 
         case "/users/updatePwOk.us":
             System.out.println("새 비밀번호 저장 요청");
-            result = new UpdatePwOkController().Execute(request, response);
+            result = new UpdatePwOkController().execute(request, response);
             break;
 
         // ===== 6자리 인증번호 / 우편번호 =====

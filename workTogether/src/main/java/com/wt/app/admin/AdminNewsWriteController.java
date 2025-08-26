@@ -14,7 +14,7 @@ import com.wt.app.admin.dao.AdminDAO;
 public class AdminNewsWriteController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("==== AdminNewsWriteController 실행(작성 페이지 이동) ====");
 
