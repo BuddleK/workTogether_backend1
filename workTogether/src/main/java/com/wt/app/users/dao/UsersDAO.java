@@ -29,9 +29,13 @@ public class UsersDAO {
 	        return cnt != null && cnt < 1;
 	    }
 
-	    /** 로그인: 일치하는 사용자 정보를 반환 (없으면 null) */
-	    public UsersDTO login(UsersLoginDTO usersLoginDTO) {
-	        return sqlSession.selectOne("UserMapper.login", usersLoginDTO);
+	    /** 일반 로그인: 일치하는 사용자 정보를 반환 (없으면 null) */
+	    public UsersDTO normalLogin(UsersDTO usersDTO) {
+	        return sqlSession.selectOne("UserMapper.NormalLogin", usersDTO);
+	    }
+	    /**  돌봄 로그인: 일치하는 사용자 정보를 반환 (없으면 null) */
+	    public UsersDTO careLogin(UsersDTO usersDTO) {
+	        return sqlSession.selectOne("UserMapper.CareLogin", usersDTO);
 	    }
 
 	    /** 회원번호로 아이디 조회 (원시 long 그대로 전달 → 매퍼에서 #{value} 사용) */
