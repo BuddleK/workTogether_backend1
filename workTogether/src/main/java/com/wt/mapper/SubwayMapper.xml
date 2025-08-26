@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="subway">
 	<!-- 노선도 조회 -->
-	<select id="subwayLineSearch" resultType="com.wt.app.dto.GetSubwayLineDTO">
+	<select id="subwayListSearch" resultType="com.wt.app.dto.GetSubwayLineDTO">
 		SELECT 
 			LINE_NAME
 		FROM TBL_SUBWAY_LINES
