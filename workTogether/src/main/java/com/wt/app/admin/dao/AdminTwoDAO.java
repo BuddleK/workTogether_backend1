@@ -73,7 +73,7 @@ public class AdminTwoDAO {
 
 	public int adminNewsBannerInsert(AdminNewsBannerDTO adminNewsBannerDTO) {
 		sqlSession.insert("admin.adminNewsBannerInsert", adminNewsBannerDTO);
-		return adminNewsBannerDTO.getNewsNumber();
+		return adminNewsBannerDTO.getBannerNewsNumber();
 	}
 
 	public List<AdminNewsBannerDTO> adminNewsBannerSelect() {

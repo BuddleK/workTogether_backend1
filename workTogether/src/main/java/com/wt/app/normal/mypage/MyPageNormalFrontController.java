@@ -7,90 +7,110 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Result;
+import com.wt.app.admin.AdminUserManagerListController;
 
 /**
  * Servlet implementation class MyPageNormalFrontController
  */
 public class MyPageNormalFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MyPageNormalFrontController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MyPageNormalFrontController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
 		String target = request.getRequestURI().substring(request.getContextPath().length());
 		System.out.println("현재경로 : " + target);
 		Result result = new Result();
-		
-		switch(target) {
+
+		switch (target) {
 		case "/myPageNormal/checkPwOk.mn":
 			System.out.println("마이페이지 일반회원 비밀번호 확인 완료 요청");
-			result.setRedirect(true);
+			result = new CheckPwOkController().execute(request, response);
+			break;
 		case "/myPageNormal/normalModifyOk.mn":
 			System.out.println("마이페이지 일반회원 회원정보 수정 완료 요청");
-			result.setRedirect(true);
+			result = new NormalModifyOkController().execute(request, response);
+			break;
 		case "/myPageNormal/normalfavoriteList.mn":
 			System.out.println("마이페이지 일반회원 가게 찜 리스트 페이지 요청");
-			result.setRedirect(true);
+			result = new NormalfavoriteListController().execute(request, response);
+			break;
 		case "/myPageNormal/normalfavoriteListDeleteOk.mn":
 			System.out.println("마이페이지 일반회원 가게 찜 삭제 완료 요청");
-			result.setRedirect(true);
+			result = new NormalfavoriteListDeleteOkController().execute(request, response);
+			break;
 		case "/myPageNormal/normalHeartList.mn":
 			System.out.println("마이페이지 일반회원 하트 리스트 페이지 요청");
-			result.setRedirect(true);
+			result = new NormalHeartListController().execute(request, response);
+			break;
 		case "/myPageNormal/normalHeartListDeleteOk.mn":
 			System.out.println("마이페이지 일반회원 하트 리스트 삭제 완료 요청");
-			result.setRedirect(true);
+			result = new NormalHeartListDeleteOkController().execute(request, response);
+			break;
 		case "/myPageNormal/normalMatching.mn":
 			System.out.println("마이페이지 일반회원 매칭 관리 페이지 요청");
-			result.setRedirect(true);
+			result = new NormalMatchingController().execute(request, response);
+			break;
 		case "/myPageNormal/normalPostsList.mn":
 			System.out.println("마이페이지 일반회원 게시판 리스트 페이지 요청");
-			result.setRedirect(true);
+			result = new NormalPostsListController().execute(request, response);
+			break;
 		case "/myPageNormal/normalPostsListDeleteOk.mn":
 			System.out.println("마이페이지 일반회원 게시판 삭제 완료 요청");
-			result.setRedirect(true);
+			result = new NormalPostsListDeleteOkController().execute(request, response);
+			break;
 		case "/myPageNormal/normalReferenceInsert.mn":
 			System.out.println("마이페이지 일반회원 문의 추가 페이지 요청");
-			result.setRedirect(true);
+			result = new NormalReferenceInsertController().execute(request, response);
+			break;
 		case "/myPageNormal/normalReferenceInsertOk.mn":
 			System.out.println("마이페이지 일반회원 문의 추가 완료 요청");
-			result.setRedirect(true);
+			result = new NormalReferenceInsertOkController().execute(request, response);
+			break;
 		case "/myPageNormal/normalReferenceList.mn":
 			System.out.println("마이페이지 일반회원 문의 리스트 페이지 요청");
-			result.setRedirect(true);
+			result = new NormalReferenceListController().execute(request, response);
+			break;
 		case "/myPageNormal/normalExit.mn":
 			System.out.println("마이페이지 일반회원 회원탈퇴 페이지 요청");
-			result.setRedirect(true);
+			result = new NormalExitController().execute(request, response);
+			break;
 		case "/myPageNormal/normalExitOk.mn":
 			System.out.println("마이페이지 일반회원 회원탈퇴 완료 요청");
-			result.setRedirect(true);
+			result = new NormalExitOkController().execute(request, response);
+			break;
 		}
-		
+
 		if (result != null) {
 			if (result.isRedirect()) {
 				response.sendRedirect(result.getPath());
