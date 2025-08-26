@@ -41,6 +41,10 @@
       </div>
     </form>
   </section>
+  <% %>
+  <% 
+  	String flag = request.getParameter("");
+  %>
 </main>
 
 <jsp:include page="/footer.jsp"/>

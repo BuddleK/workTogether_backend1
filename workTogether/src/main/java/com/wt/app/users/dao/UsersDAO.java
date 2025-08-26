@@ -30,8 +30,8 @@ public class UsersDAO {
 	    }
 
 	    /** 일반 로그인: 일치하는 사용자 정보를 반환 (없으면 null) */
-	    public Integer normalLogin(UsersDTO usersDTO) {
-	        return sqlSession.selectOne("userMapper.normalLogin", usersDTO);
+	    public int normalLogin(UsersLoginDTO usersLoginDTO) {
+	        return sqlSession.selectOne("userMapper.normalLogin", usersLoginDTO) != null ? sqlSession.selectOne("userMapper.normalLogin", usersLoginDTO) : -1 ;
 	    }
 	    /**  돌봄 로그인: 일치하는 사용자 정보를 반환 (없으면 null) */
 	    public UsersDTO careLogin(UsersLoginDTO usersloginDTO) {

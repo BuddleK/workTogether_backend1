@@ -13,6 +13,7 @@
   <script src="${pageContext.request.contextPath}/assets/js/post/postDetail.js "></script>
    <%-- <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script> --%> 
   <%-- <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetailNotlogin.js"></script> --%>
+  <script defer src="${pageContext.request.contextPath}/assets/js/post/postDetailModals.js "></script>
 </head>
 <body>
   <jsp:include page="/header.jsp" />
@@ -56,7 +57,7 @@
       	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록으로</a></button>
       	<c:choose>
       		<c:when test="${sessionScope.memberNumber == post.getUsersNumber()}">
-      			<button type="button" class="button_delete">삭제</button>
+      			<a href="${pageContext.request.contextPath}/post/postDeleteOk.po?postsNumber=${post.getPostsNumber()}"><button type="button" class="button_delete">삭제</button></a>
 				<a href="${pageContext.request.contextPath}/post/postUpdate.po?postsNumber=${post.getPostsNumber()}"><button type="button" class="button_enroll">수정</button></a>
       		</c:when>
       		<c:otherwise>
@@ -85,6 +86,16 @@
       </div>
     </div>
   </main>
+    <!-- 게시글 삭제 확인 모달 -->
+<%--   <div class="checkmodal" id="del_modal">
+    <div class="modal_box">
+      <p>이 게시글을 삭제하시겠습니까?</p>
+      <div class="modal_buttons">
+        <a href="${pageContext.request.contextPath}/app/post/postMain.jsp"><button id="check">확인</button></a>
+        <button id="cancle">취소</button>
+      </div>
+    </div>
+  </div> --%>
   <!-- 신고 확인 모달 -->
   <!-- <div class="checkmodal" id="editModal">
     <div class="modal_box">
