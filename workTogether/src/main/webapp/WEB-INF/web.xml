@@ -156,5 +156,16 @@
       <servlet-name>Reply</servlet-name>
       <url-pattern>*.re</url-pattern>
    </servlet-mapping>
+   
+      <servlet>
+      <servlet-name>Main</servlet-name>
+      <servlet-class>com.wt.app.main.MainFrontController</servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>Main</servlet-name>
+      <url-pattern>*.main</url-pattern>
+   </servlet-mapping>
+   
 
 </web-app>
