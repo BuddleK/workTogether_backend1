@@ -42,7 +42,7 @@ public class LoginNormalOkController implements Execute {
 			result.setRedirect(true);
 			result.setPath(request.getContextPath() + "/"); // 로그인 성공 후 메인으로
 		} else {
-			request.setAttribute("loginError");
+			request.setAttribute("loginError", "아이디 또는 비밀번호를 확인해주세요.");
 			System.out.println("유저 아이디가 없음");
 			result.setRedirect(false);
 			result.setPath("/app/login/loginNormal.jsp"); // 실패 시 로그인 화면

@@ -11,8 +11,9 @@
     </span>
     <span>
     	<c:choose>
-    		<c:when test="${!empty sessionScope.usersNumber}">
+    		<c:when test="${empty sessionScope.usersNumber}">
 		     	<!-- 로그인 메뉴 -->
+		     	
 		      	<a href="${pageContext.request.contextPath}/app/login/loginNormal.jsp">일반 로그인</a>
 		      	<a href="${pageContext.request.contextPath}/app/login/loginCare.jsp">돌봄 로그인</a>
 		      	<%-- <a href="${pageContext.request.contextPath}/login/login.us">로그인</a> --%>
@@ -24,11 +25,13 @@
 	    		<c:choose>
     				<c:when test="${sessionScope.usersType == 'C'}">
 	    				<!--  돌봄 마이페이지 메뉴 -->
+	    				<span>회원 번호 : <c:out value="${sessionScope.usersNumber} }"></c:out> </span>
 			      		<a href="${pageContext.request.contextPath}/app/myPageCare/carePwcheck.jsp">마이페이지</a>
 			      		<%-- <a href="${pageContext.request.contextPath}/myPageCare/carePwcheck.??">마이페이지</a> --%>
 			    	</c:when>
 			    	<c:otherwise>
 			    		<!--  일반 마이페이지 메뉴 -->
+			    		<span>회원 번호 : <c:out value="${sessionScope.usersNumber} "></c:out> </span>
 			      		<a href="${pageContext.request.contextPath}/app/myPageNormal/normalModify.jsp">마이페이지</a>
 			      		<%-- <a href="${pageContext.request.contextPath}/myPageNormal/normalModify.??">마이페이지</a> --%>
 			    	</c:otherwise>

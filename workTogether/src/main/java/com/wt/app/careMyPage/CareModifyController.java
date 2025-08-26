@@ -25,19 +25,18 @@ public class CareModifyController implements Execute{
 		Result result = new Result();
 		
 //		String usersNumber = Integer.parseInt(usersNumber);
-		System.out.println("fdfdfdff");
-		String usersNumberStr = request.getParameter("usersNumber");
-		if (usersNumberStr == null || usersNumberStr.trim().isEmpty()) {
-			System.out.println("[Detail] usersNumber 파라미터 없음");
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return null;
+		Integer usersNumberStr = (Integer)request.getSession().getAttribute("usersNumber");
+		
+		System.out.println(usersNumberStr);
+		
+		if (usersNumberStr == null) {
+			System.out.println("세션 없음");
+//			return null;
 		}
+		System.out.println(usersNumberStr);
 		
-		
-		System.out.println("fds");
-		
-
 		result.setPath("/app/myPageCare/careModify.jsp");
+		System.out.println("setPath 값 저장");
 		result.setRedirect(false);
 		return result;
 	}

@@ -44,11 +44,6 @@ public class CareMyPageFrontController extends HttpServlet {
 		System.out.println("CareModifyFrontController 현재 경로 : " + target);
 		Result result = new Result();
 		switch(target) {
-		case "/myPageCare/carePwCheck.cp":
-			System.out.println("비밀번호 확인 페이지 요청");
-			result = new CarePwCheckController().execute(request, response);
-			System.out.println(result);
-			break;
 		case "/myPageCare/carePwCheckOk.cp":
 			System.out.println("비밀번호 확인 페이지 처리 요청");
 			result = new CarePwCheckOkController().execute(request, response);
