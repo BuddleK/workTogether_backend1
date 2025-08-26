@@ -77,7 +77,8 @@ public class PostsFrontController extends HttpServlet {
 			break;
 		case "/post/postDeleteOk.po":
 			System.out.println("게시글 삭제 완료 요청");
-			request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);
+//			request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);
+			result = new PostDeleteOkController().execute(request, response);
 			break;
 		}
 		

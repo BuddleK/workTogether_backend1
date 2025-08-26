@@ -53,7 +53,7 @@
    
    <!-- 게시글 삭제 쿼리 -->
    <delete id="delete" parameterType="int">
-      delete from tbl_posts where posts_number = #{posts_number}
+      delete from tbl_posts where posts_number = #{postsNumber}
    </delete>
    
    <!-- 게시글 수정쿼리 -->
