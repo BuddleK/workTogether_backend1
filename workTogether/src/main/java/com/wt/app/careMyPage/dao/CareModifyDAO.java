@@ -16,64 +16,44 @@ public class CareModifyDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	//회원 이름 조회
-	public List<CareModifyDTO> nameSelect(Map<String, Integer> pageMap){
-		List<CareModifyDTO> list = sqlSession.selectList("careModify.nameSelect", pageMap);
-		System.out.println("조회결과 : " + list);
-		return list;
+	public String nameSelect(int usersNumber) {
+		return sqlSession.selectOne("careModify.nameSelect", usersNumber);
 	}
 	//회원 주소 조회
-	public List<CareModifyDTO> addressSelect(Map<String, Integer> pageMap){
-		List<CareModifyDTO> list = sqlSession.selectList("careModify.addressSelect", pageMap);
-		System.out.println("조회결과 : " + list);
-		return list;
+	public String addressSelect(int usersNumber) {
+		return sqlSession.selectOne("careModify.addressSelect", usersNumber);
 	}
 	//회원 전화번호 조회
-	public List<CareModifyDTO> phoneSelect(Map<String, Integer> pageMap){
-		List<CareModifyDTO> list = sqlSession.selectList("careModify.phoneSelect", pageMap);
-		System.out.println("조회결과 : " + list);
-		return list;
+	public String phoneSelect(int usersNumber) {
+		return sqlSession.selectOne("careModify.phoneSelect", usersNumber);
 	}
 	//회원 아이디 조회
-	public List<CareModifyDTO> idSelect(Map<String, Integer> pageMap){
-		List<CareModifyDTO> list = sqlSession.selectList("careModify.idSelect", pageMap);
-		System.out.println("조회결과 : " + list);
-		return list;
+	public String idSelect(int usersNumber) {
+		return sqlSession.selectOne("careModify.idSelect", usersNumber);
 	}
 	//회원 이메일 조회
-	public List<CareModifyDTO> emailSelect(Map<String, Integer> pageMap){
-		List<CareModifyDTO> list = sqlSession.selectList("careModify.emailSelect", pageMap);
-		System.out.println("조회결과 : " + list);
-		return list;
+	public String emailSelect(int usersNumber) {
+		return sqlSession.selectOne("careModify.emailSelect", usersNumber);
 	}
 	//회원 비밀번호 조회
-	public List<CareModifyDTO> passwordSelect(Map<String, Integer> pageMap){
-		List<CareModifyDTO> list = sqlSession.selectList("careModify.passwordSelect", pageMap);
-		System.out.println("조회결과 : " + list);
-		return list;
+	public String passwordSelect(int usersNumber) {
+		return sqlSession.selectOne("careModify.passwordSelect", usersNumber);
 	}
 	//회원 주소 수정
-	public void addressUpdate(CareModifyDTO CareModifyDTO) {
-		System.out.println("주소 정보 수정 - addressUpdate 메소드 실행" + CareModifyDTO);
-		int result = sqlSession.update("careModify.addressUpdate", CareModifyDTO);
-		System.out.println("업데이트 결과 : " + result);
+	public void addressUpdate(CareModifyDTO careModifyDTO) {
+		sqlSession.update("careModify.addressUpdate", careModifyDTO);
 	}
 	//회원 전화번호 수정
-	public void phoneUpdate(CareModifyDTO CareModifyDTO) {
-		System.out.println("전화번호 정보 수정 - phoneUpdate 메소드 실행" + CareModifyDTO);
-		int result = sqlSession.update("careModify.addressUpdate", CareModifyDTO);
-		System.out.println("업데이트 결과 : " + result);
+	public void phoneUpdate(CareModifyDTO careModifyDTO) {
+		sqlSession.update("careModify.phoneUpdate", careModifyDTO);
 	}
 	//회원 이메일 수정
-	public void emailUpdate(CareModifyDTO CareModifyDTO) {
-		System.out.println("이메일 정보 수정 - emailUpdate 메소드 실행" + CareModifyDTO);
-		int result = sqlSession.update("careModify.addressUpdate", CareModifyDTO);
-		System.out.println("업데이트 결과 : " + result);
+	public void emailUpdate(CareModifyDTO careModifyDTO) {
+		sqlSession.update("careModify.emailUpdate", careModifyDTO);
 	}
 	//회원 비밀번호 수정
-	public void passwordUpdate(CareModifyDTO CareModifyDTO) {
-		System.out.println("비밀번호 정보 수정 - passwordUpdate 메소드 실행" + CareModifyDTO);
-		int result = sqlSession.update("careModify.addressUpdate", CareModifyDTO);
-		System.out.println("업데이트 결과 : " + result);
+	public void passwordUpdate(CareModifyDTO careModifyDTO) {
+		sqlSession.update("careModify.passwordUpdate", careModifyDTO);
 	}
 
 

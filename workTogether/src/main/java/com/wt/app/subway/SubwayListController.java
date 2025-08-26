@@ -1,4 +1,4 @@
-package com.wt.app.careMyPage;
+package com.wt.app.subway;
 
 import java.io.IOException;
 
@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 
-public class CareReferenceController implements Execute {
+public class SubwayListController implements Execute {
 
 	@Override
-	public Result execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public Result execute(HttpServletRequest request, HttpServletResponse response) {
 		Result result = new Result();
 
-		result.setPath("/app/myPageCare/careReference.jsp");
+		result.setPath("/subway/subwayLine.sw");
 		result.setRedirect(false);
 		return result;
+
 	}
 
 }

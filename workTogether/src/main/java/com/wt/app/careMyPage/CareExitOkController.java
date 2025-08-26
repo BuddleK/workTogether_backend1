@@ -13,7 +13,7 @@ import com.wt.app.careMyPage.dao.CareExitDAO;
 public class CareExitOkController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		CareExitDAO careExitDAO = new CareExitDAO();
