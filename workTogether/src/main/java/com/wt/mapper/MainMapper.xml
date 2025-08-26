@@ -72,11 +72,9 @@
              	d.day_thursday, d.day_friday, d.day_saturday, d.day_sunday
    		 ORDER BY COUNT(h.hearts_care_number) DESC
 		)
-<<<<<<< HEAD
+
 		WHERE ROWNUM <![CDATA[ <= ]]> 4
-=======
-		WHERE ROWNUM <![CDATA[  <= ]]> 4
->>>>>>> main
+
 	</select>
 
 </mapper>
