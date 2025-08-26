@@ -28,7 +28,7 @@
 		<servlet-name>AdminTwo</servlet-name>
 		<servlet-class>com.wt.app.admin.AdminTwoFrontController</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>AdminTwo</servlet-name>
 		<url-pattern>*.adt</url-pattern>
@@ -145,5 +145,44 @@
 		<url-pattern>*.co</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>Map</servlet-name>
+		<servlet-class>com.wt.app.map.MapFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Map</servlet-name>
+		<url-pattern>*.ma</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>News</servlet-name>
+		<servlet-class>com.wt.app.news.NewsFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>News</servlet-name>
+		<url-pattern>*.ne</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Comments</servlet-name>
+		<servlet-class>com.wt.app.comment.CommentFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Comments</servlet-name>
+		<url-pattern>*.co</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Reply</servlet-name>
+		<servlet-class>com.wt.app.posts.PostReplyFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Reply</servlet-name>
+		<url-pattern>*.re</url-pattern>
+	</servlet-mapping>
 
 </web-app>

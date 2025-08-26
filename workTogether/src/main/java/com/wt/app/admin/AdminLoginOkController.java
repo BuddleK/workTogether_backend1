@@ -44,7 +44,7 @@ public class AdminLoginOkController implements Execute{
             
           
         } else {
-            path = "/admin/login.ad";
+            path = "/admin/adminlogin.ad";
            System.out.println(adminNumber);
         }
         result.setRedirect(true); //세션에 저장된 값은 유지

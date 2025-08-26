@@ -78,7 +78,6 @@ public class AdminCareDetailController implements Execute {
 		// 6) 포워드
 		result.setPath("/app/admin/careRequestDetail.jsp");
 		result.setRedirect(false);
-		System.out.println("==== 상세 포워드 → " + result.getPath() + " ====");
 		return result;
 	}
 }

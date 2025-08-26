@@ -8,10 +8,10 @@
 		resultType="int">
 		SELECT admin_number
 		FROM tbl_admin
-		WHERE admin_id = #{adminId}
+		WHERE admin_id =
+		#{adminId}
 		AND admin_password = #{adminPassword}
 	</select>
-	<!-- 관리자 이름 조회 -->
 	<select id="getAdminName" parameterType="int"
 		resultType="string">
 		SELECT admin_name
@@ -19,7 +19,6 @@
 		WHERE admin_number =
 		#{value}
 	</select>
-
 	<!-- ==================== [Care: 가입신청/조회] ==================== -->
 	<!-- 대기 목록 (페이지네이션: offset, limit) -->
 	<select id="carePendingListPaged" parameterType="map"
@@ -159,89 +158,94 @@
 	</insert>
 
 	<!-- ==================== [News] ==================== -->
+	<!-- 뉴스 등록: seq_news_items 사용 -->
 	<!-- 전체 조회 (페이지네이션: startRow, endRow) -->
 	<select id="newsSelectAll" parameterType="map"
 		resultType="com.wt.app.dto.AdminNewsBoardListDTO"><![CDATA[
-    SELECT * FROM (
-      SELECT ROWNUM AS rnum, subquery.*
-      FROM (
-        SELECT
-          n.news_number, n.news_title, a.admin_name,
-          n.news_created_date
-        FROM tbl_news n
-        JOIN tbl_admin a ON a.admin_number = n.admin_number
-        ORDER BY n.news_created_date DESC, n.news_number DESC
-      ) subquery
-    )
-    WHERE rnum BETWEEN #{startRow} AND #{endRow}
-  ]]></select>
+    SELECT * FROM ( SELECT ROWNUM AS rnum, subquery.* FROM ( SELECT n.news_number, n.news_title, a.admin_name, n.news_created_date FROM tbl_news n JOIN tbl_admin a ON a.admin_number = n.admin_number ORDER BY n.news_created_date DESC, n.news_number DESC ) subquery ) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+  ]]>
+	</select>
 
 	<!-- 게시글 총 갯수 -->
-	<select id="newsGetTotal" resultType="int">
-		SELECT COUNT(*) FROM
-		tbl_news
+	<select id="newsGetTotal" resultType="int"><![CDATA[
+		SELECT COUNT(*) FROM tbl_news
+	]]>
 	</select>
 
 	<!-- 뉴스 등록: seq_news_items 사용 -->
 	<insert id="newsInsert"
 		parameterType="com.wt.app.dto.AdminNewsBoardDTO">
 		<selectKey keyProperty="newsNumber" resultType="int"
-			order="BEFORE">
+			order="BEFORE"><![CDATA[
 			SELECT seq_news_items.NEXTVAL FROM DUAL
+		]]>
 		</selectKey>
-		INSERT INTO tbl_news (
-		news_number, admin_number, news_title,
-		news_content, news_link_url,
-		files_number, news_created_date,
-		news_updated_date
-		) VALUES (
-		#{newsNumber}, #{adminNumber},
-		#{newsTitle}, #{newsContent}, #{newsLinkUrl},
-		#{filesNumber}, SYSDATE,
-		NULL
-		)
+		<![CDATA[
+		INSERT INTO tbl_news (news_number, admin_number, news_title, news_content, news_link_url, files_number, news_created_date, news_updated_date) VALUES (#{newsNumber}, #{adminNumber}, #{newsTitle}, #{newsContent}, #{newsLinkUrl}, #{filesNumber}, SYSDATE, NULL)
+		]]>
 	</insert>
 
 	<!-- 뉴스 수정 -->
 	<update id="newsUpdate"
 		parameterType="com.wt.app.dto.AdminNewsBoardDTO">
-		UPDATE tbl_news
-		SET news_title = #{newsTitle},
-		news_content = #{newsContent},
-		news_link_url = #{newsLinkUrl},
-		files_number = #{filesNumber},
-		news_updated_date = SYSDATE
-		WHERE
-		news_number = #{newsNumber}
-		AND admin_number = #{adminNumber}
+		<![CDATA[
+		UPDATE tbl_news SET news_title = #{newsTitle}, news_content = #{newsContent}, news_link_url = #{newsLinkUrl}, files_number = #{filesNumber}, news_updated_date = SYSDATE WHERE news_number = #{newsNumber}
+		]]>
 	</update>
 
 	<!-- 뉴스에 파일번호 연결/변경 -->
-	<update id="newsUpdateFilesNumber" parameterType="map">
-		UPDATE tbl_news
-		SET files_number = #{filesNumber},
-		news_updated_date = SYSDATE
-		WHERE
-		news_number = #{newsNumber}
+	<update id="newsUpdateFilesNumber" parameterType="map"><![CDATA[
+		UPDATE tbl_news SET files_number = #{filesNumber}, news_updated_date = SYSDATE WHERE news_number = #{newsNumber}
+		]]>
 	</update>
 
 	<!-- 뉴스 상세 (news_number) -->
 	<select id="newsSelectOne" parameterType="int"
-		resultType="com.wt.app.dto.AdminNewsBoardDTO"><![CDATA[
-		SELECT
-      	n.news_number, n.admin_number, n.news_title,
-      	n.news_content, n.news_link_url, n.files_number,
-      	n.news_created_date, n.news_updated_date
-    FROM tbl_news n
-    WHERE n.news_number = #{value}
-  ]]></select>
+		resultType="com.wt.app.dto.AdminNewsBoardDTO">
+		<![CDATA[
+		SELECT n.news_number, n.admin_number, n.news_title, n.news_content, n.news_link_url, n.files_number, n.news_created_date, n.news_updated_date FROM tbl_news n WHERE n.news_number = #{value}
+  		]]>
+	</select>
 
 	<!-- 뉴스 삭제 -->
 	<delete id="newsDelete" parameterType="int">
-		DELETE FROM tbl_news
-		WHERE
-		news_number = #{value}
+	<![CDATA[
+		DELETE FROM tbl_news WHERE news_number = #{value}
+		]]>
 	</delete>
+
+	<!-- ==================== [News 연동 파일: tbl_files_notice] ==================== -->
+	<!-- 파일 추가: seq_files 사용 -->
+	<insert id="fileNoticeInsert1" parameterType="com.wt.app.dto.FileNoticeDTO"> 
+		<selectKey keyProperty="noticeFilesNumber" resultType="int" order="BEFORE"> 
+		<![CDATA[ SELECT seq_files.NEXTVAL FROM DUAL ]]> </selectKey> <![CDATA[ INSERT 
+		INTO tbl_files_notice (notice_files_number, notice_files_type, notice_files_name, 
+		notice_files_path, notice_files_size_bytes, notice_created_date) VALUES (#{noticeFilesNumber}, 
+		#{noticeFilesType}, #{noticeFilesName}, #{noticeFilesPath}, #{noticeFilesSizeBytes}, 
+		SYSDATE) ]]> </insert>
+
+	<!-- 파일 조회 (뉴스번호 기준) -->
+	<select id="fileNoticeSelect" parameterType="int"
+		resultType="com.wt.app.dto.FileNoticeDTO">
+		<![CDATA[
+		SELECT f.notice_files_number, f.notice_files_type, f.notice_files_name, f.notice_files_path, f.notice_files_size_bytes, TO_CHAR(f.notice_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate FROM tbl_news n JOIN tbl_files_notice f ON f.notice_files_number = n.files_number WHERE n.news_number = #{value}
+		]]>
+	</select>
+
+	<!-- 파일 삭제 (뉴스번호 기준) -->
+	<delete id="fileNoticeDelete" parameterType="int">
+		<![CDATA[
+    	DELETE FROM tbl_files_notice WHERE notice_files_number = ( SELECT files_number FROM tbl_news WHERE news_number = #{value} )
+  		]]>
+	</delete>
+
+	<!-- 뉴스번호로 연결된 파일번호 조회 -->
+	<select id="fileNoticeGetNoticeFilesNumber" parameterType="int"
+		resultType="int">
+		<![CDATA[
+		SELECT files_number FROM tbl_news WHERE news_number = #{value}
+		]]>
+	</select>
 
 	<!-- ==================== [News 연동 파일: tbl_files_notice] ==================== -->
 	<!-- 파일 추가: seq_files 사용 -->
@@ -266,29 +270,33 @@
 
 	<!-- 파일 조회 (뉴스번호 기준) -->
 	<select id="fileNoticeSelect" parameterType="int"
-		resultType="com.wt.app.dto.FileNoticeDTO"><![CDATA[
+		resultType="com.wt.app.dto.FileNoticeDTO">
+		<![CDATA[
 		SELECT
 			f.notice_files_number,
 			f.notice_files_type,
    			f.notice_files_name,
-	    	f.notice_files_path,	
+	    	f.notice_files_path,
 	    	f.notice_files_size_bytes,
   		TO_CHAR(f.notice_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate
 		FROM tbl_news n
 		JOIN tbl_files_notice f
 	 	ON f.notice_files_number = n.files_number
 	 	WHERE n.news_number = #{value}
-]]></select>
+		]]>
+	</select>
 
 	<!-- 파일 삭제 (뉴스번호 기준) -->
-	<delete id="fileNoticeDelete" parameterType="int"><![CDATA[
+	<delete id="fileNoticeDelete" parameterType="int">
+	<![CDATA[
     DELETE FROM tbl_files_notice
     WHERE notice_files_number = (
       SELECT files_number
       FROM tbl_news
       WHERE news_number = #{value}
-    )
-  ]]></delete>
+  	  )
+  	]]>
+	</delete>
 
 	<!-- 뉴스번호로 연결된 파일번호 조회 -->
 	<select id="fileNoticeGetNoticeFilesNumber" parameterType="int"
