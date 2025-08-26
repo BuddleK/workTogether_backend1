@@ -14,7 +14,7 @@ import com.wt.app.users.dao.CareUsersDAO;
 public class CareJoinOkController implements Execute {
 
     @Override
-    public Result Execute(HttpServletRequest request, HttpServletResponse response)
+    public Result execute(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
     	request.setCharacterEncoding("UTF-8");

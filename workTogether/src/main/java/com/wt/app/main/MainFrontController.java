@@ -59,6 +59,12 @@ public class MainFrontController extends HttpServlet {
 			result = new MapController().Execute(request, response);
 			System.out.println(result);
 			break;
+		case "/subwapyLine/subway.ma":
+			System.out.println("지하철 노선도 페이지 요청");
+			result = new SubwayListController().Execute(request, response);
+			System.out.println(result);
+			break;
+		case "/restaurant/restaurant.ma":
 		case "/shops/shopsDetailOk.sh":
 			System.out.println("가게 리스트 페이지 요청");
 			result = new RestautantController().Execute(request, response);
