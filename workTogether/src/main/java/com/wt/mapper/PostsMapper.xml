@@ -42,7 +42,7 @@
          SELECT seq_board_posts.nextval
       </selectKey>
       INSERT INTO tbl_posts(posts_number, posts_title, users_number, posts_content, posts_view_count, posts_created_date, posts_updated_date, posts_report_count)
-      VALUES(#{postsNumber}, #{postsTitle}, #{usersNumber}, #{postsContent}, #{postsViewCount}, SYSDATE, null, 0)
+      VALUES(#{postsNumber}, #{postsTitle}, #{usersNumber}, #{postsContent}, 0, SYSDATE, null, 0)
    </insert>
    
    <!-- 조회수 추가 쿼리 -->
