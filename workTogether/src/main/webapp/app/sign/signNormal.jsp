@@ -40,7 +40,7 @@
 	<main>
 		<section class="sign">
 			<form
-				action="${pageContext.request.contextPath}/users/joinNormalOk.us"
+				action="${pageContext.request.contextPath}/users/loginNormalOk.us"
 				method="post" class="sign_form">
 				<!-- 공통 users -->
 				<input type="hidden" name="usersType" value="N" />
