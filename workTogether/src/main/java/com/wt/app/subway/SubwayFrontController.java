@@ -57,6 +57,7 @@ public class SubwayFrontController extends HttpServlet {
 		case "/subway/subwayList.sw":
 			System.out.println("지하철 노선 출력 요청");
 			result = new SubwayListController().execute(request, response);
+			System.out.println(result);
 			break;
 		case "/subway/subwayDetail.sw":
 			System.out.println("지하철 상세 페이지 요청");

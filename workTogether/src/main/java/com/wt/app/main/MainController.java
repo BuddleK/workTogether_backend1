@@ -12,17 +12,17 @@ import com.wt.app.main.dao.MainDAO;
 
 public class MainController implements Execute{
 
-	@Override
-	public Result execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		MainDAO mainDAO = new MainDAO();
-		Result result = new Result();
-		
-		
-		
-		result.setPath("/app/Main.jsp");
-		result.setRedirect(false);
-		return result;
-	}
+   @Override
+   public Result execute(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      MainDAO mainDAO = new MainDAO();
+      Result result = new Result();
+      
+      
+      
+      result.setPath("/app/Main.jsp");
+      result.setRedirect(false);
+      return result;
+   }
 
-}	
+}   

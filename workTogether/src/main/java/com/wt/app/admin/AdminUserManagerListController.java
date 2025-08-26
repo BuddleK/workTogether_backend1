@@ -54,7 +54,7 @@ public class AdminUserManagerListController implements Execute {
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
 
-		result.setPath("/admin/adminUserManagerList.adt");
+		result.setPath("/app/admin/userManager.jsp");
 		result.setRedirect(false);
 
 		return result;
