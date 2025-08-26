@@ -8,17 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
+import com.wt.app.main.dao.MainDAO;
 
-public class SubwayListController implements Execute {
+public class MainController implements Execute{
 
 	@Override
-	public Result execute(HttpServletRequest request, HttpServletResponse response) {
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		MainDAO mainDAO = new MainDAO();
 		Result result = new Result();
-
-		result.setPath("/subway/subwayLine.sw");
+		
+		
+		
+		result.setPath("/app/Main.jsp");
 		result.setRedirect(false);
 		return result;
-
 	}
 
-}
+}	
