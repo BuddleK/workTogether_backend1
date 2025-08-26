@@ -17,6 +17,19 @@
 			stations_photo_id
 		FROM TBL_SUBWAY_STATIONS
 		ORDER BY stations_name
+		
+		<!-- SELECT
+		    s.stations_name,
+		    f.stations_files_name,
+		    f.stations_files_path
+		FROM
+		    TBL_SUBWAY_STATIONS s
+		LEFT JOIN
+		    tbl_files_stations f
+		ON
+		    s.stations_photo_id = f.stations_files_number
+		ORDER BY
+		    s.stations_name; -->
 	</select>
 	
 	<!-- 역 세부정보 조회 -->
