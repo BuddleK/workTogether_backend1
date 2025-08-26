@@ -11,9 +11,10 @@
     </span>
     <span>
     	<c:choose>
-    		<c:when test="${empty sessionScope.usersNumber}">
+    		<c:when test="${!empty sessionScope.usersNumber}">
 		     	<!-- 로그인 메뉴 -->
-		      	<a href="${pageContext.request.contextPath}/app/login/login.jsp">로그인</a>
+		      	<a href="${pageContext.request.contextPath}/app/login/loginNormal.jsp">일반 로그인</a>
+		      	<a href="${pageContext.request.contextPath}/app/login/loginCare.jsp">돌봄 로그인</a>
 		      	<%-- <a href="${pageContext.request.contextPath}/login/login.us">로그인</a> --%>
 		      	<!-- 회원가입 메뉴 -->
 		      	<a href="${pageContext.request.contextPath}/app/sign/terms.jsp">회원가입</a>
@@ -94,8 +95,8 @@
     </ul>
   </nav>
   <script>
-		window.usersType = "C";
-		window.usersNumber = 1;	
+		/* window.usersType = "C";
+		window.usersNumber = 1;	 */
 		
 		console.log(window.usersType);
 		console.log(window.usersNumber);

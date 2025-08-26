@@ -29,10 +29,14 @@
           <c:forEach var="banner" items="${mainBanner}">
 	          <li>
 	            <div class="slide-img">
-	              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner1.png">
-	              <a draggable="false" href="https://www.newsflix.co.kr/news/articleView.jsp?idxno=18740">
-<%-- 	                <h3><c:out value="${main.getBannerTitle}"</h3> --%>
-	                <p>장애인과 비장애인이 함께하는 화합의 장…공연·체험·전시 다채롭게 구성</p>
+	              <c:url var="bannerFile" value="${main.getBannerFilesPath }" />
+	              <img class="banner_img" draggable="false" src="${bannerFile}">
+<%-- 	              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner1.png"> --%>
+	              <c:url var="bannerUrl" value="${main.getBannerLinkUrl}" />
+	              <a draggable="false" href="${main.bannerUrl}">
+<!-- 	              <a draggable="false" href="https://www.newsflix.co.kr/news/articleView.jsp?idxno=18740"> -->
+	                <h3><c:out value="${main.getBannerTitle}"></c:out></h3>
+	                <p><c:out value="${main.getBannerContent}"></c:out></p>
 	              </a>
 	            </div>
 	          </li>

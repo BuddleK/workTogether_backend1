@@ -4,8 +4,9 @@
 	
 	<!-- 뉴스배너 -->
 	<select id="newsBanner" parameterType="NewsBannerDTO">
-		select banner_news_number, banner_image_files_number, banner_title, banner_link_url
-		from tbl_news_banners
+		select nb.banner_news_number, nb.banner_image_files_number, nb.banner_title, nb.BANNER_CONTENT, fb.BANNER_FILES_PATH, nb.banner_link_url
+		from tbl_news_banners nb JOIN TBL_FILES_BANNER fb 
+		ON nb.BANNER_IMAGE_FILES_NUMBER = fb.BANNER_FILES_NUMBER;
 	</select>
 	
 <!-- 추천가게 찜 많은 순으로 정렬-->
