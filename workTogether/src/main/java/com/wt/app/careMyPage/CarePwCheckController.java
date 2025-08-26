@@ -11,7 +11,7 @@ import com.wt.app.Result;
 
 public class CarePwCheckController implements Execute {
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
 

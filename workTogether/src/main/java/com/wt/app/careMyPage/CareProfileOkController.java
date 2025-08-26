@@ -13,7 +13,7 @@ import com.wt.app.careMyPage.dao.CareProfileDAO;
 public class CareProfileOkController implements Execute{
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		CareProfileDAO careProfileDAO = new CareProfileDAO();
 		Result result = new Result();

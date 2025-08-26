@@ -2,13 +2,11 @@ package com.wt.app.careMyPage;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Result;
-import com.wt.app.posts.PostListOkController;
 
 /**
  * Servlet implementation class CareMyPageFrontController
@@ -43,7 +41,7 @@ public class CareMyPageFrontController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		String target = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println("PostsFrontController 현재 경로 : " + target);
+		System.out.println("CareModifyFrontController 현재 경로 : " + target);
 		Result result = new Result();
 		switch(target) {
 		case "/myPageCare/carePwCheck.cp":
@@ -62,6 +60,7 @@ public class CareMyPageFrontController extends HttpServlet {
 		case "/myPageCare/careModify.cp":
 			System.out.println("개인정보 수정 페이지 요청");
 			result = new CareModifyController().Execute(request, response);
+			System.out.println("fsdsfd");
 			break;
 		case "/myPageCare/careMark.cp":
 			System.out.println("찜한목록 페이지 요청");

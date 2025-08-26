@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +66,7 @@
               <!-- 저장되어 있는 이름과 성명 -->
               <ul>
                 <li class="info">성명</li>
-                <li class="myinfo">이름</li>
+                <li class="myinfo"><c:out value="${careModify.getUsersName()}" /></li>
               </ul>
             </li>
             <li class="member">
@@ -74,9 +75,9 @@
                 <li class="info">주소</li>
                 <li class="myinfo">
                   <ul>
-                    <li><input type="text" placeholder="우편번호"></li>
-                    <li><input type="text" placeholder="주소"><button>우편번호 찾기</button></li>
-                    <li><input type="text" placeholder="상세주소"><button>확인</button></li>
+                    <li><div><c:out value="${careModify.getUsersPostCode()}" /></div></li>
+                    <li><div><c:out value="${careModify.getUsersAddrLine1()}" /></div><button>우편번호 찾기</button></li>
+                    <li><div><c:out value="${careModify.getUsersAddrLine1()}" /></div><button>확인</button></li>
                   </ul>
                 </li>
               </ul>
@@ -85,21 +86,21 @@
             <li class="member">
               <ul>
                 <li class="info">전화번호</li>
-                <li class="myinfo"><input type="text" placeholder="010-1234-5678" id="check"><button>수정</button></li>
+                <li class="myinfo"><div><c:out value="${careModify.getUsersPhone()}" /></div><button>수정</button></li>
               </ul>
             </li>
             <!-- 아이디를 보여주는 칸 -->
             <li class="member">
               <ul>
                 <li class="info">아이디</li>
-                <li class="myinfo">아이디</li>
+                <li class="myinfo"><div><c:out value="${careModify.getUsersId()}" /></div></li>
               </ul>
             </li>
             <!-- 이메일 수정 할 수 있는 칸 -->
             <div class="email">
               <div>이메일</div>
               <div class="email_detail">
-                <input type="email" id="email" placeholder="abcde@naver.com">
+                <div><c:out value="${careModify.getUsersEmail()}" /></div>
                 <button onclick="validateEmail()">수정</button>
                 <div id="result"></div>
               </div>
@@ -153,5 +154,7 @@
   </div>
   <jsp:include page="/footer.jsp" />
 </body>
-
+<script>
+    	let usersNumber = "${sessionScope.usersNumber}";
+</script>
 </html>

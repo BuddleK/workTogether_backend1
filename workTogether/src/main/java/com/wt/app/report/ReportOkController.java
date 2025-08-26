@@ -1,4 +1,4 @@
-package com.wt.app.careMyPage;
+package com.wt.app.report;
 
 import java.io.IOException;
 
@@ -8,16 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
+import com.wt.app.shops.dao.ShopsDAO;
 
-public class CareReferenceController implements Execute {
+public class ReportOkController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		ShopsDAO shopsDAO = new ShopsDAO();
 		Result result = new Result();
-
-		result.setPath("/app/myPageCare/careReference.jsp");
-		result.setRedirect(false);
+		
+		
+		
 		return result;
 	}
 
