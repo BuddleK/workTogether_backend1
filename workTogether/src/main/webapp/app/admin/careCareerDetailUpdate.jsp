@@ -36,17 +36,18 @@
 		<div id="sidebar"></div>
 		<section class="care_box">
 			<div class="box_title">
-				<h1>돌봄 회원  신청관리</h1>
+				<h1>돌봄 회원 신청관리</h1>
 			</div>
 
 			<!-- 필요하면 usersNumber 전달용 히든값 -->
 			<input type="hidden" id="usersNumber" value="${param.usersNumber}" />
 
-			<form action="" method="" class="table_form">
+			<form
+				action="${pageContext.request.contextPath}/admin/careCareer/detail.ad"
+				method="get" class="table_form">
 				<div class="table">
 					<div class="thead">
 						<div class="thead_content thead_name">성명</div>
-						<div class="thead_content thead_birth">생년월일</div>
 						<div class="thead_content thead_phone">전화번호</div>
 						<div class="thead_content thead_email">이메일</div>
 						<div class="thead_content thead_detach">첨부파일1</div>
@@ -56,9 +57,6 @@
 					<div class="tbody">
 						<div class="tbody_content tbody_name">
 							<c:out value="${user.usersName}" />
-						</div>
-						<div class="tbody_content tbody_birth">
-							<c:out value="${user.usersBirth}" />
 						</div>
 						<div class="tbody_content tbody_phone">
 							<c:out value="${user.usersPhone}" />

@@ -1,15 +1,17 @@
 package com.wt.app.dto;
 
-public class CareCareerRow {
-	private Long number;
+public class CareCareerRowDTO {
+	private int number;
 	private String name;
 	private String userId;
 	private String date;
 	private String status;
-	public Long getNumber() {
+	
+	
+	public int getNumber() {
 		return number;
 	}
-	public void setNumber(Long number) {
+	public void setNumber(int number) {
 		this.number = number;
 	}
 	public String getName() {
@@ -41,5 +43,6 @@ public class CareCareerRow {
 		return "CareCareerRow [number=" + number + ", name=" + name + ", userId=" + userId + ", date=" + date
 				+ ", status=" + status + "]";
 	}
+	
 	
 }
