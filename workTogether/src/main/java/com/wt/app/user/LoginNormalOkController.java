@@ -18,7 +18,7 @@ public class LoginNormalOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		System.out.println("컨트롤러 진입");
 		request.setCharacterEncoding("UTF-8");
 
 		String usersId = request.getParameter("usersId");
@@ -31,18 +31,19 @@ public class LoginNormalOkController implements Execute {
 
 		// DAO 호출
 		UsersDAO usersDAO = new UsersDAO();
-		UsersDTO loggedInUser = usersDAO.careLogin(usersLoginDTO);
+		int loggedInUser = usersDAO.normalLogin(usersLoginDTO);
 		// 결과 처리
 		Result result = new Result();
 
-		if (loggedInUser != null) {
+		if (loggedInUser > 0) {
 			HttpSession session = request.getSession();
-			session.setAttribute("usersNumber", loggedInUser.getUsersNumber());
-
+			session.setAttribute("usersNumber", loggedInUser);
+			System.out.println(session.getAttribute("usersNumber"));
 			result.setRedirect(true);
 			result.setPath(request.getContextPath() + "/"); // 로그인 성공 후 메인으로
 		} else {
-			request.setAttribute("loginError", "아이디 또는 비밀번호를 확인해주세요.");
+			request.setAttribute("loginError");
+			System.out.println("유저 아이디가 없음");
 			result.setRedirect(false);
 			result.setPath("/app/login/loginNormal.jsp"); // 실패 시 로그인 화면
 		}
