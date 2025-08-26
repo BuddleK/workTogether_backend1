@@ -42,15 +42,13 @@
     <div class="modal_box">
       <p>작성되었습니다</p>
       <div class="modal_buttons">
-        <a href="${pageContext.request.contextPath}/app/post/postMain.jsp"><button type="button" id="reportcheck">확인</button></a>
+        <a href="${pageContext.request.contextPath}/post/postMain.po"><button type="button" id="reportcheck">확인</button></a>
       </div>
     </div>
   </div>
   <jsp:include page="/footer.jsp" />
       <script>
     	let memberNumber = "${sessionScope.memberNumber}"; 
-    	/* console.log = "${sessionScope.memberNumber}"); */
-    	/* let usersNumber = 48; */
     </script>
 </body>
 </html>

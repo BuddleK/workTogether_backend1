@@ -20,8 +20,16 @@ public class PostModifyOkController implements Execute{
 		PostsDTO postsDTO = new PostsDTO();
 		Result result = new Result();
 		
-		///////////////////////////////////
+		System.out.println("===============수정오케이컨트롤러~~~================");
 		
+		String title = request.getParameter("postTitle");
+		String context = request.getParameter("postContext");
+		
+		System.out.println("수정한 제목 : " + title + ", 내용 : " + context);
+		
+		postsDAO.update(postsDTO);
+		
+		result.setPath("/post/postReadOk.po?postsNumber=" + request.getParameter("postNumber"));
 		return result;
 	}
 	
