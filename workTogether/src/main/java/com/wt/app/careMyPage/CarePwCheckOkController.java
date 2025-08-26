@@ -14,7 +14,7 @@ import com.wt.app.careMyPage.dao.CarePwCheckDAO;
 public class CarePwCheckOkController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
 		HttpSession session = request.getSession();
