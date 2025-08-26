@@ -85,7 +85,7 @@
           <ul class="profile_list">
             <!-- 인기 돌봄회원 1 -->
             <li class="profile">
-              <a href ="${pageContext.request.contextPath}/app/careMember/careMemberDetail.jsp" class="care_profile">
+              <a href ="${pageContext.request.contextPath}/careList/careListDetailOk.cl?" class="care_profile">
                 <!-- 사진이랑 소개 -->
                 <div class="profile_info">
                   <div class="profile_pic_box">
