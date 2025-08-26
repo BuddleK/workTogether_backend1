@@ -13,6 +13,11 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
 <%--   <script defer src="${pageContext.request.contextPath}/assets/js/post/postMain.js"></script> --%>
 </head>
+<%
+// session 객체를 사용하여 값을 세션에 추가합니다.
+int memberNumber = 40;
+session.setAttribute("memberNumber", memberNumber); // "memberNumber" 이라는 이름으로 회원 번호 값을 추가합니다.
+%>
 <body>
   <jsp:include page="/header.jsp" />
   <main>
@@ -155,7 +160,7 @@
       </div>
     </div>
     <script>
-    	let memberNumber = "${sessionScope.memberNumber}"; 
+    	let usersNumber = "${sessionScope.memberNumber}"; 
     	/* console.log = "${sessionScope.memberNumber}"); */
     	/* let usersNumber = 48; */
     </script>

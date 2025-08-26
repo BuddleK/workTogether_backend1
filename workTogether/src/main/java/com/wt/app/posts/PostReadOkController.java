@@ -58,8 +58,8 @@ public class PostReadOkController implements Execute {
 			postsDAO.updateReadCount(postsNumber);
 		}
 		
+		//수정된 적이 없어 수정 날짜가 비어 있을 경우 "-"로 표시함
 		if(postsDTO.getPostsUpdatedDate() == null) {
-			System.out.println("널이당!");
 			postsDTO.setPostsUpdatedDate("-");
 		}
 		

@@ -31,10 +31,11 @@ public class PostWriteController implements Execute{
 //			request.setAttribute("userId", postsDAO.get);
 		}
 		
-		path = "/app/post/postWrite.jsp";
-		request.setAttribute("userId", "writeTest01");
+		System.out.println("멤버넘버~~~!!!" + memberNumber);
 		
-		result.setPath("/app/post/postWrite.jsp");
+		
+		
+		result.setPath(path);
 		result.setRedirect(false);
 		
 		return result;
