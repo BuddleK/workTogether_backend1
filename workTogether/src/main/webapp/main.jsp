@@ -27,17 +27,14 @@
         <ul class="slide-box">
           <!-- 첫 번째 슬라이드 -->
           <c:forEach var="banner" items="${mainBanner}">
-
 	          <li>
 	            <div class="slide-img">
-	              <c:url var="bannerFile" value="${main.getBannerFilesPath }" />
-	              <img class="banner_img" draggable="false" src="${bannerFile}">
+	              <img class="banner_img" draggable="false" src="${banner.getBannerFilesPath()}">
 <%-- 	              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner1.png"> --%>
-	              <c:url var="bannerUrl" value="${main.getBannerLinkUrl}" />
-	              <a draggable="false" href="${main.bannerUrl}">
+	              <a draggable="false" href="${banner.getBannerLinkUrl()}">
 <!-- 	              <a draggable="false" href="https://www.newsflix.co.kr/news/articleView.jsp?idxno=18740"> -->
-	                <h3><c:out value="${main.getBannerTitle}"></c:out></h3>
-	                <p><c:out value="${main.getBannerContent}"></c:out></p>
+	                <h3><c:out value="${banner.getBannerTitle()}"></c:out></h3>
+	                <p><c:out value="${banner.getBannerContent()}"></c:out></p>
 	              </a>
 	            </div>
 	          </li>
@@ -110,16 +107,18 @@
           <div class="recommend_title">게시판</div>
           <!-- 추천 게시물 목록 -->
           <ul class="board_list">
-            <!-- 추천 게시물 1 -->
-            <li>
-              <!-- 게시물 정보 -->
-              <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-                <span class="board_list_number">1</span>
-                <span class="board_list_title">안녕하세요</span>
-                <span class="board_list_author">아무개</span>
-                <span class="board_list_date">2025-08-02</span>
-              </a>
-            </li>
+          	<c:forEach var="post" items="${postList}">
+	            <!-- 추천 게시물 1 -->
+	            <li>
+	              <!-- 게시물 정보 -->
+	              <a href="${pageContext.request.contextPath}/post/postReadOk.po?postsNumber=${post.getPostsNumber()}">
+	                <span class="board_list_number"><c:out value="${post.getPostsNumber()}"></c:out></span>
+	                <span class="board_list_title"><c:out value="${post.getPostsTitle()}"></c:out></span>
+	                <span class="board_list_author"><c:out value="${post.getUsersName()}"></c:out></span>
+	                <span class="board_list_date"><c:out value="${post.getPostsCreatedDate()}"></c:out></span>
+	              </a>
+	            </li>
+            </c:forEach>
             <!-- 추천 게시물 2 -->
             <li>
               <!-- 게시물 정보 -->
