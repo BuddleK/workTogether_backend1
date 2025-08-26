@@ -29,7 +29,8 @@
 		AND u.users_password = #{usersPassword}
 		AND u.users_type = 'N'
 	</select>
-	<select id="CareLogin"
+	
+	<select id="careLogin"
 		parameterType="com.wt.app.dto.UsersDTO"
 		resultType="com.wt.app.dto.UsersDTO">
 		SELECT
