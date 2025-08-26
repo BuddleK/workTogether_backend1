@@ -47,12 +47,12 @@ public class FavoriteFrontController extends HttpServlet {
 		switch (target) {
 		case "/favorite/favoriteAddOk.fa":
 			System.out.println("찜 추가 컨트롤러 진입");
-			result = new AddFavoriteOkController().Execute(request, response);
+			result = new AddFavoriteOkController().execute(request, response);
 			break;
 
 		case "/favorite/favoriteDeleteOk.fa":
 		    System.out.println("찜 삭제 컨트롤러 진입");
-		    result = new CancleFavoriteOKController().Execute(request, response);
+		    result = new CancleFavoriteOKController().execute(request, response);
 		    break;
 
 		}

@@ -268,23 +268,7 @@
 		)
 	</insert>
 
-	<!-- 파일 조회 (뉴스번호 기준) -->
-	<select id="fileNoticeSelect" parameterType="int"
-		resultType="com.wt.app.dto.FileNoticeDTO">
-		<![CDATA[
-		SELECT
-			f.notice_files_number,
-			f.notice_files_type,
-   			f.notice_files_name,
-	    	f.notice_files_path,
-	    	f.notice_files_size_bytes,
-  		TO_CHAR(f.notice_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate
-		FROM tbl_news n
-		JOIN tbl_files_notice f
-	 	ON f.notice_files_number = n.files_number
-	 	WHERE n.news_number = #{value}
-		]]>
-	</select>
+	
 
 	<!-- 파일 삭제 (뉴스번호 기준) -->
 	<delete id="fileNoticeDelete" parameterType="int">
