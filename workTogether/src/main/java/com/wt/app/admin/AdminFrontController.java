@@ -56,102 +56,102 @@ public class AdminFrontController extends HttpServlet {
 		/* =============== [Auth] =============== */
 		case "/admin/login.ad":
 			System.out.println("관리자 로그인 페이지 요청");
-			result = new AdminLoginController().Execute(request, response);
+			result = new AdminLoginController().execute(request, response);
 			break;
 
 		case "/admin/loginOk.ad":
 			System.out.println("관리자 로그인 처리 요청");
-			result = new AdminLoginOkController().Execute(request, response);
+			result = new AdminLoginOkController().execute(request, response);
 			break;
 
 		case "/admin/logoutOk.ad":
 			System.out.println("관리자 로그아웃 처리 요청");
-			result = new AdminLogoutController().Execute(request, response);
+			result = new AdminLogoutController().execute(request, response);
 			break;
 
 		/* =============== [News] =============== */
 		case "/admin/news/newsListOk.ad":
 			System.out.println("뉴스 목록 처리 요청");
-			result = new AdminNewsListOkController().Execute(request, response);
+			result = new AdminNewsListOkController().execute(request, response);
 			break;
 
 		case "/admin/news/newsReadOk.ad":
 			System.out.println("뉴스 상세 페이지 처리 요청");
-			result = new AdminNewsReadOkController().Execute(request, response);
+			result = new AdminNewsReadOkController().execute(request, response);
 			break;
 
 		case "/admin/news/newsWrite.ad":
 			System.out.println("뉴스 작성 페이지 이동 요청");
-			result = new AdminNewsWriteController().Execute(request, response);
+			result = new AdminNewsWriteController().execute(request, response);
 			break;
 
 		case "/admin/news/newsWriteOk.ad":
 			System.out.println("뉴스 작성 완료 요청");
-			result = new AdminNewsWriteOkController().Execute(request, response);
+			result = new AdminNewsWriteOkController().execute(request, response);
 			break;
 
 		case "/admin/news/newsDeleteOk.ad":
 			System.out.println("뉴스 삭제 완료 요청");
-			result = new AdminNewsDeleteOkController().Execute(request, response);
+			result = new AdminNewsDeleteOkController().execute(request, response);
 			break;
 
 		case "/admin/news/newsUpdate.ad":
 			System.out.println("뉴스 수정 페이지 이동 요청");
-			result = new AdminNewsUpdateController().Execute(request, response);
+			result = new AdminNewsUpdateController().execute(request, response);
 			break;
 
 		case "/admin/news/newsUpdateOk.ad":
 			System.out.println("뉴스 수정 완료 요청");
-			result = new AdminNewsUpdateOkController().Execute(request, response);
+			result = new AdminNewsUpdateOkController().execute(request, response);
 			break;
 
 		/* =============== [Care 가입신청/파일] =============== */
 		case "/admin/care/list.ad":
 			System.out.println("가입신청 대기 목록 처리 요청");
-			result = new AdminCareListController().Execute(request, response);
+			result = new AdminCareListController().execute(request, response);
 			break;
 
 		case "/admin/care/detail.ad":
 			System.out.println("가입신청 단건 상세 처리 요청");
-			result = new AdminCareDetailController().Execute(request, response);
+			result = new AdminCareDetailController().execute(request, response);
 			break;
 
 		case "/admin/care/approve.ad":
 			System.out.println("가입신청 승인 처리 요청");
-			result = new AdminCareApproveController().Execute(request, response);
+			result = new AdminCareApproveController().execute(request, response);
 			break;
 
 		case "/admin/care/reject.ad":
 			System.out.println("가입신청 반려 처리 요청");
-			result = new AdminCareRejectController().Execute(request, response);
+			result = new AdminCareRejectController().execute(request, response);
 			break;
 
 		case "/admin/care/rejectAll.ad":
 			System.out.println("가입신청 일괄 반려 처리 요청");
-			result = new AdminCareRejectAllController().Execute(request, response);
+			result = new AdminCareRejectAllController().execute(request, response);
 			break;
 
 		case "/admin/care/fileMeta.ad":
 			System.out.println("첨부파일 조회 요청");
-			result = new AdminCareFileController().Execute(request, response);
+			result = new AdminCareFileController().execute(request, response);
 			break;
 
 		case "/admin/care/fileDownload.ad":
 			System.out.println("첨부파일 다운로드 요청");
-			result = new AdminCareFileDownloadController().Execute(request, response);
+			result = new AdminCareFileDownloadController().execute(request, response);
 			break;
 
 		/* =============== [Care 이력 수정] =============== */
 		case "/admin/careCareer/list.ad":
-			result = new AdminCareCareerListController().Execute(request, response);
+			result = new AdminCareCareerListController().execute(request, response);
 			break;
 
 		case "/admin/careCareer/detail.ad":
-			result = new AdminCareCareerDetailController().Execute(request, response);
+			result = new AdminCareCareerDetailController().execute(request, response);
 			break;
 
 		case "/admin/careCareer/updateStatus.ad":
-			result = new AdminCareCareerUpdateStatusController().Execute(request, response);
+			result = new AdminCareCareerUpdateStatusController().execute(request, response);
 			break;
 
 		}

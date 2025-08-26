@@ -17,7 +17,7 @@ import com.wt.app.dto.FilesLicenseDTO;
 public class AdminNewsWriteOkController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		System.out.println("==== AdminNewsWriteOkController 실행 ====");

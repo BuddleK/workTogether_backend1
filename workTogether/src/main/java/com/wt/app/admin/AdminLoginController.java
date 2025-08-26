@@ -12,7 +12,7 @@ import com.wt.app.Result;
 public class AdminLoginController implements Execute{
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Result result = new Result();
