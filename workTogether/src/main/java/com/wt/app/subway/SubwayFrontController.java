@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Result;
-import com.wt.app.main.SubwayLineController;
+import com.wt.app.main.SubwayListController;
 import com.wt.app.normal.mypage.CheckPwOkController;
 
 /**
@@ -54,17 +54,13 @@ public class SubwayFrontController extends HttpServlet {
 		Result result = new Result();
 
 		switch (target) {
-		case "/subway/subwayLine.sw":
+		case "/subway/subwayList.sw":
 			System.out.println("지하철 노선 출력 요청");
-			result = new SubwayLineController().Execute(request, response);
-			break;
-		case "/subway/subwayStation.sw":
-			System.out.println("지하철 역명 출력 요청");
-			result = new SubwayStationController().Execute(request, response);
+			result = new SubwayListController().execute(request, response);
 			break;
 		case "/subway/subwayDetail.sw":
 			System.out.println("지하철 상세 페이지 요청");
-			result = new SubwayDetailController().Execute(request, response);
+			result = new SubwayDetailController().execute(request, response);
 			break;
 		}
 		

@@ -14,7 +14,7 @@ import com.wt.app.admin.dao.AdminTwoDAO;
 public class AdminNoticeInsertController implements Execute{
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		AdminTwoDAO adminTwoDAO = new AdminTwoDAO();

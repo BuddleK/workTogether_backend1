@@ -12,11 +12,11 @@ import com.wt.app.Result;
 public class SubwayDetailController implements Execute{
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
 
-		result.setPath("/admin/subwayDetail.sl");
+		result.setPath("/subway/subwayDetail.sw");
         result.setRedirect(false);
         return result;
 	}

@@ -12,7 +12,7 @@ import com.wt.app.Result;
 public class AdminNoticeUpdateOkController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 		Result result = new Result();
 	
 		result.setPath("/admin/adminNoticeUpdateOk.ad");

@@ -55,59 +55,59 @@ public class MyPageNormalFrontController extends HttpServlet {
 		switch (target) {
 		case "/myPageNormal/checkPwOk.mn":
 			System.out.println("마이페이지 일반회원 비밀번호 확인 완료 요청");
-			result = new CheckPwOkController().Execute(request, response);
+			result = new CheckPwOkController().execute(request, response);
 			break;
 		case "/myPageNormal/normalModifyOk.mn":
 			System.out.println("마이페이지 일반회원 회원정보 수정 완료 요청");
-			result = new NormalModifyOkController().Execute(request, response);
+			result = new NormalModifyOkController().execute(request, response);
 			break;
 		case "/myPageNormal/normalfavoriteList.mn":
 			System.out.println("마이페이지 일반회원 가게 찜 리스트 페이지 요청");
-			result = new NormalfavoriteListController().Execute(request, response);
+			result = new NormalfavoriteListController().execute(request, response);
 			break;
 		case "/myPageNormal/normalfavoriteListDeleteOk.mn":
 			System.out.println("마이페이지 일반회원 가게 찜 삭제 완료 요청");
-			result = new NormalfavoriteListDeleteOkController().Execute(request, response);
+			result = new NormalfavoriteListDeleteOkController().execute(request, response);
 			break;
 		case "/myPageNormal/normalHeartList.mn":
 			System.out.println("마이페이지 일반회원 하트 리스트 페이지 요청");
-			result = new NormalHeartListController().Execute(request, response);
+			result = new NormalHeartListController().execute(request, response);
 			break;
 		case "/myPageNormal/normalHeartListDeleteOk.mn":
 			System.out.println("마이페이지 일반회원 하트 리스트 삭제 완료 요청");
-			result = new NormalHeartListDeleteOkController().Execute(request, response);
+			result = new NormalHeartListDeleteOkController().execute(request, response);
 			break;
 		case "/myPageNormal/normalMatching.mn":
 			System.out.println("마이페이지 일반회원 매칭 관리 페이지 요청");
-			result = new NormalMatchingController().Execute(request, response);
+			result = new NormalMatchingController().execute(request, response);
 			break;
 		case "/myPageNormal/normalPostsList.mn":
 			System.out.println("마이페이지 일반회원 게시판 리스트 페이지 요청");
-			result = new NormalPostsListController().Execute(request, response);
+			result = new NormalPostsListController().execute(request, response);
 			break;
 		case "/myPageNormal/normalPostsListDeleteOk.mn":
 			System.out.println("마이페이지 일반회원 게시판 삭제 완료 요청");
-			result = new NormalPostsListDeleteOkController().Execute(request, response);
+			result = new NormalPostsListDeleteOkController().execute(request, response);
 			break;
 		case "/myPageNormal/normalReferenceInsert.mn":
 			System.out.println("마이페이지 일반회원 문의 추가 페이지 요청");
-			result = new NormalReferenceInsertController().Execute(request, response);
+			result = new NormalReferenceInsertController().execute(request, response);
 			break;
 		case "/myPageNormal/normalReferenceInsertOk.mn":
 			System.out.println("마이페이지 일반회원 문의 추가 완료 요청");
-			result = new NormalReferenceInsertOkController().Execute(request, response);
+			result = new NormalReferenceInsertOkController().execute(request, response);
 			break;
 		case "/myPageNormal/normalReferenceList.mn":
 			System.out.println("마이페이지 일반회원 문의 리스트 페이지 요청");
-			result = new NormalReferenceListController().Execute(request, response);
+			result = new NormalReferenceListController().execute(request, response);
 			break;
 		case "/myPageNormal/normalExit.mn":
 			System.out.println("마이페이지 일반회원 회원탈퇴 페이지 요청");
-			result = new NormalExitController().Execute(request, response);
+			result = new NormalExitController().execute(request, response);
 			break;
 		case "/myPageNormal/normalExitOk.mn":
 			System.out.println("마이페이지 일반회원 회원탈퇴 완료 요청");
-			result = new NormalExitOkController().Execute(request, response);
+			result = new NormalExitOkController().execute(request, response);
 			break;
 		}
 
