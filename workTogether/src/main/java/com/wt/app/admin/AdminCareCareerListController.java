@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.dto.CareCareerRow;
+import com.wt.app.dto.CareCareerRowDTO;
 
 public class AdminCareCareerListController implements Execute{
 	@Override
@@ -43,9 +43,9 @@ public class AdminCareCareerListController implements Execute{
         int endRow   = page * ROW;
 
 
-        List<CareCareerRow> list = new ArrayList<>();        
-        CareCareerRow row1 = new CareCareerRow();
-        row1.setNumber(1L);
+        List<CareCareerRowDTO> list = new ArrayList<>();        
+        CareCareerRowDTO row1 = new CareCareerRowDTO();
+        row1.setNumber(1);
         row1.setName("가나다");
         row1.setUserId("abc123");
         row1.setDate("2025-08-09");
