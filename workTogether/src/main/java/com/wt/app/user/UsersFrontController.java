@@ -57,10 +57,10 @@ public class UsersFrontController extends HttpServlet {
 			System.out.println("일반 로그인 처리 요청");
 			result = new LoginNormalOkController().execute(request, response); // 대문자 E
 			break;
-//      case "/users/loginCareOk.us":
-//      System.out.println("돌봄 로그인 처리 요청");
-//      result = new LoginCareOkController().execute(request, response); // 대문자 E
-//      break;
+		case "/users/loginCareOk.us":
+			System.out.println("돌봄 로그인 처리 요청");
+			result = new LoginCareOkController().execute(request, response); // 대문자 E
+			break;
 
 		// ===== 회원가입(일반) =====
 		case "/users/joinNormal.us":
