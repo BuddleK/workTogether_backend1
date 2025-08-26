@@ -266,4 +266,10 @@
   <!-- 푸터 -->
   <jsp:include page="/footer.jsp" />
 </body>
+
+<script>
+	let usersNumber = <%= session.getAttribute("usersNumber") != null ? session.getAttribute("usersNumber") : "null" %>;
+	console.log(usersNumber);
+</script>
+
 </html> 
