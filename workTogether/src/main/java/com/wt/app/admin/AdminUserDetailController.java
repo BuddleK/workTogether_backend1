@@ -15,7 +15,7 @@ import com.wt.app.dto.AdminUserManagerDTO;
 public class AdminUserDetailController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		AdminTwoDAO adminTwoDAO = new AdminTwoDAO();

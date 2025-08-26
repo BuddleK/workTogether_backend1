@@ -17,7 +17,7 @@ import com.wt.app.dto.AdminUserManagerDTO;
 public class AdminUserManagerListController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		AdminTwoDAO adminTwoDAO = new AdminTwoDAO();
 		Result result = new Result();
@@ -54,7 +54,7 @@ public class AdminUserManagerListController implements Execute {
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
 
-		result.setPath("/admin/notice.jsp");
+		result.setPath("/admin/adminUserManagerList.adt");
 		result.setRedirect(false);
 
 		return result;

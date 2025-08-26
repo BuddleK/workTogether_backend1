@@ -2,7 +2,6 @@ package com.wt.app.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,81 +50,82 @@ public class AdminTwoFrontController extends HttpServlet {
 		Result result = new Result();
 
 		switch (target) {
-		case "/admin/adminUserManagerList.ad":
+		case "/admin/adminUserManagerList.adt":
 			System.out.println("관리자 회원관리 페이지 요청");
-			result = new AdminUserManagerListController().Execute(request, response);
+			result = new AdminUserManagerListController().execute(request, response);
+			System.out.println(result);
 			break;
-		case "/admin/adminUserDetail.ad":
+		case "/admin/adminUserDetail.adt":
 			System.out.println("관리자 회원관리 디테일 페이지 요청");
-			result = new AdminUserDetailController().Execute(request, response);
+			result = new AdminUserDetailController().execute(request, response);
 			break;
-		case "/admin/adminNotice.ad":
+		case "/admin/adminNotice.adt":
 			System.out.println("관리자 공지사항 관리 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeController().execute(request, response);
 			break;
-		case "/admin/adminNoticeInsert.ad":
+		case "/admin/adminNoticeInsert.adt":
 			System.out.println("관리자 공지사항 추가 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeInsertController().execute(request, response);
 			break;
-		case "/admin/adminNoticeInsertOk.ad":
+		case "/admin/adminNoticeInsertOk.adt":
 			System.out.println("관리자 공지사항 추가 완료 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeInsertOkController().execute(request, response);
 			break;
-		case "/admin/adminNoticeDeleteOk.ad":
+		case "/admin/adminNoticeDeleteOk.adt":
 			System.out.println("관리자 공지사항 삭제 완료 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeDeleteOkController().execute(request, response);
 			break;
-		case "/admin/adminNoticeUpdateOk.ad":
+		case "/admin/adminNoticeUpdateOk.adt":
 			System.out.println("관리자 공지사항 수정 완료 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeUpdateOkController().execute(request, response);
 			break;
-		case "/admin/adminNoticeDetail.ad":
+		case "/admin/adminNoticeDetail.adt":
 			System.out.println("관리자 공지사항 상세 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNoticeDetailController().execute(request, response);
 			break;
-		case "/admin/adminReportList.ad":
+		case "/admin/adminReportList.adt":
 			System.out.println("관리자 신고글 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminReportListController().execute(request, response);
 			break;
-		case "/admin/adminReportDeleteOk.ad":
+		case "/admin/adminReportDeleteOk.adt":
 			System.out.println("관리자 신고글 삭제 완료 요청");
-			result.setRedirect(true);
+			result = new AdminReportDeleteOkController().execute(request, response);
 			break;
-		case "/admin/adminNewsBannerInsert.ad":
+		case "/admin/adminNewsBannerInsert.adt":
 			System.out.println("관리자 뉴스 베너 쓰기 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerInsertController().execute(request, response);
 			break;
-		case "/admin/adminNewsBannerInsertOk.ad":
+		case "/admin/adminNewsBannerInsertOk.adt":
 			System.out.println("관리자 뉴스 베너 추가 완료 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerInsertOkController().execute(request, response);
 			break;
-		case "/admin/adminNewsBannerDetail.ad":
+		case "/admin/adminNewsBannerDetail.adt":
 			System.out.println("관리자 뉴스 베너 상세 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerDetailController().execute(request, response);
 			break;
-		case "/admin/adminNewsBanner.ad":
+		case "/admin/adminNewsBanner.adt":
 			System.out.println("관리자 뉴스 베너 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerController().execute(request, response);
 			break;
-		case "/admin/adminNewsBannerUpdate.ad":
+		case "/admin/adminNewsBannerUpdate.adt":
 			System.out.println("관리자 뉴스 베너 수정 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerUpdateController().execute(request, response);
 			break;
-		case "/admin/adminNewsBannerUpdateOk.ad":
+		case "/admin/adminNewsBannerUpdateOk.adt":
 			System.out.println("관리자 뉴스 베너 수정 완료 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerUpdateOkController().execute(request, response);
 			break;
-		case "/admin/adminNewsBannerDeleteOk.ad":
+		case "/admin/adminNewsBannerDeleteOk.adt":
 			System.out.println("관리자 뉴스 베너 삭제 완료 요청");
-			result.setRedirect(true);
+			result = new AdminNewsBannerDeleteOkController().execute(request, response);
 			break;
-		case "/admin/adminReferenceList.ad":
+		case "/admin/adminReferenceList.adt":
 			System.out.println("관리자 문의 관리 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminReferenceListController().execute(request, response);
 			break;
-		case "/admin/adminReferenceDetail.ad":
+		case "/admin/adminReferenceDetail.adt":
 			System.out.println("관리자 문의 상세 페이지 요청");
-			result.setRedirect(true);
+			result = new AdminReferenceDetailController().execute(request, response);
 			break;
 		}
 		

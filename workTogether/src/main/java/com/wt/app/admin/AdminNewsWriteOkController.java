@@ -10,7 +10,9 @@ import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminNewsBoardDTO;
-
+<<<<<<< HEAD
+import com.wt.app.dto.FileNoticeDTO;
+import com.wt.app.dto.FilesLicenseDTO;
 
 public class AdminNewsWriteOkController implements Execute {
 

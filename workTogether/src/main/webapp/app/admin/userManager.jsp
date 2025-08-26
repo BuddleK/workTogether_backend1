@@ -32,7 +32,7 @@
 				<div class="title">
 					<h1>회원관리</h1>
 				</div>
-				<form action="" method="">
+				<form action="${pageContext.request.contextPath}/admin/adminUserManagerList.adt" method="post">
 					<div class="searchbox">
 						<select name="column" id="" class="search_column">
 							<option value="number">회원 번호</option>
@@ -56,239 +56,36 @@
 					</div>
 					<div class="table_big">
 						<div class="table_md">
-							<ul class="table_body">
-								<%-- <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">1</a>
-                  </li>
-                  <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">거북이</a>
-                  </li>
-                  <li class="body_id">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">tutleman08</a>
-                  </li>
-
-                  <li class="body_email">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >bingo@naver.com</a
-                    >
-                  </li>
-                  <li class="body_phone">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >010-1234-5678</a
-                    >
-                  </li>
-                  <li class="body_type">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">일반</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.jsp">2</a>
-                  </li>
-                  <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.jsp">거북이</a>
-                  </li>
-                  <li class="body_id">
-                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.jsp">tutleman08</a>
-                  </li>
-
-                  <li class="body_email">
-                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.jsp"
-                      >bingo@naver.com</a
-                    >
-                  </li>
-                  <li class="body_phone">
-                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.jsp"
-                      >010-1234-5678</a
-                    >
-                  </li>
-                  <li class="body_type">
-                    <a href="${pageContext.request.contextPath}/app/admin/careDetail.jsp">돌봄</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">3</a>
-                  </li>
-                  <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">거북이</a>
-                  </li>
-                  <li class="body_id">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">tutleman08</a>
-                  </li>
-
-                  <li class="body_email">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >bingo@naver.com</a
-                    >
-                  </li>
-                  <li class="body_phone">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >010-1234-5678</a
-                    >
-                  </li>
-                  <li class="body_type">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">일반</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">4</a>
-                  </li>
-                  <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">거북이</a>
-                  </li>
-                  <li class="body_id">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">tutleman08</a>
-                  </li>
-
-                  <li class="body_email">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >bingo@naver.com</a
-                    >
-                  </li>
-                  <li class="body_phone">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >010-1234-5678</a
-                    >
-                  </li>
-                  <li class="body_type">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">일반</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">5</a>
-                  </li>
-                  <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">거북이</a>
-                  </li>
-                  <li class="body_id">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">tutleman08</a>
-                  </li>
-
-                  <li class="body_email">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >bingo@naver.com</a
-                    >
-                  </li>
-                  <li class="body_phone">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >010-1234-5678</a
-                    >
-                  </li>
-                  <li class="body_type">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">일반</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">6</a>
-                  </li>
-                  <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">거북이</a>
-                  </li>
-                  <li class="body_id">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">tutleman08</a>
-                  </li>
-
-                  <li class="body_email">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >bingo@naver.com</a
-                    >
-                  </li>
-                  <li class="body_phone">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >010-1234-5678</a
-                    >
-                  </li>
-                  <li class="body_type">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">일반</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">7</a>
-                  </li>
-                  <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">거북이</a>
-                  </li>
-                  <li class="body_id">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">tutleman08</a>
-                  </li>
-
-                  <li class="body_email">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >bingo@naver.com</a
-                    >
-                  </li>
-                  <li class="body_phone">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >010-1234-5678</a
-                    >
-                  </li>
-                  <li class="body_type">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">일반</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">8</a>
-                  </li>
-                  <li class="body_name">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">거북이</a>
-                  </li>
-                  <li class="body_id">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">tutleman08</a>
-                  </li>
-
-                  <li class="body_email">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >bingo@naver.com</a
-                    >
-                  </li>
-                  <li class="body_phone">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp"
-                      >010-1234-5678</a
-                    >
-                  </li>
-                  <li class="body_type">
-                    <a href="${pageContext.request.contextPath}/app/admin/userDetail.jsp">일반</a>
-                  </li> --%>
+							<div class="table_body">
 								<c:choose>
-									<c:when test="${not empty boardList}">
+									<c:when test="${not empty userList}">
 										<c:forEach var="users" items="${userList}">
 											<div class="users-row">
 												<div class="users-item body_number">
 													<c:out value="${users.getUserNumber()}" />
 												</div>
 												<div class="users-item body_name">
-													<a
-														href="${pageContext.request.contextPath}/admin/userManagerListOk?usersNumber=${users.usersNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
 														<c:out value="${users.getUserName()}" />
 													</a>
 												</div>
 												<div class="users-item body_id">
-													<a
-														href="${pageContext.request.contextPath}/admin/userManagerListOk?usersNumber=${users.usersNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
 														<c:out value="${users.getUserId()}" />
 													</a>
 												</div>
 												<div class="users-item body_email">
-													<a
-														href="${pageContext.request.contextPath}/admin/userManagerListOk?usersNumber=${users.usersNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
 														<c:out value="${users.getUserEmail()}" />
 													</a>
 												</div>
 												<div class="users-item body_phone">
-													<a
-														href="${pageContext.request.contextPath}/admin/userManagerListOk?usersNumber=${users.usersNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
 														<c:out value="${users.getUserPhone()}" />
 													</a>
 												</div>
 												<div class="users-item body_type">
-													<a
-														href="${pageContext.request.contextPath}/admin/userManagerListOk?usersNumber=${users.usersNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
 														<c:choose>
 															<c:when test="${ users.userType == 'C'}">
 																<c:out value="돌봄" />
@@ -311,7 +108,7 @@
 										</div>
 									</c:otherwise>
 								</c:choose>
-							</ul>
+							</div>
 						</div>
 					</div>
 					<div class="paging_box">
@@ -325,14 +122,14 @@
 							<li class="next"><a href="">&gt;</a></li> -->
 
 							<c:if test="${prev}">
-								<li><a href="${pageContext.request.contextPath}/admin/userManagerListOk.ad?page=${startPage - 1}"
+								<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?page=${startPage - 1}"
 									class="prev">&lt;</a></li>
 							</c:if>
 							<c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
 							<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
 								<c:choose>
 									<c:when test="${!(i == page) }">
-										<li><a href="${pageContext.request.contextPath}/admin/userManagerListOk.ad?page=${i}">
+										<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?page=${i}">
 												<c:out value="${i}" />
 										</a></li>
 									</c:when>
@@ -343,10 +140,10 @@
 								</c:choose>
 							</c:forEach>
 							<c:if test="${next}">
-								<li><a href="${pageContext.request.contextPath}/admin/userManagerListOk.ad?page=${endPage + 1}"
+								<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?page=${endPage + 1}"
 									class="next">&gt;</a>
 							</c:if>
-						</ul>
+						</div>
 					</div>
 				</div>
 			</div>
