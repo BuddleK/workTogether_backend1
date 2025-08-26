@@ -37,33 +37,32 @@
 
 		<!-- 서초 전체 지하철 노선도 -->
 		<div class="map_section">
-			<c:forEach var="station" items="${stations}">
-				<c:choose>
-					<c:when test="${station.lineNumber == 100}">
-						<c:forEach var="photo" items="${station.stationsPhoto}">
-							<div class="subway_dxline_img">
-								<img src="${pageContext.request.contextPath}${photo.stationsFilesPath}${photo.stationsFilesName}" alt="노선도 사진">
-							</div>
-						</c:forEach>
-					</c:when>
-					<c:when test="${station.lineNumber == 1}">
-						<c:forEach var="photo" items="${station.stationsPhoto}">
-							<div id="subway_allline_img">
-								<img src="${pageContext.request.contextPath}${photo.stationsFilesPath}${photo.stationsFilesName}" alt="노선도 사진">
-							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<c:forEach var="photo" items="${station.stationsPhoto}">
-							<div class="subway_line${station.lineNumber}_img">
-								<img src="${pageContext.request.contextPath}${photo.stationsFilesPath}${photo.stationsFilesName}" alt="노선도 사진">
-							</div>
-						</c:forEach>
-					</c:otherwise>
+		  <h1>확인</h1>
+			  <c:forEach var="imgStation" items="${imgStations}" varStatus="st">
+			    <c:choose>
+			      <c:when test="${imgStation.lineNumber == 100}">
+			        <c:if test="${empty imgStation.stationsPhoto}">
+			          <div>사진없음 stationId=${imgStation.id}</div>
+			        </c:if>
+			       <c:forEach var="photo" items="${imgStation.stationsPhoto}" varStatus="s">
+			          <!-- 디버그: 원본 값 확인 -->
+			          index: ${s.index}
+			          | path: <c:out value="${photo.stationsFilesPath}" default="(null)"/>
+			          | name: <c:out value="${photo.stationsFilesName}" default="(null)"/><br/>
+			          <!-- URL 생성 & 출력 -->
+			          <c:url var="imgUrl" value="/${photo.stationsFilesPath}/${photo.stationsFilesName}"/>
+			          imgUrl: <c:out value="${imgUrl}" default="(null)"/><br/>
+			
+			          <!-- 실제 이미지 -->
+			          <div class="subway_dxline_img">
+			            <img src="${imgUrl}" alt="노선도 사진">
+			          </div>
+			        </c:forEach>
+			      </c:when>
 				</c:choose>
 			</c:forEach>
 		</div>
-
+		
 		<!-- 전체 역 목록 -->
 		<div class="station_list" id="allline_station">
 			<h3>전체 역 목록</h3>
