@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Result;
-import com.wt.app.shops.ShopsDetailOkController;
 
 /**
  * Servlet implementation class AdminFrontController
@@ -51,12 +50,12 @@ public class CareListFrontController extends HttpServlet {
 		case "/careList/careListOk.cl":
 			System.out.println("돌봄 목록 처리 요청");
 			// 임시로 이동처리
-			result = new CareListOkController().Execute(request, response);
+			result = new CareListOkController().execute(request, response);
 			System.out.println(result);
 			break;
 		case "/careList/careListDetailOk.cl" : 
 			System.out.println("돌봄 세부 페이지 처리 요청");
-			result = new CareListDetailOkController().Execute(request, response);
+			result = new CareListDetailOkController().execute(request, response);
 			break;
 		
 		}

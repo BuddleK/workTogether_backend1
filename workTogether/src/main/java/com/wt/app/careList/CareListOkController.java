@@ -14,16 +14,16 @@ import com.wt.app.Result;
 import com.wt.app.careList.dao.CareListDAO;
 import com.wt.app.dto.CareListDTO;
 
-public class CareListOkController implements Execute  {
+public class CareListOkController implements Execute {
 
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("CareListOkController 실행");
-		
+
 		CareListDTO careListDTO = new CareListDTO();
 		CareListDAO careListDAO = new CareListDAO();
-		
+
 		String tmp = request.getParameter("page");
 		int page = (tmp == null) ? 1 : Integer.valueOf(tmp);
 		int rowCount = 4;
@@ -35,32 +35,31 @@ public class CareListOkController implements Execute  {
 		Map<String, Integer> pageMap = new HashMap<>();
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
-		
+
 		// 전체 리스트 조회
 		List<CareListDTO> careList = careListDAO.selectAll(pageMap);
 		request.setAttribute("careList", careList);
-		
+
 		int total = careListDAO.getTotal();
-		int realEndPage = (int)Math.ceil(total/ (double)rowCount);
+		int realEndPage = (int) Math.ceil(total / (double) rowCount);
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount);
-		int startPage = endPage - (pageCount -  1);
-		
+		int startPage = endPage - (pageCount - 1);
+
 		endPage = Math.min(endPage, realEndPage);
-		
-		boolean prev= startPage>1;
+
+		boolean prev = startPage > 1;
 		boolean next = endPage < realEndPage;
-		
+
 		System.out.println(total);
 		request.setAttribute("page", page);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
-		
+
 		Result result = new Result();
 		result.setPath("/app/careMember/careMember.jsp");
 		return result;
 	}
-
 	
 }
