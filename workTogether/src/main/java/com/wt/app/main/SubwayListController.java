@@ -15,7 +15,7 @@ public class SubwayListController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response) {
 		Result result = new Result();
 
-		result.setPath("/subway/subwayLine.sw");
+		result.setPath("/subway/subwayList.sw");
 		result.setRedirect(false);
 		return result;
 
