@@ -87,6 +87,7 @@
       <mapper resource="com/wt/mapper/CareReferenceMapper.xml" />
       <mapper resource="com/wt/mapper/ReportMapper.xml" />
       <mapper resource="com/wt/mapper/PostReplyMapper.xml" />
+      <mapper resource="com/wt/mapper/UserMapper.xml" />
    </mappers> 
    
 </configuration>

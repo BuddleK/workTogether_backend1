@@ -52,21 +52,21 @@ public class PostReplyFrontController extends HttpServlet {
 		switch (target) {
 		case "/reply/postReplyWriteOk.re":
 			System.out.println("댓글 작성 컨트롤러 진입");
-			result = new PostReplyWriteOkController().Execute(request, response);
+			result = new PostReplyWriteOkController().execute(request, response);
 			break;
 
 		case "/reply/postReplyListOk.re":
 			System.out.println("댓글 목록 컨트롤러 진입");
-			result = new PostReplyListOkController().Execute(request, response);
+			result = new PostReplyListOkController().execute(request, response);
 			break;
 		case "/reply/postReplyDeleteOk.re":
 		    System.out.println("댓글 삭제 컨트롤러 진입");
-		    result = new PostReplyDeleteOkController().Execute(request, response);
+		    result = new PostReplyDeleteOkController().execute(request, response);
 		    break;
 
 		case "/reply/postReplyUpdateOk.re":
 		    System.out.println("댓글 수정 컨트롤러 진입");
-		    result = new PostReplyUpdateOkController().Execute(request, response);
+		    result = new PostReplyUpdateOkController().execute(request, response);
 		    break;
 		}
 

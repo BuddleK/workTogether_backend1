@@ -18,7 +18,7 @@ public class CommentListOkController implements Execute{
 	
 	
 	@Override
-	public Result Execute(HttpServletRequest request, HttpServletResponse response)
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int caresNumber = Integer.valueOf(request.getParameter("careNumber"));
 		
