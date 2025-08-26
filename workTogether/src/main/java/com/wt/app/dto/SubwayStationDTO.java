@@ -7,7 +7,7 @@ public class SubwayStationDTO {
 	private int lineNumber;
 	private String stationsName;
 	private String stationsAddress;
-//	private List<T> stationsPhoto;
+	private List<FilesStationsDTO> stationsPhoto;
 
 	public int getStationsId() {
 		return stationsId;
@@ -41,11 +41,11 @@ public class SubwayStationDTO {
 		this.stationsAddress = stationsAddress;
 	}
 
-	public List<T> getStationsPhoto() {
+	public List<FilesStationsDTO> getStationsPhoto() {
 		return stationsPhoto;
 	}
 
-	public void setStationsPhoto(List<T> stationsPhoto) {
+	public void setStationsPhoto(List<FilesStationsDTO> stationsPhoto) {
 		this.stationsPhoto = stationsPhoto;
 	}
 

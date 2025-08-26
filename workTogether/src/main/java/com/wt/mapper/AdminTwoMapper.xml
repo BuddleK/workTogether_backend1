@@ -3,7 +3,7 @@
 <mapper namespace="admin">
 	<!-- 전체 유저 수 -->
 	<select id="getUserTotal" resultType="int">
-		SELECT COUNT(user_number)
+		SELECT COUNT(users_number)
 		FROM tbl_users
 	</select>
 	

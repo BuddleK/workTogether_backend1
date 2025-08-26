@@ -13,11 +13,12 @@ public class AdminNoticeUpdateOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		Result result = new Result();
-	
-		result.setPath("/admin/adminNoticeUpdateOk.ad");
-	    result.setRedirect(false);
-	    return result;
+
+		result.setPath("/admin/adminNoticeUpdateOk.adt");
+		result.setRedirect(false);
+		return result;
 	}
 
 }

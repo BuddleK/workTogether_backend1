@@ -2,29 +2,27 @@ package com.wt.app.dto;
 
 public class MainDTO {
 
-	private int banner_news_number;
-	private int banner_image_files_number;
-	private String banner_title;
-	private String banner_content;
-	private String banner_link_url;
-	private String banner_files_path;
-	private String banner_files_type;
+	private int bannerNewsNumber;
+	private int bannerImageFilesNumber;
+	private String bannerTitle;
+	private String bannerContent;
+	private String bannerLinkUrl;
+	private String bannerFilesPath;
+	private String bannerFilesType;
 	
-	private int posts_number;
-	private String posts_title;
-	private int users_number;
-	private String users_name;
-	private String posts_created_date;
-	
-	
-	private int care_number;
-	private int care_profiles_photo_number;
-	private String care_intro_text;
+	private int postsNumber;
+	private String postsTitle;
+	private int usersNumber;
 	private String usersName;
+	private String postsCreatedDate;
+	
+	
+	private int careNumber;
+	private int careProfilesPhotoNumber;
+	private String careIntroText;
 	private int profilesFilesNumber;
 	private String profilesFilesPath;
 	private int heartsCareNumber;
-	private int usersNumber;
 	private String dayMonday;
 	private String dayTuesday;
 	private String dayWednesday;
@@ -33,107 +31,101 @@ public class MainDTO {
 	private String daySaturday;
 	private String daySunday;
 	
-	private int favorites_shops_number;
-	private String shops_name;
+	private int favoritesDhopsNumber;
+	private String shopsName;
 	private int shopsNumber;
 	
 	//지도 api
 	
-	public int getBanner_news_number() {
-		return banner_news_number;
+	public int getBannerNewsNumber() {
+		return bannerNewsNumber;
 	}
-	public void setBanner_news_number(int banner_news_number) {
-		this.banner_news_number = banner_news_number;
+	public void setBannerNewsNumber(int bannerNewsNumber) {
+		this.bannerNewsNumber = bannerNewsNumber;
 	}
-	public int getBanner_image_files_number() {
-		return banner_image_files_number;
+	public int getBannerImageFilesNumber() {
+		return bannerImageFilesNumber;
 	}
-	public void setBanner_image_files_number(int banner_image_files_number) {
-		this.banner_image_files_number = banner_image_files_number;
+	public void setBannerImageFilesNumber(int bannerImageFilesNumber) {
+		this.bannerImageFilesNumber = bannerImageFilesNumber;
 	}
-	public String getBanner_title() {
-		return banner_title;
+	public String getBannerTitle() {
+		return bannerTitle;
 	}
-	public void setBanner_title(String banner_title) {
-		this.banner_title = banner_title;
+	public void setBannerTitle(String bannerTitle) {
+		this.bannerTitle = bannerTitle;
 	}
-	public String getBanner_content() {
-		return banner_content;
+	public String getBannerContent() {
+		return bannerContent;
 	}
-	public void setBanner_content(String banner_content) {
-		this.banner_content = banner_content;
+	public void setBannerContent(String bannerContent) {
+		this.bannerContent = bannerContent;
 	}
-	public String getBanner_link_url() {
-		return banner_link_url;
+	public String getBannerLinkUrl() {
+		return bannerLinkUrl;
 	}
-	public void setBanner_link_url(String banner_link_url) {
-		this.banner_link_url = banner_link_url;
+	public void setBannerLinkUrl(String bannerLinkUrl) {
+		this.bannerLinkUrl = bannerLinkUrl;
 	}
-	public String getBanner_files_path() {
-		return banner_files_path;
+	public String getBannerFilesPath() {
+		return bannerFilesPath;
 	}
-	public void setBanner_files_path(String banner_files_path) {
-		this.banner_files_path = banner_files_path;
+	public void setBannerFilesPath(String bannerFilesPath) {
+		this.bannerFilesPath = bannerFilesPath;
 	}
-	public String getBanner_files_type() {
-		return banner_files_type;
+	public String getBannerFilesType() {
+		return bannerFilesType;
 	}
-	public void setBanner_files_type(String banner_files_type) {
-		this.banner_files_type = banner_files_type;
+	public void setBannerFilesType(String bannerFilesType) {
+		this.bannerFilesType = bannerFilesType;
 	}
-	public int getPosts_number() {
-		return posts_number;
+	public int getPostsNumber() {
+		return postsNumber;
 	}
-	public void setPosts_number(int posts_number) {
-		this.posts_number = posts_number;
+	public void setPostsNumber(int postsNumber) {
+		this.postsNumber = postsNumber;
 	}
-	public String getPosts_title() {
-		return posts_title;
+	public String getPostsTitle() {
+		return postsTitle;
 	}
-	public void setPosts_title(String posts_title) {
-		this.posts_title = posts_title;
+	public void setPostsTitle(String postsTitle) {
+		this.postsTitle = postsTitle;
 	}
-	public int getUsers_number() {
-		return users_number;
+	public int getUsersNumber() {
+		return usersNumber;
 	}
-	public void setUsers_number(int users_number) {
-		this.users_number = users_number;
-	}
-	public String getUsers_name() {
-		return users_name;
-	}
-	public void setUsers_name(String users_name) {
-		this.users_name = users_name;
-	}
-	public String getPosts_created_date() {
-		return posts_created_date;
-	}
-	public void setPosts_created_date(String posts_created_date) {
-		this.posts_created_date = posts_created_date;
-	}
-	public int getCare_number() {
-		return care_number;
-	}
-	public void setCare_number(int care_number) {
-		this.care_number = care_number;
-	}
-	public int getCare_profiles_photo_number() {
-		return care_profiles_photo_number;
-	}
-	public void setCare_profiles_photo_number(int care_profiles_photo_number) {
-		this.care_profiles_photo_number = care_profiles_photo_number;
-	}
-	public String getCare_intro_text() {
-		return care_intro_text;
-	}
-	public void setCare_intro_text(String care_intro_text) {
-		this.care_intro_text = care_intro_text;
+	public void setUsersNumber(int usersNumber) {
+		this.usersNumber = usersNumber;
 	}
 	public String getUsersName() {
 		return usersName;
 	}
 	public void setUsersName(String usersName) {
 		this.usersName = usersName;
+	}
+	public String getPostsCreatedDate() {
+		return postsCreatedDate;
+	}
+	public void setPostsCreatedDate(String postsCreatedDate) {
+		this.postsCreatedDate = postsCreatedDate;
+	}
+	public int getCareNumber() {
+		return careNumber;
+	}
+	public void setCareNumber(int careNumber) {
+		this.careNumber = careNumber;
+	}
+	public int getCareProfilesPhotoNumber() {
+		return careProfilesPhotoNumber;
+	}
+	public void setCareProfilesPhotoNumber(int careProfilesPhotoNumber) {
+		this.careProfilesPhotoNumber = careProfilesPhotoNumber;
+	}
+	public String getCareIntroText() {
+		return careIntroText;
+	}
+	public void setCareIntroText(String careIntroText) {
+		this.careIntroText = careIntroText;
 	}
 	public int getProfilesFilesNumber() {
 		return profilesFilesNumber;
@@ -152,12 +144,6 @@ public class MainDTO {
 	}
 	public void setHeartsCareNumber(int heartsCareNumber) {
 		this.heartsCareNumber = heartsCareNumber;
-	}
-	public int getUsersNumber() {
-		return usersNumber;
-	}
-	public void setUsersNumber(int usersNumber) {
-		this.usersNumber = usersNumber;
 	}
 	public String getDayMonday() {
 		return dayMonday;
@@ -201,17 +187,17 @@ public class MainDTO {
 	public void setDaySunday(String daySunday) {
 		this.daySunday = daySunday;
 	}
-	public int getFavorites_shops_number() {
-		return favorites_shops_number;
+	public int getFavoritesDhopsNumber() {
+		return favoritesDhopsNumber;
 	}
-	public void setFavorites_shops_number(int favorites_shops_number) {
-		this.favorites_shops_number = favorites_shops_number;
+	public void setFavoritesDhopsNumber(int favoritesDhopsNumber) {
+		this.favoritesDhopsNumber = favoritesDhopsNumber;
 	}
-	public String getShops_name() {
-		return shops_name;
+	public String getShopsName() {
+		return shopsName;
 	}
-	public void setShops_name(String shops_name) {
-		this.shops_name = shops_name;
+	public void setShopsName(String shopsName) {
+		this.shopsName = shopsName;
 	}
 	public int getShopsNumber() {
 		return shopsNumber;
@@ -221,22 +207,20 @@ public class MainDTO {
 	}
 	@Override
 	public String toString() {
-		return "MainDTO [banner_news_number=" + banner_news_number + ", banner_image_files_number="
-				+ banner_image_files_number + ", banner_title=" + banner_title + ", banner_content=" + banner_content
-				+ ", banner_link_url=" + banner_link_url + ", banner_files_path=" + banner_files_path
-				+ ", banner_files_type=" + banner_files_type + ", posts_number=" + posts_number + ", posts_title="
-				+ posts_title + ", users_number=" + users_number + ", users_name=" + users_name
-				+ ", posts_created_date=" + posts_created_date + ", care_number=" + care_number
-				+ ", care_profiles_photo_number=" + care_profiles_photo_number + ", care_intro_text=" + care_intro_text
-				+ ", usersName=" + usersName + ", profilesFilesNumber=" + profilesFilesNumber + ", profilesFilesPath="
-				+ profilesFilesPath + ", heartsCareNumber=" + heartsCareNumber + ", usersNumber=" + usersNumber
-				+ ", dayMonday=" + dayMonday + ", dayTuesday=" + dayTuesday + ", dayWednesday=" + dayWednesday
-				+ ", dayThursday=" + dayThursday + ", dayFriday=" + dayFriday + ", daySaturday=" + daySaturday
-				+ ", daySunday=" + daySunday + ", favorites_shops_number=" + favorites_shops_number + ", shops_name="
-				+ shops_name + ", shopsNumber=" + shopsNumber + "]";
+		return "MainDTO [bannerNewsNumber=" + bannerNewsNumber + ", banner_imageFilesNumber=" + bannerImageFilesNumber
+				+ ", bannerTitle=" + bannerTitle + ", bannerContent=" + bannerContent + ", bannerLinkUrl="
+				+ bannerLinkUrl + ", bannerFilesPath=" + bannerFilesPath + ", bannerFilesType=" + bannerFilesType
+				+ ", postsNumber=" + postsNumber + ", postsTitle=" + postsTitle + ", usersNumber=" + usersNumber
+				+ ", usersName=" + usersName + ", postsCreatedDate=" + postsCreatedDate + ", careNumber=" + careNumber
+				+ ", careProfilesPhotoNumber=" + careProfilesPhotoNumber + ", careIntroText=" + careIntroText
+				+ ", profilesFilesNumber=" + profilesFilesNumber + ", profilesFilesPath=" + profilesFilesPath
+				+ ", heartsCareNumber=" + heartsCareNumber + ", dayMonday=" + dayMonday + ", dayTuesday=" + dayTuesday
+				+ ", dayWednesday=" + dayWednesday + ", dayThursday=" + dayThursday + ", dayFriday=" + dayFriday
+				+ ", daySaturday=" + daySaturday + ", daySunday=" + daySunday + ", favoritesDhopsNumber="
+				+ favoritesDhopsNumber + ", shopsName=" + shopsName + ", shopsNumber=" + shopsNumber + "]";
 	}
 	
-
+	
 	
 	
 
