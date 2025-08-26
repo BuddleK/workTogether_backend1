@@ -50,12 +50,12 @@ public class ShopsFrontController extends HttpServlet {
 		case "/shops/shopsListOk.sh":
 			System.out.println("가게 목록 처리 요청");
 			// 임시로 이동처리
-			result = new ShopsListOkController().Execute(request, response);
+			result = new ShopsListOkController().execute(request, response);
 			System.out.println(result);
 			break;
 		case "/shops/shopsDetailOk.sh" : 
 			System.out.println("가게 세부 페이지 처리 요청");
-			result = new ShopsDetailOkController().Execute(request, response);
+			result = new ShopsDetailOkController().execute(request, response);
 			break;
 		
 		}
