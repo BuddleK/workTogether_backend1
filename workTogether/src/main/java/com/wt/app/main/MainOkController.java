@@ -41,7 +41,7 @@ public class MainOkController implements Execute{
 				
 		//지도마커 조회
 		
-		result.setPath("/app/Main.jsp");
+		result.setPath("/main.jsp");
 		result.setRedirect(false);
 		return result;
 	}

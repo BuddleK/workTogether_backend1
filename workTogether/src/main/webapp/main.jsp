@@ -29,64 +29,14 @@
           <c:forEach var="banner" items="${mainBanner}">
 	          <li>
 	            <div class="slide-img">
-	              <img class="banner_img" draggable="false" src="${banner.getBannerFilesPath()}">
-<%-- 	              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner1.png"> --%>
+	              <img class="banner_img" draggable="false" src="${banner.getBannerImageFilesNumber()}">
 	              <a draggable="false" href="${banner.getBannerLinkUrl()}">
-<!-- 	              <a draggable="false" href="https://www.newsflix.co.kr/news/articleView.jsp?idxno=18740"> -->
 	                <h3><c:out value="${banner.getBannerTitle()}"></c:out></h3>
 	                <p><c:out value="${banner.getBannerContent()}"></c:out></p>
 	              </a>
 	            </div>
 	          </li>
 	      </c:forEach>
-          <!-- 두번째 슬라이드 -->
-          <li>
-            <div class="slide-img">
-              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner2.jfif">
-              <a draggable="false" href="https://mediahub.seoul.go.kr/archives/2014274">
-                <h3>걷고 싶은 길 걷기 좋은 길, 서초구 우면산 무장애숲길 2구간 개방</h3>
-              </a>
-            </div>
-          </li>
-          <!-- 세번째 슬라이드 -->
-          <li>
-            <div class="slide-img">
-              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner3.jpg">
-              <a draggable="false" href="https://www.newsis.com/view/NISX20250725_0003266545">
-                <h3>김완선, 장애인 생산품 박람회 빛낸다…9월10일 폐막 공연</h3>
-                <p>보건복지부 주최·장애인직업재활시설협회 주관</p>
-              </a>
-            </div>
-          </li>
-          <!-- 네번째 슬라이드 -->
-          <li>
-            <div class="slide-img">
-              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner4.jpg">
-              <a draggable="false" href="https://www.catholictimes.org/article/20250213500028">
-                <h3>서울가톨릭사회복지회 서초구립 한우리정보문화센터, 중증장애인 운영 카페 개소</h3>
-                <p>‘아이갓에브리씽’ 외교타운점…지적·청각 장애 바리스타 2명 근무</p>
-              </a>
-            </div>
-          </li>
-          <!-- 다섯번째 슬라이드 -->
-          <li>
-            <div class="slide-img">
-              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner5.jpg">
-              <a draggable="false" href="https://www.fntoday.co.kr/news/articleView.html?idxno=360036">
-                <h3>서초구, ‘찾아가는 진료’로 건강 취약계층 돌본다…민·관 협력 의료돌봄 모델 확산</h3>
-                <p>의사와 간호사가 집으로…검진·처방·치료까지 원스톱</p>
-              </a>
-            </div>
-          </li>
-          <!-- 여섯번째 슬라이드 -->
-          <li>
-            <div class="slide-img">
-              <img class="banner_img" draggable="false" src="${pageContext.request.contextPath}/assets/img/main/banner6.png">
-              <a draggable="false" href="https://www.koreadisablednews.com/news/articleView.html?idxno=34979">
-                <h3>서초장애인자립생활지원센터, 장애인 대상 협업형 영상 창작 프로그램 운영</h3>
-              </a>
-            </div>
-          </li>
         </ul>
       </div>
        <!-- 추천 활동 및 추천 게시물 영역 -->
@@ -107,7 +57,7 @@
           <div class="recommend_title">게시판</div>
           <!-- 추천 게시물 목록 -->
           <ul class="board_list">
-          	<c:forEach var="post" items="${postList}">
+          	<c:forEach var="post" items="${mainPost}">
 	            <!-- 추천 게시물 1 -->
 	            <li>
 	              <!-- 게시물 정보 -->
@@ -119,36 +69,6 @@
 	              </a>
 	            </li>
             </c:forEach>
-            <!-- 추천 게시물 2 -->
-            <li>
-              <!-- 게시물 정보 -->
-              <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-                <span class="board_list_number">1</span>
-                <span class="board_list_title">안녕하세요</span>
-                <span class="board_list_author">아무개</span>
-                <span class="board_list_date">2025-08-02</span>
-              </a>
-            </li>
-            <!-- 추천 게시물 3 -->
-            <li>
-              <!-- 게시물 정보 -->
-              <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-                <span class="board_list_number">1</span>
-                <span class="board_list_title">안녕하세요</span>
-                <span class="board_list_author">아무개</span>
-                <span class="board_list_date">2025-08-02</span>
-              </a>
-            </li>
-            <!-- 추천 게시물 4 -->
-            <li>
-              <!-- 게시물 정보 -->
-              <a href="${pageContext.request.contextPath}/app/post/postDetaillogin.jsp">
-                <span class="board_list_number">1</span>
-                <span class="board_list_title">안녕하세요</span>
-                <span class="board_list_author">아무개</span>
-                <span class="board_list_date">2025-08-02</span>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
