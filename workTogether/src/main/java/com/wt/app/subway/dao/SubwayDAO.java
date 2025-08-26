@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.wt.app.dto.GetSubwayLineDTO;
 import com.wt.app.dto.SubwayStationDTO;
 import com.wt.config.MyBatisConfig;
 
@@ -15,8 +14,8 @@ public class SubwayDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 	
-	public List<GetSubwayLineDTO> subwayLineSearch(){
-		List<GetSubwayLineDTO> list = sqlSession.selectList("subway.subwayListSearch");
+	public List<SubwayStationDTO> subwayLineSearch(){
+		List<SubwayStationDTO> list = sqlSession.selectList("subway.subwayListSearch");
 		return list;
 	}
 	

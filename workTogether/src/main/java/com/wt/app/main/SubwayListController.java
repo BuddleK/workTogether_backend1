@@ -19,7 +19,7 @@ public class SubwayListController implements Execute {
 		
 		
 
-		result.setPath("/app/subway/subway.jsp");
+		result.setPath("/app/subwayLine/subway.jsp");
 		result.setRedirect(false);
 		return result;
 
