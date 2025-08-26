@@ -24,8 +24,13 @@ public class PostModifyOkController implements Execute{
 		
 		String title = request.getParameter("postTitle");
 		String context = request.getParameter("postContext");
+		int number = Integer.valueOf(request.getParameter("postNumber"));
 		
 		System.out.println("수정한 제목 : " + title + ", 내용 : " + context);
+		
+		postsDTO.setPostsNumber(number);
+		postsDTO.setPostsTitle(title);
+		postsDTO.setPostsContent(context);
 		
 		postsDAO.update(postsDTO);
 		

@@ -60,7 +60,7 @@
    <update id="update" parameterType="PostsDTO">
 		UPDATE tbl_posts
 		SET posts_title=#{postsTitle}, POSTS_CONTENT = #{postsContent}, POSTS_UPDATED_DATE = SYSDATE
-		where POSTS_NUMBER = #{posts_number}
+		where POSTS_NUMBER = #{postsNumber}
    </update>
 
    <!-- 게시글 상세(1건조회) -->
