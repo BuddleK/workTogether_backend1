@@ -19,8 +19,6 @@ public class SubwayListController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response) {
 		SubwayDAO subwayDAO = new SubwayDAO();
 		Result result = new Result();
-		GetSubwayLineDTO getSubwayLineDTO = new GetSubwayLineDTO();
-		SubwayStationDTO subwayStationDTO = new SubwayStationDTO();
 		
 		//호선 가져오기
 		List<GetSubwayLineDTO> lines = subwayDAO.subwayLineSearch();
@@ -29,7 +27,7 @@ public class SubwayListController implements Execute {
 		//알맞는 이미지 가져오기
 		List<SubwayStationDTO> stations = subwayDAO.subwayStationSearch();
 		request.setAttribute("stations", stations);
-				
+
 		//역 명 가져오기
 		
 		

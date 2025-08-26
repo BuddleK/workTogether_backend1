@@ -37,62 +37,31 @@
 
 		<!-- 서초 전체 지하철 노선도 -->
 		<div class="map_section">
-			<c:choose>
-				<c:forEach var="station" items="${stations}">
+			<c:forEach var="station" items="${stations}">
+				<c:choose>
 					<c:when test="${station.lineNumber == 100}">
-						<div class="subway_dxline_img">
-							<img
-								src="${pageContext.request.contextPath}${stations.lineImagePath}"
-								alt="${stations.lineName} 사진">
-						</div>
+						<c:forEach var="photo" items="${station.stationsPhoto}">
+							<div class="subway_dxline_img">
+								<img src="${pageContext.request.contextPath}${photo.stationsFilesPath}${photo.stationsFilesName}" alt="노선도 사진">
+							</div>
+						</c:forEach>
+					</c:when>
+					<c:when test="${station.lineNumber == 1}">
+						<c:forEach var="photo" items="${station.stationsPhoto}">
+							<div id="subway_allline_img">
+								<img src="${pageContext.request.contextPath}${photo.stationsFilesPath}${photo.stationsFilesName}" alt="노선도 사진">
+							</div>
+						</c:forEach>
 					</c:when>
 					<c:otherwise>
-						<div class="subway_line${stations.lineNumber}_img">
-							<img
-								src="${pageContext.request.contextPath}${line.lineImagePath}"
-								alt="${line.lineName} 사진">
-						</div>
+						<c:forEach var="photo" items="${station.stationsPhoto}">
+							<div class="subway_line${station.lineNumber}_img">
+								<img src="${pageContext.request.contextPath}${photo.stationsFilesPath}${photo.stationsFilesName}" alt="노선도 사진">
+							</div>
+						</c:forEach>
 					</c:otherwise>
-				</c:forEach>
-			</c:choose>
-			<%-- <div class="subway_allline_img">
-				<img src="${pageContext.request.contextPath}/assets/img/subwayLine/allline.png" alt="전체호선사진">
-			</div>
-			<!-- 서초 2호선 지하철 노선도 -->
-			<div class="subway_line2_img">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/subwayLine/line2.png"
-					alt="2호선사진">
-			</div>
-			<!-- 서초 3호선 지하철 노선도 -->
-			<div class="subway_line3_img">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/subwayLine/line3.png"
-					alt="3호선사진">
-			</div>
-			<!-- 서초 4호선 지하철 노선도 -->
-			<div class="subway_line4_img">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/subwayLine/line4.png"
-					alt="4호선사진">
-			</div>
-			<!-- 서초 7호선 지하철 노선도 -->
-			<div class="subway_line7_img">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/subwayLine/line7.png"
-					alt="7호선사진">
-			</div>
-			<!-- 서초 9호선 지하철 노선도 -->
-			<div class="subway_line9_img">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/subwayLine/line9.png"
-					alt="9호선사진">
-			</div>
-			<!-- 서초 신분당선 지하철 노선도 -->
-			<div class="subway_dxline_img">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/subwayLine/dxline.png"
-					alt="신분당선사진"> --%>
+				</c:choose>
+			</c:forEach>
 		</div>
 
 		<!-- 전체 역 목록 -->
@@ -251,8 +220,6 @@
 					href="${pageContext.request.contextPath}/subwayLine/chunggyae.jsp">청계산입구</a></li>
 			</ul>
 		</div>
-		</div>
-
 	</main>
 	<jsp:include page="/footer.jsp" />
 </body>
