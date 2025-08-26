@@ -17,8 +17,8 @@
       </p>
       <!-- 보내는 사람 정보 -->
       <div class="letter_info">
-        <span>보내는 사람 : </span>
-        <span id="writer_name">강버들</span><span> | </span><spani id="writer_id">kangbudle01</span>
+        <span>받는 사람 : </span>
+        <span id="writer_name"><c:out value="${care.getUsersName() }"></c:out></span><span> | </span><spani id="writer_id"><c:out value="${care.getUsersId() }"></c:out></span>
       </div>
       <!-- 내용 입력 창 -->
       <textarea type="text" id="letter_text"></textarea>

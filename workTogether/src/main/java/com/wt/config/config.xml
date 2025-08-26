@@ -89,5 +89,4 @@
       <mapper resource="com/wt/mapper/PostReplyMapper.xml" />
       <mapper resource="com/wt/mapper/UserMapper.xml" />
    </mappers> 
-   
 </configuration>
