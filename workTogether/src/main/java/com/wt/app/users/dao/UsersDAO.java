@@ -35,7 +35,7 @@ public class UsersDAO {
 	    }
 	    /**  돌봄 로그인: 일치하는 사용자 정보를 반환 (없으면 null) */
 	    public UsersDTO careLogin(UsersDTO usersDTO) {
-	        return sqlSession.selectOne("userMapper.CareLogin", usersDTO);
+	        return sqlSession.selectOne("userMapper.careLogin", usersDTO);
 	    }
 
 	    /** 회원번호로 아이디 조회 (원시 long 그대로 전달 → 매퍼에서 #{value} 사용) */
