@@ -84,32 +84,28 @@
           <!-- 인기 돌봄회원 목록 -->
           <ul class="profile_list">
             <!-- 인기 돌봄회원 1 -->
-            <li class="profile">
-              <a href ="${pageContext.request.contextPath}/careList/careListDetailOk.cl?" class="care_profile">
-                <!-- 사진이랑 소개 -->
-                <div class="profile_info">
-                  <div class="profile_pic_box">
-                    <img class="profile_pic" src="${pageContext.request.contextPath}/assets/img/main/profilePicCare.png">
-                  </div>
-                  <span class="profile_text">
-                    <div class="profile_name">김괭이dddd</div>
-                    <div class="profile_introduction">안녕하세요~!</div>
-                  </span>
-                </div>
-                <!-- 요일 -->
-                <div>
-                  <ul class="day_box">
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                  </ul>
-                </div>
-              </a>
-            </li>
+            <c:forEach var="heart" items="${mainHeart}">
+	            <li class="profile">
+	              <a href ="${pageContext.request.contextPath}/careList/careListDetailOk.cl?usersNumber=${heart.getUsersNumber}" class="care_profile">
+	                <!-- 사진이랑 소개 -->
+	                <div class="profile_info">
+	                  <div class="profile_pic_box">
+	                    <img class="profile_pic" src="${heart.getProfilesFilesPath()}">
+	                  </div>
+	                  <span class="profile_text">
+	                    <div class="profile_name"><c:out value="${heart.getUsersName()}"></c:out></div>
+	                    <div class="profile_introduction"><c:out value="${heart.getCareIntroText()}"></c:out></div>
+	                  </span>
+	                </div>
+	                <!-- 요일 -->
+	                <div>
+	                  <ul class="day_box">
+	                    <li class="day"><c:out value="${heart.getDayMonday()}"></c:out></li>
+	                  </ul>
+	                </div>
+	              </a>
+	            </li>
+            </c:forEach>
             <!-- 인기 돌봄회원 2 -->
             <li class="profile">
               <a href ="${pageContext.request.contextPath}/app/careMember/careMemberDetail.jsp" class="care_profile">
