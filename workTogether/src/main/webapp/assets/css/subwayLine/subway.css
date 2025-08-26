@@ -72,9 +72,15 @@ main {
 
 }
 
-.map_section .subway_alline_img {
+.map_section .subway_allline_img,
+.map_section .subway_dxline_img,
+.map_section [class^="subway_line"]  {
   text-align: center;
   justify-content: center;
+  display: none;
+}
+
+.map_section .subway_allline_img {
   display: flex;
 }
 
@@ -110,10 +116,6 @@ main {
   background-color: #ffc376;
 }
 
-.map_section .subway_allline_img {
-  display: flex;
-  justify-content: center;
-}
 
 #allline_station {
   display: block;

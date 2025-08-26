@@ -1,12 +1,12 @@
 package com.wt.app.dto;
 
 public class FilesStationsDTO {
-	int stationsFilesNumber;
-	String stationsFilesType;
-	String stationsFilesName;
-	String stationsFilesPath;
-	int stationsFilesSizeBytes;
-	String stationsCreatedDate;
+	private int stationsFilesNumber;
+	private String stationsFilesType;
+	private String stationsFilesName;
+	private String stationsFilesPath;
+	private int stationsFilesSizeBytes;
+	private String stationsCreatedDate;
 
 	public int getStationsFilesNumber() {
 		return stationsFilesNumber;
