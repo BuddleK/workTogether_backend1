@@ -53,7 +53,7 @@
       </li>
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/app/subwayLine/subway.jsp">
+          <a href="${pageContext.request.contextPath}/subway/subwayList.sw">
             · 지하철 노선도
           </a>
         </div>
