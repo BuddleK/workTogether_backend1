@@ -9,6 +9,7 @@ public class NormalUsersDTO {
 	private String usersAddressLine1;
 	private String usersAddressLine2;
 	private String normalUsersLevel;
+	
 	public Long getUsersNumber() {
 		return usersNumber;
 	}
