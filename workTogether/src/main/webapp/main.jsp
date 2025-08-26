@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<% session.setAttribute("usersNumber", null); %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% session.setAttribute("usersNumber", 2); %>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
