@@ -152,13 +152,13 @@
 		</div>
 	</main>
 	<jsp:include page="/footer.jsp" />
+	<jsp:include page="careMemberModal.jsp" />
 	
 </body>
 <script>
 	window.careNumber = "${care.usersNumber}"
 	window.usersNumber = 1;
 	console.log(window.careNumber);
-	
 	
 </script>
 </html>

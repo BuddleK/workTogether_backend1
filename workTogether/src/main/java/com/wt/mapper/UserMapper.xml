@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="UserMapper">
+<mapper namespace="userMapper">
 
 	<!-- 회원 공통 INSERT (selectKey로 PK 세팅) -->
 	<insert id="insertUser" parameterType="com.wt.app.dto.UsersDTO">
@@ -19,7 +19,7 @@
 	</insert>
 
 	<!-- 로그인 (날짜는 String으로 TO_CHAR) -->
-	<select id="NormalLogin"
+	<select id="normalLogin"
 		parameterType="com.wt.app.dto.UsersDTO"
 		resultType="com.wt.app.dto.UsersDTO">
 		SELECT

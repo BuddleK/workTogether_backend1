@@ -27,6 +27,7 @@
         <ul class="slide-box">
           <!-- 첫 번째 슬라이드 -->
           <c:forEach var="banner" items="${mainBanner}">
+
 	          <li>
 	            <div class="slide-img">
 	              <c:url var="bannerFile" value="${main.getBannerFilesPath }" />
