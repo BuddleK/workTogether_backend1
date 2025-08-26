@@ -30,20 +30,21 @@ public class LoginNormalOkController implements Execute {
 		usersDTO.setUsersPassword(usersPassword);
 
 		// DAO 호출
-		UsersDTO user = new UsersDAO().normalLogin(usersDTO);
-		System.out.println(user);
+		Integer userNumber = new UsersDAO().normalLogin(usersDTO);
+
+		System.out.println(userNumber);
 		// 결과 처리
 		Result result = new Result();
-		if (user != null && user.getUsersNumber() != null) {
+		if (userNumber != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("usersNumber", user.getUsersNumber());
+			session.setAttribute("usersNumber", userNumber);
 
 			result.setRedirect(true);
-			result.setPath(request.getContextPath() + "/main.jsp"); // 로그인 성공 후 메인으로
+			result.setPath(request.getContextPath() + "/"); // 로그인 성공 후 메인으로
 		} else {
 			request.setAttribute("loginError", "아이디 또는 비밀번호를 확인해주세요.");
 			result.setRedirect(false);
-			result.setPath("/app/login/login.jsp"); // 실패 시 로그인 화면
+			result.setPath("/app/login/loginCare.jsp"); // 실패 시 로그인 화면
 		}
 		return result;
 	}
