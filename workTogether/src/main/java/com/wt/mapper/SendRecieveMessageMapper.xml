@@ -3,72 +3,10 @@
 
 <mapper namespace="message">
 
-	<!-- 받은 쪽지 불러오기(일반회원) -->
-	<select id="normalListAll" resultType="NormalMessageDTO">
-		SELECT c.users_name, m.message_contents, m.message_date, m.is_read
-		FROM tbl_message m
-		LEFT JOIN TBL_CARE_USERS c ON m.CARE_NUMBER = c.CARE_NUMBER
-		WHERE m.SENDER_TYPE = 'C' AND m.care_number = #{careNumber};
-	</select>
-	
-	<!-- 받은 쪽지 불러오기(돌봄회원) -->
-	<select id="careListAll" resultType="CareMessageDTO">
-		SELECT n.users_name, m.message_contents, m.message_date, m.is_read
-		FROM tbl_message m
-		LEFT JOIN TBL_NORMAL_USERS n ON m.normal_NUMBER = n.normal_NUMBER
-		WHERE m.SENDER_TYPE = 'N' AND m.normal_NUMBER = #{normalNumber};
-	</select>
-
-	<!-- 받은 쪽지 답장하기(일반회원) -->
-	<insert id="send" parameterType="NormalMessageDTO">
-		INSERT INTO RICEBALL.TBL_MESSAGE
+	<insert id="insert" parameterType="MessageSRDTO">
+		INSERT INTO TBL_MESSAGE
 		(MESSAGE_NUMBER, CARE_NUMBER, NORMAL_NUMBER, SENDER_TYPE, MESSAGE_CONTENTS, MESSAGE_DATE, IS_READ)
-		VALUES(seq_messages, #{careNumber}, #{normalNumber}, 'N', #{messageContents}, SYSDATE , 'N' );
+		VALUES(seq_messages.nextval, #{careNumber}, #{normalNumber}, 'N', #{messageContents}, SYSDATE , 'N' )
 	</insert>
-	
-	<!-- 받은 쪽지 답장하기(돌봄회원) -->
-	<insert id="send" parameterType="CareMessageDTO">
-		INSERT INTO RICEBALL.TBL_MESSAGE
-		(MESSAGE_NUMBER, CARE_NUMBER, NORMAL_NUMBER, SENDER_TYPE, MESSAGE_CONTENTS, MESSAGE_DATE, IS_READ)
-		VALUES(seq_messages, #{careNumber}, #{normalNumber}, 'C', #{messageContents}, SYSDATE , 'N' );
-	</insert>
-	
-	<!-- 보낸 쪽지 불러오기(일반회원) -->
-	<select id="normalListAll" resultType="NormalMessageDTO">
-		SELECT n.users_name, m.message_contents, m.message_date, m.is_read
-		FROM tbl_message m
-		LEFT JOIN TBL_NORMAL_USERS n ON m.NORMAL_NUMBER  =n.NORMAL_NUMBER
-		WHERE m.SENDER_TYPE = 'N' AND m.NORMAL_NUMBER =#{normalNumber};
-	</select>
-	
-	<!-- 보낸 쪽지 불러오기(돌봄회원) -->
-	<select id="careListAll" resultType="CareMessageDTO">
-		SELECT c.users_name, m.message_contents, m.message_date, m.is_read
-		FROM tbl_message m
-		LEFT JOIN TBL_CARE_USERS c ON m.CARE_NUMBER = c.CARE_NUMBER
-		WHERE m.SENDER_TYPE = 'C' AND m.care_number = #{careNumber};
-	</select>
-	
-	<!-- 보낸 쪽지 불러오기(일반회원) -->
-	<select id="normalListAll" resultType="NormalMessageDTO">
-		SELECT n.users_name, m.message_contents, m.message_date, m.is_read
-		FROM tbl_message m
-		LEFT JOIN TBL_NORMAL_USERS n ON m.NORMAL_NUMBER  =n.NORMAL_NUMBER
-		WHERE m.SENDER_TYPE = 'N' AND m.NORMAL_NUMBER =#{normalNumber} AND m.message_number = #{messageNumber};
-	</select>
-	
-	<!-- 보낸 쪽지 불러오기(돌봄회원) -->
-	<select id="careListDetail" resultType="CareMessageDTO">
-		SELECT c.users_name, m.message_contents, m.message_date, m.is_read
-		FROM tbl_message m
-		LEFT JOIN TBL_CARE_USERS c ON m.CARE_NUMBER = c.CARE_NUMBER
-		WHERE m.SENDER_TYPE = 'C' AND m.care_number = #{careNumber} AND m.message_number = #{messageNumber};
-	</select>
-	
-	<!-- 쪽지 삭제(일반회원) -->
-		<delete id="normalDelete">
-			delete from tbl_message
-			where message_number = #{messageNumber}
-		</delete>
 	
 </mapper>

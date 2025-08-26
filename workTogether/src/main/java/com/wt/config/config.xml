@@ -48,6 +48,7 @@
    		<typeAlias type="com.wt.app.dto.CareReferenceDTO" alias="CareReferenceDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.ReportDTO" alias="ReportDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.PostReplyDTO" alias="PostReplyDTO"></typeAlias>
+   		<typeAlias type="com.wt.app.dto.MessageSRDTO" alias="MessageSRDTO"></typeAlias>
    </typeAliases> 
    
    <environments default="oracle">
@@ -88,5 +89,6 @@
       <mapper resource="com/wt/mapper/ReportMapper.xml" />
       <mapper resource="com/wt/mapper/PostReplyMapper.xml" />
       <mapper resource="com/wt/mapper/UserMapper.xml" />
+      <mapper resource="com/wt/mapper/SendRecieveMessageMapper.xml" />
    </mappers> 
 </configuration>
