@@ -9,7 +9,7 @@
 	</select>
 	
 <!-- 추천가게 찜 많은 순으로 정렬-->
- 	<select id="shops" parameterType="PostsDTO">
+ 	<select id="shops" parameterType="ShopsFavoritesActionDTO">
 		select * from (
 			SELECT shops_number, shops_name, shops_intro_text, count(*)
 			from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
