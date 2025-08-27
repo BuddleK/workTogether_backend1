@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,30 +62,30 @@
 										<c:forEach var="users" items="${userList}">
 											<div class="users-row">
 												<div class="users-item body_number">
-													<c:out value="${users.getUserNumber()}" />
+													<c:out value="${users.userNumber}" />
 												</div>
 												<div class="users-item body_name">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
-														<c:out value="${users.getUserName()}" />
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
+														<c:out value="${users.userName}" />
 													</a>
 												</div>
 												<div class="users-item body_id">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
-														<c:out value="${users.getUserId()}" />
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
+														<c:out value="${users.userId}" />
 													</a>
 												</div>
 												<div class="users-item body_email">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
-														<c:out value="${users.getUserEmail()}" />
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
+														<c:out value="${users.userEmail}" />
 													</a>
 												</div>
 												<div class="users-item body_phone">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
-														<c:out value="${users.getUserPhone()}" />
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
+														<c:out value="${users.userPhone}" />
 													</a>
 												</div>
 												<div class="users-item body_type">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.usersNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
 														<c:choose>
 															<c:when test="${ users.userType == 'C'}">
 																<c:out value="돌봄" />
