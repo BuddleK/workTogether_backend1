@@ -16,21 +16,23 @@
 /* main 세션 */
 main{
   width: 100%;
-  height: calc(100vh - 220px);
+  height:800px;
   background-color: #FFE7C9;
+  display: flex;
+  justify-content: center;
 }
 
 /* 지도 컨테이너 */
 .map_container{
   display: flex;
-  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
 }
 
 /* 지도 칸 */
 .map_api{
-  align-content: center;
-  width: 500px;
-  height: 500px;
+  background-color: pink;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 /* 지도 이미지 */
@@ -42,10 +44,11 @@ main{
 
 /* 지도 사이드바 */
 .sidebar{
-  display: none; /*평소에는 none이다가 활성화 되면 flex로 변경*/
+  display: flex; /*평소에는 none이다가 활성화 되면 flex로 변경*/
   flex-direction: column;
   background-color: #FFF8EF;
   margin: 10px 40px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 /* 닫기 버튼 */

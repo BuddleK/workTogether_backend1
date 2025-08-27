@@ -48,9 +48,18 @@ public class MapFrontController extends HttpServlet {
 		switch(target) {
 		case "/map/mapMain.ma"://예시
 			System.out.println("지도 페이지 요청");
-			request.getRequestDispatcher("/app/map/map.jsp").forward(request, response);
-			System.out.println("요청완료");
+//			request.getRequestDispatcher("/app/map/map.jsp").forward(request, response);
+//			System.out.println("요청완료");
+			result = new MapMarkerListOk().execute(request, response);
 			break;
+		}
+		
+		if (result != null) {
+			if (result.isRedirect()) {
+				response.sendRedirect(result.getPath());
+			} else {
+				request.getRequestDispatcher(result.getPath()).forward(request, response);
+			}
 		}
 	}
 

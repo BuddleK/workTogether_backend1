@@ -14,22 +14,111 @@
 </head>
 <body>
   <jsp:include page="/header.jsp" />
-  <main>
+ <main>
     <!-- 지도 페이지 컨테이너 -->
     <div class="map_container">
       <!-- 지도 api 칸 -->
       <div class="map_api">
-		<%-- <img class="map_img" src="${pageContext.request.contextPath}/assets/img/map/mapImg.png" alt="지도그림"> --%>
-			<div id="map" style="width:500px;height:400px;"></div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9f1ed8d49c70a5d2d213e83f145527e1"></script>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
+        <div id="map" style="width:800px;height:500px;"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9f1ed8d49c70a5d2d213e83f145527e1"></script>
+        <script>
+      		var container = document.getElementById('map');
+      		var options = {
+         		center: new kakao.maps.LatLng(33.450705, 126.570677),
+         		level: 4
+      		};
+      		// 지도 생성
+      		var map = new kakao.maps.Map(container, options);
+      
+			// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+			var positions = [
+    		{
+        		content: '<div>카카오</div>', 
+        		latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+    		},
+    		{
+        		content: '<div>생태연못</div>', 
+        		latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+    		},
+    		{
+        		content: '<div>텃밭</div>', 
+        		latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+    		},
+    		{
+        		content: '<div>근린공원</div>',
+        		latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+    		}
+		];
+			
+		// 마커 이미지의 이미지 주소입니다
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 
-		var map = new kakao.maps.Map(container, options);
+		for (var i = 0; i < positions.length; i ++) {
+      	// 마커 이미지의 이미지 크기 입니다
+    	var imageSize = new kakao.maps.Size(24, 35); 
+    	// 마커 이미지를 생성합니다    
+    	var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
+    	// 마커를 생성합니다
+    	var marker = new kakao.maps.Marker({
+        	map: map, // 마커를 표시할 지도
+        	position: positions[i].latlng, // 마커의 위치
+        	image : markerImage, // 마커 이미지 
+        	index : i
+    	});
+      	//마커 클릭 설정
+      	//marker.setClickable(true);
+
+    	// 마커에 표시할 인포윈도우를 생성합니다 
+    	var infowindow = new kakao.maps.InfoWindow({
+        	content: positions[i].content // 인포윈도우에 표시할 내용
+    	});
+
+    	// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+    	// 이벤트 리스너로는 클로저를 만들어 등록합니다 
+    	// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+    	kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+	    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+	    kakao.maps.event.addListener(marker, 'click', function(index) {
+    	const sideBar = document.getElementById('side_bar');
+      	if(sideBar.style.display == 'none'){
+        	sideBar.style.display = "flex";
+      	}else{
+        	sideBar.style.display = "none";
+      	}
+    
+    });
+}
+
+// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, infowindow) {
+    return function() {
+        infowindow.open(map, marker);
+    };
+}
+
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(infowindow) {
+    return function() {
+        infowindow.close();
+    };
+}
+
+
+      // 단일 마커
+      // //마커가 표시될 위치
+      // var markerPosition = new kakao.maps.LatLng(37.49188057004524, 127.00763272305007);
+      // // 마커 생성
+      // var marker = new kakao.maps.Marker({
+      //    position: markerPosition
+      // });
+      //마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정?
+      //marker.setClickable(true);
+      // 마커가 지도 위에 표시되도록 설정
+      //marker.setMap(map);
+      // 마커 제거
+      //marker.setMap(null);
+
 	</script>
  		<div class="site_info">지도를 클릭 시 해당 가게 설명이 나옵니다</div>
 <%--  		<a href="${pageContext.request.contextPath}/post/postMain.po">일반게시판으로 이동</a></br>
@@ -37,7 +126,7 @@
  		<a href="${pageContext.request.contextPath}/news/newsMain.news">뉴스 페이지로 이동</a></br> --%>
       </div>
       <!-- 지도 클릭 시 사이드바 -->
-      <div class="sidebar">
+      <div id="side_bar" class="sidebar">
         <!-- 지역 정보 -->
         <div class="map_info">
           <!-- 정보 칸 닫기 -->
