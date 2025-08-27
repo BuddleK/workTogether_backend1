@@ -4,7 +4,7 @@
 <mapper namespace="careModify">
 	
 	<!-- 회원 이름 조회 -->
-	<select id="nameSelect">
+	<select id="nameSelect" resultType="String">
 		SELECT c.users_name
 		FROM   tbl_care_users c
 		WHERE  c.users_number = (
@@ -13,9 +13,19 @@
     		WHERE u.users_number = #{usersNumber}) 
 	</select>
 	
-	<!-- 회원 주소 조회 -->
-	<select id="addressSelect">
-		SELECT c.users_postsal_code, c.users_address_line1, c.users_address_line2
+	<!-- 회원 우편번호 조회 -->
+	<select id="postarSelect" resultType="String">
+		SELECT c.users_postsal_code
+		FROM   tbl_care_users c
+		WHERE  c.users_number = (
+    	SELECT u.users_number
+    	FROM tbl_users u
+    	WHERE u.users_number = #{usersNumber})
+	</select>
+	
+	<!-- 회원 주소1 조회 -->
+	<select id="address1Select" resultType="String">
+		SELECT  c.users_address_line1
 		FROM   tbl_care_users c
 		WHERE  c.users_number = (
     		SELECT u.users_number
@@ -23,8 +33,20 @@
     		WHERE u.users_number = #{usersNumber})
 	</select>
 	
+	<!-- 회원 주소2 조회 -->
+	<select id="address2Select" resultType="String">
+		SELECT  c.users_address_line2
+		FROM   tbl_care_users c
+		WHERE  c.users_number = (
+    		SELECT u.users_number
+    		FROM tbl_users u
+    		WHERE u.users_number = #{usersNumber})
+	</select>
+	
+	
+	
 	<!-- 회원 전화번호 조회 -->
-	<select id="phoneSelect">
+	<select id="phoneSelect" parameterType="int" resultType="String">
 		SELECT c.users_phone
 		FROM   tbl_care_users c
 		WHERE  c.users_number = (
@@ -34,14 +56,14 @@
 	</select>
 	
 	<!-- 회원 아이디 조회 -->
-	<select id="idSelect">
+	<select id="idSelect" parameterType="int" resultType="String">
 		SELECT users_id
 		FROM   tbl_users
     	WHERE users_number = #{usersNumber} 
 	</select>
 	
 	<!-- 회원 이메일 조회 -->
-	<select id="emailSelect">
+	<select id="emailSelect" resultType="String">
 		SELECT c.users_email
 		FROM   tbl_care_users c
 		WHERE  c.users_number = (

@@ -75,9 +75,9 @@
                 <li class="info">주소</li>
                 <li class="myinfo">
                   <ul>
-                    <li><div><c:out value="${careModify.getUsersPostCode()}" /></div></li>
-                    <li><div><c:out value="${careModify.getUsersAddrLine1()}" /></div><button>우편번호 찾기</button></li>
-                    <li><div><c:out value="${careModify.getUsersAddrLine1()}" /></div><button>확인</button></li>
+                    <li><div>우편번호 : <c:out value="${careModify.getUsersPostsalCode()}" /></div></li>
+                    <li><div><c:out value="${careModify.getUsersAddressLine1()}" /></div><button>우편번호 찾기</button></li>
+                    <li><div><c:out value="${careModify.getUsersAddressLine2()}" /></div><button>확인</button></li>
                   </ul>
                 </li>
               </ul>
