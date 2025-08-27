@@ -29,7 +29,7 @@
           <c:forEach var="banner" items="${mainBanner}">
 	          <li>
 	            <div class="slide-img">
-	              <img class="banner_img" draggable="false" src="${banner.getBannerImageFilesNumber()}">
+	              <img class="banner_img" draggable="false" src="${banner.getBannerFilesPath()}">
 	              <a draggable="false" href="${banner.getBannerLinkUrl()}">
 	                <h3><c:out value="${banner.getBannerTitle()}"></c:out></h3>
 	                <p><c:out value="${banner.getBannerContent()}"></c:out></p>
