@@ -6,7 +6,7 @@
 	<select id="newsBanner" resultType="NewsBannerDTO">
 		select nb.banner_news_number, nb.banner_image_files_number, nb.banner_title, nb.BANNER_CONTENT, fb.BANNER_FILES_PATH, nb.banner_link_url
 		from tbl_news_banners nb JOIN TBL_FILES_BANNER fb 
-		ON nb.BANNER_IMAGE_FILES_NUMBER = fb.BANNER_FILES_NUMBER;
+		ON nb.BANNER_IMAGE_FILES_NUMBER = fb.BANNER_FILES_NUMBER
 	</select>
 	
 <!-- 추천가게 찜 많은 순으로 정렬-->
@@ -72,7 +72,9 @@
              	d.day_thursday, d.day_friday, d.day_saturday, d.day_sunday
    		 ORDER BY COUNT(h.hearts_care_number) DESC
 		)
-		WHERE ROWNUM <![CDATA[  <= ]]> 4
+
+		WHERE ROWNUM <![CDATA[ <= ]]> 4
+
 	</select>
 
 </mapper>
