@@ -80,6 +80,10 @@ public class PostsFrontController extends HttpServlet {
 //			request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);
 			result = new PostDeleteOkController().execute(request, response);
 			break;
+		case "/post/postSearch.po":
+			System.out.println("게시글 검색 요청");
+			result = new PostSearchOkController().execute(request, response);
+			break;
 		}
 		
 		if (result != null) {
