@@ -22,6 +22,7 @@ public class NewsBannerDTO {
 	private String bannerLinkUrl;
 	private String bannerCreatedDate;
 	private String bannerUpdatedDate;
+	private String bannerFilesPath;
 	public int getBannerNewsNumber() {
 		return bannerNewsNumber;
 	}
@@ -70,11 +71,19 @@ public class NewsBannerDTO {
 	public void setBannerUpdatedDate(String bannerUpdatedDate) {
 		this.bannerUpdatedDate = bannerUpdatedDate;
 	}
+	public String getBannerFilesPath() {
+		return bannerFilesPath;
+	}
+	public void setBannerFilesPath(String bannerFilesPath) {
+		this.bannerFilesPath = bannerFilesPath;
+	}
 	@Override
 	public String toString() {
 		return "NewsBannerDTO [bannerNewsNumber=" + bannerNewsNumber + ", adminNumber=" + adminNumber
 				+ ", bannerImageFilesNumber=" + bannerImageFilesNumber + ", bannerTitle=" + bannerTitle
 				+ ", bannerContent=" + bannerContent + ", bannerLinkUrl=" + bannerLinkUrl + ", bannerCreatedDate="
-				+ bannerCreatedDate + ", bannerUpdatedDate=" + bannerUpdatedDate + "]";
+				+ bannerCreatedDate + ", bannerUpdatedDate=" + bannerUpdatedDate + ", bannerFilesPath="
+				+ bannerFilesPath + "]";
 	}
+	
 }
