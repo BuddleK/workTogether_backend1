@@ -30,7 +30,7 @@
 		AND u.users_type = 'N'
 	</select>
 	
-	<select id="careLogin"
+<!-- 	<select id="careLogin"
 		parameterType="com.wt.app.dto.UsersDTO"
 		resultType="com.wt.app.dto.UsersDTO">
 		SELECT
@@ -43,6 +43,19 @@
 		AND u.users_password = #{usersPassword}
 		AND u.users_type = 'C'
 		AND c.care_accept = 'Y'
+	</select> -->
+	
+	<select id="careLogin"
+		parameterType="com.wt.app.dto.UsersDTO"
+		resultType="int">
+		SELECT
+		u.users_number AS usersNumber,
+		u.users_type AS usersType
+		FROM tbl_users u join tbl_care_users c
+		on u.users_number = c.users_number
+		WHERE u.users_id = #{usersId}
+		AND u.users_password = #{usersPassword}
+		AND u.users_type = 'C'
 	</select>
 	
 	<!-- 아이디 중복 검사 (UsersDAO.checkId(String)과 매칭; 단일 파라미터 → #{value}) -->

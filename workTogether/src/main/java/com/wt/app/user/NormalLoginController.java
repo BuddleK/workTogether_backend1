@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 
-public class LogoutOkController implements Execute{
+public class NormalLoginController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("일반로그인 컨트롤러 페이지 이동");
 		Result result = new Result();
-		request.getSession().invalidate(); // 세션 무효화
-		result.setPath("/main.jsp");
-		result.setRedirect(true);
+		result.setRedirect(false);
+		result.setPath("/app/login/loginNormal.jsp");
 		return result;
 	}
 
