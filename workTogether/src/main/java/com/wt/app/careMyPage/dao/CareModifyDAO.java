@@ -19,10 +19,20 @@ public class CareModifyDAO {
 	public String nameSelect(int usersNumber) {
 		return sqlSession.selectOne("careModify.nameSelect", usersNumber);
 	}
-	//회원 주소 조회
-	public String addressSelect(int usersNumber) {
-		return sqlSession.selectOne("careModify.addressSelect", usersNumber);
+	
+	//우편 번호 조회
+	public String postarSelect(int usersNumber) {
+		return sqlSession.selectOne("careModify.postarSelect", usersNumber);
 	}
+	
+	//회원 주소 조회
+	public String address1Select(int usersNumber) {
+		return sqlSession.selectOne("careModify.address1Select", usersNumber);
+	}
+	//회원 주소 조회
+		public String address2Select(int usersNumber) {
+			return sqlSession.selectOne("careModify.address2Select", usersNumber);
+		}
 	//회원 전화번호 조회
 	public String phoneSelect(int usersNumber) {
 		return sqlSession.selectOne("careModify.phoneSelect", usersNumber);
