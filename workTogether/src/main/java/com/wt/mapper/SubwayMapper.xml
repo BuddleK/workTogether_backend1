@@ -23,7 +23,10 @@
 		ORDER BY s.stations_name
 	</select>
 	
-	<!--  -->
+	<!-- 역 목록 리스트 조회 -->
+	<select id="subwayStationSearch" resultType="SubwayStationDTO">
+		
+	</select>
 	
 	<!-- 역 세부정보 조회 -->
 	<select id="subwayDetailSearch" resultType="SubwayStationDTO">
