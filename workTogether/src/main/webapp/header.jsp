@@ -11,10 +11,10 @@
     </span>
     <span>
     	<c:choose>
-    		<c:when test="${!empty sessionScope.usersNumber}">
+    		<c:when test="${empty sessionScope.usersNumber}">
 		     	<!-- 로그인 메뉴 -->
-		      	<a href="${pageContext.request.contextPath}/app/login/loginNormal.jsp">일반 로그인</a>
-		      	<a href="${pageContext.request.contextPath}/app/login/loginCare.jsp">돌봄 로그인</a>
+		      	<a href="${pageContext.request.contextPath}/users/nomalLogin.us">일반 로그인</a>
+		      	<a href="${pageContext.request.contextPath}/users/CareLogin.us">돌봄 로그인</a>
 		      	<%-- <a href="${pageContext.request.contextPath}/login/login.us">로그인</a> --%>
 		      	<!-- 회원가입 메뉴 -->
 		      	<a href="${pageContext.request.contextPath}/app/sign/terms.jsp">회원가입</a>
@@ -34,7 +34,7 @@
 			    	</c:otherwise>
     			</c:choose>
 	    		<!-- 로그아웃 메뉴 -->
-				<a href="${pageContext.request.contextPath}/app/main.jsp">로그아웃</a>
+				<a href="${pageContext.request.contextPath}/users/logoutOk.us">로그아웃</a>
 				<%-- <a href="${pageContext.request.contextPath}/logoutOk.us">로그아웃</a> --%>
 			</c:otherwise>
     	</c:choose>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% session.setAttribute("usersNumber", 2); %> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +56,8 @@
       </div>
       <!-- 페이지 세부 정보 수정-->
 
-      <form action="" method="get">
+      <form action="${pageContext.request.contextPath }/myPageCare/careModify.cp" method="post"
+      data-context-path="${pageContext.request.contextPath}" novalidate>
         <!-- 수정하는 것의 제목 -->
         <div>
           <div>회원 정보</div>
@@ -77,7 +79,7 @@
                   <ul>
                     <li><div><c:out value="${careModify.getUsersPostCode()}" /></div></li>
                     <li><div><c:out value="${careModify.getUsersAddrLine1()}" /></div><button>우편번호 찾기</button></li>
-                    <li><div><c:out value="${careModify.getUsersAddrLine1()}" /></div><button>확인</button></li>
+                    <li><div><c:out value="${careModify.getUsersAddrLine1()}" /></div><button type="button" id="searchPostcodeBtn">확인</button></li>
                   </ul>
                 </li>
               </ul>

@@ -156,4 +156,42 @@ document.addEventListener('DOMContentLoaded', () => {
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.value = '';
       if (el.tagName === 'SELECT') el.selectedIndex = 0;
     });
+	
+	
+	// ====== 카카오 우편번호 ======
+	const searchBtn = document.getElementById("searchPostcodeBtn");
+	if (searchBtn) {
+	  searchBtn.addEventListener("click", function () {
+	    new daum.Postcode({
+	      oncomplete: function (data) {
+	        // 1) 우편번호
+	        document.getElementById("postcode").value = data.zonecode || "";
+
+	        // 2) 메인 주소(도로명 또는 지번 한 칸만)
+	        //    - 참고항목(동/건물명)은 괄호로 덧붙임
+	        var isRoad = data.userSelectedType === "R";
+	        var base   = isRoad ? (data.roadAddress || "") : (data.jibunAddress || "");
+	        var extra  = "";
+
+	        if (isRoad) {
+	          if (data.bname && /[동|로|가]$/.test(data.bname)) extra += data.bname;
+	          if (data.buildingName && data.apartment === "Y") {
+	            extra += (extra ? ", " : "") + data.buildingName;
+	          }
+	        }
+
+	        var main = base + (extra ? " (" + extra + ")" : "");
+	        document.getElementById("mainAddress").value = main;
+
+	        // 3) 상세주소 포커스
+	        document.getElementById("detailAddress").focus();
+	      }
+	    }).open({ popupTitle: "우편번호 검색" });
+	  });
+	}
+	
+	
 });
+
+
+
