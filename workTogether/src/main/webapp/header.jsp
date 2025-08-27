@@ -18,7 +18,7 @@
 		      	<%-- <a href="${pageContext.request.contextPath}/login/login.us">로그인</a> --%>
 		      	<!-- 회원가입 메뉴 -->
 		      	<a href="${pageContext.request.contextPath}/app/sign/terms.jsp">회원가입</a>
-				<%-- <a href="${pageContext.request.contextPath}/sign/terms.??">회원가입</a> --%>
+		      	<%-- <a href="${pageContext.request.contextPath}/users/joinNormalOk.us">돌봄 회원가입</a> --%>				
     		</c:when>
     		<c:otherwise>
 	    		<c:choose>
@@ -95,8 +95,7 @@
     </ul>
   </nav>
   <script>
-		/* window.usersType = "C";
-		window.usersNumber = 1;	 */
+
 		
 		console.log(window.usersType);
 		console.log(window.usersNumber);
