@@ -91,7 +91,7 @@
 					<p>이름</p>
 					<input type="text" id="name" name="usersName" required>
 				</div>
-
+	
 				<div class="sign_box sign_birth">
 					<p>휴대전화</p>
 					<input type="text" id="phone" name="usersPhone"
