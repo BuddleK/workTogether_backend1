@@ -4,7 +4,7 @@ public class UsersLoginDTO {
 	//전체 유저 테이블
 	private String usersId;
     private String usersPassword;
-    
+	
 	public String getUsersId() {
 		return usersId;
 	}
@@ -19,8 +19,11 @@ public class UsersLoginDTO {
 	}
 	@Override
 	public String toString() {
-		return "UsersLoginDTO [usersId=" + usersId + ", usersPassword=" + usersPassword + "]";
+		return "UsersLoginDTO [usersId=" + usersId
+				+ ", usersPassword=" + usersPassword + "]";
 	}
+
+	
     
 	
 }
