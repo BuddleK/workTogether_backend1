@@ -44,7 +44,7 @@
         <!-- 추천활동 박스 -->
         <div class="recommend_activity">
           <!-- 추천활동 타이틀 -->
-          <div class="recommend_title">오늘의 추천활동</div>
+          <div class="recommend_title">오늘의 추천가게</div>
           <!-- 추천활동 목록 -->
           <ul class="recommend_activiies">
           	<c:forEach var="shop" items="${mainShop}">
