@@ -89,32 +89,32 @@ session.setAttribute("memberNumber", memberNumber); // "memberNumber" 이라는 
 			</c:otherwise>
 		</c:choose>
       </ul>
-      <div class="search_box">
+      <form class="search_box">
         <select id="search_criteria">
-          <!-- 제목 검색 -->
-          <option value="cri_title">
-            제목
-          </option>
-          <!-- 내용 검색 -->
-          <option value="cri_context">
-            내용
-          </option>
           <!-- 제목 + 내용 검색 -->
           <option value="cri_tc">
             제목 + 내용
           </option>
+<!--           제목 검색
+          <option value="cri_title">
+            제목
+          </option>
+          내용 검색
+          <option value="cri_context">
+            내용
+          </option> -->
         </select>
         <!-- 검색 입력 창 -->
-        <input type="text" id="criteria" placeholder="검색어를 입력하세요">
+        <input type="text" id="criteria" name="keyWord" placeholder="검색어를 입력하세요">
         <!-- 검색 버튼 -->
-        <span id="search_icon_box">
+        <a type="submit" href="${pageContext.request.contextPath}/post/postSearch.po" id="search_icon_box">
           <!-- 검색 버튼 이미지 -->
           <img id="search_icon" src="${pageContext.request.contextPath}/assets/img/careMember/search_icon.png">
-        </span>
+        </a>
         <div type="button" id="write_button">
           <a href="${pageContext.request.contextPath}/post/postWrite.po" id="write_button_text" >글쓰기</a>
         </div>
-      </div>
+      </form>
       <div class="pagination">
         <ul>
           <!-- 페이징 처리 -->
