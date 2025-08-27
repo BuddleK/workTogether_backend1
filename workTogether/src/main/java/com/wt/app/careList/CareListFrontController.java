@@ -45,7 +45,6 @@ public class CareListFrontController extends HttpServlet {
 		System.out.println("CareListFrontController 현재 경로 : " + target);
 		Result result = new Result();
 		
-		
 		switch (target) {
 		case "/careList/careListOk.cl":
 			System.out.println("돌봄 목록 처리 요청");
@@ -61,7 +60,6 @@ public class CareListFrontController extends HttpServlet {
 			System.out.println("쪽지 페이지 처리 요청");
 			result = new CareListSendMsgOkController().execute(request, response);
 			break;
-		
 		}
 		
 		if (result != null) {
