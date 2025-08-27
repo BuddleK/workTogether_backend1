@@ -157,8 +157,9 @@
 </body>
 <script>
 	window.careNumber = "${care.usersNumber}"
-	window.usersNumber = 1;
-	console.log(window.careNumber);
+	window.usersNumber = "${usersNumber}"
+	console.log("현재 들어온 디테일 페이지의 회원 번호 " + window.careNumber);
+	console.log("로그인 유저의 회원 번호" + usersNumber )
 	
 	function sendLetterButtonClick() {
 		// html 문서에 모달 불러오기
