@@ -62,7 +62,7 @@
 				<div class="sign_box sign_password">
 					<p>비밀번호</p>
 					<input type="password" name="usersPassword"
-						placeholder="비밀번호 8자리 입력(숫자와 영어 특수기호 포함)" required>
+						placeholder="비밀번호 8자리 입력(숫자와 영어 특수기호 포함)" id="pw_input" required>
 				</div>
 				<div class="box_error_pw" id="msg_box">
 					<p class="error_pw_msg">형식에 맞게 입력해주세요.</p>
@@ -93,7 +93,7 @@
 
 				<div class="sign_box sign_birth">
 					<p>휴대전화</p>
-					<input type="text" name="usersPhone" placeholder="- 없이 숫자만 입력해주세요."
+					<input type="text" id="phone" name="usersPhone" placeholder="- 없이 숫자만 입력해주세요."
 						required>
 				</div>
 

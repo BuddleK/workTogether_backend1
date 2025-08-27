@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
+
 //import com.example.app.member.LoginController;
 import com.wt.app.Result;
 
@@ -65,6 +67,12 @@ public class UsersFrontController extends HttpServlet {
 
 
 		// ===== 회원가입(일반) =====
+//		case "/users/terms.us":
+//			System.out.println("약관동의 페이지 요청");
+//			result = new TermsController().execute(request, response);
+//			break;
+
+			
 		case "/users/joinNormal.us":
 			System.out.println("일반회원 가입 페이지 요청");
 			request.getRequestDispatcher("/app/sign/signNormal.jsp").forward(request, response);
@@ -87,10 +95,16 @@ public class UsersFrontController extends HttpServlet {
 			break;
 
 		// ===== 로그인/로그아웃 =====
-		case "/users/login.us":
-			System.out.println("로그인 페이지 요청");
-			result = new LoginController().execute(request, response); // /app/login/login.jsp 로 포워드
+		case "/users/nomalLogin.us":
+			System.out.println("일반 로그인 페이지 요청");
+			result = new NormalLoginController().execute(request, response); // /app/login/login.jsp 로 포워드
 			break;
+			
+		case "/users/CareLogin.us":
+			System.out.println("돌봄 로그인 페이지 요청");
+			result = new CareLoginController().execute(request, response); // /app/login/login.jsp 로 포워드
+			break;
+
 
 		case "/users/logoutOk.us":
 			System.out.println("로그아웃 처리 요청");

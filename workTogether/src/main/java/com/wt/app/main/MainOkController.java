@@ -18,6 +18,7 @@ public class MainOkController implements Execute{
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		MainDAO mainDAO = new MainDAO();
+		MainDTO mainDTO = new MainDTO();
 		Result result = new Result();
 		
 		//배너 뉴스 조회
@@ -40,7 +41,7 @@ public class MainOkController implements Execute{
 				
 		//지도마커 조회
 		
-		result.setPath("/app/Main.jsp");
+		result.setPath("/main.jsp");
 		result.setRedirect(false);
 		return result;
 	}
