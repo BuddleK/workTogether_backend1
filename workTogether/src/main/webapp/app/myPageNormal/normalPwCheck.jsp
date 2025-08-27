@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -31,10 +32,13 @@
     </nav>
     <!-- 비밀번호 확인 섹션 -->
     <div class="pw_check">
-      <form action="" method="get"> 
-        비밀번호<input id="pw_input" type="password" placeholder="비밀번호 8자리 입력">
-        <div id="pwaccord">일치하지 않는 비밀번호 입니다</div>
-      </form>
+      <form action="/myPageNormal/checkPwOk.mn" method="get"> 
+      비밀번호 
+      <input id="pw_input" name="usersPassword" type="password" placeholder="비밀번호 8자리 입력" />
+      <c:if test="${not empty errorMsg}">
+          <div id="pwaccord">${errorMsg}</div>
+      </c:if>
+  </form>
       <button type="button" onclick="chPw()" class="checkBtn">비밀번호 확인</button>
     </div>
   </main>

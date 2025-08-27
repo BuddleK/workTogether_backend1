@@ -25,7 +25,7 @@ public class SubwayListController implements Execute {
 		request.setAttribute("lines", lines);
 		
 		//알맞는 이미지 가져오기
-		List<SubwayStationDTO> imgStations = subwayDAO.subwayStationSearch();
+		String imgStations = subwayDAO.subwayStationImgSearch();
 		request.setAttribute("imgStations", imgStations);
 
 		//역 명 가져오기

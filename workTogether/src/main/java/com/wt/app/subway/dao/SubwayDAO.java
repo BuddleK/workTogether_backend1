@@ -20,9 +20,9 @@ public class SubwayDAO {
 		return list;
 	}
 
-	public List<SubwayStationDTO> subwayStationSearch(){
-		List<SubwayStationDTO> list = sqlSession.selectList("subway.subwayStationSearch");
-		return list;
+	public String subwayStationImgSearch(){
+		String img = sqlSession.select("subway.subwayStationImgSearch");
+		return img;
 	}
 	
 	public List<SubwayStationDTO> subwayDetailSearch(){

@@ -53,9 +53,17 @@ public class MyPageNormalFrontController extends HttpServlet {
 		Result result = new Result();
 
 		switch (target) {
+		case "/myPageNormal/checkPw.mn":
+			System.out.println("마이페이지 일반회원 비밀번호 확인 페이지 요청");
+			request.getRequestDispatcher("/app/myPageNormal/normalPwCheck.jsp").forward(request, response);
+			break;
 		case "/myPageNormal/checkPwOk.mn":
 			System.out.println("마이페이지 일반회원 비밀번호 확인 완료 요청");
 			result = new CheckPwOkController().execute(request, response);
+			break;
+		case "/myPageNormal/normalModify.mn":
+			System.out.println("마이페이지 일반회원 회원정보 수정 페이지 요청");
+			request.getRequestDispatcher("/app/myPageNormal/normalModify.jsp").forward(request, response);
 			break;
 		case "/myPageNormal/normalModifyOk.mn":
 			System.out.println("마이페이지 일반회원 회원정보 수정 완료 요청");

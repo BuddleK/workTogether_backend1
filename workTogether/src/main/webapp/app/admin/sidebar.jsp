@@ -3,7 +3,7 @@
   <ul>
     <div class="blank"></div>
     <li class="side_attach">
-      <a href="${pageContext.request.contextPath}/app/admin/userManager.jsp">
+      <a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt">
         회원관리
       </a>
     </li>
