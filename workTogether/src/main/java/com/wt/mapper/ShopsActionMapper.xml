@@ -34,7 +34,7 @@
 	       fs.shops_files_number, fs.shops_files_type, fs.shops_files_name, fs.shops_files_path
 			from tbl_shops s 
 			left join tbl_files_shops fs 
-	   		 on s.shops_files_number = fs.shops_files_number
+	   		on s.shops_files_number = fs.shops_files_number
 			where s.shops_number = #{shopsNumber}
 </select>
 

@@ -32,7 +32,7 @@ public class CareModifyController implements Execute{
 		dto.setUsersPostsalCode(dao.postarSelect(usersNumberStr));
 		dto.setUsersAddressLine1(dao.address1Select(usersNumberStr));
 		dto.setUsersAddressLine2(dao.address2Select(usersNumberStr));
-		dto.setUsersPassword(dao.phoneSelect(usersNumberStr));
+		dto.setUsersPhone(dao.phoneSelect(usersNumberStr));
 		dto.setUsersId(dao.emailSelect(usersNumberStr));
 		dto.setUsersEmail(dao.emailSelect(usersNumberStr));
 		
