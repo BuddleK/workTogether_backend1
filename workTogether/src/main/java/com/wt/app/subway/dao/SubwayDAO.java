@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.FilesStationsDTO;
 import com.wt.app.dto.GetSubwayLineDTO;
 import com.wt.app.dto.SubwayStationDTO;
 import com.wt.config.MyBatisConfig;
@@ -20,9 +21,14 @@ public class SubwayDAO {
 		return list;
 	}
 
-	public String subwayStationImgSearch(){
-		String img = sqlSession.select("subway.subwayStationImgSearch");
+	public List<SubwayStationDTO> subwayStationImgSearch(){
+		List<SubwayStationDTO> img = sqlSession.selectList("subway.subwayStationImgSearch");
 		return img;
+	}
+	
+	public List<SubwayStationDTO> subwayStationSearch(){
+		List<SubwayStationDTO> list = sqlSession.selectList("subway.subwayStationSearch");
+		return list;
 	}
 	
 	public List<SubwayStationDTO> subwayDetailSearch(){

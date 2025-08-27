@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,39 +37,26 @@
 
 		<!-- 서초 전체 지하철 노선도 -->
 		<div class="map_section">
-		  <h1>확인</h1>
-<%-- 			  <c:forEach var="imgStation" items="${imgStations}" varStatus="st">--%>
+			<h1>확인</h1>
 			<c:forEach var="station" items="${imgStations}">
 				<h2>확인${station.stationsName}</h2>
-			    <c:choose>
-			      <c:when test="${empty station.stationsPhoto}">
-<%-- 			        <c:if test="${empty imgStation.stationsPhoto}">--%>
-		          <div>사진없음 stationId=${station.id}</div>
-<%-- 			        </c:if> --%>
-			       <c:set var="photo" value="${station.stationsPhoto}" />
-<%-- 			          <!-- 디버그: 원본 값 확인 -->
-			          index: ${s.index}
-			          | path: <c:out value="${photo.stationsFilesPath}" default="(null)"/>
-			          | name: <c:out value="${photo.stationsFilesName}" default="(null)"/><br/>
-			          <!-- URL 생성 & 출력 -->
-			          <c:url var="imgUrl" value="/${photo.stationsFilesPath}/${photo.stationsFilesName}"/>
-			          imgUrl: <c:out value="${imgUrl}" default="(null)"/><br/> --%>
-					<c:if test="${not empty photo.stationsFilesPath and not empty photo.stationsFilesName }">
-						<c:url var="imgUrl" value="/${photo.stationsFilesPath}/${photo.stationsFilesName}" />
-						<div class="subway_line${station.lineNumber}_img" >
-							<img src="${imgUrl}" alt="지하철노선도 사진">
-						</div>
-					</c:if>
-<%-- 			          <!-- 실제 이미지 -->
-			          <div class="subway_dxline_img">
-			            <img src="${imgUrl}" alt="노선도 사진">
-			          </div> --%>
-<%-- 			        </c:forEach>--%>
-			      </c:when>
+				<c:choose>
+					<c:when test="${empty station.stationsPhoto}">
+						<div>사진없음 stationId=${station.stationsId}</div>
+						<c:set var="photo" value="${station.stationsPhoto}" />
+						<c:if
+							test="${not empty photo.stationsFilesPath and not empty photo.stationsFilesName }">
+							<c:url var="imgUrl"
+								value="${photo.stationsFilesPath}${photo.stationsFilesName}" />
+							<div class="subway_line${station.lineNumber}_img">
+								<img src="${imgUrl}" alt="지하철노선도 사진">
+							</div>
+						</c:if>
+					</c:when>
 				</c:choose>
-			  </c:forEach>
+			</c:forEach>
 		</div>
-		
+
 		<!-- 전체 역 목록 -->
 		<div class="station_list" id="allline_station">
 			<h3>전체 역 목록</h3>
