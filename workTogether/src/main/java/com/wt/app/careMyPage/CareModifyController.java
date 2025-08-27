@@ -20,24 +20,35 @@ public class CareModifyController implements Execute{
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	System.out.println("fdssdfsfd");
-		CareModifyDAO careModifyDAO = new CareModifyDAO();
-		CareModifyDTO careModifyDTO = new CareModifyDTO();
+		CareModifyDAO dao = new CareModifyDAO();
+		CareModifyDTO dto = new CareModifyDTO();
 		Result result = new Result();
 		
 //		String usersNumber = Integer.parseInt(usersNumber);
-		System.out.println("fdfdfdff");
-		String usersNumberStr = request.getParameter("usersNumber");
-		if (usersNumberStr == null || usersNumberStr.trim().isEmpty()) {
-			System.out.println("[Detail] usersNumber 파라미터 없음");
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return null;
+		Integer usersNumberStr = (Integer)request.getSession().getAttribute("usersNumber");
+		
+		
+		dto.setUsersName(dao.nameSelect(usersNumberStr));
+		dto.setUsersPostsalCode(dao.postarSelect(usersNumberStr));
+		dto.setUsersAddressLine1(dao.address1Select(usersNumberStr));
+		dto.setUsersAddressLine2(dao.address2Select(usersNumberStr));
+		dto.setUsersPhone(dao.phoneSelect(usersNumberStr));
+		dto.setUsersId(dao.emailSelect(usersNumberStr));
+		dto.setUsersEmail(dao.emailSelect(usersNumberStr));
+		
+		
+		System.out.println(usersNumberStr);
+		
+		if (usersNumberStr == null) {
+			System.out.println("세션 없음");
+//			return null;
 		}
 		
-		
-		System.out.println("fds");
-		
-
+		System.out.println(dto);
+		System.out.println(usersNumberStr);
+		request.setAttribute("careModify", dto);
 		result.setPath("/app/myPageCare/careModify.jsp");
+		System.out.println("setPath 값 저장");
 		result.setRedirect(false);
 		return result;
 	}
