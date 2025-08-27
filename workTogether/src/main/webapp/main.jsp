@@ -47,8 +47,14 @@
           <div class="recommend_title">오늘의 추천활동</div>
           <!-- 추천활동 목록 -->
           <ul class="recommend_activiies">
-            <li><a href="https://www.sac.or.kr/site/main/home">예술의 전당</a></li>
-            <li><a href="https://www.gugak.go.kr/site/main/index001">국립국악원</a></li>
+          	<c:forEach var="shop" items="${mainShop}">
+	            <li>
+	            	<a href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${shop.getShopsNumber()}">
+	            		<div><c:out value="${shop.getShopsName()}"></c:out></div>
+	            		<div><c:out value="${shop.getShopsIntroText()}"></c:out></div>
+	            	</a>
+	            </li>
+            </c:forEach>
           </ul>
         </div>
         <!-- 게시물 추천 박스 -->
@@ -86,7 +92,7 @@
             <!-- 인기 돌봄회원 1 -->
             <c:forEach var="heart" items="${mainHeart}">
 	            <li class="profile">
-	              <a href ="${pageContext.request.contextPath}/careList/careListDetailOk.cl?usersNumber=${heart.getUsersNumber}" class="care_profile">
+	              <a href ="${pageContext.request.contextPath}/careList/careListDetailOk.cl?usersNumber=${heart.getUsersNumber()}" class="care_profile">
 	                <!-- 사진이랑 소개 -->
 	                <div class="profile_info">
 	                  <div class="profile_pic_box">
@@ -100,84 +106,18 @@
 	                <!-- 요일 -->
 	                <div>
 	                  <ul class="day_box">
-	                    <li class="day"><c:out value="${heart.getDayMonday()}"></c:out></li>
+        				<c:if test="${heart.getDayMonday() == 'Y'}"><li class="day">월</li></c:if>
+        				<c:if test="${heart.getDayTuesday() == 'Y'}"><li class="day">화</li></c:if>
+        				<c:if test="${heart.getDayWednesday() == 'Y'}"><li class="day">수</li></c:if>
+        				<c:if test="${heart.getDayThursday() == 'Y'}"><li class="day">목</li></c:if>
+        				<c:if test="${heart.getDayFriday() == 'Y'}"><li class="day">금</li></c:if>
+        				<c:if test="${heart.getDaySaturday() == 'Y'}"><li class="day">토</li></c:if>
+        				<c:if test="${heart.getDaySunday() == 'Y'}"><li class="day">일</li></c:if>
 	                  </ul>
 	                </div>
 	              </a>
 	            </li>
             </c:forEach>
-            <!-- 인기 돌봄회원 2 -->
-            <li class="profile">
-              <a href ="${pageContext.request.contextPath}/app/careMember/careMemberDetail.jsp" class="care_profile">
-                <!-- 사진이랑 소개 -->
-                <div class="profile_info">
-                  <div class="profile_pic_box">
-                    <img class="profile_pic" src="${pageContext.request.contextPath}/assets/img/main/profilePicCare.png">
-                  </div>
-                  <span class="profile_text">
-                    <div class="profile_name">김괭이dddd</div>
-                    <div class="profile_introduction">안녕하세요~!</div>
-                  </span>
-                </div>
-                <!-- 요일 -->
-                <div>
-                  <ul class="day_box">
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                  </ul>
-                </div>
-              </a>
-            </li>
-            <!-- 인기 돌봄회원 3 -->
-            <li class="profile">
-              <a href ="${pageContext.request.contextPath}/app/careMember/careMemberDetail.jsp" class="care_profile">
-                <!-- 사진이랑 소개 -->
-                <div class="profile_info">
-                  <div class="profile_pic_box">
-                    <img class="profile_pic" src="${pageContext.request.contextPath}/assets/img/main/profilePicCare.png">
-                  </div>
-                  <span class="profile_text">
-                    <div class="profile_name">김괭이dddd</div>
-                    <div class="profile_introduction">안녕하세요~!</div>
-                  </span>
-                </div>
-                <!-- 요일 -->
-                <div>
-                  <ul class="day_box">
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                  </ul>
-                </div>
-              </a>
-            </li>
-            <!-- 인기 돌봄회원 4 -->
-            <li class="profile">
-              <a href ="${pageContext.request.contextPath}/app/careMember/careMemberDetail.jsp" class="care_profile">
-                <!-- 사진이랑 소개 -->
-                <div class="profile_info">
-                  <div class="profile_pic_box">
-                    <img class="profile_pic" src="${pageContext.request.contextPath}/assets/img/main/profilePicCare.png">
-                  </div>
-                  <span class="profile_text">
-                    <div class="profile_name">김괭이dddd</div>
-                    <div class="profile_introduction">안녕하세요~!</div>
-                  </span>
-                </div>
-                <!-- 요일 -->
-                <div>
-                  <ul class="day_box">
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                    <li class="day">화</li>
-                  </ul>
-                </div>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
