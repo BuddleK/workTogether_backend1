@@ -14,9 +14,15 @@
 	</select>
 	
 	<!-- 회원 정보 조회 -->
-	<select id="adminUserManager" resultType="AdminUserManagerDTO">
+	<select id="adminUserManager" parameterType="map" resultType="AdminUserManagerDTO">
 	<![CDATA[
-	SELECT *
+	SELECT rnum,
+           users_number,
+           users_name,
+           users_id,
+           users_email,
+           users_phone,
+           users_type
 	FROM (
 	    SELECT ROWNUM AS rnum, subquery.*
 	    FROM (

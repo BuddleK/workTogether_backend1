@@ -97,6 +97,7 @@ main {
 
 .table_body {
   display: flex;
+  flex-direction: column;
 }
 
 /* 테스트(간격 조절) */
@@ -141,12 +142,6 @@ main {
 }
 .table_body {
   width: 100%;
-}
-
-.table_body > li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .paging_box {

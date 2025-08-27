@@ -22,7 +22,7 @@ public class AdminUserManagerListController implements Execute {
 		AdminTwoDAO adminTwoDAO = new AdminTwoDAO();
 		Result result = new Result();
 
-		String temp = request.getParameter("paging");
+		String temp = request.getParameter("page");
 		int page = (temp == null) ? 1 : Integer.valueOf(temp);
 		int rowCount = 7;
 		int pageCount = 5;
