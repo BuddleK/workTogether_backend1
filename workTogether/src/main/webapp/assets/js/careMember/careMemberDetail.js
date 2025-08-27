@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const content = contentEl?.value.trim();
 
 		if (!content) return alert("후기를 입력해주세요.");
-		if (!careNumber || !normalNumber) return alert("care || usersNumber의 값이 없습니다.");
+		if (!careNumber || !normalNumber) return alert("care = " + careNumber  + " usersNumber : " + normalNumber + "둘 중 하나가 없습니다.");
 
 		try {
 			const response = await fetch("/comment/commentWriteOk.co", {
