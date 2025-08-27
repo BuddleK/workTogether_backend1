@@ -24,11 +24,13 @@
 	    		<c:choose>
     				<c:when test="${sessionScope.usersType == 'C'}">
 	    				<!--  돌봄 마이페이지 메뉴 -->
+	    				<span>회원 번호 : <c:out value="${sessionScope.usersNumber} }"></c:out> </span>
 			      		<a href="${pageContext.request.contextPath}/app/myPageCare/carePwcheck.jsp">마이페이지</a>
 			      		<%-- <a href="${pageContext.request.contextPath}/myPageCare/carePwcheck.??">마이페이지</a> --%>
 			    	</c:when>
 			    	<c:otherwise>
 			    		<!--  일반 마이페이지 메뉴 -->
+			    		<span>회원 번호 : <c:out value="${sessionScope.usersNumber} "></c:out> </span>
 			      		<a href="${pageContext.request.contextPath}/app/myPageNormal/normalModify.jsp">마이페이지</a>
 			      		<%-- <a href="${pageContext.request.contextPath}/myPageNormal/normalModify.??">마이페이지</a> --%>
 			    	</c:otherwise>
