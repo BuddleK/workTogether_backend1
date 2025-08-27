@@ -4,14 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	const commentListEl = document.querySelector(".comment_list");
 	const commentBtn = document.querySelector("#comment_button");
 
-	// 댓글 작성
+	// 후기 작성
 	commentBtn?.addEventListener("click", async () => {
 		const contentEl = document.querySelector("#comment_text");
 		const content = contentEl?.value.trim();
-
 		if (!content) return alert("후기를 입력해주세요.");
 		if (!careNumber || !normalNumber) return alert("care = " + careNumber  + " usersNumber : " + normalNumber + "둘 중 하나가 없습니다.");
-
+		commentBtn.disabled = true;
 		try {
 			const response = await fetch("/comment/commentWriteOk.co", {
 				method: "POST",
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				},
 				body: JSON.stringify({ careNumber, normalNumber, commentsContent: content }),
 			});
-
 			const result = await safeJson(response);
 			if (result?.status === "success") {
 				alert("댓글이 작성되었습니다.");
@@ -33,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		} catch (error) {
 			console.error("댓글 작성 실패:", error);
 			alert("댓글 작성 중 오류가 발생했습니다.");
+		} finally {
+			commentBtn.disabled = false;
 		}
 	});
 
@@ -40,19 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (commentListEl) {
 		commentListEl.addEventListener("click", async (e) => {
 			const target = e.target;
-
 			// 삭제
 			if (target.matches(".del_btn")) {
 				const commentsNumber = target.dataset.number;
 				const commentWriter = target.dataset.user;
 				if (!normalNumber) return;
-
 				if (confirm("후기를 삭제하십니까?")) {
 					if (String(normalNumber) !== String(commentWriter)) {
 						alert("작성자가 아닙니다.");
 						return;
 					}
-
 					try {
 						const response = await fetch(
 							`/comment/commentDeleteOk.co?commentsNumber=${encodeURIComponent(commentsNumber)}&normalNumber=${encodeURIComponent(normalNumber)}`,
@@ -63,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
 								},
 							}
 						);
-
 						const result = await safeJson(response);
 						if (result?.status === "success") {
 							alert("댓글 삭제 완료");
@@ -141,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	console.log(careNumber + " 유저넘버");
 	console.log(normalNumber + " gkkgk");
 
-	// 댓글 목록 불러오기
+	// 후기 목록 불러오기
 	async function loadComments() {
 		if (!careNumber) return;
 
@@ -161,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	// 댓글 렌더링
+	// 후기 렌더링
 	function renderComments(comments) {
 		if (!commentListEl) return;
 
