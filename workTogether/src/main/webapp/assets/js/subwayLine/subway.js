@@ -1,68 +1,62 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var lines = [
-    { id: 'all', name: '전체', lineImg: 'subway_allline_img', stationListId: 'allline_station' },
-    { id: 'line2', name: '2호선', lineImg: 'subway_line2_img', stationListId: 'line2_stations' },
-    { id: 'line3', name: '3호선', lineImg: 'subway_line3_img', stationListId: 'line3_stations' },
-    { id: 'line4', name: '4호선', lineImg: 'subway_line4_img', stationListId: 'line4_stations' },
-    { id: 'line7', name: '7호선', lineImg: 'subway_line7_img', stationListId: 'line7_stations' },
-    { id: 'line9', name: '9호선', lineImg: 'subway_line9_img', stationListId: 'line9_stations' },
-    { id: 'dxline', name: '신분당선', lineImg: 'subway_dxline_img', stationListId: 'dxline_stations' }
-  ];
+  const buttons = document.querySelectorAll('.subway_subwayLine button');
+  const stations = document.querySelectorAll('#station_list .station_name');
+  const listTitle = document.getElementById('station_list_title');
+  const listInner = document.querySelector('.station_list_inner')
+  
+  // 모든 역 데이터를 메모리에 저장
+  let stationData = [];
+  stations.forEach(station => {
+    stationData.push({
+      name: station.textContent.trim(),
+      line: parseInt(station.dataset.line),
+      element: station
+    });
+  });
 
-  var mapDivs = document.querySelectorAll('.map_section div');
-  var stationInfo = document.querySelector('.station_info');
-  var buttons = document.querySelectorAll('.subway_subwayLine button');
-
-  document.getElementById('all').classList.add('selected-btn');
-
-  buttons.forEach(function (button) {
+  // 버튼 클릭 이벤트
+  buttons.forEach(button => {
     button.addEventListener('click', function () {
-      var clickedId = button.id;
-      var currentLine = null;
+      const clickedId = button.id;
 
-      for (var i = 0; i < lines.length; i++) {
-        if (lines[i].id === clickedId) {
-          currentLine = lines[i];
-          break;
-        }
-      }
-
-      if (currentLine === null) {
-        return;
-      }
-      buttons.forEach(function (btn) {
-        btn.classList.remove('selected-btn');
-      });
+      // 버튼 스타일 초기화
+      buttons.forEach(btn => btn.classList.remove('selected-btn'));
       button.classList.add('selected-btn');
 
-      for (var j = 0; j < mapDivs.length; j++) {
-        mapDivs[j].style.display = 'none';
-      }
-      var showMap = document.querySelector('.' + currentLine.lineImg);
-      if (showMap) {
-        showMap.style.display = 'block';
+      // 모든 역 숨기기
+      stations.forEach(station => station.style.display = "none");
+
+      if (clickedId === "all") {
+        listTitle.textContent = "전체 역 목록";
+
+        // 이름별 최소 호선만 표시
+        let minLineMap = {};
+        stationData.forEach(st => {
+          if (!(st.name in minLineMap) || st.line < minLineMap[st.name].line) {
+            minLineMap[st.name] = st;
+          }
+        });
+
+        Object.values(minLineMap).forEach(st => {
+          st.element.style.display = "block";
+        });
+
+        return;
       }
 
-      for (var k = 0; k < lines.length; k++) {
-        var listDiv = document.getElementById(lines[k].stationListId);
-        if (listDiv) {
-          listDiv.style.display = 'none';
+      // 특정 호선 클릭
+      const lineNumber = parseInt(clickedId.replace("line", ""));
+      listTitle.textContent = button.textContent + " 역 목록";
+
+      // 선택한 노선 역 모두 표시
+      stationData.forEach(st => {
+        if (st.line === lineNumber) {
+          st.element.style.display = "block";
         }
-      }
-
-      var showList = document.getElementById(currentLine.stationListId);
-      if (showList) {
-        showList.style.display = 'block';
-      }
-
-      var stations = showList.querySelectorAll('.station_name');
-      stations.forEach(function (station) {
-        station.onclick = function () {
-          var name = station.textContent();
-          stationInfo.innerHTML = "";
-        };
       });
-    })
-    document.getElementById("all").click();
+    });
   });
+
+  // 기본: 전체 버튼 클릭
+  document.getElementById("all").click();
 });
