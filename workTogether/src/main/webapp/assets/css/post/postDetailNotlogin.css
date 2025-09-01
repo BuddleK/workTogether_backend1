@@ -1,0 +1,289 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  /* height: calc(100vh - 200px); */
+  background-color:antiquewhite;
+  justify-content: center;
+  min-width: 600px;
+  min-height: 80vh;
+  /* background-color: white; */
+}
+
+.context{
+  /* background-color: pink; */
+  width: 1100px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.post_area{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+}
+.post_title{
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  padding : 5px 5px 5px 20px;
+  font-size: 20px;
+  margin-top: 5px;
+  background-color: rgb(224, 224, 224);
+  padding: 5px 20px;
+}
+.post_info{
+  /* background-color: yellow; */
+  display: flex;
+  border-bottom: solid 1px black;
+}
+.post_columns{
+  background-color: rgb(224, 224, 224);
+  width: 100px;
+  text-align: center;
+  padding: 5px 0px;
+}
+.post_col{
+  background-color: white;
+  flex: 1;
+  padding-left: 5px;
+  padding: 5px 12px;
+  
+}
+#context_box{
+  background-color: white;
+  border: solid 1px black;
+  margin: 5px 0px;
+  padding: 30px 30px;
+  min-height: 400px;
+}
+.button_area{
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: end;
+}
+
+.button_list {
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-left: 5px;
+}
+.reply_area{
+  background-color: white;
+  margin: 5px 0px;
+  padding: 10px 10px;
+  position: relative;
+}
+.reply_count{
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  padding : 5px 5px 5px 20px;
+}
+.reply_console{
+  display: flex;
+  border-bottom: solid 1px black;
+}
+.reply_write_box{
+  /* background-color: rebeccapurple; */
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  padding : 5px 5px 5px 20px;
+  background-color: white;
+}
+.reply{
+  border-bottom: solid 1px black;
+  padding : 5px 5px 5px 20px;
+  display: flex;
+}
+.reply_author{
+  width: 100px;
+  padding-right: 10px;
+  border-right: solid 2px black;
+}
+.reply_context{
+  padding-left: 10px;
+}
+#reply_input{
+  height:25px;
+  width: 100%;
+  padding : 5px 5px 5px 20px;
+}
+#reply_button{
+  width: 100px;
+  background-color: rgb(224, 224, 224);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#reply_button p{
+  font-size: 16px;
+}
+
+
+
+.del {
+  display: flex;
+  justify-content: end;
+}
+.button_del {
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: red;
+  color: white;
+  margin-left: 5px;
+}
+.checkmodal {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 900px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10px;
+  margin-left: 30%;
+}
+
+.modal_box {
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 30px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.exit-value {
+  flex: 1;
+  padding: 15px;
+}
+
+.exit-select {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  font-size: 15px;
+  background-color: #fff;
+  border: 1px solid black;
+}
+
+.modal_buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal_buttons button {
+  padding: 8px 20px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#check {
+  background-color: #2F52AA;
+  color: white;
+  border: 1px solid black;
+}
+
+#cancle {
+  background-color: #2f52aa;
+  color: white;
+  border: 1px solid black;
+}
+
+.notmodal {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 900px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10px;
+  margin-left: 30%;
+}
+
+.modal_box {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  text-align: center;
+  padding: 30px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.modal_buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal_buttons button {
+  padding: 8px 20px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#notcheck {
+  background-color: #2f52aa;
+  color: white;
+  border: 1px solid black;
+}
+
+.reportmodal {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 900px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10px;
+  margin-left: 30%;
+}
+.modal_box {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  text-align: center;
+  padding: 30px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.modal_buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal_buttons button {
+  padding: 8px 20px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#notcheck {
+  background-color: #2F52AA;
+  color: white;
+  border: 1px solid black;
+}
+#reportcheck {
+  background-color: #2F52AA;
+  color: white;
+  border: 1px solid black;
+}

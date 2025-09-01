@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="careExit">
+	
+	<!-- 회원 삭제 -->
+	<delete id="careExit">
+		DELETE FROM tbl_users u
+		WHERE u.users_number = (
+    	SELECT c.users_number
+    	FROM tbl_care_users c
+    	JOIN tbl_matchings m ON c.users_number = m.care_number
+    	WHERE m.match_status IN ('C', 'D')
+      	AND c.users_number = #{usersNumber});
+	</delete>
+
+</mapper>
+

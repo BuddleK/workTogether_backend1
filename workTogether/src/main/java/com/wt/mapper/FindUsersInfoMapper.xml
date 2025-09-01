@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="findUsersInfo">
+
+  <select id="insertUser" parameterType="Map" resultType="int">
+    SELECT seq_users.nextval FROM dual
+  </select>
+  <insert id="doInsertUser" parameterType="Map">
+    INSERT INTO tbl_users (
+      users_number, users_id, users_password, users_type, users_created_date, users_updated_date
+    ) VALUES (
+      #{usersNumber}, #{usersId}, #{usersPassword}, #{usersType}, sysdate, sysdate
+    )
+  </insert>
+
+  <!-- 아이디 중복 -->
+  <select id="existsUserId" parameterType="String" resultType="int">
+    SELECT COUNT(*) FROM tbl_users WHERE users_id = #{usersId}
+  </select>
+
+  <!-- 비밀번호 변경 -->
+  <update id="updatePasswordByUserId" parameterType="Map">
+    UPDATE tbl_users
+       SET users_password = #{newPassword}, users_updated_date = sysdate
+     WHERE users_id = #{usersId}
+  </update>
+
+  <!-- 아이디 찾기 -->
+  <select id="findIdByNamePhoneType" parameterType="com.wt.app.dto.FindIdDTO" resultType="String">
+    SELECT u.users_id
+      FROM tbl_users u
+      LEFT JOIN tbl_normal_member n
+             ON n.users_number = u.users_number
+            AND u.users_type   = 'N'
+      LEFT JOIN tbl_care_member c
+             ON c.users_number = u.users_number
+            AND u.users_type   = 'C'
+     WHERE u.users_type = #{usersType}
+       AND (
+              (u.users_type = 'N' AND n.users_name = #{usersName} AND n.users_phone = #{usersPhone})
+           OR (u.users_type = 'C' AND c.users_name = #{usersName} AND c.users_phone = #{usersPhone})
+       )
+  </select>
+
+  <!-- 비번 찾기 전 검증 -->
+  <select id="verifyForPwReset" parameterType="com.wt.app.dto.FindPwDTO" resultType="int">
+    SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END
+      FROM tbl_users u
+      LEFT JOIN tbl_normal_member n
+             ON n.users_number = u.users_number
+            AND u.users_type   = 'N'
+      LEFT JOIN tbl_care_member c
+             ON c.users_number = u.users_number
+            AND u.users_type   = 'C'
+     WHERE u.users_type = #{usersType}
+       AND u.users_id   = #{usersId}
+       AND (
+              (u.users_type = 'N' AND n.users_name = #{usersName} AND n.users_phone = #{usersPhone})
+           OR (u.users_type = 'C' AND c.users_name = #{usersName} AND c.users_phone = #{usersPhone})
+       )
+  </select>
+
+</mapper>

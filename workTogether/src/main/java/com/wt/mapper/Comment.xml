@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comment">
+	<select id="selectAll" resultType="CommentDTO">
+		select c.comments_number, c.normal_number, nu.users_name, c.care_number, c.comments_content, c.comments_created_date, c.comments_updated_date
+		from tbl_comments c
+		left join tbl_normal_users nu on c.normal_number = nu.users_number
+		where c.care_number = #{careNumber}
+	</select>
+
+	<insert id="insert" parameterType="CommentDTO">
+		insert into tbl_comments
+		values (seq_comments.nextVal, #{normalNumber}, #{careNumber}, #{commentsContent}, sysdate, sysdate)
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_comments where comments_number = #{commentsNumber} and normal_number = #{normalNumber}
+	</delete>
+	
+	<update id="update" parameterType="CommentDTO">
+    UPDATE RICEBALL.TBL_COMMENTS
+	SET COMMENTS_CONTENT=#{commentsContent}, COMMENTS_UPDATED_DATE = sysdate
+	WHERE COMMENTS_NUMBER=#{commentsNumber}
+  </update>
+</mapper>

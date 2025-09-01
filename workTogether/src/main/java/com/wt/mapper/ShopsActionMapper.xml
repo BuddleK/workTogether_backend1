@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shops">
+	<!-- 가게 리스트 페이지 -->
+	<select id="listAll" parameterType="int" resultType="ShopsListDTO">
+	<![CDATA[
+		SELECT * FROM (
+	SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+		select shops_name, shops_number,shops_branch_name,shops_road_address, shops_admin_dong, shops_phone, shops_working_hours,
+		case when f.favorites_number is not null then 'Y' else 'N' end as "is_favorite"
+		from tbl_shops s left join tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
+		and f.users_number = #{userNumber}
+		) subquery
+	) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
+	]]>
+	</select>
+	
+	<!-- 가게 총 개수 -->
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(shops_number)
+		FROM tbl_shops	
+	</select>
+	
+	<!-- 가게 세부 -->
+	<select id="detail" parameterType="map" resultType="ShopsListDTO">		
+	select s.shops_number, s.shops_name, s.shops_biz_mid_category, s.shops_phone, s.shops_intro_text,
+			s.shops_branch_name, s.shops_road_address, s.shops_working_hours, s.shops_entrance_threshold,
+	       s.shops_takeout, s.shops_files_number,
+	       s.shops_floor_1f, s.shops_ramp, s.shops_entrance_step, s.shops_entrance_threshold, 
+	       s.shops_toilet_step, s.shops_toilet_threshold, s.shops_disabled_toilet, 
+	       s.shops_elevator, s.shops_parking, s.shops_disabled_parking,
+	       s.shops_latitude, s.shops_longitude,
+	       fs.shops_files_number, fs.shops_files_type, fs.shops_files_name, fs.shops_files_path
+			from tbl_shops s 
+			left join tbl_files_shops fs 
+	   		on s.shops_files_number = fs.shops_files_number
+			where s.shops_number = #{shopsNumber}
+</select>
+
+	
+	<select id="adminDong" resultType="AdminDongListDTO">
+	select shops_admin_dong from tbl_shops where shops_admin_dong IN ('양재동','방배동', '서초동', '잠원동')  group by shops_admin_dong
+	union
+	SELECT * FROM dual
+		
+	</select>
+	
+	<!-- <select id="legalDong" resultType="ShopsLitDTO">
+		SELECT shops_legal_dong FROM tbl_shops GROUP BY SHOPS_legal_DONG
+	</select>
+	 -->
+	<!-- 찜 추가 -->
+	 <insert id="favoriteAdd">
+		insert into tbl_shops_favorites
+		values (seq_shops_favorites.nextval, #{userNumber}, #{favoritesShopsNumber}, sysdate)
+	</insert>
+	
+	<select id="favoriteSelect" resultType="int">
+		select favorites_number from tbl_shops_favorites where users_number = #{usersNumber} and favorites_shops_number = #{favoritesShopsNumber}
+	</select>
+	
+	<!-- 찜 삭제 -->
+	<!-- <delete id="favoriteDelete" parameterType="ShopsFavoritesActionDTO">
+		delete from tbl_shops_favorites
+		where users_number = #{usersNumber} and favorites_shops_number = #{shopsNumber}
+	</delete> --> 
+</mapper>
+
+
+	
+
+

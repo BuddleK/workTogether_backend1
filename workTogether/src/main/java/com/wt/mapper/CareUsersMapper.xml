@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CareUsersMapper">
+
+  <insert id="join" parameterType="com.wt.app.dto.CareUsersDTO">
+    INSERT INTO tbl_care_users (
+    	users_number, users_name, users_email, users_phone,
+    	users_postsal_code, users_address_line1, users_address_line2,
+   		care_intro_text, care_certificate_files_num, care_passbook_files_num,
+    	care_profiles_photo_number, care_accept
+	) VALUES (
+      	#{usersNumber}, #{usersName}, #{usersEmail}, #{usersPhone},
+      	#{usersPostsalCode}, #{usersAddressLine1}, #{usersAddressLine2},
+      	#{careIntroText},
+      	#{careCertificateFilesNum}, #{carePassbookFilesNum}, #{careProfilesPhotoNumber},
+      	NVL(#{careAccept}, 'N')
+    )
+  </insert>
+
+</mapper>

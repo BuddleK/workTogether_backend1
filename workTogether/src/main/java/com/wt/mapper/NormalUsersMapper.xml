@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="NormalUsersMapper">
+
+  <insert id="join" parameterType="com.wt.app.dto.NormalUsersDTO">
+    INSERT INTO tbl_normal_users (
+      users_number, users_name, users_email, users_phone,
+      users_postsal_code, users_address_line1, users_address_line2,
+      normal_users_level
+    ) VALUES (
+      #{usersNumber}, #{usersName}, #{usersEmail}, #{usersPhone},
+      #{usersPostsalCode}, #{usersAddressLine1}, #{usersAddressLine2},
+      #{normalUsersLevel}
+    )
+  </insert>
+
+</mapper>

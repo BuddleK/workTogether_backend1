@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="posts">
+
+ <!-- 전체 게시글 조회 -->
+   <select id="selectAll" resultType="PostsListDTO">
+   <![CDATA[
+	SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+			SELECT posts_number, posts_title, users_number,
+			nvl((SELECT users_name FROM riceball.TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM riceball.TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)) as users_name,
+			posts_view_count, to_char(posts_created_date, 'yyyy-mm-dd') as posts_created_date
+			FROM riceball.tbl_posts p
+			ORDER BY posts_created_date DESC
+		) subquery
+	) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+   ]]>
+   </select>
+   
+   <!-- 게시글 총 개수 -->
+   <select id="getTotal" resultType="int">
+      SELECT COUNT(posts_number) FROM tbl_posts  
+   </select>
+   
+   <!--  게시글 추가 -->
+<!--    <insert id="insert" parameterType="BoardDTO">
+      INSERT INTO TBL_BOARD (board_number, board_title, board_content, member_number)
+      VALUES(seq_board.nextval, #{boardTitle}, #{boardContent}, #{memberNumber})   
+   </insert>
+   방금 생성된 시퀀스 값 가져오기
+   <select id="getCurrentBoardNumber" resultType="int">
+      SELECT seq_board.CURRVAL
+      FROM DUAL
+   </select> -->
+   
+   <!-- 게시글 추가 -->
+   <!--  useGeneratedKeys와 keyProperty 활용
+      MyBatis의 useGeneratedKeys 속성과 CURRVAL를 조합하여 시퀀스 값을 객체 필드에 매핑    -->
+   <insert id="insert" parameterType="PostsDTO">
+      <selectKey keyProperty="postsNumber" resultType="int" order="BEFORE">
+         SELECT seq_board_posts.nextval FROM dual
+      </selectKey>
+      INSERT INTO tbl_posts(posts_number, posts_title, users_number, posts_content, posts_view_count, posts_created_date, posts_updated_date, posts_report_count)
+      VALUES(#{postsNumber}, #{postsTitle}, #{usersNumber}, #{postsContent}, 0, SYSDATE, null, 0)
+   </insert>
+   
+   <!-- 조회수 추가 쿼리 -->
+	<update id="updateReadCount" parameterType="int">
+		update tbl_posts set posts_view_count = posts_view_count + 1
+		where posts_number = #{posts_number}
+   </update>
+   
+   <!-- 게시글 삭제 쿼리 -->
+   <delete id="delete" parameterType="int">
+      delete from tbl_posts where posts_number = #{postsNumber}
+   </delete>
+   
+   <!-- 게시글 수정쿼리 -->
+   <update id="update" parameterType="PostsDTO">
+		UPDATE tbl_posts
+		SET posts_title=#{postsTitle}, POSTS_CONTENT = #{postsContent}, POSTS_UPDATED_DATE = SYSDATE
+		where POSTS_NUMBER = #{postsNumber}
+   </update>
+
+   <!-- 게시글 상세(1건조회) -->
+   <select id="select" parameterType="int" resultType="PostsDTO">
+		<![CDATA[      
+		SELECT posts_number, posts_title, users_number,
+		nvl((SELECT users_name FROM riceball.TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM riceball.TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)) as users_name,
+		posts_view_count, to_char(posts_created_date, 'yyyy-mm-dd') as posts_created_date, to_char(posts_updated_date, 'yyyy-mm-dd') as posts_updated_date, POSTS_CONTENT 
+		FROM riceball.tbl_posts p
+		WHERE posts_number = #{posts_number}
+      ]]>
+   </select>
+   
+   	<!-- 게시글 검색 쿼리 -->
+   	<select id="search" parameterType="String" resultType="PostsListDTO">
+   	   <![CDATA[
+		SELECT * FROM (
+   		SELECT ROWNUM AS rnum, subquery.*
+		FROM (SELECT posts_number, posts_title, users_number, nvl((SELECT users_name FROM TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)) as users_name, posts_view_count, posts_created_date
+		FROM TBL_POSTS p WHERE POSTS_TITLE || POSTS_CONTENT LIKE '%${keyWord}%' ORDER BY POSTS_CREATED_DATE) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+   		]]> 
+   	</select>
+   
+   
+</mapper>

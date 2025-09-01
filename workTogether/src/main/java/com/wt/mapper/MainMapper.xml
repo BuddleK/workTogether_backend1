@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main">
+	
+	<!-- 뉴스배너 -->
+	<select id="newsBanner" resultType="NewsBannerDTO">
+		select nb.banner_news_number, nb.banner_image_files_number, nb.banner_title, nb.BANNER_CONTENT, fb.BANNER_FILES_PATH, nb.banner_link_url
+		from tbl_news_banners nb JOIN TBL_FILES_BANNER fb 
+		ON nb.BANNER_IMAGE_FILES_NUMBER = fb.BANNER_FILES_NUMBER
+	</select>
+	
+<!-- 추천가게 찜 많은 순으로 정렬-->
+ 	<select id="shops" resultType="ShopsListDTO">
+		select * from (
+			SELECT shops_number, shops_name, shops_intro_text, count(*)
+			from tbl_shops s join  tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
+			GROUP BY shops_number, shops_name, shops_intro_text
+			ORDER BY count(*) DESC)
+		where ROWNUM <![CDATA[ <= ]]> 4
+	</select>
+	
+	<!-- 게시판 -->
+ 	<select id="post" resultType="PostsDTO">
+		select * from (
+			SELECT p.posts_number, p.posts_title, a.users_name, p.posts_created_date
+			FROM tbl_posts p JOIN (
+				SELECT u.users_number, c.users_name
+				FROM tbl_users u
+				JOIN tbl_care_users c ON u.users_number = c.users_number
+				UNION
+				SELECT u.users_number, n.users_name
+				FROM tbl_users u
+				JOIN tbl_normal_users n ON u.users_number = n.users_number) a
+				ON p.USERS_NUMBER = a.USERS_NUMBER
+				ORDER BY p.POSTS_CREATED_DATE DESC)
+			where ROWNUM <![CDATA[ <= ]]> 4
+	</select>
+	
+	<!-- 지도 마커 -->
+	<select id="map" resultType="MarkerDTO">
+	
+	</select>
+	
+	<!-- 돌봄 회원 -->
+	<select id="care" resultType="CareListDTO">
+		<![CDATA[
+		SELECT * FROM (
+		    SELECT *
+		    FROM (
+		        SELECT 
+		            c.users_number AS usersNumber,
+		            c.users_name AS usersName,
+		            c.care_intro_text,
+		            c.care_profiles_photo_number AS profilesFilesNumber,
+		            fp.profiles_files_path AS profilesFilesPath,
+		            COUNT(h.hearts_care_number) AS heartsCareNumber,
+		            d.day_monday,
+		            d.day_tuesday,
+		            d.day_wednesday,
+		            d.day_thursday,
+		            d.day_friday,
+		            d.day_saturday,
+		            d.day_sunday
+		        FROM tbl_care_users c
+		        JOIN tbl_users u ON c.users_number = u.users_number
+		        LEFT JOIN tbl_files_profiles fp 
+		            ON c.care_profiles_photo_number = fp.profiles_files_number
+		        LEFT JOIN tbl_day d 
+		            ON c.users_number = d.users_number
+		        LEFT JOIN tbl_hearts h 
+		            ON c.users_number = h.hearts_care_number
+		        GROUP BY 
+		            c.users_number, c.users_name, c.care_intro_text, 
+		            c.care_profiles_photo_number, fp.profiles_files_path,
+		            d.day_monday, d.day_tuesday, d.day_wednesday,
+		            d.day_thursday, d.day_friday, d.day_saturday, d.day_sunday
+		        ORDER BY COUNT(h.hearts_care_number) DESC
+		    )
+		    WHERE ROWNUM <= 4)
+		]]>
+	</select>
+
+</mapper>
+
+
+

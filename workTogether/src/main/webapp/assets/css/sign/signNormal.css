@@ -1,0 +1,264 @@
+@charset "UTF-8";
+input {
+  width: 400px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 4px 10px;
+  border: 1px solid black;
+}
+
+button {
+  padding: 6px 40px;
+  background-color: #2f52aa;
+  border: 1px solid #1d3266;
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.sign_form {
+  display: flex;
+  flex-direction: column;
+  /* gap: 36px; */
+  padding: 12px 0px;
+}
+
+.sign {
+  /* border: 1px solid black; */
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.sign > form > .sign_box {
+  /* border: 1px solid black; */
+  width: 100%;
+  /* height: 100px; */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sign_box > p {
+  font-size: 16px;
+}
+.sign_title > p {
+  font-size: 30px;
+}
+
+.timer {
+  width: 50px;
+  height: 20%;
+}
+
+label > input {
+  width: 20px;
+  height: 20px;
+}
+.sign_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.sign_level {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  padding: 12px;
+  padding-bottom: 36px;
+  border-radius: 12px;
+  gap: 24px;
+  width: 60% !important;
+  margin: 0 auto;
+  position: relative;
+  left: 36px;
+}
+
+.sign_level > label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sign_id {
+  position: relative;
+  left: 73px;
+}
+
+.sign_password {
+  position: relative;
+}
+
+.password_check {
+  position: relative;
+  left: -16px;
+}
+
+.sign_email {
+  position: relative;
+  left: 9px;
+}
+
+.sign_name {
+  position: relative;
+  left: 15px;
+}
+
+.sign_phone {
+  position: relative;
+  left: 113px;
+}
+
+.sign_author {
+  position: relative;
+  left: 225px;
+}
+
+.sign_address {
+  position: relative;
+  left: 84px;
+}
+
+.address_detail {
+  position: relative;
+  left: 0px;
+}
+
+.sign_btn > button {
+  padding: 8px 100px;
+  border-radius: 30px;
+}
+
+.id_err_box {
+  display: none;
+  /* display: flex; */
+  flex-direction: column;
+  width: 100%;
+  font-size: 14px;
+  gap: 0px;
+  /* border: 1px solid black;
+  justify-content: flex-start; */
+  padding-left: 140px;
+}
+
+.err_id_msg {
+  color: red;
+}
+
+.box_error_pw,
+.box_re_error {
+  display: none;
+}
+
+.box_error_pw {
+  padding-left: 140px;
+}
+
+.box_re_error {
+  padding-left: 140px;
+}
+
+.error_pw_check_msg {
+  color: red;
+}
+
+.box_error_email {
+  display: none;
+  padding-left: 140px;
+}
+
+.error_email_msg {
+  color: red;
+}
+
+.correct_email {
+  font-size: 14px;
+  display: none;
+}
+
+/* ㅌㅅㅌ */
+
+.timer {
+  width: 50px;
+  height: 50%;
+}
+
+.box_next > button {
+  padding: 8px 30px;
+  background-color: #1d3266;
+  color: white;
+  border-radius: 8px;
+}
+
+.alert {
+  display: none;
+  padding-left: 225px;
+}
+
+.error_box {
+  display: none;
+  padding-left: 77px;
+}
+
+.error_box_msg {
+  display: none;
+  padding-left: 225px;
+}
+
+.error_phone,
+.error_msg {
+  color: red;
+  font-size: 12px;
+  /* border: 1px solid black; */
+}
+.okay_msg {
+  font-size: 12px;
+}
+
+.file {
+  display: flex;
+  gap: 12px;
+  position: relative;
+  left: 151px;
+}
+
+.file_title {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 12px;
+}
+
+.sign_level > ul {
+  list-style-type: none;
+  width: 100%;
+}
+
+.sign_level > ul > li {
+  width: 100%;
+  padding-bottom: 8px;
+  margin: 10px auto;
+  border-bottom: 1px solid black;
+}
+
+.sign_btn > button {
+  padding: 8px 100px;
+  border-radius: 30px;
+}
+
+.file > input {
+  width: 300px;
+  height: 20px;
+  border-radius: 36px;
+}
+
+.section_care {
+  display: none;
+}

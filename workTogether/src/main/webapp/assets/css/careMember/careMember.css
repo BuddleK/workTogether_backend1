@@ -1,0 +1,236 @@
+@charset "UTF-8";
+
+/* 폰트 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    /* font-weight: 500; 적용 안됨 */
+    font-style: normal;
+}
+/* 전체 내용 */
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration-line: none;
+  list-style-type: none;
+  color: black;
+  font-family: 'Pretendard-Regular';
+  /* #FFE7C9 */
+  /* #1D3266 */
+}
+/* 메인 세션 */
+main{
+  background-color: #FFE7C9;
+  /* height: calc(100vh - 220px); */
+  display: flex;
+  justify-content: center;
+}
+/* 페이지 컨테이너 */
+.main_body{
+  width: 1100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: rgba(104, 104, 104, 0.1); */
+}
+/* 페이지 제목 */
+.page_title{
+  /* background-color: yellowgreen; */
+  margin-top: 30px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* 검색 영역 */
+#search_area{
+  margin-top: 20px;
+  background-color: white;
+  height: 50px;
+  width: 600px;
+  border: solid 1px black;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 검색 분류 선택 메뉴 */
+#search_criteria{
+  /* background-color: rebeccapurple; */
+  width: 80px;
+  border-radius: 4px;
+  margin-left: 20px;
+}
+/* 검색 입력 창 */
+#criteria{
+  flex: 1;
+  margin: 0 10px;
+  /* background-color: #1D3266; */
+  height: 100%;
+}
+/* 검색 아이콘 박스 */
+#search_icon_box{
+  width: 25px;
+  margin-right: 20px;
+}
+/* 검색 버튼 이미지 */
+#search_icon{
+  width: 100%;
+}
+#day_list{
+  margin-top: 7px;
+  /* background-color: #1D3266; */
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+#day_list div{
+  width: 33px;
+  display: flex;
+  /* background-color: mediumspringgreen; */
+  justify-content: space-between;
+}
+#day_list div input{
+  width: 16px;
+  border-radius: 50%;
+  accent-color: #3154ad;
+}
+/* 카드 리스트 내용 */
+.context{
+  margin-top: 30px;
+  /* background-color: orange; */
+  width: 1000px;
+  overflow: hidden;
+}
+/* 카드 행 */
+.card_row{
+  width: 100%;
+  /* background-color: blue; */
+  display: flex;
+  margin-bottom: 20px;
+}
+/* 카드 리스트 ul */
+#card_list_1,
+#card_list_2{
+  display: flex;
+  justify-content: space-around;
+  /* background-color: yellow; */
+  width: 100%;
+  height: max-content;
+}
+/* 카드 리스트 li */
+.care_card{
+  background-color: #FFF8EF;
+  width: 230px;
+  height: 330px;
+  border-radius: 30px;
+  /* border: solid 2px black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+/* 하트 이미지 박스 */
+.heart_img_box{
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  overflow: hidden;
+  right: 0;
+  margin: 10px;
+}
+/* 하트 이미지 */
+.heart_img{
+  position: absolute;
+  height: 100%;
+  right: 0%;
+  /* 안 먹음 */
+  /* user-select: none; */
+}
+/* 프로필 */
+.profile{
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 프로필 픽 박스 */
+.profile_pic_box{
+  /* background-color: aquamarine; */
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  /* border: solid 2px black; */
+  margin-top: 45px;
+}
+/* 프로필 사진 */
+.profile_pic{
+  width: 100%;
+}
+/* 프로필 이름 */
+.profile_name{
+  background-color: wheat;
+  width: max-content;
+  font-size: 16px;
+  border-radius: 15px;
+  padding: 5px 13px;
+  border: solid 1px black;
+  margin: 20px 10px 0 10px;
+}
+/* 날짜 행 */
+.day_row{
+  /* background-color: crimson; */
+  display: flex;
+  padding-left: 7px;
+  /* margin: 5px 0 0 2px; */
+  margin: 0 10px;
+  margin-top: 10px;
+}
+/* 날짜 */
+.day{
+  border: solid 3px #1D3266;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin-right: 7px;
+  font-size: 10;
+  background-color: wheat;
+}
+/* 프로필 정보 칸 */
+.profile_intro{
+  /* background-color: greenyellow; */
+  margin: 0 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+/* 프로필 소개 */
+.short_intro{
+  margin: 5px 0;
+  font-size: 10px;
+}
+/* 프로필 이력 */
+.long_intro{
+  margin: 5px 0;
+  font-size: 10px;
+}
+/* 페이지 네이션 */
+#pagenation{
+  text-align: center;
+  margin: 30px 0;
+}
+
+.paging {
+	display: flex;
+	gap:12px;
+	    justify-content: center;
+
+}
+
+.profile_day {
+	display: flex;
+	    padding-top: 15px;
+}

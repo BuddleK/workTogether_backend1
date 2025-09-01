@@ -1,0 +1,202 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-width: 600px;
+  min-height: 80vh;
+  /* background-color: #FFE7C9; */
+}
+.context{
+  /* background-color: gray; */
+  width: 1100px;
+
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.notice_list{
+  background-color: #f0f0f0;
+}
+
+.post_list{
+  border-bottom: solid 1px black;
+}
+.post_columns_top{
+  background-color:#ccc;
+  display: flex;
+}
+.post_columns_top, .post_columns{
+  /* background-color: pink; */
+  /* background-color: #ccc; */
+  width: 100%;
+  min-width: 600px;
+  height: 30px;
+  border-top: solid 1px black;
+}
+.post_list > .post_columns{
+
+  background-color: white;
+}
+.post_columns a{
+  display: flex;
+}
+.post_num{
+  /* background-color: red; */
+  width: 60px;
+  text-align: center;
+  line-height: 30px;
+}
+.post_tit{
+  /* background-color: orange; */
+  flex: 1;
+  text-align: center;
+  line-height: 30px;
+}
+.post_aut{
+  /* background-color: yellow; */
+  width: 120px;
+  text-align: center;
+  line-height: 30px;
+}
+.post_rea{
+  /* background-color: green; */
+  width: 80px;
+  text-align: center;
+  line-height: 30px;
+}
+.post_dat{
+  /* background-color: blue; */
+  width: 120px;
+  text-align: center;
+  line-height: 30px;
+}
+.search_box{
+  /* background-color: orange; */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+}
+#search_criteria{
+  border: solid 2px black;
+}
+#criteria{
+  border-bottom: solid 2px black;
+  border-top: solid 2px black;
+  border-right: solid 2px black;
+  padding-left: 7px;
+}
+#search_icon_box{
+  width: 25px;
+  height: 25px;
+  border-bottom: solid 2px black;
+  border-top: solid 2px black;
+  border-right: solid 2px black;
+  padding: 3px;
+}
+#search_icon{
+  width: 100%;
+}
+#write_button{
+  background-color: rgb(60, 61, 122);
+  padding: 7px 40px;
+  position: absolute;
+  right: 0%;
+}
+#write_button_text{
+  color: white;
+}
+
+
+
+
+/* ========== 페이징 스타일 ========== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.pagination > ul {
+  display: flex;
+  list-style: none;
+}
+
+.pagination a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: rgb(255, 87, 87);
+  border-color: rgb(255, 87, 87);
+  color: #fff;
+}
+
+.pagination .active {
+  background-color: #333;
+  border-color: #333;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  position: fixed;
+  top: 25%;
+  left: 40%;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content p {
+  margin: 50px 0px 20px 0px;
+  font-size: 20px;
+}
+#sendxbutton {
+  display: flex;
+  justify-content: end;
+  font-size: 30px;
+  background-color: white;
+  color: black;
+  margin-left: 350px;
+}

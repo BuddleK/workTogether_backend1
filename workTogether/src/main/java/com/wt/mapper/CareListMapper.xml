@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="careList">
+	<!-- 돌봄회원 리스트 모음집 -->
+	<!-- 프사, 이름, 날짜, 소개글, 간단지역 -->
+	<select id="listExecptHeart" resultType="CareListDTO">
+	
+	<![CDATA[
+		SELECT * FROM (
+	SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+		select u.users_number,
+		c.users_name, c.users_address_line1, c.care_intro_text,
+		c.care_profiles_photo_number,
+		fp.profiles_files_type, fp.profiles_files_name,
+		fp.profiles_files_path,
+		d.DAY_MONDAY, d.DAY_TUESDAY, d.DAY_WEDNESDAY,
+		d.DAY_THURSDAY, d.DAY_FRIDAY,
+		d.DAY_SATURDAY, d.DAY_SUNDAY
+		from
+		tbl_care_users c left join tbl_users u on c.users_number =
+		u.users_number
+		left join tbl_files_profiles fp on
+		c.care_profiles_photo_number =
+		fp.profiles_files_number
+		left join
+		tbl_day d on c.users_number = d.users_number
+		
+		) subquery
+	) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
+	]]>
+	</select>
+
+	<!-- 리스트에 있는 하나하나 번호 조회 -->
+	<select id="listNumber" resultType="int">
+		select c.care_number
+		from
+		tbl_care_users c left join tbl_users u on c.users_number =
+		u.users_number
+		left join tbl_files_profiles fp on
+		c.care_profiles_photo_number =
+		fp.profiles_files_number
+		left join
+		tbl_day d on c.users_number = d.users_number
+		LEFT OUTER JOIN tbl_day d ON
+		c.users_number = d.users_number
+	</select>
+
+	<!-- 로그인한 유저가 하트를 누른 유저에 대한 유저의 번호 조회 -->
+	<select id="listHeartNumber" resultType="int">
+		SELECT
+		HEARTS_CARE_NUMBER FROM tbl_hearts WHERE HEARTS_NORMAL_NUMBER =
+		#{userId}
+	</select>
+
+	
+
+	<!-- 전체 리스트 개수 -->
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(users_number)
+		FROM
+		tbl_care_users
+		WHERE CARE_ACCEPT = 'Y'
+	</select>
+
+	<select id="detail"  resultType="CareListDTO">
+		SELECT c.users_number, c.users_address_line1, u.users_type, u.users_id,
+		c.users_name, c.CARE_INTRO_TEXT, d.DAY_MONDAY, d.DAY_TUESDAY,
+		d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY,
+		d.DAY_SUNDAY,
+		f.PROFILES_FILES_PATH
+		FROM TBL_CARE_USERS c
+		LEFT JOIN TBL_DAY d ON c.users_number = d.users_number
+		LEFT JOIN tbl_users u ON u.users_number = c.USERS_NUMBER
+		LEFT JOIN TBL_FILES_PROFILES f ON c.USERS_NUMBER = f.PROFILES_FILES_NUMBER
+		WHERE c.CARE_ACCEPT =
+		'Y' 
+		and c.users_number = #{usersNumber}
+	</select>
+
+	
+	<!-- 하트 추가 -->
+	<!-- <insert id="addHeart" parameterType="CareHeartDTO">
+		INSERT INTO TBL_HEARTS
+		(HEARTS_NORMAL_NUMBER, HEARTS_CARE_NUMBER)
+		VALUES(#{normalNumber},
+		#{careNumber})
+	</insert>
+
+	하트 삭제
+	<delete id="deleteHeart" parameterType="int">
+		delete from TBL_HEARTS
+		where
+		hearts_normal_number =
+		#{heartsNormalNumber}
+	</delete>
+	
+	<insert id="startMessage" parameterType="CareHeartDTO">
+		INSERT INTO RICEBALL.TBL_MESSAGE
+		(MESSAGE_NUMBER, CARE_NUMBER, NORMAL_NUMBER, SENDER_TYPE, MESSAGE_CONTENTS, MESSAGE_DATE, IS_READ)
+		VALUES(seq_messages.nextval, #{careNumber}, #{normalNumber}, 'N', #{messageContent}, SYSDATE , 'N');
+	</insert> -->
+	
+
+</mapper>
+
+
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="careMark">
+	<!-- 찜 목록 전체 조회 -->
+	<select id="markAll" parameterType="CareMarkDTO">
+		<![CDATA[
+		SELECT * FROM (
+			SELECT ROWNUM AS rnum, subquery.*
+			FROM (
+				SELECT s.shops_name, s.shops_road_address, s.shops_phone
+				FROM tbl_shops_favorites f JOIN tbl_shops s 
+				ON f.favorites_shops_number = s.shops_number
+				where f.users_number = #{usersNumber}
+				ORDER BY f.favorites_created_date DESC
+			) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
+		]]>
+	</select>
+	
+	<!-- 찜 목록 전체 개수 -->
+	<select id="markTotal">
+		SELECT u.users_number, u.users_id,
+       	COUNT(f.favorites_number) AS favorites_count
+		FROM tbl_users u
+		LEFT JOIN tbl_shops_favorites f
+       	ON u.users_number = f.users_number
+		WHERE u.users_number = #{usersNumber}
+		GROUP BY u.users_number, u.users_id;
+	</select>
+		
+	
+	
+	<!-- 찜 삭제 쿼리 -->
+	<delete id="markDelete">
+		delete from tbl_shops_favorites
+		where favorites_number = #{rows}
+	</delete>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
