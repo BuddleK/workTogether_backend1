@@ -92,6 +92,7 @@ main {
   height: 418px;
   background-color: #ffffff;
   font-size: 24px;
+  margin : 20px auto;
   padding: 10px;
   overflow-y: auto;
   text-align: center;
