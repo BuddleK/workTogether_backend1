@@ -68,10 +68,12 @@
 		SELECT c.users_number, c.users_address_line1, u.users_type, u.users_id,
 		c.users_name, c.CARE_INTRO_TEXT, d.DAY_MONDAY, d.DAY_TUESDAY,
 		d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY,
-		d.DAY_SUNDAY
+		d.DAY_SUNDAY,
+		f.PROFILES_FILES_PATH
 		FROM TBL_CARE_USERS c
 		LEFT JOIN TBL_DAY d ON c.users_number = d.users_number
 		LEFT JOIN tbl_users u ON u.users_number = c.USERS_NUMBER
+		LEFT JOIN TBL_FILES_PROFILES f ON c.USERS_NUMBER = f.PROFILES_FILES_NUMBER
 		WHERE c.CARE_ACCEPT =
 		'Y' 
 		and c.users_number = #{usersNumber}

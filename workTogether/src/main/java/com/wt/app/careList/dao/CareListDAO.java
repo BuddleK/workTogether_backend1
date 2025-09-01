@@ -27,26 +27,31 @@ public class CareListDAO {
 	// 돌봄 총 개수 가져오기
 		public int getTotal() {
 			System.out.println("돌봄 총 개수 조회 - getTotal 메소드 실행");
+			// 페이지네이션을 위해 전체 돌봄 회원 수 총 조회
 			return sqlSession.selectOne("careList.getTotal");
 		}
 		
 	//	하트 추가
 		public void addHeart() {
+			// 메소드 실행 시 db에 하트 추가
 			sqlSession.insert("careList.addHeart");
 		}
 		
 	// 하트 삭제
 		public void deleteHeart() {
+			// 메소드 실행 시 db에 존재하는 하트 목록 삭제
 			sqlSession.delete("careList.deleteHeart");
 		}
 		
 	// 쪽지 보내기(첫 시도)
 		public void sendMsg(MessageSRDTO messageSTDTO) {
+			//insert로 쪽지 전송시 db에 저장
 			sqlSession.insert("message.insert", messageSTDTO);
 		}
 	// 돌봄 세부 페이지
 		public CareListDTO selectDetail(int usersCareNumber) {
 			System.out.println("돌봄 상세 페이지 조회");
+			// selectOne으로 가져온 db정보의 값 dto로 출력
 			return sqlSession.selectOne("careList.detail", usersCareNumber);
 		}
 	
