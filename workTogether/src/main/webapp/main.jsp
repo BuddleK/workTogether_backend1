@@ -25,7 +25,7 @@
       <div class="news_banner">
         <!-- 여기부터 슬라이드 박스 -->
         <ul class="slide-box">
-          <!-- 첫 번째 슬라이드 -->
+          <!-- 뉴스 배너 -->
           <c:forEach var="banner" items="${mainBanner}">
 	          <li>
 	            <div class="slide-img">
@@ -47,6 +47,7 @@
           <div class="recommend_title">오늘의 추천가게</div>
           <!-- 추천활동 목록 -->
           <ul class="recommend_activiies">
+          	<!-- 찜하기 많이 받은 가게  -->
           	<c:forEach var="shop" items="${mainShop}">
 	            <li>
 	            	<a href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${shop.getShopsNumber()}">
@@ -63,8 +64,8 @@
           <div class="recommend_title">게시판</div>
           <!-- 추천 게시물 목록 -->
           <ul class="board_list">
+          	<!-- 게시판 최신글 -->
           	<c:forEach var="post" items="${mainPost}">
-	            <!-- 추천 게시물 1 -->
 	            <li>
 	              <!-- 게시물 정보 -->
 	              <a href="${pageContext.request.contextPath}/post/postReadOk.po?postsNumber=${post.getPostsNumber()}">
@@ -89,7 +90,7 @@
         <div class="explore_care">
           <!-- 인기 돌봄회원 목록 -->
           <ul class="profile_list">
-            <!-- 인기 돌봄회원 1 -->
+            <!-- 하트 많이 받은 회원 -->
             <c:forEach var="heart" items="${mainHeart}">
 	            <li class="profile">
 	              <a href ="${pageContext.request.contextPath}/careList/careListDetailOk.cl?usersNumber=${heart.getUsersNumber()}" class="care_profile">
