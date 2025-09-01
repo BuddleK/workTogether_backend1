@@ -11,7 +11,7 @@
 	</select>
 	
 	<!-- 역 목록(이미지) 조회 -->
-	<select id="subwayStationImgSearch" resultType="map">
+	<select id="subwayStationImgSearch" resultType="SubwayStationDTO">
 		SELECT
 		    s.stations_name,
 		    f.stations_files_name,
@@ -25,7 +25,11 @@
 	
 	<!-- 역 목록 리스트 조회 -->
 	<select id="subwayStationSearch" resultType="SubwayStationDTO">
-		
+		SELECT
+			line_number,
+			stations_name
+		FROM TBL_SUBWAY_STATIONS
+		ORDER BY stations_name
 	</select>
 	
 	<!-- 역 세부정보 조회 -->
