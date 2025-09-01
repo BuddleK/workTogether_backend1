@@ -5,7 +5,7 @@
   <div id="header_upper">
     <span>
       <!-- 로고 -->
-      <a href="${pageContext.request.contextPath}/">
+      <a href="${pageContext.request.contextPath}/mainOk.main">
         <img src="${pageContext.request.contextPath}/assets/img/main/logoP.png">
       </a>
     </span>

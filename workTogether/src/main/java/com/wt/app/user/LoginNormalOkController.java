@@ -40,7 +40,7 @@ public class LoginNormalOkController implements Execute {
 			session.setAttribute("usersNumber", loggedInUser);
 			System.out.println(session.getAttribute("usersNumber"));
 			result.setRedirect(true);
-			result.setPath(request.getContextPath() + "/"); // 로그인 성공 후 메인으로
+			result.setPath(request.getContextPath() + "/mainOk.main"); // 로그인 성공 후 메인으로
 		} else {
 			System.out.println("유저 아이디가 없음");
 			result.setRedirect(false);
