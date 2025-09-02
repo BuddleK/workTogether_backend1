@@ -126,7 +126,24 @@ main {
 #reply_button p{
   font-size: 16px;
 }
-
+.button_delete{
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: red;
+  color: white;
+  margin-left: 5px;
+}
+.button_enroll{
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: #2F52AA;
+  color: white;
+  margin-left: 5px;
+}
 
 
 .del {
