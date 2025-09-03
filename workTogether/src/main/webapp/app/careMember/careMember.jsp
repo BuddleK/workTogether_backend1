@@ -80,10 +80,11 @@
 							<c:when test="${not empty careList }">
 								<c:forEach var="care" items="${careList}">
 									<li class="care_card">
-										<div class="heart_img_box">
+										<!-- <div class="heart_img_box">
 											<img draggable="false" class="heart_img"
 												src="./../../assets/img/careMember/heart_icon.png">
-										</div> <a href="${pageContext.request.contextPath}/careList/careListDetailOk.cl?usersNumber=${care.usersNumber}" class="profile">
+										</div> -->
+										 <a href="${pageContext.request.contextPath}/careList/careListDetailOk.cl?usersNumber=${care.usersNumber}" class="profile">
 											<div class="profile_pic_box">
 											<c:choose>
 												<c:when test="${not empty care.getProfilesFilesName() } ">
