@@ -90,12 +90,12 @@
 	
 	
 	<!-- 하트 추가 -->
-	 <insert id="addHeart" parameterType="CareHeartDTO">
+	 <!-- <insert id="addHeart" parameterType="CareHeartDTO">
 		INSERT INTO TBL_HEARTS
 		(HEARTS_NORMAL_NUMBER, HEARTS_CARE_NUMBER)
 		VALUES(#{normalNumber},
 		#{careNumber})
-	</insert> 
+	</insert> --> 
 
 	<!--
 	하트 삭제
