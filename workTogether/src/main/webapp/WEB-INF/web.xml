@@ -157,7 +157,7 @@
       <url-pattern>*.re</url-pattern>
    </servlet-mapping>
    
-      <servlet>
+   <servlet>
       <servlet-name>Main</servlet-name>
       <servlet-class>com.wt.app.main.MainFrontController</servlet-class>
    </servlet>
@@ -166,6 +166,17 @@
       <servlet-name>Main</servlet-name>
       <url-pattern>*.main</url-pattern>
    </servlet-mapping>
+   
+    <servlet>
+      <servlet-name>Heart</servlet-name>
+      <servlet-class>com.wt.app.careList.CareListHeartFrontController</servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>Heart</servlet-name>
+      <url-pattern>*.he</url-pattern>
+   </servlet-mapping>
+   
    
 
 </web-app>

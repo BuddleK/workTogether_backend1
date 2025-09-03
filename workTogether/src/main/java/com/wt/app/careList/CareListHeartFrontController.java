@@ -1,4 +1,4 @@
-package com.wt.app.comment;
+package com.wt.app.careList;
 
 import java.io.IOException;
 
@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Result;
 
 /**
- * Servlet implementation class FavoriteFrontController
+ * Servlet implementation class AdminFrontController
  */
-public class CommentFrontController extends HttpServlet {
+public class CareListHeartFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CommentFrontController() {
+    public CareListHeartFrontController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,32 +39,24 @@ public class CommentFrontController extends HttpServlet {
 		doProcess(request, response);
 	}
 	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		String target = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println(target);
+		System.out.println("CareListFrontController 현재 경로 : " + target);
 		Result result = new Result();
-
+		
 		switch (target) {
 		
-		case "/comment/commentListOk.co":
-			System.out.println("후기 목록 컨트롤러 진입");
-			result = new CommentListOkController().execute(request, response);
+		case "/careDetailHeart/careDetailHeartAddOk.he" : 
+			System.out.println("하트 추가 컨트롤러 진입");
+			result = new CareDetailHeartAddOkController().execute(request, response);
 			break;
-		case "/comment/commentWriteOk.co":
-			System.out.println("후기 작성 컨트롤러 진입");
-			result = new CommentWriteOkController().execute(request, response);
+		case "/careDetailHeart/careDetailHeartDeleteOk.he" : 
+			System.out.println("하트 삭제 컨트롤러 진입");
+			result = new CareDetailHeartDeleteOkController().execute(request, response);
 			break;
-		case "/comment/commentDeleteOk.co":
-		    System.out.println("후기 삭제 컨트롤러 진입");
-		    result = new CommentDeleteOkController().execute(request, response);
-		    break;
-		case "/comment/commentUpdateOk.co":
-		    System.out.println("후기 수정 컨트롤러 진입");
-		    result = new CommentUpdateOkController().execute(request, response);
-		    break;
 		}
-
+		
 		if (result != null) {
 			if (result.isRedirect()) {
 				response.sendRedirect(result.getPath());

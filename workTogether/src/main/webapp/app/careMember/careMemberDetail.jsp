@@ -30,11 +30,19 @@
 				<!-- 프로필 정보 영역 -->
 				<span class="profile_area"> <!-- 프로필 div박스 -->
 					<div class="profile">
-						<!-- 프로필 픽 박스 -->
+						<!-- 프로필 픽 박스 -->	
 						<div class="profile_pic_box">
 							<div id="heart_img_box">
-								<img draggable="false" onclick="switchHeart()" id="heart_img"
-									src="${pageContext.request.contextPath}/assets/img/careMember/heart_icon.png">
+							<c:choose>
+								<c:when test="${care.getHeartsNormalNumber() != 0 }">
+									<img draggable="false" id="heart_imgY"
+									src="${pageContext.request.contextPath}/assets/img/careMember/heart_icon.png">	
+								</c:when>
+								<c:otherwise>
+										<img draggable="false" id="heart_imgX"
+											src="${pageContext.request.contextPath}/assets/img/careMember/heart_icon.png">
+									</c:otherwise>
+							</c:choose>
 							</div>
 							<!-- 프로필 사진 -->
 							<div class="profile_pic_frame">
@@ -147,7 +155,7 @@
 						<!-- 후기 작성 박스 -->
 						<div class="input_box">
 							<!-- 후기 입력 창 -->
-							<input type="text" id="comment_text" placeholder="후기를 작성하세요">
+							<input type="text" id="comment_text" placeholder="후기를 작성하세요" maxlength="50">
 							<!-- 후기 작성 버튼 -->
 							<button id="comment_button">작성</button>
 						</div>
