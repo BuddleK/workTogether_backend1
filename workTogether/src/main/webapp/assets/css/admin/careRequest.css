@@ -53,7 +53,7 @@ main {
 }
 
 .board_column {
-  width: 90%;
+  width: 100%;
   height: 40px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -89,12 +89,15 @@ main {
   width: 10%;
   height: 95%;
 }
+
 .table {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  min-height: 200px; /* 테이블 높이 확보 */
+  align-items: stretch;
+  min-height: 200px;
 }
+
 .table_body {
   display: flex;
 }
@@ -108,7 +111,7 @@ main {
   } */
 
 .table_content {
-  width: 90%;
+  width: 100%;
 }
 
 .body_number {
@@ -141,9 +144,31 @@ main {
 }
 
 .paging_box {
-  width: 70%;
+  width: 100%;
   /* border: 1px solid black; */
-  margin: 0 auto;
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.paging .page_number a,
+.paging .prev a,
+.paging .next a {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+}
+
+.paging .page_number.active a {
+  background: #2f52aa;
+  color: #fff;
+  border-color: #2f52aa;
 }
 
 .paging {
@@ -151,4 +176,14 @@ main {
   gap: 24px;
   align-items: center;
   justify-content: center;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  margin: 0;
+  font-size: 16px;
+  color: #555;
 }

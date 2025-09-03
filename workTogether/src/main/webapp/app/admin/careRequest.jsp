@@ -28,92 +28,78 @@
 
 	<main>
 		<div id="sidebar"></div>
+
 		<section class="userManager">
 			<div class="searchcontent">
 				<div class="title">
 					<h1>돌봄 회원 신청 관리</h1>
 				</div>
 
-				<!-- 검색(추후 연결) -->
-				<form
-					action="${pageContext.request.contextPath}/admin/careCareer/list.ad"
-					method="get">
-					<div class="searchbox">
-						<select name="column" class="search_column">
-							<option value="number">돌봄 회원 신청 번호</option>
-							<option value="name">신청자 명</option>
-							<option value="id">신청자 아이디</option>
-							<option value="date">신청 날짜</option>
-							<option value="condition">상태</option>
-						</select> <input type="text" name="keyword" value="${param.keyword}" />
-						<button type="submit">검색</button>
-					</div>
-				</form>
-
+				<!-- 테이블 헤더 -->
 				<div class="table">
 					<div class="board_column">
-						<div class="board_head board_number">돌봄 회원 신청 번호</div>
-						<div class="board_head board_name">신청자 명</div>
-						<div class="board_head board_id">신청자 아이디</div>
-						<div class="board_head board_date">신청 날짜</div>
-						<div class="board_head board_condition">상태</div>
+						<div class="board_head board_number">회원번호</div>
+						<div class="board_head board_title">아이디</div>
+						<div class="board_head board_title">이름</div>
+						<div class="board_head board_date">신청일</div>
+						<div class="board_head board_title">상태</div>
 					</div>
 
-					<c:choose>
-						<c:when test="${empty list}">
-							<br>
-							<div class="empty">대기 중인 신청이 없습니다.</div>
-						</c:when>
-						<c:otherwise>
-							<c:forEach var="row" items="${list}">
-								<ul class="table_body">
-									<li class="body_number"><a
-										href="/App/admin/care/detail.ad?usersNumber=${row.usersNumber}&page=${page}">
-											${row.usersNumber} </a></li>
-									<li class="body_name"><a
-										href="/App/admin/care/detail.ad?usersNumber=${row.usersNumber}&page=${page}">
-											${row.usersName} </a></li>
-									<li class="body_id"><a
-										href="/App/admin/care/detail.ad?usersNumber=${row.usersNumber}&page=${page}">
-											${row.usersId} </a></li>
-									<li class="body_date"><a
-										href="/App/admin/care/detail.ad?usersNumber=${row.usersNumber}&page=${page}">
-											${row.usersCreatedDate} </a></li>
-									<li class="body_condition"><a
-										href="/App/admin/care/detail.ad?usersNumber=${row.usersNumber}&page=${page}">
-											<span class="status-badge">대기</span>
-									</a></li>
-								</ul>
-							</c:forEach>
-						</c:otherwise>
-					</c:choose>
+					<!-- 목록 -->
+					<div class="table_content">
+						<c:choose>
+							<c:when test="${empty list}">
+								<div class="empty"
+									style="height: 120px; display: flex; align-items: center; justify-content: center;">
+									대기 중인 신청이 없습니다.</div>
+							</c:when>
+							<c:otherwise>
+								<c:forEach var="row" items="${list}">
+									<ul class="table_body">
+										<li class="body_number"><c:out value="${row.usersNumber}" />
+										</li>
+										<li class="body_content"><c:out value="${row.usersId}" />
+										</li>
+										<li class="body_content"><c:out value="${row.usersName}" />
+										</li>
+										<li class="body_date"><c:out
+												value="${row.usersCreatedDate}" /></li>
+										<li class="body_content"><c:choose>
+												<c:when test="${row.careAccept eq 'W'}">대기중</c:when>
+												<c:when test="${row.careAccept eq 'Y'}">승인</c:when>
+												<c:otherwise>반려</c:otherwise>
+											</c:choose></li>
+									</ul>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					</div>
+
+					<!-- 페이징 -->
+					<c:if test="${not empty list}">
+						<div class="paging_box">
+							<ul class="paging">
+								<c:if test="${prev}">
+									<li class="prev"><a
+										href="${pageContext.request.contextPath}/admin/care/list.ad?page=${startPage - 1}">&lt;</a>
+									</li>
+								</c:if>
+
+								<c:forEach begin="${startPage}" end="${endPage}" var="p">
+									<li class="page_number ${p == page ? 'active' : ''}"><a
+										href="${pageContext.request.contextPath}/admin/care/list.ad?page=${p}">${p}</a>
+									</li>
+								</c:forEach>
+
+								<c:if test="${next}">
+									<li class="next"><a
+										href="${pageContext.request.contextPath}/admin/care/list.ad?page=${endPage + 1}">&gt;</a>
+									</li>
+								</c:if>
+							</ul>
+						</div>
+					</c:if>
 				</div>
-
-				<!-- 페이지네이션: AdminCareListController에서 넣어준 값 사용 -->
-				<c:if test="${not empty list}">
-					<div class="pagination">
-						<c:if test="${prev}">
-							<a href="/App/admin/care/list.ad?page=${startPage - 1}">&laquo;
-								Prev</a>
-						</c:if>
-
-						<c:forEach begin="${startPage}" end="${endPage}" var="p">
-							<c:choose>
-								<c:when test="${p == page}">
-									<span class="active">${p}</span>
-								</c:when>
-								<c:otherwise>
-									<a href="/App/admin/care/list.ad?page=${p}">${p}</a>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-
-						<c:if test="${next}">
-							<a href="/App/admin/care/list.ad?page=${endPage + 1}">Next
-								&raquo;</a>
-						</c:if>
-					</div>
-				</c:if>
 			</div>
 		</section>
 	</main>

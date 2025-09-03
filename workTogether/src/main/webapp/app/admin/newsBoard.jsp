@@ -62,6 +62,7 @@
 						<div class="board_head board_number">번호</div>
 						<div class="board_head board_title">제목</div>
 						<div class="board_head board_date">작성일</div>
+						<div class="board_head board_action">관리</div>
 					</div>
 
 					<!-- 목록 -->
@@ -72,20 +73,29 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach var="news" items="${newsList}">
-									<ul class="table_body">
-										<li class="body_number"><a
-											href="${pageContext.request.contextPath}/admin/news/newsReadOk.ad?newsNumber=${news.newsNumber}">
-												${news.newsNumber} </a></li>
-										<li class="body_content"><a
-											href="${pageContext.request.contextPath}/admin/news/newsReadOk.ad?newsNumber=${news.newsNumber}">
-												${news.newsTitle} </a></li>
-										<li class="body_date"><a
-											href="${pageContext.request.contextPath}/admin/news/newsReadOk.ad?newsNumber=${news.newsNumber}">
-												${news.newsCreatedDate} </a></li>
+									<c:url var="readUrl" value="/admin/news/newsReadOk.ad">
+										<c:param name="newsNumber" value="${news.newsNumber}" />
+									</c:url>
+
+									<ul class="table_body" id="news-row-${news.newsNumber}">
+										<li class="body_number"><a href="${readUrl}"> <c:out
+													value="${news.newsNumber}" />
+										</a></li>
+										<li class="body_content"><a href="${readUrl}"> <c:out
+													value="${news.newsTitle}" />
+										</a></li>
+										<li class="body_date"><a href="${readUrl}"> <c:out
+													value="${news.newsCreatedDate}" />
+										</a></li>
 										<li class="body_delete">
-											<button class="delete_btn" type="button"
-												onclick="modalDeleteNewsShow(${news.newsNumber})">
-												삭제</button>
+											<form method="post"
+												action="${pageContext.request.contextPath}/admin/news/newsDeleteOk.ad"
+												onsubmit="return confirm('정말 삭제하시겠어요?');">
+												<input type="hidden" name="newsNumber"
+													value="${news.newsNumber}" /> <input type="hidden"
+													name="page" value="${page}" />
+												<button type="submit" class="delete_btn">삭제</button>
+											</form>
 										</li>
 									</ul>
 								</c:forEach>
@@ -134,8 +144,8 @@
 	<div id="modalDeleteNews"></div>
 
 	<script>
-    // 세션으로 내려온 관리자 번호(필요시 사용)
-    let adminNumber = "${sessionScope.adminNumber}";
-  </script>
+		// 세션으로 내려온 관리자 번호(필요시 사용)
+		let adminNumber = "${sessionScope.adminNumber}";
+	</script>
 </body>
 </html>

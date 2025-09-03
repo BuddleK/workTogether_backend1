@@ -22,7 +22,6 @@
         </li>
       </ul>
     </div>
-    </a>
     <div class="board">
       <li class="side_attach">뉴스 게시글 관리</li>
       <ul class="side_menu side_news_board">
