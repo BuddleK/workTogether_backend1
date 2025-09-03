@@ -85,8 +85,16 @@
 												src="./../../assets/img/careMember/heart_icon.png">
 										</div> <a href="${pageContext.request.contextPath}/careList/careListDetailOk.cl?usersNumber=${care.usersNumber}" class="profile">
 											<div class="profile_pic_box">
-												<img class="profile_pic"
-													src="${pageContext.request.contextPath}/${care.getProfilesFilesPath() }/${care.getProfilesFilesName()}.${care.getProfilesFilesType()}">
+											<c:choose>
+												<c:when test="${not empty care.getProfilesFilesName() } ">
+													<img class="profile_pic"
+															src="${pageContext.request.contextPath}/${care.getProfilesFilesPath() }/${care.getProfilesFilesName()}.${care.getProfilesFilesType()}">
+												</c:when>
+												<c:otherwise>
+													<img class="profile_pic"
+													src="${pageContext.request.contextPath}/assets/img/careMember/basic.png">
+													</c:otherwise>
+											</c:choose>
 											</div>
 											
 											<div class="profile_name">

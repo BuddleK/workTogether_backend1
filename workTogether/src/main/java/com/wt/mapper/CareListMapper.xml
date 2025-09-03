@@ -5,13 +5,12 @@
 	<!-- 돌봄회원 리스트 모음집 -->
 	<!-- 프사, 이름, 날짜, 소개글, 간단지역 -->
 	<select id="listExecptHeart" resultType="CareListDTO">
-	
 	<![CDATA[
 		SELECT * FROM (
 	SELECT ROWNUM AS rnum, subquery.*
 		FROM (
 		select u.users_number,
-		c.users_name, c.users_address_line1, c.care_intro_text,
+		u.users_name, u.users_address_line1, c.care_intro_text,
 		c.care_profiles_photo_number,
 		fp.profiles_files_type, fp.profiles_files_name,
 		fp.profiles_files_path,
@@ -65,8 +64,8 @@
 	</select>
 
 	<select id="detail"  resultType="CareListDTO">
-		SELECT c.users_number, c.users_address_line1, u.users_type, u.users_id,
-		c.users_name, c.CARE_INTRO_TEXT, d.DAY_MONDAY, d.DAY_TUESDAY,
+		SELECT c.users_number, u.users_address_line1, u.users_type, u.users_id,
+		u.users_name, c.CARE_INTRO_TEXT, d.DAY_MONDAY, d.DAY_TUESDAY,
 		d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY,
 		d.DAY_SUNDAY,
 		f.profiles_files_number, f.profiles_files_name, f.PROFILES_FILES_PATH, f.profiles_files_type
