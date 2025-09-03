@@ -13,7 +13,7 @@ public class NormalSignDTO {
 //    users_number NUMBER NOT NULL UNIQUE,
 	
 	//일반 유저 테이블
-	private int usersNumber;
+	private long usersNumber;
 	private String usersId;
     private String usersPassword;
     private String usersType;
@@ -26,12 +26,10 @@ public class NormalSignDTO {
     private String usersAddressLine1;
     private String usersAddressLine2;
     private String normalUsersLevel;
-    
-    
-	public int getUsersNumber() {
+	public long getUsersNumber() {
 		return usersNumber;
 	}
-	public void setUsersNumber(int usersNumber) {
+	public void setUsersNumber(long usersNumber) {
 		this.usersNumber = usersNumber;
 	}
 	public String getUsersId() {
@@ -102,9 +100,6 @@ public class NormalSignDTO {
 				+ usersAddressLine1 + ", usersAddressLine2=" + usersAddressLine2 + ", normalUsersLevel="
 				+ normalUsersLevel + "]";
 	}
-	
-	
-	
-	
-	
+    
+    
 }

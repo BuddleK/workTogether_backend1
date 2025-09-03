@@ -31,9 +31,11 @@
 		resultType="int">
 		SELECT u.users_number
 		FROM tbl_users u
-		WHERE u.users_id = #{usersId}
+		WHERE u.users_id =
+		#{usersId}
 		AND u.users_password = #{usersPassword}
-		AND u.users_type = 'N'
+		AND u.users_type =
+		'N'
 	</select>
 
 	<select id="careLogin" parameterType="com.wt.app.dto.UsersDTO"
@@ -56,7 +58,7 @@
 		resultType="int">
 		SELECT COUNT(*) FROM tbl_users WHERE users_id = #{value}
 	</select>
-
+	<!-- 아이디 찾기 -->
 	<select id="findUserIdByNamePhone"
 		parameterType="com.wt.app.dto.FindIdDTO" resultType="string">
 		SELECT u.users_id
@@ -85,22 +87,12 @@
 		parameterType="com.wt.app.dto.FindPwDTO" resultType="long">
 		SELECT u.users_number
 		FROM tbl_users u
-		<choose>
-			<when
-				test="usersType != null and (usersType == 'N' or usersType == 'n')">
-				WHERE u.users_id = #{usersId}
-				AND u.users_name = #{usersName}
-				AND u.users_phone = #{usersPhone}
-				AND u.users_type = 'N'
-			</when>
-			<when
-				test="usersType != null and (usersType == 'C' or usersType == 'c')">
-				WHERE u.users_id = #{usersId}
-				AND u.users_name = #{usersName}
-				AND u.users_phone = #{usersPhone}
-				AND u.users_type = 'C'
-			</when>
-		</choose>
+		WHERE u.users_id = #{usersId}
+		AND u.users_name = #{usersName}
+		AND u.users_phone = #{usersPhone}
+		<if test="usersType != null and usersType != ''">
+			AND u.users_type = UPPER(#{usersType})  <!-- 'N' or 'C' -->
+		</if>
 		FETCH FIRST 1 ROWS ONLY
 	</select>
 

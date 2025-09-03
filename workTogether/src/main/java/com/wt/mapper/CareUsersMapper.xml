@@ -3,16 +3,18 @@
 
 <mapper namespace="CareUsersMapper">
 
-  <insert id="join" parameterType="com.wt.app.dto.CareUsersDTO">
-    INSERT INTO tbl_care_users (
-      users_number, care_intro_text, care_certificate_files_num,
-      care_passbook_files_num, care_profiles_photo_number,
-      care_accept
-    ) VALUES (
-      #{usersNumber}, #{careIntroText}, #{careCertificateFilesNum},
-      #{carePassbookFilesNum}, #{careProfilesPhotoNumber},
-      NVL(#{careAccept}, 'N')
-    )
-  </insert>
+	<insert id="join" parameterType="com.wt.app.dto.CareUsersDTO">
+		INSERT INTO tbl_care_users (
+		users_number, care_intro_text, care_certificate_files_num,
+		care_passbook_files_num, care_profiles_photo_number,
+		care_accept
+		)
+		VALUES 
+		(
+		#{usersNumber}, #{careIntroText},
+		#{careCertificateFilesNum}, #{carePassbookFilesNum},
+		#{careProfilesPhotoNumber}, NVL(#{careAccept}, 'N')
+		)
+	</insert>
 
 </mapper>

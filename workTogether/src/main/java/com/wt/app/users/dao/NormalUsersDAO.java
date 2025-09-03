@@ -14,12 +14,8 @@ public class NormalUsersDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	 public void insertNormalDetail(NormalUsersDTO normalusersdto) {
-	        sqlSession.insert("NormalUsersMapper.join", normalusersdto);
-	    }
-
 	 public void sign(NormalSignDTO dto) {
-	        sqlSession.insert("normalUsers.join", dto);
+	        sqlSession.insert("NormalUsersMapper.join", dto);
 	    }
 	
 }

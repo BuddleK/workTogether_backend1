@@ -1,13 +1,17 @@
 package com.wt.app.user;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.dto.NormalSignDTO;
+import com.wt.app.dto.UsersDTO;
 import com.wt.app.users.dao.NormalUsersDAO;
+import com.wt.app.users.dao.UsersDAO;
 
 public class NormalJoinOkController implements Execute {
 
@@ -17,40 +21,37 @@ public class NormalJoinOkController implements Execute {
 
         request.setCharacterEncoding("UTF-8");
 
+        String usersId = request.getParameter("usersId");
+        String usersPassword = request.getParameter("usersPassword");
         String usersName = request.getParameter("usersName");
         String usersEmail = request.getParameter("usersEmail");
         String usersPhone = request.getParameter("usersPhone");
         String usersPostsalCode = request.getParameter("usersPostsalCode");
         String usersAddressLine1 = request.getParameter("usersAddressLine1");
         String usersAddressLine2 = request.getParameter("usersAddressLine2");
-        String normalUsersLevel = request.getParameter("normalUsersLevel");
-        String usersNumberParam = request.getParameter("usersNumber");
 
+        UsersDTO usersDTO = new UsersDTO();
+        usersDTO.setUsersId(usersId);
+        usersDTO.setUsersPassword(usersPassword);
+        usersDTO.setUsersType("N");
+        
+        long usersNumber = new UsersDAO().join(usersDTO);
+        
         NormalSignDTO normalsignDTO = new NormalSignDTO();
+        normalsignDTO.setUsersNumber(usersNumber);
         normalsignDTO.setUsersName(usersName);
         normalsignDTO.setUsersEmail(usersEmail);
         normalsignDTO.setUsersPhone(usersPhone);
         normalsignDTO.setUsersPostsalCode(usersPostsalCode);
         normalsignDTO.setUsersAddressLine1(usersAddressLine1);
         normalsignDTO.setUsersAddressLine2(usersAddressLine2);
-
-        if (normalUsersLevel != null && !normalUsersLevel.isEmpty()) {
-        	normalsignDTO.setNormalUsersLevel(normalUsersLevel.trim());
-        }
-
-        if (usersNumberParam != null && !usersNumberParam.isEmpty()) {
-            try {
-            	normalsignDTO.setUsersNumber(Integer.parseInt(usersNumberParam));
-            } catch (NumberFormatException e) {
-                System.out.println("Normal usersNumber 파싱 실패: " + usersNumberParam);
-            }
-        }
+        normalsignDTO.setNormalUsersLevel("1");
 
         new NormalUsersDAO().sign(normalsignDTO); 
 
         Result result = new Result();
         result.setRedirect(true);
-        result.setPath(request.getContextPath() + "/users/login.us");
+        result.setPath(request.getContextPath() + "/users/loginNormalOk.us");
         return result;
     }
 }

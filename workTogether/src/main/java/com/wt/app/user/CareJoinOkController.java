@@ -9,70 +9,73 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.dto.CareSignDTO;
+import com.wt.app.dto.UsersDTO;
 import com.wt.app.users.dao.CareUsersDAO;
+import com.wt.app.users.dao.UsersDAO;
 
 public class CareJoinOkController implements Execute {
 
-    @Override
-    public Result execute(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	@Override
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-    	request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		Result result = new Result();
 
-        String usersName = request.getParameter("usersName");
-        String usersEmail = request.getParameter("usersEmail");
-        String usersPhone = request.getParameter("usersPhone");
-        String usersPostsalCode = request.getParameter("usersPostsalCode");
-        String usersAddressLine1 = request.getParameter("usersAddressLine1");
-        String usersAddressLine2 = request.getParameter("usersAddressLine2");
-        String careIntroText = request.getParameter("careIntroText");
-        String usersNumberParam = request.getParameter("usersNumber");
+		try {
+			// 공통 파라미터
+			String usersId = request.getParameter("usersId");
+			String usersPassword = request.getParameter("usersPassword");
+			String usersName = request.getParameter("usersName");
+			String usersEmail = request.getParameter("usersEmail");
+			String usersPhone = request.getParameter("usersPhone");
+			String usersPostsalCode = request.getParameter("usersPostsalCode");
+			String usersAddressLine1 = request.getParameter("usersAddressLine1");
+			String usersAddressLine2 = request.getParameter("usersAddressLine2");
 
-        String certParam = request.getParameter("careCertificateFilesNum");
-        String passParam = request.getParameter("carePassbookFilesNum");
-        String profParam = request.getParameter("careProfilesPhotoNumber");
+			// 돌봄 상세 파라미터
+			String careIntroText = request.getParameter("careIntroText");
+			String certParam = request.getParameter("careCertificateFilesNum");
+			String passParam = request.getParameter("carePassbookFilesNum");
+			String profParam = request.getParameter("careProfilesPhotoNumber");
 
-        CareSignDTO caresignDTO = new CareSignDTO();
-        caresignDTO.setUsersName(usersName);
-        caresignDTO.setUsersEmail(usersEmail);
-        caresignDTO.setUsersPhone(usersPhone);
-        caresignDTO.setUsersPostsalCode(usersPostsalCode);
-        caresignDTO.setUsersAddressLine1(usersAddressLine1);
-        caresignDTO.setUsersAddressLine2(usersAddressLine2);
-        caresignDTO.setCareIntroText(careIntroText);
+			// 1) 공통 users INSERT → PK(long) 획득
+			UsersDTO userDTO = new UsersDTO();
+			userDTO.setUsersId(usersId);
+			userDTO.setUsersPassword(usersPassword);
+			userDTO.setUsersType("C");
+			userDTO.setUsersName(usersName);
+			userDTO.setUsersEmail(usersEmail);
+			userDTO.setUsersPhone(usersPhone);
+			userDTO.setUsersPostsalCode(usersPostsalCode);
+			userDTO.setUsersAddressLine1(usersAddressLine1);
+			userDTO.setUsersAddressLine2(usersAddressLine2);
 
-        if (usersNumberParam != null && !usersNumberParam.isEmpty()) {
-            try {
-            	caresignDTO.setUsersNumber(Integer.parseInt(usersNumberParam)); // int 사용
-            } catch (NumberFormatException e) {
-                System.out.println("Care usersNumber 파싱 실패: " + usersNumberParam);
-            }
-        }
+			long usersNumber = new UsersDAO().join(userDTO);
 
-        if (certParam != null && !certParam.isEmpty()) {
-            try { 
-            	caresignDTO.setCareCertificateFilesNum(Long.parseLong(certParam)); 
-            	}
-            catch (NumberFormatException e) { 
-            	System.out.println("cert 파싱 실패: " + certParam); 
-            	}
-        }
-        
-        if (passParam != null && !passParam.isEmpty()) {
-            try { caresignDTO.setCarePassbookFilesNum(Long.parseLong(passParam)); }
-            catch (NumberFormatException e) { System.out.println("pass 파싱 실패: " + passParam); }
-        }
-        if (profParam != null && !profParam.isEmpty()) {
-            try { caresignDTO.setCareProfilesPhotoNumber(Long.parseLong(profParam)); }
-            catch (NumberFormatException e) { System.out.println("prof 파싱 실패: " + profParam); }
-        }
+			// 2) 돌봄 상세 INSERT (필요한 최소값만 세팅)
+			CareSignDTO caresignDTO = new CareSignDTO();
+			caresignDTO.setUsersNumber(usersNumber);
+			caresignDTO.setCareIntroText(careIntroText);
+			caresignDTO.setCareAccept("W"); // 대기 상태 기본값
 
-        new CareUsersDAO().sign(caresignDTO);
+			if (certParam != null && !certParam.isEmpty())
+				caresignDTO.setCareCertificateFilesNum(Long.parseLong(certParam));
+			if (passParam != null && !passParam.isEmpty())
+				caresignDTO.setCarePassbookFilesNum(Long.parseLong(passParam));
+			if (profParam != null && !profParam.isEmpty())
+				caresignDTO.setCareProfilesPhotoNumber(Long.parseLong(profParam));
 
-        Result result = new Result();
-        result.setRedirect(true);
-        result.setPath(request.getContextPath() + "/users/login.us");
-        return result;
-    }
+			new CareUsersDAO().sign(caresignDTO);
+			// 성공 → 로그인
+			result.setRedirect(true);
+			result.setPath(request.getContextPath() + "/users/login.us");
+			return result;
+
+		} catch (Exception e) {
+			result.setRedirect(true);
+			result.setPath(request.getContextPath() + "/app/sign/signCare.jsp?error=join");
+			return result;
+		}
+	}
 }
-
