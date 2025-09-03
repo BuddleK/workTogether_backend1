@@ -19,7 +19,7 @@ public class UsersDAO {
 	
 	 /** 회원가입 */
 	 public long join(UsersDTO usersDTO) {
-	        sqlSession.insert("UserMapper.insertUser", usersDTO); 
+	        sqlSession.insert("userMapper.insertUser", usersDTO); 
 	        return usersDTO.getUsersNumber();
 	    }
 
