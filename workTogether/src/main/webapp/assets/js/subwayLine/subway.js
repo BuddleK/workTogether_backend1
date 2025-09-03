@@ -1,62 +1,46 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const buttons = document.querySelectorAll('.subway_subwayLine button');
-  const stations = document.querySelectorAll('#station_list .station_name');
-  const listTitle = document.getElementById('station_list_title');
-  const listInner = document.querySelector('.station_list_inner')
-  
-  // 모든 역 데이터를 메모리에 저장
-  let stationData = [];
-  stations.forEach(station => {
-    stationData.push({
-      name: station.textContent.trim(),
-      line: parseInt(station.dataset.line),
-      element: station
-    });
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".subway_subwayLine button");
+  const mapSection = document.querySelector(".map_section");
+  const stationList = document.querySelector("#station_list");
 
-  // 버튼 클릭 이벤트
-  buttons.forEach(button => {
-    button.addEventListener('click', function () {
-      const clickedId = button.id;
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const lineNumber = btn.getAttribute("data-line-number"); 
+      const url = `/subway/subwayLine.sw?lineNumber=${lineNumber}`;
 
-      // 버튼 스타일 초기화
-      buttons.forEach(btn => btn.classList.remove('selected-btn'));
-      button.classList.add('selected-btn');
+      // 서버에서 새 JSP 받아오기
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const newDoc = parser.parseFromString(html, "text/html");
 
-      // 모든 역 숨기기
-      stations.forEach(station => station.style.display = "none");
-
-      if (clickedId === "all") {
-        listTitle.textContent = "전체 역 목록";
-
-        // 이름별 최소 호선만 표시
-        let minLineMap = {};
-        stationData.forEach(st => {
-          if (!(st.name in minLineMap) || st.line < minLineMap[st.name].line) {
-            minLineMap[st.name] = st;
+          // --- 노선도 영역 갱신 ---
+          const newMapSection = newDoc.querySelector(".map_section");
+          if (newMapSection) {
+            mapSection.innerHTML = newMapSection.innerHTML;
           }
-        });
 
-        Object.values(minLineMap).forEach(st => {
-          st.element.style.display = "block";
-        });
+          // --- 역 목록 영역 갱신 ---
+          const newStationList = newDoc.querySelector("#station_list");
+          if (newStationList) {
+            stationList.innerHTML = newStationList.innerHTML;
+          }
 
-        return;
-      }
+          // --- 노선도 이미지 토글 ---
+          const lineImgs = mapSection.querySelectorAll("[class^='subway_line']");
+          lineImgs.forEach(div => (div.style.display = "none"));
 
-      // 특정 호선 클릭
-      const lineNumber = parseInt(clickedId.replace("line", ""));
-      listTitle.textContent = button.textContent + " 역 목록";
-
-      // 선택한 노선 역 모두 표시
-      stationData.forEach(st => {
-        if (st.line === lineNumber) {
-          st.element.style.display = "block";
-        }
-      });
+          const selectedImg = mapSection.querySelector(
+            ".subway_line" + lineNumber + "_img"
+          );
+          if (selectedImg) {
+            selectedImg.style.display = "block";
+          } else {
+            console.warn(`선택한 노선(${lineNumber})의 이미지가 없습니다.`);
+          }
+        })
+        .catch(err => console.error("노선도/역 목록 로드 실패:", err));
     });
   });
-
-  // 기본: 전체 버튼 클릭
-  document.getElementById("all").click();
 });
