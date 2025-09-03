@@ -2,11 +2,29 @@ package com.wt.app.dto;
 
 public class FilesStationsDTO {
 	private int stationsFilesNumber;
+	private int stationsId;
 	private String stationsFilesType;
 	private String stationsFilesName;
 	private String stationsFilesPath;
 	private int stationsFilesSizeBytes;
 	private String stationsCreatedDate;
+	private int lineNumber;
+	
+	public int getStationsId() {
+		return stationsId;
+	}
+
+	public void setStationsId(int stationsId) {
+		this.stationsId = stationsId;
+	}
+
+	public int getLineNumber() {
+		return lineNumber;
+	}
+
+	public void setLineNumber(int lineNumber) {
+		this.lineNumber = lineNumber;
+	}
 
 	public int getStationsFilesNumber() {
 		return stationsFilesNumber;
@@ -58,10 +76,10 @@ public class FilesStationsDTO {
 
 	@Override
 	public String toString() {
-		return "FilesStationsDTO [stationsFilesNumber=" + stationsFilesNumber + ", stationsFilesType="
-				+ stationsFilesType + ", stationsFilesName=" + stationsFilesName + ", stationsFilesPath="
-				+ stationsFilesPath + ", stationsFilesSizeBytes=" + stationsFilesSizeBytes + ", stationsCreatedDate="
-				+ stationsCreatedDate + "]";
+		return "FilesStationsDTO [stationsFilesNumber=" + stationsFilesNumber + ", stationsId=" + stationsId
+				+ ", stationsFilesType=" + stationsFilesType + ", stationsFilesName=" + stationsFilesName
+				+ ", stationsFilesPath=" + stationsFilesPath + ", stationsFilesSizeBytes=" + stationsFilesSizeBytes
+				+ ", stationsCreatedDate=" + stationsCreatedDate + ", lineNumber=" + lineNumber + "]";
 	}
 
 }

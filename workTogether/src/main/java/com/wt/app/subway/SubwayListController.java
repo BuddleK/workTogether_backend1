@@ -21,16 +21,21 @@ public class SubwayListController implements Execute {
 		SubwayDAO subwayDAO = new SubwayDAO();
 		Result result = new Result();
 		
+		String lineNumber = request.getParameter("lineNumber");
+		if (lineNumber == null || lineNumber.isEmpty()) {
+		    lineNumber = "0"; // 전체
+		}
+		
 		//호선 가져오기
 		List<GetSubwayLineDTO> lines = subwayDAO.subwayLineSearch();
 		request.setAttribute("lines", lines);
 		
 		//알맞는 이미지 가져오기
-		List<SubwayStationDTO> imgStations = subwayDAO.subwayStationImgSearch();
+		List<SubwayStationDTO> imgStations = subwayDAO.subwayStationImgSearch(lineNumber);
 		request.setAttribute("imgStations", imgStations);
 
 		//역 명 가져오기
-		List<SubwayStationDTO> stations = subwayDAO.subwayStationSearch();
+		List<SubwayStationDTO> stations = subwayDAO.subwayStationSearch(lineNumber);
 		request.setAttribute("stations", stations);
 		
 		result.setPath("/app/subwayLine/subway.jsp");

@@ -11,8 +11,10 @@
 	</select>
 	
 	<!-- 역 목록(이미지) 조회 -->
-	<select id="subwayStationImgSearch" resultType="SubwayStationDTO">
+	<select id="subwayStationImgSearch" parameterType="int" resultType="SubwayStationDTO">
 		SELECT
+			s.stations_id,
+			s.line_number,
 		    s.stations_name,
 		    f.stations_files_name,
 		    f.stations_files_path
@@ -20,15 +22,17 @@
 		    TBL_SUBWAY_STATIONS s
 		LEFT JOIN tbl_files_stations f
 			ON s.stations_photo_id = f.stations_files_number
+		WHERE s.line_number = #{lineNumber}
 		ORDER BY s.stations_name
 	</select>
 	
 	<!-- 역 목록 리스트 조회 -->
-	<select id="subwayStationSearch" resultType="SubwayStationDTO">
+	<select id="subwayStationSearch" parameterType="int" resultType="SubwayStationDTO">
 		SELECT
 			line_number,
 			stations_name
 		FROM TBL_SUBWAY_STATIONS
+		WHERE line_number = #{lineNumber}
 		ORDER BY stations_name
 	</select>
 	
