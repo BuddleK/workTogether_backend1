@@ -72,16 +72,12 @@ main {
 
 }
 
-.map_section .subway_allline_img,
-.map_section .subway_dxline_img,
 .map_section [class^="subway_line"]  {
   text-align: center;
   justify-content: center;
-}
-
-.map_section .subway_allline_img {
   display: flex;
 }
+
 
 .map_section div {
   display: none;

@@ -26,13 +26,13 @@
 		<h1>지하철 노선도</h1>
 		<!-- 지하철 노선 버튼 -->
 		<div class="subway">
-			<div class="subway_subwayLine">
-				<button id="all">전체</button>
-				<c:forEach var="line" items="${lines}">
-					<button data-line-number="${line.lineNumber}"
-						data-line-name="${line.lineName}">${line.lineName}</button>
-				</c:forEach>
-			</div>
+		    <div class="subway_subwayLine">
+		        <c:forEach var="line" items="${lines}">
+		            <button data-line-number="${line.lineNumber}" data-line-name="${line.lineName}">
+		                ${line.lineName}
+		            </button>
+		        </c:forEach>
+		    </div>
 		</div>
 
 		<!-- 서초 전체 지하철 노선도 -->
@@ -40,12 +40,12 @@
 			<c:forEach var="station" items="${imgStations}">
 				<c:choose>
 					<c:when test="${empty station.stationsPhoto}">
-						<div>사진없음 stationId=${station.stationsId}</div>
+						<div>사진없음 lineNumber=${station.lineNumber}</div>
 						<c:set var="photo" value="${station.stationsPhoto}" />
 						<c:if test="${not empty photo.stationsFilesPath and not empty photo.stationsFilesName }">
 							<c:url var="imgUrl"	value="${photo.stationsFilesPath}${photo.stationsFilesName}" />
 							<div class="subway_line${station.lineNumber}_img">
-								<img src="${pageContext.request.contextPath}/assets/img/subwayLine/allline.png" alt="지하철노선도 사진">
+								<img src="${pageContext.request.contextPath}${imgUrl}" alt="지하철노선도 사진">
 							</div>
 						</c:if>
 					</c:when>
@@ -55,13 +55,20 @@
 		
 		<!-- 역 목록 (하나의 구조만 사용) -->
 		<div class="station_list" id="station_list">
-		    <h3 id="station_list_title">전체 역 목록</h3>
+		    <h3 id="station_list_title">
+		        <c:choose>
+		            <c:when test="${lineNumber eq '0' || empty lineNumber}">
+		                전체 역 목록
+		            </c:when>
+		            <c:otherwise>${lineNumber}호선 역 목록</c:otherwise>
+		        </c:choose>
+		    </h3>
 		    <div class="station_list_inner">
 		        <c:forEach var="station" items="${stations}">
 		            <div class="station_name" data-line="${station.lineNumber}">
-		               <a href="${pageContext.request.contextPath}/subway/subwayDetail.sw?stationId=${station.stationsId}">
-		                   ${station.stationsName}
-		               </a>
+		                <a href="${pageContext.request.contextPath}/subway/subwayDetail.sw?stationId=${station.stationsId}">
+		                    ${station.stationsName}
+		                </a>
 		            </div>
 		        </c:forEach>
 		    </div>
