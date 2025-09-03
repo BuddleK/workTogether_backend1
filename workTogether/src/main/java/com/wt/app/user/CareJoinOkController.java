@@ -59,6 +59,8 @@ public class CareJoinOkController implements Execute {
 			caresignDTO.setCareIntroText(careIntroText);
 			caresignDTO.setCareAccept("W"); // 대기 상태 기본값
 
+			Long cert = null, pass = null, prof = null;
+			
 			if (certParam != null && !certParam.isEmpty())
 				caresignDTO.setCareCertificateFilesNum(Long.parseLong(certParam));
 			if (passParam != null && !passParam.isEmpty())
@@ -66,13 +68,17 @@ public class CareJoinOkController implements Execute {
 			if (profParam != null && !profParam.isEmpty())
 				caresignDTO.setCareProfilesPhotoNumber(Long.parseLong(profParam));
 
+			if (cert == null) cert = 0L;
+			if (pass == null) pass = 0L;
+			
 			new CareUsersDAO().sign(caresignDTO);
 			// 성공 → 로그인
 			result.setRedirect(true);
-			result.setPath(request.getContextPath() + "/users/login.us");
+			result.setPath(request.getContextPath() + "/");
 			return result;
 
 		} catch (Exception e) {
+		    e.printStackTrace(); // ★ 원인 확인 필수
 			result.setRedirect(true);
 			result.setPath(request.getContextPath() + "/app/sign/signCare.jsp?error=join");
 			return result;
