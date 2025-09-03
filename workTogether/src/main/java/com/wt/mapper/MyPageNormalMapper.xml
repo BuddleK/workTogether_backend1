@@ -11,8 +11,8 @@
 	<!-- 회원정보 조회 -->
 	<select id="normalSearch" resultType="NormalModifyDTO">
 		SELECT 
-			n.USERS_NAME, n.NORMAL_USERS_LEVEL, n.USERS_POSTSAL_CODE, n.USERS_ADDRESS_LINE1, n.USERS_ADDRESS_LINE2,
-			n.USERS_PHONE, u.USERS_ID, n.USERS_EMAIL, u.USERS_PASSWORD
+			u.USERS_NAME, n.NORMAL_USERS_LEVEL, u.USERS_POSTSAL_CODE, u.USERS_ADDRESS_LINE1, u.USERS_ADDRESS_LINE2,
+			u.USERS_PHONE, u.USERS_ID, u.USERS_EMAIL, u.USERS_PASSWORD
 		FROM tbl_users u
 		JOIN tbl_normal_users n
 		  ON u.users_number = n.users_number
@@ -21,26 +21,23 @@
 
 	<!-- 회원정보 수정 -->
 	<update id="normalModify" parameterType="NormalModifyDTO">
-		UPDATE tbl_normal_users	n
-		SET (
-		n.normal_users_level,
-		n.users_postsal_code,
-		n.users_address_line1,
-		n.users_address_line2,
-		n.users_email
-		) = ( 
-		SELECT
-			#{normalUsersLevel},
-			#{usersPostCode},
-			#{usersAddrLine1},
-			#{usersAddrLine2}, 
-			#{usersEmail}
-		FROM dual
-		)
+	UPDATE tbl_users
+    SET users_postsal_code = #{usersPostCode},
+        users_address_line1 = #{usersAddrLine1},
+        users_address_line2 = #{usersAddrLine2},
+        users_email = #{usersEmail}
+    WHERE users_number = #{usersNumber}
+	</update>
+	
+	<!-- 회원레벨 수정 -->
+	<update id="normalLevelModify" parameterType="NormalModifyDTO">
+		UPDATE tbl_normal_users
+	    SET normal_users_level = #{normalUsersLevel}
+	    WHERE users_number = #{usersNumber}
 	</update>
 	
 	<!-- 찜한 목록 조회 -->
-	<select id="normalfavoriteListSearch" resultType="NormalFavoriteListDTO">
+	<select id="normalfavoriteListSearch" parameterType="int" resultType="NormalFavoriteListDTO">
 		SELECT 
 		    f.favorites_number,   
 		    s.shops_number,         
@@ -63,7 +60,7 @@
 			AND f.users_number = (
 				SELECT u.users_number
 		        FROM tbl_users u
-		        WHERE u.user_number = #{userNumber}
+		        WHERE u.user_number = #{usersNumber}
 			);
 	</delete>
 	
@@ -93,20 +90,20 @@
 	<!-- 내가 쓴 게시판 목록 조회 -->
 	<select id="normalPostsListSearch" parameterType="int" resultType="NormalPostsListDTO">
 		SELECT 
-		   	nu.users_name,       
+		   	n.users_name,       
 		    p.posts_title,       
 		    p.posts_created_date 
 		FROM tbl_posts p
-		JOIN TBL_normal_users u
-		    ON p.users_number = nu.users_number
-		WHERE p.users_number = #{userNumber};
+		JOIN TBL_normal_users n
+		    ON p.users_number = n.users_number
+		WHERE p.users_number = #{usersNumber};
 	</select>
 	
 	<!-- 내가 쓴 게시판 목록 삭제 -->
 	<delete id="normalPostsListDelete" parameterType="NormalPostsListDTO">
 		DELETE FROM tbl_posts
 		WHERE posts_number = #{postsNumber}
-			AND users_number = #{userNumber};
+			AND users_number = #{usersNumber};
 	</delete>
 	
 	<!-- 문의 등록 -->
@@ -133,6 +130,6 @@
 	<!-- 일반 회원 탈퇴 -->
 	<delete id="normalExit" parameterType="int">
 		DELETE FROM TBL_NORMAL_USERS
-		WHERE users_number = #{userNumber};
+		WHERE users_number = #{usersNumber};
 	</delete>
 </mapper>
