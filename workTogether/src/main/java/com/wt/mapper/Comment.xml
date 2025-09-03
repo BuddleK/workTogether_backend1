@@ -4,8 +4,8 @@
 	<select id="selectAll" resultType="CommentDTO">
 		select c.comments_number, c.normal_number, nu.users_name, c.care_number, c.comments_content, c.comments_created_date, c.comments_updated_date
 		from tbl_comments c
-		left join tbl_normal_users nu on c.normal_number = nu.users_number
-		where c.care_number = #{careNumber}
+		left join tbl_users nu on c.normal_number = nu.users_number
+		where c.care_number = #{careNumber} and nu.users_type = 'N'
 	</select>
 
 	<insert id="insert" parameterType="CommentDTO">
