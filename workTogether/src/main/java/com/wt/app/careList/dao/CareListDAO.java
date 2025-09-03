@@ -31,14 +31,7 @@ public class CareListDAO {
 			return sqlSession.selectOne("careList.getTotal");
 		}
 		
-	// 하트 검사 
-		public int selectHeartN (Map<String, Integer> numbers) {
-			return sqlSession.selectOne("careList.showHeartN", numbers) != null ? sqlSession.selectOne("careList.showHeartN", numbers) : -1;
-		}
-		
-		public int selectHeartC (Map<String, Integer> numbers) {
-			return sqlSession.selectOne("careList.showHeartC", numbers) != null ? sqlSession.selectOne("careList.showHeartC", numbers) : -1;
-		}
+
 		
 	// 쪽지 보내기(첫 시도)
 		public void sendMsg(MessageSRDTO messageSTDTO) {

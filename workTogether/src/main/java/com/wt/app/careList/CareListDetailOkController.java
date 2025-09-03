@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
+import com.wt.app.careList.dao.CareHeartDAO;
 import com.wt.app.careList.dao.CareListCommentsDAO;
 import com.wt.app.careList.dao.CareListDAO;
 import com.wt.app.dto.CareListDTO;
@@ -54,8 +55,10 @@ public class CareListDetailOkController implements Execute  {
 					numbers.put("normalNumber", normalUsersNumber);
 					numbers.put("careNumber", usersNumber);
 					
-					int heartsNoNum = careListDAO.selectHeartN(numbers);
-					int heartsCaNum = careListDAO.selectHeartC(numbers);
+					CareHeartDAO careHeartDAO = new CareHeartDAO();
+					
+					int heartsNoNum = careHeartDAO.selectHeartN(numbers);
+					int heartsCaNum = careHeartDAO.selectHeartC(numbers);
 					
 					System.out.println("no"+ heartsNoNum + "and" + heartsCaNum) ;
 					if(heartsNoNum != -1 && heartsCaNum != -1) {
