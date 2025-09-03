@@ -36,8 +36,8 @@ public class CareMatchingController implements Execute {
 		pageMap.put("endRow", endRow);
 
 		// 게시글 목록 조회
-		List<CareMarkDTO> matchingList = careMatchingDAO.matchingAll(pageMap);
-		request.setAttribute("matchingList", matchingList);
+//		List<CareMarkDTO> matchingList = careMatchingDAO.matchingAll(pageMap);
+//		request.setAttribute("matchingList", matchingList);
 
 		// 페이징 정보 설정
 		// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회
@@ -63,7 +63,7 @@ public class CareMatchingController implements Execute {
 		
 		System.out.println("====페이징정보 확인====");
 		System.out.println("pageMap : " + pageMap);
-		System.out.println("markList : " + markList);
+//		System.out.println("markList : " + markList);
 		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
 		
