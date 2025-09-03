@@ -6,16 +6,23 @@
    <select id="selectAll" resultType="PostsListDTO">
    <![CDATA[
 	SELECT * FROM (
-		SELECT ROWNUM AS rnum, subquery.*
-		FROM (
-			SELECT posts_number, posts_title, users_number,
-			nvl((SELECT users_name FROM riceball.TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM riceball.TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)) as users_name,
-			posts_view_count, to_char(posts_created_date, 'yyyy-mm-dd') as posts_created_date
-			FROM riceball.tbl_posts p
-			ORDER BY posts_created_date DESC
-		) subquery
+		SELECT ROWNUM AS RNUM, SUBQUERY.*
+		FROM(
+			SELECT P.POSTS_NUMBER, P.POSTS_TITLE, P.USERS_NUMBER, U.USERS_NAME, P.POSTS_VIEW_COUNT, TO_CHAR(P.POSTS_CREATED_DATE, 'YYYY-MM-DD') AS POSTS_CREATED_DATE, P.POSTS_REPORT_COUNT 
+			FROM RICEBALL.TBL_POSTS P JOIN RICEBALL.TBL_USERS U ON P.USERS_NUMBER = U.USERS_NUMBER
+			ORDER BY P.POSTS_CREATED_DATE DESC
+		) SUBQUERY
 	) WHERE rnum BETWEEN #{startRow} AND #{endRow}
    ]]>
+   </select>
+
+   <!-- 게시글 상세(1건조회) -->
+   <select id="select" parameterType="int" resultType="PostsDTO">
+	<![CDATA[      
+		SELECT P.POSTS_NUMBER, P.POSTS_TITLE, P.POSTS_CONTENT, P.USERS_NUMBER, U.USERS_NAME, P.POSTS_VIEW_COUNT, TO_CHAR(P.POSTS_CREATED_DATE, 'YYYY-MM-DD') AS POSTS_CREATED_DATE, TO_CHAR(P.POSTS_UPDATED_DATE, 'YYYY-MM-DD') AS POSTS_UPDATED_DATE, P.POSTS_REPORT_COUNT 
+		FROM RICEBALL.TBL_POSTS P JOIN RICEBALL.TBL_USERS U ON P.USERS_NUMBER = U.USERS_NUMBER
+		WHERE POSTS_NUMBER = #{posts_number}
+     ]]>
    </select>
    
    <!-- 게시글 총 개수 -->
@@ -39,7 +46,7 @@
       MyBatis의 useGeneratedKeys 속성과 CURRVAL를 조합하여 시퀀스 값을 객체 필드에 매핑    -->
    <insert id="insert" parameterType="PostsDTO">
       <selectKey keyProperty="postsNumber" resultType="int" order="BEFORE">
-         SELECT seq_board_posts.nextval FROM dual
+         SELECT seq_posts.nextval FROM dual
       </selectKey>
       INSERT INTO tbl_posts(posts_number, posts_title, users_number, posts_content, posts_view_count, posts_created_date, posts_updated_date, posts_report_count)
       VALUES(#{postsNumber}, #{postsTitle}, #{usersNumber}, #{postsContent}, 0, SYSDATE, null, 0)
@@ -47,8 +54,8 @@
    
    <!-- 조회수 추가 쿼리 -->
 	<update id="updateReadCount" parameterType="int">
-		update tbl_posts set posts_view_count = posts_view_count + 1
-		where posts_number = #{posts_number}
+		UPDATE TBL_POSTS SET POSTS_VIEW_COUNT = POSTS_VIEW_COUNT + 1
+		WHERE POSTS_NUMBER = #{postsNumber}
    </update>
    
    <!-- 게시글 삭제 쿼리 -->
@@ -62,17 +69,6 @@
 		SET posts_title=#{postsTitle}, POSTS_CONTENT = #{postsContent}, POSTS_UPDATED_DATE = SYSDATE
 		where POSTS_NUMBER = #{postsNumber}
    </update>
-
-   <!-- 게시글 상세(1건조회) -->
-   <select id="select" parameterType="int" resultType="PostsDTO">
-		<![CDATA[      
-		SELECT posts_number, posts_title, users_number,
-		nvl((SELECT users_name FROM riceball.TBL_CARE_USERS WHERE USERS_NUMBER = p.users_number), (SELECT users_name FROM riceball.TBL_NORMAL_USERS WHERE USERS_NUMBER = p.users_number)) as users_name,
-		posts_view_count, to_char(posts_created_date, 'yyyy-mm-dd') as posts_created_date, to_char(posts_updated_date, 'yyyy-mm-dd') as posts_updated_date, POSTS_CONTENT 
-		FROM riceball.tbl_posts p
-		WHERE posts_number = #{posts_number}
-      ]]>
-   </select>
    
    	<!-- 게시글 검색 쿼리 -->
    	<select id="search" parameterType="String" resultType="PostsListDTO">
