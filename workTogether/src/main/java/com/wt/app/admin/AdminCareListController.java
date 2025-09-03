@@ -21,49 +21,54 @@ public class AdminCareListController implements Execute {
 			throws ServletException, IOException {
 		System.out.println("====AdminCareListController 실행====");
 
-		Result result = new Result();
+		request.setCharacterEncoding("UTF-8");
+        Result result = new Result();
+        AdminDAO dao = new AdminDAO();
 
-		AdminDAO adminCareDAO = new AdminDAO();
+        int page = 1;
+        String temp = request.getParameter("page");
+        try { if (temp != null && !temp.isEmpty()) page = Integer.parseInt(temp); } catch (Exception ignore) {}
+        if (page < 1) page = 1;
 
-		String temp = request.getParameter("page");
-		int page = (temp == null) ? 1 : Integer.parseInt(temp);
-		int rowCount = 7;
-		int pageCount = 5;
+        int rowCount = 7;   // 한 페이지당 행 수
+        int pageCount = 5;  // 페이징 블록 크기
 
-		int startRow = (page - 1) * rowCount + 1;
-		int endRow = startRow + rowCount - 1;
+        int total = dao.carePendingCount(); // ★ 매퍼가 'W' 기준으로 카운트하도록 수정되어 있어야 함
+        int realEndPage = Math.max(1, (int)Math.ceil(total / (double)rowCount));
+        if (page > realEndPage) page = realEndPage;
 
-		Map<String, Integer> pageMap = new HashMap<>();
-		pageMap.put("startRow", startRow);
-		pageMap.put("endRow", endRow);
+        int startRow = (page - 1) * rowCount + 1;
+        int endRow   = startRow + rowCount - 1;
 
-		List<AdminCareSignupDTO> list = adminCareDAO.pendingListPaged(pageMap);
-		int total = adminCareDAO.carePendingCount();
+        Map<String, Integer> pageMap = new HashMap<>();
+        pageMap.put("startRow", startRow);
+        pageMap.put("endRow", endRow);
 
-		int realEndPage = (int) Math.ceil(total / (double) rowCount);
-		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount);
-		int startPage = endPage - (pageCount - 1);
-		endPage = Math.min(endPage, realEndPage);
-		boolean prev = startPage > 1;
-		boolean next = endPage < realEndPage;
+        List<AdminCareSignupDTO> list = dao.pendingListPaged(pageMap);
 
-		request.setAttribute("list", list);
-		request.setAttribute("page", page);
-		request.setAttribute("startPage", startPage);
-		request.setAttribute("endPage", endPage);
-		request.setAttribute("prev", prev);
-		request.setAttribute("next", next);
-		request.setAttribute("total", total);
+        int endPage = (int)(Math.ceil(page / (double)pageCount) * pageCount);
+        int startPage = endPage - (pageCount - 1);
+        endPage = Math.min(endPage, realEndPage);
+        if (startPage < 1) startPage = 1;
 
-		System.out.println("====페이징정보 확인====");
-		System.out.println("pageMap : " + pageMap);
-		System.out.println("list size : " + (list == null ? 0 : list.size()));
-		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
+        boolean prev = startPage > 1;
+        boolean next = endPage < realEndPage;
 
-		// 이동 경로 (JSP 경로는 프로젝트 구조에 맞게)
-		result.setPath("/app/admin/careRequest.jsp");
-		result.setRedirect(false);
-		return result;
-	}
+        request.setAttribute("list", list);
+        request.setAttribute("page", page);
+        request.setAttribute("startPage", startPage);
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("prev", prev);
+        request.setAttribute("next", next);
+        request.setAttribute("rowCount", rowCount);
+        request.setAttribute("total", total);
 
+        System.out.println("pageMap : " + pageMap);
+        System.out.println("list size : " + (list == null ? 0 : list.size()));
+        System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
+
+        result.setPath("/app/admin/careRequest.jsp"); // 여기에 렌더링
+        result.setRedirect(false);
+        return result;
+    }
 }

@@ -70,6 +70,7 @@ public class AdminFrontController extends HttpServlet {
 			break;
 
 		/* =============== [News] =============== */
+			
 		case "/admin/news/newsListOk.ad":
 			System.out.println("뉴스 목록 처리 요청");
 			result = new AdminNewsListOkController().execute(request, response);

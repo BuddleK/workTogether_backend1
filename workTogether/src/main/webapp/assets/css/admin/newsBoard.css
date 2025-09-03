@@ -31,6 +31,24 @@ main {
   display: flex;
 }
 
+.table_content {
+  position: relative;
+  min-height: 160px;
+}
+
+.table_content .empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+}
+
 .search_column {
   border: 1px solid black;
 }
@@ -152,4 +170,15 @@ main {
   color: white;
   padding: 4px 10px;
   cursor: pointer;
+}
+
+.add {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.add .add_btn {
+  display: inline-block;
 }

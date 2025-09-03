@@ -19,52 +19,49 @@ public class AdminNewsReadOkController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Result result = new Result();
-		AdminDAO adminDAO = new AdminDAO();
+		request.setCharacterEncoding("UTF-8");
+        Result result = new Result();
+        AdminDAO adminDAO = new AdminDAO();
 
-		//newsNumber가 빈 문자열이거나 null인경우
-		String newsNumberStr = request.getParameter("newsNumber");
-		// 파라미터가 없거나 비어있으면 목록 페이지로 리다이렉트 (이전 BoardReadOkController와 유사)
-		if (newsNumberStr == null || newsNumberStr.trim().isEmpty()) {
-			System.out.println("newsNumber 값이 없어 뉴스 목록으로 이동합니다.");
-			result.setPath("/admin/news/newsList.jsp");
-			result.setRedirect(true);
-			return result;
-		}
+        String newsNumberStr = request.getParameter("newsNumber");
+        if (newsNumberStr == null || newsNumberStr.trim().isEmpty()) {
+            result.setRedirect(true);
+            result.setPath(request.getContextPath() + "/admin/news/newsListOk.ad");
+            return result;
+        }
 
-		int newsNumber = 0;
-		
-		//숫자를 변환할 수 없는 문자열 입력시 예외처리로 프로그램은 돌아감
-		try {
-			newsNumber = Integer.parseInt(newsNumberStr);
-		} catch (NumberFormatException e) {
-			System.err.println("잘못된 뉴스 번호 형식: " + newsNumberStr + ". 뉴스 목록으로 이동합니다.");
-			result.setPath("/admin/news/newsList.jsp");
-			result.setRedirect(true);
-			return result;
-		}
+        int newsNumber;
+        try {
+            newsNumber = Integer.parseInt(newsNumberStr);
+        } catch (NumberFormatException e) {
+            result.setRedirect(true);
+            result.setPath(request.getContextPath() + "/admin/news/newsListOk.ad");
+            return result;
+        }
 
-		//DB에서 뉴스 상세 정보 가져오기
-		AdminNewsBoardDTO newsDetail = adminDAO.select(newsNumber);
+        AdminNewsBoardDTO news;
+        try {
+            news = adminDAO.select(newsNumber);
+        } catch (Exception e) {
+            result.setRedirect(true);
+            result.setPath(request.getContextPath() + "/admin/news/newsListOk.ad");
+            return result;
+        }
 
-		//뉴스 게시글이 존재하지 않을 경우 처리
-		if (newsDetail == null) {
-			System.out.println("존재하지 않는 뉴스 번호입니다: " + newsNumber + ". 뉴스 목록으로 이동합니다.");
-			result.setPath("/admin/news/newsList.jsp");
-			result.setRedirect(true);
-			return result;
-		}
+        if (news == null) {
+            result.setRedirect(true);
+            result.setPath(request.getContextPath() + "/admin/news/newsListOk.ad");
+            return result;
+        }
 
-		//첨부파일 가져오기 (파일은 하나만, 없어도 괜찮음)
-		FileNoticeDTO fileDetail = adminDAO.selectFileNotice(newsNumber);
-		System.out.println("뉴스 첨부파일: " + (fileDetail != null ? fileDetail.getNoticeFilesName() : "없음"));
+        String page = request.getParameter("page");
+        if (page != null && !page.isEmpty()) {
+            request.setAttribute("page", page);
+        }
 
-		request.setAttribute("newsDetail", newsDetail);
-		request.setAttribute("fileDetail", fileDetail);
-
-		result.setPath("//admin/news/newsRead.jsp");
-		result.setRedirect(false);
-		return result;
-	}
-
+        request.setAttribute("news", news);
+        result.setRedirect(false);
+        result.setPath("/app/admin/newsBoardDetail.jsp");
+        return result;
+    }
 }

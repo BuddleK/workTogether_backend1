@@ -1,10 +1,12 @@
 package com.wt.app.dto;
 
 public class AdminNewsBoardListDTO {
-	private int newsNumber;			// 뉴스 번호
-    private String newsTitle;		// 뉴스 제목
-    private String adminName;       // 관리자 이름
-    private String newsCreatedDate; // 작성 날짜
+	private int    newsNumber;
+    private String newsTitle;
+    private String newsLinkUrl;      // ← 목록에도 필요 (매퍼에서 SELECT 함)
+    private String adminName;
+    private String newsCreatedDate;  // ← TO_CHAR로 받음
+    private String newsUpdatedDate;
 	public int getNewsNumber() {
 		return newsNumber;
 	}
@@ -16,6 +18,12 @@ public class AdminNewsBoardListDTO {
 	}
 	public void setNewsTitle(String newsTitle) {
 		this.newsTitle = newsTitle;
+	}
+	public String getNewsLinkUrl() {
+		return newsLinkUrl;
+	}
+	public void setNewsLinkUrl(String newsLinkUrl) {
+		this.newsLinkUrl = newsLinkUrl;
 	}
 	public String getAdminName() {
 		return adminName;
@@ -29,12 +37,17 @@ public class AdminNewsBoardListDTO {
 	public void setNewsCreatedDate(String newsCreatedDate) {
 		this.newsCreatedDate = newsCreatedDate;
 	}
+	public String getNewsUpdatedDate() {
+		return newsUpdatedDate;
+	}
+	public void setNewsUpdatedDate(String newsUpdatedDate) {
+		this.newsUpdatedDate = newsUpdatedDate;
+	}
 	@Override
 	public String toString() {
-		return "AdminNewsBoardListDTO [newsNumber=" + newsNumber + ", newsTitle=" + newsTitle + ", adminName="
-				+ adminName + ", newsCreatedDate=" + newsCreatedDate + "]";
+		return "AdminNewsBoardListDTO [newsNumber=" + newsNumber + ", newsTitle=" + newsTitle + ", newsLinkUrl="
+				+ newsLinkUrl + ", adminName=" + adminName + ", newsCreatedDate=" + newsCreatedDate
+				+ ", newsUpdatedDate=" + newsUpdatedDate + "]";
 	}
 	
-    
-
 }
