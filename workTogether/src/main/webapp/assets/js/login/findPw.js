@@ -17,7 +17,7 @@ function startTimer(sec = 60) {
     if (timer) timer.innerHTML = `<p>${left}</p>`;
     if (left === 0) {
       clearInterval(_timerId);
-      sessionStorage.removeItem(CODE_KEY); // 만료 시 코드 폐기
+      sessionStorage.removeItem(CODE_KEY); 
       if (timer) timer.innerHTML = `<p>만료</p>`;
     }
   }, 1000);
@@ -26,7 +26,6 @@ function startTimer(sec = 60) {
 function sendMsg(e) {
   e?.preventDefault();
 
-  // 무작위 6자리 생성 + 저장
   const code = generateCode();
   sessionStorage.setItem(CODE_KEY, code);
   alert(`인증번호 "${code}" 를 입력하세요`);
@@ -74,8 +73,6 @@ async function checkId(e) {
   const usersId = (input?.value || "").trim();
   if (!usersId) return;
 
-  // /users/checkIdOk.us -> { available: true/false }
-  // 비번 찾기는 "존재해야" 정상이므로 available === false 가 정상
   try {
     const res = await fetch(`${CTX}/users/checkIdOk.us`, {
       method: 'POST',
@@ -100,7 +97,6 @@ function nextPg(e) {
   e?.preventDefault();
 
   const input2 = document.getElementById("get_id");
-  // 라디오 name이 'usersType'로 바뀐 페이지도 대비
   const checkedRadio = document.querySelector('input[name="usersType"]:checked') 
                     || document.querySelector('input[name="type"]:checked');
   const nameInput = document.getElementById("name_input");
@@ -109,8 +105,7 @@ function nextPg(e) {
   const idOk    = !!(input2 && input2.value.trim());
   const nameOk  = !!(nameInput && nameInput.value.trim());
   const phoneOk = !!(phoneInput && phoneInput.value.trim());
-  const codeOk  = checkMsg(); // 입력/저장 코드 일치 재검사
-
+  const codeOk  = checkMsg();
   if (!idOk || !nameOk || !phoneOk || !checkedRadio) {
     alert("이름/아이디/휴대전화/회원유형을 입력해주세요.");
     return;
@@ -120,11 +115,9 @@ function nextPg(e) {
     return;
   }
 
-  // ✅ 폼 제출 (/users/findPwOk.us 로 가도록 JSP의 form action 설정 필수)
   document.querySelector("form")?.submit();
 }
 
-// 전역 바인딩 (onclick 대응)
 window.sendMsg = sendMsg;
 window.checkMsg = checkMsg;
 window.checkId  = checkId;

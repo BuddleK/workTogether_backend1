@@ -5,9 +5,14 @@
 
     <insert id="join" parameterType="com.wt.app.dto.NormalUsersDTO">
     INSERT INTO tbl_normal_users (
-      users_number, normal_users_level
+        users_number, users_name, users_email,
+        users_phone, users_postsal_code,
+        users_address_line1, users_address_line2, normal_users_level
     ) VALUES (
-      #{usersNumber}, #{normalUsersLevel}
+        #{usersNumber}, #{usersName}, #{usersEmail},
+        #{usersPhone}, #{usersPostsalCode},
+        #{usersAddressLine1}, #{usersAddressLine2},
+        #{normalUsersLevel}
     )
   </insert>
 
