@@ -1,7 +1,7 @@
 package com.wt.app.dto;
 
 public class NormalModifyDTO {
-	private int UserNumber;
+	private int usersNumber;
 	private int normalNumber;
 	private String usersName;
 	private String usersId;
@@ -13,12 +13,12 @@ public class NormalModifyDTO {
 	private String usersEmail;
 	private String usersPassword;
 
-	public int getUserNumber() {
-		return UserNumber;
+	public int getusersNumber() {
+		return usersNumber;
 	}
 
-	public void setUserNumber(int userNumber) {
-		UserNumber = userNumber;
+	public void setusersNumber(int usersNumber) {
+		usersNumber = usersNumber;
 	}
 
 	public int getNormalNumber() {
@@ -103,7 +103,7 @@ public class NormalModifyDTO {
 
 	@Override
 	public String toString() {
-		return "NormalModifyDTO [UserNumber=" + UserNumber + ", normalNumber=" + normalNumber + ", usersName="
+		return "NormalModifyDTO [usersNumber=" + usersNumber + ", normalNumber=" + normalNumber + ", usersName="
 				+ usersName + ", usersId=" + usersId + ", normalUsersLevel=" + normalUsersLevel + ", usersPostCode="
 				+ usersPostCode + ", usersAddrLine1=" + usersAddrLine1 + ", usersAddrLine2=" + usersAddrLine2
 				+ ", usersPhone=" + usersPhone + ", usersEmail=" + usersEmail + ", usersPassword=" + usersPassword
