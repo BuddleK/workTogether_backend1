@@ -30,8 +30,8 @@ public class PostWriteOkController implements Execute{
 		System.out.println("memberNumber : " + memberNumber);
 		
 		if(memberNumber == null) {
-			System.out.println("오류 : 로그인 왼 사용자가 없습니다");
-			response.sendRedirect("/app/login/login.jsp");
+			System.out.println("오류 : 로그인 된 사용자가 없습니다");
+			response.sendRedirect("/app/login/loginNormal.jsp");
 			return null;
 		}
 		

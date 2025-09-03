@@ -1,6 +1,8 @@
 package com.wt.app.posts;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,17 +22,39 @@ public class PostReportController implements Execute{
 		PostsDAO postsDAO = new PostsDAO();
 		PostsDTO postsDTO = new PostsDTO();
 		Result result = new Result();
-		HttpSession session = request.getSession();
-		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
+		
+//		HttpSession session = request.getSession();
+//		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
+		
+		Integer memberNumber = (Integer)request.getSession().getAttribute("memberNumber");
+		int authorNumber = Integer.parseInt(request.getParameter("postsUsersNumber"));
+		int postNumber = Integer.parseInt(request.getParameter("postsNumber"));
 		
 		System.out.println("===============신고컨트롤~~~================");
+
+		System.out.println("memberNumber : " + memberNumber);
+		System.out.println("authorNumber : " + authorNumber);
+		System.out.println("postNumber : " + postNumber);
 		
+		if(memberNumber == null) {
+			System.out.println("오류 : 로그인 된 사용자가 없습니다");
+			response.sendRedirect("/app/login/loginNormal.jsp");
+			return null;
+		}
 		
-		//신고를 한 상태인지 확인해야 함
-		//DAO에 신고여부 확인 함수 추가 필요
+		if((int)memberNumber == authorNumber) {
+			System.out.println("자기가 쓴 글은 신고할 수 없음");
+			response.sendRedirect("/post/postReadOk.po?postsNumber=" + request.getParameter("postsNumber"));
+			return null;
+		}
 		
-		//신고가 안 되어 있다면~~~~~
-		// 신고 테이블에 신고 행 추가, 게시글 신고 수 업데이트.
+		Map<String, Integer> reportMap = new HashMap<>();
+		reportMap.put("postsNumber", postNumber);
+		reportMap.put("usersNumber", authorNumber);
+		
+		int reCount = postsDAO.checkReport(reportMap);
+		
+		System.out.println("신고 수 : " + reCount);
 		
 		
 //		String title = request.getParameter("postTitle");

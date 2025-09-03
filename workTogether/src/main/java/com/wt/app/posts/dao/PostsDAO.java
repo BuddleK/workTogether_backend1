@@ -32,6 +32,12 @@ public class PostsDAO {
 		return sqlSession.selectOne("posts.getTotal");
 	}
 	
+//	신고한 내역이 있는지 확인 0 또는 1 반환
+	public int checkReport(Map<String, Integer> reportMap) {
+		System.out.println("신고한 내역이 있는지 확인 - checkReport 메소드 실행");
+		return sqlSession.selectOne("posts.checkReport", reportMap);
+	}
+	
 //	게시글 추가 메소드
 	// 게시글 추가 후 자동으로 생성된 boardNumber 반환 -> 파일 테이블에서도 써야하기 때문에
 	public int insertPosts(PostsDTO postsDTO) {
