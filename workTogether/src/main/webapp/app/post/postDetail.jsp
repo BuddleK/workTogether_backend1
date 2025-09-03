@@ -62,7 +62,7 @@
       		</c:when>
       		<c:otherwise>
 				<!-- 신고 버튼 -->
-      			<div class="del"><a href="${pageContext.request.contextPath}/post/postReport.po?postsNumber=${post.getPostsNumber()}" class="button_del">신고</a></div>
+      			<div class="del"><a href="${pageContext.request.contextPath}/post/postReport.po?postsNumber=${post.getPostsNumber()}&postsUsersNumber=${post.getUsersNumber()}" class="button_del">신고</a></div>
 			</c:otherwise>
 		</c:choose>
 		

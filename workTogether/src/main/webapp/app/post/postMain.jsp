@@ -15,7 +15,7 @@
 </head>
 <%
 // session 객체를 사용하여 값을 세션에 추가합니다.
-int memberNumber = 3;
+int memberNumber = 4;
 session.setAttribute("memberNumber", memberNumber); // "memberNumber" 이라는 이름으로 회원 번호 값을 추가합니다.
 %>
 <body>

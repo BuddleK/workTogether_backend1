@@ -30,6 +30,16 @@
       SELECT COUNT(posts_number) FROM tbl_posts  
    </select>
    
+   
+   <!-- 현재 사용자가 신고한 상태인지 확인 -->
+   <select id="checkReport" parameterType="map" resultType="int">
+   		SELECT COUNT(REPORT_NUMBER) AS ANSWER FROM RICEBALL.TBL_REPORT WHERE REPORT_POST_NUMBER = #{postsNumber} AND REPORT_USERS_NUMBER = #{usersNumber};
+   </select>
+   
+   <!-- 신고 추가 -->
+
+   
+   
    <!--  게시글 추가 -->
 <!--    <insert id="insert" parameterType="BoardDTO">
       INSERT INTO TBL_BOARD (board_number, board_title, board_content, member_number)
