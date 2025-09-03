@@ -48,14 +48,22 @@ public class CareMarkDTO {
 	private String favoritesCreatedDate;
 
 	private String shopsName;
+	private int shopsNumber;
 	private String shopsRoadAddress;
 	private String shopsPhone;
 	private List<CareMarkDTO> rows;
 
+	public int getShopsNumber() {
+		return shopsNumber;
+	}
+
+	public void setShopsNumber(int shopsNumber) {
+		this.shopsNumber = shopsNumber;
+	}
 	public int getFavoritesNumber() {
 		return favoritesNumber;
 	}
-
+	
 	public void setFavoritesNumber(int favoritesNumber) {
 		this.favoritesNumber = favoritesNumber;
 	}
@@ -118,7 +126,7 @@ public class CareMarkDTO {
 
 	@Override
 	public String toString() {
-		return "CareMarkDTO [favoritesNumber=" + favoritesNumber + ", usersNumber=" + usersNumber
+		return "CareMarkDTO [shopsNumber =" + shopsNumber + ", favoritesNumber=" + favoritesNumber + ", usersNumber=" + usersNumber
 				+ ", favoritesShopsNumber=" + favoritesShopsNumber + ", favoritesCreatedDate=" + favoritesCreatedDate
 				+ ", shopsName=" + shopsName + ", shopsRoadAddress=" + shopsRoadAddress + ", shopsPhone=" + shopsPhone
 				+ "]";

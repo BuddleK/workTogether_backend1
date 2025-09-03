@@ -3,13 +3,13 @@ package com.wt.app.dto;
 public class CarePWCheckDTO {
 	private int usersNumber;
     private String usersPassword;
-	public int getUsersNumber() {
+	public int getUsersNumber(int usersNumber) {
 		return usersNumber;
 	}
 	public void setUsersNumber(int usersNumber) {
 		this.usersNumber = usersNumber;
 	}
-	public String getUsersPassword() {
+	public String getUsersPassword(String usersPassword) {
 		return usersPassword;
 	}
 	public void setUsersPassword(String usersPassword) {

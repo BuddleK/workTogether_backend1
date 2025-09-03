@@ -24,16 +24,18 @@ public class CarePwCheckOkController implements Execute {
 		String inputPassword = request.getParameter("usersPassword");
 		boolean pwCheck = false;
 		
-		if(usersNumber != null && inputPassword != null) {
-			pwCheck = carePwCheckDAO.checkPw(usersNumber, inputPassword);
-		}
+		System.out.println("123");
+		pwCheck = carePwCheckDAO.checkPw(usersNumber, inputPassword);
+		System.out.println("456");
 		
 		if(pwCheck) {
-            result.setPath("/app/myPageCare/careProfile.jsp");
+			System.out.println("성공");
+            result.setPath("/myPageCare/careProfile.cp");
             result.setRedirect(true);
         } else {
+        	System.out.println("실패");
         	request.setAttribute("pwCheck", false);
-            result.setPath("/app/myPageCare/carePwCheck.jsp");
+            result.setPath("/myPageCare/carePwCheck.cp");
             result.setRedirect(false);
             request.setAttribute("errorMessage", "비밀번호가 올바르지 않습니다.");
         }

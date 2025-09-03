@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.app.board.dao.BoardDAO;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.careMyPage.dao.CareMarkDAO;

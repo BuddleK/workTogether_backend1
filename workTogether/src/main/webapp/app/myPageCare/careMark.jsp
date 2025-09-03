@@ -67,13 +67,13 @@
 			            <ul>
 			              <li><input type="checkbox"></li>
 			              <li class="name">
-			                <c:out value="${shops.getShopNumber()}" />
+			                <c:out value="${mark.getShopNumber()}" />
 			              </li>
 			              <li class="location">
-			                <c:out value="${shops.getShopsRoadAddress()}" />
+			                <c:out value="${mark.getShopsRoadAddress()}" />
 			              </li>
 			              <li class="phone">
-			                <c:out value="${shops.getShopsPhone()}" />
+			                <c:out value="${mark.getShopsPhone()}" />
 			              </li>
 			            </ul>
 			          </a>

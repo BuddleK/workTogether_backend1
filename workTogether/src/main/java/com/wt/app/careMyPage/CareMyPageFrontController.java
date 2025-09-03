@@ -44,6 +44,10 @@ public class CareMyPageFrontController extends HttpServlet {
 		System.out.println("CareModifyFrontController 현재 경로 : " + target);
 		Result result = new Result();
 		switch(target) {
+		case "/myPageCare/carePwCheck.cp":
+			System.out.println("비밀번호 확인 페이지 요청");
+			result = new CarePwCheckController().execute(request, response);
+			break;
 		case "/myPageCare/carePwCheckOk.cp":
 			System.out.println("비밀번호 확인 페이지 처리 요청");
 			result = new CarePwCheckOkController().execute(request, response);
@@ -55,7 +59,6 @@ public class CareMyPageFrontController extends HttpServlet {
 		case "/myPageCare/careModify.cp":
 			System.out.println("개인정보 수정 페이지 요청");
 			result = new CareModifyController().execute(request, response);
-			System.out.println("fsdsfd");
 			break;
 		case "/myPageCare/careMark.cp":
 			System.out.println("찜한목록 페이지 요청");

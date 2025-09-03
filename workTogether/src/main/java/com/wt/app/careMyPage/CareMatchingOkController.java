@@ -22,7 +22,7 @@ public class CareMatchingOkController implements Execute{
 		HttpSession session = request.getSession();
 		Integer usersNumber = (Integer) session.getAttribute("usersNumber");
 		
-		 int matchingAdd = careMatchingDAO.matchingAdd(careMatchingDTO);
+//		 int matchingAdd = careMatchingDAO.matchingAdd(careMatchingDTO);
 		
 		
 		
