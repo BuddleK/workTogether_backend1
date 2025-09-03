@@ -93,8 +93,8 @@
 
 				<div class="sign_box sign_birth">
 					<p>휴대전화</p>
-					<input type="text" id="phone" name="usersPhone" placeholder="- 없이 숫자만 입력해주세요."
-						required>
+					<input type="text" id="phone" name="usersPhone"
+						placeholder="- 없이 숫자만 입력해주세요." required>
 				</div>
 
 				<div class="sign_box sign_author">
@@ -130,25 +130,30 @@
 					<input type="text" name="careIntroText" placeholder="간단한 소개(선택)">
 				</div>
 
-				<!-- <input type="file" id="selectedFile" style="display: none;" /> <input
+				<!-- <input type="file" id="selectedFile" style="display: none"" /> <input
 					type="button" value="파일추가"
 					onclick="document.getElementById('selectedFile').click();" /> -->
 				<div class="file">
-					<input type="number" name="careCertificateFilesNum"
-						placeholder="자격증 파일번호">
-					<input type="file" id="selectedFile" style="display: none;" /> <input
-					type="button" value="파일첨가"
-					onclick="document.getElementById('selectedFile').click();" />
+					<input type="text" class="file-text" placeholder="자격증 파일"
+						readonly> <input type="file" id="selectedFile"
+						class="hidden-file">
+					<button type="button" class="file-open" data-target="selectedFile">파일첨부</button>
 				</div>
+
+				<!-- 2) 통장사본 -->
 				<div class="file">
-					<input type="number" name="carePassbookFilesNum"
-						placeholder="통장사본 파일번호">
-					<button type="button">파일첨부</button>
+					<input type="text" class="file-text" placeholder="통장사본 파일"
+						readonly> <input type="file" id="file-account"
+						class="hidden-file">
+					<button type="button" class="file-open" data-target="file-account">파일첨부</button>
 				</div>
+
+				<!-- 3) 프로필 사진 -->
 				<div class="file">
-					<input type="number" name="careProfilesPhotoNumber"
-						placeholder="프로필사진 파일번호">
-					<button type="button">파일첨부</button>
+					<input type="text" class="file-text" placeholder="프로필사진 파일"
+						readonly> <input type="file" id="file-profile"
+						class="hidden-file">
+					<button type="button" class="file-open" data-target="file-profile">파일첨부</button>
 				</div>
 
 				<div class="sign_box sign_btn">

@@ -147,8 +147,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     startTimer(60);
   }
-/*  sendBtn?.addEventListener("click", sendMsg);
-*/  window.sendMsg = sendMsg;
+  /*  sendBtn?.addEventListener("click", sendMsg); */
+  window.sendMsg = sendMsg;
 
   function checkMsg(e) {
     e?.preventDefault?.();
@@ -197,5 +197,48 @@ document.addEventListener("DOMContentLoaded", function () {
       verifyInput?.focus();
       return;
     }
+  });
+
+  // ===== 파일 첨부: 파일명 표시 =====
+  // .file 컨테이너마다 자동 처리 (여러 개도 동작)
+  document.querySelectorAll(".file").forEach((wrap) => {
+    const openBtn = wrap.querySelector('input[type="button"], button');
+    let fileInput = wrap.querySelector('input[type="file"]');
+
+    // 파일명을 표시할 텍스트 인풋 찾기
+    let textBox =
+      wrap.querySelector('input[type="text"], input[type="search"]');
+
+    // 같은 줄의 왼쪽에 독립 input이 있는 구조( prev sibling )도 고려
+    if (!textBox) {
+      const prev = wrap.previousElementSibling;
+      if (prev && prev.tagName === 'INPUT' && (prev.type === 'text' || prev.type === 'search')) {
+        textBox = prev;
+      } else if (prev && typeof prev.querySelector === 'function') {
+        textBox = prev.querySelector('input[type="text"], input[type="search"]');
+      }
+    }
+
+    // 숨겨진 파일 인풋이 없으면 생성
+    if (!fileInput) {
+      fileInput = document.createElement("input");
+      fileInput.type = "file";
+      fileInput.style.display = "none";
+      wrap.appendChild(fileInput);
+    }
+
+    // 버튼 클릭 -> 파일 선택 창
+    openBtn?.addEventListener("click", () => fileInput.click());
+
+    // 파일 선택 -> 파일명 표시
+    fileInput.addEventListener("change", () => {
+      const name = fileInput.files?.[0]?.name || "";
+      if (textBox) {
+        textBox.value = name;
+        textBox.readOnly = true; // 원치 않으면 제거
+      }
+      // 선택 후 버튼을 숨기고 싶으면 아래 주석 해제
+      // if (name) openBtn.style.display = "none";
+    });
   });
 });

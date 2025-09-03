@@ -65,14 +65,14 @@
 		FROM tbl_users u
 		<choose>
 			<when
-				test="usersType != null and (usersType == 'N' or usersType == 'n')">
+				test='usersType != null and "N".equalsIgnoreCase(usersType.toString())'>
 				WHERE u.users_name = #{usersName}
 				AND u.users_phone =
 				#{usersPhone}
 				AND u.users_type = 'N'
 			</when>
 			<when
-				test="usersType != null and (usersType == 'C' or usersType == 'c')">
+				test='usersType != null and "C".equalsIgnoreCase(usersType.toString())'>
 				WHERE u.users_name = #{usersName}
 				AND u.users_phone =
 				#{usersPhone}
