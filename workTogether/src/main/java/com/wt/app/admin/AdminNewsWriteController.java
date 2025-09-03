@@ -18,18 +18,9 @@ public class AdminNewsWriteController implements Execute {
 			throws ServletException, IOException {
 		System.out.println("==== AdminNewsWriteController 실행(작성 페이지 이동) ====");
 
-		AdminDAO adminDAO = new AdminDAO(); // AdminDAO 객체는 일단 유지 (향후 다른 관리자 관련 기능 추가 대비)
 		Result result = new Result();
-		HttpSession session = request.getSession();
-
-		Integer adminNumber = (Integer) session.getAttribute("adminNumber");
-		
-		//디비에 저장될건 필요 할 수 잇음
-		request.setAttribute("adminNumber", adminNumber);
-
-		//뉴스 작성 포워드
-		result.setPath("/admin/news/newsBoardAdd.jsp");
-		result.setRedirect(false);
-		return result;
+	    result.setPath("/app/admin/newsBoardAdd.jsp"); // 실제 파일 경로
+	    result.setRedirect(false);                     // forward
+	    return result;
 	}
 }

@@ -25,13 +25,27 @@ public class AdminNewsListOkController implements Execute {
 		AdminDAO adminDAO = new AdminDAO();
 		Result result = new Result();
 
-
+		int page = 1;
 		String temp = request.getParameter("page");
-		int page = (temp == null) ? 1 : Integer.valueOf(temp);
-
+		try {
+            if (temp != null && !temp.isEmpty()) {
+                page = Integer.parseInt(temp);
+            }
+        } catch (NumberFormatException ignore) {
+            page = 1;
+        }
+        if (page < 1) page = 1;
+        
 		int rowCount = 7; // 한 페이지당 게시글 수
 		int pageCount = 5;// 페이지 버튼 수
 
+		int total = adminDAO.getNewsTotal();
+        int realEndPage = (int)Math.ceil(total / (double)rowCount);
+        if (realEndPage == 0) {
+            // 게시글 0개인 첫 로드
+            realEndPage = 1;  // UI 페이징 표시용
+        }
+        if (page > realEndPage) page = realEndPage;
 
 		// 페이징 처리 시작/끝 행 계산
 		int startRow = (page - 1) * rowCount + 1;
@@ -45,35 +59,36 @@ public class AdminNewsListOkController implements Execute {
 		List<AdminNewsBoardListDTO> newsList = adminDAO.selectAll(pageMap);
 		request.setAttribute("newsList", newsList);
 		
-		int total = adminDAO.getNewsTotal(); 
-		int realEndPage = (int) Math.ceil(total / (double) rowCount);// 실제 마지막 페이지(전체 게시글 기준으로 계산)
+		
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount);// 현재 페이지 그룹에서의 마지막 페이지
 		int startPage = endPage - (pageCount - 1);// 현재 페이지 그룹에서의 첫 페이지
 
 		// endPage가 실제 존재하는 마지막 페이지보다 크면 조정
-		endPage = Math.min(endPage, realEndPage);
+		 endPage = Math.min(endPage, (int)Math.ceil(total / (double)rowCount));
+	        if (endPage < 1) endPage = 1;
+	        if (startPage < 1) startPage = 1;
 
 		boolean prev = startPage > 1;
 		boolean next = endPage < realEndPage;
 
 		request.setAttribute("page", page);
-		request.setAttribute("startPage", startPage);
-		request.setAttribute("endPage", endPage);
-		request.setAttribute("prev", prev);
-		request.setAttribute("next", next);
+        request.setAttribute("startPage", startPage);
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("prev", prev);
+        request.setAttribute("next", next);
+        request.setAttribute("rowCount", rowCount);
+        request.setAttribute("total", total);
 
-		System.out.println("====페이징정보 확인====");
-		System.out.println("pageMap : " + pageMap);
-		System.out.println("newsList : " + newsList); // boardList -> newsList
-		System.out.println(
-				"startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
-		System.out.println("====================");
+        System.out.println("====페이징정보 확인====");
+        System.out.println("pageMap : " + pageMap);
+        System.out.println("newsList size : " + (newsList != null ? newsList.size() : 0));
+        System.out.println("total : " + total + ", realEndPage : " + (int)Math.ceil(total / (double)rowCount));
+        System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
+        System.out.println("====================");
 
-
-		result.setPath("/admin/news/newsList.jsp");
-		result.setRedirect(false);
-
-		return result;
+		result.setPath("/app/admin/newsBoard.jsp");
+        result.setRedirect(false);
+        return result;
 	}
 
 }
