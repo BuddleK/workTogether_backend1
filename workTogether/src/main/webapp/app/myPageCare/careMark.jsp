@@ -63,11 +63,11 @@
         <c:choose>
         	<c:when test="${not empty markList}">
         		<c:forEach var="mark" items="${markList}">
-			        <nav class="mark_list"><a href="${pageContext.request.contextPath}/shops/shopsListOk.sh">
+			        <nav class="mark_list"><a href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${mark.getShopsNumber()}">
 			            <ul>
 			              <li><input type="checkbox"></li>
 			              <li class="name">
-			                <c:out value="${mark.getShopNumber()}" />
+			                <c:out value="${mark.getShopsName()}" />
 			              </li>
 			              <li class="location">
 			                <c:out value="${mark.getShopsRoadAddress()}" />
@@ -89,12 +89,27 @@
 <!-- 페이지 이동 버튼 -->
         <nav class="page">
           <ul>
-            <li><a href="">&lt;</a></li>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href="">&gt;</a></li>
+            <c:if test="${prev}">
+          		<li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp?page=${startPage - 1}" class="prev">&lt;</a></li>
+          	</c:if>
+          	<c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
+          	<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+          		<c:choose>
+          			<c:when test="${!(i == page) }">
+          				<li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp?page=${i}">
+          					<c:out value="${i}" />
+          				</a></li>
+          			</c:when>
+          			<c:otherwise>
+          				<li><a href="#" class="active">
+          					<c:out value="${i}" />
+          				</a></li>
+          			</c:otherwise>
+          		</c:choose>
+          	</c:forEach>
+          	<c:if test="${next}">
+          		<li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp?page=${endPage + 1}" class="next">&gt;</a>
+          	</c:if>
           </ul>
         </nav>
         <!-- 찜 삭제 버튼 -->
