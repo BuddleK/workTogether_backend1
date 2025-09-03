@@ -1,14 +1,13 @@
 package com.wt.app.report;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.app.Result;
-import com.example.app.member.LoginOkController;
+import com.wt.app.Result;
 
 /**
  * Servlet implementation class ReportFrontController

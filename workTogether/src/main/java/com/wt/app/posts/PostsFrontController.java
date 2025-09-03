@@ -84,6 +84,10 @@ public class PostsFrontController extends HttpServlet {
 			System.out.println("게시글 검색 요청");
 			result = new PostSearchOkController().execute(request, response);
 			break;
+		case "/post/postReport.po":
+			System.out.println("게시글 신고 요청");
+			result = new PostReportController().execute(request, response);
+			break;
 		}
 		
 		if (result != null) {

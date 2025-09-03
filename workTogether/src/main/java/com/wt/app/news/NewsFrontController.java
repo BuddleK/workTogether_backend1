@@ -55,7 +55,7 @@ public class NewsFrontController extends HttpServlet {
 		case "/news/newsMain.ne"://예시
 			System.out.println("뉴스 페이지 요청");
 //임시		request.getRequestDispatcher("/app/post/post.jsp").forward(request, response);
-			result = new NewsListOkController().Execute(request, response);
+			result = new NewsListOkController().execute(request, response);
 			System.out.println(result);
 			break;
 		}
