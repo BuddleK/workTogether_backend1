@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const contentEl = document.querySelector("#comment_text");
 		const content = contentEl?.value.trim();
 		if (!content) return alert("후기를 입력해주세요.");
-		if (!careNumber || !normalNumber) return alert("care = " + careNumber + " usersNumber : " + normalNumber + "둘 중 하나가 없습니다.");
+		if (!careNumber || !normalNumber) return alert("care = " + careNumber  + " usersNumber : " + normalNumber + "둘 중 하나가 없습니다.");
 		commentBtn.disabled = true;
 		try {
 			const response = await fetch("/comment/commentWriteOk.co", {
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			alert("후기 목록을 불러오는데 실패했습니다.");
 		}
 	}
-
+	
 	// 후기 렌더링
 	function renderComments(comments) {
 		if (!commentListEl) return;
@@ -196,39 +196,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
+	
 
-
-	const heartImg = document.querySelector("#heart_img_box");
-	heartImg?.addEventListener('click', async () => {
-		console.log('클릭해주셔서 감사합니다.')
-		if (!careNumber || !normalNumber) return alert("비로그인 상태이거나 돌봄회원이 삭제되어 페이지를 볼 수 없습니다.");
-		heartImg.disabled = true;
-		try {
-			const response = await fetch("/careDetailHeart/careDetailHeartAddOk.he", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json; charset=utf-8",
-					"X-Requested-With": "XMLHttpRequest",
-				},
-				body: JSON.stringify({careNumber,normalNumber}),
-			});
-		const result = await safeJson(response);
-		if(result?.status === "success") {
-			alert("하트 추가가 완료되었습니다");
-			
-			}else {
-				alert("하트 추가 실패했습니다.")
-			} 			
-		} catch (error) {
-			console.error("하트 오류");
-			alert("하트 추가 중 오류가 발생했습니다.");
-		}finally {
-			heartImg.disabled = false;
-		}
-	})
-
-
-
+	
+	
 	loadComments();
 });
 
