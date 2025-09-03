@@ -3,18 +3,12 @@
 <mapper namespace="careReferenceCheck">
 	<!-- 문의 내용 조회 -->
 	<select id="referenceCheck" resultType="CareReferenceCheckDTO">
-		SELECT a.USERS_NUMBER, r.reference_number, r.reference_title, a.users_name, r.reference_created_date, r.REFERENCE_CONTENT
-			SELECT a.USERS_NUMBER, r.REFERENCE_NUMBER, r.reference_title, a.users_name, r.reference_created_date, r.REFERENCE_CONTENT
-			FROM tbl_reference r JOIN (
-				SELECT u.users_number, c.users_name
-				FROM tbl_users u
-				JOIN tbl_care_users c ON u.users_number = c.users_number
-				UNION
-				SELECT u.users_number, n.users_name
-				FROM tbl_users u
-				JOIN tbl_normal_users n ON u.users_number = n.users_number) a
-				ON r.REFERENCE_users_NUMBER = a.USERS_NUMBER
-				WHERE a.users_number=#{usersNumber} AND r.REFERENCE_NUMBER = #{referenceNumber};
+			SELECT u.users_number, r.reference_number, r.reference_title, u.users_name, r.reference_created_date, r.reference_content
+			FROM   tbl_reference r
+			JOIN   tbl_users u
+  			ON   r.reference_users_number = u.users_number
+			WHERE  u.users_number = #{usersNumber}
+  			AND  r.reference_number = #{referenceNumber};
 	</select>
 
 </mapper>

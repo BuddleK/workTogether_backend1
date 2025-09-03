@@ -5,11 +5,13 @@
 
 	<!-- 프로필 사진 조회 -->
 	<select id="profileSelect" resultType="CareProfileDTO">
-		SELECT c.care_number, c.users_name, p.profiles_files_path
-		FROM   tbl_care_users c
-		JOIN   tbl_files_profiles p
+		SELECT c.care_number, u.users_name, p.profiles_files_path
+		FROM   tbl_users c
+		join tbl_users u
+		on c.users_number = c.users_number
+		left JOIN   tbl_files_profiles p
        	ON c.care_profiles_photo_number = p.profiles_files_number
-		WHERE  c.care_number = #{careNumber};
+		WHERE  c.care_number = #{careNumber}
 	</select>
 	
 	<!-- 프로필 사진 삭제 -->
@@ -34,20 +36,16 @@
 	
 	<!-- 프로필 주소 조회 -->
 	<select id="addressSelect" resultType="CareProfileDTO">
-		SELECT u.users_id, c.users_postsal_code, c.users_address_line1, c.users_address_line2
-		FROM   tbl_users u
-		JOIN   tbl_care_users c
-       	ON u.users_number = c.users_number
-		WHERE  u.users_number = #{usersNumber}
+		SELECT users_id, users_postsal_code, users_address_line1, users_address_line2
+		FROM   tbl_users 
+		WHERE  users_number = #{usersNumber}
 	</select>
 	
 	<!-- 프로필 소개글 조회 -->
 	<select id="introSelect" resultType="CareProfileDTO">
-		SELECT u.users_id, c.care_intro_text
-		FROM   tbl_users u
-		JOIN   tbl_care_users c
-       	ON u.users_number = c.users_number
-		WHERE  u.users_number = #{usersNumber}
+		SELECT users_number, care_intro_text
+		FROM  tbl_care_users
+		WHERE  users_number = #{usersNumber}
 	</select>
 	
 	<!-- 프로필 요일 수정 쿼리작성 -->
@@ -61,34 +59,30 @@
 		#{careNumber}
 	</update>
 
-	<!-- 프로필 이력 수정 쿼리작성 -->
+	<!-- 프로필 자격증 이력 수정 쿼리작성 -->
 	<update id="licenseUpdate" parameterType="CareProfileDTO">
-		SELECT a.*, l.*
-		FROM   tbl_care_users c
-    		JOIN   tbl_files_account a ON c.care_passbook_files_num = a.account_files_number
-    		JOIN   tbl_files_license l ON c.care_certificate_files_num = l.license_files_number
-    		WHERE  c.care_number = 7;
+		update tbl_license_modify
+		set license_files_type=#{licenseFilesType}, license_files_name = #{licenseFilesName},
+		license_files_path = #{licenseFilesPath}, license_files_size_bytes=#{licenseFilesSizeBytes}, license_created_date=#{licenseCreatedDate}
+    	WHERE users_number = #{usersNumber};
 	</update> 
 	
 	
 
 	<!-- 프로필 주소 수정 쿼리작성 -->
 	<update id="addressUpdate" parameterType="CareProfileDTO">
-		UPDATE tbl_care_users c
-		SET c.users_postsal_code  = #{usersPostsalCode},
-    		c.users_address_line1 = #{usersAddressLine1},
-    		c.users_address_line2 = #{usersAddressLine2}
-		WHERE c.users_number = (
-    		SELECT u.users_number
-    		FROM tbl_users u
-    		WHERE u.users_number = #{usersNumber})
+		UPDATE tbl_users
+		SET users_postsal_code  = #{usersPostsalCode},
+    		users_address_line1 = #{usersAddressLine1},
+    		users_address_line2 = #{usersAddressLine2}
+		WHERE users_number = #{usersNumber}
 	</update>
 
 	<!-- 프로필 소개글 수정 쿼리작성 -->
 	<update id="introUpdate" parameterType="CareProfileDTO">
 		update tbl_care_users set care_intro_text =
 		#{careIntroText}
-		where tbl_care_users.care_number = #{careNumber}
+		where care_number = #{careNumber}
 	</update>
 
 

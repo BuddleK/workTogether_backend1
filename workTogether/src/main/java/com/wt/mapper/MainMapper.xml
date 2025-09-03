@@ -6,7 +6,7 @@
 	<select id="newsBanner" resultType="NewsBannerDTO">
 		select nb.banner_news_number, nb.banner_image_files_number, nb.banner_title, nb.BANNER_CONTENT, fb.BANNER_FILES_PATH, nb.banner_link_url
 		from tbl_news_banners nb JOIN TBL_FILES_BANNER fb 
-		ON nb.BANNER_IMAGE_FILES_NUMBER = fb.BANNER_FILES_NUMBER
+		ON nb.BANNER_NEWS_NUMBER = fb.BANNER_FILES_NUMBER
 	</select>
 	
 <!-- 추천가게 찜 많은 순으로 정렬-->
@@ -22,18 +22,11 @@
 	<!-- 게시판 -->
  	<select id="post" resultType="PostsDTO">
 		select * from (
-			SELECT p.posts_number, p.posts_title, a.users_name, p.posts_created_date
-			FROM tbl_posts p JOIN (
-				SELECT u.users_number, c.users_name
-				FROM tbl_users u
-				JOIN tbl_care_users c ON u.users_number = c.users_number
-				UNION
-				SELECT u.users_number, n.users_name
-				FROM tbl_users u
-				JOIN tbl_normal_users n ON u.users_number = n.users_number) a
-				ON p.USERS_NUMBER = a.USERS_NUMBER
-				ORDER BY p.POSTS_CREATED_DATE DESC)
-			where ROWNUM <![CDATA[ <= ]]> 4
+			SELECT p.posts_number, p.posts_title, u.users_name, p.posts_created_date
+			FROM tbl_posts p JOIN tbl_users u
+			on p.users_number = u.users_number
+			ORDER BY p.POSTS_CREATED_DATE DESC)
+		where ROWNUM <![CDATA[ <= ]]> 4
 	</select>
 	
 	<!-- 지도 마커 -->
@@ -48,8 +41,8 @@
 		    SELECT *
 		    FROM (
 		        SELECT 
-		            c.users_number AS usersNumber,
-		            c.users_name AS usersName,
+		            u.users_number AS usersNumber,
+		            u.users_name AS usersName,
 		            c.care_intro_text,
 		            c.care_profiles_photo_number AS profilesFilesNumber,
 		            fp.profiles_files_path AS profilesFilesPath,
@@ -70,7 +63,7 @@
 		        LEFT JOIN tbl_hearts h 
 		            ON c.users_number = h.hearts_care_number
 		        GROUP BY 
-		            c.users_number, c.users_name, c.care_intro_text, 
+		            u.users_number, u.users_name, c.care_intro_text, 
 		            c.care_profiles_photo_number, fp.profiles_files_path,
 		            d.day_monday, d.day_tuesday, d.day_wednesday,
 		            d.day_thursday, d.day_friday, d.day_saturday, d.day_sunday

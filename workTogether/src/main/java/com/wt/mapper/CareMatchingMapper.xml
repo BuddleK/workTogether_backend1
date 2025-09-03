@@ -17,9 +17,9 @@
 		SELECT * FROM (
 			SELECT ROWNUM AS rnum, subquery.*
 			FROM (
-				SELECT m.match_date, n.users_name, m.match_match_time, m.match_points, m.match_status
-				FROM tbl_matchings m JOIN tbl_normal_users n 
-				ON m.normal_number = n.users_number
+				SELECT m.match_date, u.users_name, m.match_match_time, m.match_points, m.match_status
+				FROM tbl_matchings m JOIN tbl_users u 
+				ON m.normal_number = u.users_number
 				where m.care_number = #{usersNumber}
 				ORDER BY m.match_date DESC;
 			) subquery
