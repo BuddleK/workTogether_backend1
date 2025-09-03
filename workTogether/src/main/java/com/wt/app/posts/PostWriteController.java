@@ -18,14 +18,13 @@ public class PostWriteController implements Execute{
 			throws ServletException, IOException {
 		System.out.println("==============PostWriteController 진입============");
 		
-		PostsDAO postsDAO = new PostsDAO();
 		Result result = new Result();
 		HttpSession session = request.getSession();
 		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
 		String path = null;
 		
 		if(memberNumber == null) {
-			path = "/app/login/login.jsp";
+			path = "/app/login/loginNormal.jsp";
 		}else {
 			path = "/app/post/postWrite.jsp";
 //			request.setAttribute("userId", postsDAO.get);
