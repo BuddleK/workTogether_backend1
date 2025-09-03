@@ -36,7 +36,7 @@
     <!-- 지도 api -->
     <div class="map_api">
       <div>
-        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/KakaoTalk_20250806_170707522_07.png" alt="">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/" alt="">
       </div>
       <a href="${pageContext.request.contextPath}/subway/subwayLine.sw"><button>목록</button></a>
     </div>
