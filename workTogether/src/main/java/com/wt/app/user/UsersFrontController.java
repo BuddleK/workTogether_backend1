@@ -66,7 +66,7 @@ public class UsersFrontController extends HttpServlet {
 			break;
 
 
-		// ===== 회원가입(일반) =====
+//		 ===== 회원가입(일반) =====
 //		case "/users/terms.us":
 //			System.out.println("약관동의 페이지 요청");
 //			result = new TermsController().execute(request, response);
