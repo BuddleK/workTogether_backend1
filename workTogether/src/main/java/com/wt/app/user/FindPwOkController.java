@@ -18,11 +18,16 @@ public class FindPwOkController implements Execute{
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
+		String userId = request.getParameter("usersId");
+		String usersName  = request.getParameter("usersName");
+        String usersPhone = request.getParameter("usersPhone");
+        String usersType  = request.getParameter("usersType"); // 'N' 또는 'C' (선택)
+
         FindPwDTO dto = new FindPwDTO();
-        dto.setUsersId(request.getParameter("usersId"));
-        dto.setUsersName(request.getParameter("usersName"));
-        dto.setUsersPhone(request.getParameter("usersPhone"));
-        dto.setUsersType(request.getParameter("usersType")); // 'N'/'C' or null
+        dto.setUsersId(userId);
+        dto.setUsersName(usersName);
+        dto.setUsersPhone(usersPhone);
+        dto.setUsersType(usersType);
 
         Long usersNumber = new UsersDAO().verifyForPwReset(dto);
 

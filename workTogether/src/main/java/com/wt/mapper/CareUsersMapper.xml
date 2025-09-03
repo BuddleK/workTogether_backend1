@@ -3,7 +3,7 @@
 
 <mapper namespace="CareUsersMapper">
 
-	<insert id="join" parameterType="com.wt.app.dto.CareUsersDTO">
+	<insert id="join" parameterType="com.wt.app.dto.CareSignDTO">
 		INSERT INTO tbl_care_users (
 		users_number, care_intro_text, care_certificate_files_num,
 		care_passbook_files_num, care_profiles_photo_number,

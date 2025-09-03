@@ -37,7 +37,7 @@
               <label for="member_care">
                 <input type="radio" id="member_care" name="usersType" value="C"/>돌봄회원
               </label>
-              <button type="button" class="check_id_btn" onclick="checkId()">아이디 확인</button>
+              <!-- <button type="button" class="check_id_btn" onclick="checkId()">아이디 확인</button> -->
             </div>
             <div class="check_id">
               <p class="correct_id">아이디가 제대로 확인되었습니다.</p>
