@@ -2,27 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
-   <!-- ========================= [Auth] ========================= -->
-   <!-- 로그인: admin_number 반환 -->
-   <select id="login" parameterType="com.wt.app.dto.AdminLoginDTO"
-      resultType="int">
-      SELECT admin_number
-      FROM tbl_admin
-      WHERE admin_id =
-      #{adminId}
-      AND admin_password = #{adminPassword}
-   </select>
-   <select id="getAdminName" parameterType="int"
-      resultType="string">
-      SELECT admin_name
-      FROM tbl_admin
-      WHERE admin_number =
-      #{value}
-   </select>
-   <!-- ==================== [Care: 가입신청/조회] ==================== -->
-   <!-- 대기 목록 (페이지네이션: offset, limit) -->
-   <select id="carePendingListPaged" parameterType="map"
-      resultType="com.wt.app.dto.AdminCareSignupDTO"><![CDATA[
+	<!-- ========================= [Auth] ========================= -->
+	<!-- 로그인: admin_number 반환 -->
+	<select id="login" parameterType="com.wt.app.dto.AdminLoginDTO"
+		resultType="int">
+		SELECT admin_number
+		FROM tbl_admin
+		WHERE admin_id =
+		#{adminId}
+		AND admin_password = #{adminPassword}
+	</select>
+	<select id="getAdminName" parameterType="int"
+		resultType="string">
+		SELECT admin_name
+		FROM tbl_admin
+		WHERE admin_number =
+		#{value}
+	</select>
+	<!-- ==================== [Care: 가입신청/조회] ==================== -->
+	<!-- 대기 목록 (페이지네이션: offset, limit) -->
+	<select id="carePendingListPaged" parameterType="map"
+		resultType="com.wt.app.dto.AdminCareSignupDTO"><![CDATA[
   SELECT *
   FROM (
     SELECT ROWNUM AS rnum, inner_t.*
@@ -31,12 +31,12 @@
         u.users_number,
         u.users_id,
         u.users_created_date,
-        c.users_name,
-        c.users_email,
-        c.users_phone,
-        c.users_postsal_code,
-        c.users_address_line1,
-        c.users_address_line2,
+        u.users_name,
+        u.users_email,
+        u.users_phone,
+        u.users_postsal_code,
+        u.users_address_line1,
+        u.users_address_line2,
         c.care_intro_text,
         c.care_certificate_files_num,
         c.care_passbook_files_num,
@@ -44,55 +44,55 @@
         c.care_accept
       FROM tbl_care_users c
       JOIN tbl_users u ON u.users_number = c.users_number
-      WHERE c.care_accept = 'N'
+      WHERE c.care_accept = 'W'
       ORDER BY u.users_created_date DESC, u.users_number DESC
     ) inner_t
   )
   WHERE rnum BETWEEN #{startRow} AND #{endRow}
 ]]></select>
 
-   <!-- 대기 총 개수 -->
-   <select id="carePendingCount" resultType="int"><![CDATA[
+	<!-- 대기 총 개수 -->
+	<select id="carePendingCount" resultType="int"><![CDATA[
     SELECT COUNT(*)
     FROM tbl_care_users c
     JOIN tbl_users u ON u.users_number = c.users_number
-    WHERE c.care_accept = 'N'
+    WHERE c.care_accept = 'W'
   ]]></select>
 
-   <!-- 단건 조회 (users_number) -->
-   <select id="careSignupOne" parameterType="int"
-      resultType="com.wt.app.dto.AdminCareSignupDTO"><![CDATA[
-    SELECT
-      u.users_number, u.users_id, u.users_created_date,
-      c.users_name, c.users_email, c.users_phone,
-      c.users_postsal_code, c.users_address_line1, c.users_address_line2,
-      c.care_intro_text, c.care_certificate_files_num,
-      c.care_passbook_files_num, c.care_profiles_photo_number, c.care_accept
-    FROM tbl_care_users c
-    JOIN tbl_users u ON u.users_number = c.users_number
-    WHERE c.users_number = #{value}
-  ]]></select>
+	<!-- 단건 조회 (users_number) -->
+	<select id="careSignupOne" parameterType="int"
+		resultType="com.wt.app.dto.AdminCareSignupDTO"><![CDATA[
+		SELECT
+		u.users_number, u.users_id, u.users_created_date,
+    	u.users_name, u.users_email, u.users_phone,
+	    u.users_postsal_code, u.users_address_line1, u.users_address_line2,
+    	c.care_intro_text, c.care_certificate_files_num,
+    	c.care_passbook_files_num, c.care_profiles_photo_number, c.care_accept
+    	FROM tbl_care_users c
+  		JOIN tbl_users u ON u.users_number = c.users_number
+  		WHERE c.users_number = #{value}
+]]></select>
 
-   <!-- 승인/반려 -->
-   <update id="careApprove" parameterType="int"><![CDATA[
+	<!-- 승인/반려 -->
+	<update id="careApprove" parameterType="int"><![CDATA[
     UPDATE tbl_care_users
        SET care_accept = 'Y'
      WHERE users_number = #{value}
   ]]></update>
 
-   <delete id="careReject" parameterType="int"><![CDATA[
+	<delete id="careReject" parameterType="int"><![CDATA[
     DELETE FROM tbl_care_users
      WHERE users_number = #{value}
   ]]></delete>
 
-   <delete id="careRejectAll" parameterType="int"><![CDATA[
+	<delete id="careRejectAll" parameterType="int"><![CDATA[
     DELETE FROM tbl_users
      WHERE users_number = #{value}
   ]]></delete>
 
-   <!-- ==================== [Care: 파일 조회] ==================== -->
-   <select id="careFileLicense" parameterType="int"
-      resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
+	<!-- ==================== [Care: 파일 조회] ==================== -->
+	<select id="careFileLicense" parameterType="int"
+		resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
     SELECT
       license_files_number, license_files_type,
       license_files_name, license_files_path, license_files_size_bytes,
@@ -101,8 +101,8 @@
     WHERE license_files_number = #{value}
   ]]></select>
 
-   <select id="careFileAccount" parameterType="int"
-      resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
+	<select id="careFileAccount" parameterType="int"
+		resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
     SELECT
       account_files_number, account_files_type, account_files_name,
       account_files_path, account_files_size_bytes,
@@ -111,8 +111,8 @@
     WHERE account_files_number = #{value}
   ]]></select>
 
-   <select id="careFileProfile" parameterType="int"
-      resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
+	<select id="careFileProfile" parameterType="int"
+		resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
     SELECT
       profiles_files_number, profiles_files_type,
       profiles_files_name, profiles_files_size_bytes,
@@ -121,9 +121,9 @@
     WHERE profiles_files_number = #{value}
   ]]></select>
 
-   <!-- ==================== [파일: 공용 다운로드] ==================== -->
-   <select id="fileDownloadLicense" parameterType="int"
-      resultType="com.wt.app.dto.AdminFileDownloadDTO"><![CDATA[
+	<!-- ==================== [파일: 공용 다운로드] ==================== -->
+	<select id="fileDownloadLicense" parameterType="int"
+		resultType="com.wt.app.dto.AdminFileDownloadDTO"><![CDATA[
     SELECT
       license_files_number, license_files_name, license_files_path,
       license_files_type, license_files_size_bytes,
@@ -132,8 +132,8 @@
     WHERE license_files_number = #{value}
   ]]></select>
 
-   <select id="fileDownloadAccount" parameterType="int"
-      resultType="com.wt.app.dto.AdminFileDownloadDTO"><![CDATA[
+	<select id="fileDownloadAccount" parameterType="int"
+		resultType="com.wt.app.dto.AdminFileDownloadDTO"><![CDATA[
     SELECT
       account_files_number, account_files_name, account_files_path,
       account_files_type, account_files_size_bytes,
@@ -142,194 +142,162 @@
     WHERE account_files_number = #{value}
   ]]></select>
 
-   <!-- (선택) 자격증 파일 업로드: seq_files 사용 -->
-   <insert id="careInsertLicenseFile"
-      parameterType="com.wt.app.dto.FilesLicenseDTO">
-      INSERT INTO tbl_files_license (
-      license_files_number,
-      license_files_type, license_files_name,
-      license_files_path,
-      license_files_size_bytes, license_created_date
-      ) VALUES (
-      seq_files.NEXTVAL,
-      #{licenseFilesType}, #{licenseFilesName},
-      #{licenseFilesPath}, #{licenseFilesSizeBytes}, SYSDATE
-      )
-   </insert>
+	<!-- (선택) 자격증 파일 업로드: seq_files 사용 -->
+	<insert id="careInsertLicenseFile"
+		parameterType="com.wt.app.dto.FilesLicenseDTO">
+		INSERT INTO tbl_files_license (
+		license_files_number,
+		license_files_type, license_files_name,
+		license_files_path,
+		license_files_size_bytes, license_created_date
+		) VALUES (
+		seq_files.NEXTVAL,
+		#{licenseFilesType}, #{licenseFilesName},
+		#{licenseFilesPath}, #{licenseFilesSizeBytes}, SYSDATE
+		)
+	</insert>
 
-   <!-- ==================== [News] ==================== -->
-   <!-- 뉴스 등록: seq_news_items 사용 -->
-   <!-- 전체 조회 (페이지네이션: startRow, endRow) -->
-   <select id="newsSelectAll" parameterType="map"
-      resultType="com.wt.app.dto.AdminNewsBoardListDTO"><![CDATA[
-    SELECT * FROM ( SELECT ROWNUM AS rnum, subquery.* FROM ( SELECT n.news_number, n.news_title, a.admin_name, n.news_created_date FROM tbl_news n JOIN tbl_admin a ON a.admin_number = n.admin_number ORDER BY n.news_created_date DESC, n.news_number DESC ) subquery ) WHERE rnum BETWEEN #{startRow} AND #{endRow}
-  ]]>
-   </select>
+	<!-- ==================== [News] ==================== -->
 
-   <!-- 게시글 총 갯수 -->
-   <select id="newsGetTotal" resultType="int"><![CDATA[
-      SELECT COUNT(*) FROM tbl_news
-   ]]>
-   </select>
+	 <select id="newsSelectAll" parameterType="map"
+          resultType="com.wt.app.dto.AdminNewsBoardListDTO"><![CDATA[
+    SELECT *
+    FROM (
+      SELECT ROWNUM AS rnum, subquery.*
+      FROM (
+        SELECT
+          n.news_number,
+          n.news_title,
+          n.news_link_url,
+          a.admin_name,
+          TO_CHAR(n.news_created_date,'YYYY-MM-DD HH24:MI:SS') AS news_created_date,
+          TO_CHAR(n.news_updated_date,'YYYY-MM-DD HH24:MI:SS') AS news_updated_date
+        FROM tbl_news n
+        JOIN tbl_admin a ON a.admin_number = n.admin_number
+        ORDER BY n.news_created_date DESC, n.news_number DESC
+      ) subquery
+    )
+    WHERE rnum BETWEEN #{startRow} AND #{endRow}
+  ]]></select>
 
-   <!-- 뉴스 등록: seq_news_items 사용 -->
-   <insert id="newsInsert"
-      parameterType="com.wt.app.dto.AdminNewsBoardDTO">
-      <selectKey keyProperty="newsNumber" resultType="int"
-         order="BEFORE"><![CDATA[
-         SELECT seq_news_items.NEXTVAL FROM DUAL
-      ]]>
-      </selectKey>
-      <![CDATA[
-      INSERT INTO tbl_news (news_number, admin_number, news_title, news_content, news_link_url, files_number, news_created_date, news_updated_date) VALUES (#{newsNumber}, #{adminNumber}, #{newsTitle}, #{newsContent}, #{newsLinkUrl}, #{filesNumber}, SYSDATE, NULL)
-      ]]>
-   </insert>
+  <!-- 총 개수 -->
+  <select id="newsGetTotal" resultType="int">
+    SELECT COUNT(*) FROM tbl_news
+  </select>
 
-   <!-- 뉴스 수정 -->
-   <update id="newsUpdate"
-      parameterType="com.wt.app.dto.AdminNewsBoardDTO">
-      <![CDATA[
-      UPDATE tbl_news SET news_title = #{newsTitle}, news_content = #{newsContent}, news_link_url = #{newsLinkUrl}, files_number = #{filesNumber}, news_updated_date = SYSDATE WHERE news_number = #{newsNumber}
-      ]]>
-   </update>
+  <!-- 등록 -->
+  <insert id="newsInsert" parameterType="com.wt.app.dto.AdminNewsBoardDTO">
+    <selectKey keyProperty="newsNumber" resultType="int" order="BEFORE"><![CDATA[
+      SELECT seq_news_items.NEXTVAL FROM DUAL
+    ]]></selectKey>
+    <![CDATA[
+    INSERT INTO tbl_news
+      (news_number, admin_number, news_title, news_link_url, news_created_date, news_updated_date)
+    VALUES
+      (#{newsNumber}, #{adminNumber}, #{newsTitle}, #{newsLinkUrl}, SYSDATE, NULL)
+    ]]>
+  </insert>
 
-   <!-- 뉴스에 파일번호 연결/변경 -->
-   <update id="newsUpdateFilesNumber" parameterType="map"><![CDATA[
-      UPDATE tbl_news SET files_number = #{filesNumber}, news_updated_date = SYSDATE WHERE news_number = #{newsNumber}
-      ]]>
-   </update>
+  <!-- 수정 -->
+  <update id="newsUpdate" parameterType="com.wt.app.dto.AdminNewsBoardDTO"><![CDATA[
+    UPDATE tbl_news
+       SET news_title = #{newsTitle},
+           news_link_url = #{newsLinkUrl},
+           news_updated_date = SYSDATE
+     WHERE news_number = #{newsNumber}
+  ]]></update>
 
-   <!-- 뉴스 상세 (news_number) -->
-   <select id="newsSelectOne" parameterType="int"
-      resultType="com.wt.app.dto.AdminNewsBoardDTO">
-      <![CDATA[
-      SELECT n.news_number, n.admin_number, n.news_title, n.news_content, n.news_link_url, n.files_number, n.news_created_date, n.news_updated_date FROM tbl_news n WHERE n.news_number = #{value}
-        ]]>
-   </select>
+  <!-- 단건 조회(날짜 문자열로 변환) -->
+  <select id="newsSelectOne" parameterType="int"
+          resultType="com.wt.app.dto.AdminNewsBoardDTO"><![CDATA[
+    SELECT
+      n.news_number, n.admin_number,
+      n.news_title, n.news_link_url,
+      TO_CHAR(n.news_created_date,'YYYY-MM-DD HH24:MI:SS') AS news_created_date,
+      TO_CHAR(n.news_updated_date,'YYYY-MM-DD HH24:MI:SS') AS news_updated_date
+    FROM tbl_news n
+    WHERE n.news_number = #{value}
+  ]]></select>
 
-   <!-- 뉴스 삭제 -->
-   <delete id="newsDelete" parameterType="int">
-   <![CDATA[
-      DELETE FROM tbl_news WHERE news_number = #{value}
-      ]]>
-   </delete>
-
-   <!-- ==================== [News 연동 파일: tbl_files_notice] ==================== -->
-   <!-- 파일 추가: seq_files 사용 -->
-   <insert id="fileNoticeInsert1" parameterType="com.wt.app.dto.FileNoticeDTO"> 
-      <selectKey keyProperty="noticeFilesNumber" resultType="int" order="BEFORE"> 
-      <![CDATA[ SELECT seq_files.NEXTVAL FROM DUAL ]]> </selectKey> <![CDATA[ INSERT 
+  <!-- 삭제 -->
+  <delete id="newsDelete" parameterType="int"><![CDATA[
+    DELETE FROM tbl_news WHERE news_number = #{value}
+  ]]></delete>
+	<!-- ==================== [News 연동 파일: tbl_files_notice] ==================== -->
+	<!-- 파일 추가: seq_files 사용 -->
+	<insert id="fileNoticeInsert1"
+		parameterType="com.wt.app.dto.FileNoticeDTO">
+		<selectKey keyProperty="noticeFilesNumber" resultType="int"
+			order="BEFORE"> 
+      <![CDATA[ SELECT seq_files.NEXTVAL FROM DUAL ]]>
+		</selectKey> <![CDATA[ INSERT 
       INTO tbl_files_notice (notice_files_number, notice_files_type, notice_files_name, 
       notice_files_path, notice_files_size_bytes, notice_created_date) VALUES (#{noticeFilesNumber}, 
       #{noticeFilesType}, #{noticeFilesName}, #{noticeFilesPath}, #{noticeFilesSizeBytes}, 
-      SYSDATE) ]]> </insert>
+      SYSDATE) ]]>
+	</insert>
 
-   <!-- 파일 조회 (뉴스번호 기준) -->
-   <select id="fileNoticeSelect" parameterType="int"
-      resultType="com.wt.app.dto.FileNoticeDTO">
+	<!-- 파일 조회 (뉴스번호 기준) -->
+	<select id="fileNoticeSelect" parameterType="int"
+		resultType="com.wt.app.dto.FileNoticeDTO">
       <![CDATA[
       SELECT f.notice_files_number, f.notice_files_type, f.notice_files_name, f.notice_files_path, f.notice_files_size_bytes, TO_CHAR(f.notice_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate FROM tbl_news n JOIN tbl_files_notice f ON f.notice_files_number = n.files_number WHERE n.news_number = #{value}
       ]]>
-   </select>
+	</select>
 
-   <!-- 파일 삭제 (뉴스번호 기준) -->
-   <delete id="fileNoticeDelete" parameterType="int">
+	<!-- 파일 삭제 (뉴스번호 기준) -->
+	<delete id="fileNoticeDelete" parameterType="int">
       <![CDATA[
        DELETE FROM tbl_files_notice WHERE notice_files_number = ( SELECT files_number FROM tbl_news WHERE news_number = #{value} )
         ]]>
-   </delete>
+	</delete>
 
+	<!-- ==================== [Care: 이력수정 - 자격증/통장사본] ==================== -->
+	<!-- 자격증 이력 INSERT -->
+	<insert id="licenseModifyInsert"
+		parameterType="com.wt.app.dto.LicenseModifyDTO">
+		<selectKey keyProperty="licenseModifyNumber"
+			resultType="int" order="BEFORE">
+			SELECT seq_license_modify.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO tbl_license_modify (
+		license_modify_number, users_number,
+		license_files_number, license_files_type, license_files_name,
+		license_files_path, license_files_size_bytes, license_created_date
+		)
+		VALUES (
+		#{licenseModifyNumber}, #{usersNumber},
+		#{licenseFilesNumber},
+		#{licenseFilesType}, #{licenseFilesName},
+		#{licenseFilesPath},
+		#{licenseFilesSizeBytes}, SYSDATE
+		)
+	</insert>
 
-   <!-- ==================== [News 연동 파일: tbl_files_notice] ==================== -->
-   <!-- 파일 추가: seq_files 사용 -->
-   <insert id="fileNoticeInsert"
-      parameterType="com.wt.app.dto.FileNoticeDTO">
-      <selectKey keyProperty="noticeFilesNumber" resultType="int"
-         order="BEFORE">
-         SELECT seq_files.NEXTVAL FROM DUAL
-      </selectKey>
-      INSERT INTO tbl_files_notice (
-      notice_files_number, notice_files_type,
-      notice_files_name,
-      notice_files_path, notice_files_size_bytes,
-      notice_created_date
-      ) VALUES (
-      #{noticeFilesNumber}, #{noticeFilesType},
-      #{noticeFilesName},
-      #{noticeFilesPath}, #{noticeFilesSizeBytes},
-      SYSDATE
-      )
-   </insert>
+	<!-- 통장사본 이력 INSERT -->
+	<insert id="accountModifyInsert"
+		parameterType="com.wt.app.dto.AccountModifyDTO">
+		<selectKey keyProperty="accountModifyNumber"
+			resultType="int" order="BEFORE">
+			SELECT seq_account_modify.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO tbl_account_modify (
+		account_modify_number, users_number,
+		account_files_number, account_files_type, account_files_name,
+		account_files_path, account_files_size_bytes, account_created_date
+		)
+		VALUES (
+		#{accountModifyNumber}, #{usersNumber},
+		#{accountFilesNumber},
+		#{accountFilesType}, #{accountFilesName},
+		#{accountFilesPath},
+		#{accountFilesSizeBytes}, SYSDATE
+		)
+	</insert>
 
-   
-
-   <!-- 파일 삭제 (뉴스번호 기준) -->
-   <delete id="fileNoticeDelete2" parameterType="int">
-   <![CDATA[
-    DELETE FROM tbl_files_notice
-    WHERE notice_files_number = (
-      SELECT files_number
-      FROM tbl_news
-      WHERE news_number = #{value}
-       )
-     ]]>
-   </delete>
-
-   <!-- 뉴스번호로 연결된 파일번호 조회 -->
-   <select id="fileNoticeGetNoticeFilesNumber" parameterType="int"
-      resultType="int">
-      SELECT files_number
-      FROM tbl_news
-      WHERE news_number =
-      #{value}
-   </select>
-
-   <!-- ==================== [Care: 이력수정 - 자격증/통장사본] ==================== -->
-   <!-- 자격증 이력 INSERT -->
-   <insert id="licenseModifyInsert"
-      parameterType="com.wt.app.dto.LicenseModifyDTO">
-      <selectKey keyProperty="licenseModifyNumber"
-         resultType="int" order="BEFORE">
-         SELECT seq_license_modify.NEXTVAL FROM DUAL
-      </selectKey>
-      INSERT INTO tbl_license_modify (
-      license_modify_number, users_number,
-      license_files_number, license_files_type, license_files_name,
-      license_files_path, license_files_size_bytes, license_created_date
-      )
-      VALUES (
-      #{licenseModifyNumber}, #{usersNumber},
-      #{licenseFilesNumber},
-      #{licenseFilesType}, #{licenseFilesName},
-      #{licenseFilesPath},
-      #{licenseFilesSizeBytes}, SYSDATE
-      )
-   </insert>
-
-   <!-- 통장사본 이력 INSERT -->
-   <insert id="accountModifyInsert"
-      parameterType="com.wt.app.dto.AccountModifyDTO">
-      <selectKey keyProperty="accountModifyNumber"
-         resultType="int" order="BEFORE">
-         SELECT seq_account_modify.NEXTVAL FROM DUAL
-      </selectKey>
-      INSERT INTO tbl_account_modify (
-      account_modify_number, users_number,
-      account_files_number, account_files_type, account_files_name,
-      account_files_path, account_files_size_bytes, account_created_date
-      )
-      VALUES (
-      #{accountModifyNumber}, #{usersNumber},
-      #{accountFilesNumber},
-      #{accountFilesType}, #{accountFilesName},
-      #{accountFilesPath},
-      #{accountFilesSizeBytes}, SYSDATE
-      )
-   </insert>
-
-   <!-- 자격증 이력: 특정 회원 최신 1건 -->
-   <select id="licenseModifyLatestByUser" parameterType="int"
-      resultType="com.wt.app.dto.LicenseModifyDTO"><![CDATA[
+	<!-- 자격증 이력: 특정 회원 최신 1건 -->
+	<select id="licenseModifyLatestByUser" parameterType="int"
+		resultType="com.wt.app.dto.LicenseModifyDTO"><![CDATA[
     SELECT *
     FROM (
       SELECT *
@@ -340,9 +308,9 @@
     WHERE ROWNUM = 1
   ]]></select>
 
-   <!-- 통장사본 이력: 특정 회원 최신 1건 -->
-   <select id="accountModifyLatestByUser" parameterType="int"
-      resultType="com.wt.app.dto.AccountModifyDTO"><![CDATA[
+	<!-- 통장사본 이력: 특정 회원 최신 1건 -->
+	<select id="accountModifyLatestByUser" parameterType="int"
+		resultType="com.wt.app.dto.AccountModifyDTO"><![CDATA[
     SELECT *
     FROM (
       SELECT *
@@ -353,9 +321,9 @@
     WHERE ROWNUM = 1
   ]]></select>
 
-   <!-- 자격증 적용: care_users에 최신 PENDING 1건 반영 -->
-   <update id="careerApplyLicense_UpdateCareUsers"
-      parameterType="int"><![CDATA[
+	<!-- 자격증 적용: care_users에 최신 PENDING 1건 반영 -->
+	<update id="careerApplyLicense_UpdateCareUsers"
+		parameterType="int"><![CDATA[
     UPDATE tbl_care_users cu
        SET cu.care_certificate_files_num = (
              SELECT x.license_files_number
@@ -376,8 +344,8 @@
            )
   ]]></update>
 
-   <!-- 자격증: 최신 PENDING 1건 APPLIED -->
-   <update id="careerApplyLicense_MarkApplied" parameterType="int"><![CDATA[
+	<!-- 자격증: 최신 PENDING 1건 APPLIED -->
+	<update id="careerApplyLicense_MarkApplied" parameterType="int"><![CDATA[
     UPDATE tbl_license_modify lm
        SET lm.status = 'APPLIED',
            lm.applied_date = SYSDATE
@@ -393,8 +361,8 @@
            )
   ]]></update>
 
-   <!-- 자격증: 남은 PENDING 정리(CLEARED) -->
-   <update id="careerClearLicense" parameterType="int"><![CDATA[
+	<!-- 자격증: 남은 PENDING 정리(CLEARED) -->
+	<update id="careerClearLicense" parameterType="int"><![CDATA[
     UPDATE tbl_license_modify
        SET status = 'CLEARED',
            applied_date = NVL(applied_date, SYSDATE)
@@ -402,9 +370,9 @@
        AND status = 'PENDING'
   ]]></update>
 
-   <!-- 통장사본 적용: care_users에 최신 PENDING 1건 반영 -->
-   <update id="careerApplyAccount_UpdateCareUsers"
-      parameterType="int"><![CDATA[
+	<!-- 통장사본 적용: care_users에 최신 PENDING 1건 반영 -->
+	<update id="careerApplyAccount_UpdateCareUsers"
+		parameterType="int"><![CDATA[
     UPDATE tbl_care_users cu
        SET cu.care_passbook_files_num = (
              SELECT x.account_files_number
@@ -425,8 +393,8 @@
            )
   ]]></update>
 
-   <!-- 통장사본: 최신 PENDING 1건 APPLIED -->
-   <update id="careerApplyAccount_MarkApplied" parameterType="int"><![CDATA[
+	<!-- 통장사본: 최신 PENDING 1건 APPLIED -->
+	<update id="careerApplyAccount_MarkApplied" parameterType="int"><![CDATA[
     UPDATE tbl_account_modify am
        SET am.status = 'APPLIED',
            am.applied_date = SYSDATE
@@ -442,8 +410,8 @@
            )
   ]]></update>
 
-   <!-- 통장사본: 남은 PENDING 정리(CLEARED) -->
-   <update id="careerClearAccount" parameterType="int"><![CDATA[
+	<!-- 통장사본: 남은 PENDING 정리(CLEARED) -->
+	<update id="careerClearAccount" parameterType="int"><![CDATA[
     UPDATE tbl_account_modify
        SET status = 'CLEARED',
            applied_date = NVL(applied_date, SYSDATE)
