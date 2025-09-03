@@ -90,22 +90,23 @@
 	
 	
 	<!-- 하트 추가 -->
-	 <!-- <insert id="addHeart" parameterType="CareHeartDTO">
+	  <insert id="addHeart" parameterType="CareHeartDTO">
 		INSERT INTO TBL_HEARTS
 		(HEARTS_NORMAL_NUMBER, HEARTS_CARE_NUMBER)
-		VALUES(#{normalNumber},
-		#{careNumber})
-	</insert> --> 
+		VALUES(#{heartsNormalNumber},
+		#{heartsCareNumber})
+	</insert> 
 
-	<!--
-	하트 삭제
+
+	
+	<!-- 하트 삭제 -->
 	<delete id="deleteHeart" parameterType="int">
 		delete from TBL_HEARTS
 		where
-		hearts_normal_number =
-		#{heartsNormalNumber}
+		hearts_normal_number = #{heartsNormalNumber} and hearts_care_number = #{heartsCareNumber}
 	</delete>
 	
+	<!--
 	<insert id="startMessage" parameterType="CareHeartDTO">
 		INSERT INTO RICEBALL.TBL_MESSAGE
 		(MESSAGE_NUMBER, CARE_NUMBER, NORMAL_NUMBER, SENDER_TYPE, MESSAGE_CONTENTS, MESSAGE_DATE, IS_READ)

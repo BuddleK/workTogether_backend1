@@ -50,8 +50,10 @@
    		<typeAlias type="com.wt.app.dto.PostReplyDTO" alias="PostReplyDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.MessageSRDTO" alias="MessageSRDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.MainDTO" alias="MainDTO"></typeAlias>
-   		<typeAlias type="com.wt.app.dto.NewsBannerDTO" alias="NewsBannerDTO"></typeAlias>
-   		<package name="com.wt.app.dto"/>   		
+   		<typeAlias type="com.wt.app.dto.NewsBannerDTO" alias="NewsBannerDTO"></typeAlias>   		
+   		<typeAlias type="com.wt.app.dto.CareHeartDTO" alias="CareHeartDTO"></typeAlias>   		
+   		<typeAlias type="com.wt.app.dto.NormalSignDTO" alias="NormalSignDTO"></typeAlias>   		
+   		<typeAlias type="com.wt.app.dto.CareSignDTO" alias="CareSignDTO"></typeAlias>   		
    </typeAliases> 
    
    <environments default="oracle">
@@ -94,5 +96,6 @@
       <mapper resource="com/wt/mapper/UserMapper.xml" />
       <mapper resource="com/wt/mapper/SendRecieveMessageMapper.xml" />
       <mapper resource="com/wt/mapper/MainMapper.xml" />
+      <mapper resource="com/wt/mapper/NormalUsersMapper.xml" />
    </mappers> 
 </configuration>

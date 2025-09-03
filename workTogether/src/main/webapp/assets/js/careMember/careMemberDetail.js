@@ -198,33 +198,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-	const heartImg = document.querySelector("#heart_img_box");
-	heartImg?.addEventListener('click', async () => {
+	const heartImgBox = document.querySelector(".heart");
+	const heartImg = document.querySelector(".heart_img");
+	heartImgBox?.addEventListener('click', async () => {
 		console.log('클릭해주셔서 감사합니다.')
 		if (!careNumber || !normalNumber) return alert("비로그인 상태이거나 돌봄회원이 삭제되어 페이지를 볼 수 없습니다.");
-		heartImg.disabled = true;
-		try {
-			const response = await fetch("/careDetailHeart/careDetailHeartAddOk.he", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json; charset=utf-8",
-					"X-Requested-With": "XMLHttpRequest",
-				},
-				body: JSON.stringify({careNumber,normalNumber}),
-			});
-		const result = await safeJson(response);
-		if(result?.status === "success") {
-			alert("하트 추가가 완료되었습니다");
-			
-			}else {
-				alert("하트 추가 실패했습니다.")
-			} 			
-		} catch (error) {
-			console.error("하트 오류");
-			alert("하트 추가 중 오류가 발생했습니다.");
-		}finally {
-			heartImg.disabled = false;
+
+		const isntHeart = heartImgBox.classList.contains("no");
+		const isHeart = heartImgBox.classList.contains("yes");
+
+		if (isntHeart) {
+			try {
+				const response = await fetch("/careDetailHeart/careDetailHeartAddOk.he", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json; charset=utf-8",
+						"X-Requested-With": "XMLHttpRequest",
+					},
+					body: JSON.stringify({ careNumber, normalNumber }),
+				});
+				const result = await safeJson(response);
+				if (result?.status === "success") {
+					alert("하트 추가가 완료되었습니다");
+					heartImgBox.classList.remove("no");
+					heartImgBox.classList.add("yes");
+					heartImg.src = "/assets/img/careMember/heart_iconY.png";
+				} else {
+					alert("하트 추가 실패했습니다.")
+				}
+			} catch (error) {
+				console.error("하트 오류");
+				alert("하트 추가 중 오류가 발생했습니다.");
+			}
+		} else if (isHeart) {
+			try {
+				const response = await fetch("/careDetailHeart/careDetailHeartDeleteOk.he", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json; charset=utf-8",
+						"X-Requested-With": "XMLHttpRequest",
+					},
+					body: JSON.stringify({ careNumber, normalNumber }),
+				});
+				const result = await safeJson(response);
+				if (result?.status === "success") {
+					alert("하트 취소가 완료되었습니다");
+					heartImgBox.classList.remove("yes");
+					heartImgBox.classList.add("no");
+					heartImg.src = "/assets/img/careMember/heart_iconX.png";
+				} else {
+					alert("하트 취소 실패했습니다.")
+				}
+			} catch (error) {
+				console.error("하트 오류");
+				alert("하트 취소 중 오류가 발생했습니다.");
+			}
 		}
+
 	})
 
 

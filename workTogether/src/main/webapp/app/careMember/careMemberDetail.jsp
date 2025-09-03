@@ -30,20 +30,22 @@
 				<!-- 프로필 정보 영역 -->
 				<span class="profile_area"> <!-- 프로필 div박스 -->
 					<div class="profile">
-						<!-- 프로필 픽 박스 -->	
+						<!-- 프로필 픽 박스 -->
 						<div class="profile_pic_box">
-							<div id="heart_img_box">
 							<c:choose>
 								<c:when test="${care.getHeartsNormalNumber() != 0 }">
-									<img draggable="false" id="heart_imgY"
-									src="${pageContext.request.contextPath}/assets/img/careMember/heart_icon.png">	
+									<div id="heart_img_boxY" class="heart yes">
+										<img draggable="false" id="heart_imgY" class="heart_img"
+											src="${pageContext.request.contextPath}/assets/img/careMember/heart_icon.png">
+									</div>
 								</c:when>
 								<c:otherwise>
-										<img draggable="false" id="heart_imgX"
+									<div id="heart_img_boxX" class="heart no">
+										<img draggable="false" id="heart_imgX"  class="heart_img"
 											src="${pageContext.request.contextPath}/assets/img/careMember/heart_icon.png">
-									</c:otherwise>
+									</div>
+								</c:otherwise>
 							</c:choose>
-							</div>
 							<!-- 프로필 사진 -->
 							<div class="profile_pic_frame">
 								<c:choose>
@@ -135,27 +137,15 @@
 						<!-- 후기 리스트 ul -->
 						<ul class="comment_list">
 							<!-- 후기 리스트 li -->
-							<li class="comment">
-								<div class="comment_div">
-									<div class="comment_number">1</div>
-									<div class="comment_author">아무개</div>
-									<div class="comment_context">나중에 또 부탁드립니다.</div>
-									<div class="comment_edit">
-										<button type=button class="edit_btn">수정</button>
-									</div>
-									<div class="comment_del">
-										<button type=button class="del_btn">삭제</button>
-									</div>
-									<div class="comment_date">2025-08-02</div>
-								</div>
-							</li>
+							<li class="comment"></li>
 							<!-- 후기 리스트 li -->
 
 						</ul>
 						<!-- 후기 작성 박스 -->
 						<div class="input_box">
 							<!-- 후기 입력 창 -->
-							<input type="text" id="comment_text" placeholder="후기를 작성하세요" maxlength="50">
+							<input type="text" id="comment_text" placeholder="후기를 작성하세요"
+								maxlength="50">
 							<!-- 후기 작성 버튼 -->
 							<button id="comment_button">작성</button>
 						</div>
