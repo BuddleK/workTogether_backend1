@@ -38,8 +38,16 @@
 							</div>
 							<!-- 프로필 사진 -->
 							<div class="profile_pic_frame">
-								<img class="profile_pic"
-									src="${pageContext.request.contextPath}/assets/img/careMember/profilePicCare.png">
+								<c:choose>
+									<c:when test="${not empty care.getProfilesFilesName() } ">
+										<img class="profile_pic"
+											src="${pageContext.request.contextPath}/${care.getProfilesFilesPath() }/${care.getProfilesFilesName()}.${care.getProfilesFilesType()}">
+									</c:when>
+									<c:otherwise>
+										<img class="profile_pic"
+											src="${pageContext.request.contextPath}/assets/img/careMember/basic.png">
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<!-- 프로필 정보 칸 -->
 							<div class="profile_intro">
@@ -153,17 +161,17 @@
 	</main>
 	<jsp:include page="/footer.jsp" />
 	<jsp:include page="careMemberModal.jsp" />
-	
+
 </body>
 <script>
 	window.careNumber = "${care.usersNumber}"
 	window.usersNumber = "${usersNumber}"
 	console.log("현재 들어온 디테일 페이지의 회원 번호 " + window.careNumber);
-	console.log("로그인 유저의 회원 번호" + usersNumber )
-	
+	console.log("로그인 유저의 회원 번호" + usersNumber)
+
 	function sendLetterButtonClick() {
 		// html 문서에 모달 불러오기
-		 confirmShowup() ;
+		confirmShowup();
 	};
 
 	//모달 요소 가져오기
@@ -202,6 +210,5 @@
 	}
 
 	turnOffModal();
-	
 </script>
 </html>
