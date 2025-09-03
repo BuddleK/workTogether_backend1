@@ -1,18 +1,19 @@
 package com.wt.app.careList;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.careList.dao.CareListCommentsDAO;
 import com.wt.app.careList.dao.CareListDAO;
 import com.wt.app.dto.CareListDTO;
-import com.wt.app.dto.ShopsListDTO;
-import com.wt.app.shops.dao.ShopsListDAO;
 
 public class CareListDetailOkController implements Execute  {
 
@@ -41,6 +42,30 @@ public class CareListDetailOkController implements Execute  {
 				//DB에서 게시글 가져오기
 				//-> 가져온 데이터 careListDTO 선언 후 저장
 				CareListDTO careListDTO = careListDAO.selectDetail(usersNumber);
+				
+				// 하트 관련
+				HttpSession session = request.getSession();
+				Integer normalUsersNumberStr = (Integer) session.getAttribute("usersNumber");
+				int normalUsersNumber = 0;
+				System.out.println("세션값" + session.getAttribute("usersNumber"));
+				if(normalUsersNumberStr != null) {
+					normalUsersNumber = normalUsersNumberStr;
+					Map<String, Integer> numbers = new HashMap<>();
+					numbers.put("normalNumber", normalUsersNumber);
+					numbers.put("careNumber", usersNumber);
+					
+					int heartsNoNum = careListDAO.selectHeartN(numbers);
+					int heartsCaNum = careListDAO.selectHeartC(numbers);
+					
+					System.out.println("no"+ heartsNoNum + "and" + heartsCaNum) ;
+					if(heartsNoNum != -1 && heartsCaNum != -1) {
+						careListDTO.setHeartsNormalNumber(heartsNoNum);
+						careListDTO.setHeartsCareNumber(heartsCaNum);
+					}
+					
+				}
+				
+				
 				//게시글이 존재하지 않을 경우 처리
 				//ex) 리스트에 존재해서 유저가 접속하려고 클릭 했는데 그 순간에 회원이 삭제되어 리스트가 존재하지 않는 경우
 				if(careListDTO == null) {

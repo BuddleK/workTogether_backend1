@@ -31,16 +31,13 @@ public class CareListDAO {
 			return sqlSession.selectOne("careList.getTotal");
 		}
 		
-	//	하트 추가
-		public void addHeart() {
-			// 메소드 실행 시 db에 하트 추가
-			sqlSession.insert("careList.addHeart");
+	// 하트 검사 
+		public int selectHeartN (Map<String, Integer> numbers) {
+			return sqlSession.selectOne("careList.showHeartN", numbers) != null ? sqlSession.selectOne("careList.showHeartN", numbers) : -1;
 		}
 		
-	// 하트 삭제
-		public void deleteHeart() {
-			// 메소드 실행 시 db에 존재하는 하트 목록 삭제
-			sqlSession.delete("careList.deleteHeart");
+		public int selectHeartC (Map<String, Integer> numbers) {
+			return sqlSession.selectOne("careList.showHeartC", numbers) != null ? sqlSession.selectOne("careList.showHeartC", numbers) : -1;
 		}
 		
 	// 쪽지 보내기(첫 시도)

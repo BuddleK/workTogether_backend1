@@ -79,14 +79,25 @@
 	</select>
 
 	
+	<!-- 하트 상태 -->
+	<select id="showHeartN" resultType="int">
+		SELECT hearts_normal_number FROM tbl_hearts WHERE hearts_normal_number = #{normalNumber} AND hearts_care_number = #{careNumber}
+	</select>
+	
+	<select id="showHeartC" resultType="int">
+		SELECT hearts_care_number FROM tbl_hearts WHERE hearts_normal_number = #{normalNumber} AND hearts_care_number = #{careNumber}
+	</select>
+	
+	
 	<!-- 하트 추가 -->
-	<!-- <insert id="addHeart" parameterType="CareHeartDTO">
+	 <insert id="addHeart" parameterType="CareHeartDTO">
 		INSERT INTO TBL_HEARTS
 		(HEARTS_NORMAL_NUMBER, HEARTS_CARE_NUMBER)
 		VALUES(#{normalNumber},
 		#{careNumber})
-	</insert>
+	</insert> 
 
+	<!--
 	하트 삭제
 	<delete id="deleteHeart" parameterType="int">
 		delete from TBL_HEARTS
