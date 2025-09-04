@@ -134,8 +134,8 @@
   <jsp:include page="/footer.jsp" />
   <script>
     /* let usersNumber = "${sessionScope.memberNumber}"; */
-   let usersNumber = 48; 
-   window.postsNumber = "${post.postsNumber}"
+   /* let usersNumber = 48; 
+   window.postsNumber = "${post.postsNumber}" */
   </script>
 </body>
 </html>

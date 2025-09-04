@@ -13,9 +13,7 @@ public class PostsDAO {
 	public SqlSession sqlSession;
 
 	public PostsDAO() {
-		System.out.println("생성자에서 문제가 생기는 것 같다");
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
-		System.out.println("확인해보자");
 	}
 	
 //	전체 게시글 조회 메소드
@@ -36,6 +34,18 @@ public class PostsDAO {
 	public int checkReport(Map<String, Integer> reportMap) {
 		System.out.println("신고한 내역이 있는지 확인 - checkReport 메소드 실행");
 		return sqlSession.selectOne("posts.checkReport", reportMap);
+	}
+	
+	public void insertReport(Map<String, Integer> reportMap) {
+		System.out.println("신고 추가 - insertReport 메소드 실행");
+		int insert = sqlSession.insert("posts.insertReport", reportMap);
+		System.out.println("신고 insert 결과 : " + insert);
+	}
+	
+	public void updateReport(int postsNumber) {
+		System.out.println("게시글 신고 수 업데이트 - updateReport 메소드 실행");
+		int result = sqlSession.update("posts.updateReport", postsNumber);
+		System.out.println("신고 update 결과 : " + result);
 	}
 	
 //	게시글 추가 메소드

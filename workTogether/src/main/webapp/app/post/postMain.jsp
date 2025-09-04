@@ -160,7 +160,7 @@ session.setAttribute("memberNumber", memberNumber); // "memberNumber" 이라는 
       </div>
     </div>
     <script>
-    	let usersNumber = "${sessionScope.memberNumber}"; 
+    	/* let usersNumber = "${sessionScope.memberNumber}"; */ 
     	/* console.log = "${sessionScope.memberNumber}"); */
     	/* let usersNumber = 48; */
     </script>
