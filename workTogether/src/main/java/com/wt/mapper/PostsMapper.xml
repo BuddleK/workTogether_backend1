@@ -32,13 +32,23 @@
    
    
    <!-- 현재 사용자가 신고한 상태인지 확인 -->
-   <select id="checkReport" parameterType="map" resultType="int">
-   		SELECT COUNT(REPORT_NUMBER) AS ANSWER FROM RICEBALL.TBL_REPORT WHERE REPORT_POST_NUMBER = #{postsNumber} AND REPORT_USERS_NUMBER = #{usersNumber};
+   <select id="checkReport" resultType="int">
+   <![CDATA[  
+   		SELECT COUNT(REPORT_NUMBER) AS ANSWER FROM RICEBALL.TBL_REPORT WHERE REPORT_POST_NUMBER = #{postsNumber} AND REPORT_USERS_NUMBER = #{usersNumber}
+   	]]>
    </select>
    
    <!-- 신고 추가 -->
-
+	<insert id="insertReport" >
+		INSERT INTO RICEBALL.TBL_REPORT(REPORT_NUMBER, REPORT_POST_NUMBER, REPORT_USERS_NUMBER) VALUES (seq_report.nextVal, #{postsNumber}, #{usersNumber})
+	</insert>
    
+   <!-- 신고 업데이트 -->
+   <update id="updateReport">
+   		UPDATE RICEBALL.TBL_POSTS
+		SET POSTS_REPORT_COUNT = (SELECT COUNT(REPORT_NUMBER) FROM RICEBALL.TBL_REPORT WHERE REPORT_POST_NUMBER = #{postsNumber})
+		where POSTS_NUMBER = #{postsNumber}
+   </update>
    
    <!--  게시글 추가 -->
 <!--    <insert id="insert" parameterType="BoardDTO">

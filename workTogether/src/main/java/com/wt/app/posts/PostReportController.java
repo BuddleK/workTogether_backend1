@@ -56,6 +56,15 @@ public class PostReportController implements Execute{
 		
 		System.out.println("신고 수 : " + reCount);
 		
+		if(reCount == 0) {
+			System.out.println("우히!!!! 신고!!!");
+			postsDAO.insertReport(reportMap);
+			postsDAO.updateReport(postNumber);
+		}else {
+			System.out.println("이미 신고한 글임!");
+			postsDAO.updateReport(postNumber);
+		}
+		
 		
 //		String title = request.getParameter("postTitle");
 //		String context = request.getParameter("postContext");
