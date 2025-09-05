@@ -19,6 +19,7 @@ public class CareMarkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("===CareMarkController 실행===");
 		CareMarkDAO careMarkDAO = new CareMarkDAO();
 		Result result = new Result();
 		
