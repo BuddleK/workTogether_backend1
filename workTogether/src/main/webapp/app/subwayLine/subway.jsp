@@ -53,7 +53,7 @@
 			</c:forEach>
 		</div>
 		
-		<!-- 역 목록 (하나의 구조만 사용) -->
+		<!-- 역 목록 -->
 		<div class="station_list" id="station_list">
 		    <h3 id="station_list_title">
 		        <c:choose>
