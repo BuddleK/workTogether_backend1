@@ -32,12 +32,14 @@ public class LoginNormalOkController implements Execute {
 		// DAO 호출
 		UsersDAO usersDAO = new UsersDAO();
 		int loggedInUser = usersDAO.normalLogin(usersLoginDTO);
+		
 		// 결과 처리
 		Result result = new Result();
 
 		if (loggedInUser > 0) {
 			HttpSession session = request.getSession();
 			session.setAttribute("usersNumber", loggedInUser);
+			
 			System.out.println(session.getAttribute("usersNumber"));
 			result.setRedirect(true);
 			result.setPath(request.getContextPath() + "/mainOk.main"); // 로그인 성공 후 메인으로

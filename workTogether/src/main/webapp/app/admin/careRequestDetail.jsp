@@ -12,8 +12,7 @@
 <link rel="stylesheet" href="/App/assets/css/headerAdmin.css" />
 <link rel="stylesheet" href="/App/assets/css/footer.css" />
 <link rel="stylesheet" href="/App/assets/css/admin/basic.css" />
-<link rel="stylesheet"
-	href="/App/assets/css/admin/careRequestDetail.css" />
+<link rel="stylesheet" href="/App/assets/css/admin/careRequestDetail.css" />
 <link rel="stylesheet" href="/App/assets/css/admin/sidebar.css" />
 <link rel="stylesheet" href="/App/assets/css/modalAdmin.css" />
 
@@ -46,9 +45,7 @@
 					<!-- 내용 -->
 					<div class="tbody">
 						<div class="tbody_content tbody_name">${signup.usersName}</div>
-						<div class="tbody_content tbody_birth">
-							<c:out value="${signup.usersBirth}" default="-" />
-						</div>
+						
 						<div class="tbody_content tbody_phone">${signup.usersPhone}</div>
 						<div class="tbody_content tbody_email">${signup.usersEmail}</div>
 

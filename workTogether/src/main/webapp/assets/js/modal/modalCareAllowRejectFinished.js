@@ -1,103 +1,57 @@
-window.addEventListener("DOMContentLoaded", () => {
-  // html 문서에 모달 불러오기
-  fetch("./../../app/modal/modalCareAllowReject.jsp")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("modalCareAllowReject").innerHTML = data;
-    });
-});
-
-//모달 요소 가져오기
-const modalCareAllowReject = document.getElementById("modalCareAllowReject");
-
-//input 요소 담을 변수
-let input;
-
-const link = "./../../app/admin/careRequest.jsp";
-function linkHref() {
-  location.href = link;
+// 컨텍스트 경로
+function getContextPath() {
+  const link = document.querySelector('link[href$="/assets/css/headerAdmin.css"]');
+  if (!link) return "";
+  const href = link.getAttribute("href") || "";
+  const idx = href.indexOf("/assets/");
+  return idx > -1 ? href.slice(0, idx) : "";
 }
+const CTX = getContextPath();
 
-function cancle() {
-  linkHref();
-}
+// 회원번호 가져오기
+const USERS_NUMBER = new URLSearchParams(location.search).get("usersNumber") || "";
+const REJECT_URL = `${CTX}/admin/care/reject.ad`;
+const LIST_URL = `${CTX}/admin/care/list.ad`;
 
-// 모달이 나타나는 함수(버튼에 추가하여 사용)
+// 모달 열기
 function modalCareAllowRejectShow() {
-  event.preventDefault();
-  console.log("모달버튼클릭");
-  modalCareAllowReject.style.display = "flex";
-  input = document.getElementById("reason_reject");
-  input.focus();
-
-  input.onkeyup = (e) => {
-    if (e.key === "Enter") {
-      modalCareAllowRejectCheck();
-    }
-  };
+  const modal = document.querySelector("#modalCareAllowReject .modal");
+  if (modal) modal.style.display = "flex";
 }
 
-//모달 끄기 함수(모달 내부 x이미지에 추가되어 있음)
-function modalCareAllowRejectNone() {
-  if (input) {
-    input.onkeyup = null; // 이벤트 제거
-  }
-  modalCareAllowReject.style.display = "none";
+// 모달 닫기
+function modalCareAllowRejectCancel() {
+  const modal = document.querySelector("#modalCareAllowReject .modal");
+  if (modal) modal.style.display = "none";
 }
+
+// 모달 확인 (반려 처리 요청)
 function modalCareAllowRejectCheck() {
-  const value = input.value.trim();
-  if (!value) {
+  const input = document.getElementById("reason_reject");
+  const reason = input ? input.value.trim() : "";
+  if (!reason) {
     alert("반려 사유를 입력하세요.");
+    input.focus();
     return;
   }
-  console.log("전달할 값 : ", value);
-  alert("입력됨 - " + value);
-  modalCareAllowRejectNone();
-  linkHref();
-}
-function modalCareAllowRejectCancel() {
-  modalCareAllowRejectNone();
-}
-modalCareAllowRejectNone();
 
-window.addEventListener("DOMContentLoaded", () => {
-  // html 문서에 모달 불러오기
-  fetch("./../../app/modal/modalCareAllowFinished.jsp")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("modalCareAllowFinished").innerHTML = data;
-    });
-});
+  // 폼 제출처럼 POST 요청
+  const form = document.createElement("form");
+  form.method = "post";
+  form.action = REJECT_URL;
 
-//모달 요소 가져오기
-const modalCareAllowFinished = document.getElementById(
-  "modalCareAllowFinished"
-);
+  const numField = document.createElement("input");
+  numField.type = "hidden";
+  numField.name = "usersNumber";
+  numField.value = USERS_NUMBER;
+  form.appendChild(numField);
 
-function modalCareAllowFinishedShow() {
-  // event.preventDefault();
-  console.log("모달버튼클릭");
-  modalCareAllowFinished.style.display = "flex";
+  const reasonField = document.createElement("input");
+  reasonField.type = "hidden";
+  reasonField.name = "rejectReason";
+  reasonField.value = reason;
+  form.appendChild(reasonField);
 
-  //엔터로 확인 버튼 누르기
-  document.onkeydown = (event) => {
-    if (event.key === "Enter") {
-      modalCareAllowFinishedCheck();
-    }
-  };
+  document.body.appendChild(form);
+  form.submit();
 }
-//모달 끄기 함수(모달 내부 x이미지에 추가되어 있음)
-function modalCareAllowFinishedNone() {
-  modalCareAllowFinished.style.display = "none";
-  document.onkeydown = null; // onkeydown 이벤트 제거
-}
-//확인 버튼
-function modalCareAllowFinishedCheck() {
-  linkHref();
-  modalCareAllowFinishedNone();
-}
-//취소 버튼
-function modalCareAllowFinishedCancel() {
-  modalCareAllowFinishedNone();
-}
-modalCareAllowFinishedNone();
