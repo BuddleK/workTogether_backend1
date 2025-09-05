@@ -1,22 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="marker">
+
+
+
+
+
+
+
 	<!-- 지도에 표시할 마크 가져오기 -->
    <select id="getMarkers" parameterType="int" resultType="MarkerDTO">
 		SELECT ROWNUM AS rnum, subquery.*
 		FROM (SELECT shops_number, shops_name, shops_branch_name, shops_road_address, shops_working_hours, shops_phone, shops_takeout, shops_intro_text, CASE WHEN f.users_number IS NULL THEN 'N' ELSE 'Y' END AS is_favorite
 		FROM TBL_SHOPS s LEFT JOIN (SELECT favorites_shops_number, users_number FROM tbl_shops_favorites WHERE users_number=#{userNumber}) f ON s.shops_number = f.favorites_shops_number) subquery;
    </select>
+   
+   
+   
+   
    <!-- 회원이 특정 가게를 찜한 상태인지 확인하는 쿼리 (찜이 없는 경우 : 0, 찜이 있는 경우 :1) -->
    <select id="checkFav" parameterType="int" resultType="int">
    		SELECT count(favorites_shops_number) 
    		FROM (SELECT * FROM tbl_shops_favorites WHERE users_number = #{userNumber}) f WHERE f.favorites_shops_number = #{shopsNumber};
    </select>
+   
+   
+   
+   
 	<!-- 마커를 통해 찜 추가 -->
 	<insert id="markerAddFav" parameterType="MarkerDTO">
 		INSERT INTO TBL_SHOPS_FAVORITES (favorites_number, users_number, favorites_shops_number, favorites_created_date)
 		VALUES(seq_shops_favorites.nextval, #{userNumber}, #{shopsNumber}, SYSDATE);
 	</insert>
+	
+	<!-- INSERT INTO RICEBALL.TBL_SHOPS_FAVORITES(favorites_number, users_number, favorites_shops_number, favorites_created_date) 
+	VALUES(1, 3, 6, SYSDATE); -->
+	
+	
+	
 	<!-- 마커를 통해 찜 삭제 -->
 	<delete id="markerDeleteFav" parameterType="MarkerDTO">
 		delete from tbl_shops_favorites
