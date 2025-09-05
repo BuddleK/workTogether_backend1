@@ -35,21 +35,21 @@ public class SubwayDAO {
 	}
 
 	// 지하철 역 이름 조회 Mapper 불러오기 위한 메소드
-	public List<SubwayStationDTO> subwayStationSearch(String lineNumber) {
-	    int lineNum = 0;
+	public List<SubwayStationDTO> subwayStationSearch(String stationsId) {
+	    int stationNum = 0;
 	    try {
-	        lineNum = Integer.parseInt(lineNumber);
+	    	stationNum = Integer.parseInt(stationsId);
 	    } catch (NumberFormatException e) {
-	        lineNum = 0; // 기본값 전체
+	    	stationNum = 0; // 기본값 전체
 	    }
-		return sqlSession.selectList("subway.subwayStationSearch", lineNum);
+		return sqlSession.selectList("subway.subwayStationSearch", stationNum);
 	}
 
 	// 지하철 디테일 페이지 정보 조회 Mapper 불러오기 위한 메소드
-	public List<SubwayStationDTO> subwayDetailSearch(String stationId) {
+	public List<SubwayStationDTO> subwayDetailSearch(String stationsId) {
 		int stationNum = 0;
 	    try {
-	        stationNum = Integer.parseInt(stationId);
+	        stationNum = Integer.parseInt(stationsId);
 	    } catch (NumberFormatException e) {
 	        stationNum = 0; // 기본값 전체
 	    }
