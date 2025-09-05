@@ -31,13 +31,16 @@ public class LoginCareOkController implements Execute {
 
 		UsersDAO usersDAO = new UsersDAO();
 		int loggedInUser = usersDAO.careLogin(usersLoginDTO);
-
+		String usersType = usersDAO.careLoginType(usersLoginDTO);
+		
+		
 		Result result = new Result();
 
 		// 결과 처리
 		if (loggedInUser > 0) {
 			HttpSession session = request.getSession();
 			session.setAttribute("usersNumber", loggedInUser);
+			session.setAttribute("usersType", usersType);
 			System.out.println(session.getAttribute("usersNumber"));
 			result.setRedirect(true);
 			result.setPath(request.getContextPath() + "/mainOk.main"); // 로그인 성공 후 메인으로

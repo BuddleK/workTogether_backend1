@@ -50,7 +50,7 @@
 						<div class="thead_content thead_name">성명</div>
 						<div class="thead_content thead_phone">전화번호</div>
 						<div class="thead_content thead_email">이메일</div>
-						<div class="thead_content thead_detach">첨부파일1</div>
+						<div class="thead_content thead_detach">자격증</div>
 						<div class="thead_content thead_account">통장사본</div>
 					</div>
 
