@@ -38,6 +38,11 @@ public class UsersDAO {
 	    	System.out.println("확인 : " + usersLoginDTO);
 	        return sqlSession.selectOne("userMapper.careLogin", usersLoginDTO) != null ? sqlSession.selectOne("userMapper.careLogin", usersLoginDTO) : -1 ;
 	    }
+	    
+	    public String careLoginType(UsersLoginDTO usersLoginDTO) {
+	    	System.out.println("타입 확인 : " +usersLoginDTO);
+	    	return sqlSession.selectOne("userMapper.careTypeLogin", usersLoginDTO);
+	    }
 
 	    /** 회원번호로 아이디 조회 (원시 long 그대로 전달 → 매퍼에서 #{value} 사용) */
 	    public String getUsersId(long usersNumber) {
