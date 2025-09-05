@@ -169,6 +169,10 @@
 
 	function sendLetterButtonClick() {
 		// html 문서에 모달 불러오기
+		if(!window.usersNumber) {
+			alert("비로그인 상태입니다.")
+			return;
+		}
 		confirmShowup();
 	};
 
