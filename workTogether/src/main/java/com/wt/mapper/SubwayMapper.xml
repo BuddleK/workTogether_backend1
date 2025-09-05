@@ -29,17 +29,18 @@
 	<!-- 역 목록 리스트 조회 -->
 	<select id="subwayStationSearch" parameterType="int" resultType="SubwayStationDTO">
 		SELECT
-			line_number,
+			stations_id,
 			stations_name
 		FROM TBL_SUBWAY_STATIONS
-		WHERE line_number = #{lineNumber}
+		WHERE stations_id = #{stationsId}
 		ORDER BY stations_name
 	</select>
 	
 	<!-- 역 세부정보 조회 -->
-	<select id="subwayDetailSearch" resultType="SubwayStationDTO">
+	<select id="subwayDetailSearch" parameterType="int" resultType="SubwayStationDTO">
 		SELECT 
 		    f.stations_files_name,
+		    s.stations_id,
 		    s.stations_name,
 		    l.line_name
 		FROM tbl_subway_stations s
@@ -47,6 +48,7 @@
 		    ON s.line_number = l.line_number
 		LEFT JOIN tbl_files_stations f 
 		    ON s.stations_photo_id = f.stations_files_number
+		where stations_id = #{stationsId}
 		ORDER BY l.line_name, s.stations_name
 	</select>
 </mapper>

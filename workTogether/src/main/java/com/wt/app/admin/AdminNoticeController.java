@@ -55,7 +55,7 @@ public class AdminNoticeController implements Execute {
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
 		
-		result.setPath("/admin/userManager.jsp");
+		result.setPath("/admin/notice.jsp");
 		result.setRedirect(false);
 		
 		return result;
