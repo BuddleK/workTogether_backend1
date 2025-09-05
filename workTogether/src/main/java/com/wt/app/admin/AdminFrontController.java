@@ -155,6 +155,86 @@ public class AdminFrontController extends HttpServlet {
 			result = new AdminCareCareerUpdateStatusController().execute(request, response);
 			break;
 
+		
+//		김태현 코드 시작
+		case "/admin/adminUserManagerList.ad":
+			System.out.println("관리자 회원관리 페이지 요청");
+			result = new AdminUserManagerListController().execute(request, response);
+			System.out.println(result);
+			break;
+		case "/admin/adminUserDetail.ad":
+			System.out.println("관리자 회원관리 디테일 페이지 요청");
+			result = new AdminUserDetailController().execute(request, response);
+			break;
+		case "/admin/adminNotice.ad":
+			System.out.println("관리자 공지사항 관리 페이지 요청");
+			result = new AdminNoticeController().execute(request, response);
+			break;
+		case "/admin/adminNoticeInsert.ad":
+			System.out.println("관리자 공지사항 추가 페이지 요청");
+			result = new AdminNoticeInsertController().execute(request, response);
+			break;
+		case "/admin/adminNoticeInsertOk.ad":
+			System.out.println("관리자 공지사항 추가 완료 페이지 요청");
+			result = new AdminNoticeInsertOkController().execute(request, response);
+			break;
+		case "/admin/adminNoticeDeleteOk.ad":
+			System.out.println("관리자 공지사항 삭제 완료 페이지 요청");
+			result = new AdminNoticeDeleteOkController().execute(request, response);
+			break;
+		case "/admin/adminNoticeUpdateOk.ad":
+			System.out.println("관리자 공지사항 수정 완료 페이지 요청");
+			result = new AdminNoticeUpdateOkController().execute(request, response);
+			break;
+		case "/admin/adminNoticeDetail.ad":
+			System.out.println("관리자 공지사항 상세 페이지 요청");
+			result = new AdminNoticeDetailController().execute(request, response);
+			break;
+		case "/admin/adminReportList.ad":
+			System.out.println("관리자 신고글 페이지 요청");
+			result = new AdminReportListController().execute(request, response);
+			break;
+		case "/admin/adminReportDeleteOk.ad":
+			System.out.println("관리자 신고글 삭제 완료 요청");
+			result = new AdminReportDeleteOkController().execute(request, response);
+			break;
+		case "/admin/adminNewsBannerInsert.ad":
+			System.out.println("관리자 뉴스 베너 쓰기 페이지 요청");
+			result = new AdminNewsBannerInsertController().execute(request, response);
+			break;
+		case "/admin/adminNewsBannerInsertOk.ad":
+			System.out.println("관리자 뉴스 베너 추가 완료 요청");
+			result = new AdminNewsBannerInsertOkController().execute(request, response);
+			break;
+		case "/admin/adminNewsBannerDetail.ad":
+			System.out.println("관리자 뉴스 베너 상세 페이지 요청");
+			result = new AdminNewsBannerDetailController().execute(request, response);
+			break;
+		case "/admin/adminNewsBanner.ad":
+			System.out.println("관리자 뉴스 베너 페이지 요청");
+			result = new AdminNewsBannerController().execute(request, response);
+			break;
+		case "/admin/adminNewsBannerUpdate.ad":
+			System.out.println("관리자 뉴스 베너 수정 페이지 요청");
+			result = new AdminNewsBannerUpdateController().execute(request, response);
+			break;
+		case "/admin/adminNewsBannerUpdateOk.ad":
+			System.out.println("관리자 뉴스 베너 수정 완료 요청");
+			result = new AdminNewsBannerUpdateOkController().execute(request, response);
+			break;
+		case "/admin/adminNewsBannerDeleteOk.ad":
+			System.out.println("관리자 뉴스 베너 삭제 완료 요청");
+			result = new AdminNewsBannerDeleteOkController().execute(request, response);
+			break;
+		case "/admin/adminReferenceList.ad":
+			System.out.println("관리자 문의 관리 페이지 요청");
+			result = new AdminReferenceListController().execute(request, response);
+			break;
+		case "/admin/adminReferenceDetail.ad":
+			System.out.println("관리자 문의 상세 페이지 요청");
+			result = new AdminReferenceDetailController().execute(request, response);
+			break;
+		
 		}
 
 		// 공통 포워딩/리다이렉트
