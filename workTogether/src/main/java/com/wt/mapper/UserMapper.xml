@@ -5,10 +5,10 @@
 
 	<!-- 회원 공통 INSERT (selectKey로 PK 세팅) -->
 	<insert id="insertUser" parameterType="com.wt.app.dto.UsersDTO">
-		<selectKey keyProperty="usersNumber" resultType="long"
+		<!-- <selectKey keyProperty="usersNumber" resultType="long"
 			order="BEFORE">
 			SELECT seq_users.NEXTVAL FROM dual
-		</selectKey>
+		</selectKey> -->
 		INSERT INTO tbl_users (
 		users_number, users_id, users_password,
 		users_type,
@@ -17,7 +17,7 @@
 		users_postsal_code,
 		users_address_line1, users_address_line2
 		) VALUES (
-		#{usersNumber},
+		seq_users.NEXTVAL,
 		#{usersId}, #{usersPassword}, #{usersType},
 		SYSDATE, SYSDATE,
 		NVL(#{usersPoint}, 0),
@@ -37,6 +37,8 @@
 		AND u.users_type =
 		'N'
 	</select>
+	
+	
 
 	<select id="careLogin" parameterType="com.wt.app.dto.UsersDTO"
 		resultType="int">
@@ -52,6 +54,19 @@
 		c.care_accept = 'Y'
 	</select>
 
+	<!-- 돌봄 로그인 타입 가져오기 -->
+	<select id="careTypeLogin" resultType="string">
+		select u.users_type
+		from tbl_users u
+		JOIN tbl_care_users c
+		ON u.users_number = c.users_number
+		WHERE u.users_id =
+		#{usersId}
+		AND u.users_password = #{usersPassword}
+		AND u.users_type = 'C'
+		AND
+		c.care_accept = 'Y'
+	</select>
 
 	<!-- 아이디 중복 검사 (UsersDAO.checkId) -->
 	<select id="countByUsersId" parameterType="string"

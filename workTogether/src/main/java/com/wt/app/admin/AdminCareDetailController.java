@@ -68,6 +68,7 @@ public class AdminCareDetailController implements Execute {
 		}
 
 		// 5) 액션 URL
+		request.setAttribute("usersNumber", usersNumber);
 		request.setAttribute("approveAction",
 				request.getContextPath() + "/admin/care/approve.ad?usersNumber=" + usersNumber);
 		request.setAttribute("rejectAction",

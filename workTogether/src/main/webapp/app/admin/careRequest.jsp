@@ -21,6 +21,7 @@
 	src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
+
 </head>
 
 <body>
@@ -55,13 +56,10 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach var="row" items="${list}">
-									<ul class="table_body">
-										<li class="body_number"><c:out value="${row.usersNumber}" />
-										</li>
-										<li class="body_content"><c:out value="${row.usersId}" />
-										</li>
-										<li class="body_content"><c:out value="${row.usersName}" />
-										</li>
+									<ul class="table_body" data-users-number="${row.usersNumber}">
+										<li class="body_number"><c:out value="${row.usersNumber}" /></li>
+										<li class="body_content"><c:out value="${row.usersId}" /></li>
+										<li class="body_content"><c:out value="${row.usersName}" /></li>
 										<li class="body_date"><c:out
 												value="${row.usersCreatedDate}" /></li>
 										<li class="body_content"><c:choose>
@@ -69,6 +67,10 @@
 												<c:when test="${row.careAccept eq 'Y'}">승인</c:when>
 												<c:otherwise>반려</c:otherwise>
 											</c:choose></li>
+
+										<li class="body_detail"><a class="detail-btn"
+											href="${pageContext.request.contextPath}/admin/care/detail.ad?usersNumber=${row.usersNumber}">상세</a>
+										</li>
 									</ul>
 								</c:forEach>
 							</c:otherwise>
