@@ -23,7 +23,7 @@ public class SubwayDetailController implements Execute{
 		String stationId = request.getParameter("stationId");
 		System.out.println("선택한 역 ID: " + stationId);
 		
-		List<SubwayStationDTO> stations = subwayDAO.subwayStationSearch();
+		List<SubwayStationDTO> stations = subwayDAO.subwayDetailSearch(stationId);
 		request.setAttribute("stations", stations);
 		
 		result.setPath("/app/subwayLine/gangnam.jsp");

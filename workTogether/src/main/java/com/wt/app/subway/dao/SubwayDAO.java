@@ -46,8 +46,13 @@ public class SubwayDAO {
 	}
 
 	// 지하철 디테일 페이지 정보 조회 Mapper 불러오기 위한 메소드
-	public List<SubwayStationDTO> subwayDetailSearch() {
-		List<SubwayStationDTO> list = sqlSession.selectList("subway.subwayDetailSearch");
-		return list;
+	public List<SubwayStationDTO> subwayDetailSearch(String stationId) {
+		int stationNum = 0;
+	    try {
+	        stationNum = Integer.parseInt(stationId);
+	    } catch (NumberFormatException e) {
+	        stationNum = 0; // 기본값 전체
+	    }
+		return sqlSession.selectList("subway.subwayDetailSearch", stationNum);
 	}
 }

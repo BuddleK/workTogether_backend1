@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RB</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/subwayLine/subwayDetail.css">
+
+  <!-- CSS 파일 동적 로드 -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/subwayLine/${station.cssFile}">
 </head>
 
 <body>
@@ -17,33 +19,30 @@
 
   <main>
     <div class="station_info">
-      <!-- 해당 지하철 역 사진 -->
-
+      <!-- 역 이미지 -->
       <div class="station_img">
-        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/bangbae.png" alt="">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/${station.stationImg}"
+             alt="<c:out value='${station.stationsName}'/>">
       </div>
 
+      <!-- 역 이름 -->
       <div class="station_exit">
-        <!-- 역 정보 -->
-        <div> 역 </div>
+        <div><c:out value="${station.stationsName}" /></div>
       </div>
 
+      <!-- 노선 번호 이미지 -->
       <div class="line_number">
-        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/Line_2.png" alt="">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/${station.lineImg}"
+             alt="<c:out value='${station.lineNumber}'/>">
       </div>
     </div>
 
-    <!-- 지도 api -->
+    <!-- 지도 API -->
     <div class="map_api">
-      <div>
-        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/" alt="">
-      </div>
-      <a href="${pageContext.request.contextPath}/subway/subwayLine.sw"><button>목록</button></a>
+
     </div>
-
-
   </main>
+
   <jsp:include page="/footer.jsp" />
 </body>
-
 </html>
