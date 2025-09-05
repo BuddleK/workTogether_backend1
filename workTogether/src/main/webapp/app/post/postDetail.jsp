@@ -56,7 +56,7 @@
       <div class="button_area">
       	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록으로</a></button>
       	<c:choose>
-      		<c:when test="${sessionScope.memberNumber == post.getUsersNumber()}">
+      		<c:when test="${sessionScope.usersNumber == post.getUsersNumber()}">
       			<a href="${pageContext.request.contextPath}/post/postDeleteOk.po?postsNumber=${post.getPostsNumber()}"><button type="button" class="button_delete">삭제</button></a>
 				<a href="${pageContext.request.contextPath}/post/postUpdate.po?postsNumber=${post.getPostsNumber()}"><button type="button" class="button_enroll">수정</button></a>
       		</c:when>
