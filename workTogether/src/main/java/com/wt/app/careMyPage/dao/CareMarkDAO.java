@@ -17,7 +17,7 @@ public class CareMarkDAO {
 	
 	//찜 목록 전체 조회
 	public List<CareMarkDTO> markAll(Map<String, Integer> pageMap) {
-		System.out.println("회원 삭제하기 - markAll 메소드 실행 : " + pageMap);
+		System.out.println("찜 목록 전체 조회 - markAll 메소드 실행 : " + pageMap);
 		List<CareMarkDTO> list = sqlSession.selectList("careMark.markAll", pageMap);
 		System.out.println("조회결과 : " + list);
 		return list;
