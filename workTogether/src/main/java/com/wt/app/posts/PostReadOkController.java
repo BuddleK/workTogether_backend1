@@ -47,7 +47,7 @@ public class PostReadOkController implements Execute {
 		}
 		
 		//로그인한 사용자 번호 가져오기
-		Integer loginMemberNumber = (Integer) request.getSession().getAttribute("memberNumber");
+		Integer loginMemberNumber = (Integer) request.getSession().getAttribute("usersNumber");
 		System.out.println("로그인 한 멤버 번호 : " + loginMemberNumber);
 		
 		//현재 게시글의 자성자 번호 가져오기

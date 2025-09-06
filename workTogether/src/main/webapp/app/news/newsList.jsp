@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,39 +38,61 @@
       </div>
       <!-- 전체 뉴스 카드 리스트 -->
       <div class="search_result_card">
-        <ul>
-          <li>
-            <!-- 뉴스 링크 이동 카드 리스트 -->
-            <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <p class="cardtitle">서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</p>
-                <p>https://www.barrierfreenews.com/news/....</p>
-              </a></div>
-          </li>
-          <li>
-            <!-- 뉴스 링크 이동 카드 리스트 -->
-            <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <p class="cardtitle">서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</p>
-                <p>https://www.barrierfreenews.com/news/....</p>
-              </a></div>
-          </li>
-          <li>
-            <!-- 뉴스 링크 이동 카드 리스트 -->
-            <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <p class="cardtitle">서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</p>
-                <p>https://www.barrierfreenews.com/news/....</p>
-              </a></div>
-          </li>
-          <li>
-            <!-- 뉴스 링크 이동 카드 리스트 -->
-            <div class="card"><a href="https://www.barrierfreenews.com/news/articleView.html?idxno=38466">
-                <p class="cardtitle">서초구, ‘경계선지능인’ 위한 맞춤형 학습공간 개소</p>
-                <p>https://www.barrierfreenews.com/news/....</p>
-              </a></div>
-          </li>
-        </ul>
+      	<c:choose>
+      		<c:when test="${not empty newsList}">
+      			<ul>
+      				<c:forEach var="news" items="${newsList}">
+      					<li>
+      						<!-- 뉴스 링크 이동 카드 리스트 -->
+      						<div class="card"><a href="${news.newsLinkUrl}">
+      							<p class="cardtitle">
+      								<c:out value="${news.newsTitle}"/>
+      							</p>
+      							<p>
+      								<c:out value="${news.newsLinkUrl}"/>
+      							</p>
+      						</a></div>
+      					</li>
+      				</c:forEach>
+        		</ul>
+      		</c:when>
+      		<c:otherwise>
+   				<div>
+   					<div colspan="5" align="center">등록된 뉴스가 없습니다.</div>
+   				</div>
+   			</c:otherwise>
+      	</c:choose>
+        
         <!-- 페이지 네이션 -->
         <div class="pagination">
-          &lt; <span class="active">1</span> 2 3 4 ... &gt;
+			<ul class="paging">
+				<c:if test="${prev}">
+					<li><a
+						href="${pageContext.request.contextPath}/news/newsAllList.ne?page=${startPage - 1}"
+						class="prev">&lt;</a></li>
+				</c:if>
+				<c:set var="realStartPage"
+					value="${startPage < 0 ? 0 : startPage}" />
+				<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+					<c:choose>
+						<c:when test="${!(i == page) }">
+							<li><a
+								href="${pageContext.request.contextPath}/news/newsAllList.ne?page=${i}">
+									<c:out value="${i}" />
+							</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="#" class="active"> <c:out value="${i}" />
+							</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${next}">
+					<li><a
+						href="${pageContext.request.contextPath}/news/newsAllList.ne?page=${endPage + 1}"
+						class="next">&gt;</a>
+				</c:if>
+			</ul>
         </div>
       </div>
     </div>

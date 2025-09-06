@@ -20,7 +20,7 @@
       <!-- 뉴스 탑메뉴(소메뉴) -->
       <div class="news_topmenu">
         <!-- 전체 보기 페이지 이동 버튼 -->
-        <div class="all_news"><a href="${pageContext.request.contextPath}/app/news/newsList.jsp">&plus;전체보기</a></div>
+        <div class="all_news"><a href="${pageContext.request.contextPath}/news/newsAllList.ne">&plus;전체보기</a></div>
         <!-- 뉴스 페이지 제목 -->
         <div class="title">NEWS</div>
         <!-- 검색 창 바 -->

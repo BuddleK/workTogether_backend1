@@ -531,13 +531,19 @@
 	</delete>
 	
 	<!-- 신고글 조회 -->
-	<select id="adminReportListSelect" resultType="AdminUserManagerDTO">
+	<select id="adminReportListSelect" resultType="AdminReportListDTO">
 		SELECT 
 		    posts_number,
 		    posts_title ,
 		    posts_created_date,
 		    posts_report_count
 		FROM tbl_posts
+		WHERE posts_report_count <![CDATA[>]]> 4
+	</select>
+	
+	<!-- 찜 목록 전체 개수 -->
+	<select id="reportTotal" resultType="int">
+		SELECT COUNT(*) FROM TBL_POSTS WHERE posts_report_count <![CDATA[>]]> 4
 	</select>
 	
 	<!-- 신고글 삭제 -->

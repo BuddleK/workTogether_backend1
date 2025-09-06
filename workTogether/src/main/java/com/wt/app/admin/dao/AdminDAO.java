@@ -242,8 +242,8 @@ public class AdminDAO {
 		System.out.println("공지사항 삭제 완료");
 	}
 
-	public List<AdminReportListDTO> adminReportListSelect() {
-		List<AdminReportListDTO> list = sqlSession.selectList("admin.adminReportListSelect");
+	public List<AdminReportListDTO> adminReportListSelect(Map<String, Integer> pageMap) {
+		List<AdminReportListDTO> list = sqlSession.selectList("admin.adminReportListSelect", pageMap);
 		return list;
 	}
 
@@ -252,6 +252,11 @@ public class AdminDAO {
 		System.out.println("신고글 삭제 완료");
 	}
 
+	public int reportTotal() {
+			System.out.println("신고글 개수 조회 - reportTotal 메소드 실행");
+			return sqlSession.selectOne("admin.reportTotal");
+		}
+		
 	public int adminNewsBannerInsert(AdminNewsBannerDTO adminNewsBannerDTO) {
 		sqlSession.insert("admin.adminNewsBannerInsert", adminNewsBannerDTO);
 		return adminNewsBannerDTO.getBannerNewsNumber();

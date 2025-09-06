@@ -3,11 +3,11 @@ package com.wt.app.dto;
 public class AdminReportListDTO {
 	// 신고 테이블
 	private int reportNumber; // 신고 번호
-	private int postNumber; // 게시물 번호
+	private int postsNumber; // 게시물 번호
 	private int usersNumber; // 전체 유저 번호
 	// 게시물 테이블
-	private String postTitle; // 게시물 제목
-	private String postCreatedDate; // 게시물 생성일
+	private String postsTitle; // 게시물 제목
+	private String postsCreatedDate; // 게시물 생성일
 	private int postsReportCount; // 게시물 조회수
 
 	public int getReportNumber() {
@@ -26,12 +26,12 @@ public class AdminReportListDTO {
 		this.postsReportCount = postsReportCount;
 	}
 
-	public int getPostNumber() {
-		return postNumber;
+	public int getPostsNumber() {
+		return postsNumber;
 	}
 
-	public void setPostNumber(int postNumber) {
-		this.postNumber = postNumber;
+	public void setPostsNumber(int postsNumber) {
+		this.postsNumber = postsNumber;
 	}
 
 	public int getUsersNumber() {
@@ -42,26 +42,26 @@ public class AdminReportListDTO {
 		this.usersNumber = usersNumber;
 	}
 
-	public String getPostTitle() {
-		return postTitle;
+	public String getPostsTitle() {
+		return postsTitle;
 	}
 
-	public void setPostTitle(String postTitle) {
-		this.postTitle = postTitle;
+	public void setPostsTitle(String postsTitle) {
+		this.postsTitle = postsTitle;
 	}
 
-	public String getPostCreatedDate() {
-		return postCreatedDate;
+	public String getPostsCreatedDate() {
+		return postsCreatedDate;
 	}
 
-	public void setPostCreatedDate(String postCreatedDate) {
-		this.postCreatedDate = postCreatedDate;
+	public void setPostsCreatedDate(String postsCreatedDate) {
+		this.postsCreatedDate = postsCreatedDate;
 	}
 
 	@Override
 	public String toString() {
-		return "AdminReportListDTO [reportNumber=" + reportNumber + ", postNumber=" + postNumber + ", usersNumber="
-				+ usersNumber + ", postTitle=" + postTitle + ", postCreatedDate=" + postCreatedDate
+		return "AdminReportListDTO [reportNumber=" + reportNumber + ", postsNumber=" + postsNumber + ", usersNumber="
+				+ usersNumber + ", postsTitle=" + postsTitle + ", postsCreatedDate=" + postsCreatedDate
 				+ ", postsReportCount=" + postsReportCount + "]";
 	}
 
