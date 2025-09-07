@@ -436,32 +436,29 @@
 	<!-- 회원 정보 조회 -->
 	<select id="adminUserManager" parameterType="map" resultType="AdminUserManagerDTO">
 	<![CDATA[
-	SELECT rnum,
-           users_number,
-           users_name,
-           users_id,
-           users_email,
-           users_phone,
-           users_type
-	FROM (
-	    SELECT ROWNUM AS rnum, subquery.*
-	    FROM (
-	        SELECT 
-	            u.users_number,
-	            u.users_name,
-	            u.users_id,
-	            u.users_email,
-	            u.users_phone,
-	            u.users_type
-	        FROM tbl_users u
-	        LEFT JOIN tbl_normal_users n 
-	            ON u.users_number = n.users_number
-	        LEFT JOIN tbl_care_users c 
-	            ON u.users_number = c.users_number
-	        ORDER BY u.users_number DESC
-	    ) subquery
-	) 
-	WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		SELECT *
+		FROM (
+		    SELECT ROWNUM AS rnum,
+		           subquery.*
+		    FROM (
+		        SELECT 
+		            u.users_number,
+		            u.users_name,
+		            u.users_id,
+		            u.users_email,
+		            u.users_phone,
+		            u.users_type
+		        FROM tbl_users u
+		        LEFT JOIN tbl_normal_users n 
+		            ON u.users_number = n.users_number
+		        LEFT JOIN tbl_care_users c 
+		            ON u.users_number = c.users_number
+		        ORDER BY u.users_number DESC
+		    ) subquery
+		    WHERE ROWNUM <= #{endRow}
+		)
+		WHERE rnum >= #{startRow}
+
 	]]>
 	</select>
 	

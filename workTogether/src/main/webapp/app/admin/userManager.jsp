@@ -32,7 +32,7 @@
 				<div class="title">
 					<h1>회원관리</h1>
 				</div>
-				<form action="${pageContext.request.contextPath}/admin/adminUserManagerList.adt" method="post">
+				<form action="${pageContext.request.contextPath}/admin/adminUserManagerList.ad" method="post">
 					<div class="searchbox">
 						<select name="column" id="" class="search_column">
 							<option value="number">회원 번호</option>
@@ -60,37 +60,37 @@
 								<c:choose>
 									<c:when test="${not empty userList}">
 										<c:forEach var="users" items="${userList}">
-											<div class="users-row">
+											<div class="users-row" style="display:flex; flex-direction:row; border-bottom: 1px">
 												<div class="users-item body_number">
 													<c:out value="${users.userNumber}" />
 												</div>
 												<div class="users-item body_name">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
 														<c:out value="${users.userName}" />
 													</a>
 												</div>
 												<div class="users-item body_id">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
 														<c:out value="${users.userId}" />
 													</a>
 												</div>
 												<div class="users-item body_email">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
 														<c:out value="${users.userEmail}" />
 													</a>
 												</div>
 												<div class="users-item body_phone">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
 														<c:out value="${users.userPhone}" />
 													</a>
 												</div>
 												<div class="users-item body_type">
-													<a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?usersNumber=${users.userNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
 														<c:choose>
-															<c:when test="${ users.userType == 'C'}">
+															<c:when test="${ users.usersType == 'C'}">
 																<c:out value="돌봄" />
 															</c:when>
-															<c:when test="${ users.userType == 'N'}">
+															<c:when test="${ users.usersType == 'N'}">
 																<c:out value="일반" />
 															</c:when>
 															<c:otherwise>
@@ -122,14 +122,14 @@
 							<li class="next"><a href="">&gt;</a></li> -->
 
 							<c:if test="${prev}">
-								<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?page=${startPage - 1}"
+								<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad?page=${startPage - 1}"
 									class="prev">&lt;</a></li>
 							</c:if>
 							<c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
 							<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
 								<c:choose>
 									<c:when test="${!(i == page) }">
-										<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?page=${i}">
+										<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad?page=${i}">
 												<c:out value="${i}" />
 										</a></li>
 									</c:when>
@@ -140,7 +140,7 @@
 								</c:choose>
 							</c:forEach>
 							<c:if test="${next}">
-								<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt?page=${endPage + 1}"
+								<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad?page=${endPage + 1}"
 									class="next">&gt;</a>
 							</c:if>
 						</div>
