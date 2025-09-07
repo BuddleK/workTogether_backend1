@@ -2,6 +2,7 @@ package com.wt.app.careMyPage;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import com.wt.app.Result;
 /**
  * Servlet implementation class CareMyPageFrontController
  */
+@MultipartConfig
 public class CareMyPageFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -55,6 +57,10 @@ public class CareMyPageFrontController extends HttpServlet {
 		case "/myPageCare/careProfile.cp":
 			System.out.println("프로필 수정 페이지 요청");
 			result = new CareProfileController().execute(request, response);
+			break;
+		case "/myPageCare/careProfileUpdate.cp":
+			System.out.println("프로필 수정 요청");
+			result = new CareProfileUpdateController().execute(request, response);
 			break;
 		case "/myPageCare/careModify.cp":
 			System.out.println("개인정보 수정 페이지 요청");

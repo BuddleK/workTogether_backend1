@@ -17,6 +17,7 @@ public class CarePwCheckOkController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
+		System.out.println("========CarePwCheck오케이Controller 진입========");
 		HttpSession session = request.getSession();
 		CarePwCheckDAO carePwCheckDAO = new CarePwCheckDAO();
 		
@@ -24,9 +25,7 @@ public class CarePwCheckOkController implements Execute {
 		String inputPassword = request.getParameter("usersPassword");
 		boolean pwCheck = false;
 		
-		System.out.println("123");
 		pwCheck = carePwCheckDAO.checkPw(usersNumber, inputPassword);
-		System.out.println("456");
 		
 		if(pwCheck) {
 			System.out.println("성공");
@@ -38,6 +37,7 @@ public class CarePwCheckOkController implements Execute {
             result.setPath("/myPageCare/carePwCheck.cp");
             result.setRedirect(false);
             request.setAttribute("errorMessage", "비밀번호가 올바르지 않습니다.");
+            System.out.println("pwCheck!!! : " + pwCheck);
         }
 
 		return result;
