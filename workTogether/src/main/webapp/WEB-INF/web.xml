@@ -31,17 +31,10 @@
       <url-pattern>*.ad</url-pattern>
    </servlet-mapping>
 
-<<<<<<< HEAD
    <servlet>
       <servlet-name>AdminTwo</servlet-name>
       <servlet-class>com.wt.app.admin.AdminTwoFrontController</servlet-class>
    </servlet>
-=======
-	<servlet>
-		<servlet-name>AdminTwo</servlet-name>
-		<servlet-class>com.wt.app.admin.AdminTwoFrontController</servlet-class>
-	</servlet>
->>>>>>> main
 
    <servlet-mapping>
       <servlet-name>AdminTwo</servlet-name>
@@ -68,17 +61,10 @@
       <url-pattern>*.cl</url-pattern>
    </servlet-mapping>
 
-<<<<<<< HEAD
    <servlet>
       <servlet-name>MyPageNormal</servlet-name>
       <servlet-class>com.wt.app.normal.mypage.MyPageNormalFrontController</servlet-class>
    </servlet>
-=======
-	<servlet>
-		<servlet-name>MyPageNormal</servlet-name>
-		<servlet-class>com.wt.app.normal.mypage.MyPageNormalFrontController</servlet-class>
-	</servlet>
->>>>>>> main
 
    <servlet-mapping>
       <servlet-name>MyPageNormal</servlet-name>
