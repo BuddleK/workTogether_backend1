@@ -18,6 +18,7 @@ public class CarePwCheckDAO {
 		carePwCheckDTO.setUsersNumber(usersNumber);
 		carePwCheckDTO.setUsersPassword(usersPassword);
 		int count = sqlSession.selectOne("carePwCheck.checkPw", carePwCheckDTO);
+		System.out.println("비번 체크 count : " + count);
 		return count > 0? true:false;
 	}
 }

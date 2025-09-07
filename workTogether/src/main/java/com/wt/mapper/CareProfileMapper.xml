@@ -3,6 +3,89 @@
 
 <mapper namespace="careProfile">
 
+	<!-- 프로필 사진만 -->
+	<select id="getProPic" resultType="com.wt.app.dto.CareProfilePictureDTO">
+		SELECT fp.PROFILES_FILES_TYPE, fp.PROFILES_FILES_NAME, fp.PROFILES_FILES_PATH
+		FROM RICEBALL.TBL_FILES_PROFILES fp
+		WHERE USERS_NUMBER = #{usersNumber}
+	</select>
+
+	<!-- 프로필 정보 조회 -->	
+	<select id="getProfile" resultType="CareProfileDTO">
+		<![CDATA[
+			SELECT u.USERS_NUMBER, 
+			d.DAY_MONDAY, d.DAY_TUESDAY, d.DAY_WEDNESDAY, d.DAY_THURSDAY, 
+    		d.DAY_FRIDAY, d.DAY_SATURDAY, d.DAY_SUNDAY,
+    		fp.PROFILES_FILES_TYPE, fp.PROFILES_FILES_NAME, fp.PROFILES_FILES_PATH, fp.PROFILES_FILES_SIZE_BYTES,
+    		fl.LICENSE_FILES_TYPE, fl.LICENSE_FILES_NAME, fl.LICENSE_FILES_PATH, fl.LICENSE_FILES_SIZE_BYTES,
+    		fa.ACCOUNT_FILES_TYPE, fa.ACCOUNT_FILES_NAME, fa.ACCOUNT_FILES_PATH, fa.ACCOUNT_FILES_SIZE_BYTES,
+    		u.USERS_POSTSAL_CODE, u.USERS_ADDRESS_LINE1, u.USERS_ADDRESS_LINE2,
+    		cu.CARE_INTRO_TEXT
+		FROM RICEBALL.TBL_USERS u
+		LEFT JOIN RICEBALL.TBL_DAY d 
+    		ON u.USERS_NUMBER = d.USERS_NUMBER
+		LEFT JOIN RICEBALL.TBL_FILES_PROFILES fp 
+    		ON u.USERS_NUMBER = fp.USERS_NUMBER
+		LEFT JOIN RICEBALL.TBL_FILES_LICENSE fl 
+    		ON u.USERS_NUMBER = fl.USERS_NUMBER
+		LEFT JOIN RICEBALL.TBL_FILES_ACCOUNT fa 
+    		ON u.USERS_NUMBER = fa.USERS_NUMBER
+		LEFT JOIN RICEBALL.TBL_CARE_USERS cu 
+    		ON u.USERS_NUMBER = cu.USERS_NUMBER
+		WHERE u.USERS_NUMBER = #{usersNumber}
+		]]>
+	</select>
+	
+	<select id="checkDay" resultType="int">
+		SELECT COUNT(USERS_NUMBER) FROM RICEBALL.TBL_DAY WHERE USERS_NUMBER = #{usersNumber}
+	</select>
+	
+	<!-- 요일 정보 insert -->
+	<insert id="insertDay" parameterType="CareProfileDTO">
+		INSERT INTO RICEBALL.TBL_DAY (USERS_NUMBER, DAY_MONDAY, DAY_TUESDAY, DAY_WEDNESDAY, DAY_THURSDAY, DAY_FRIDAY, DAY_SATURDAY, DAY_SUNDAY) VALUES (#{usersNumber}, #{dayMonday}, #{dayTuesday}, #{dayWednesday}, #{dayThursday}, #{dayFriday}, #{daySaturday}, #{daySunday})
+	</insert>
+	
+	
+	<!-- 요일 정보 update -->
+   <update id="updateDay">
+		UPDATE RICEBALL.TBL_DAY SET DAY_MONDAY = #{dayMonday}, DAY_TUESDAY = #{dayTuesday}, DAY_WEDNESDAY = #{dayWednesday}, DAY_THURSDAY = #{dayThursday}, DAY_FRIDAY = #{dayFriday}, DAY_SATURDAY = #{daySaturday}, DAY_SUNDAY = #{daySunday} WHERE USERS_NUMBER = #{usersNumber}
+   </update>
+   
+	<!-- 주소 update -->
+   <update id="updateAddr">
+		UPDATE RICEBALL.TBL_USERS SET USERS_POSTSAL_CODE=#{usersPostsalCode}, USERS_ADDRESS_LINE1=#{usersAddressLine1}, USERS_ADDRESS_LINE2=#{usersAddressLine2} WHERE USERS_NUMBER = #{usersNumber}
+   </update>
+	
+	<!-- 프로필 사진 정보 update -->
+   <update id="updateProPic">
+		UPDATE RICEBALL.TBL_FILES_PROFILES SET PROFILES_FILES_TYPE = #{profilesFilesType}, PROFILES_FILES_NAME = #{profilesFilesName}, PROFILES_FILES_PATH = #{profilesFilesPath}, PROFILES_FILES_SIZE_BYTES = #{profilesFilesSizeBytes} WHERE USERS_NUMBER = #{usersNumber}
+   </update>
+	
+	<!-- 소개글 update -->
+   <update id="updateIntro">
+		UPDATE RICEBALL.TBL_CARE_USERS SET CARE_INTRO_TEXT = #{careIntroText} WHERE USERS_NUMBER = #{usersNumber}
+   </update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 	<!-- 프로필 사진 조회 -->
 	<select id="profileSelect" resultType="CareProfileDTO">
 		SELECT c.care_number, u.users_name, p.profiles_files_path
