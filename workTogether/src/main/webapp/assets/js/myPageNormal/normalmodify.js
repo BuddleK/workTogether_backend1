@@ -16,42 +16,14 @@ const pwCheck = document.querySelector(".pwCheck");
 const pwInput = document.getElementById("pwInput");
 const newPwInput = document.getElementById("newPwInput");
 
-addressmodal.addEventListener("click", function (e) {
-  e.preventDefault();
-  openaddress.style.display = "block";
-});
-mailmodal.addEventListener("click", function (e) {
-  e.preventDefault();
-  openmail.style.display = "block";
-});
-phonemodal.addEventListener("click", function (e) {
-  e.preventDefault();
-  openphone.style.display = "block";
-});
-emailmodal.addEventListener("click", function (e) {
-  e.preventDefault();
-  openemail.style.display = "block";
-});
-pwmodal.addEventListener("click", function (e) {
+/*pwmodal.addEventListener("click", function (e) {
   e.preventDefault();
   openpw.style.display = "block";
 });
 
-function openmailModalClose() {
-  openmail.style.display = "none";
-}
-function openaddressModalClose() {
-  openaddress.style.display = "none";
-}
-function openphoneModalClose() {
-  openphone.style.display = "none";
-}
 function openpwModalClose() {
   openpw.style.display = "none";
-}
-function openemailModalClose() {
-  openemail.style.display = "none";
-}
+}*/
 
 newPwInput.addEventListener("input", () => {
   const val = newPwInput.value;

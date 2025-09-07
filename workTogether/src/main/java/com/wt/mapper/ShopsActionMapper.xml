@@ -7,7 +7,7 @@
 		SELECT * FROM (
 	SELECT ROWNUM AS rnum, subquery.*
 		FROM (
-		select shops_name, shops_number,shops_branch_name,shops_road_address, shops_admin_dong, shops_phone, shops_working_hours,
+		select shops_name, shops_number,shops_branch_name,shops_road_address, shops_admin_dong, shops_phone, shops_working_hours, shops_legal_dong,
 		case when f.favorites_number is not null then 'Y' else 'N' end as "is_favorite"
 		from tbl_shops s left join tbl_shops_favorites f on s.shops_number = f.favorites_shops_number
 		and f.users_number = #{userNumber}
