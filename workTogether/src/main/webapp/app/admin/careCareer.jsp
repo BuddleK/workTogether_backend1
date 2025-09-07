@@ -7,6 +7,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>돌봄 회원 이력 수정 관리</title>
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/admin/" />
 <link rel="stylesheet"
@@ -19,6 +20,7 @@
 	href="${pageContext.request.contextPath}/assets/css/admin/careCareer.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
 <script defer
@@ -34,6 +36,7 @@
 				<div class="title">
 					<h1>돌봄 회원 이력 수정 관리</h1>
 				</div>
+
 				<form
 					action="${pageContext.request.contextPath}/admin/careCareer/list.ad"
 					method="get">
@@ -50,44 +53,41 @@
 				</form>
 
 				<div class="table">
-					<div class="board_column">
-						<div class="board_head board_number">수정 신청 번호</div>
-						<div class="board_head board_name">신청자 명</div>
-						<div class="board_head board_id">신청자 아이디</div>
-						<div class="board_head board_date">신청 날짜</div>
-						<div class="board_head board_condition">상태</div>
-					</div>
+					<c:choose>
+						<c:when test="${empty list}">
+							<div class="empty">이력수정 신청 없음</div>
+						</c:when>
 
-					<div class="table_content">
-						<c:choose>
-							<c:when test="${empty list}">
-								<div class="empty">조회된 이력 수정 신청이 없습니다.</div>
-							</c:when>
-							<c:otherwise>
+						<c:otherwise>
+							<div class="board_column">
+								<div class="board_head board_number">수정 신청 번호</div>
+								<div class="board_head board_name">신청자 명</div>
+								<div class="board_head board_id">신청자 아이디</div>
+								<div class="board_head board_date">신청 날짜</div>
+								<div class="board_head board_condition">상태</div>
+							</div>
+
+							<div class="table_content">
 								<c:forEach var="row" items="${list}">
+									<c:url var="detailUrl" value="/admin/careCareer/detail.ad">
+										<c:param name="usersNumber" value="${row.usersNumber}" />
+									</c:url>
+
 									<ul class="table_body">
-										<li class="body_number"><a
-											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.number}</a>
-										</li>
-										<li class="body_name"><a
-											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.name}</a>
-										</li>
-										<li class="body_id"><a
-											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.userId}</a>
-										</li>
-										<li class="body_date"><a
-											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.date}</a>
-										</li>
-										<li class="body_condition"><a
-											href="${pageContext.request.contextPath}/app/admin/careCareerDetailUpdate.jsp?number=${row.number}">${row.status}</a>
-										</li>
+										<li class="body_number"><a href="${detailUrl}">${row.number}</a></li>
+										<li class="body_name"><a href="${detailUrl}">${row.name}</a></li>
+										<li class="body_id"><a href="${detailUrl}">${row.userId}</a></li>
+										<li class="body_date"><a href="${detailUrl}">${row.date}</a></li>
+										<li class="body_condition"><a href="${detailUrl}">${row.status}</a></li>
 									</ul>
 								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-					</div>
+							</div>
+						</c:otherwise>
+					</c:choose>
 				</div>
+
 			</div>
+
 		</section>
 	</main>
 

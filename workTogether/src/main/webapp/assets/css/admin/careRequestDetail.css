@@ -86,3 +86,13 @@
 .cancle {
   background-color: red;
 }
+
+
+.btn_area { 
+	position: relative; 
+	z-index: 10; 
+}
+
+tn_area button { 
+	pointer-events: auto; 
+}

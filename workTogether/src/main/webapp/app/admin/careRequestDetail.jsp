@@ -8,18 +8,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>돌봄회원 신청관리</title>
 
-<!-- 공통 CSS/JS -->
-<link rel="stylesheet" href="/App/assets/css/headerAdmin.css" />
-<link rel="stylesheet" href="/App/assets/css/footer.css" />
-<link rel="stylesheet" href="/App/assets/css/admin/basic.css" />
-<link rel="stylesheet" href="/App/assets/css/admin/careRequestDetail.css" />
-<link rel="stylesheet" href="/App/assets/css/admin/sidebar.css" />
-<link rel="stylesheet" href="/App/assets/css/modalAdmin.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/footer.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/admin/careRequestDetail.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
 
-<script defer src="/App/assets/js/main/includeAdmin.js"></script>
-<script defer src="/App/assets/js/modal/modalCareAllowRejectFinished.js"></script>
+<script defer
+	src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
 </head>
-
 <body>
 	<jsp:include page="/header_admin.jsp" />
 
@@ -31,7 +35,8 @@
 				<h1>돌봄 회원 신청관리</h1>
 			</div>
 
-			<form method="post" class="table_form">
+			<!-- ❌ 바깥쪽 form 제거 → div로 변경 -->
+			<div class="table_form">
 				<div class="table">
 					<!-- 헤더 -->
 					<div class="thead">
@@ -44,54 +49,90 @@
 
 					<!-- 내용 -->
 					<div class="tbody">
-						<div class="tbody_content tbody_name">${signup.usersName}</div>
-						
-						<div class="tbody_content tbody_phone">${signup.usersPhone}</div>
-						<div class="tbody_content tbody_email">${signup.usersEmail}</div>
+						<div class="tbody_content tbody_name">${item.usersName}</div>
+						<div class="tbody_content tbody_phone">${item.usersPhone}</div>
+						<div class="tbody_content tbody_email">${item.usersEmail}</div>
 
 						<!-- 자격증 파일 -->
 						<div class="tbody_content tbody_detach">
 							<c:choose>
-								<c:when test="${not empty licenseFile}"> ${licenseFile.fileName}
-								<a
-										href="/App/admin/care/fileDownload.ad?fileNumber=${licenseFile.fileNumber}&type=license">
-										<button class="download" type="button">다운로드</button>
-									</a>
+								<c:when test="${not empty licenseFileName}">
+                  ${licenseFileName}
+                  <a class="download" href="${licenseDownloadUrl}">다운로드</a>
 								</c:when>
-								<c:otherwise> - </c:otherwise>
+								<c:otherwise>-</c:otherwise>
 							</c:choose>
 						</div>
 
 						<!-- 통장사본 -->
 						<div class="tbody_content tbody_account">
 							<c:choose>
-								<c:when test="${not empty accountFile}"> ${accountFile.fileName}
-								<a
-										href="/App/admin/care/fileDownload.ad?fileNumber=${accountFile.fileNumber}&type=account">
-										<button class="download" type="button">다운로드</button>
-									</a>
+								<c:when test="${not empty accountFileName}">
+                  ${accountFileName}
+                  <a class="download" href="${accountDownloadUrl}">다운로드</a>
 								</c:when>
-								<c:otherwise> - </c:otherwise>
+								<c:otherwise>-</c:otherwise>
 							</c:choose>
 						</div>
 					</div>
-				</div>
+					<!-- /.tbody -->
 
-				<!-- 버튼 영역 -->
-				<div class="btn_area">
-					<button class="cancle" type="button"
-						onclick="modalCareAllowRejectShow()">반려 처리</button>
-					<button class="submit" type="button"
-						onclick="modalCareAllowFinishedShow()">승인 완료</button>
+					<!-- 버튼 영역 (테이블 밖) -->
+					<div class="btn_area" style="position: relative; z-index: 1000;">
+						<button id="btnReject" class="cancle" type="button">반려 처리</button>
+						<button id="btnApprove" class="submit" type="button">승인
+							완료</button>
+					</div>
 				</div>
+				<!-- /.table -->
+			</div>
+			<!-- /.table_form -->
+
+			<!-- ✅ 숨은 폼: 하나만 둔다 -->
+			<form id="careActionForm" method="post">
+				<input type="hidden" name="usersNumber" value="${usersNumber}">
+				<input type="hidden" name="rejectComment" id="rejectComment">
 			</form>
+
+			<!-- ✅ JS가 읽을 액션 URL들 -->
+			<input type="hidden" id="approveAction" value="${approveAction}">
+			<input type="hidden" id="rejectAction" value="${rejectAction}">
+			<input type="hidden" id="usersNumber" value="${usersNumber}">
 		</section>
 	</main>
 
 	<jsp:include page="/footer.jsp" />
 
-	<!-- 모달 -->
+	<!-- (선택) 모달 컨테이너 -->
 	<div id="modalCareAllowReject"></div>
-	<div id="modalCareAllowFinished"></div>
+
+	<!-- ✅ 뉴스처럼 단순 submit -->
+	<script>
+    function val(id){ const el=document.getElementById(id); return el?el.value:""; }
+
+    function approveUser(){
+      const form = document.getElementById("careActionForm");
+      const approveUrl = val("approveAction");
+      if(!approveUrl){ alert("승인 URL이 없습니다."); return; }
+      form.action = approveUrl; 
+      form.submit();
+    }
+
+    function rejectUser(){
+      const rejectUrl = val("rejectAction");
+      if(!rejectUrl){ alert("반려 URL이 없습니다."); return; }
+      const reason = (prompt("반려 사유를 입력하세요") || "").trim();
+      if(!reason){ alert("반려 사유가 필요합니다."); return; }
+      document.getElementById("rejectComment").value = reason;
+
+      const form = document.getElementById("careActionForm");
+      form.action = rejectUrl; // ex) /App/admin/care/reject.ad?usersNumber=...
+      form.submit();
+    }
+
+    // 버튼 바인딩
+    document.getElementById("btnApprove")?.addEventListener("click", approveUser);
+    document.getElementById("btnReject") ?.addEventListener("click", rejectUser);
+  </script>
 </body>
 </html>

@@ -34,6 +34,12 @@ public class NormalJoinOkController implements Execute {
         usersDTO.setUsersId(usersId);
         usersDTO.setUsersPassword(usersPassword);
         usersDTO.setUsersType("N");
+        usersDTO.setUsersName(usersName);
+        usersDTO.setUsersEmail(usersEmail);
+        usersDTO.setUsersPhone(usersPhone);
+        usersDTO.setUsersPostsalCode(usersPostsalCode);
+        usersDTO.setUsersAddressLine1(usersAddressLine1);
+        usersDTO.setUsersAddressLine2(usersAddressLine2);
         
         long usersNumber = new UsersDAO().join(usersDTO);
         
@@ -51,7 +57,7 @@ public class NormalJoinOkController implements Execute {
 
         Result result = new Result();
         result.setRedirect(true);
-        result.setPath(request.getContextPath() + "/users/loginNormalOk.us");
+        result.setPath(request.getContextPath() + "/users/nomalLogin.us");
         return result;
     }
 }
