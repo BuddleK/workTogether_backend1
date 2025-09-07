@@ -30,7 +30,7 @@ public class MyPageNormalFrontController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doProcess(request, response);
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class MyPageNormalFrontController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		doProcess(request, response);
 	}
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
@@ -63,7 +63,7 @@ public class MyPageNormalFrontController extends HttpServlet {
 			break;
 		case "/myPageNormal/normalModify.mn":
 			System.out.println("마이페이지 일반회원 회원정보 수정 페이지 요청");
-			request.getRequestDispatcher("/app/myPageNormal/normalModify.jsp").forward(request, response);
+			result = new NormalModifyController().execute(request, response);
 			break;
 		case "/myPageNormal/normalModifyOk.mn":
 			System.out.println("마이페이지 일반회원 회원정보 수정 완료 요청");
@@ -119,7 +119,7 @@ public class MyPageNormalFrontController extends HttpServlet {
 			break;
 		}
 
-		if (result != null) {
+		if (result != null && result.getPath() != null) {
 			if (result.isRedirect()) {
 				response.sendRedirect(result.getPath());
 			} else {

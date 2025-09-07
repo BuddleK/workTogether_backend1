@@ -38,9 +38,9 @@
       <c:if test="${not empty errorMsg}">
           <div id="pwaccord">${errorMsg}</div>
       </c:if>
-  </form>
-      <button type="button" onclick="chPw()" class="checkBtn">비밀번호 확인</button>
+      <button type="submit" class="checkBtn">비밀번호 확인</button>
     </div>
+  </form>
   </main>
   <jsp:include page="/footer.jsp" />
 </body>

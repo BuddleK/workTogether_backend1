@@ -25,6 +25,7 @@
 		fp.profiles_files_number
 		left join
 		tbl_day d on c.users_number = d.users_number
+		where c.care_accept='Y'
 		order by c.users_number
 		) subquery
 	) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
