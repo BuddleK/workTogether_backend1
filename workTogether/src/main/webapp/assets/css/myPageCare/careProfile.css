@@ -20,6 +20,7 @@
 
 body {
   background-color: #ffffff;
+  min-width:600px;
 }
 
 /* main 페이지 상세 설정 */
@@ -43,7 +44,6 @@ main {
 .sidebar img {
   height: 130px;
   width: 130px;
-  background-color: #ff80ab;
   border-radius: 50%;
   margin: 0 auto 20px;
   display: block;
@@ -76,10 +76,9 @@ main {
 /* ********************* */
 /* 오른쪽 메인 영역(내용 감싸는 박스) */
 .div_mark {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin:auto;
 }
 
 /* 페이지 큰 제목 */
@@ -96,6 +95,10 @@ main {
   padding: 0 100px;
 }
 
+
+/* **********여기까지*********** */
+
+
 /* 프로필 영역(사진 + 버튼 묶음) */
 .profile_section {
   display: flex;
@@ -110,6 +113,7 @@ main {
   width: 200px;
   height: 200px;
   object-fit: cover;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 /* 프로필 교체 버튼 */
@@ -162,26 +166,47 @@ main {
   flex-wrap: wrap;
 }
 
-/* 날짜 버튼 기본 모양 */
-.possible_date button {
+/* 체크박스는 숨김 */
+.possible_date input[type="checkbox"] {
+  display: none;
+}
+
+/* label을 버튼처럼 */
+.possible_date label {
+  display: inline-flex;         /* 가운데 정렬 */
+  justify-content: center;
+  align-items: center;
+
   width: 30px;
   height: 30px;
+  margin: 2px;
+
   background-color: white;
   border: 1px solid #aaa;
   cursor: pointer;
+  user-select: none;            /* 글자 드래그 방지 */
 }
 
-/* 선택된 날짜 버튼(노란색) */
-.possible_date button.active {
+/* 체크된 상태일 때 label 스타일 변경 */
+.possible_date input[type="checkbox"]:checked + label {
   background-color: yellow;
 }
 
+
+
+
+
+
 /* 확인 버튼(파란색, 조금 큼) */
-.possible_date #check {
-  width: 50px;
+#check {
+  width : 100px;
+  height : 40px;
   background-color: #2f4db1;
   color: white;
   border-radius: 5px;
+  margin-left : auto;
+  display:block;
+  margin-bottom:40px;
 }
 
 /* 기록 첨부 영역 리스트(세로로 간격) */
@@ -203,9 +228,13 @@ main {
   width: 100px;
 }
 
-/* 파일 입력은 나머지 공간 채우기 */
-.reode_detail input[type="file"] {
-  flex: 1;
+#request{
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #2f4db1;
+  color: white;
 }
 
 /* 장소 입력들(세로로 간격) */
@@ -222,30 +251,8 @@ main {
 }
 
 /* 장소 버튼(파란색) */
-.palce_detail button {
+#find_post {
   margin-left: 10px;
-  padding: 5px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #2f4db1;
-  color: white;
-}
-
-/* 이메일 수정 줄(가로 정렬) */
-.email_detail {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* 이메일 입력창 */
-.email_detail input {
-  width: 300px;
-  padding: 5px;
-}
-
-/* 이메일 버튼(파란색) */
-.email_detail button {
   padding: 5px 10px;
   border-radius: 6px;
   cursor: pointer;
@@ -262,30 +269,11 @@ main {
 
 /* 자기소개 입력칸(큰 박스 느낌) */
 .introduce_detail input {
-  height: 120px;
+  height: 76px;
   padding: 10px;
   border: 1px solid #aaa;
   border-radius: 5px;
   resize: none;
-}
-
-/* 자기소개 저장 버튼(오른쪽 아래) */
-.introduce_detail button {
-  align-self: flex-end;
-  background-color: #001860;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* 작은 확인 버튼(파란색) */
-.confrim {
-  width: 50px;
-  background-color: #2f4db1;
-  color: white;
-  border-radius: 5px;
 }
 
 /* 모달 배경(처음엔 숨김) */
@@ -326,3 +314,41 @@ main {
   color: #fff;
   cursor: pointer;
 }
+
+
+/* 수정페이지 정보 */
+.modNotice{
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0 20px;
+  background: #d9d9d9;
+  border: 2px solid #000;
+  border-radius: 12px;
+  width: 100%;
+}
+.mod_script{
+	margin: 10px 20px;
+}
+.mod_script p{
+	font-size:14px;
+	margin:5px 0;
+}
+
+.mod ul{
+	display:flex;
+	flex-direction:column;
+	gap:10px;
+}
+.mod input{
+	padding:5px;
+	min-width:270px;
+}
+.mod>div:last-child, .mod input{
+	font-size:14px;
+}
+.err_message{
+	margin:3px;
+	color:red;
+	display:none;
+}
+

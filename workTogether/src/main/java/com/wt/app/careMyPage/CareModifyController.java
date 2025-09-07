@@ -11,44 +11,51 @@ import org.apache.ibatis.reflection.SystemMetaObject;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.careMyPage.dao.CareModifyDAO;
+import com.wt.app.careMyPage.dao.CareProfileDAO;
 import com.wt.app.dto.AdminCareSignupDTO;
 import com.wt.app.dto.CareModifyDTO;
+import com.wt.app.dto.CareProfilePictureDTO;
 
 public class CareModifyController implements Execute{
 	
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	System.out.println("fdssdfsfd");
-		CareModifyDAO dao = new CareModifyDAO();
-		CareModifyDTO dto = new CareModifyDTO();
+	System.out.println("========CareModifyController 진입========");
+		CareModifyDAO careModifyDAO = new CareModifyDAO();
+		CareModifyDTO careModifyDTO = new CareModifyDTO();
 		Result result = new Result();
 		
-//		String usersNumber = Integer.parseInt(usersNumber);
-		Integer usersNumberStr = (Integer)request.getSession().getAttribute("usersNumber");
+		//로그인한 사용자 번호 가져오기
+		Integer usersNumber = (Integer) request.getSession().getAttribute("usersNumber");
+		System.out.println("로그인 한 멤버 번호 : " + usersNumber);
 		
+		//프로필 사진 담아오기
+		CareProfileDAO careProfileDAO = new CareProfileDAO();
+		CareProfilePictureDTO careProfilePictureDTO = new CareProfilePictureDTO();
+		careProfilePictureDTO = careProfileDAO.getProPic(usersNumber);
+		request.setAttribute("profilePic", careProfilePictureDTO);
 		
-		dto.setUsersName(dao.nameSelect(usersNumberStr));
-		dto.setUsersPostsalCode(dao.postarSelect(usersNumberStr));
-		dto.setUsersAddressLine1(dao.address1Select(usersNumberStr));
-		dto.setUsersAddressLine2(dao.address2Select(usersNumberStr));
-		dto.setUsersPhone(dao.phoneSelect(usersNumberStr));
-		dto.setUsersId(dao.emailSelect(usersNumberStr));
-		dto.setUsersEmail(dao.emailSelect(usersNumberStr));
+		//개인정보 담아오기
+		careModifyDTO = careModifyDAO.getInfo(usersNumber);
 		
+		System.out.println("회원 : " + careModifyDTO);
 		
-		System.out.println(usersNumberStr);
+		System.out.println("회원 이름 : " + careModifyDTO.getUsersName());
 		
-		if (usersNumberStr == null) {
-			System.out.println("세션 없음");
-//			return null;
-		}
+		/*
+		 * // 프로필 수정 서블릿을 타고 왔는지 아닌지 확인하기 위한 속성 request.setAttribute("updatedComplete",
+		 * false);
+		 * 
+		 * try { // 프로필 수정 서블릿을 거쳐 왔는지 확인 if((boolean) request.getAttribute("updated"))
+		 * { request.setAttribute("updatedComplete", true);
+		 * request.setAttribute("updated", false); } } catch (Exception e) {
+		 * System.out.println("수정 서블릿을 거치치 않음"); }
+		 */
+
 		
-		System.out.println(dto);
-		System.out.println(usersNumberStr);
-		request.setAttribute("careModify", dto);
+		request.setAttribute("careModify", careModifyDTO);
 		result.setPath("/app/myPageCare/careModify.jsp");
-		System.out.println("setPath 값 저장");
 		result.setRedirect(false);
 		return result;
 	}

@@ -99,6 +99,13 @@ main {
   flex: 1;
 }
 
+/* 페이지 큰 제목 */
+.title {
+  padding: 40px 100px 0px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
 /* 알림 상자 */
 .arlim nav {
   flex: 1;

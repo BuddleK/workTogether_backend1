@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.CareProfilePictureDTO;
 import com.wt.app.dto.CareProfileDTO;
 import com.wt.config.MyBatisConfig;
 
@@ -14,6 +15,70 @@ public class CareProfileDAO {
 	public CareProfileDAO() {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
+	
+//	프로필 사진 가져오기
+	public CareProfilePictureDTO getProPic(int usersNumber) {
+		System.out.println("getProIc - 프로필 사진 가져오는 메소드");
+		return sqlSession.selectOne("careProfile.getProPic", usersNumber);
+	}
+	
+//	프로필 정보 가져오기
+	public CareProfileDTO getProfile(int usersNumber) {
+		System.out.println("getProfile - 프로필 상세 조회 메소드");
+		return sqlSession.selectOne("careProfile.getProfile", usersNumber);
+	}
+	
+//	로그인한 회원의 요일정보가 존재하는지 확인 0-없음, 1-있음
+	public boolean checkDay(int usersNumber) {
+		System.out.println("checkDay - 요일 정보 유무 확인 메소드");
+		return (Integer)sqlSession.selectOne("careProfile.checkDay", usersNumber) == 0 ? true : false;
+	}
+	
+//	요일 정보 INSERT
+	public void insertDay(CareProfileDTO careProfileDTO) {
+		System.out.println("insertDay - 요일 insert 메소드");
+		int result = sqlSession.insert("careProfile.insertDay", careProfileDTO);
+		System.out.println("insertDay결과 : " + result);
+	}
+	
+//	요일 정보 UPDATE
+	public void updateDay(CareProfileDTO careProfileDTO) {
+		System.out.println("updateDay - 요일 update 메소드");
+		int result = sqlSession.update("careProfile.updateDay", careProfileDTO);
+		System.out.println("updateDay결과 : " + result);
+	}
+	
+//	주소 정보 UPDATE
+	public void updateAddr(CareProfileDTO careProfileDTO) {
+		System.out.println("updateAddr - 주소 update 메소드");
+		int result = sqlSession.update("careProfile.updateAddr", careProfileDTO);
+		System.out.println("updateDay결과 : " + result);
+	}
+	
+//	프로필 사진 정보 UPDATE
+	public void updateProPic(CareProfileDTO careProfileDTO) {
+		System.out.println("updateProPic - 프로필 사진 update 메소드");
+		int result = sqlSession.update("careProfile.updateProPic", careProfileDTO);
+		System.out.println("updateDay결과 : " + result);
+	}
+	
+//	소개글 UPDATE
+	public void updateIntro(CareProfileDTO careProfileDTO) {
+		System.out.println("updateIntro - 소개글 update 메소드");
+		int result = sqlSession.update("careProfile.updateIntro", careProfileDTO);
+		System.out.println("updateDay결과 : " + result);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public CareProfileDTO profileSelect(int careNumber) {
 	      System.out.println("프로필 사진 조회");
