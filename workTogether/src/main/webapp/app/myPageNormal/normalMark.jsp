@@ -76,41 +76,27 @@
 					<c:forEach var="fshop" items="${favoriteList}">
 						<li>${fshop.shopsName}</li>
 					</c:forEach>
-
-
-				  <c:choose>
-						<c:when test="${not empty favoriteList}">
-							<c:forEach var="fshop" items="${favoriteList } "  >
+							 <c:forEach var="fshop" items="${favoriteList } "  >
 								<li id="li_"><input class="checkbox_li" name="mark_check"
 									type="checkbox" value="0">
 									<div class="name">
 										<div>
-											<c:out value="${fshop.shopsName}"></c:out>
+											${fshop.shopsName}
 										</div>
 									</div>
 									 <a class="location"
 									href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${fshop.shopsNumber}">
 										<div>
-											<c:out value="${fshop.shopsRoadAddress}"></c:out>
+											${fshop.shopsRoadAddress}
 										</div>
 								</a>
 									<div class="phone">
 										<div>
-											<c:out value="${fshop.shopsPhone }"></c:out>
+											${fshop.shopsPhone }
 										</div>
 									</div>
-									
-									
-									
 									</li>
 							</c:forEach>
-						</c:when>
-						<c:otherwise>
-							<div>
-								<div colspan="5" align="center">등록된 찜이 없습니다.</div>
-							</div>
-						</c:otherwise>
-					</c:choose>  
 				</ul>
 
 
