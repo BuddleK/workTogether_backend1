@@ -214,6 +214,10 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("관리자 신고글 페이지 요청");
 			result = new AdminReportListController().execute(request, response);
 			break;
+		case "/admin/adminReportListOk.ad":
+			System.out.println("관리자 신고글 디테일 페이지 요청");
+			result = new AdminReportListOkController().execute(request, response);
+			break;
 		case "/admin/adminReportDeleteOk.ad":
 			System.out.println("관리자 신고글 삭제 완료 요청");
 			result = new AdminReportDeleteOkController().execute(request, response);

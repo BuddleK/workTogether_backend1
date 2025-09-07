@@ -26,23 +26,23 @@ public class PostReportController implements Execute{
 //		HttpSession session = request.getSession();
 //		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
 		
-		Integer memberNumber = (Integer)request.getSession().getAttribute("memberNumber");
-		int authorNumber = Integer.parseInt(request.getParameter("postsUsersNumber"));
+		Integer usersNumber = (Integer)request.getSession().getAttribute("usersNumber");
+		int postsUsersNumber = Integer.parseInt(request.getParameter("postsUsersNumber"));
 		int postNumber = Integer.parseInt(request.getParameter("postsNumber"));
 		
 		System.out.println("===============신고컨트롤~~~================");
 
-		System.out.println("memberNumber : " + memberNumber);
-		System.out.println("authorNumber : " + authorNumber);
+		System.out.println("usersNumber : " + usersNumber);
+		System.out.println("postsUsersNumber : " + postsUsersNumber);
 		System.out.println("postNumber : " + postNumber);
 		
-		if(memberNumber == null) {
+		if(usersNumber == null) {
 			System.out.println("오류 : 로그인 된 사용자가 없습니다");
 			response.sendRedirect("/app/login/loginNormal.jsp");
 			return null;
 		}
 		
-		if((int)memberNumber == authorNumber) {
+		if((int)usersNumber == postsUsersNumber) {
 			System.out.println("자기가 쓴 글은 신고할 수 없음");
 			response.sendRedirect("/post/postReadOk.po?postsNumber=" + request.getParameter("postsNumber"));
 			return null;
@@ -50,7 +50,7 @@ public class PostReportController implements Execute{
 		
 		Map<String, Integer> reportMap = new HashMap<>();
 		reportMap.put("postsNumber", postNumber);
-		reportMap.put("usersNumber", authorNumber);
+		reportMap.put("usersNumber", usersNumber);
 		
 		int reCount = postsDAO.checkReport(reportMap);
 		

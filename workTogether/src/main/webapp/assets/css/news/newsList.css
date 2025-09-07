@@ -107,6 +107,13 @@ main {
   cursor: pointer;
 }
 
+.paging {
+	display: flex;
+	gap:12px;
+	justify-content: center;
+
+}
+
 /* 페이지 네이션 활성화 */
 .active{
   color: red;
@@ -122,4 +129,8 @@ main {
 
 .cardtitle{
   font-size: 20px;
+}
+.cardlink{
+	font-size: 15px;
+	word-break: break-word;
 }
