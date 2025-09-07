@@ -18,11 +18,13 @@
 		<servlet-name>Admin</servlet-name>
 		<servlet-class>com.wt.app.admin.AdminFrontController</servlet-class>
 
-		<multipart-config>
+<!-- 		<multipart-config>
 			<max-file-size>104857600</max-file-size>
 			<max-request-size>209715200</max-request-size>
 			<file-size-threshold>0</file-size-threshold>
-		</multipart-config>
+		</multipart-config> -->
+		<!-- 여기 주석한거 해주셔요 -->
+		
 	</servlet>
 
 	<servlet-mapping>
