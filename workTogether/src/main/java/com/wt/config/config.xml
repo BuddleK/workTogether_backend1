@@ -77,7 +77,6 @@
       <mapper resource="com/wt/mapper/MarkerMapper.xml" />
       <mapper resource="com/wt/mapper/NewsMapper.xml" />
       <mapper resource="com/wt/mapper/Comment.xml" />
-      <mapper resource="com/wt/mapper/AdminTwoMapper.xml" />
       <mapper resource="com/wt/mapper/SubwayMapper.xml" />
       <mapper resource="com/wt/mapper/MyPageNormalMapper.xml" />
       <mapper resource="com/wt/mapper/CareExitMapper.xml" />

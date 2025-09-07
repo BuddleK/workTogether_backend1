@@ -3,13 +3,13 @@ package com.wt.app.dto;
 public class NormalFavoriteListDTO {
 	// 가게 찜 테이블
 	private int favoritesNumber; // 찜 번호
-	private int userNumber;	// 전체 유저 번호
+	private int usersNumber; // 전체 유저 번호
 	private int shopsNumber; // 가게 번호
-	private int createdDate; // 생성 일
+	private String favoriteCreatedDate; // 생성 일
 
 	// 가게 테이블
 	private String shopsName; // 가게 이름
-	private String shopsRoadAddr; // 가게 도로명 주소
+	private String shopsRoadAddress; // 가게 도로명 주소
 	private String shopsPhone; // 가게 폰번호
 
 	public int getFavoritesNumber() {
@@ -20,12 +20,12 @@ public class NormalFavoriteListDTO {
 		this.favoritesNumber = favoritesNumber;
 	}
 
-	public int getUserNumber() {
-		return userNumber;
+	public int getUsersNumber() {
+		return usersNumber;
 	}
 
-	public void setUserNumber(int userNumber) {
-		this.userNumber = userNumber;
+	public void setUsersNumber(int usersNumber) {
+		this.usersNumber = usersNumber;
 	}
 
 	public int getShopsNumber() {
@@ -36,12 +36,12 @@ public class NormalFavoriteListDTO {
 		this.shopsNumber = shopsNumber;
 	}
 
-	public int getCreatedDate() {
-		return createdDate;
+	public String getFavoriteCreatedDate() {
+		return favoriteCreatedDate;
 	}
 
-	public void setCreatedDate(int createdDate) {
-		this.createdDate = createdDate;
+	public void setFavoriteCreatedDate(String favoriteCreatedDate) {
+		this.favoriteCreatedDate = favoriteCreatedDate;
 	}
 
 	public String getShopsName() {
@@ -52,12 +52,12 @@ public class NormalFavoriteListDTO {
 		this.shopsName = shopsName;
 	}
 
-	public String getShopsRoadAddr() {
-		return shopsRoadAddr;
+	public String getShopsRoadAddress() {
+		return shopsRoadAddress;
 	}
 
-	public void setShopsRoadAddr(String shopsRoadAddr) {
-		this.shopsRoadAddr = shopsRoadAddr;
+	public void setShopsRoadAddress(String shopsRoadAddress) {
+		this.shopsRoadAddress = shopsRoadAddress;
 	}
 
 	public String getShopsPhone() {
@@ -70,9 +70,9 @@ public class NormalFavoriteListDTO {
 
 	@Override
 	public String toString() {
-		return "NormalFavoriteListDTO [favoritesNumber=" + favoritesNumber + ", userNumber=" + userNumber
-				+ ", shopsNumber=" + shopsNumber + ", createdDate=" + createdDate + ", shopsName=" + shopsName
-				+ ", shopsRoadAddr=" + shopsRoadAddr + ", shopsPhone=" + shopsPhone + "]";
+		return "NormalFavoriteListDTO [favoritesNumber=" + favoritesNumber + ", usersNumber=" + usersNumber
+				+ ", shopsNumber=" + shopsNumber + ", favoriteCreatedDate=" + favoriteCreatedDate + ", shopsName="
+				+ shopsName + ", shopsRoadAddress=" + shopsRoadAddress + ", shopsPhone=" + shopsPhone + "]";
 	}
 
 }

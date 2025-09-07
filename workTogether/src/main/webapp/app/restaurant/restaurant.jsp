@@ -42,12 +42,14 @@
 						</li> -->
 						<c:choose>
 							<c:when test="${not empty adminDongList}">
-								<c:forEach var="dong" items="${adminDongList }" varStatus="status">
+								<c:forEach var="dong" items="${adminDongList }"
+									varStatus="status">
 									<li onclick="reClicked(${status.index })" class="region_button">
-									<div class="region_mark"></div>  
-										<c:choose>
+										<div class="region_mark"></div> <c:choose>
 											<c:when test="${dong.getShopsAdminDong()== 'X' }">기타</c:when>
-											<c:otherwise> <c:out value="${dong.getShopsAdminDong() }"></c:out> </c:otherwise>
+											<c:otherwise>
+												<c:out value="${dong.getShopsAdminDong() }"></c:out>
+											</c:otherwise>
 										</c:choose>
 								</c:forEach>
 							</c:when>
@@ -56,7 +58,9 @@
 					<!-- 동 선택 영역 -->
 					<div class="region_small">
 						<!-- 동 리스트 -->
-						<ul id="region_small_list"></ul>
+						<ul id="region_small_list">
+						
+						</ul>
 					</div>
 				</div>
 				<!-- 음식점 선택 영역 -->
@@ -66,41 +70,42 @@
 						<!-- 음식점 카드 영역 윗줄(2개) -->
 						<div class="restaurant_row">
 							<c:choose>
-								<c:when test="${not empty shopsList}">
+								<c:when test="${not empty shopsList }">
 									<c:forEach var="shop" items="${shopsList}">
-										<div class="restaurant_card">
-											<a class="go_detail"
-												href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${shop.shopsNumber}">
-												<!-- href="./../restaurant/restaurantDetail.jsp?restaurant=0&leNum=1&adNum=2"> -->
-												<div class="restaurant_name">
-													<c:out value="${shop.getShopsName()}" />
-													<!-- 좌표 확인용 -->
-													<c:out value="${shop.getShopsBranchName()}" />
-												</div>
-											</a>
-											<div class="restaurant_introduce">
-												<div class="restaurant_info">
-													<div>
-														<c:out value="${shop.getShopsAdminDong()}" />
+										
+											<div class="restaurant_card" data-dong="${shops.getAdminDong() }">
+												<a class="go_detail"
+													href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${shop.shopsNumber}">
+													<!-- href="./../restaurant/restaurantDetail.jsp?restaurant=0&leNum=1&adNum=2"> -->
+													<div class="restaurant_name">
+														<c:out value="${shop.getShopsName()}" />
+														<!-- 좌표 확인용 -->
+														<c:out value="${shop.getShopsBranchName()}" />
 													</div>
-													<div>
-														<c:out value="${shop.getShopsIntroText()}" />
+												</a>
+												<div class="restaurant_introduce">
+													<div class="restaurant_info">
+														<div>
+															<c:out value="${shop.getShopsAdminDong()}" />
+														</div>
+														<div>
+															<c:out value="${shop.getShopsIntroText()}" />
+														</div>
+														<div>
+															영업 시간 :
+															<c:out value="${shop.getShopsWorkingHours()}" />
+														</div>
 													</div>
-													<div>
-														영업 시간 :
-														<c:out value="${shop.getShopsWorkingHours()}" />
+													<div class="restaurant_mark">
+														<div onclick="togleStar(0)" class="star_img_box">
+															<img class="star_img"
+																src="./../../assets/img/restaurant/star.png"
+																data-favorite="<c:out value='${shop.getIsFavorite()}'/>">
+														</div>
+														<div>찜하기</div>
 													</div>
-												</div>
-												<div class="restaurant_mark">
-													<div onclick="togleStar(0)" class="star_img_box">
-														<img class="star_img"
-															src="./../../assets/img/restaurant/star.png"
-															data-favorite="<c:out value='${shop.getIsFavorite()}'/>">
-													</div>
-													<div>찜하기</div>
 												</div>
 											</div>
-										</div>
 									</c:forEach>
 								</c:when>
 								<c:otherwise>
@@ -114,7 +119,7 @@
 						<!-- <div class="restaurant_row"></div> -->
 					</div>
 					<!-- 페이지네이션 -->
-					<div class="restaurant_pagenation">
+					 <div class="restaurant_pagenation">
 						<ul class="paging">
 							<c:if test="${prev}">
 								<li><a
@@ -143,7 +148,7 @@
 									class="next">&gt;</a>
 							</c:if>
 						</ul>
-					</div>
+					</div> 
 				</div>
 			</div>
 		</div>
@@ -154,6 +159,6 @@
 	<div id="restaurantModalLogin"></div>
 </body>
 <script>
-	let userNumber = "${sessionScope.memberNumber}";
+	let userNumber = "${sessionScope.usersNumber}";
 </script>
 </html>

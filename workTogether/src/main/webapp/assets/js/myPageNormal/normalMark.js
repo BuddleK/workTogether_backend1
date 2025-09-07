@@ -45,13 +45,11 @@ function delMarks() {
 //     let ggggg = 0;
 //     for (c of marks) {
 //       c.checked = true;
-//       console.log('트루라네~' + ggggg);
 //       ggggg++;
 //     }
 //   } else {
 //     for (c of marks) {
 //       c.checked = false;
-//       console.log('뻘스.');
 //     }
 //   }
 // }
