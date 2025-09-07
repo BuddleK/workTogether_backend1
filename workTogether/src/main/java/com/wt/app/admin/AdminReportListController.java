@@ -23,8 +23,6 @@ public class AdminReportListController implements Execute{
 		AdminDAO adminDAO = new AdminDAO();
 		Result result = new Result();
 		
-		int usersNumber = (Integer) request.getSession().getAttribute("usersNumber"); 
-		
 		String temp = request.getParameter("page");
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
 		int rowCount = 4; // 한 페이지당 게시글 수
@@ -37,7 +35,6 @@ public class AdminReportListController implements Execute{
 		Map<String, Integer> pageMap = new HashMap<>();
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
-		pageMap.put("usersNumber", usersNumber);
 
 		// 게시글 목록 조회
 		List<AdminReportListDTO> adminReportList = adminDAO.adminReportListSelect(pageMap);

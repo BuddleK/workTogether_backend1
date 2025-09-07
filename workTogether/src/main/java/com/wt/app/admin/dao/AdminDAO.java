@@ -21,6 +21,7 @@ import com.wt.app.dto.AdminUserManagerDTO;
 import com.wt.app.dto.FileNoticeDTO;
 import com.wt.app.dto.FilesLicenseDTO;
 import com.wt.app.dto.LicenseModifyDTO;
+import com.wt.app.dto.PostsDTO;
 import com.wt.config.MyBatisConfig;
 
 public class AdminDAO {
@@ -256,6 +257,11 @@ public class AdminDAO {
 			System.out.println("신고글 개수 조회 - reportTotal 메소드 실행");
 			return sqlSession.selectOne("admin.reportTotal");
 		}
+	
+	public AdminReportListDTO reportDetail(int postsNumber) {
+	      System.out.println("신고글 상세 페이지 조회");
+	      return sqlSession.selectOne("admin.reportDetail", postsNumber);
+	   }
 		
 	public int adminNewsBannerInsert(AdminNewsBannerDTO adminNewsBannerDTO) {
 		sqlSession.insert("admin.adminNewsBannerInsert", adminNewsBannerDTO);

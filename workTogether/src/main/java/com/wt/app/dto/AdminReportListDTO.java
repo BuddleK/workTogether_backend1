@@ -7,8 +7,13 @@ public class AdminReportListDTO {
 	private int usersNumber; // 전체 유저 번호
 	// 게시물 테이블
 	private String postsTitle; // 게시물 제목
+	private String postsContent;
+	private int postsViewCount;
 	private String postsCreatedDate; // 게시물 생성일
+	private String postsUpdateDate;
 	private int postsReportCount; // 게시물 조회수
+	
+	private String usersName;
 
 	public int getReportNumber() {
 		return reportNumber;
@@ -16,14 +21,6 @@ public class AdminReportListDTO {
 
 	public void setReportNumber(int reportNumber) {
 		this.reportNumber = reportNumber;
-	}
-
-	public int getPostsReportCount() {
-		return postsReportCount;
-	}
-
-	public void setPostsReportCount(int postsReportCount) {
-		this.postsReportCount = postsReportCount;
 	}
 
 	public int getPostsNumber() {
@@ -50,6 +47,22 @@ public class AdminReportListDTO {
 		this.postsTitle = postsTitle;
 	}
 
+	public String getPostsContent() {
+		return postsContent;
+	}
+
+	public void setPostsContent(String postsContent) {
+		this.postsContent = postsContent;
+	}
+
+	public int getPostsViewCount() {
+		return postsViewCount;
+	}
+
+	public void setPostsViewCount(int postsViewCount) {
+		this.postsViewCount = postsViewCount;
+	}
+
 	public String getPostsCreatedDate() {
 		return postsCreatedDate;
 	}
@@ -58,11 +71,39 @@ public class AdminReportListDTO {
 		this.postsCreatedDate = postsCreatedDate;
 	}
 
+	public String getPostsUpdateDate() {
+		return postsUpdateDate;
+	}
+
+	public void setPostsUpdateDate(String postsUpdateDate) {
+		this.postsUpdateDate = postsUpdateDate;
+	}
+
+	public int getPostsReportCount() {
+		return postsReportCount;
+	}
+
+	public void setPostsReportCount(int postsReportCount) {
+		this.postsReportCount = postsReportCount;
+	}
+
+	public String getUsersName() {
+		return usersName;
+	}
+
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
+
 	@Override
 	public String toString() {
 		return "AdminReportListDTO [reportNumber=" + reportNumber + ", postsNumber=" + postsNumber + ", usersNumber="
-				+ usersNumber + ", postsTitle=" + postsTitle + ", postsCreatedDate=" + postsCreatedDate
-				+ ", postsReportCount=" + postsReportCount + "]";
+				+ usersNumber + ", postsTitle=" + postsTitle + ", postsContent=" + postsContent + ", postsViewCount="
+				+ postsViewCount + ", postsCreatedDate=" + postsCreatedDate + ", postsUpdateDate=" + postsUpdateDate
+				+ ", postsReportCount=" + postsReportCount + ", usersName=" + usersName + "]";
 	}
+	
+
+	
 
 }

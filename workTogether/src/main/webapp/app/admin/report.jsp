@@ -36,7 +36,7 @@
               	<c:choose>
               		<c:when test="${not empty adminReportList}">
               			<c:forEach var="report" items="${adminReportList}">
-              				<a href="${pageContext.request.contextPath}/admin/adminReportListOk.ad?reportNumber=${report.getPostsNumber()}">
+              				<a href="${pageContext.request.contextPath}/admin/adminReportListOk.ad?postsNumber=${report.getPostsNumber()}">
 	                			<ul class="table_body">
 		            				<li class="body_number"><c:out value="${report.getPostsNumber()}"/></li>
 		                			<li class="body_content"><c:out value="${report.getPostsTitle()}"/></li>
@@ -89,7 +89,6 @@
         </div>
       </section>
     </main>
-
     <jsp:include page="/footer.jsp" />
   </body>
 </html>

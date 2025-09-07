@@ -48,7 +48,7 @@
       							<p class="cardtitle">
       								<c:out value="${news.newsTitle}"/>
       							</p>
-      							<p>
+      							<p class="cardlink">
       								<c:out value="${news.newsLinkUrl}"/>
       							</p>
       						</a></div>

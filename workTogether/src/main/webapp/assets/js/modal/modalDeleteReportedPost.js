@@ -12,7 +12,7 @@ const modalDeleteReportedPost = document.getElementById(
   "modalDeleteReportedPost"
 );
 
-const link = "./../../app/admin/report.jsp";
+const link = window.contextPath +"/admin/adminReportList.ad";
 function linkHref() {
   location.href = link;
 }
