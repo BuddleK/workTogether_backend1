@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -32,118 +33,62 @@
             </div>
             <div class="table">
               <div class="table_content">
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
-                  </li>
-                  <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
-                      >사이트 이용시 주의 사항</a
-                    >
-                  </li>
-                  <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
-                      >202 5-08-09</a
-                    >
-                  </li>
-                  <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
-                  </li>
-                  <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
-                      >사이트 이용시 주의 사항</a
-                    >
-                  </li>
-                  <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">2025-08-09</a>
-                  </li>
-                  <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
-                  </li>
-                  <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
-                      >사이트 이용시 주의 사항</a
-                    >
-                  </li>
-                  <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">2025-08-09</a>
-                  </li>
-                  <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
-                  </li>
-                  <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
-                      >사이트 이용시 주의 사항</a
-                    >
-                  </li>
-                  <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">2025-08-09</a>
-                  </li>
-                  <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
-                  </li>
-                </ul>
-                <ul class="table_body">
-                  <li class="body_number">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">1</a>
-                  </li>
-                  <li class="body_content">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp"
-                      >사이트 이용시 주의 사항</a
-                    >
-                  </li>
-                  <li class="body_date">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">2025-08-09</a>
-                  </li>
-                  <li class="body_cnt">
-                    <a href="${pageContext.request.contextPath}/app/admin/reportDetail.jsp">47</a>
-                  </li>
-                </ul>
+              	<c:choose>
+              		<c:when test="${not empty adminReportList}">
+              			<c:forEach var="report" items="${adminReportList}">
+              				<a href="${pageContext.request.contextPath}/admin/adminReportListOk.ad?postsNumber=${report.getPostsNumber()}">
+	                			<ul class="table_body">
+		            				<li class="body_number"><c:out value="${report.getPostsNumber()}"/></li>
+		                			<li class="body_content"><c:out value="${report.getPostsTitle()}"/></li>
+		                			<li class="body_date"><c:out value="${report.getPostsCreatedDate()}"/></li>
+		                			<li class="body_cnt"><c:out value="${report.getPostsReportCount()}"/></li>
+	                			</ul>
+	            			</a> 
+	            		</c:forEach>
+	            	</c:when>
+	            	<c:otherwise>
+   						<div>
+   							<div colspan="5" align="center">등록된 게시물이 없습니다.</div>
+   						</div>
+					</c:otherwise>
+	            </c:choose>   
               </div>
             </div>
+            <!-- 페이지네이션 -->
             <div class="paging_box">
               <ul class="paging">
-                <li class="prev">
-                  <a href="">&lt;</a>
-                </li>
-                <li class="page_number">
-                  <a href="">1</a>
-                </li>
-                <li class="page_number">
-                  <a href="">2</a>
-                </li>
-                <li class="page_number">
-                  <a href="">3</a>
-                </li>
-                <li class="page_number">
-                  <a href="">4</a>
-                </li>
-                <li class="page_number">...</li>
-                <li class="next">
-                  <a href="">&gt;</a>
-                </li>
-              </ul>
+				<c:if test="${prev}">
+					<li><a
+						href="${pageContext.request.contextPath}/admin/adminReportList.ad?page=${startPage - 1}"
+						class="prev">&lt;</a></li>
+				</c:if>
+				<c:set var="realStartPage"
+					value="${startPage < 0 ? 0 : startPage}" />
+				<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+					<c:choose>
+						<c:when test="${!(i == page) }">
+							<li><a
+								href="${pageContext.request.contextPath}/admin/adminReportList.ad?page=${i}">
+									<c:out value="${i}" />
+							</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="#" class="active"> <c:out value="${i}" />
+							</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${next}">
+					<li><a
+						href="${pageContext.request.contextPath}/admin/adminReportList.ad?page=${endPage + 1}"
+						class="next">&gt;</a>
+				</c:if>
+			</ul>
             </div>
           </div>
         </div>
       </section>
     </main>
-
     <jsp:include page="/footer.jsp" />
   </body>
 </html>

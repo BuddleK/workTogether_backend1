@@ -58,6 +58,12 @@ public class NewsFrontController extends HttpServlet {
 			result = new NewsListOkController().execute(request, response);
 			System.out.println(result);
 			break;
+			
+		case "/news/newsAllList.ne":
+			System.out.println("뉴스 전체 페이지 요청");
+			result = new NewsAllListController().execute(request, response);
+			System.out.println(result);
+			break;
 		}
 
 		if (result != null) {
