@@ -376,4 +376,16 @@ public class AdminDAO {
             return false;
         }
     }
+    //신고글 관련 
+    public int reportTotal() {
+		System.out.println("신고글 개수 조회 - reportTotal 메소드 실행");
+		return sqlSession.selectOne("admin.reportTotal");
+	}
+
+    public AdminReportListDTO reportDetail(int postsNumber) {
+      System.out.println("신고글 상세 페이지 조회");
+      return sqlSession.selectOne("admin.reportDetail", postsNumber);
+   }
+    
+    
 }

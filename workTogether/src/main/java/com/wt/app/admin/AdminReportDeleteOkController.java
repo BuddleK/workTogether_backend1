@@ -16,7 +16,7 @@ public class AdminReportDeleteOkController implements Execute{
 			throws ServletException, IOException {
 		Result result = new Result();
 		
-		result.setPath("/admin/adminReportDeleteOk.ad");
+		result.setPath("/app/admin/reportDetail.jsp");
 	    result.setRedirect(false);
 	    return result;
 	}
