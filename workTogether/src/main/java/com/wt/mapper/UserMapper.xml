@@ -5,10 +5,10 @@
 
 	<!-- 회원 공통 INSERT (selectKey로 PK 세팅) -->
 	<insert id="insertUser" parameterType="com.wt.app.dto.UsersDTO">
-		<!-- <selectKey keyProperty="usersNumber" resultType="long"
+		<selectKey keyProperty="usersNumber" resultType="long"
 			order="BEFORE">
 			SELECT seq_users.NEXTVAL FROM dual
-		</selectKey> -->
+		</selectKey>
 		INSERT INTO tbl_users (
 		users_number, users_id, users_password,
 		users_type,
@@ -17,7 +17,7 @@
 		users_postsal_code,
 		users_address_line1, users_address_line2
 		) VALUES (
-		seq_users.NEXTVAL,
+		#{usersNumber},
 		#{usersId}, #{usersPassword}, #{usersType},
 		SYSDATE, SYSDATE,
 		NVL(#{usersPoint}, 0),
@@ -37,8 +37,7 @@
 		AND u.users_type =
 		'N'
 	</select>
-	
-	
+
 
 	<select id="careLogin" parameterType="com.wt.app.dto.UsersDTO"
 		resultType="int">
@@ -55,17 +54,17 @@
 	</select>
 
 	<!-- 돌봄 로그인 타입 가져오기 -->
-	<select id="careTypeLogin" resultType="string">
-		select u.users_type
-		from tbl_users u
-		JOIN tbl_care_users c
-		ON u.users_number = c.users_number
-		WHERE u.users_id =
-		#{usersId}
-		AND u.users_password = #{usersPassword}
+	<select id="careTypeLogin"
+		parameterType="com.wt.app.dto.UsersDTO" resultType="string">
+		SELECT u.users_type
+		FROM tbl_users u
+		JOIN tbl_care_users c ON u.users_number =
+		c.users_number
+		WHERE u.users_id = #{usersId}
+		AND u.users_password =
+		#{usersPassword}
 		AND u.users_type = 'C'
-		AND
-		c.care_accept = 'Y'
+		AND c.care_accept = 'Y'
 	</select>
 
 	<!-- 아이디 중복 검사 (UsersDAO.checkId) -->
@@ -79,15 +78,13 @@
 		SELECT u.users_id
 		FROM tbl_users u
 		<choose>
-			<when
-				test='usersType != null and "N".equalsIgnoreCase(usersType.toString())'>
+			<when test='usersType == "N"'>
 				WHERE u.users_name = #{usersName}
 				AND u.users_phone =
 				#{usersPhone}
 				AND u.users_type = 'N'
 			</when>
-			<when
-				test='usersType != null and "C".equalsIgnoreCase(usersType.toString())'>
+			<when test='usersType == "C"'>
 				WHERE u.users_name = #{usersName}
 				AND u.users_phone =
 				#{usersPhone}
@@ -103,10 +100,11 @@
 		SELECT u.users_number
 		FROM tbl_users u
 		WHERE u.users_id = #{usersId}
-		AND u.users_name = #{usersName}
+		AND
+		u.users_name = #{usersName}
 		AND u.users_phone = #{usersPhone}
 		<if test="usersType != null and usersType != ''">
-			AND u.users_type = UPPER(#{usersType})  <!-- 'N' or 'C' -->
+			AND u.users_type = UPPER(#{usersType})
 		</if>
 		FETCH FIRST 1 ROWS ONLY
 	</select>
@@ -122,8 +120,7 @@
 
 	<!--회원번호로 아이디 조회: DAO에서 long 그대로 전달 → #{value} 사용 -->
 	<select id="getUsersId" parameterType="long" resultType="string">
-		SELECT
-		users_id FROM tbl_users WHERE users_number = #{value}
+		SELECT users_id FROM tbl_users WHERE users_number = #{value}
 	</select>
 
 </mapper>

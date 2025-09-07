@@ -15,10 +15,9 @@ public class AdminNewsBannerInsertController implements Execute{
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
-		
-		result.setPath("/admin/adminNewsBannerInsert.ad");
-	    result.setRedirect(false);
-	    return result;
+        result.setPath("/app/admin/bannerUpdate.jsp");
+        result.setRedirect(false);
+        return result;
 	}
 	
 }
