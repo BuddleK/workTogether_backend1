@@ -56,12 +56,12 @@ main {
 }
 
 form {
-  width: 100%;
+  width: calc(100% - 170px);
 }
 .context{
   margin-top: 30px;
   /* background-color: orange; */
-  width: 1700px;
+  width: 100%;
   overflow: hidden;
 }
 .card_row{

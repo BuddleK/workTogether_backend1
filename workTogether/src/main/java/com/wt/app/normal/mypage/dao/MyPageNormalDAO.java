@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.wt.app.dto.NormalFavoriteListDTO;
+import com.wt.app.dto.NormalHeartListDTO;
 import com.wt.app.dto.NormalMatchingDTO;
 import com.wt.app.dto.NormalModifyDTO;
 import com.wt.app.dto.NormalPostsListDTO;
@@ -52,10 +53,25 @@ public class MyPageNormalDAO {
 		return sqlSession.selectOne("myPageNormal.getTotal");
 	}
 
-	public void normalfavoriteListDelete(NormalFavoriteListDTO normalFavoriteListDTO) {
-		System.out.println("찜 목록 삭제하기 - normalfavoriteListDelete 메소드 실행" + normalFavoriteListDTO);
-		sqlSession.delete("myPageNormal.normalfavoriteListDelete", normalFavoriteListDTO);
+	public void normalfavoriteListDelete(int favoritesNumber) {
+		System.out.println("찜 목록 삭제하기 - normalfavoriteListDelete 메소드 실행" + favoritesNumber);
+		sqlSession.delete("myPageNormal.normalfavoriteListDelete", favoritesNumber);
 		System.out.println("찜 목록 삭제하기 실행 완료");
+	}
+	
+	
+	public List<NormalHeartListDTO> selectHeart(Map<String, Integer> pageMap) {
+		List<NormalHeartListDTO> list = sqlSession.selectList("myPageNormal.normalHeartListSearch",pageMap);
+		return list;
+	}
+	
+	public int heartTotal(int usersNumber) {
+		return sqlSession.selectOne("myPageNormal.heartTotal", usersNumber);
+	}
+	
+	public void deleteHeart(NormalHeartListDTO dto) {
+		sqlSession.delete("myPageNormal.deleteHeart",dto);
+		
 	}
 
 	public List<NormalMatchingDTO> normalMatchingSearch() {
