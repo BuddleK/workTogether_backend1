@@ -2,29 +2,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ===== 모달 참조 =====
   const saveModal = document.getElementById('saveSuccessModal');
-  const findModal = document.getElementById('findModal');
   const notCorrectModal = document.getElementById('notCorecetModal');
 
   const openSaveModal = () => saveModal?.classList.add('open');
   const closeSaveModal = () => saveModal?.classList.remove('open');
-  const openFindModal = () => findModal?.classList.add('open');
-  const closeFindModal = () => findModal?.classList.remove('open');
 
   // 닫기 버튼
   document.getElementById('saveConfirmBtn')?.addEventListener('click', closeSaveModal);
-  document.querySelector('#findModal button')?.addEventListener('click', closeFindModal);
   document.getElementById('CorrectBtn')?.addEventListener('click', () => notCorrectModal?.classList.remove('open'));
 
-  // ===== 파일 업로드 모달 =====
-  const uploadModal = document.getElementById('uploadSuccessModal');
-  const openUploadModal = () => uploadModal?.classList.add('open');
-  const closeUploadModal = () => uploadModal?.classList.remove('open');
-  uploadModal?.querySelector('button')?.addEventListener('click', closeUploadModal);
-  document.querySelectorAll('input[type="file"]').forEach(input => {
-    input.addEventListener('change', () => {
-      if (input.files && input.files.length > 0) openUploadModal();
-    });
-  });
+  
+  const inputEmail = document.getElementById('usersEmail');
+  const emailError = document.getElementById('email_error');
 
   // ===== 이메일 검사 (전역 함수) =====
   function emailCheck(email) {
@@ -33,20 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
     return re.test(email);
   }
 
-  // ===== 폼 델리게이션 =====
+  inputEmail.addEventListener('input', ()=>{
+	const emailValue = inputEmail.value;
+	if(emailCheck(emailValue)){
+		emailError.style.display = 'none';
+	}else{
+		emailError.style.display = 'block';
+	}
+  })
+
+/*  // ===== 폼 델리게이션 =====
   const form = document.querySelector('form');
-  if (!form) return;
+  if (!form) return;*/
 
   form.addEventListener('click', (e) => {
     const btn = e.target.closest('button');
     if (!btn) return;
     e.preventDefault();
 
-    // 1) 우편번호 찾기
-    if (btn.textContent.includes('우편번호 찾기')) {
-      openFindModal();
-      return;
-    }
 
     // 2) 주소 섹션의 "확인" → 상세주소만 필수
     if (btn.textContent === '확인' && btn.closest('.member')?.querySelector('.info')?.textContent === '주소') {
@@ -150,46 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     openSaveModal();
   });
 
-  // ===== 초기화: 페이지 처음 들어오면 입력 비우기(원하면 유지) =====
-  document.querySelectorAll('.caremodify input, .caremodify select, .caremodify textarea')
-    .forEach(el => {
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.value = '';
-      if (el.tagName === 'SELECT') el.selectedIndex = 0;
-    });
-	
-	
-	// ====== 카카오 우편번호 ======
-	const searchBtn = document.getElementById("searchPostcodeBtn");
-	if (searchBtn) {
-	  searchBtn.addEventListener("click", function () {
-	    new daum.Postcode({
-	      oncomplete: function (data) {
-	        // 1) 우편번호
-	        document.getElementById("postcode").value = data.zonecode || "";
 
-	        // 2) 메인 주소(도로명 또는 지번 한 칸만)
-	        //    - 참고항목(동/건물명)은 괄호로 덧붙임
-	        var isRoad = data.userSelectedType === "R";
-	        var base   = isRoad ? (data.roadAddress || "") : (data.jibunAddress || "");
-	        var extra  = "";
-
-	        if (isRoad) {
-	          if (data.bname && /[동|로|가]$/.test(data.bname)) extra += data.bname;
-	          if (data.buildingName && data.apartment === "Y") {
-	            extra += (extra ? ", " : "") + data.buildingName;
-	          }
-	        }
-
-	        var main = base + (extra ? " (" + extra + ")" : "");
-	        document.getElementById("mainAddress").value = main;
-
-	        // 3) 상세주소 포커스
-	        document.getElementById("detailAddress").focus();
-	      }
-	    }).open({ popupTitle: "우편번호 검색" });
-	  });
-	}
-	
 	
 });
 

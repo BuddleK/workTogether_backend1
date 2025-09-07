@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="careMatching">
+
+	<!-- 매칭 수 조회 -->
+	<select id="matchingTotal" resultType="int">
+		SELECT COUNT(MATCH_NUMBER) FROM RICEBALL.TBL_MATCHINGS
+	</select>
 	<!-- 매칭 추가 -->
 	<insert id="matchingAdd" parameterType="CareMatchingDTO">
 		<selectKey keyProperty="matchingNumber" resultType="int" order="BEFORE">
