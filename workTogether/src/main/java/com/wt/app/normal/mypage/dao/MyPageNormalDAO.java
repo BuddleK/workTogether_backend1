@@ -43,7 +43,6 @@ public class MyPageNormalDAO {
 	}
 
 	public List<NormalFavoriteListDTO> normalfavoriteListSearch(Map<String, Integer> pgMap) {
-		System.out.println("찜 목록 조회하기 - normalfavoriteListSearch 메소드 실행");
 		List<NormalFavoriteListDTO> list = sqlSession.selectList("myPageNormal.normalfavoriteListSearch", pgMap);
 		System.out.println("조회결과 : " + list);
 		return list;
