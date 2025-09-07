@@ -40,8 +40,8 @@
 	<main>
 		<section class="sign">
 			<form
-				action="${pageContext.request.contextPath}/users/loginNormalOk.us"
-				method="post" class="sign_form">
+				action="${pageContext.request.contextPath}/users/joinNormalOk.us"
+				method="post">
 				<!-- 공통 users -->
 				<input type="hidden" name="usersType" value="N" />
 
@@ -91,7 +91,7 @@
 					<p>이름</p>
 					<input type="text" id="name" name="usersName" required>
 				</div>
-	
+
 				<div class="sign_box sign_birth">
 					<p>휴대전화</p>
 					<input type="text" id="phone" name="usersPhone"

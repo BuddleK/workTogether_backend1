@@ -16,7 +16,7 @@ public class AdminNoticeUpdateOkController implements Execute {
 			throws ServletException, IOException {
 		Result result = new Result();
 
-		result.setPath("/admin/adminNoticeUpdateOk.adt");
+		result.setPath("/admin/adminNoticeUpdateOk.ad");
 		result.setRedirect(false);
 		return result;
 	}

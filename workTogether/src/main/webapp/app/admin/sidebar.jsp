@@ -3,7 +3,7 @@
   <ul>
     <div class="blank"></div>
     <li class="side_attach">
-      <a href="${pageContext.request.contextPath}/admin/adminUserManagerList.adt">
+      <a href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad">
         회원관리
       </a>
     </li>
@@ -31,15 +31,15 @@
           </a>
         </li>
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/bannerBoard.jsp">
+          <a href="${pageContext.request.contextPath}/admin/adminNewsBanner.ad">
             배너 게시물
           </a>
         </li>
       </ul>
     </div>
     <li class="side_attach">
-      <a href="${pageContext.request.contextPath}/app/admin/refund.jsp">
-        돌봄회원 환급 관리
+      <a href="${pageContext.request.contextPath}/admin/pointReturnListOk.ad">
+      돌봄회원 환급 관리
       </a>
     </li>
     <div class="board">

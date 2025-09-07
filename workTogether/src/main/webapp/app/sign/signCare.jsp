@@ -48,17 +48,19 @@
 					<p>돌봄 회원가입</p>
 				</div>
 
+				<%-- 아이디 --%>
 				<div class="sign_box sign_id">
 					<p>아이디</p>
-					<input type="text" name="usersId" placeholder="8자리 이상, 문자 숫자 포함"
-						required>
-					<button type="button" onclick="checkId()">중복확인</button>
+					<input type="text" id="get_id_input" name="usersId"
+						placeholder="8자리 이상, 문자 숫자 포함" required>
+					<button onclick="checkId()" type="button">중복확인</button>
 				</div>
 				<div class="id_err_box">
 					<p class="err_id_msg">중복된 아이디 입니다.</p>
 					<p class="ok_id_msg">사용가능한 아이디 입니다.</p>
 				</div>
 
+				<%-- 비밀번호 --%>
 				<div class="sign_box sign_password">
 					<p>비밀번호</p>
 					<input type="password" name="usersPassword"
@@ -68,6 +70,7 @@
 					<p class="error_pw_msg">형식에 맞게 입력해주세요.</p>
 				</div>
 
+				<%-- 비밀번호 확인 --%>
 				<div class="sign_box password_check">
 					<p>비밀번호 확인</p>
 					<input type="password" id="pw_check_input">
@@ -77,78 +80,75 @@
 					<p class="error_pw_check_msg">비밀번호가 일치하지않습니다.</p>
 				</div>
 
+				<%-- 이메일 --%>
 				<div class="sign_box sign_email">
 					<p>이메일</p>
-					<input type="text" id="email" name="usersEmail" required>
+					<input type="email" id="email" name="usersEmail" required>
 				</div>
 				<div class="box_error_email" id="msg_box_email">
 					<p class="error_email_msg">이메일형식에 맞지 않습니다.</p>
 					<p class="correct_email">제대로 입력되었습니다.</p>
 				</div>
 
+				<%-- 이름 --%>
 				<div class="sign_box sign_name">
 					<p>이름</p>
-					<input type="text" name="usersName" required>
+					<input type="text" id="name" name="usersName" required>
 				</div>
 
+				<%-- 휴대전화 + 인증 --%>
 				<div class="sign_box sign_birth">
 					<p>휴대전화</p>
 					<input type="text" id="phone" name="usersPhone"
 						placeholder="- 없이 숫자만 입력해주세요." required>
 				</div>
-
 				<div class="sign_box sign_author">
 					<input type="text" placeholder="인증번호 6자리 입력" id="author_number">
 					<div class="timer"></div>
 					<button type="button" onclick="sendMsg()">인증번호 발송</button>
 					<button type="button" onclick="checkMsg()">인증번호 확인</button>
 				</div>
-
 				<div class="alert">인증번호가 발송되었습니다.</div>
 				<div class="error_box_msg">
 					<p class="error_msg">인증번호가 올바르지 않습니다.</p>
 					<p class="okay_msg">제대로 인증되었습니다.</p>
 				</div>
 
+				<%-- 주소 --%>
 				<div class="sign_box sign_address">
 					<p>주소</p>
 					<input type="text" id="usersPostsalCode" name="usersPostsalCode"
-						placeholder="우편번호" readonly>
+						placeholder="우편번호" readonly required>
 					<button type="button" onclick="openPostcode()">우편 주소</button>
 				</div>
 
 				<div class="sign_box address_detail">
 					<p>상세 주소</p>
 					<input type="text" id="usersAddressLine1" name="usersAddressLine1"
-						placeholder="기본주소" readonly> <input type="text"
-						id="usersAddressLine2" name="usersAddressLine2" placeholder="상세주소">
+						placeholder="기본주소" readonly required> <input type="text"
+						id="usersAddressLine2" name="usersAddressLine2" placeholder="상세주소"
+						required>
 				</div>
 
-				<!-- 돌봄 상세 -->
+				<%-- 돌봄 전용: 소개글(선택) --%>
 				<div class="sign_box">
 					<p>소개글</p>
 					<input type="text" name="careIntroText" placeholder="간단한 소개(선택)">
 				</div>
 
-				<!-- <input type="file" id="selectedFile" style="display: none"" /> <input
-					type="button" value="파일추가"
-					onclick="document.getElementById('selectedFile').click();" /> -->
+				<%-- 파일(선택) - 업로드 연동 전 UI --%>
 				<div class="file">
-					<input type="text" class="file-text" placeholder="자격증 파일"
-						readonly> <input type="file" id="selectedFile"
-						class="hidden-file">
-					<button type="button" class="file-open" data-target="selectedFile">파일첨부</button>
+					<input type="text" class="file-text" placeholder="자격증 파일" readonly>
+					<input type="file" id="file-cert" class="hidden-file">
+					<button type="button" class="file-open" data-target="file-cert">파일첨부</button>
 				</div>
 
-				<!-- 2) 통장사본 -->
 				<div class="file">
-					<input type="text" class="file-text" placeholder="통장사본 파일"
-						readonly> <input type="file" id="file-account"
-						class="hidden-file">
+					<input type="text" class="file-text" placeholder="통장사본 파일" readonly>
+					<input type="file" id="file-account" class="hidden-file">
 					<button type="button" class="file-open" data-target="file-account">파일첨부</button>
 				</div>
 
-				<!-- 3) 프로필 사진 -->
 				<div class="file">
 					<input type="text" class="file-text" placeholder="프로필사진 파일"
 						readonly> <input type="file" id="file-profile"
