@@ -71,6 +71,8 @@
 					</ul>
 				</nav>
 
+
+
 				<ul class="mark_list">
 					<c:forEach var="fshop" items="${favoriteList}">
 						<li id="li_"><input class="checkbox_li" name="mark_check"
