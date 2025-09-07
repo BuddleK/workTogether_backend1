@@ -110,6 +110,9 @@
   background-color: red;
   color: white;
 }
+.button_del {
+  color: white;
+}
 
 .reply {
   width: 100%;

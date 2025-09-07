@@ -55,13 +55,8 @@
         </div>
         <div class="notice_btn">
           <button class="list" onclick="location.href='${pageContext.request.contextPath}/admin/adminReportList.ad'" type="button">목록</button>
-          <button
-            class="delete"
-            onclick="modalDeletePostReasonShow()"
-            type="button">
-            삭제
-          </button>
-        </div>
+          <div class="delete"><a href="${pageContext.request.contextPath}/admin/adminReportDeleteOk.ad?postsNumber=${report.getPostsNumber()}" class="button_del">삭제</a></div>
+      	</div>
       </section>
     </main>
     <jsp:include page="/footer.jsp" />

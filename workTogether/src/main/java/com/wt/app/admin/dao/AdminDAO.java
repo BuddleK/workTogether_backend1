@@ -242,7 +242,7 @@ public class AdminDAO {
         sqlSession.delete("admin.adminNoticeListDelete", noticeNumber);
     }
 
-    public List<AdminReportListDTO> adminReportListSelect() {
+    public List<AdminReportListDTO> adminReportListSelect(Map<String,Object> pageMap) {
         return sqlSession.selectList("admin.adminReportListSelect");
     }
 
