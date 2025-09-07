@@ -15,6 +15,13 @@ public class CareModifyDAO {
 	public CareModifyDAO() {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
+	
+	//개인정보 CareModifyDTO 가져오기
+	public CareModifyDTO getInfo(int usersNumber) {
+		System.out.println("getInfo - 개인정보 상세 조회 메소드");
+		return sqlSession.selectOne("careModify.getInfo", usersNumber);
+	}
+	
 	//회원 이름 조회
 	public String nameSelect(int usersNumber) {
 		return sqlSession.selectOne("careModify.nameSelect", usersNumber);

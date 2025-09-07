@@ -20,6 +20,7 @@ public class MapMarkerListOk implements Execute{
 		Result result = new Result();
 		
 		
+		
 		result.setPath("/app/map/map.jsp");
 		return result;
 	}
