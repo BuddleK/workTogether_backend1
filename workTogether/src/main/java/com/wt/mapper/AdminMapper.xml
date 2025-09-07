@@ -584,37 +584,6 @@
 		where posts_number = #{postNumber}
 	</delete>
 	
-	<!-- 베너 뉴스 등록 -->
-	<insert id="adminNewsBannerInsert" parameterType="AdminUserManagerDTO">
-		<selectKey keyProperty="bannerNewsNumber" resultType="int" order="BEFORE">
-			SELECT seq_news_banners.nextVal FROM DUAL
-		</selectKey>
-		insert into tbl_news_banners (banner_news_number, banner_title, banner_created_date, banner_link_url)
-		values(#{bannerNewsNumber}, #{bannerTitle}, #{bannerCreatedDate}, #{bannerLinkUrl})
-	</insert>
-	
-   <update id="adminNoticeListUpdate"
-      parameterType="AdminUserManagerDTO"><![CDATA[
-    UPDATE tbl_notices
-       SET notice_title = #{noticeTitle},
-           notice_content = #{noticeContent}
-     WHERE notice_number = #{noticeNumber}
-  ]]></update>
-
-   <delete id="adminNoticeListDelete" parameterType="int"><![CDATA[
-    DELETE FROM tbl_notices WHERE notice_number = #{noticeNumber}
-  ]]></delete>
-
-   <select id="adminReportListSelect"
-      resultType="AdminUserManagerDTO"><![CDATA[
-    SELECT posts_number, posts_title, posts_created_date, posts_report_count
-      FROM tbl_posts
-  ]]></select>
-
-   <delete id="adminReportListDelete" parameterType="int"><![CDATA[
-    DELETE FROM tbl_posts WHERE posts_number = #{postNumber}
-  ]]></delete>
-
    <!-- ==================== [News Banners] ==================== -->
    <select id="bannerCountAll" resultType="int"><![CDATA[
     SELECT COUNT(*) FROM tbl_news_banners
