@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.admin.dao.AdminTwoDAO;
+import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminUserManagerDTO;
 
 public class AdminUserManagerListController implements Execute {
@@ -19,7 +19,7 @@ public class AdminUserManagerListController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AdminTwoDAO adminTwoDAO = new AdminTwoDAO();
+		AdminDAO adminDAO = new AdminDAO();
 		Result result = new Result();
 
 		String temp = request.getParameter("page");
@@ -34,10 +34,10 @@ public class AdminUserManagerListController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
 
-		List<AdminUserManagerDTO> userlist = adminTwoDAO.adminUserManager(pageMap);
+		List<AdminUserManagerDTO> userlist = adminDAO.adminUserManager(pageMap);
 		request.setAttribute("userList", userlist);
 
-		int total = adminTwoDAO.getUserTotal();
+		int total = adminDAO.getUserTotal();
 		int realEndPage = (int) Math.ceil(total / (double) rowCount); // 실제 마지막 페이지(전체 게시글 기준으로 계산)
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount); // 현재 페이지 그룹에서의 마지막 페이지
 		int startPage = endPage - (pageCount - 1); // 현재 페이지 그룹에서의 첫 페이지
