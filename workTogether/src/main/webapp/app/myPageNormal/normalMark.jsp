@@ -72,34 +72,20 @@
 				</nav>
 
 				<ul class="mark_list">
-
 					<c:forEach var="fshop" items="${favoriteList}">
-						<li>${fshop.shopsName}</li>
+						<li id="li_"><input class="checkbox_li" name="mark_check"
+							type="checkbox" value="0">
+							<div class="name">
+								<div>${fshop.shopsName}</div>
+							</div> <a class="location"
+							href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${fshop.shopsNumber}">
+								<div>${fshop.shopsRoadAddress}</div>
+						</a>
+							<div class="phone">
+								<div>${fshop.shopsPhone }</div>
+							</div></li>
 					</c:forEach>
-							 <c:forEach var="fshop" items="${favoriteList } "  >
-								<li id="li_"><input class="checkbox_li" name="mark_check"
-									type="checkbox" value="0">
-									<div class="name">
-										<div>
-											${fshop.shopsName}
-										</div>
-									</div>
-									 <a class="location"
-									href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${fshop.shopsNumber}">
-										<div>
-											${fshop.shopsRoadAddress}
-										</div>
-								</a>
-									<div class="phone">
-										<div>
-											${fshop.shopsPhone }
-										</div>
-									</div>
-									</li>
-							</c:forEach>
 				</ul>
-
-
 				<div class="restaurant_pagenation">
 					<ul class="page">
 						<c:if test="${prev}">
