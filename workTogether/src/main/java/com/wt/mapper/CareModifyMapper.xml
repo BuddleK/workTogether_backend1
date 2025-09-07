@@ -2,6 +2,44 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="careModify">
+
+	<!-- 개인정보 가져오는 쿼리 -->
+	<select id="getInfo" resultType="com.wt.app.dto.CareModifyDTO">
+		SELECT USERS_NUMBER, USERS_NAME, USERS_POSTSAL_CODE, USERS_ADDRESS_LINE1, USERS_ADDRESS_LINE2, USERS_PHONE, USERS_ID, USERS_EMAIL, USERS_PASSWORD FROM RICEBALL.TBL_USERS WHERE USERS_NUMBER = #{usersNumber}
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	<!-- 회원 이름 조회 -->
 	<select id="nameSelect" resultType="String">

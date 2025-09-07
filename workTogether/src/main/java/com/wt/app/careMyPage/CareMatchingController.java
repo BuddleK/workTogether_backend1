@@ -19,6 +19,7 @@ public class CareMatchingController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("========CareMatchingController========");
 		CareMatchingDAO careMatchingDAO = new CareMatchingDAO();
 		Result result = new Result();
 
