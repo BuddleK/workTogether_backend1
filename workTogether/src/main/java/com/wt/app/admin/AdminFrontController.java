@@ -142,6 +142,7 @@ public class AdminFrontController extends HttpServlet {
 			result = new AdminCareFileDownloadController().execute(request, response);
 			break;
 
+			
 		/* =============== [Care 이력 수정] =============== */
 		case "/admin/careCareer/list.ad":
 			result = new AdminCareCareerListController().execute(request, response);
@@ -154,6 +155,25 @@ public class AdminFrontController extends HttpServlet {
 		case "/admin/careCareer/updateStatus.ad":
 			result = new AdminCareCareerUpdateStatusController().execute(request, response);
 			break;
+			
+		case "/admin/pointReturnListOk.ad":
+            result = new AdminPointReturnListOkController().execute(request, response);
+            break;
+
+        // 단건 상세
+        case "/admin/pointReturnDetailOk.ad":
+            result = new AdminPointReturnDetailOkController().execute(request, response);
+            break;
+
+        // 승인
+        case "/admin/pointReturnApproveOk.ad":
+            result = new AdminPointReturnApproveOkController().execute(request, response);
+            break;
+
+        // 반려
+        case "/admin/pointReturnRejectOk.ad":
+            result = new AdminPointReturnRejectOkController().execute(request, response);
+            break;
 
 		
 //		김태현 코드 시작
@@ -198,22 +218,25 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("관리자 신고글 삭제 완료 요청");
 			result = new AdminReportDeleteOkController().execute(request, response);
 			break;
-		case "/admin/adminNewsBannerInsert.ad":
-			System.out.println("관리자 뉴스 베너 쓰기 페이지 요청");
-			result = new AdminNewsBannerInsertController().execute(request, response);
-			break;
-		case "/admin/adminNewsBannerInsertOk.ad":
-			System.out.println("관리자 뉴스 베너 추가 완료 요청");
-			result = new AdminNewsBannerInsertOkController().execute(request, response);
-			break;
-		case "/admin/adminNewsBannerDetail.ad":
-			System.out.println("관리자 뉴스 베너 상세 페이지 요청");
-			result = new AdminNewsBannerDetailController().execute(request, response);
-			break;
+			
 		case "/admin/adminNewsBanner.ad":
 			System.out.println("관리자 뉴스 베너 페이지 요청");
 			result = new AdminNewsBannerController().execute(request, response);
 			break;
+		/*
+		 * case "/admin/adminNewsBannerInsert.ad":
+		 * System.out.println("관리자 뉴스 베너 쓰기 페이지 요청"); result = new
+		 * AdminNewsBannerInsertController().execute(request, response); break;
+		 */
+		case "/admin/adminNewsBannerInsertOk.ad":
+			System.out.println("관리자 뉴스 베너 추가 완료 요청");
+			result = new AdminNewsBannerInsertOkController().execute(request, response);
+			break;
+		/*
+		 * case "/admin/adminNewsBannerDetail.ad":
+		 * System.out.println("관리자 뉴스 베너 상세 페이지 요청"); result = new
+		 * AdminNewsBannerDetailController().execute(request, response); break;
+		 */
 		case "/admin/adminNewsBannerUpdate.ad":
 			System.out.println("관리자 뉴스 베너 수정 페이지 요청");
 			result = new AdminNewsBannerUpdateController().execute(request, response);
@@ -226,6 +249,7 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("관리자 뉴스 베너 삭제 완료 요청");
 			result = new AdminNewsBannerDeleteOkController().execute(request, response);
 			break;
+			
 		case "/admin/adminReferenceList.ad":
 			System.out.println("관리자 문의 관리 페이지 요청");
 			result = new AdminReferenceListController().execute(request, response);

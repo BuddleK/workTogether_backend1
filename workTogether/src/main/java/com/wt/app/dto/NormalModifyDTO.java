@@ -2,31 +2,22 @@ package com.wt.app.dto;
 
 public class NormalModifyDTO {
 	private int usersNumber;
-	private int normalNumber;
 	private String usersName;
 	private String usersId;
 	private String normalUsersLevel;
-	private String usersPostCode;
-	private String usersAddrLine1;
-	private String usersAddrLine2;
+	private String usersPostsalCode;
+	private String usersAddressLine1;
+	private String usersAddressLine2;
 	private String usersPhone;
 	private String usersEmail;
 	private String usersPassword;
 
-	public int getusersNumber() {
+	public int getUsersNumber() {
 		return usersNumber;
 	}
 
-	public void setusersNumber(int usersNumber) {
-		usersNumber = usersNumber;
-	}
-
-	public int getNormalNumber() {
-		return normalNumber;
-	}
-
-	public void setNormalNumber(int normalNumber) {
-		this.normalNumber = normalNumber;
+	public void setUsersNumber(int usersNumber) {
+		this.usersNumber = usersNumber;
 	}
 
 	public String getUsersName() {
@@ -53,28 +44,28 @@ public class NormalModifyDTO {
 		this.normalUsersLevel = normalUsersLevel;
 	}
 
-	public String getUsersPostCode() {
-		return usersPostCode;
+	public String getUsersPostsalCode() {
+		return usersPostsalCode;
 	}
 
-	public void setUsersPostCode(String usersPostCode) {
-		this.usersPostCode = usersPostCode;
+	public void setUsersPostsalCode(String usersPostsalCode) {
+		this.usersPostsalCode = usersPostsalCode;
 	}
 
-	public String getUsersAddrLine1() {
-		return usersAddrLine1;
+	public String getUsersAddressLine1() {
+		return usersAddressLine1;
 	}
 
-	public void setUsersAddrLine1(String usersAddrLine1) {
-		this.usersAddrLine1 = usersAddrLine1;
+	public void setUsersAddressLine1(String usersAddressLine1) {
+		this.usersAddressLine1 = usersAddressLine1;
 	}
 
-	public String getUsersAddrLine2() {
-		return usersAddrLine2;
+	public String getUsersAddressLine2() {
+		return usersAddressLine2;
 	}
 
-	public void setUsersAddrLine2(String usersAddrLine2) {
-		this.usersAddrLine2 = usersAddrLine2;
+	public void setUsersAddressLine2(String usersAddressLine2) {
+		this.usersAddressLine2 = usersAddressLine2;
 	}
 
 	public String getUsersPhone() {
@@ -103,9 +94,9 @@ public class NormalModifyDTO {
 
 	@Override
 	public String toString() {
-		return "NormalModifyDTO [usersNumber=" + usersNumber + ", normalNumber=" + normalNumber + ", usersName="
-				+ usersName + ", usersId=" + usersId + ", normalUsersLevel=" + normalUsersLevel + ", usersPostCode="
-				+ usersPostCode + ", usersAddrLine1=" + usersAddrLine1 + ", usersAddrLine2=" + usersAddrLine2
+		return "NormalModifyDTO [usersNumber=" + usersNumber + ", usersName=" + usersName + ", usersId=" + usersId
+				+ ", normalUsersLevel=" + normalUsersLevel + ", usersPostsalCode=" + usersPostsalCode
+				+ ", usersAddressLine1=" + usersAddressLine1 + ", usersAddressLine2=" + usersAddressLine2
 				+ ", usersPhone=" + usersPhone + ", usersEmail=" + usersEmail + ", usersPassword=" + usersPassword
 				+ "]";
 	}

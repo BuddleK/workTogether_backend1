@@ -41,7 +41,12 @@ button {
   gap: 12px;
 }
 
-.sign_box > p { font-size: 16px; }
+.sign_box > p {
+  font-size: 16px;
+  width: 120px;         /* 라벨 폭 고정 → 메시지 들여쓰기 기준 */
+  flex: 0 0 120px;
+  margin: 0;
+}
 .sign_title > p { font-size: 30px; }
 
 .timer { width: 50px; height: 20%; }
@@ -70,16 +75,62 @@ label > input { width: 20px; height: 20px; }
   left: 36px;
 }
 
-.sign_id { left: 73px; position: relative; }
-.sign_password { position: relative; }
-.password_check { position: relative; left: -16px; }
-.sign_email { position: relative; left: 9px; }
-.sign_name { position: relative; left: 15px; }
-.sign_phone { position: relative; left: 113px; }
-.sign_author { position: relative; left: 155px; }
-.sign_address { position: relative; left: 84px; }
-.address_detail { position: relative; left: 0px; }
+/* 입력창 폭 조정: 라벨 옆으로 자연스럽게 */
+.sign_box input[type="text"],
+.sign_box input[type="password"],
+.sign_box input[type="email"] {
+  flex: 1 1 auto;
+  max-width: 400px; /* 기존 input width 상한 */
+}
 
+/* 메시지가 입력창 바로 밑에 나오게 */
+.id_err_box,
+#msg_box,
+#msg_box2,
+#msg_box_email,
+.alert,
+.error_box_msg {
+  display: none;
+  width: 100%;
+  padding-left: 120px;   /* 라벨 폭만큼 들여쓰기 */
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* 문구 색상 */
+.id_err_box .err_id_msg,
+#msg_box .error_pw_msg,
+#msg_box2 .error_pw_check_msg,
+#msg_box_email .error_email_msg,
+.error_box_msg .error_msg {
+  color: #d93025; /* 빨강 */
+  font-size: 13px;
+}
+
+.id_err_box .ok_id_msg,
+#msg_box2 .correct_pw,
+#msg_box_email .correct_email,
+.error_box_msg .okay_msg,
+.alert {
+  color: #188038; /* 초록 */
+  font-size: 13px;
+}
+
+/* ===== 기존 위치 보정 삭제 (메시지 정렬 깨지던 left 제거) ===== */
+.sign_id,
+.sign_password,
+.password_check,
+.sign_email,
+.sign_name,
+.sign_phone,
+.sign_author,
+.sign_address,
+.address_detail {
+  left: 0 !important;
+  position: relative;
+}
+
+/* ===== 레벨 ===== */
 .sign_level > ul { list-style-type: none; width: 100%; }
 .sign_level > ul > li {
   width: 100%;
@@ -93,14 +144,7 @@ label > input { width: 20px; height: 20px; }
   border-radius: 30px;
 }
 
-/* ===== 메시지 박스 초기 숨김 ===== */
-.id_err_box, #msg_box, #msg_box2, #msg_box_email,
-.alert, .error_box_msg, .correct_email, .correct_pw, .error_pw_check_msg {
-  display: none;
-}
-
 /* ===== 파일 바(파란색) ===== */
-/* 컨테이너: 파란 바 + 오른쪽 버튼 정렬 */
 .file{
   display: flex;
   align-items: center;

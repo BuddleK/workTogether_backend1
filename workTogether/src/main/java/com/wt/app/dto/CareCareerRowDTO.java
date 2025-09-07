@@ -1,17 +1,23 @@
 package com.wt.app.dto;
 
 public class CareCareerRowDTO {
-	private int number;
-	private String name;
-	private String userId;
-	private String date;
-	private String status;
 	
-	
-	public int getNumber() {
+	private Integer usersNumber;
+    private Integer number;
+    private String name;
+    private String userId;
+    private String date;
+    private String status;
+	public Integer getUsersNumber() {
+		return usersNumber;
+	}
+	public void setUsersNumber(Integer usersNumber) {
+		this.usersNumber = usersNumber;
+	}
+	public Integer getNumber() {
 		return number;
 	}
-	public void setNumber(int number) {
+	public void setNumber(Integer number) {
 		this.number = number;
 	}
 	public String getName() {
@@ -40,9 +46,10 @@ public class CareCareerRowDTO {
 	}
 	@Override
 	public String toString() {
-		return "CareCareerRow [number=" + number + ", name=" + name + ", userId=" + userId + ", date=" + date
-				+ ", status=" + status + "]";
+		return "CareCareerRowDTO [usersNumber=" + usersNumber + ", number=" + number + ", name=" + name + ", userId="
+				+ userId + ", date=" + date + ", status=" + status + "]";
 	}
+	
 	
 	
 }

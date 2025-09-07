@@ -17,6 +17,13 @@
    <servlet>
       <servlet-name>Admin</servlet-name>
       <servlet-class>com.wt.app.admin.AdminFrontController</servlet-class>
+
+      <multipart-config>
+         <max-file-size>104857600</max-file-size>
+         <max-request-size>209715200</max-request-size>
+         <file-size-threshold>0</file-size-threshold>
+      </multipart-config>
+
    </servlet>
 
    <servlet-mapping>
@@ -56,7 +63,7 @@
 
    <servlet>
       <servlet-name>MyPageNormal</servlet-name>
-      <servlet-class>com.wt.app.normal.MyPageNormalFrontController</servlet-class>
+      <servlet-class>com.wt.app.normal.mypage.MyPageNormalFrontController</servlet-class>
    </servlet>
 
    <servlet-mapping>
@@ -145,8 +152,8 @@
       <url-pattern>*.co</url-pattern>
    </servlet-mapping>
 
-   
-   
+
+
    <servlet>
       <servlet-name>Reply</servlet-name>
       <servlet-class>com.wt.app.posts.PostReplyFrontController</servlet-class>
@@ -156,7 +163,7 @@
       <servlet-name>Reply</servlet-name>
       <url-pattern>*.re</url-pattern>
    </servlet-mapping>
-   
+
    <servlet>
       <servlet-name>Main</servlet-name>
       <servlet-class>com.wt.app.main.MainFrontController</servlet-class>
@@ -166,8 +173,8 @@
       <servlet-name>Main</servlet-name>
       <url-pattern>*.main</url-pattern>
    </servlet-mapping>
-   
-    <servlet>
+
+   <servlet>
       <servlet-name>Heart</servlet-name>
       <servlet-class>com.wt.app.careList.CareListHeartFrontController</servlet-class>
    </servlet>
@@ -176,7 +183,7 @@
       <servlet-name>Heart</servlet-name>
       <url-pattern>*.he</url-pattern>
    </servlet-mapping>
-   
-   
+
+
 
 </web-app>

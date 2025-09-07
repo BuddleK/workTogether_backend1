@@ -1,6 +1,8 @@
 package com.wt.app.normal.mypage;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,13 +18,21 @@ public class CheckPwOkController implements Execute{
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("오케이 컨트롤러 진입");
 		MyPageNormalDAO myPageNormalDAO = new MyPageNormalDAO();
 		Result result = new Result();
 		
-		int usersNumber = 0;
 		HttpSession session = request.getSession();
 		String usersPassword = request.getParameter("usersPassword");
-		boolean isSuccess = myPageNormalDAO.checkPw(usersPassword);
+		String usersNumber = session.getAttribute("usersNumber") + "";
+		 
+		
+        Map<String, String> numbers = new HashMap<>();
+        numbers.put("usersNumber", usersNumber);
+        numbers.put("usersPassword", usersPassword);
+		
+		boolean isSuccess = myPageNormalDAO.checkPw(numbers);
+		System.out.println(isSuccess);
 		
 		String path = null;
 		
@@ -31,8 +41,7 @@ public class CheckPwOkController implements Execute{
 
 		if(isSuccess) {
 			path = "/myPageNormal/normalModify.mn";
-			session.setAttribute("usersNumber", usersNumber);
-			System.out.println("세션값 : " + usersNumber);
+			System.out.println("2세션값 : " + usersNumber);
 		}else {
 			path = "/app/myPageNormal/normalPwCheck.jsp";
 		    request.setAttribute("errorMsg", "일치하지 않는 비밀번호 입니다");

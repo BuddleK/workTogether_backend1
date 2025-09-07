@@ -22,8 +22,8 @@ public class CareListSendMsgOkController implements Execute {
 		Result result = new Result();
 		
 		//로그인 정보 파악
-//		Integer normalNubmer = (Integer)request.getSession().getAttribute("usersNumber");
-		Integer normalNubmer = (Integer)1;
+		Integer normalNubmer = (Integer)request.getSession().getAttribute("usersNumber");
+//		Integer normalNubmer = (Integer)1;
 		
 		
 		
@@ -51,7 +51,10 @@ public class CareListSendMsgOkController implements Execute {
 		
 		dao.sendMsg(dto);
 		
-		result.setPath("/app/careMember/careMemberDetail.jsp");
+		result.setPath("/careList/careListDetailOk.cl?usersNumber=" + careNumber);
+//		http://localhost:9999/careList/careSendMsgOk.cl
+//		careList/careListDetailOk.cl?usersNumber=${care.usersNumber}
+//			case "/careList/careSendMsgOk.cl" : 
 		result.setRedirect(false);
 		
 		return result;

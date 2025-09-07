@@ -22,13 +22,15 @@ public class ShopsListDTO {
 	private String shopsElevator;
 	private String shopsParking;
 	private String shopsDisabledParking;
-	private String shopsTakeout ;
-	private String shopsIntroText ;
-    private int shopsFilesNumber;
-    private String shopsFilesName;
-    private String shopsFilesPath;
-    private String shopsFilesType;
-	
+	private String shopsTakeout;
+	private String shopsIntroText;
+	private int shopsFilesNumber;
+	private String shopsFilesName;
+	private String shopsFilesPath;
+	private String shopsFilesType;
+
+	private String shopsSliceDong;
+
 	private String isFavorite;
 
 	public int getShopsNumber() {
@@ -147,8 +149,8 @@ public class ShopsListDTO {
 		return shopsEntranceThreshold;
 	}
 
-	public void setShopsEntranceThreshold(String shopsEntranceThresshold) {
-		this.shopsEntranceThreshold = shopsEntranceThresshold;
+	public void setShopsEntranceThreshold(String shopsEntranceThreshold) {
+		this.shopsEntranceThreshold = shopsEntranceThreshold;
 	}
 
 	public String getShopsToiletStep() {
@@ -187,8 +189,8 @@ public class ShopsListDTO {
 		return shopsParking;
 	}
 
-	public void setShopsParking(String shops_parking) {
-		this.shopsParking = shops_parking;
+	public void setShopsParking(String shopsParking) {
+		this.shopsParking = shopsParking;
 	}
 
 	public String getShopsDisabledParking() {
@@ -247,6 +249,14 @@ public class ShopsListDTO {
 		this.shopsFilesType = shopsFilesType;
 	}
 
+	public String getShopsSliceDong() {
+		return shopsSliceDong;
+	}
+
+	public void setShopsSliceDong(String shopsSliceDong) {
+		this.shopsSliceDong = shopsSliceDong;
+	}
+
 	public String getIsFavorite() {
 		return isFavorite;
 	}
@@ -268,11 +278,8 @@ public class ShopsListDTO {
 				+ shopsElevator + ", shopsParking=" + shopsParking + ", shopsDisabledParking=" + shopsDisabledParking
 				+ ", shopsTakeout=" + shopsTakeout + ", shopsIntroText=" + shopsIntroText + ", shopsFilesNumber="
 				+ shopsFilesNumber + ", shopsFilesName=" + shopsFilesName + ", shopsFilesPath=" + shopsFilesPath
-				+ ", shopsFilesType=" + shopsFilesType + ", isFavorite=" + isFavorite + "]";
+				+ ", shopsFilesType=" + shopsFilesType + ", shopsSliceDong=" + shopsSliceDong + ", isFavorite="
+				+ isFavorite + "]";
 	}
 
-		
-	
-	
-	
 }

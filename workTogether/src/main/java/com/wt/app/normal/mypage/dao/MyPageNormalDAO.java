@@ -1,6 +1,8 @@
 package com.wt.app.normal.mypage.dao;
 
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -18,27 +20,37 @@ public class MyPageNormalDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	public boolean checkPw(String usersPassword) {
-		return (Integer) sqlSession.selectOne("myPageNormal.checkPw", usersPassword) < 1;
+	public boolean checkPw(Map<String, String> numbers) {
+		System.out.println("checkPw 메소드 출력: " +(Integer)sqlSession.selectOne("myPageNormal.checkPw", numbers));
+		return (Integer) sqlSession.selectOne("myPageNormal.checkPw", numbers) > 0;
 	}
 
-	public List<NormalModifyDTO> normalSearch(String usersId) {
-		System.out.println("개인 정보 조회하기 - normalSearch 메소드 실행" + usersId);
-		List<NormalModifyDTO> list = sqlSession.selectList("myPageNormal.normalSearch", usersId);
+	public List<NormalModifyDTO> normalSearch(String usersNumber) {
+		System.out.println("개인 정보 조회하기 - normalSearch 메소드 실행" + usersNumber);
+		List<NormalModifyDTO> list = sqlSession.selectList("myPageNormal.normalSearch", usersNumber);
 		System.out.println("조회결과 : " + list);
 		return list;
 	}
 
-	public void normalModify(NormalModifyDTO normalModifyDTO) {
+	public void normalModify(NormalModifyDTO normalModifyDTO) throws SQLException {
 		System.out.println("개인 정보 수정 - normalModify 메소드 실행" + normalModifyDTO);
-		sqlSession.update("myPageNormal.normalModify", normalModifyDTO);
+		try {
+			sqlSession.update("myPageNormal.normalModify", normalModifyDTO);
+			
+		} catch (Exception e) {
+			throw new SQLException("email_dup");
+		}
 	}
 
-	public List<NormalFavoriteListDTO> normalfavoriteListSearch() {
+	public List<NormalFavoriteListDTO> normalfavoriteListSearch(Map<String, Integer> pgMap) {
 		System.out.println("찜 목록 조회하기 - normalfavoriteListSearch 메소드 실행");
-		List<NormalFavoriteListDTO> list = sqlSession.selectList("myPageNormal.normalfavoriteListSearch");
+		List<NormalFavoriteListDTO> list = sqlSession.selectList("myPageNormal.normalfavoriteListSearch", pgMap);
 		System.out.println("조회결과 : " + list);
 		return list;
+	}
+	
+	public int getTotal() {
+		return sqlSession.selectOne("myPageNormal.getTotal");
 	}
 
 	public void normalfavoriteListDelete(NormalFavoriteListDTO normalFavoriteListDTO) {
