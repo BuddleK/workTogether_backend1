@@ -538,6 +538,7 @@
     VALUES (#{noticeNumber}, #{noticeTitle}, #{noticeContent})
     ]]>
 
+
 	</insert>
 	
 	<!-- 공지사항 수정 -->
@@ -834,4 +835,14 @@
      SET status = 'R'
    WHERE point_return_id = #{pointReturnId}
 ]]></update>
+
+  <select id="reportTotal" resultType="int">
+  SELECT COUNT(*) FROM TBL_PosTS WHERE posts_report_count <![CDATA[>]]> 4
+  </select>
+  
+  <select id="reportDetail" resultType="AdminReportListDTO">
+  select * from tbl_posts p join tbl_users u 
+  ON p.users_number = u.users_number where p.posts_number = #{postsNumber}
+  
+  </select>
 </mapper>

@@ -62,7 +62,10 @@
       		</c:when>
       		<c:otherwise>
 				<!-- 신고 버튼 -->
-      			<a href="${pageContext.request.contextPath}/post/postReport.po?postsNumber=${post.getPostsNumber()}&postsUsersNumber=${post.getUsersNumber()}" class="button_del"><button class="del">신고</button></a>
+
+				<form action="/post/postReport.po" method="get">
+      				<div class="del"><button type="button" class="button_del" onclick="del()">신고</button></div>
+      			</form>
 			</c:otherwise>
 		</c:choose>
 		
@@ -80,13 +83,14 @@
         <div class="reply_console">
           <input id="reply_input" placeholder="댓글 작성 중">
           <span type="button" id="reply_button">
-            <p>작성</p>
+            <p>작성</p>	
           </span>
         </div>
       </div>
     </div>
   </main>
     <!-- 게시글 삭제 확인 모달 -->
+<input type="hidden" id="usersNumber" value="<%= request.getSession().getAttribute("usersNumber") %>">
 <div class="checkmodal" id="del_modal">
     <div class="modal_box">
       <p>이 게시글을 삭제하시겠습니까?</p>
@@ -97,7 +101,7 @@
     </div>
   </div>
   <!-- 신고 확인 모달 -->
-  <!-- <div class="checkmodal" id="editModal">
+<div class="checkmodal" id="editModal">
     <div class="modal_box">
       <p>이 게시글을  신고하시겠습니까?</p>
       <div class="exit-value">
@@ -113,24 +117,28 @@
         <button id="cancle">취소</button>
       </div>
     </div>
-  </div> -->
+  </div> 
+  
   <!-- 자신이 이미 신고한 게시글일때 모달 -->
-  <!-- <div class="notmodal" id="editModal">
+  <div class="notmodal" id="editModal">
     <div class="modal_box">
       <p>이미 신고한 게시글입니다</p>
+      <p>신고를 취소하겠습니까?</p>
       <div class="modal_buttons">
         <button id="notcheck">확인</button>
+        <button id="notcancle">취소</button>
       </div>
     </div>
-  </div> -->
-  <!-- <div class="reportmodal">
+  </div>
+  <!-- 신고입력확인 모달 -->
+  <div class="reportmodal">
     <div class="modal_box">
       <p>신고되었습니다</p>
       <div class="modal_buttons">
         <button id="reportcheck">확인</button>
       </div>
     </div>
-  </div> -->
+  </div>
   <jsp:include page="/footer.jsp" />
 </body>
 </html>
