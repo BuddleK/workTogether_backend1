@@ -57,7 +57,7 @@
       	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록으로</a></button>
       	<c:choose>
       		<c:when test="${sessionScope.usersNumber == post.getUsersNumber()}">
-      			<a href="${pageContext.request.contextPath}/post/postDeleteOk.po?postsNumber=${post.getPostsNumber()}"><button type="button" class="button_delete">삭제</button></a>
+      			<button type="button" id="button_delete" class="button_delete" data-post-number="${post.getPostsNumber()}" data-context-path="${pageContext.request.contextPath}">삭제</button>
 				<a href="${pageContext.request.contextPath}/post/postUpdate.po?postsNumber=${post.getPostsNumber()}"><button type="button" class="button_enroll">수정</button></a>
       		</c:when>
       		<c:otherwise>
@@ -87,15 +87,15 @@
     </div>
   </main>
     <!-- 게시글 삭제 확인 모달 -->
-<%--   <div class="checkmodal" id="del_modal">
+<div class="checkmodal" id="del_modal">
     <div class="modal_box">
       <p>이 게시글을 삭제하시겠습니까?</p>
       <div class="modal_buttons">
-        <a href="${pageContext.request.contextPath}/app/post/postMain.jsp"><button id="check">확인</button></a>
+        <button id="check">확인</button>
         <button id="cancle">취소</button>
       </div>
     </div>
-  </div> --%>
+  </div>
   <!-- 신고 확인 모달 -->
   <!-- <div class="checkmodal" id="editModal">
     <div class="modal_box">

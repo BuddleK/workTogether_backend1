@@ -511,18 +511,18 @@
 
    <select id="adminNoticeListSearch" parameterType="map" resultType="AdminUserManagerDTO">
    <![CDATA[
-		SELECT *
-		FROM (
-		      SELECT ROWNUM AS rnum, subquery.*
-		      FROM (
-		            SELECT NOTICE_NUMBER, NOTICE_TITLE, ADMIN_NUMBER, NOTICE_VIEW_COUNT, NOTICE_CREATED_DATE
-		            FROM TBL_NOTICES
-		            ORDER BY NOTICE_CREATED_DATE DESC
-		           ) subquery
-		     )
-		WHERE rnum BETWEEN #{startRow} AND #{endRow}
+      SELECT *
+      FROM (
+            SELECT ROWNUM AS rnum, subquery.*
+            FROM (
+                  SELECT NOTICE_NUMBER, NOTICE_TITLE, ADMIN_NUMBER, NOTICE_VIEW_COUNT, NOTICE_CREATED_DATE
+                  FROM TBL_NOTICES
+                  ORDER BY NOTICE_CREATED_DATE DESC
+                 ) subquery
+           )
+      WHERE rnum BETWEEN #{startRow} AND #{endRow}
 
-	]]>
+   ]]>
   </select>
 
    <select id="adminNoticeDetail" resultType="AdminUserManagerDTO"><![CDATA[

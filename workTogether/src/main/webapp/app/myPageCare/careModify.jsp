@@ -74,7 +74,7 @@
       </div>
       <!-- 페이지 세부 정보 수정-->
 
-      <form action="${pageContext.request.contextPath}/myPageCare/careModify.cp" method="post"
+      <form id="mod_form" action="${pageContext.request.contextPath}/myPageCare/careModifyOk.cp" method="post"
       data-context-path="${pageContext.request.contextPath}" novalidate>
         <!-- 수정하는 것의 제목 -->
         <div>회원 정보</div>
@@ -126,7 +126,7 @@
                       <p class="err_message" id="password_error">형식에 맞게 입력해 주세요.</p>
                     </li>
                     <li>
-                      <input type="password" placeholder="비밀번호 재입력" id="reCheckPw">
+                      <input name="password" type="password" placeholder="비밀번호 재입력" id="reCheckPw">
                       <p class="err_message" id="re_password_error">비밀번호가 일치하지 않습니다.</p>
                     </li>
                   </ul>
@@ -141,12 +141,12 @@
       				<button id="saveConfirmBtn">확인</button>
     			</div>
   			</div>
-  			 <div id="notCorecetModal" class="modal">
+<!--   			 <div id="notCorecetModal" class="modal">
     			<div class="modal-content">
       				<p>비밀번호가 맞지 않습니다.</p>
       				<button id="CorrectBtn">확인</button>
     			</div>
-  			</div>
+  			</div> -->
       </form>
     </div><!-- main_container 끝 -->
     </div>

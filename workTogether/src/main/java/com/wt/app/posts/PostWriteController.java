@@ -20,17 +20,19 @@ public class PostWriteController implements Execute{
 		
 		Result result = new Result();
 		HttpSession session = request.getSession();
-		Integer memberNumber = (Integer)session.getAttribute("memberNumber");
+		//로그인한 사용자 번호 가져오기
+		Integer usersNumber = (Integer) request.getSession().getAttribute("usersNumber");
+		System.out.println("로그인 한 멤버 번호 : " + usersNumber);
 		String path = null;
 		
-		if(memberNumber == null) {
+		if(usersNumber == null) {
 			path = "/app/login/loginNormal.jsp";
 		}else {
 			path = "/app/post/postWrite.jsp";
 //			request.setAttribute("userId", postsDAO.get);
 		}
 		
-		System.out.println("멤버넘버~~~!!!" + memberNumber);
+		System.out.println("멤버넘버~~~!!!" + usersNumber);
 		
 		
 		

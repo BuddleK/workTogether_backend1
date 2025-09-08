@@ -163,8 +163,8 @@ session.setAttribute("memberNumber", memberNumber); // "memberNumber" 이라는 
     	/* let usersNumber = "${sessionScope.memberNumber}"; */ 
     	/* console.log = "${sessionScope.memberNumber}"); */
     	/* let usersNumber = 48; */
-    	window.usersNumber = "${usersNumber}";
-    	console.log(usersNumber);
+/*     	window.usersNumber = "${usersNumber}";
+    	console.log(usersNumber); */
     </script>
 </body>
 </html>

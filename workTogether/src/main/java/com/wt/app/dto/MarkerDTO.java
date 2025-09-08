@@ -4,23 +4,25 @@ public class MarkerDTO {
 
 //	가게번호
 //	가게이름
-//	지점명
-//	도로명주소
-//	영업시간
-//	전화번호
-//	테이크아웃 여부
-//	가게 설명
-//	찜 여부
-
+//  위도
+//  경도
+	private int rnum;
 	private int shopsNumber;
 	private String shopsName;
-	private String shopsBranchName;
+	private String shopsLatitude;
+	private String shopsLongitude;
+	
 	private String shopsRoadAddress;
 	private String shopsWorkingHours;
 	private String shopsPhone;
 	private String shopsTakeout;
 	private String shopsIntroText;
-	private String isFavorite;
+	public int getRnum() {
+		return rnum;
+	}
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
 	public int getShopsNumber() {
 		return shopsNumber;
 	}
@@ -33,11 +35,17 @@ public class MarkerDTO {
 	public void setShopsName(String shopsName) {
 		this.shopsName = shopsName;
 	}
-	public String getShopsBranchName() {
-		return shopsBranchName;
+	public String getShopsLatitude() {
+		return shopsLatitude;
 	}
-	public void setShopsBranchName(String shopsBranchName) {
-		this.shopsBranchName = shopsBranchName;
+	public void setShopsLatitude(String shopsLatitude) {
+		this.shopsLatitude = shopsLatitude;
+	}
+	public String getShopsLongitude() {
+		return shopsLongitude;
+	}
+	public void setShopsLongitude(String shopsLongitude) {
+		this.shopsLongitude = shopsLongitude;
 	}
 	public String getShopsRoadAddress() {
 		return shopsRoadAddress;
@@ -69,17 +77,13 @@ public class MarkerDTO {
 	public void setShopsIntroText(String shopsIntroText) {
 		this.shopsIntroText = shopsIntroText;
 	}
-	public String getIsFavorite() {
-		return isFavorite;
-	}
-	public void setIsFavorite(String isFavorite) {
-		this.isFavorite = isFavorite;
-	}
 	@Override
 	public String toString() {
-		return "MarkerDTO [shopsNumber=" + shopsNumber + ", shopsName=" + shopsName + ", shopsBranchName="
-				+ shopsBranchName + ", shopsRoadAddress=" + shopsRoadAddress + ", shopsWorkingHours="
-				+ shopsWorkingHours + ", shopsPhone=" + shopsPhone + ", shopsTakeout=" + shopsTakeout
-				+ ", shopsIntroText=" + shopsIntroText + ", isFavorite=" + isFavorite + "]";
+		return "MarkerDTO [rnum=" + rnum + ", shopsNumber=" + shopsNumber + ", shopsName=" + shopsName
+				+ ", shopsLatitude=" + shopsLatitude + ", shopsLongitude=" + shopsLongitude + ", shopsRoadAddress="
+				+ shopsRoadAddress + ", shopsWorkingHours=" + shopsWorkingHours + ", shopsPhone=" + shopsPhone
+				+ ", shopsTakeout=" + shopsTakeout + ", shopsIntroText=" + shopsIntroText + "]";
 	}
+
+	
 }
