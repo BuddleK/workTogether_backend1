@@ -13,9 +13,22 @@ public class CareSignDTO {
     private String usersAddressLine2;
     private String careIntroText;
     private String careAccept;
-    private Long careCertificateFilesNum;
-    private Long carePassbookFilesNum;
-    private Long careProfilesPhotoNumber;
+    private Long licenseFilesNumber;
+    private Long accountFilesNumber;
+    private Long profileFilesNumber;
+    private String licenseType;
+    private String licenseName;
+    private String licensePath;
+    private Long licenseSizeBytes;
+    private String accountType;
+    private String accountName;
+    private String accountPath;
+    private Long accountSizeBytes;
+    private String profileType;
+    private String profileName;
+    private String profilePath;
+    private Long profileSizeBytes;
+    
 	public String getUsersId() {
 		return usersId;
 	}
@@ -88,23 +101,95 @@ public class CareSignDTO {
 	public void setCareAccept(String careAccept) {
 		this.careAccept = careAccept;
 	}
-	public Long getCareCertificateFilesNum() {
-		return careCertificateFilesNum;
+	public Long getLicenseFilesNumber() {
+		return licenseFilesNumber;
 	}
-	public void setCareCertificateFilesNum(Long careCertificateFilesNum) {
-		this.careCertificateFilesNum = careCertificateFilesNum;
+	public void setLicenseFilesNumber(Long licenseFilesNumber) {
+		this.licenseFilesNumber = licenseFilesNumber;
 	}
-	public Long getCarePassbookFilesNum() {
-		return carePassbookFilesNum;
+	public Long getAccountFilesNumber() {
+		return accountFilesNumber;
 	}
-	public void setCarePassbookFilesNum(Long carePassbookFilesNum) {
-		this.carePassbookFilesNum = carePassbookFilesNum;
+	public void setAccountFilesNumber(Long accountFilesNumber) {
+		this.accountFilesNumber = accountFilesNumber;
 	}
-	public Long getCareProfilesPhotoNumber() {
-		return careProfilesPhotoNumber;
+	public Long getProfileFilesNumber() {
+		return profileFilesNumber;
 	}
-	public void setCareProfilesPhotoNumber(Long careProfilesPhotoNumber) {
-		this.careProfilesPhotoNumber = careProfilesPhotoNumber;
+	public void setProfileFilesNumber(Long profileFilesNumber) {
+		this.profileFilesNumber = profileFilesNumber;
+	}
+	public String getLicenseType() {
+		return licenseType;
+	}
+	public void setLicenseType(String licenseType) {
+		this.licenseType = licenseType;
+	}
+	public String getLicenseName() {
+		return licenseName;
+	}
+	public void setLicenseName(String licenseName) {
+		this.licenseName = licenseName;
+	}
+	public String getLicensePath() {
+		return licensePath;
+	}
+	public void setLicensePath(String licensePath) {
+		this.licensePath = licensePath;
+	}
+	public Long getLicenseSizeBytes() {
+		return licenseSizeBytes;
+	}
+	public void setLicenseSizeBytes(Long licenseSizeBytes) {
+		this.licenseSizeBytes = licenseSizeBytes;
+	}
+	public String getAccountType() {
+		return accountType;
+	}
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+	public String getAccountName() {
+		return accountName;
+	}
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
+	}
+	public String getAccountPath() {
+		return accountPath;
+	}
+	public void setAccountPath(String accountPath) {
+		this.accountPath = accountPath;
+	}
+	public Long getAccountSizeBytes() {
+		return accountSizeBytes;
+	}
+	public void setAccountSizeBytes(Long accountSizeBytes) {
+		this.accountSizeBytes = accountSizeBytes;
+	}
+	public String getProfileType() {
+		return profileType;
+	}
+	public void setProfileType(String profileType) {
+		this.profileType = profileType;
+	}
+	public String getProfileName() {
+		return profileName;
+	}
+	public void setProfileName(String profileName) {
+		this.profileName = profileName;
+	}
+	public String getProfilePath() {
+		return profilePath;
+	}
+	public void setProfilePath(String profilePath) {
+		this.profilePath = profilePath;
+	}
+	public Long getProfileSizeBytes() {
+		return profileSizeBytes;
+	}
+	public void setProfileSizeBytes(Long profileSizeBytes) {
+		this.profileSizeBytes = profileSizeBytes;
 	}
 	@Override
 	public String toString() {
@@ -112,12 +197,13 @@ public class CareSignDTO {
 				+ ", usersNumber=" + usersNumber + ", usersName=" + usersName + ", usersEmail=" + usersEmail
 				+ ", usersPhone=" + usersPhone + ", usersPostsalCode=" + usersPostsalCode + ", usersAddressLine1="
 				+ usersAddressLine1 + ", usersAddressLine2=" + usersAddressLine2 + ", careIntroText=" + careIntroText
-				+ ", careAccept=" + careAccept + ", careCertificateFilesNum=" + careCertificateFilesNum
-				+ ", carePassbookFilesNum=" + carePassbookFilesNum + ", careProfilesPhotoNumber="
-				+ careProfilesPhotoNumber + "]";
+				+ ", careAccept=" + careAccept + ", licenseFilesNumber=" + licenseFilesNumber + ", accountFilesNumber="
+				+ accountFilesNumber + ", profileFilesNumber=" + profileFilesNumber + ", licenseType=" + licenseType
+				+ ", licenseName=" + licenseName + ", licensePath=" + licensePath + ", licenseSizeBytes="
+				+ licenseSizeBytes + ", accountType=" + accountType + ", accountName=" + accountName + ", accountPath="
+				+ accountPath + ", accountSizeBytes=" + accountSizeBytes + ", profileType=" + profileType
+				+ ", profileName=" + profileName + ", profilePath=" + profilePath + ", profileSizeBytes="
+				+ profileSizeBytes + "]";
 	}
-
-    
-	
 	
 }

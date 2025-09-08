@@ -464,7 +464,7 @@
    <select id="adminUserManager" parameterType="map"
       resultType="AdminUserManagerDTO"><![CDATA[
     SELECT rnum,
-           users_number,
+           usersNumber,
            users_name,
            users_id,
            users_email,
@@ -474,7 +474,7 @@
             SELECT ROWNUM AS rnum, subquery.*
               FROM (
                     SELECT 
-                      u.users_number,
+                      u.users_number AS usersNumber,
                       u.users_name,
                       u.users_id,
                       u.users_email,
@@ -492,8 +492,7 @@
    <select id="adminUserManagerDetail" parameterType="int"
       resultType="AdminUserManagerDTO"><![CDATA[
     SELECT
-      u.users_number,
-      u.users_name,
+      u.users_number      AS usersNumber,
       u.users_type,
       u.users_created_date,
       u.users_address_line1,
@@ -506,24 +505,21 @@
       FROM tbl_users u
  LEFT JOIN tbl_normal_users n ON u.users_number = n.users_number
  LEFT JOIN tbl_care_users   c ON u.users_number = c.users_number
-     WHERE u.users_number = #{usersNumber}
+     WHERE u.users_number = #{value}
   ]]></select>
 
-   <select id="adminNoticeListSearch" parameterType="map" resultType="AdminUserManagerDTO">
-   <![CDATA[
-      SELECT *
+   <select id="adminNoticeListSearch" parameterType="map"
+      resultType="AdminUserManagerDTO"><![CDATA[
+    SELECT *
       FROM (
             SELECT ROWNUM AS rnum, subquery.*
-            FROM (
-                  SELECT NOTICE_NUMBER, NOTICE_TITLE, ADMIN_NUMBER, NOTICE_VIEW_COUNT, NOTICE_CREATED_DATE
-                  FROM TBL_NOTICES
-                  ORDER BY NOTICE_CREATED_DATE DESC
-                 ) subquery
+              FROM (
+                    SELECT NOTICE_NUMBER , NOTICE_TITLE , ADMIN_NUMBER , NOTICE_VIEW_COUNT , NOTICE_CREATED_DATE 
+                      FROM TBL_NOTICES
+                   ) subquery
            )
-      WHERE rnum BETWEEN #{startRow} AND #{endRow}
-
-   ]]>
-  </select>
+     WHERE rnum BETWEEN #{startRow} AND #{endRow}
+  ]]></select>
 
    <select id="adminNoticeDetail" resultType="AdminUserManagerDTO"><![CDATA[
     SELECT NOTICE_NUMBER , NOTICE_TITLE , ADMIN_NUMBER , NOTICE_VIEW_COUNT ,
@@ -541,29 +537,53 @@
     INSERT INTO tbl_notices (notice_number, notice_title, notice_content)
     VALUES (#{noticeNumber}, #{noticeTitle}, #{noticeContent})
     ]]>
-   </insert>
 
-   <update id="adminNoticeListUpdate"
-      parameterType="AdminUserManagerDTO"><![CDATA[
-    UPDATE tbl_notices
-       SET notice_title = #{noticeTitle},
-           notice_content = #{noticeContent}
-     WHERE notice_number = #{noticeNumber}
-  ]]></update>
-
-   <delete id="adminNoticeListDelete" parameterType="int"><![CDATA[
-    DELETE FROM tbl_notices WHERE notice_number = #{noticeNumber}
-  ]]></delete>
-
-   <select id="adminReportListSelect" resultType="AdminUserManagerDTO"><![CDATA[
-    SELECT posts_number, posts_title, posts_created_date, posts_report_count
-      FROM tbl_posts
-  ]]></select>
-
-   <delete id="adminReportListDelete" parameterType="int"><![CDATA[
-    DELETE FROM tbl_posts WHERE posts_number = #{postNumber}
-  ]]></delete>
-
+	</insert>
+	
+	<!-- 공지사항 수정 -->
+	<update id="adminNoticeListUpdate" parameterType="AdminUserManagerDTO">
+		update tbl_notices
+		set notice_title = #{noticeTitle}, notice_content = #{noticeContent}
+		where notice_number = #{noticeNumber}
+	</update>
+	
+	<!-- 공지사항 삭제 -->
+	<delete id="adminNoticeListDelete" parameterType="int">
+		delete from tbl_notices
+		where notice_number = #{noticeNumber}
+	</delete>
+	
+	<!-- 신고글 전체 조회 -->
+	<select id="adminReportListSelect" resultType="AdminReportListDTO">
+		SELECT 
+		    posts_number,
+		    posts_title ,
+		    posts_created_date,
+		    posts_report_count
+		FROM tbl_posts
+		WHERE posts_report_count <![CDATA[>]]> 4
+	</select>
+	
+	<!-- 찜 목록 전체 개수 -->
+	<select id="reportTotal" resultType="int">
+		SELECT COUNT(*) FROM TBL_POSTS WHERE posts_report_count <![CDATA[>]]> 4
+	</select>
+	
+	<!-- 신고글 상세 -->
+   <select id="reportDetail" parameterType="int" resultType="AdminReportListDTO">
+	<![CDATA[      
+		SELECT P.POSTS_NUMBER, P.POSTS_TITLE, P.POSTS_CONTENT, P.USERS_NUMBER, U.USERS_NAME, P.POSTS_VIEW_COUNT, TO_CHAR(P.POSTS_CREATED_DATE, 'YYYY-MM-DD') AS POSTS_CREATED_DATE, TO_CHAR(P.POSTS_UPDATED_DATE, 'YYYY-MM-DD') AS POSTS_UPDATED_DATE, P.POSTS_REPORT_COUNT 
+		FROM RICEBALL.TBL_POSTS P JOIN RICEBALL.TBL_USERS U ON P.USERS_NUMBER = U.USERS_NUMBER
+		WHERE POSTS_NUMBER = #{posts_number}
+     ]]>
+   </select>
+	
+	<!-- 신고글 삭제 -->
+	<delete id="adminReportListDelete" parameterType="int">
+		delete from tbl_posts
+		where posts_number = #{postNumber}
+	</delete>
+	
    <!-- ==================== [News Banners] ==================== -->
    <select id="bannerCountAll" resultType="int"><![CDATA[
     SELECT COUNT(*) FROM tbl_news_banners

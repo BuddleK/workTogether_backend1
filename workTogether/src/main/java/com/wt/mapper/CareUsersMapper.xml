@@ -3,17 +3,93 @@
 
 <mapper namespace="CareUsersMapper">
 
-	<insert id="join" parameterType="com.wt.app.dto.CareSignDTO">
-		INSERT INTO tbl_care_users (
-		users_number, care_intro_text, care_certificate_files_num,
-		care_passbook_files_num, care_profiles_photo_number,
-		care_accept
+	<insert id="insertUser"
+		parameterType="com.wt.app.dto.CareSignDTO">
+		<selectKey keyProperty="usersNumber" resultType="long"
+			order="BEFORE">
+			SELECT seq_users.NEXTVAL FROM dual
+		</selectKey>
+		INSERT INTO tbl_users (
+		users_number, users_id, users_password,
+		users_type,
+		users_created_date, users_updated_date, users_point,
+		users_name, users_email, users_phone, users_postsal_code,
+		users_address_line1, users_address_line2
+		) VALUES (
+		#{usersNumber},
+		#{usersId}, #{usersPassword}, 'C',
+		SYSDATE, SYSDATE, 0,
+		#{usersName},
+		#{usersEmail}, #{usersPhone}, #{usersPostsalCode},
+		#{usersAddressLine1}, #{usersAddressLine2}
 		)
-		VALUES 
-		(
+	</insert>
+
+	<insert id="insertLicenseFile"
+		parameterType="com.wt.app.dto.CareSignDTO">
+		<selectKey keyProperty="licenseFilesNumber"
+			resultType="long" order="BEFORE">
+			SELECT seq_files_license.NEXTVAL FROM dual
+		</selectKey>
+		INSERT INTO tbl_files_license (
+		license_files_number, users_number,
+		license_files_type, license_files_name, license_files_path,
+		license_files_size_bytes, license_created_date
+		) VALUES (
+		#{licenseFilesNumber}, #{usersNumber},
+		#{licenseType}, #{licenseName},
+		#{licensePath},
+		#{licenseSizeBytes}, SYSDATE
+		)
+	</insert>
+
+	<insert id="insertAccountFile"
+		parameterType="com.wt.app.dto.CareSignDTO">
+		<selectKey keyProperty="accountFilesNumber"
+			resultType="long" order="BEFORE">
+			SELECT seq_files_account.NEXTVAL FROM dual
+		</selectKey>
+		INSERT INTO tbl_files_account (
+		account_files_number, users_number,
+		account_files_type, account_files_name, account_files_path,
+		account_files_size_bytes, account_created_date
+		) VALUES (
+		#{accountFilesNumber}, #{usersNumber},
+		#{accountType}, #{accountName},
+		#{accountPath},
+		#{accountSizeBytes}, SYSDATE
+		)
+	</insert>
+
+	<insert id="insertCareUser"
+		parameterType="com.wt.app.dto.CareSignDTO">
+		INSERT INTO tbl_care_users (
+		users_number, care_intro_text,
+		care_certificate_files_num, care_passbook_files_num, care_profiles_photo_number,
+		care_accept
+		) VALUES (
 		#{usersNumber}, #{careIntroText},
-		#{careCertificateFilesNum}, #{carePassbookFilesNum},
-		#{careProfilesPhotoNumber}, NVL(#{careAccept}, 'N')
+		#{licenseFilesNumber}, #{accountFilesNumber}, #{profileFilesNumber},
+		#{careAccept}
+		)
+	</insert>
+
+
+	<insert id="insertProfileFile"
+		parameterType="com.wt.app.dto.CareSignDTO">
+		<selectKey keyProperty="profileFilesNumber"
+			resultType="long" order="BEFORE">
+			SELECT seq_files_profiles.NEXTVAL FROM dual
+		</selectKey>
+		INSERT INTO tbl_files_profiles (
+		profiles_files_number, users_number,
+		profiles_files_type, profiles_files_name, profiles_files_path,
+		profiles_files_size_bytes, profiles_created_date
+		) VALUES (
+		#{profileFilesNumber}, #{usersNumber},
+		#{profileType}, #{profileName},
+		#{profilePath},
+		#{profileSizeBytes}, SYSDATE
 		)
 	</insert>
 
