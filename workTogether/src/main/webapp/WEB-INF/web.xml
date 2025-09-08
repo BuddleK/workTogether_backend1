@@ -44,6 +44,12 @@
    <servlet>
       <servlet-name>Users</servlet-name>
       <servlet-class>com.wt.app.user.UsersFrontController</servlet-class>
+      
+      <multipart-config>
+         <max-file-size>5242880</max-file-size>
+         <max-request-size>5242880</max-request-size>
+         <file-size-threshold>0</file-size-threshold>
+      </multipart-config>
    </servlet>
 
    <servlet-mapping>

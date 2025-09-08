@@ -41,7 +41,7 @@
 	<main>
 		<section class="sign">
 			<form action="${pageContext.request.contextPath}/users/joinCareOk.us"
-				method="post" class="sign_form">
+				method="post" class="sign_form" enctype="multipart/form-data">
 				<input type="hidden" name="usersType" value="C" />
 
 				<div class="sign_box sign_title">
@@ -139,22 +139,38 @@
 				<%-- 파일(선택) - 업로드 연동 전 UI --%>
 				<div class="file">
 					<input type="text" class="file-text" placeholder="자격증 파일" readonly>
-					<input type="file" id="file-cert" class="hidden-file">
+					<input type="file" id="file-cert" class="hidden-file"
+						name="licenseFile">
 					<button type="button" class="file-open" data-target="file-cert">파일첨부</button>
 				</div>
+				<input type="hidden" name="licenseType" id="licenseType"> <input
+					type="hidden" name="licenseName" id="licenseName"> <input
+					type="hidden" name="licensePath" id="licensePath"> <input
+					type="hidden" name="licenseSizeBytes" id="licenseSizeBytes">
 
+				<%-- 파일 (통장 사본) --%>
 				<div class="file">
 					<input type="text" class="file-text" placeholder="통장사본 파일" readonly>
-					<input type="file" id="file-account" class="hidden-file">
+					<input type="file" id="file-account" class="hidden-file"
+						name="accountFile">
 					<button type="button" class="file-open" data-target="file-account">파일첨부</button>
 				</div>
+				<input type="hidden" name="accountType" id="accountType"> <input
+					type="hidden" name="accountName" id="accountName"> <input
+					type="hidden" name="accountPath" id="accountPath"> <input
+					type="hidden" name="accountSizeBytes" id="accountSizeBytes">
 
+				<%-- 파일 (프로필 사진, 선택) --%>
 				<div class="file">
 					<input type="text" class="file-text" placeholder="프로필사진 파일"
 						readonly> <input type="file" id="file-profile"
-						class="hidden-file">
+						class="hidden-file" name="profileFile">
 					<button type="button" class="file-open" data-target="file-profile">파일첨부</button>
 				</div>
+				<input type="hidden" name="profileType" id="profileType"> <input
+					type="hidden" name="profileName" id="profileName"> <input
+					type="hidden" name="profilePath" id="profilePath"> <input
+					type="hidden" name="profileSizeBytes" id="profileSizeBytes">
 
 				<div class="sign_box sign_btn">
 					<button type="submit">가입하기</button>
