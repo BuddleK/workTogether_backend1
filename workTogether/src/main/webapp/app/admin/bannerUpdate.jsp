@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>뉴스 추가</title>
+<title>배너 뉴스 추가</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/admin/" />
@@ -63,7 +63,7 @@
 				</c:if>
 
 				<div class="add_data">
-					<div class="title">뉴스 제목</div>
+					<div class="title">배너 제목</div>
 					<input type="text" name="newsTitle" class="title_content"
 						placeholder="뉴스 제목을 입력하세요"
 						value="${isEdit ? banner.bannerTitle : ''}" required />

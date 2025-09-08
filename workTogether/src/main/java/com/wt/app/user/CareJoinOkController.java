@@ -9,73 +9,88 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.dto.CareSignDTO;
-import com.wt.app.dto.UsersDTO;
 import com.wt.app.users.dao.CareUsersDAO;
-import com.wt.app.users.dao.UsersDAO;
 
 public class CareJoinOkController implements Execute {
 
-    private static Long toLongOrNull(String s) {
-        return (s == null || s.isEmpty()) ? null : Long.parseLong(s);
-    }
+	private static Long toLongOrNull(String s) {
+		return (s == null || s.isEmpty()) ? null : Long.parseLong(s);
+	}
 
-    @Override
-    public Result execute(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	@Override
+	public Result execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
         Result result = new Result();
 
         try {
-            // 공통 파라미터
-            String usersId = request.getParameter("usersId");
-            String usersPassword = request.getParameter("usersPassword");
-            String usersName = request.getParameter("usersName");
-            String usersEmail = request.getParameter("usersEmail");
-            String usersPhone = request.getParameter("usersPhone");
-            String usersPostsalCode = request.getParameter("usersPostsalCode");
-            String usersAddressLine1 = request.getParameter("usersAddressLine1");
-            String usersAddressLine2 = request.getParameter("usersAddressLine2");
+            CareSignDTO dto = new CareSignDTO();
 
-            // 돌봄 상세 파라미터
-            String careIntroText = request.getParameter("careIntroText");
-            Long cert = toLongOrNull(request.getParameter("careCertificateFilesNum"));
-            Long pass = toLongOrNull(request.getParameter("carePassbookFilesNum"));
-            Long prof = toLongOrNull(request.getParameter("careProfilesPhotoNumber"));
+            dto.setUsersId(request.getParameter("usersId"));
+            dto.setUsersPassword(request.getParameter("usersPassword"));
+            dto.setUsersType("C");
+            dto.setUsersName(request.getParameter("usersName"));
+            dto.setUsersEmail(request.getParameter("usersEmail"));
+            dto.setUsersPhone(request.getParameter("usersPhone"));
+            dto.setUsersPostsalCode(request.getParameter("usersPostsalCode"));
+            dto.setUsersAddressLine1(request.getParameter("usersAddressLine1"));
+            dto.setUsersAddressLine2(request.getParameter("usersAddressLine2"));
 
-            // 1) 공통 users INSERT → PK(long) 획득
-            UsersDTO userDTO = new UsersDTO();
-            userDTO.setUsersId(usersId);
-            userDTO.setUsersPassword(usersPassword);
-            userDTO.setUsersType("C");
-            userDTO.setUsersName(usersName);
-            userDTO.setUsersEmail(usersEmail);
-            userDTO.setUsersPhone(usersPhone);
-            userDTO.setUsersPostsalCode(usersPostsalCode);
-            userDTO.setUsersAddressLine1(usersAddressLine1);
-            userDTO.setUsersAddressLine2(usersAddressLine2);
+            dto.setCareIntroText(request.getParameter("careIntroText"));
+            dto.setCareAccept("W");
 
-            long usersNumber = new UsersDAO().join(userDTO);
+            String licenseType = request.getParameter("licenseType");
+            String licenseName = request.getParameter("licenseName");
+            String licensePath = request.getParameter("licensePath");
+            if (licenseType == null || licenseType.trim().isEmpty()
+             || licenseName == null || licenseName.trim().isEmpty()
+             || licensePath == null || licensePath.trim().isEmpty()) {
+                throw new IllegalArgumentException("자격증 파일(형식/이름/경로)은 필수입니다.");
+            }
+            dto.setLicenseType(licenseType);
+            dto.setLicenseName(licenseName);
+            dto.setLicensePath(licensePath);
+            dto.setLicenseSizeBytes(toLongOrNull(request.getParameter("licenseSizeBytes")));
 
-            // 2) 돌봄 상세 INSERT (NULL 방지 기본값 적용)
-            CareSignDTO caresignDTO = new CareSignDTO();
-            caresignDTO.setUsersNumber(usersNumber);
-            caresignDTO.setCareIntroText(careIntroText);
-            caresignDTO.setCareAccept("W"); // 승인 대기 기본값
+            String accountType = request.getParameter("accountType");
+            String accountName = request.getParameter("accountName");
+            String accountPath = request.getParameter("accountPath");
+            if (accountType == null || accountType.trim().isEmpty()
+             || accountName == null || accountName.trim().isEmpty()
+             || accountPath == null || accountPath.trim().isEmpty()) {
+                throw new IllegalArgumentException("통장 사본 파일(형식/이름/경로)은 필수입니다.");
+            }
+            dto.setAccountType(accountType);
+            dto.setAccountName(accountName);
+            dto.setAccountPath(accountPath);
+            dto.setAccountSizeBytes(toLongOrNull(request.getParameter("accountSizeBytes")));
 
-            caresignDTO.setCareCertificateFilesNum(cert != null ? cert : 0L);
-            caresignDTO.setCarePassbookFilesNum(pass != null ? pass : 0L);
-            caresignDTO.setCareProfilesPhotoNumber(prof != null ? prof : 0L);
+            String profileType = request.getParameter("profileType");
+            String profileName = request.getParameter("profileName");
+            String profilePath = request.getParameter("profilePath");
+            if (profileType == null || profileType.trim().isEmpty()
+             || profileName == null || profileName.trim().isEmpty()
+             || profilePath == null || profilePath.trim().isEmpty()) {
+                dto.setProfileType(null);
+                dto.setProfileName(null);
+                dto.setProfilePath(null);
+                dto.setProfileSizeBytes(null);
+            } else {
+                dto.setProfileType(profileType);
+                dto.setProfileName(profileName);
+                dto.setProfilePath(profilePath);
+                dto.setProfileSizeBytes(toLongOrNull(request.getParameter("profileSizeBytes")));
+            }
 
-            new CareUsersDAO().sign(caresignDTO);
+            new CareUsersDAO().sign(dto);
 
-            // 성공 → 메인 페이지로 이동
             result.setRedirect(true);
             result.setPath(request.getContextPath() + "/mainOk.main");
             return result;
 
         } catch (Exception e) {
-            e.printStackTrace(); // 원인 로그 확인
+            e.printStackTrace();
             result.setRedirect(true);
             result.setPath(request.getContextPath() + "/app/sign/signCare.jsp?error=join");
             return result;
