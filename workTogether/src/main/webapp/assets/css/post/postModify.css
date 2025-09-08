@@ -81,6 +81,10 @@ main {
   border: 1px solid black;
 }
 
+.button button{
+	cursor:pointer;
+}
+
 .button_write {
   width: 100px;
   height: 40px;

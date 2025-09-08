@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 확인 버튼
   const checkButton = document.getElementById('check');
   checkButton.addEventListener('click', () =>{
-	if(emailError.style.display == 'block'){
+/*	if(emailError.style.display == 'block'){
 		alert("이메일 형식을 확인해 주세요");
 		return;
-	}
+	}*/
 	if(passwordError.style.display == 'block'){
 		alert("비밀번호 형식을 확인해 주세요");
 		return;
@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputPhone = document.getElementById('usersPhone');
   
   
-  const inputEmail = document.getElementById('usersEmail');
-  const emailError = document.getElementById('email_error');
+/*  const inputEmail = document.getElementById('usersEmail');
+  const emailError = document.getElementById('email_error');*/
 
   // ===== 이메일 검사 (전역 함수) =====
-  function emailCheck(email) {
+/*  function emailCheck(email) {
     // 영문/숫자/._- + @ + 도메인 + 최종 TLD 2~4
     const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return re.test(email);
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}else{
 		emailError.style.display = 'block';
 	}
-  })
+  })*/
   
   
   const inputPw = document.getElementById('rePw');

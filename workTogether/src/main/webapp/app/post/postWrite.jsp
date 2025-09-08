@@ -24,7 +24,7 @@
         <textarea id="input_text" name="postContext" placeholder="내용을 입력하세요"></textarea>
       </div>
       <div class="button_area">
-        <button type="button" class="list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록</a></button>
+        <a href="${pageContext.request.contextPath}/post/postMain.po"><button type="button" class="list">목록</button></a>
         <button type="button" id="write_button" class="button_write">작성</button>
       </div>
     </form>

@@ -74,6 +74,12 @@ main {
 
 
 /* ============================= */
+
+
+/* 페이지 세부정보 내용 */
+form {
+  margin: auto;
+}
 /* 전체 영역 */
 .div_mark {
   flex: 1;
@@ -122,10 +128,6 @@ main {
   line-height: 1.6;
 }
 
-/* 페이지 세부정보 내용 */
-form {
-  margin: 0 0 40px;
-}
 
 /* 상단의 박스 설정 */
 form>div:first-child {
