@@ -62,30 +62,30 @@
 										<c:forEach var="users" items="${userList}">
 											<div class="users-row" style="display:flex; flex-direction:row; border-bottom: 1px">
 												<div class="users-item body_number">
-													<c:out value="${users.userNumber}" />
+													<c:out value="${users.usersNumber}" />
 												</div>
 												<div class="users-item body_name">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
-														<c:out value="${users.userName}" />
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
+														<c:out value="${users.usersName}" />
 													</a>
 												</div>
 												<div class="users-item body_id">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
-														<c:out value="${users.userId}" />
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
+														<c:out value="${users.usersId}" />
 													</a>
 												</div>
 												<div class="users-item body_email">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
-														<c:out value="${users.userEmail}" />
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
+														<c:out value="${users.usersEmail}" />
 													</a>
 												</div>
 												<div class="users-item body_phone">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
-														<c:out value="${users.userPhone}" />
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
+														<c:out value="${users.usersPhone}" />
 													</a>
 												</div>
 												<div class="users-item body_type">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?userNumber=${users.userNumber}">
+													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
 														<c:choose>
 															<c:when test="${ users.usersType == 'C'}">
 																<c:out value="돌봄" />
@@ -146,7 +146,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 		</section>
 	</main>
 

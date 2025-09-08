@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>회원 상세페이지(일반)</title>
+    <title>공지사항 상세페이지</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/basic.css" />
