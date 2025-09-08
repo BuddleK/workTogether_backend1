@@ -18,6 +18,10 @@ public class PostsDTO {
 	private String postsCreatedDate;
 	private String postsUpdatedDate;
 	private String postsContent;
+	
+	private int reportPostNumber;
+	private int reportUsersNumber;
+	private String reportReason;
 	public int getPostsNumber() {
 		return postsNumber;
 	}
@@ -66,12 +70,34 @@ public class PostsDTO {
 	public void setPostsContent(String postsContent) {
 		this.postsContent = postsContent;
 	}
+	public int getReportPostNumber() {
+		return reportPostNumber;
+	}
+	public void setReportPostNumber(int reportPostNumber) {
+		this.reportPostNumber = reportPostNumber;
+	}
+	public int getReportUsersNumber() {
+		return reportUsersNumber;
+	}
+	public void setReportUsersNumber(int reportUsersNumber) {
+		this.reportUsersNumber = reportUsersNumber;
+	}
+	public String getReportReason() {
+		return reportReason;
+	}
+	public void setReportReason(String reportReason) {
+		this.reportReason = reportReason;
+	}
 	@Override
 	public String toString() {
 		return "PostsDTO [postsNumber=" + postsNumber + ", postsTitle=" + postsTitle + ", usersNumber=" + usersNumber
 				+ ", usersName=" + usersName + ", postsViewCount=" + postsViewCount + ", postsCreatedDate="
-				+ postsCreatedDate + ", postsUpdatedDate=" + postsUpdatedDate + ", postsContent=" + postsContent + "]";
+				+ postsCreatedDate + ", postsUpdatedDate=" + postsUpdatedDate + ", postsContent=" + postsContent
+				+ ", reportPostNumber=" + reportPostNumber + ", reportUsersNumber=" + reportUsersNumber
+				+ ", reportReason=" + reportReason + "]";
 	}
+	
+	
 	
 	
 	

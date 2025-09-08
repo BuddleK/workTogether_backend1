@@ -40,7 +40,8 @@
    
    <!-- 신고 추가 -->
 	<insert id="insertReport" >
-		INSERT INTO RICEBALL.TBL_REPORT(REPORT_NUMBER, REPORT_POST_NUMBER, REPORT_USERS_NUMBER) VALUES (seq_report.nextVal, #{postsNumber}, #{usersNumber})
+		INSERT INTO TBL_REPORT(REPORT_NUMBER, REPORT_POST_NUMBER, REPORT_USERS_NUMBER, REPORT_REASON)
+   		VALUES(seq_report.nextval, #{postsNumber}, #{usersNumber}, #{reportReason})
 	</insert>
    
    <!-- 신고 업데이트 -->

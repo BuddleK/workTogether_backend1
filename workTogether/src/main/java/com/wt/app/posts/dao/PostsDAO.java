@@ -31,12 +31,12 @@ public class PostsDAO {
 	}
 	
 //	신고한 내역이 있는지 확인 0 또는 1 반환
-	public int checkReport(Map<String, Integer> reportMap) {
+	public int checkReport(Map<String, Object> reportMap) {
 		System.out.println("신고한 내역이 있는지 확인 - checkReport 메소드 실행");
 		return sqlSession.selectOne("posts.checkReport", reportMap);
 	}
 	
-	public void insertReport(Map<String, Integer> reportMap) {
+	public void insertReport(Map<String, Object> reportMap) {
 		System.out.println("신고 추가 - insertReport 메소드 실행");
 		int insert = sqlSession.insert("posts.insertReport", reportMap);
 		System.out.println("신고 insert 결과 : " + insert);

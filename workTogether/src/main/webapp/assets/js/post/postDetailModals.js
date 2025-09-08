@@ -45,39 +45,55 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 	const del = document.querySelector('.button_del');
-	const checkmodal = document.querySelector('.checkmodal');
-	const check = document.getElementById("check");
-	const cancle = document.getElementById("cancle");
+	const editModal = document.getElementById("editModal");
+	const editcheck = document.getElementById("editcheck");
+	const editcancle = document.getElementById("editcancle");
 	const reportmodal = document.querySelector('.reportmodal');
 	const reportcheck = document.getElementById('reportcheck');
 	const notmodal = document.querySelector('.notmodal');
 	const notcheck = document.getElementById("notcheck");
 	const notcancle = document.getElementById("notcancle");
-	
+	const reportReasonSelect = document.getElementById('reportReasonSelect');
 	
 	
 	var usersNumber = document.getElementById("usersNumber").value;
 	    console.log(usersNumber);
-		const reportUrl = "${pageContext.request.contextPath}/post/postReport.po?postsNumber=${post.getPostsNumber()}&postsUsersNumber=${post.getUsersNumber()}";
 	
 	del.addEventListener("click", () => {
-		checkmodal.style.display = "flex";
+		editModal.style.display = "flex";
 	});
 	
-	cancle.addEventListener("click", () => {
-		checkmodal.style.display = "none";
+	editcancle.addEventListener("click", () => {
+		editModal.style.display = "none";
 	});
 	
-	check.addEventListener("click", () => {
-		if(usersNumber < 0){
-			checkmodal.style.display = "none";
-			notmodal.style.display = "flex";
-		}else{
-			window.location.href = reportUrl;
-			checkmodal.style.display = "none";
-			reportmodal.style.display = "flex";
-		}
-	});
+	editcheck.addEventListener("click", () => {
+	    const postNumber = del.getAttribute("data-post-number");
+	    const postUserNumber = del.getAttribute("data-post-user-number");
+	    const contextPath = del.getAttribute("data-context-path");
+	    const reason = encodeURIComponent(reportReasonSelect.value);
+
+	    if (!reason) {
+	      alert("신고 사유를 선택해주세요.");
+	      return;
+	    }
+
+	    fetch(`${contextPath}/post/postReport.po`, {
+	      method: "POST",
+	      headers: {
+	        "Content-Type": "application/x-www-form-urlencoded"
+	      },
+	      body: `postsNumber=${postNumber}&postsUsersNumber=${postUserNumber}&reportReason=${reason}`})
+	    .then(res => res.json())
+	    .then(data => {
+	      checkmodal.style.display = "none";
+	      if (data.result === "reported") {
+	        reportmodal.style.display = "flex";
+	      } else if (data.result === "already") {
+	        notmodal.style.display = "flex";
+	      }
+	    });
+	  });
 
 	notcheck.addEventListener("click", () => {
 		notmodal.style.display = "none";

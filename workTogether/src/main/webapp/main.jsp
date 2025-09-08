@@ -69,7 +69,7 @@
 	            <li>
 	              <!-- 게시물 정보 -->
 	              <a href="${pageContext.request.contextPath}/post/postReadOk.po?postsNumber=${post.getPostsNumber()}">
-	                <span class="board_list_number"><c:out value="${post.getPostsNumber()}"></c:out></span>
+	               <%--  <span class="board_list_number"><c:out value="${post.getPostsNumber()}"></c:out></span> --%>
 	                <span class="board_list_title"><c:out value="${post.getPostsTitle()}"></c:out></span>
 	                <span class="board_list_author"><c:out value="${post.getUsersName()}"></c:out></span>
 	                <span class="board_list_date"><c:out value="${post.getPostsCreatedDate()}"></c:out></span>

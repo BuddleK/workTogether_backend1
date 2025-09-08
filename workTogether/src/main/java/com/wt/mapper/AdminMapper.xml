@@ -582,16 +582,7 @@
 	<select id="reportTotal" resultType="int">
 		SELECT COUNT(*) FROM TBL_POSTS WHERE posts_report_count <![CDATA[>]]> 4
 	</select>
-	
-	<!-- 신고글 상세 -->
-   <select id="reportDetail" parameterType="int" resultType="AdminReportListDTO">
-	<![CDATA[      
-		SELECT P.POSTS_NUMBER, P.POSTS_TITLE, P.POSTS_CONTENT, P.USERS_NUMBER, U.USERS_NAME, P.POSTS_VIEW_COUNT, TO_CHAR(P.POSTS_CREATED_DATE, 'YYYY-MM-DD') AS POSTS_CREATED_DATE, TO_CHAR(P.POSTS_UPDATED_DATE, 'YYYY-MM-DD') AS POSTS_UPDATED_DATE, P.POSTS_REPORT_COUNT 
-		FROM RICEBALL.TBL_POSTS P JOIN RICEBALL.TBL_USERS U ON P.USERS_NUMBER = U.USERS_NUMBER
-		WHERE POSTS_NUMBER = #{posts_number}
-     ]]>
-   </select>
-	
+		
 	<!-- 신고글 삭제 -->
 	<delete id="adminReportListDelete" parameterType="int">
 		delete from tbl_posts
@@ -849,10 +840,6 @@
    WHERE point_return_id = #{pointReturnId}
 ]]></update>
 
-  <select id="reportTotal" resultType="int">
-  SELECT COUNT(*) FROM TBL_PosTS WHERE posts_report_count <![CDATA[>]]> 4
-  </select>
-  
   <select id="reportDetail" resultType="AdminReportListDTO">
   select * from tbl_posts p join tbl_users u 
   ON p.users_number = u.users_number where p.posts_number = #{postsNumber}

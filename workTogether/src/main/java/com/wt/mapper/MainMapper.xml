@@ -22,7 +22,7 @@
 	<!-- 게시판 -->
  	<select id="post" resultType="PostsDTO">
 		select * from (
-			SELECT p.posts_number, p.posts_title, u.users_name, p.posts_created_date
+			SELECT p.posts_number, p.posts_title, u.users_name, TO_CHAR(p.posts_created_date, 'YYYY-MM-DD') as posts_created_date
 			FROM tbl_posts p JOIN tbl_users u
 			on p.users_number = u.users_number
 			ORDER BY p.POSTS_CREATED_DATE DESC)
@@ -62,6 +62,7 @@
 		            ON c.users_number = d.users_number
 		        LEFT JOIN tbl_hearts h 
 		            ON c.users_number = h.hearts_care_number
+		        WHERE c.care_accept = 'Y'
 		        GROUP BY 
 		            u.users_number, u.users_name, c.care_intro_text, 
 		            c.care_profiles_photo_number, fp.profiles_files_path,

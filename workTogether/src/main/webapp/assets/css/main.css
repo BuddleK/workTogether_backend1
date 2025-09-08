@@ -130,7 +130,6 @@ main{
 .recommend_activiies {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   height: 60%;
   align-items:center;
   margin-bottom: 30px;
@@ -158,6 +157,9 @@ main{
 }
 .board_list_title{
   flex: 1;
+  align-items:center;
+  justify-content: center;
+  padding : 10px;
 }
 .board_list_author{
   width: 100px;
