@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,65 +29,52 @@
 
 <body>
 	<jsp:include page="/header_admin.jsp" />
+
 	<main>
 		<div id="sidebar"></div>
+
 		<section class="userManager">
 			<div class="searchcontent">
 				<div class="title">
 					<h1>돌봄 회원 이력 수정 관리</h1>
 				</div>
 
-				<form
-					action="${pageContext.request.contextPath}/admin/careCareer/list.ad"
-					method="get">
-					<div class="searchbox">
-						<select name="column" id="" class="search_column">
-							<option value="number">수정 신청 번호</option>
-							<option value="name">신청자 명</option>
-							<option value="id">신청자 아이디</option>
-							<option value="date">신청 날짜</option>
-							<option value="condition">상태</option>
-						</select> <input type="text" name="keyword" value="${param.keyword}" />
-						<button type="submit">검색</button>
-					</div>
-				</form>
-
 				<div class="table">
-					<c:choose>
-						<c:when test="${empty list}">
-							<div class="empty">이력수정 신청 없음</div>
-						</c:when>
+					<!-- 헤더: 항상 표시(회색 바) -->
+					<div class="board_column">
+						<div class="board_head board_number">수정 신청 번호</div>
+						<div class="board_head board_name">신청자 명</div>
+						<div class="board_head board_id">신청자 아이디</div>
+						<div class="board_head board_date">신청 날짜</div>
+						<div class="board_head board_condition">상태</div>
+					</div>
 
-						<c:otherwise>
-							<div class="board_column">
-								<div class="board_head board_number">수정 신청 번호</div>
-								<div class="board_head board_name">신청자 명</div>
-								<div class="board_head board_id">신청자 아이디</div>
-								<div class="board_head board_date">신청 날짜</div>
-								<div class="board_head board_condition">상태</div>
-							</div>
+					<!-- 리스트 영역 -->
+					<div class="table_content">
+						<c:choose>
+							<c:when test="${empty list}">
+								<div class="empty">이력 수정 신청이 없습니다.</div>
+							</c:when>
 
-							<div class="table_content">
+							<c:otherwise>
 								<c:forEach var="row" items="${list}">
 									<c:url var="detailUrl" value="/admin/careCareer/detail.ad">
 										<c:param name="usersNumber" value="${row.usersNumber}" />
 									</c:url>
-
 									<ul class="table_body">
-										<li class="body_number"><a href="${detailUrl}">${row.number}</a></li>
-										<li class="body_name"><a href="${detailUrl}">${row.name}</a></li>
-										<li class="body_id"><a href="${detailUrl}">${row.userId}</a></li>
-										<li class="body_date"><a href="${detailUrl}">${row.date}</a></li>
-										<li class="body_condition"><a href="${detailUrl}">${row.status}</a></li>
+										<li class="body_number"><a href="${detailUrl}">${row.accountModifyNumber}</a></li>
+										<li class="body_name"><a href="${detailUrl}">${row.usersName}</a></li>
+										<li class="body_id"><a href="${detailUrl}">${row.usersId}</a></li>
+										<li class="body_date"><a href="${detailUrl}">${row.accountCreatedDate}</a></li>
+										<li class="body_condition"><a href="${detailUrl}">${row.reviewStatus}</a></li>
 									</ul>
 								</c:forEach>
-							</div>
-						</c:otherwise>
-					</c:choose>
+							</c:otherwise>
+						</c:choose>
+					</div>
 				</div>
 
 			</div>
-
 		</section>
 	</main>
 

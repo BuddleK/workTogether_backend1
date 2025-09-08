@@ -23,6 +23,7 @@ import com.wt.app.dto.FileNoticeDTO;
 import com.wt.app.dto.FilesLicenseDTO;
 import com.wt.app.dto.LicenseModifyDTO;
 import com.wt.config.MyBatisConfig;
+import com.wt.app.dto.CareCareerRowDTO;
 
 public class AdminDAO {
 
@@ -396,5 +397,41 @@ public class AdminDAO {
 		System.out.println("신고글 상세 페이지 조회");
 		return sqlSession.selectOne("admin.reportDetail", postsNumber);
 	}
+
+//	============ [Care 이력수정: 통장 사본 목록/상태] ============  추가함
+	public List<CareCareerRowDTO> careCareerListPaged(int startRow, int endRow, String column, String keyword) {
+		Map<String, Object> p = new HashMap<>();
+		p.put("startRow", startRow);
+		p.put("endRow", endRow);
+		p.put("column", column);
+		p.put("keyword", keyword);
+		return sqlSession.selectList("admin.careCareerListPaged", p);
+	}
+
+	// 총 개수
+	public int careCareerCount(String column, String keyword) {
+		Map<String, Object> p = new HashMap<>();
+		p.put("column", column);
+		p.put("keyword", keyword);
+		return sqlSession.selectOne("admin.careCareerCount", p);
+	}
+
+	// 상태 변경 (Y/N/W)
+	public int careCareerUpdateStatus(int accountModifyNumber, String status) {
+		Map<String, Object> p = new HashMap<>();
+		p.put("accountModifyNumber", accountModifyNumber);
+		p.put("status", status);
+		return sqlSession.update("admin.careCareerUpdateStatus", p);
+	}
+	
+	public int careCareerApproveLatestByUser(int usersNumber) {
+	    return sqlSession.update("admin.careCareerApproveLatestByUser", usersNumber);
+	}
+	
+	public int careCareerRejectLatestByUser(int usersNumber) {
+	    return sqlSession.update("admin.careCareerRejectLatestByUser", usersNumber);
+	}
+
+
 
 }

@@ -21,7 +21,6 @@
 	href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
-
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
 <script defer
