@@ -18,6 +18,7 @@
 
 body {
   background-color: #ffffff;
+  min-width:600px;
 }
 /* main 페이지 상세 설정 */
 
@@ -25,40 +26,44 @@ main {
   display: flex;
   min-height: calc(100vh - 220px);
 }
+
 /* 마이페이지 왼쪽 사이드 바 설정 */
 
-.main_sidebar {
+.sidebar {
   width: 180px;
   background-color: #2f4db1;
   color: white;
   padding: 20px 0;
 }
+
 /* 사람 모양 이미지 설정 */
 
-.main_sidebar img {
+.sidebar img {
   height: 130px;
   width: 130px;
-  background-color: #ff80ab;
   border-radius: 50%;
   margin: 0 auto 20px;
   display: block;
 }
+
 /* 사이드 바의 목록 스타일 설정 */
 
-.main_sidebar ul {
+.sidebar ul {
   list-style: none;
   padding-left: 0;
 }
+
 /* 글자들의 패딩 및 커서 설정 */
 
-.main_sidebar li {
+.sidebar li {
   padding: 12px 20px;
   cursor: pointer;
   color: #ffffff;
 }
+
 /* 개인정보 수정, 찜한 목록 등 사이드바 상세 설정 */
 
-.main_sidebar li a {
+.sidebar li a {
   padding: 12px 20px;
   cursor: pointer;
   color: #ffffff;
@@ -67,18 +72,21 @@ main {
 /* ============================= */
 /* 마이페이지 전체 스타일 설정 */
 .div_mark {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  margin:auto;
+  background-color:yellow;
 }
 /* 마이페이지 제목 스타일 설정 */
 .div_mark .title {
-  font-size: 30px;
-  margin: 30px;
+  padding: 40px 100px 0px;
+  font-size: 24px;
+  font-weight: bold;
 }
 /* 전체적인 길이 설정 */
 form {
-  width: 100%;
+  	margin: auto;
+	background-color:green;
 }
 /* 페이지 분류칸 설정 */
 .mark_nav {

@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="button">
-        <button type="button" class="list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록</a></button>
+        <a href="${pageContext.request.contextPath}/post/postMain.po"><button type="button" class="list">목록</button></a>
         <button type="button" class="button_write">수정 완료</button>
       </div>
     </form>
