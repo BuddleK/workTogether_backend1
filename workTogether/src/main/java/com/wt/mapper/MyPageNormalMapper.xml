@@ -13,25 +13,31 @@
 	<!-- 회원정보 조회 -->
 	<select id="normalSearch" resultType="NormalModifyDTO">
 		SELECT
-		u.USERS_NAME, n.NORMAL_USERS_LEVEL, u.USERS_POSTSAL_CODE, u.USERS_ADDRESS_LINE1,
+		u.USERS_NAME,
+		n.NORMAL_USERS_LEVEL, u.USERS_POSTSAL_CODE, u.USERS_ADDRESS_LINE1,
 		u.USERS_ADDRESS_LINE2,
-		u.USERS_PHONE, u.USERS_ID, u.USERS_EMAIL, u.USERS_PASSWORD
+		u.USERS_PHONE, u.USERS_ID, u.USERS_EMAIL,
+		u.USERS_PASSWORD
 		FROM tbl_users u
 		JOIN
 		tbl_normal_users n
-		ON u.users_number = n.users_number
+		ON
+		u.users_number = n.users_number
 		WHERE u.users_number = #{usersNumber}
 	</select>
 
 	<!-- 회원정보 수정 -->
 	<update id="normalModify" parameterType="NormalModifyDTO">
 		UPDATE tbl_users
-		SET users_postsal_code = #{usersPostsalCode},
-		users_address_line1 = #{usersAddressLine1},
+		SET
+		users_postsal_code = #{usersPostsalCode},
+		users_address_line1 =
+		#{usersAddressLine1},
 		users_address_line2 = #{usersAddressLine2},
 		users_email = #{usersEmail},
 		users_password = #{usersPassword}
-		WHERE users_number = #{usersNumber}
+		WHERE
+		users_number = #{usersNumber}
 	</update>
 
 	<!-- 회원레벨 수정 -->
@@ -39,7 +45,8 @@
 		UPDATE
 		tbl_normal_users
 		SET normal_users_level = #{normalUsersLevel}
-		WHERE users_number = #{usersNumber}
+		WHERE
+		users_number = #{usersNumber}
 	</update>
 
 	<!-- 찜한 목록 조회 -->
@@ -72,28 +79,64 @@
 	</select>
 
 	<!-- 찜한 목록 삭제 -->
-	<delete id="normalfavoriteListDelete"
-		parameterType="NormalFavoriteListDTO">
-		DELETE FROM TBL_SHOPS_FAVORITES f
+	<delete id="normalfavoriteListDelete" parameterType="int">
+		DELETE FROM
+		TBL_SHOPS_FAVORITES f
 		WHERE
 		f.favorites_number = #{favoritesNumber}
-		AND f.users_number = (
-		SELECT u.users_number
-		FROM tbl_users u
-		WHERE u.user_number = #{usersNumber}
-		)
+
 	</delete>
 
 	<!-- 하트 목록 조회 -->
 	<select id="normalHeartListSearch"
 		resultType="NormalHeartListDTO">
-
+		<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+SELECT 
+    c.users_number AS careNumber, h.hearts_normal_number,
+    u.users_name,
+    u.users_address_line1 ,
+    c.care_intro_text,
+    c.care_profiles_photo_number,
+    fp.profiles_files_type,
+    fp.profiles_files_name,
+    fp.profiles_files_path,
+    d.DAY_MONDAY,
+    d.DAY_TUESDAY,
+    d.DAY_WEDNESDAY,
+    d.DAY_THURSDAY,
+    d.DAY_FRIDAY,
+    d.DAY_SATURDAY,
+    d.DAY_SUNDAY
+FROM
+    tbl_hearts h
+    JOIN tbl_care_users c ON h.hearts_care_number = c.users_number
+    JOIN tbl_users u ON c.users_number = u.users_number
+    LEFT JOIN tbl_files_profiles fp ON c.care_profiles_photo_number = fp.profiles_files_number
+    LEFT JOIN tbl_day d ON c.users_number = d.users_number
+WHERE 
+    h.hearts_normal_number = #{normalNumber} 
+    AND c.care_accept = 'Y'
+ORDER BY 
+    c.users_number
+    ) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
 	</select>
 
-	<!-- 하트 목록 삭제 -->
-	<delete id="normalHeartListDelete">
+	<select id="heartTotal" resultType="int">
+		SELECT count(hearts_care_number) FROM tbl_hearts WHERE HEARTS_NORMAL_NUMBER =#{usersNumber}
+	</select>
 
-	</delete>
+
+	<!-- 하트 목록 삭제 -->
+	 <delete id="deleteHeart" parameterType="int">
+		delete from TBL_HEARTS
+		where
+		hearts_normal_number = #{heartsNormalNumber} and hearts_care_number = #{careNumber}
+	</delete> 
 
 	<!-- 매칭 기록 조회 -->
 	<select id="normalMatchingSearch" resultType="NormalMatchingDTO">
@@ -105,7 +148,8 @@
 		m.match_status
 		FROM tbl_matchings m
 		JOIN tbl_care_users c
-		ON m.care_number = c.care_number
+		ON
+		m.care_number = c.care_number
 	</select>
 
 	<!-- 내가 쓴 게시판 목록 조회 -->
@@ -115,7 +159,8 @@
 		n.users_name,
 		p.posts_title,
 		p.posts_created_date
-		FROM tbl_posts p
+		FROM
+		tbl_posts p
 		JOIN TBL_normal_users n
 		ON p.users_number = n.users_number
 		WHERE p.users_number = #{usersNumber}
@@ -137,7 +182,8 @@
 			SELECT seq_news_banners.nextVal FROM DUAL
 		</selectKey>
 		INSERT INTO tbl_reference
-		VALUES ( #{referenceNumber}, #{usersNumber},#{referenceTitle},
+		VALUES ( #{referenceNumber},
+		#{usersNumber},#{referenceTitle},
 		#{referenceCreatedDate},#{referenceContent}, #{answeredYn})
 	</insert>
 

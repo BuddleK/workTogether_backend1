@@ -1,43 +1,50 @@
-const hearts = document.getElementsByClassName("heart_img");
-const cardRow1 = document.getElementById("card_list_1");
-const cardRow2 = document.getElementById("card_list_2");
+document.addEventListener("DOMContentLoaded", () => {
+    const normalNumber = window.usersNumber;
 
-let cnt = 0;
+    
 
-for (let i = 0; i < 3; i++) {
-  const li = document.createElement("li");
-  li.className += "care_card";
+    const heartBoxes = document.querySelectorAll(".heart_img_box");
 
-  let str = "";
-  str += `<div class="heart_img_box"><img onclick="switchHeart(`;
-  str += i;
-  str += `)" class="heart_img" src="./../../assets/img/careMember/heart_icon.png"></div><a href="./../careMember/careMemberDetail.html" class="profile"><div class="profile_pic_box"><img class="profile_pic" src="./../../assets/img/careMember/profilePicCare.png"></div><div class="profile_name">`;
-  str += `김괭이`;
-  str += `</div><div class="day_row">`;
-  str += `<div class="day">화</div>`;
-  str += `<div class="day">화</div>`;
-  str += `</div><div class="profile_intro"><div class="short_intro">`;
-  str += `안녕하세요!! 김괭입니다.`;
-  str += `</div><div class="long_intro"><p>`;
-  str += `장애인 활동사 교육 이수 완료`;
-  str += `</p><p>`;
-  str += `서울 거주`;
-  str += `</p></div></div></a>`;
+    heartBoxes.forEach(function(box) {
+        box.addEventListener("click", async function() {
+			console.log("클릭 ㄳㄳ");
+            const careNumber = box.closest("li").dataset.carenumber;
+			console.log(careNumber);
+            if (!normalNumber) {
+                return alert("비로그인 상태이거나 돌봄회원이 삭제되어 페이지를 볼 수 없습니다.");
+            }
 
-  li.innerHTML = str;
-
-  if (i < 3) {
-    cardRow1.appendChild(li);
-  }
-  // switchHeart(i);
-}
-
-function switchHeart(num) {
-  console.log(hearts[num].style.left);
-  if (hearts[num].style.left == "0%") {
-    hearts[num].style.left = "-100%";
-  } else {
-    hearts[num].style.left = "0%";
-  }
-  // cardRow1.removeChild(li);
-}
+            try {
+                const response = await fetch("/myPageNormal/normalHeartListDeleteOk.mn", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+                        "X-Requested-With": "XMLHttpRequest",
+                    },
+                    body: JSON.stringify({ careNumber, normalNumber }),
+                });
+                const result = await safeJson(response);
+                if (result?.status === "success") {
+                    alert("하트 취소가 완료되었습니다");
+					console.log(result);
+                } else {
+					
+					console.log(result);
+                    alert("하트 취소 실패했습니다.");
+                }
+            } catch (error) {
+                console.error("하트 오류", error);
+                alert("하트 취소 중 오류가 발생했습니다.");
+            }
+        });
+    });
+	
+	async function safeJson(res) {
+	        const text = await res.text();
+	        try {
+	            return text ? JSON.parse(text) : null;
+	        } catch {
+	            return null;
+	        }
+	    }
+});

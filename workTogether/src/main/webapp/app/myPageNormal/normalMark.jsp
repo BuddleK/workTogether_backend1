@@ -17,7 +17,7 @@
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
 <script defer
-	src="${pageContext.request.contextPath}/assets/js/myPageNormal/NormalMark.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalMark.js"></script>
 </head>
 
 <body>
@@ -29,35 +29,35 @@
 					src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg"
 					alt="#"></li>
 				<li><a
-					href="${pageContext.request.contextPath}/normalPwCheck.jsp">개인정보
+					href="/myPageNormal/normalModify.mn">개인정보
 						수정</a></li>
-				<li><a href="${pageContext.request.contextPath}/normalMark.jsp">찜한
+				<li><a href="/myPageNormal/normalfavoriteList.mn">찜한
 						목록</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/normalheart.jsp">하트 목록</a></li>
+					href="/myPageNormal/normalHeartList.mn">하트 목록</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/normalMatching.jsp">매칭
+					href="/myPageNormal/normalMatching.mn">매칭
 						기록</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/normalsendMesseage.jsp">쪽지함</a></li>
-				<li><a href="${pageContext.request.contextPath}/normalPost.jsp">게시글
+				<li><a href="/myPageNormal/normalPostsList.mn">게시글
 						관리</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/normalPoint.jsp">포인트
 						충전</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/normalReference.jsp">1
+					href="/myPageNormal/normalReferenceInsert.mn">1
 						대 1 문의</a></li>
-				<li><a href="${pageContext.request.contextPath}/normalQuit.jsp">회원
+				<li><a href="/myPageNormal/normalExit.mn">회원
 						탈퇴</a></li>
 			</ul>
 		</nav>
-		<form action="" method="get">
+		<form action="/myPageNormal/normalfavoriteListDeleteOk.mn" method="get">
 			<div class="div_mark">
 				<div class="title">찜한 목록</div>
 				<nav class="mark_nav">
 					<ul>
-						<li><input onclick="toggleMarksAll()" id="checkbox_col"
+						<li><input onclick="checkedAll()" id="checkbox_col"
 							name="mark_check_col" type="checkbox"></li>
 						<li class="name_col">
 							<div>이름</div>
@@ -70,13 +70,10 @@
 						</li>
 					</ul>
 				</nav>
-
-
-
 				<ul class="mark_list">
-					<c:forEach var="fshop" items="${favoriteList}">
-						<li id="li_"><input class="checkbox_li" name="mark_check"
-							type="checkbox" value="0">
+					<c:forEach var="fshop" items="${favoriteList}"  varStatus="status">
+						<li id="li_${status.index+1}" value="${fshop.favoritesNumber}"><input class="checkbox_li" name="mark_check"
+							type="checkbox"  value="${fshop.favoritesNumber}" >
 							<div class="name">
 								<div>${fshop.shopsName}</div>
 							</div> <a class="location"
