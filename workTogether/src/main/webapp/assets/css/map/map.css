@@ -44,11 +44,14 @@ main{
 
 /* 지도 사이드바 */
 .sidebar{
-  display: flex; /*평소에는 none이다가 활성화 되면 flex로 변경*/
+  display: none; /*평소에는 none이다가 활성화 되면 flex로 변경*/
   flex-direction: column;
   background-color: #FFF8EF;
   margin: 10px 40px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.sidebar:hover {
+    cursor: pointer;
 }
 
 /* 닫기 버튼 */

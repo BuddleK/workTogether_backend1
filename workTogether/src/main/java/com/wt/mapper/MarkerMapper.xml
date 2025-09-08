@@ -9,10 +9,9 @@
 
 
 	<!-- 지도에 표시할 마크 가져오기 -->
-   <select id="getMarkers" parameterType="int" resultType="MarkerDTO">
+   <select id="getMarkers" resultType="MarkerDTO">
 		SELECT ROWNUM AS rnum, subquery.*
-		FROM (SELECT shops_number, shops_name, shops_branch_name, shops_road_address, shops_working_hours, shops_phone, shops_takeout, shops_intro_text, CASE WHEN f.users_number IS NULL THEN 'N' ELSE 'Y' END AS is_favorite
-		FROM TBL_SHOPS s LEFT JOIN (SELECT favorites_shops_number, users_number FROM tbl_shops_favorites WHERE users_number=#{userNumber}) f ON s.shops_number = f.favorites_shops_number) subquery;
+		FROM (SELECT SHOPS_NUMBER, SHOPS_NAME, SHOPS_LATITUDE, SHOPS_LONGITUDE, SHOPS_ROAD_ADDRESS, SHOPS_WORKING_HOURS, SHOPS_PHONE, SHOPS_TAKEOUT, SHOPS_INTRO_TEXT FROM RICEBALL.TBL_SHOPS) subquery
    </select>
    
    

@@ -158,7 +158,7 @@ main {
   border-radius: 15px;
 }
 
-#reportcheck {
+#reportcheck, #writeok {
   background-color: #2F52AA;
   color: white;
   border: 1px solid black;

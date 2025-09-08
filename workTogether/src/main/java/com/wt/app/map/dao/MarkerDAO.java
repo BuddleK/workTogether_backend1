@@ -15,9 +15,9 @@ public class MarkerDAO {
 	}
 	
 	//모든 마커 조회하기
-	public List<MarkerDTO> getMarkers(int usersNumber){
-	      System.out.println("모든 마커 조회하기 - getMarkers 메소드 실행, 유저넘버 : " + usersNumber);
-	      List<MarkerDTO> list = sqlSession.selectList("marker.selectAll", usersNumber);
+	public List<MarkerDTO> getMarkers(){
+	      System.out.println("모든 마커 조회하기 - getMarkers 메소드 실행");
+	      List<MarkerDTO> list = sqlSession.selectList("marker.getMarkers");
 	      System.out.println("조회결과 : " + list);
 	      return list;	
 	}

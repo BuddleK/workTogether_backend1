@@ -183,4 +183,28 @@ document.addEventListener("DOMContentLoaded", () => {
 	  }
 	
 	loadReplies();
+	
+	// 삭제버튼
+	const deleteButton = document.getElementById('button_delete');
+	// 삭제 젤의 모달
+	const delModal = document.getElementById('del_modal');
+	// 모달 확인 버튼
+	const checkButton = document.getElementById('check');
+	// 모달 취소 버튼
+	const cancelButton = document.getElementById('cancle');
+	deleteButton.addEventListener('click', () =>{
+		delModal.style.display="block";
+	});
+	cancelButton.addEventListener('click', () =>{
+		delModal.style.display="none";
+	});
+	checkButton.addEventListener('click', () =>{
+		delModal.style.display="none";
+		const postNumber = deleteButton.getAttribute('data-post-number');  // 게시글 번호 가져오기
+		const contextPath = deleteButton.getAttribute('data-context-path');  // contextPath 가져오기
+		const url = `${contextPath}/post/postDeleteOk.po?postsNumber=${postNumber}`;
+		
+		// 서블릿 경로로 이동
+		window.location.href = url;
+	});
 });

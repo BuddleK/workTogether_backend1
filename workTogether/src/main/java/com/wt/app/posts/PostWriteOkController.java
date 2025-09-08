@@ -23,13 +23,11 @@ public class PostWriteOkController implements Execute{
 		PostsDAO postsDAO = new PostsDAO();
 		PostsDTO postsDTO = new PostsDTO();
 		Result result = new Result();
+		//로그인한 사용자 번호 가져오기
+		Integer usersNumber = (Integer) request.getSession().getAttribute("usersNumber");
+		System.out.println("로그인 한 멤버 번호 : " + usersNumber);
 		
-		Integer memberNumber = (Integer)request.getSession().getAttribute("memberNumber");
-
-		
-		System.out.println("memberNumber : " + memberNumber);
-		
-		if(memberNumber == null) {
+		if(usersNumber == null) {
 			System.out.println("오류 : 로그인 된 사용자가 없습니다");
 			response.sendRedirect("/app/login/loginNormal.jsp");
 			return null;
@@ -41,7 +39,7 @@ public class PostWriteOkController implements Execute{
 		
 		System.out.println(title + " 잘 나오나!!!!??");
 		
-		postsDTO.setUsersNumber(memberNumber);
+		postsDTO.setUsersNumber(usersNumber);
 		postsDTO.setPostsTitle(title);
 		postsDTO.setPostsContent(context);
 		
