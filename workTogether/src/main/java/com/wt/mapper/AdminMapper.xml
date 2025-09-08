@@ -115,7 +115,7 @@
 
 	<!-- ==================== [Care: 파일 조회] ==================== -->
 	<select id="careFileLicense" parameterType="int"
-        resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
+		resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
   SELECT
     license_files_number       AS fileNumber,
     license_files_type         AS fileType,
@@ -127,8 +127,8 @@
   WHERE license_files_number = #{value}
 ]]></select>
 
-<select id="careFileAccount" parameterType="int"
-        resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
+	<select id="careFileAccount" parameterType="int"
+		resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
   SELECT
     account_files_number       AS fileNumber,
     account_files_type         AS fileType,
@@ -499,6 +499,7 @@
 		resultType="AdminUserManagerDTO"><![CDATA[
     SELECT
       u.users_number      AS usersNumber,
+      u.users_name,
       u.users_type,
       u.users_created_date,
       u.users_address_line1,
@@ -509,10 +510,10 @@
       u.users_password,
       u.users_point,
       c.users_passbook
-      FROM tbl_users u
+     FROM tbl_users u
  LEFT JOIN tbl_normal_users n ON u.users_number = n.users_number
  LEFT JOIN tbl_care_users   c ON u.users_number = c.users_number
-     WHERE u.users_number = #{value}
+     WHERE u.users_number = #{usersNumber}
   ]]></select>
 
 	<update id="adminUserNameUpdate"
