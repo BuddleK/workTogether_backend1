@@ -56,17 +56,15 @@ public class AdminCareDetailController implements Execute {
 		request.setAttribute("item", item);
 
 		if (license != null) {
-			request.setAttribute("licenseFileName", license.getFileName());
-			request.setAttribute("licenseDownloadUrl", request.getContextPath()
-					+ "/admin/care/fileDownload.ad?type=LICENSE&fileNumber=" + license.getFileNumber());
+		    request.setAttribute("licenseFileName", license.getFileName());
+		    request.setAttribute("licenseFileNumber", license.getFileNumber());
 		}
 
 		if (account != null) {
-			request.setAttribute("accountFileName", account.getFileName());
-			request.setAttribute("accountDownloadUrl", request.getContextPath()
-					+ "/admin/care/fileDownload.ad?type=ACCOUNT&fileNumber=" + account.getFileNumber());
+		    request.setAttribute("accountFileName", account.getFileName());
+		    request.setAttribute("accountFileNumber", account.getFileNumber());
 		}
-
+		
 		// 5) 액션 URL
 		request.setAttribute("usersNumber", usersNumber);
 		request.setAttribute("approveAction",
