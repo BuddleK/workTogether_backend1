@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			alert("삭제할 항목을 선택해주세요.");
 			return;
 		}
+		
 
 		delModal.style.display = "flex";
 	});
