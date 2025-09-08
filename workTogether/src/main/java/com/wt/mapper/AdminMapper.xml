@@ -555,9 +555,10 @@
     DELETE FROM tbl_notices WHERE notice_number = #{noticeNumber}
   ]]></delete>
 
-   <select id="adminReportListSelect" resultType="AdminUserManagerDTO"><![CDATA[
+   <select id="adminReportListSelect" resultType="AdminReportListDTO"><![CDATA[
     SELECT posts_number, posts_title, posts_created_date, posts_report_count
       FROM tbl_posts
+      where posts_report_count > 4
   ]]></select>
 
    <delete id="adminReportListDelete" parameterType="int"><![CDATA[
@@ -814,4 +815,14 @@
      SET status = 'R'
    WHERE point_return_id = #{pointReturnId}
 ]]></update>
+
+  <select id="reportTotal" resultType="int">
+  SELECT COUNT(*) FROM TBL_PosTS WHERE posts_report_count <![CDATA[>]]> 4
+  </select>
+  
+  <select id="reportDetail" resultType="AdminReportListDTO">
+  select * from tbl_posts p join tbl_users u 
+  ON p.users_number = u.users_number where p.posts_number = #{postsNumber}
+  
+  </select>
 </mapper>
