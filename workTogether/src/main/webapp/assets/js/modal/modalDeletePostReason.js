@@ -21,7 +21,7 @@ function modalDeletePostReasonShow() {
   modalDeletePostReason.style.display = "flex";
 }
 
-const link = "./../../app/admin/report.jsp"
+const link = window.contextPath +"/admin/adminReportList.ad";
 function linkHref() {
   location.href=link;
 }

@@ -32,7 +32,7 @@ public class AdminReportListController implements Execute{
 		int startRow = (page - 1) * rowCount + 1; // 시작행(1, 11, 21, ..)
 		int endRow = startRow + rowCount - 1; // 끝 행(10, 20, 30, ..)
 
-		Map<String, Integer> pageMap = new HashMap<>();
+		Map<String, Object> pageMap = new HashMap<>();
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
 
