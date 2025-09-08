@@ -57,6 +57,9 @@ main {
   display: flex;
   justify-content: end;
 }
+.button_area button{
+	cursor:pointer;
+}
 
 .list{
   width: 100px;

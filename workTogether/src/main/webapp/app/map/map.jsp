@@ -106,7 +106,7 @@
 			console.log(positions);
 			
 		// 마커 이미지의 이미지 주소입니다
-		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
 		for (var i = 0; i < positions.length; i ++) {//positions.length
       	// 마커 이미지의 이미지 크기 입니다
@@ -139,9 +139,9 @@
 	        return function() {
 	            const sideBar = document.getElementById('side_bar');
 	            var shopsNumber = 0;
-	            if (sideBar.style.display == 'flex') {
+	            /* if (sideBar.style.display == 'flex') {
 	                sideBar.style.display = "none";
-	            } else {
+	            } else { */
 	                sideBar.style.display = "flex";
 	                console.log('클릭된 마커의 인덱스:', index); // index 값을 콘솔에 출력
 	                // positions 배열에서 클릭된 마커의 실제 정보를 가져옴
@@ -170,7 +170,7 @@
 
 	                const shopIntro = document.getElementById('shop_intro');
 	                shopIntro.textContent = shop.shopsIntroText; // 가게 소개
-	            }
+	            /* } */
 	            
 	            //사이드바가 눌렸을 때?
 	            sideBar.addEventListener('click', () =>{
