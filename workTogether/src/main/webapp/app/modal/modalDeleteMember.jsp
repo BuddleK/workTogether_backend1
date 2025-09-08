@@ -5,14 +5,14 @@
         <img onclick="modalDeleteMemberNone()" class="modal_x" src="/team04-RB_frontend/webapp/assets/img/main/xIcon.png">
       </div>
       <p id="modal_text">
-        이 회원을 삭제하시겠습니까?
+        ì´ íìì ì­ì íìê² ìµëê¹?
       </p>
       <div class="modal_button_box">
         <button onclick="modalDeleteMemberCheck()" class="modal_check_button">
-          확인
+          íì¸
         </button>
         <button onclick="modalDeleteMemberCancel()" class="modal_cancel_button">
-          취소
+          ì·¨ì
         </button>
       </div>
     </div>

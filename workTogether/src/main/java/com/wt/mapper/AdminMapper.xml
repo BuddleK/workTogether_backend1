@@ -501,16 +501,29 @@
       u.users_email,
       u.users_id,
       u.users_password,
-      u.users_point
+      u.users_point,
+      c.users_passbook
       FROM tbl_users u
  LEFT JOIN tbl_normal_users n ON u.users_number = n.users_number
  LEFT JOIN tbl_care_users   c ON u.users_number = c.users_number
      WHERE u.users_number = #{value}
   ]]></select>
+  
+  <update id="adminUserNameUpdate" parameterType="AdminUserManagerDTO">
+  	UPDATE TBL_USERS 
+	SET USERS_NAME = #{usersName}
+	WHERE USERS_NUMBER = #{usersNumber}
+  </update>
+  
+  <update id="adminUserPassbookUpdate" parameterType="AdminUserManagerDTO">
+  	update Tbl_care_users
+  	set users_passbook = #{usersPassbook}
+  	where users_number = #{usersNumber}
+  </update>
 
-   <select id="adminNoticeListSearch" parameterType="map"
-      resultType="AdminUserManagerDTO"><![CDATA[
-    SELECT *
+   <select id="adminNoticeListSearch" parameterType="map" resultType="AdminNoticeListDTO">
+   <![CDATA[
+      SELECT *
       FROM (
             SELECT ROWNUM AS rnum, subquery.*
               FROM (
@@ -521,14 +534,14 @@
      WHERE rnum BETWEEN #{startRow} AND #{endRow}
   ]]></select>
 
-   <select id="adminNoticeDetail" resultType="AdminUserManagerDTO"><![CDATA[
+   <select id="adminNoticeDetail" resultType="AdminNoticeListDTO"><![CDATA[
     SELECT NOTICE_NUMBER , NOTICE_TITLE , ADMIN_NUMBER , NOTICE_VIEW_COUNT ,
            NOTICE_CREATED_DATE, NOTICE_CONTENT
       FROM TBL_NOTICES
   ]]></select>
 
    <insert id="adminNoticeListInsert"
-      parameterType="AdminUserManagerDTO">
+      parameterType="AdminNoticeListDTO">
       <selectKey keyProperty="noticeNumber" resultType="int"
          order="BEFORE"><![CDATA[
       SELECT seq_notices.nextVal FROM DUAL

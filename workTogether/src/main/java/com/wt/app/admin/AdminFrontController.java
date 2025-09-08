@@ -186,6 +186,14 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("관리자 회원관리 디테일 페이지 요청");
 			result = new AdminUserDetailController().execute(request, response);
 			break;
+		case "/admin/adminUserNameUpdateOk.ad":
+			System.out.println("관리자 회원관리 이름변경 완료 요청");
+			result = new AdminUserNameUpdateOkController().execute(request,response);
+			break;
+		case "/admin/adminUserPassbookUpdateOk.ad":
+			System.out.println("관리자 회원관리 이름변경 완료 요청");
+			result = new AdminUserPassbookUpdateOkController().execute(request,response);
+			break;
 		case "/admin/adminNotice.ad":
 			System.out.println("관리자 공지사항 관리 페이지 요청");
 			result = new AdminNoticeController().execute(request, response);

@@ -224,7 +224,15 @@ public class AdminDAO {
     public AdminUserManagerDTO adminUserManagerDetail(int usersNumber) {
         return sqlSession.selectOne("admin.adminUserManagerDetail", usersNumber);
     }
+    
+    public void adminUserNameUpdate(AdminUserManagerDTO adminUserManagerDTO) {
+    	sqlSession.update("admin.adminUserNameUpdate", adminUserManagerDTO);
+    }
 
+    public void adminUserPassbookUpdate(AdminUserManagerDTO adminUserManagerDTO) {
+    	sqlSession.update("admin.adminUserPassbookUpdate", adminUserManagerDTO);
+    }
+    
     public List<AdminNoticeListDTO> adminNoticeListSearch(Map<String, Integer> pageMap) {
         return sqlSession.selectList("admin.adminNoticeListSearch", pageMap);
     }
