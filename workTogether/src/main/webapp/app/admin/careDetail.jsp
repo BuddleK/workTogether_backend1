@@ -110,12 +110,13 @@
               </div>
               <!-- 계좌 -->
               <div class="detail_content_account">
-                <div class="table_head_account">계좌 수정</div>
-                <div class="table_detail table_pw_detail">
-                  <input type="text" placeholder="${admin.usersPassbook}" />
-                  <button class="update_btn" type="button">수정</button>
-                </div>
-              </div>
+				  <div class="table_head_account">계좌 수정</div>
+				  <div class="table_detail table_pw_detail">
+				    <input type="text" id="passbookInput" placeholder="${admin.usersPassbook}" />
+				    <button class="update_btn" type="button" onclick="updatePassbook()">수정</button>
+				  </div>
+			  </div>
+
             </div>
             <!-- 회원 삭제 -->
             <div class="delete">
@@ -125,12 +126,17 @@
           </form>
           <!-- 이름 수정 전송용 hidden form -->
 			<form id="editNameForm" action="${pageContext.request.contextPath}/admin/adminUserNameUpdateOk.ad" method="post">
-			    <!-- 수정할 회원 번호 같이 넘겨야 함 -->
 			    <input type="hidden" name="usersNumber" value="${admin.usersNumber}" />
 			
 			    <!-- 모달에서 입력받은 이름 값 담는 hidden input -->
 			    <input type="hidden" name="usersName" id="hiddenNewName" />
 			</form>
+			
+			<form id="editPassbookForm" action="${pageContext.request.contextPath}/admin/adminUserPassbookUpdateOk.ad" method="post">
+			  <input type="hidden" name="usersNumber" value="${admin.usersNumber}" />
+			  <input type="hidden" name="usersPassbook" id="hiddenNewPassbook" />
+			</form>
+			
         </div>
       </section>
     </main>
