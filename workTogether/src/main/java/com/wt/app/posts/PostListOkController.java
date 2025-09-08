@@ -23,13 +23,18 @@ public class PostListOkController implements Execute {
 		PostsDAO postsDAO = new PostsDAO();
 		Result result = new Result();
 		
-		
+		//방금 선택한 페이지
 		String temp = request.getParameter("page");
+		//선택한 페이지 번호가 null이면 1을 넣어줌
 		int page = (temp == null) ? 1 : Integer.valueOf(temp);
+		//보여줄 행 수
 		int rowCount = 10;
-		int pageCount = 5;
+		//보여줄 페이지 숫자 수
+		int pageCount = 4;
 		
+		//시작 행 번호
 		int startRow = (page - 1) * rowCount + 1;
+		//끝 행 번호
 		int endRow = startRow + rowCount - 1;
 		
 		Map<String, Integer> pageMap = new HashMap<>();

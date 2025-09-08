@@ -581,7 +581,7 @@
 	<!-- 찜 목록 전체 개수 -->
 	 <select id="reportTotal" resultType="int">
 		SELECT COUNT(*) FROM TBL_POSTS WHERE posts_report_count <![CDATA[>]]> 4
-	</select> 
+	</select>
 	
 	<!-- 신고글 삭제 -->
 	<delete id="adminReportListDelete" parameterType="int">
@@ -839,7 +839,11 @@
      SET status = 'R'
    WHERE point_return_id = #{pointReturnId}
 ]]></update>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> main
   <select id="reportDetail" resultType="AdminReportListDTO">
   select * from tbl_posts p join tbl_users u 
   ON p.users_number = u.users_number where p.posts_number = #{postsNumber}
