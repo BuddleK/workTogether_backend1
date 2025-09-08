@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,36 +88,56 @@
 				</nav>
 				<!-- 받은 쪽지 목록 리스트 -->
 				<ul class="mark_list">
-					
+
 					<c:forEach var="list" items="${msgList }" varStatus="status">
-					
-					<li id="li_${status }"><input class="checkbox_li" name="mark_check"
-						type="checkbox" value="0">
-						<div class="name">
-							<div>작성자0</div>
-						</div>
-						<div class="location" onclick="openmesseagemodal()">
-							<div>제목</div>
-						</div>
-						<div class="phone">
-							<div>날짜</div>
-						</div>
-						<div class="read">
-							<div>읽음 상태</div>
-						</div></li>
-					
+
+						<li id="li_${status }"><input class="checkbox_li"
+							name="mark_check" type="checkbox" value="0">
+							<div class="name">
+								<div>작성자0</div>
+							</div>
+							<div class="location" onclick="openmesseagemodal()">
+								<div>제목</div>
+							</div>
+							<div class="phone">
+								<div>날짜</div>
+							</div>
+							<div class="read">
+								<div>읽음 상태</div>
+							</div></li>
+
 					</c:forEach>
-				
+
 				</ul>
 				<!-- 페이지네이션 -->
 				<nav class="page">
 					<ul>
-						<!-- <li><a href="">&lt;</a></li>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href="">&gt;</a></li> -->
+						<c:if test="${prev}">
+							<li><a
+								href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn?page=${startPage - 1}"
+								class="prev">&lt;</a></li>
+						</c:if>
+						<c:set var="realStartPage"
+							value="${startPage < 0 ? 0 : startPage}" />
+						<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+							<c:choose>
+								<c:when test="${!(i == page) }">
+									<li><a
+										href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn?page=${i}">
+											<c:out value="${i}" />
+									</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="#" class="active"> <c:out value="${i}" />
+									</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${next}">
+							<li><a
+								href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn?page=${endPage + 1}"
+								class="next">&gt;</a>
+						</c:if>
 					</ul>
 				</nav>
 				<!-- 받은 쪽지 삭제 버튼 -->

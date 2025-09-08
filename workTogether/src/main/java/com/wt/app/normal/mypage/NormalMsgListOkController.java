@@ -30,7 +30,7 @@ public class NormalMsgListOkController implements Execute{
 		
 		String tmp = request.getParameter("page");
 		int page = (tmp == null) ? 1 : Integer.valueOf(tmp);
-		int rowCount = 4;
+		int rowCount = 8;
 		int pageCount = 4;
 
 		int startRow = (page - 1) * rowCount + 1;
@@ -44,7 +44,9 @@ public class NormalMsgListOkController implements Execute{
 		List<MessageSRDTO> msgList = dao.selectAllMsg(pageMap);
 		request.setAttribute("msgList", msgList);
 		
-		int total = dao.getTotal();
+		int usersNumber = normalNumber;
+		
+		int total = dao.getMsgTotal(usersNumber);
 		int realEndPage = (int) Math.ceil(total / (double) rowCount);
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount);
 		int startPage = endPage - (pageCount - 1);

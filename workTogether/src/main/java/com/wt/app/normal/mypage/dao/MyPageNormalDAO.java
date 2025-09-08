@@ -117,6 +117,10 @@ public class MyPageNormalDAO {
 		List<MessageSRDTO> list = sqlSession.selectList("myPageNormal.selectAllMsg", numbers);
 		return list;
 	}
+	
+	public int getMsgTotal (int usersNumber) {
+		return sqlSession.selectOne("myPageNormal.getMsgTotal", usersNumber);
+	}
 
 	public List<NormalPostsListDTO> normalPostsListSearch(int usersNumber) {
 		System.out.println("게시물 리스트 조회하기 - normalPostsListSearch 메소드 실행" + usersNumber);

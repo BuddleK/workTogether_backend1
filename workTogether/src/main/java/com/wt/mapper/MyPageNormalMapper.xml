@@ -247,6 +247,10 @@ ORDER BY
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
 		]]>
 	</select>
+	
+	<select id="getMsgTotal" parameterType="int" resultType="int">
+		SELECT count(m.message_number) FROM TBL_MESSAGE m WHERE m.SENDER_TYPE ='C' AND m.NORMAL_NUMBER = #{usersNumber}
+	</select>
 
 	<!-- 내가 쓴 게시판 목록 조회 -->
 	<select id="normalPostsListSearch" parameterType="int"
