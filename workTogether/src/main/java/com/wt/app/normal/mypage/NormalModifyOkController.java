@@ -57,7 +57,7 @@ public class NormalModifyOkController implements Execute {
 				request.setAttribute("err", "email_dup");
 			}
 			 request.setAttribute("normal", dto);
-	            result.setPath("/app/myPageNormal/normalModify.jsp");
+	            result.setPath("/myPageNormal/normalModify.mn");
 	            result.setRedirect(false);
 		}
 

@@ -74,9 +74,16 @@ public class MyPageNormalDAO {
 		
 	}
 
-	public List<NormalMatchingDTO> normalMatchingSearch() {
-		System.out.println("매칭 목록 조회하기 - normalMatchingSearch 메소드 실행");
-		List<NormalMatchingDTO> list = sqlSession.selectList("myPageNormal.normalMatchingSearch");
+	public List<NormalMatchingDTO> normalMatchingSearch(int usersNumber) {
+		System.out.println("매칭 목록 전체 조회하기 - normalMatchingSearch 메소드 실행");
+		List<NormalMatchingDTO> list = sqlSession.selectList("myPageNormal.normalMatchingSearch",usersNumber);
+		System.out.println("조회결과 : " + list);
+		return list;
+	}
+	
+	public List<NormalMatchingDTO> monthNormalMatchingSearch(Map<String, Integer> numbers) {
+		System.out.println("매칭 목록 월별 조회하기 - normalMatchingSearch 메소드 실행");
+		List<NormalMatchingDTO> list = sqlSession.selectList("myPageNormal.monthNormalMatchingSearch",numbers);
 		System.out.println("조회결과 : " + list);
 		return list;
 	}

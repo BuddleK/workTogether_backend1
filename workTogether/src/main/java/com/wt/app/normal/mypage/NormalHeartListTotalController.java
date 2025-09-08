@@ -19,7 +19,7 @@ import com.wt.app.Result;
 import com.wt.app.dto.NormalHeartListDTO;
 import com.wt.app.normal.mypage.dao.MyPageNormalDAO;
 
-public class NormalHeartListController implements Execute{
+public class NormalHeartListTotalController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
@@ -53,20 +53,23 @@ public class NormalHeartListController implements Execute{
 		List<NormalHeartListDTO> heartList = dao.selectHeart(pageMap);
 		request.setAttribute("heartList", heartList);
 		
+		int total = dao.heartTotal(normalUsersNumberStr);
+		int realEndPage = (int) Math.ceil(total / (double) rowCount);
+		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount);
+		int startPage = endPage - (pageCount - 1);
 
+		endPage = Math.min(endPage, realEndPage);
+
+		boolean prev = startPage > 1;
+		boolean next = endPage < realEndPage;
 		
-		dao.selectHeart(pageMap).stream().map(gson::toJson).map(JsonParser::parseString).forEach(hearts::add);
-		
-		
-		response.setContentType("application/json; charset=utf-8");
-		PrintWriter out = response.getWriter();
-		out.print(hearts.toString());
-		out.close();
-		
+	
 		System.out.println("제발"+hearts);
+		System.out.println("전체 갯수 : " + total);
 		
-		
-        return null;
+		result.setPath("/app/myPageNormal/normalheart.jsp");
+        result.setRedirect(false);
+        return result;
 	}
 
 }

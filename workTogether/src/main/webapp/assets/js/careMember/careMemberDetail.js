@@ -149,6 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 			if (!res.ok) throw new Error("후기 목록을 불러오는데 실패했습니다. res.ok 오류");
 			const comments = await safeJson(res);
+			console.log("ress"+res)
+			console.log("comments"+comments)
 			renderComments(Array.isArray(comments) ? comments : []);
 		} catch (error) {
 			console.error("후기 목록 불러오기 실패:", error);

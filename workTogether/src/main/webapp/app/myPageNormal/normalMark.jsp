@@ -34,7 +34,7 @@
 				<li><a href="/myPageNormal/normalfavoriteList.mn">찜한
 						목록</a></li>
 				<li><a
-					href="/myPageNormal/normalHeartList.mn">하트 목록</a></li>
+					href="/myPageNormal/normalHeartListTotal.mn">하트 목록</a></li>
 				<li><a
 					href="/myPageNormal/normalMatching.mn">매칭
 						기록</a></li>

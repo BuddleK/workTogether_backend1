@@ -151,7 +151,7 @@
 						</div>
 					</div> <!-- 페이지 네이션 -->
 					<div id="comment_pagenation">
-						&lt; <span class="active">1</span> 2 3 4 ... &gt;
+						
 					</div>
 				</span>
 			</div>

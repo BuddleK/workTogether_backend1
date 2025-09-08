@@ -28,26 +28,26 @@
 					src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg"
 					alt="#"></li>
 				<li><a
-					href="${pageContext.request.contextPath}/normalPwCheck.jsp">개인정보
+					href="/myPageNormal/normalModify.mn">개인정보
 						수정</a></li>
-				<li><a href="${pageContext.request.contextPath}/normalMark.jsp">찜한
+				<li><a href="/myPageNormal/normalfavoriteList.mn">찜한
 						목록</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/normalheart.jsp">하트 목록</a></li>
+					href="/myPageNormal/normalHeartListTotal.mn">하트 목록</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/normalMatching.jsp">매칭
+					href="/myPageNormal/normalMatching.mn">매칭
 						기록</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/normalsendMesseage.jsp">쪽지함</a></li>
-				<li><a href="${pageContext.request.contextPath}/normalPost.jsp">게시글
+				<li><a href="/myPageNormal/normalPostsList.mn">게시글
 						관리</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/normalPoint.jsp">포인트
 						충전</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/normalReference.jsp">1
+					href="/myPageNormal/normalReferenceInsert.mn">1
 						대 1 문의</a></li>
-				<li><a href="${pageContext.request.contextPath}/normalQuit.jsp">회원
+				<li><a href="/myPageNormal/normalExit.mn">회원
 						탈퇴</a></li>
 			</ul>
 		</nav>
@@ -61,73 +61,40 @@
 				<!-- 3개씩 보여주는 목록 -->
 				<div class="card_row">
 					<ul id="card_list_1">
-						<c:choose>
-							<c:when test="${not empty heartList }">
-								<c:forEach var="care" items="${heartList }">
-									<li class="care_card" data-carenumber="${care.careNumber}">
-										<div class="heart_img_box" >
-											<img  class="heart_img"
-												src="./../../assets/img/careMember/heart_icon.png">
-										</div> <a href="./../careMember/careMemberDetail.html"
-										class="profile">
-											<div class="profile_pic_box">
-												<c:choose>
-													<c:when test="${not empty care.getProfilesFilesName() } ">
-														<img class="profile_pic"
-															src="${pageContext.request.contextPath}/${care.getProfilesFilesPath() }/${care.getProfilesFilesName()}.${care.getProfilesFilesType()}">
-													</c:when>
-													<c:otherwise>
-														<img class="profile_pic"
-															src="${pageContext.request.contextPath}/assets/img/careMember/basic.png">
-													</c:otherwise>
-												</c:choose>
-											</div>
-											<div class="profile_name">
-												${care.usersName} 
-											</div>
-											<div class="day_row">
-												<c:if test="${care.getDayMonday() eq 'Y'}">
-													<div class="day">월</div>
-												</c:if>
-												<c:if test="${care.getDayTuesday() eq 'Y'}">
-													<div class="day">화</div>
-												</c:if>
-												<c:if test="${care.getDayWednesday() eq 'Y'}">
-													<div class="day">수</div>
-												</c:if>
-												<c:if test="${care.getDayThursday() eq 'Y'}">
-													<div class="day">목</div>
-												</c:if>
-												<c:if test="${care.getDayFriday() eq 'Y'}">
-													<div class="day">금</div>
-												</c:if>
-												<c:if test="${care.getDaySaturday() eq 'Y'}">
-													<div class="day">토</div>
-												</c:if>
-												<c:if test="${care.getDaySunday() eq 'Y'}">
-													<div class="day">일</div>
-												</c:if>
-											</div>
-											<div class="profile_intro">
-												<div class="short_intro">${care.careIntroText }</div>
-												<div class="long_intro">
-													<p>${care.profilesFilesName }</p>
-													<p>${care.usersAddressLine1 } 거주</p>
-												</div>
-											</div>
-									</a>
-									</li>
-								</c:forEach>
-							</c:when>
-						</c:choose>
-
-
-
-
+						
 					</ul>
 				</div>
 				<!-- 페이지네이션 -->
-				<div id="pagenation">페이지네이션</div>
+				<div id="pagenation">
+				<ul class="page">
+						<c:if test="${prev}">
+							<li><a
+								href="${pageContext.request.contextPath}/myPageNormal/normalfavoriteList.mn?page=${startPage - 1}"
+								class="prev">&lt;</a></li>
+						</c:if>
+						<c:set var="realStartPage"
+							value="${startPage < 0 ? 0 : startPage}" />
+						<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+							<c:choose>
+								<c:when test="${!(i == page) }">
+									<li><a
+										href="${pageContext.request.contextPath}/myPageNormal/normalfavoriteList.mn?page=${i}">
+											<c:out value="${i}" />
+									</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="#" class="active"> <c:out value="${i}" />
+									</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${next}">
+							<li><a
+								href="${pageContext.request.contextPath}/myPageNormal/normalfavoriteList.mn?page=${endPage + 1}"
+								class="next">&gt;</a>
+						</c:if>
+					</ul>
+				</div>
 			</div>
 		</form>
 
@@ -135,8 +102,7 @@
 	<jsp:include page="/footer.jsp" />
 </body>
 
-<script >
-	window.usersNumber= "${usersNumber}"
-
+<script>
+	window.usersNumber = "${usersNumber}"
 </script>
 </html>
