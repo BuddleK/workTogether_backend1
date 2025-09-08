@@ -44,7 +44,7 @@
       				<c:forEach var="news" items="${newsList}">
       					<li>
       						<!-- 뉴스 링크 이동 카드 리스트 -->
-      						<div class="card"><a href="${news.newsLinkUrl}">
+      						<div class="card"><a href="${news.newsLinkUrl}" target="_blank">
       							<p class="cardtitle">
       								<c:out value="${news.newsTitle}"/>
       							</p>
