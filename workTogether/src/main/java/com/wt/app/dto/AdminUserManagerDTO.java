@@ -15,6 +15,8 @@ public class AdminUserManagerDTO {
 	private String usersAddressLine2; // 주소2
 	private String usersPassword; // 유저 패스워드
 	private int usersPoint; // 유저 포인트
+	
+	private String usersPassbook; // 유저 계좌번호
 
 	public int getusersNumber() {
 		return usersNumber;
@@ -106,11 +108,19 @@ public class AdminUserManagerDTO {
 
 	@Override
 	public String toString() {
-		return "AdminusersManagerDTO [usersNumber=" + usersNumber + ", usersName=" + usersName + ", usersId=" + usersId
+		return "AdminUserManagerDTO [usersNumber=" + usersNumber + ", usersName=" + usersName + ", usersId=" + usersId
 				+ ", usersEmail=" + usersEmail + ", usersPhone=" + usersPhone + ", usersType=" + usersType
 				+ ", usersCreatedDate=" + usersCreatedDate + ", usersAddressLine1=" + usersAddressLine1
 				+ ", usersAddressLine2=" + usersAddressLine2 + ", usersPassword=" + usersPassword + ", usersPoint="
-				+ usersPoint + "]";
+				+ usersPoint + ", usersPassbook=" + usersPassbook + "]";
+	}
+
+	public String getUsersPassbook() {
+		return usersPassbook;
+	}
+
+	public void setUsersPassbook(String usersPassbook) {
+		this.usersPassbook = usersPassbook;
 	}
 
 }

@@ -41,7 +41,15 @@ public class AdminUserDetailController implements Execute {
 		}
 
 		request.setAttribute("admin", adminUserManagerDTO);
-		result.setPath("/app/admin/userDetail.jsp");
+        // 회원 타입에 따라 다른 JSP로 이동
+        if ("N".equals(adminUserManagerDTO.getusersType())) {
+            result.setPath("/app/admin/userDetail.jsp"); // 일반 회원
+        } else if ("C".equals(adminUserManagerDTO.getusersType())) {
+            result.setPath("/app/admin/careDetail.jsp"); // 돌봄 회원
+        } else {
+            // 혹시 모를 예외 케이스 → 기본 userDetail.jsp로 이동
+            result.setPath("/app/admin/userDetail.jsp");
+        }
 		result.setRedirect(false);
 		return result;
 	}
