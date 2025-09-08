@@ -55,4 +55,21 @@ function modalEditNameCheck() {
 function modalEditNameCancel() {
 	modalEditNameNone();
 }
+
+function updatePassbook() {
+  const value = document.getElementById("passbookInput").value.trim();
+  if(!value){
+    alert("계좌번호를 입력하세요.");
+    return;
+  }
+
+  // hidden input에 값 세팅
+  document.getElementById("hiddenNewPassbook").value = value;
+
+  // form submit
+  document.getElementById("editPassbookForm").submit();
+  
+  alert("완료되었습니다.");
+}
+
 modalEditNameNone();
