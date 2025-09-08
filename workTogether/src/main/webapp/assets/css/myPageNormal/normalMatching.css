@@ -52,7 +52,7 @@ main {
   font-size: 30px;
   margin: 30px;
 }
-form{
+.box {
   margin: 50px 200px;
   border: 2px solid black;
   border-radius: 15px;
@@ -89,6 +89,7 @@ form{
 }
 .matching ul li .matchingbutton{
   margin-right: 100px;
+  display: flex
 }
 .matching ul li button{
   background-color: white;
@@ -158,4 +159,9 @@ form{
   background-color: #1D3266;
   color: white;
   cursor: pointer;
+}
+
+.matchingbutton > button {
+	width: 100px;
+	hegith: 30px;
 }

@@ -81,10 +81,20 @@ public class MyPageNormalFrontController extends HttpServlet {
 			System.out.println("마이페이지 일반회원 하트 리스트 페이지 요청");
 			result = new NormalHeartListController().execute(request, response);
 			break;
+
+		case "/myPageNormal/normalHeartListTotal.mn":
+			System.out.println("마이페이지 일반회원 하트 리스트 페이지 요청");
+			result = new NormalHeartListTotalController().execute(request, response);
+			break;
 		case "/myPageNormal/normalHeartListDeleteOk.mn":
 			System.out.println("마이페이지 일반회원 하트 리스트 삭제 완료 요청");
 			result = new NormalHeartListDeleteOkController().execute(request, response);
 			break;
+		case "/myPageNormal/normalMatchingListOk.mn":
+			System.out.println("마이페이지 일반회원 매칭 관리 페이지 요청js");
+			result = new NormalMatchingListOkController().execute(request, response);
+			break;
+
 		case "/myPageNormal/normalMatching.mn":
 			System.out.println("마이페이지 일반회원 매칭 관리 페이지 요청");
 			result = new NormalMatchingController().execute(request, response);

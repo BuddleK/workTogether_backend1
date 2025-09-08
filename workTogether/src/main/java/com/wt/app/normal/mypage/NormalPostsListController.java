@@ -16,7 +16,7 @@ public class NormalPostsListController implements Execute{
 			throws ServletException, IOException {
 		Result result = new Result();
 
-		result.setPath("/admin/normalPostsList.mn");
+		result.setPath("/app/myPageNormal/normalMatching.jsp");
         result.setRedirect(false);
         return result;
 	}
