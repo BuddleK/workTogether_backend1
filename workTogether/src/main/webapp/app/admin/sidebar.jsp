@@ -11,12 +11,12 @@
       <li class="side_attach">일반 게시글 관리</li>
       <ul class="side_menu side_normal_board">
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/notice.jsp">
+          <a href="${pageContext.request.contextPath}/admin/adminNotice.ad">
             공지사항 관리
           </a>
         </li>
         <li class="side_attach">
-          <a href="${pageContext.request.contextPath}/app/admin/report.jsp">
+          <a href="${pageContext.request.contextPath}/admin/adminReportList.ad">
             신고글 관리
           </a>
         </li>
@@ -58,7 +58,7 @@
       </ul>
     </div>
     <li class="side_attach">
-      <a href="qeustion.jsp">
+      <a href="${pageContext.request.contextPath}/admin/adminReferenceList.ad">
         1:1 문의사항
       </a>
     </li>

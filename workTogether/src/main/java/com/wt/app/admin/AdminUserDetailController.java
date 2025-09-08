@@ -24,7 +24,7 @@ public class AdminUserDetailController implements Execute {
 		String usersNumberStr = request.getParameter("usersNumber");
 		if (usersNumberStr == null || usersNumberStr.trim().isEmpty()) {
 			System.out.println("usersNumber 값이 없습니다");
-			result.setPath("/app/admin/userManager.jsp"); // 게시글 목록 페이지로 리다이렉트
+			result.setPath("/admin/adminUserManagerList.ad"); // 게시글 목록 페이지로 리다이렉트
 			result.setRedirect(true);
 			return result;
 		}
@@ -35,7 +35,7 @@ public class AdminUserDetailController implements Execute {
 
 		if (adminUserManagerDTO == null) {
 			System.out.println("존재하지 않는 유저 입니다" + usersNumber);
-			result.setPath("/app/admin/userManager.jsp"); // 게시글 목록 페이지로 리다이렉트
+			result.setPath("/admin/adminUserManagerList.ad"); // 게시글 목록 페이지로 리다이렉트
 			result.setRedirect(true);
 			return result;
 		}

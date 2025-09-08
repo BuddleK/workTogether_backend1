@@ -39,32 +39,34 @@
 					<h1>회원 정보</h1>
 				</div>
 				<form
-					action="${pageContext.request.contextPath}/admin/adminUserManagerListOk.ad"
+					action="${pageContext.request.contextPath}/admin/adminUserDetail.ad"
 					method="post" class="detail_form" enctype="multipart/form-data">
 					<div class="detail_content">
 						<div class="detail_content_name">
 							<div class="table_head_name">성명</div>
 							<div class="table_name_detail">
-								<span id="name">${admin.userName}</span>
+								<span id="name">${admin.usersName}</span>
 								<button onclick="modalEditNameShow()" type="button">수정</button>
 							</div>
 							<div class="table_member_type">
 							    <div class="table_member_type_title">
 							        <p>회원 구분</p>
 							    </div>
+							
+							    <!-- 일반 회원 -->
 							    <label for="normal" class="type_label">
 							        <input type="radio" name="member_type" id="normal" value="일반"
-							               ${admin.userType eq '일반' ? 'checked' : ''}>
+							               ${admin.usersType == 'N' ? 'checked="checked"' : ''} disabled/>
 							        <p>일반</p>
 							    </label>
 							
+							    <!-- 돌봄 회원 -->
 							    <label for="care" class="type_label">
 							        <input type="radio" name="member_type" id="care" value="돌봄"
-							               ${admin.userType eq '돌봄' ? 'checked' : ''}>
+							               ${admin.usersType == 'C' ? 'checked="checked"' : ''} disabled/>
 							        <p>돌봄</p>
 							    </label>
 							</div>
-
 							<div class="table_join_date">
 								<div class="table_join_title">가입날짜</div>
 								<div class="table_join_detail">${admin.usersCreatedDate}</div>
@@ -82,21 +84,21 @@
 						<div class="detail_content_phone">
 							<div class="table_head table_head_phone">전화번호</div>
 							<div class="table_detail table_phone_detail">
-								<input type="text" value="${admin.userPhone}" readonly />
+								<input type="text" value="${admin.usersPhone}" readonly />
 							</div>
 						</div>
 
 						<div class="detail_content_email">
 							<div class="table_head table_head_email">이메일</div>
 							<div class="table_detail table_email_detail">
-								<input type="text" value="${admin.userEmail}" readonly />
+								<input type="text" value="${admin.usersEmail}" readonly />
 							</div>
 						</div>
 
 						<div class="detail_content_id">
 							<div class="table_head table_head_id">아이디</div>
 							<div class="table_detail table_id_detail">
-								<input type="text" value="${admin.userId}" readonly />
+								<input type="text" value="${admin.usersId}" readonly />
 							</div>
 						</div>
 
@@ -121,9 +123,8 @@
 
 				<div class="delete">
 					<button type="submit" class="delete_btn"
-						onclick="modalDeleteMemberShow()" type="button">삭제</button>
+						onclick="modalDeleteMemberShow()">삭제</button>
 				</div>
-				</form>
 			</div>
 		</section>
 	</main>
