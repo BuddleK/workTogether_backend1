@@ -37,8 +37,8 @@
 				<li><a
 					href="/myPageNormal/normalMatching.mn">매칭
 						기록</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/normalsendMesseage.jsp">쪽지함</a></li>
+				<li><a	
+					href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn">쪽지함</a></li>
 				<li><a href="/myPageNormal/normalPostsList.mn">게시글
 						관리</a></li>
 				<li><a

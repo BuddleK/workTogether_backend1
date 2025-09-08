@@ -91,13 +91,24 @@ public class MyPageNormalFrontController extends HttpServlet {
 			result = new NormalHeartListDeleteOkController().execute(request, response);
 			break;
 		case "/myPageNormal/normalMatchingListOk.mn":
-			System.out.println("마이페이지 일반회원 매칭 관리 페이지 요청js");
+			System.out.println("마이페이지 매칭 요청");
 			result = new NormalMatchingListOkController().execute(request, response);
 			break;
-
 		case "/myPageNormal/normalMatching.mn":
-			System.out.println("마이페이지 일반회원 매칭 관리 페이지 요청");
-			result = new NormalMatchingController().execute(request, response);
+			System.out.println("마이페이지 매칭 페이지");
+			request.getRequestDispatcher("/app/myPageNormal/normalMatching.jsp").forward(request, response);
+			break;
+		case "/myPageNormal/normalMatchingOk.mn":
+			System.out.println("마이페이지 일반회원 매칭 이용완료 요청");
+			result = new NormalMatchingOkController().execute(request, response);
+			break;
+		case "/myPageNormal/normalMatchingDeleteOk.mn":
+			System.out.println("마이페이지 매칭 삭제 요청");
+			result = new NormalMatchingListDeleteOkController().execute(request, response);
+			break;
+		case "/myPageNormal/normalMsgList.mn":
+			System.out.println("마이페이지 받은 쪽지리스트 요청");
+			result = new NormalMsgListOkController().execute(request, response);
 			break;
 		case "/myPageNormal/normalPostsList.mn":
 			System.out.println("마이페이지 일반회원 게시판 리스트 페이지 요청");

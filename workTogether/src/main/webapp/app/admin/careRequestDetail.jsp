@@ -103,10 +103,8 @@
 
 	<jsp:include page="/footer.jsp" />
 
-	<!-- (선택) 모달 컨테이너 -->
 	<div id="modalCareAllowReject"></div>
 
-	<!-- ✅ 뉴스처럼 단순 submit -->
 	<script>
     function val(id){ const el=document.getElementById(id); return el?el.value:""; }
 
