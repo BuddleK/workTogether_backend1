@@ -116,23 +116,29 @@
    <!-- ==================== [Care: 파일 조회] ==================== -->
    <select id="careFileLicense" parameterType="int"
       resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
-    SELECT
-      license_files_number, license_files_type,
-      license_files_name, license_files_path, license_files_size_bytes,
-      TO_CHAR(license_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate
-      FROM tbl_files_license
-     WHERE license_files_number = #{value}
-  ]]></select>
+  SELECT
+    license_files_number       AS fileNumber,
+    license_files_type         AS fileType,
+    license_files_name         AS fileName,
+    license_files_path         AS filePath,
+    license_files_size_bytes   AS fileSizeBytes,
+    TO_CHAR(license_created_date,'YYYY-MM-DD HH24:MI:SS') AS createdDate
+  FROM tbl_files_license
+  WHERE license_files_number = #{value}
+]]></select>
 
    <select id="careFileAccount" parameterType="int"
       resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
-    SELECT
-      account_files_number, account_files_type, account_files_name,
-      account_files_path, account_files_size_bytes,
-      TO_CHAR(account_created_date,'YYYY-MM-DD HH24:MI:SS') createdDate
-      FROM tbl_files_account
-     WHERE account_files_number = #{value}
-  ]]></select>
+  SELECT
+    account_files_number       AS fileNumber,
+    account_files_type         AS fileType,
+    account_files_name         AS fileName,
+    account_files_path         AS filePath,
+    account_files_size_bytes   AS fileSizeBytes,
+    TO_CHAR(account_created_date,'YYYY-MM-DD HH24:MI:SS') AS createdDate
+  FROM tbl_files_account
+  WHERE account_files_number = #{value}
+]]></select>
 
    <select id="careFileProfile" parameterType="int"
       resultType="com.wt.app.dto.AdminCareFileDTO"><![CDATA[
@@ -493,6 +499,7 @@
       resultType="AdminUserManagerDTO"><![CDATA[
     SELECT
       u.users_number      AS usersNumber,
+      u.users_name,
       u.users_type,
       u.users_created_date,
       u.users_address_line1,
@@ -503,25 +510,30 @@
       u.users_password,
       u.users_point,
       c.users_passbook
-      FROM tbl_users u
+     FROM tbl_users u
  LEFT JOIN tbl_normal_users n ON u.users_number = n.users_number
  LEFT JOIN tbl_care_users   c ON u.users_number = c.users_number
-     WHERE u.users_number = #{value}
+     WHERE u.users_number = #{usersNumber}
   ]]></select>
-  
-  <update id="adminUserNameUpdate" parameterType="AdminUserManagerDTO">
-  	UPDATE TBL_USERS 
-	SET USERS_NAME = #{usersName}
-	WHERE USERS_NUMBER = #{usersNumber}
-  </update>
-  
-  <update id="adminUserPassbookUpdate" parameterType="AdminUserManagerDTO">
-  	update Tbl_care_users
-  	set users_passbook = #{usersPassbook}
-  	where users_number = #{usersNumber}
-  </update>
 
-   <select id="adminNoticeListSearch" parameterType="map" resultType="AdminNoticeListDTO">
+   <update id="adminUserNameUpdate"
+      parameterType="AdminUserManagerDTO">
+      UPDATE TBL_USERS
+      SET USERS_NAME = #{usersName}
+      WHERE
+      USERS_NUMBER = #{usersNumber}
+   </update>
+
+   <update id="adminUserPassbookUpdate"
+      parameterType="AdminUserManagerDTO">
+      update Tbl_care_users
+      set users_passbook =
+      #{usersPassbook}
+      where users_number = #{usersNumber}
+   </update>
+
+   <select id="adminNoticeListSearch" parameterType="map"
+      resultType="AdminNoticeListDTO">
    <![CDATA[
       SELECT *
       FROM (
@@ -552,43 +564,50 @@
     ]]>
 
 
-	</insert>
-	
-	<!-- 공지사항 수정 -->
-	<update id="adminNoticeListUpdate" parameterType="AdminUserManagerDTO">
-		update tbl_notices
-		set notice_title = #{noticeTitle}, notice_content = #{noticeContent}
-		where notice_number = #{noticeNumber}
-	</update>
-	
-	<!-- 공지사항 삭제 -->
-	<delete id="adminNoticeListDelete" parameterType="int">
-		delete from tbl_notices
-		where notice_number = #{noticeNumber}
-	</delete>
-	
-	<!-- 신고글 전체 조회 -->
-	<select id="adminReportListSelect" resultType="AdminReportListDTO">
-		SELECT 
-		    posts_number,
-		    posts_title ,
-		    posts_created_date,
-		    posts_report_count
-		FROM tbl_posts
-		WHERE posts_report_count <![CDATA[>]]> 4
-	</select>
-	
-	<!-- 찜 목록 전체 개수 -->
-	 <select id="reportTotal" resultType="int">
-		SELECT COUNT(*) FROM TBL_POSTS WHERE posts_report_count <![CDATA[>]]> 4
-	</select>
-	
-	<!-- 신고글 삭제 -->
-	<delete id="adminReportListDelete" parameterType="int">
-		delete from tbl_posts
-		where posts_number = #{postNumber}
-	</delete>
-	
+   </insert>
+
+   <!-- 공지사항 수정 -->
+   <update id="adminNoticeListUpdate"
+      parameterType="AdminUserManagerDTO">
+      update tbl_notices
+      set notice_title = #{noticeTitle},
+      notice_content = #{noticeContent}
+      where notice_number = #{noticeNumber}
+   </update>
+
+   <!-- 공지사항 삭제 -->
+   <delete id="adminNoticeListDelete" parameterType="int">
+      delete from
+      tbl_notices
+      where notice_number = #{noticeNumber}
+   </delete>
+
+   <!-- 신고글 전체 조회 -->
+   <select id="adminReportListSelect"
+      resultType="AdminReportListDTO">
+      SELECT
+      posts_number,
+      posts_title ,
+      posts_created_date,
+      posts_report_count
+      FROM tbl_posts
+      WHERE posts_report_count <![CDATA[>]]>
+      4
+   </select>
+
+   <!-- 찜 목록 전체 개수 -->
+   <select id="reportTotal" resultType="int">
+      SELECT COUNT(*) FROM TBL_POSTS WHERE posts_report_count <![CDATA[>]]>
+      4
+   </select>
+
+   <!-- 신고글 삭제 -->
+   <delete id="adminReportListDelete" parameterType="int">
+      delete from
+      tbl_posts
+      where posts_number = #{postNumber}
+   </delete>
+
    <!-- ==================== [News Banners] ==================== -->
    <select id="bannerCountAll" resultType="int"><![CDATA[
     SELECT COUNT(*) FROM tbl_news_banners
@@ -839,10 +858,12 @@
      SET status = 'R'
    WHERE point_return_id = #{pointReturnId}
 ]]></update>
-  <select id="reportDetail" resultType="AdminReportListDTO">
-  select * from tbl_posts p join tbl_users u 
-  ON p.users_number = u.users_number where p.posts_number = #{postsNumber}
-  </select>
-  
- 
+
+   <select id="reportDetail" resultType="AdminReportListDTO">
+      select * from tbl_posts p
+      join tbl_users u
+      ON p.users_number = u.users_number where
+      p.posts_number = #{postsNumber}
+
+   </select>
 </mapper>
