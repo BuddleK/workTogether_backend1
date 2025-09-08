@@ -582,7 +582,7 @@
 	<select id="reportTotal" resultType="int">
 		SELECT COUNT(*) FROM TBL_POSTS WHERE posts_report_count <![CDATA[>]]> 4
 	</select>
-		
+	
 	<!-- 신고글 삭제 -->
 	<delete id="adminReportListDelete" parameterType="int">
 		delete from tbl_posts
