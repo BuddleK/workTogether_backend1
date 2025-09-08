@@ -8,10 +8,6 @@
 		SELECT USERS_NUMBER, USERS_NAME, USERS_POSTSAL_CODE, USERS_ADDRESS_LINE1, USERS_ADDRESS_LINE2, USERS_PHONE, USERS_ID, USERS_EMAIL, USERS_PASSWORD FROM RICEBALL.TBL_USERS WHERE USERS_NUMBER = #{usersNumber}
 	</select>
 
-	<select id="checkEmail" resultType="int">
-		SELECT COUNT(USERS_NUMBER) FROM RICEBALL.TBL_USERS WHERE TBL_USERS.USERS_EMAIL = #{usersEmail}
-	</select>
-
 	<update id="modAddress" parameterType="com.wt.app.dto.CareModifyDTO">
 		UPDATE RICEBALL.TBL_USERS SET USERS_POSTSAL_CODE = #{usersPostsalCode}, USERS_ADDRESS_LINE1 = #{usersAddressLine1}, USERS_ADDRESS_LINE2 = #{usersAddressLine2} WHERE USERS_NUMBER = #{usersNumber}
 	</update>
@@ -20,13 +16,28 @@
 		UPDATE RICEBALL.TBL_USERS SET USERS_PHONE = #{usersPhone} WHERE USERS_NUMBER = #{usersNumber}
 	</update>
 
-	<update id="modEmail">
-		UPDATE RICEBALL.TBL_USERS SET USERS_EMAIL = #{usersEmail} WHERE USERS_NUMBER = #{usersNumber}
-	</update>
-
 	<update id="modPassword">
 		UPDATE RICEBALL.TBL_USERS SET USERS_PASSWORD = #{usersPassword} WHERE USERS_NUMBER = #{usersNumber}
 	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 이메일 수정에 필요한 건데 취소함 -->
+<!-- 	<select id="checkEmail" resultType="int">
+		SELECT COUNT(USERS_NUMBER) FROM RICEBALL.TBL_USERS WHERE TBL_USERS.USERS_EMAIL = #{usersEmail}
+	</select> -->
+
+<!-- 	<update id="modEmail">
+		UPDATE RICEBALL.TBL_USERS SET USERS_EMAIL = #{usersEmail} WHERE USERS_NUMBER = #{usersNumber}
+	</update> -->
 
 
 

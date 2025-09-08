@@ -24,10 +24,11 @@ public class CareModifyDAO {
 	}
 	
 	//일치하는 이메일 있는지 확인 0 또는 1 반환
-	public int checkEmail(String usersEmail) {
-		System.out.println("checkEmail - 일치 이메일 count 메소드");
-		return sqlSession.selectOne("careModify.checkEmail", usersEmail);
-	}
+	/*
+	 * public int checkEmail(String usersEmail) {
+	 * System.out.println("checkEmail - 일치 이메일 count 메소드"); return
+	 * sqlSession.selectOne("careModify.checkEmail", usersEmail); }
+	 */
 	// 주소 수정
 	public void modAddress(CareModifyDTO careModifyDTO) {
 		System.out.println("modAddress - 주소 수정 메소드");
@@ -40,13 +41,13 @@ public class CareModifyDAO {
 		int result = sqlSession.update("careModify.modPhone", careModifyDTO);
 		System.out.println("modPhone결과 : " + result);
 	}
-	// 전화번호 수정
-	public void modEmail(CareModifyDTO careModifyDTO) {
-		System.out.println("modEmail - 이메일 수정 메소드");
-		int result = sqlSession.update("careModify.modEmail", careModifyDTO);
-		System.out.println("modEmail결과 : " + result);
-	}
-	// 전화번호 수정
+	// 이메일 수정
+	/* public void modEmail(CareModifyDTO careModifyDTO) {
+	 * System.out.println("modEmail - 이메일 수정 메소드"); int result =
+	 * sqlSession.update("careModify.modEmail", careModifyDTO);
+	 * System.out.println("modEmail결과 : " + result); }
+	 */
+	// 비밀번호 수정
 	public void modPassword(CareModifyDTO careModifyDTO) {
 		System.out.println("modPassword - 비밀번호 수정 메소드");
 		int result = sqlSession.update("careModify.modPassword", careModifyDTO);

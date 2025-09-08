@@ -107,9 +107,15 @@ main {
 }
 #write_button{
   background-color: rgb(60, 61, 122);
-  padding: 7px 40px;
   position: absolute;
   right: 0%;
+  display:flex;
+}
+#write_button a{
+	width:121.5px;
+	height:33px;
+	text-align:center;
+	line-height:33px;
 }
 #write_button_text{
   color: white;

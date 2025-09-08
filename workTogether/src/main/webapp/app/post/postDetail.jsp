@@ -54,7 +54,7 @@
         </div>
       </div>
       <div class="button_area">
-      	<button class="button_list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록으로</a></button>
+      	<a href="${pageContext.request.contextPath}/post/postMain.po"><button class="button_list">목록으로</button></a>
       	<c:choose>
       		<c:when test="${sessionScope.usersNumber == post.getUsersNumber()}">
       			<button type="button" id="button_delete" class="button_delete" data-post-number="${post.getPostsNumber()}" data-context-path="${pageContext.request.contextPath}">삭제</button>
@@ -62,6 +62,7 @@
       		</c:when>
       		<c:otherwise>
 				<!-- 신고 버튼 -->
+
 				<form action="/post/postReport.po" method="get">
       				<div class="del"><button type="button" class="button_del" onclick="del()">신고</button></div>
       			</form>

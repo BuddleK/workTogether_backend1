@@ -21,12 +21,18 @@
   <jsp:include page="/header.jsp" />
 
   <main>
-          <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
-
-    <nav class="main_sidebar">
+    <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
+    <nav class="sidebar">
       <ul>
-        <li><a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
-        <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보 수정</a></li>
+        <li>
+        	<a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp">
+          		<img 
+  				src="${pageContext.request.contextPath}${profilePic.getProfilesFilesPath()}${profilePic.getProfilesFilesName()}${profilePic.getProfilesFilesType()}" 
+  				onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/assets/img/myPageCare/default.png';" 
+  				alt="프로필 이미지">
+        	</a>
+        </li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개정보 수정</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp">찜한 목록</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp">매칭 기록</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMesseage.cp">쪽지함</a></li>
@@ -37,11 +43,21 @@
       </ul>
     </nav>
 
-    <form id="careMark-form" 
-    action="${pageContext.request.contextPath}/myPageCare/careMark.cp" method="post">
+<form id="careMark-form" action="${pageContext.request.contextPath}/myPageCare/careMark.cp" method="post">
           <!-- 마이페이지 제목 -->
+          
 
-      <div class="div_mark">
+	<div class="div_mark"> 
+      
+      <div style="display:block">
+			page=${page}, startPage=${startPage}, endPage=${endPage}, prev=${prev}, next=${next}
+		</div>
+      
+      
+      
+      
+      
+      
         <div class="title">찜한 목록</div>
         <!-- 페이지 분류 제목 -->
 	
@@ -77,16 +93,16 @@
 			              </li>
 			            </ul>
 			          </a>
-			        </nav>
+			     	</nav>
 				</c:forEach>
-        	</c:when>
-        	<c:otherwise>
-   				<div>
-   					<div colspan="5" align="center">등록된 찜이 없습니다.</div>
-   				</div>
+       		</c:when>
+        <c:otherwise>
+   			<div>
+   				<div colspan="3" align="center">등록된 찜이 없습니다.</div>
+   			</div>
    			</c:otherwise>
         </c:choose>
-<!-- 페이지 이동 버튼 -->
+		<!-- 페이지 이동 버튼 -->
         <nav class="page">
           <ul>
             <c:if test="${prev}">
@@ -115,8 +131,12 @@
         <!-- 찜 삭제 버튼 -->
         <div class="div_delete">
           <button type="button" id="btnDelete">찜 삭제</button>
-        </div>
-      </div>
+        </div>	
+        
+        
+        <!-- div_mark 끝 -->
+		</div>
+
     </form>
 
   </main>
@@ -141,7 +161,7 @@
   </div>
   <jsp:include page="/footer.jsp" />
   <script>
-    	let memberNumber = "${sessionScope.memberNumber}";
+/*     	let memberNumber = "${sessionScope.memberNumber}"; */
     </script>
 </body>
 

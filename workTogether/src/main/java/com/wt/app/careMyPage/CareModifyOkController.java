@@ -33,14 +33,14 @@ public class CareModifyOkController implements Execute{
 		String addr1 = request.getParameter("usersAddressLine1");
 		String addr2 = request.getParameter("usersAddressLine2");
 		String phone = request.getParameter("usersPhone");
-		String email = request.getParameter("usersEmail");
+		//String email = request.getParameter("usersEmail");
 		String passwd = request.getParameter("password");
 
 		System.out.println("잘 들어왔나 postal : " + postal);
 		System.out.println("잘 들어왔나 addr1 : " + addr1);
 		System.out.println("잘 들어왔나 addr2 : " + addr2);
 		System.out.println("잘 들어왔나 phone : " + phone);
-		System.out.println("잘 들어왔나 email : " + email);
+		//System.out.println("잘 들어왔나 email : " + email);
 		System.out.println("잘 들어왔나 passwd : " + passwd);
 		
 		
@@ -54,8 +54,8 @@ public class CareModifyOkController implements Execute{
 		//전화번호 넣기
 		updatedCareModifyDTO.setUsersPhone(phone);
 		
-		//이메일 넣기
-		updatedCareModifyDTO.setUsersEmail(email);
+		//이메일 넣기 (취소 예정
+		//updatedCareModifyDTO.setUsersEmail(email);
 		
 		//비밀번호 넣기
 		updatedCareModifyDTO.setUsersPassword(passwd);
@@ -66,12 +66,11 @@ public class CareModifyOkController implements Execute{
 		careModifyDAO.modPhone(updatedCareModifyDTO);
 		
 
-		if(careModifyDAO.checkEmail(email) != 0) {
-			System.out.println(email + "은 있음!");
-		}else {
-			System.out.println(email + "없다! 이메일 수정!");
-			careModifyDAO.modEmail(updatedCareModifyDTO);
-		}
+		/* 이메일 수정에 필요한 분기(취소 예정)
+		 * if(careModifyDAO.checkEmail(email) != 0) { System.out.println(email +
+		 * "은 있음!"); }else { System.out.println(email + "없다! 이메일 수정!");
+		 * careModifyDAO.modEmail(updatedCareModifyDTO); }
+		 */
 		
 		System.out.println("비밀번호 길이 : " + passwd.length());
 		if(passwd.length() != 0) {

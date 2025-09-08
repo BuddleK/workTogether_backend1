@@ -113,8 +113,7 @@
         	<div class="mod">
         		<div>이메일</div>
         		<div>
-        			<input name="usersEmail" id="usersEmail" type="text" placeholder="이메일 입력" value="${careModify.getUsersEmail()}">
-        			<p class="err_message" id="email_error">형식에 맞게 입력해 주세요.</p>
+        			<c:out value="${careModify.getUsersEmail()}"/>
         		</div>
         	</div>
         	<div class="mod">
