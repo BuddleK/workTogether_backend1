@@ -2,15 +2,68 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ===== 모달 참조 =====
   const saveModal = document.getElementById('saveSuccessModal');
-  const notCorrectModal = document.getElementById('notCorecetModal');
+  //const notCorrectModal = document.getElementById('notCorecetModal');
 
   const openSaveModal = () => saveModal?.classList.add('open');
-  const closeSaveModal = () => saveModal?.classList.remove('open');
+  //const closeSaveModal = () => saveModal?.classList.remove('open');
 
   // 닫기 버튼
-  document.getElementById('saveConfirmBtn')?.addEventListener('click', closeSaveModal);
-  document.getElementById('CorrectBtn')?.addEventListener('click', () => notCorrectModal?.classList.remove('open'));
+  //document.getElementById('saveConfirmBtn')?.addEventListener('click', closeSaveModal);
+  //document.getElementById('CorrectBtn')?.addEventListener('click', () => notCorrectModal?.classList.remove('open'));
 
+  //수정 폼
+  const modForm = document.getElementById('mod_form');
+  
+  //수정 완료 모달 확인 버튼
+  const confirmButton = document.getElementById('saveConfirmBtn');
+  
+  confirmButton.addEventListener('click', () =>{
+	modForm.submit();
+  });
+  
+  // 확인 버튼
+  const checkButton = document.getElementById('check');
+  checkButton.addEventListener('click', () =>{
+	if(emailError.style.display == 'block'){
+		alert("이메일 형식을 확인해 주세요");
+		return;
+	}
+	if(passwordError.style.display == 'block'){
+		alert("비밀번호 형식을 확인해 주세요");
+		return;
+	}
+	if(rePasswordError.style.display == 'block'){
+		alert("비밀번호가 일치하지 않습니다");
+		return;
+	}
+
+	// 주소 입력 체크
+	if (!inputPostal.value || !inputAddr1.value || !inputAddr2.value) {
+	  alert("주소를 모두 입력해 주세요");
+	  return;
+	}
+
+	// 전화번호 입력 체크 (11자리 확인)
+	const phoneValue = inputPhone.value;
+	if (!phoneValue) {
+	  alert("전화번호를 입력해 주세요");
+	  return;
+	}
+	if (phoneValue.length !== 11) {
+	  alert("전화번호는 11자리로 입력해 주세요");
+	  return;
+	}
+	openSaveModal();
+  });
+  
+  // 주소 인풋
+  const inputPostal = document.getElementById('usersPostsalCode');
+  const inputAddr1 = document.getElementById('usersAddressLine1');
+  const inputAddr2 = document.getElementById('usersAddressLine2');
+  
+  // 전화번호 인풋
+  const inputPhone = document.getElementById('usersPhone');
+  
   
   const inputEmail = document.getElementById('usersEmail');
   const emailError = document.getElementById('email_error');
@@ -30,11 +83,70 @@ document.addEventListener('DOMContentLoaded', () => {
 		emailError.style.display = 'block';
 	}
   })
+  
+  
+  const inputPw = document.getElementById('rePw');
+  const inputCheckPw = document.getElementById('reCheckPw');
+  const passwordError = document.getElementById('password_error');
+  const rePasswordError = document.getElementById('re_password_error');
+
+  // ===== 비밀번호 검사 (전역 함수) =====
+  function passwordCheck(password) {
+    // 비밀번호: 최소 8자, 숫자, 영문, 특수문자 포함
+    const re = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    return re.test(password);
+  }
+
+  // ===== 비밀번호 입력 검사 =====
+  inputPw.addEventListener('input', () => {
+    const pwValue = inputPw.value;
+    if (passwordCheck(pwValue)) {
+      passwordError.style.display = 'none';
+    } else {
+      passwordError.style.display = 'block';
+    }
+	  const checkPwValue = inputCheckPw.value;
+	  if (checkPwValue === pwValue) {
+	    rePasswordError.style.display = 'none';
+	  } else {
+	    rePasswordError.style.display = 'block';
+	  }
+  });
+
+  // ===== 비밀번호 재입력 일치 여부 검사 =====
+  inputCheckPw.addEventListener('input', () => {
+    const pwValue = inputPw.value;
+    const checkPwValue = inputCheckPw.value;
+    if (checkPwValue === pwValue) {
+      rePasswordError.style.display = 'none';
+    } else {
+      rePasswordError.style.display = 'block';
+    }
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 /*  // ===== 폼 델리게이션 =====
   const form = document.querySelector('form');
   if (!form) return;*/
-
+/*
   form.addEventListener('click', (e) => {
     const btn = e.target.closest('button');
     if (!btn) return;
@@ -141,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6) 그 외 버튼은 기본적으로 저장 모달 (필요 없으면 이 분기 제거하세요)
     openSaveModal();
-  });
+  });*/
 
 
 	

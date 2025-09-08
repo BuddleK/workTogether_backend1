@@ -15,7 +15,7 @@
 <body>
   <jsp:include page="/header.jsp" />
   <main>
-    <form class="context" action="${pageContext.request.contextPath}/post/postWriteOk.po">
+    <form id="write_form" class="context" action="${pageContext.request.contextPath}/post/postWriteOk.po">
       <!-- <form class="post_area"> -->
       <div class="post_title">
         <input id="input_title" name="postTitle" placeholder="제목을 입력하세요">
@@ -25,11 +25,11 @@
       </div>
       <div class="button_area">
         <button type="button" class="list"><a href="${pageContext.request.contextPath}/post/postMain.po">목록</a></button>
-        <button type="submit" class="button_write">작성</button>
+        <button type="button" id="write_button" class="button_write">작성</button>
       </div>
     </form>
   </main>
-  <div class="writecheckmodal">
+  <div id="ask_write_modal" class="writecheckmodal">
     <div class="modal_box">
       <p>작성하시겠습니까?</p>
       <div class="modal_buttons">
@@ -38,11 +38,11 @@
       </div>
     </div>
   </div>
-  <div class="writemodal">
+  <div id="write_ok_modal" class="writemodal">
     <div class="modal_box">
       <p>작성되었습니다</p>
       <div class="modal_buttons">
-        <a href="${pageContext.request.contextPath}/post/postMain.po"><button type="button" id="reportcheck">확인</button></a>
+        <button type="button" id="writeok">확인</button>
       </div>
     </div>
   </div>

@@ -112,6 +112,14 @@ main {
   word-wrap: normal;
 }
 
+.card a{
+	margin:30px;
+}
+.card h1{
+	margin:10px;
+	font-size:20px;
+}
+
 
 .cardlist{
   flex: 0 0 auto;
