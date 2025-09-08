@@ -31,7 +31,7 @@
 	<main>
 		<section class="add_section">
 			<div class="add_data">
-				<div class="title">뉴스제목</div>
+				<div class="title">배너제목</div>
 				<div class="title_content">
 					<c:out value="${banner.bannerTitle}" />
 				</div>
@@ -49,7 +49,6 @@
 			<div class="add_content">
 				<div class="board_title">뉴스내용</div>
 				<div name="news" id="news" placeholder="" readonly>
-					<!-- 배너는 본문 없음 → 이미지 표시 -->
 					<c:choose>
 						<c:when test="${not empty banner.bannerFilesName}">
 							<img
@@ -65,7 +64,7 @@
 			</div>
 
 			<div class="add_link">
-				<div class="add_link_title">뉴스링크</div>
+				<div class="add_link_title">배너링크</div>
 				<input type="text" class="link_input"
 					value="${banner.bannerLinkUrl}" readonly />
 			</div>
