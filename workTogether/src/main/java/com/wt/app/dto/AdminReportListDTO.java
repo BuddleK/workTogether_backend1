@@ -4,8 +4,9 @@ public class AdminReportListDTO {
 	// 신고 테이블
 	private int reportNumber; // 신고 번호
 	private int postsNumber; // 게시물 번호
-	private int usersNumber; // 전체 유저 번호
+	private int reportUsersNumber;
 	// 게시물 테이블
+	private int usersNumber; // 전체 유저 번호
 	private String postsTitle; // 게시물 제목
 	private String postsContent;
 	private int postsViewCount;
@@ -29,6 +30,14 @@ public class AdminReportListDTO {
 
 	public void setPostsNumber(int postsNumber) {
 		this.postsNumber = postsNumber;
+	}
+
+	public int getReportUsersNumber() {
+		return reportUsersNumber;
+	}
+
+	public void setReportUsersNumber(int reportUsersNumber) {
+		this.reportUsersNumber = reportUsersNumber;
 	}
 
 	public int getUsersNumber() {
@@ -97,11 +106,14 @@ public class AdminReportListDTO {
 
 	@Override
 	public String toString() {
-		return "AdminReportListDTO [reportNumber=" + reportNumber + ", postsNumber=" + postsNumber + ", usersNumber="
-				+ usersNumber + ", postsTitle=" + postsTitle + ", postsContent=" + postsContent + ", postsViewCount="
-				+ postsViewCount + ", postsCreatedDate=" + postsCreatedDate + ", postsUpdateDate=" + postsUpdateDate
+		return "AdminReportListDTO [reportNumber=" + reportNumber + ", postsNumber=" + postsNumber
+				+ ", reportUsersNumber=" + reportUsersNumber + ", usersNumber=" + usersNumber + ", postsTitle="
+				+ postsTitle + ", postsContent=" + postsContent + ", postsViewCount=" + postsViewCount
+				+ ", postsCreatedDate=" + postsCreatedDate + ", postsUpdateDate=" + postsUpdateDate
 				+ ", postsReportCount=" + postsReportCount + ", usersName=" + usersName + "]";
 	}
+
+	
 	
 
 	

@@ -35,7 +35,7 @@ public class PostReportController implements Execute{
 		System.out.println("usersNumber : " + usersNumber);
 		System.out.println("postsUsersNumber : " + postsUsersNumber);
 		System.out.println("postNumber : " + postNumber);
-		
+			
 		if(usersNumber == null) {
 			System.out.println("오류 : 로그인 된 사용자가 없습니다");
 			response.sendRedirect("/app/login/loginNormal.jsp");
