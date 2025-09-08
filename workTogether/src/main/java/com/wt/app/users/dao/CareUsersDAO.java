@@ -18,10 +18,14 @@ public class CareUsersDAO {
 
 			if (dto.getLicenseType() != null && dto.getLicenseName() != null && dto.getLicensePath() != null) {
 				sqlSession.insert("CareUsersMapper.insertLicenseFile", dto);
+			} else {
+				throw new IllegalArgumentException("자격증 파일 정보는 필수입니다.");
 			}
 
 			if (dto.getAccountType() != null && dto.getAccountName() != null && dto.getAccountPath() != null) {
 				sqlSession.insert("CareUsersMapper.insertAccountFile", dto);
+			} else {
+				throw new IllegalArgumentException("통장 사본 파일 정보는 필수입니다.");
 			}
 
 			if (dto.getCareAccept() == null)

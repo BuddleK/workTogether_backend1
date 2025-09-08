@@ -1,188 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-   id="WebApp_ID" version="4.0">
-   <display-name>workTogether</display-name>
-   <welcome-file-list>
-      <welcome-file>index.html</welcome-file>
-      <welcome-file>index.jsp</welcome-file>
-      <welcome-file>index.htm</welcome-file>
-      <welcome-file>default.html</welcome-file>
-      <welcome-file>default.jsp</welcome-file>
-      <welcome-file>default.htm</welcome-file>
-      <welcome-file>main.jsp</welcome-file>
-   </welcome-file-list>
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>workTogether</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>main.jsp</welcome-file>
+	</welcome-file-list>
 
-   <servlet>
-      <servlet-name>Admin</servlet-name>
-      <servlet-class>com.wt.app.admin.AdminFrontController</servlet-class>
+	<servlet>
+		<servlet-name>Admin</servlet-name>
+		<servlet-class>com.wt.app.admin.AdminFrontController</servlet-class>
 
-      <multipart-config>
-         <max-file-size>104857600</max-file-size>
-         <max-request-size>209715200</max-request-size>
-         <file-size-threshold>0</file-size-threshold>
-      </multipart-config>
+		<multipart-config>
+			<max-file-size>104857600</max-file-size>
+			<max-request-size>209715200</max-request-size>
+			<file-size-threshold>0</file-size-threshold>
+		</multipart-config>
 
-   </servlet>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>Admin</servlet-name>
-      <url-pattern>*.ad</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Admin</servlet-name>
+		<url-pattern>*.ad</url-pattern>
+	</servlet-mapping>
 
-   <servlet>
-      <servlet-name>AdminTwo</servlet-name>
-      <servlet-class>com.wt.app.admin.AdminTwoFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>AdminTwo</servlet-name>
+		<servlet-class>com.wt.app.admin.AdminTwoFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>AdminTwo</servlet-name>
-      <url-pattern>*.adt</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminTwo</servlet-name>
+		<url-pattern>*.adt</url-pattern>
+	</servlet-mapping>
 
-   <servlet>
-      <servlet-name>Users</servlet-name>
-      <servlet-class>com.wt.app.user.UsersFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>Users</servlet-name>
+		<servlet-class>com.wt.app.user.UsersFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>Users</servlet-name>
-      <url-pattern>*.us</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Users</servlet-name>
+		<url-pattern>*.us</url-pattern>
+	</servlet-mapping>
 
-   <servlet>
-      <servlet-name>CareList</servlet-name>
-      <servlet-class>com.wt.app.careList.CareListFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>CareList</servlet-name>
+		<servlet-class>com.wt.app.careList.CareListFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>CareList</servlet-name>
-      <url-pattern>*.cl</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CareList</servlet-name>
+		<url-pattern>*.cl</url-pattern>
+	</servlet-mapping>
 
-   <servlet>
-      <servlet-name>MyPageNormal</servlet-name>
-      <servlet-class>com.wt.app.normal.mypage.MyPageNormalFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>MyPageNormal</servlet-name>
+		<servlet-class>com.wt.app.normal.mypage.MyPageNormalFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>MyPageNormal</servlet-name>
-      <url-pattern>*.mn</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MyPageNormal</servlet-name>
+		<url-pattern>*.mn</url-pattern>
+	</servlet-mapping>
 
-   <servlet>
-      <servlet-name>Subway</servlet-name>
-      <servlet-class>com.wt.app.subway.SubwayFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>Subway</servlet-name>
+		<servlet-class>com.wt.app.subway.SubwayFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>Subway</servlet-name>
-      <url-pattern>*.sw</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Subway</servlet-name>
+		<url-pattern>*.sw</url-pattern>
+	</servlet-mapping>
 
-   <servlet>
-      <servlet-name>Shops</servlet-name>
-      <servlet-class>com.wt.app.shops.ShopsFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>Shops</servlet-name>
+		<servlet-class>com.wt.app.shops.ShopsFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>Shops</servlet-name>
-      <url-pattern>*.sh</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Shops</servlet-name>
+		<url-pattern>*.sh</url-pattern>
+	</servlet-mapping>
 
-   <servlet>
-      <servlet-name>Posts</servlet-name>
-      <servlet-class>com.wt.app.posts.PostsFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>Posts</servlet-name>
+		<servlet-class>com.wt.app.posts.PostsFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>Posts</servlet-name>
-      <url-pattern>*.po</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Posts</servlet-name>
+		<url-pattern>*.po</url-pattern>
+	</servlet-mapping>
 
-   <servlet>
-      <servlet-name>Favorite</servlet-name>
-      <servlet-class>com.wt.app.shops.FavoriteFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>Favorite</servlet-name>
+		<servlet-class>com.wt.app.shops.FavoriteFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>Favorite</servlet-name>
-      <url-pattern>*.fa</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Favorite</servlet-name>
+		<url-pattern>*.fa</url-pattern>
+	</servlet-mapping>
 
-   <servlet>
-      <servlet-name>CareMyPage</servlet-name>
-      <servlet-class>com.wt.app.careMyPage.CareMyPageFrontController</servlet-class>
-   </servlet>
+	<servlet>
+		<servlet-name>CareMyPage</servlet-name>
+		<servlet-class>com.wt.app.careMyPage.CareMyPageFrontController</servlet-class>
+	</servlet>
 
-   <servlet-mapping>
-      <servlet-name>CareMyPage</servlet-name>
-      <url-pattern>*.cp</url-pattern>
-   </servlet-mapping>
-
-
-   <servlet>
-      <servlet-name>Map</servlet-name>
-      <servlet-class>com.wt.app.map.MapFrontController</servlet-class>
-   </servlet>
-
-   <servlet-mapping>
-      <servlet-name>Map</servlet-name>
-      <url-pattern>*.ma</url-pattern>
-   </servlet-mapping>
-
-   <servlet>
-      <servlet-name>News</servlet-name>
-      <servlet-class>com.wt.app.news.NewsFrontController</servlet-class>
-   </servlet>
-
-   <servlet-mapping>
-      <servlet-name>News</servlet-name>
-      <url-pattern>*.ne</url-pattern>
-   </servlet-mapping>
-
-   <servlet>
-      <servlet-name>Comments</servlet-name>
-      <servlet-class>com.wt.app.comment.CommentFrontController</servlet-class>
-   </servlet>
-
-   <servlet-mapping>
-      <servlet-name>Comments</servlet-name>
-      <url-pattern>*.co</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CareMyPage</servlet-name>
+		<url-pattern>*.cp</url-pattern>
+	</servlet-mapping>
 
 
+	<servlet>
+		<servlet-name>Map</servlet-name>
+		<servlet-class>com.wt.app.map.MapFrontController</servlet-class>
+	</servlet>
 
-   <servlet>
-      <servlet-name>Reply</servlet-name>
-      <servlet-class>com.wt.app.posts.PostReplyFrontController</servlet-class>
-   </servlet>
+	<servlet-mapping>
+		<servlet-name>Map</servlet-name>
+		<url-pattern>*.ma</url-pattern>
+	</servlet-mapping>
 
-   <servlet-mapping>
-      <servlet-name>Reply</servlet-name>
-      <url-pattern>*.re</url-pattern>
-   </servlet-mapping>
+	<servlet>
+		<servlet-name>News</servlet-name>
+		<servlet-class>com.wt.app.news.NewsFrontController</servlet-class>
+	</servlet>
 
-   <servlet>
-      <servlet-name>Main</servlet-name>
-      <servlet-class>com.wt.app.main.MainFrontController</servlet-class>
-   </servlet>
+	<servlet-mapping>
+		<servlet-name>News</servlet-name>
+		<url-pattern>*.ne</url-pattern>
+	</servlet-mapping>
 
-   <servlet-mapping>
-      <servlet-name>Main</servlet-name>
-      <url-pattern>*.main</url-pattern>
-   </servlet-mapping>
+	<servlet>
+		<servlet-name>Comments</servlet-name>
+		<servlet-class>com.wt.app.comment.CommentFrontController</servlet-class>
+	</servlet>
 
-   <servlet>
-      <servlet-name>Heart</servlet-name>
-      <servlet-class>com.wt.app.careList.CareListHeartFrontController</servlet-class>
-   </servlet>
+	<servlet-mapping>
+		<servlet-name>Comments</servlet-name>
+		<url-pattern>*.co</url-pattern>
+	</servlet-mapping>
 
-   <servlet-mapping>
-      <servlet-name>Heart</servlet-name>
-      <url-pattern>*.he</url-pattern>
-   </servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Reply</servlet-name>
+		<servlet-class>com.wt.app.posts.PostReplyFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Reply</servlet-name>
+		<url-pattern>*.re</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Main</servlet-name>
+		<servlet-class>com.wt.app.main.MainFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Main</servlet-name>
+		<url-pattern>*.main</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Heart</servlet-name>
+		<servlet-class>com.wt.app.careList.CareListHeartFrontController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Heart</servlet-name>
+		<url-pattern>*.he</url-pattern>
+	</servlet-mapping>
 
 
 
