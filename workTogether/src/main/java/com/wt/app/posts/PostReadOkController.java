@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.dto.PostsDTO;
+import com.wt.app.posts.dao.PostReplyDAO;
 import com.wt.app.posts.dao.PostsDAO;
 
 public class PostReadOkController implements Execute {
@@ -64,6 +65,12 @@ public class PostReadOkController implements Execute {
 			postsDTO.setPostsUpdatedDate("-");
 		}
 		
+		
+//		황승우 댓글 갯수떄문에 수정
+		PostReplyDAO dao = new PostReplyDAO();
+		int to = dao.total(postsNumber);
+		request.setAttribute("to", to);
+		System.out.println(to);
 		request.setAttribute("post", postsDTO);
 		result.setPath("/app/post/postDetail.jsp");
 		result.setRedirect(false);

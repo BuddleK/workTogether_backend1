@@ -22,7 +22,8 @@
 	<jsp:include page="/header.jsp" />
 	<main>
 		<!-- 메뉴 사이드바 섹션 -->
-		<nav class="main_sidebar">
+		<jsp:include page="sidebar.jsp"></jsp:include>
+		<%-- <nav class="main_sidebar">
 			<ul>
 				<li><img
 					src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg"
@@ -50,7 +51,7 @@
 				<li><a href="/myPageNormal/normalExit.mn">회원
 						탈퇴</a></li>
 			</ul>
-		</nav>
+		</nav> --%>
 		<form action="" method="get">
 			<!-- 메뉴 제목 -->
 			<div class="div_mark">

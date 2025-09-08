@@ -15,14 +15,15 @@
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
-<script defer
-	src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalsendMesseage.js"></script>
+ <script defer
+	src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalsendMesseage.js"></script> 
 </head>
 <body>
 	<jsp:include page="/header.jsp" />
 	<main>
 		<!-- 메뉴 사이드바 섹션 -->
-		<nav class="main_sidebar">
+		<jsp:include page="sidebar.jsp"></jsp:include>
+		<%-- <nav class="main_sidebar">
 			<ul>
 				<li><img
 					src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg"
@@ -50,8 +51,8 @@
 				<li><a href="${pageContext.request.contextPath}/normalQuit.jsp">회원
 						탈퇴</a></li>
 			</ul>
-		</nav>
-		<form action="" method="get">
+		</nav> --%>
+		<form action="/myPageNormal/normalMsgDeleteList.mn" method="get">
 			<div class="div_mark">
 				<!-- 메뉴 제목 -->
 				<div class="title">쪽지함</div>
@@ -59,11 +60,11 @@
 				<nav class="div_choose">
 					<ul>
 						<li class="send"><a
-							href="${pageContext.request.contextPath}/normalsendMesseage.jsp">받은
+							href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn">받은
 								쪽지</a></li>
 						<li>|</li>
 						<li class="reseive"><a
-							href="${pageContext.request.contextPath}/normalreseiveMesseage.jsp">보낸
+							href="${pageContext.request.contextPath}/myPageNormal/normalReceiveList.mn">보낸
 								쪽지</a></li>
 					</ul>
 				</nav>
@@ -88,26 +89,22 @@
 				</nav>
 				<!-- 받은 쪽지 목록 리스트 -->
 				<ul class="mark_list">
-
 					<c:forEach var="list" items="${msgList }" varStatus="status">
-
-						<li id="li_${status }"><input class="checkbox_li"
-							name="mark_check" type="checkbox" value="0">
+						<li id="li"><input class="checkbox_li"
+							name="mark_check" type="checkbox" value="${list.messageNumber}">
 							<div class="name">
-								<div>작성자0</div>
+								<div>${list.usersName }</div>
 							</div>
 							<div class="location" onclick="openmesseagemodal()">
-								<div>제목</div>
+								<div>${list.messageContents }</div>
 							</div>
 							<div class="phone">
-								<div>날짜</div>
+								<div>${list.messageDate }</div>
 							</div>
 							<div class="read">
-								<div>읽음 상태</div>
+								<div>${list.isRead }</div>
 							</div></li>
-
 					</c:forEach>
-
 				</ul>
 				<!-- 페이지네이션 -->
 				<nav class="page">
@@ -142,32 +139,34 @@
 				</nav>
 				<!-- 받은 쪽지 삭제 버튼 -->
 				<div class="div_delete">
-					<button type="button" onclick="delMarks()" id="delete">삭제</button>
+					<button type="button" id="delete">삭제</button>
 				</div>
 			</div>
 		</form>
 
 	</main>
 	<!-- 쪽지 row 클릭시 나오는 모달창 -->
-	<div class="modal_bg" id="msgModal">
-		<div class="modal_box">
-			<div class="modal_read">
-				<span class="modal_title">받은 쪽지 읽기</span> <span class="modal_close"
-					onclick="closeMsgModal()">&times;</span>
-			</div>
-			<div class="modal_info">
-				<div class="sender_info">
-					<span>보낸 사람 : </span>티라노사우루스 | <span class="sender_id">Trano</span>
+	<%-- <c:forEach var="list" items="${msgList}" varStatus="status"> 
+		<div class="modal_bg" id="msgModal">
+			<div class="modal_box">
+				<div class="modal_read">
+					<span class="modal_title">받은 쪽지 읽기</span> <span class="modal_close"
+						onclick="closeMsgModal()">&times;</span>
 				</div>
-				<div class="message_content">나는나는 육식 공룡 풀떼기는 안먹지</div>
-			</div>
-			<!-- 해당 모달에 있는 모달창 -->
-			<div class="modal_button">
-				<button class="btn_reply">답장</button>
-				<button class="btn_delete">삭제</button>
+				<div class="modal_info">
+					<div class="sender_info">
+						<span>보낸 사람 : </span>${msgList.usersName } | <!-- <span class="sender_id">Trano</span> -->
+					</div>
+					<div class="message_content">${msgList.messageContents }</div>
+				</div>
+				<!-- 해당 모달에 있는 모달창 -->
+				<div class="modal_button">
+					<button class="btn_reply">답장</button>
+					<button class="btn_delete">삭제</button>
+				</div>
 			</div>
 		</div>
-	</div>
+	 </c:forEach>  --%>
 	<!-- 답장 버튼 클릭 시 모달 출력 -->
 	<div class="modal_bg" id="sendMsgModal">
 		<div class="modal_box">

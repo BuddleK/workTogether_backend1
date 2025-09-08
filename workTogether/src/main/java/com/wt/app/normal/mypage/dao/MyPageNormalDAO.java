@@ -121,6 +121,19 @@ public class MyPageNormalDAO {
 	public int getMsgTotal (int usersNumber) {
 		return sqlSession.selectOne("myPageNormal.getMsgTotal", usersNumber);
 	}
+	
+	public List<MessageSRDTO> selectAllReceive(Map<String, Integer> numbers) {
+		List<MessageSRDTO> list = sqlSession.selectList("myPageNormal.selectAllReceive", numbers);
+		return list;
+	}
+	
+	public void deleteMsg(int messageNumber) {
+		sqlSession.delete("myPageNormal.deleteMsg", messageNumber);
+	}
+	
+	public int getReceiveTotal (int usersNumber) {
+		return sqlSession.selectOne("myPageNormal.getReceiveTotal", usersNumber);
+	}
 
 	public List<NormalPostsListDTO> normalPostsListSearch(int usersNumber) {
 		System.out.println("게시물 리스트 조회하기 - normalPostsListSearch 메소드 실행" + usersNumber);
@@ -129,9 +142,8 @@ public class MyPageNormalDAO {
 		return list;
 	}
 
-	public void normalPostsListDelete(NormalPostsListDTO normalPostsListDTO) {
-		System.out.println("게시물 리스트 삭제하기 - normalPostsListDelete 메소드 실행" + normalPostsListDTO);
-		sqlSession.delete("myPageNormal.normalPostsListDelete", normalPostsListDTO);
+	public void normalPostsListDelete(int postNumber) {
+		sqlSession.delete("myPageNormal.normalPostsListDelete", postNumber);
 		System.out.println("게시물 리스트 삭제하기 실행 완료");
 	}
 

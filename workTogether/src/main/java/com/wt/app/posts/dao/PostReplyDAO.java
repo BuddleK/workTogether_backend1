@@ -34,5 +34,10 @@ public class PostReplyDAO {
 		public void delete(int replyNumber) {
 			sqlSession.delete("postReply.replyDelete", replyNumber);
 		}
+		
+		//댓글 총 갯수
+		public int total(int postsNumber) {
+			return sqlSession.selectOne("postReply.cntReply", postsNumber);
+		}
 	
 }

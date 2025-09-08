@@ -23,7 +23,8 @@
 <body>
 	<jsp:include page="/header.jsp" />
 	<main>
-		<nav class="main_sidebar">
+	<jsp:include page="sidebar.jsp"></jsp:include>
+		<%-- <nav class="main_sidebar">
 			<ul>
 				<li><img
 					src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg"
@@ -40,18 +41,18 @@
 						기록</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn">쪽지함</a></li>
-				<li><a href="/myPageNormal/normalPostsList.mn">게시글
+				<li><a href="${pageContext.request.contextPath}/myPageNormal/normalPostsList.mn">게시글
 						관리</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/normalPoint.jsp">포인트
 						충전</a></li>
 				<li><a
-					href="/myPageNormal/normalReferenceInsert.mn">1
+					href="${pageContext.request.contextPath}/myPageNormal/normalReferenceInsert.mn">1
 						대 1 문의</a></li>
 				<li><a href="/myPageNormal/normalExit.mn">회원
 						탈퇴</a></li>
 			</ul>
-		</nav>
+		</nav> --%>
 		<form action="/myPageNormal/normalfavoriteListDeleteOk.mn" method="get">
 			<div class="div_mark">
 				<div class="title">찜한 목록</div>
