@@ -64,7 +64,10 @@
 				<!-- 신고 버튼 -->
 
 				<form action="/post/postReport.po" method="get">
-      				<div class="del"><button type="button" class="button_del" onclick="del()">신고</button></div>
+      				<div class="del"><button type="button" class="button_del"
+      				data-post-number="${post.getPostsNumber()}" 
+        			data-post-user-number="${post.getUsersNumber()}"
+        			data-context-path="${pageContext.request.contextPath}">신고</button></div>
       			</form>
 			</c:otherwise>
 		</c:choose>
@@ -105,7 +108,7 @@
     <div class="modal_box">
       <p>이 게시글을  신고하시겠습니까?</p>
       <div class="exit-value">
-              <select class="exit-select">
+              <select class="exit-select" id="reportReasonSelect">
                 <option disabled selected>신고 사유를 입력하여 주십시오.</option>
                 <option>부적절한 글이 포함되어 있습니다.</option>
                 <option>부적절한 행동이 포함되어 있습니다.</option>
@@ -113,8 +116,8 @@
               </select>
             </div>
       <div class="modal_buttons">
-        <button id="check">확인</button>
-        <button id="cancle">취소</button>
+        <button id="editcheck">확인</button>
+        <button id="editcancle">취소</button>
       </div>
     </div>
   </div> 
