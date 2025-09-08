@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +32,9 @@
 				<div class="title">
 					<h1>회원관리</h1>
 				</div>
-				<form action="${pageContext.request.contextPath}/admin/adminUserManagerList.ad" method="post">
+				<form
+					action="${pageContext.request.contextPath}/admin/adminUserManagerList.ad"
+					method="post">
 					<div class="searchbox">
 						<select name="column" id="" class="search_column">
 							<option value="number">회원 번호</option>
@@ -60,32 +62,38 @@
 								<c:choose>
 									<c:when test="${not empty userList}">
 										<c:forEach var="users" items="${userList}">
-											<div class="users-row" style="display:flex; flex-direction:row; border-bottom: 1px">
+											<div class="users-row"
+												style="display: flex; flex-direction: row; text-align: center; border-bottom: 1px solid black">
 												<div class="users-item body_number">
 													<c:out value="${users.usersNumber}" />
 												</div>
 												<div class="users-item body_name">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
+													<a
+														href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
 														<c:out value="${users.usersName}" />
 													</a>
 												</div>
 												<div class="users-item body_id">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
+													<a
+														href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
 														<c:out value="${users.usersId}" />
 													</a>
 												</div>
 												<div class="users-item body_email">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
+													<a
+														href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
 														<c:out value="${users.usersEmail}" />
 													</a>
 												</div>
 												<div class="users-item body_phone">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
+													<a
+														href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
 														<c:out value="${users.usersPhone}" />
 													</a>
 												</div>
 												<div class="users-item body_type">
-													<a href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
+													<a
+														href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
 														<c:choose>
 															<c:when test="${ users.usersType == 'C'}">
 																<c:out value="돌봄" />
@@ -112,24 +120,19 @@
 						</div>
 					</div>
 					<div class="paging_box">
-						<ul class="paging">
-							<!-- <li class="prev"><a href="">&lt;</a></li>
-							<li class="page_number"><a href="">1</a></li>
-							<li class="page_number"><a href="">2</a></li>
-							<li class="page_number"><a href="">3</a></li>
-							<li class="page_number"><a href="">4</a></li>
-							<li class="page_number">...</li>
-							<li class="next"><a href="">&gt;</a></li> -->
-
+						<ul class="paging" style="margin: 0px auto;">
 							<c:if test="${prev}">
-								<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad?page=${startPage - 1}"
+								<li><a
+									href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad?page=${startPage - 1}"
 									class="prev">&lt;</a></li>
 							</c:if>
-							<c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
+							<c:set var="realStartPage"
+								value="${startPage < 0 ? 0 : startPage}" />
 							<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
 								<c:choose>
 									<c:when test="${!(i == page) }">
-										<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad?page=${i}">
+										<li><a
+											href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad?page=${i}">
 												<c:out value="${i}" />
 										</a></li>
 									</c:when>
@@ -140,12 +143,14 @@
 								</c:choose>
 							</c:forEach>
 							<c:if test="${next}">
-								<li><a href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad?page=${endPage + 1}"
+								<li><a
+									href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad?page=${endPage + 1}"
 									class="next">&gt;</a>
 							</c:if>
-						</div>
+						</ul>
 					</div>
 				</div>
+			</div>
 		</section>
 	</main>
 

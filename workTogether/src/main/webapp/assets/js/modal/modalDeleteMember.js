@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // html 문서에 모달 불러오기
-  fetch('./../../app/modal/modalDeleteMember.jsp')
+  fetch('${pageContext.request.contextPath}/app/modal/modalDeleteMember.jsp')
     .then(response => response.text())
     .then(data => {
       document.getElementById('modalDeleteMember').innerHTML = data;
@@ -29,7 +29,7 @@ function modalDeleteMemberNone(){
   document.onkeydown = null; // onkeydown 이벤트 제거
 }
 // 링크이동
-const link = "./../../app/admin/userManager.jsp"
+const link = "${pageContext.request.contextPath}/admin/adminUserManagerList.ad"
 function linkHref() {
   location.href=link;
 }

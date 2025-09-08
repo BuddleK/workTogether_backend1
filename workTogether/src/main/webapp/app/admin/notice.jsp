@@ -78,43 +78,45 @@
 									<li class="body_date">
 									<a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp?noticeNumber=${notice.noticeNumber}">
 											${notice.noticeCreatedDate} </a></li>
-									<%-- <li class="body_delete">
+									<li class="body_delete">
 										<button class="delete_btn"
 											onclick="modalDeleteNoticeShow(${notice.noticeNumber})"
 											type="button">삭제</button>
-									</li> --%>
+									</li>
 								</ul>
 							</c:forEach>
 						</div>
 					</div>
 
 					<div class="paging_box">
-						<c:if test="${prev}">
-							<li><a
-								href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${startPage - 1}"
-								class="prev">&lt;</a></li>
-						</c:if>
-						<c:set var="realStartPage"
-							value="${startPage < 0 ? 0 : startPage}" />
-						<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
-							<c:choose>
-								<c:when test="${!(i == page) }">
-									<li><a
-										href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${i}">
-											<c:out value="${i}" />
-									</a></li>
-								</c:when>
-								<c:otherwise>
-									<li><a href="#" class="active"> <c:out value="${i}" />
-									</a></li>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-						<c:if test="${next}">
-							<li><a
-								href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${endPage + 1}"
-								class="next">&gt;</a>
-						</c:if>
+						<ul class="paging" style="margin: 0px auto;">
+							<c:if test="${prev}">
+								<li><a
+									href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${startPage - 1}"
+									class="prev">&lt;</a></li>
+							</c:if>
+							<c:set var="realStartPage"
+								value="${startPage < 0 ? 0 : startPage}" />
+							<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+								<c:choose>
+									<c:when test="${!(i == page) }">
+										<li><a
+											href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${i}">
+												<c:out value="${i}" />
+										</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="#" class="active"> <c:out value="${i}" />
+										</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							<c:if test="${next}">
+								<li><a
+									href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${endPage + 1}"
+									class="next">&gt;</a>
+							</c:if>
+						</ul>
 					</div>
 				</div>
 			</div>
