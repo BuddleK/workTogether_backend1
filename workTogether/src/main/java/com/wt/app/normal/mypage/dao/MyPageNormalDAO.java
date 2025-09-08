@@ -1,14 +1,17 @@
 package com.wt.app.normal.mypage.dao;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.MessageSRDTO;
 import com.wt.app.dto.NormalFavoriteListDTO;
 import com.wt.app.dto.NormalHeartListDTO;
 import com.wt.app.dto.NormalMatchingDTO;
+import com.wt.app.dto.NormalMatchingPointDTO;
 import com.wt.app.dto.NormalModifyDTO;
 import com.wt.app.dto.NormalPostsListDTO;
 import com.wt.app.dto.NormalReferenceListDTO;
@@ -85,6 +88,33 @@ public class MyPageNormalDAO {
 		System.out.println("매칭 목록 월별 조회하기 - normalMatchingSearch 메소드 실행");
 		List<NormalMatchingDTO> list = sqlSession.selectList("myPageNormal.monthNormalMatchingSearch",numbers);
 		System.out.println("조회결과 : " + list);
+		return list;
+	}
+	
+	public void matchDelete(int matchNumber) {
+		System.out.println("매칭 취소 지우기");
+		sqlSession.delete("myPageNormal.deleteMatch", matchNumber);
+	}
+	
+	//매칭 완료 메소드
+	public void okMatch(int matchNumber) {
+		System.out.println("매칭 조회");
+		NormalMatchingPointDTO dto = sqlSession.selectOne("myPageNormal.findMatching",matchNumber);
+		int normalNumber = dto.getNormalNumber();
+		int careNumber = dto.getCareNumber();
+		int matchPoints = dto.getMatchPoints();
+		
+		Map<String, Integer> m = new HashMap<>();
+		m.put("normalNumber", normalNumber);
+		m.put("careNumber", careNumber);
+		m.put("matchPoints", matchPoints);
+		sqlSession.update("myPageNormal.minusPointNormal", m);
+		sqlSession.update("myPageNormal.plusPointCare", m);
+		sqlSession.update("myPageNormal.updateStatus",matchNumber);
+	}
+	
+	public List<MessageSRDTO> selectAllMsg(Map<String, Integer> numbers) {
+		List<MessageSRDTO> list = sqlSession.selectList("myPageNormal.selectAllMsg", numbers);
 		return list;
 	}
 

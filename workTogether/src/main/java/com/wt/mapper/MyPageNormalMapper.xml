@@ -152,16 +152,20 @@ ORDER BY
 		m.MATCH_points,
 		m.match_status,
 		to_char(m.match_date,'MM') AS month
-		FROM tbl_matchings m
+		FROM
+		tbl_matchings m
 		LEFT JOIN TBL_USERS u1
-		ON u1.USERS_NUMBER = m.NORMAL_NUMBER
+		ON u1.USERS_NUMBER =
+		m.NORMAL_NUMBER
 		LEFT JOIN TBL_USERS u2
-		ON u2.USERS_NUMBER = m.CARE_NUMBER
+		ON u2.USERS_NUMBER =
+		m.CARE_NUMBER
 		WHERE m.NORMAL_NUMBER = #{usersNumber}
 	</select>
-	
+
 	<!-- 매칭 월별 기록 조회 -->
-	<select id="monthNormalMatchingSearch" resultType="NormalMatchingDTO">
+	<select id="monthNormalMatchingSearch"
+		resultType="NormalMatchingDTO">
 		SELECT
 		match_number,
 		u1.USERS_NAME AS normalName,
@@ -172,12 +176,76 @@ ORDER BY
 		m.match_status,
 		to_char(m.match_date,'MM') AS month
 		FROM tbl_matchings m
-		LEFT JOIN TBL_USERS u1
+		LEFT JOIN
+		TBL_USERS u1
 		ON u1.USERS_NUMBER = m.NORMAL_NUMBER
 		LEFT JOIN TBL_USERS u2
 		ON u2.USERS_NUMBER = m.CARE_NUMBER
-		WHERE m.NORMAL_NUMBER = #{usersNumber}
+		WHERE m.NORMAL_NUMBER =
+		#{usersNumber}
 		and to_char(m.match_date,'MM') = #{month}
+	</select>
+
+	<delete id="deleteMatch" parameterType="int">
+		DELETE FROM TBL_MATCHINGS
+		WHERE MATCH_NUMBER = #{matchNumber}
+	</delete>
+
+
+	<!-- 매칭 번호를 통한 유저 조회 -->
+	<select id="findMatching" resultType="NormalMatchingPointDTO">
+		SELECT
+		match_number,
+		u1.USERS_number AS normalNumber,
+		u2.USERS_number AS careNumber,
+		m.MATCH_points,
+		m.match_status
+		FROM tbl_matchings m
+		LEFT JOIN TBL_USERS
+		u1
+		ON u1.USERS_NUMBER = m.NORMAL_NUMBER
+		LEFT JOIN TBL_USERS u2
+		ON
+		u2.USERS_NUMBER = m.CARE_NUMBER
+		WHERE m.match_number = #{matchNumber}
+	</select>
+
+	<update id="minusPointNormal" parameterType="map">
+		UPDATE TBL_USERS
+		SET
+		USERS_POINT=USERS_POINT - #{matchPoints}
+		WHERE USERS_Number=
+		#{normalNumber}
+	</update>
+
+	<update id="plusPointCare" parameterType="map">
+		UPDATE TBL_USERS
+		SET
+		USERS_POINT=USERS_POINT + #{matchPoints}
+		WHERE USERS_Number=
+		#{careNumber}
+	</update>
+
+	<update id="updateStatus" parameterType="int">
+		UPDATE TBL_MATCHINGS
+		SET
+		MATCH_STATUS='S'
+		WHERE MATCH_NUMBER=#{matchNumber}
+	</update>
+
+	<!-- 쪽지 리스트 불러오기 -->
+	<select id="selectAllMsg" parameterType="int"
+		resultType="MessageSRDTO">
+		<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+		SELECT u.USERS_NAME usersName, m.* FROM TBL_MESSAGE m
+		JOIN tbl_users u ON u.USERS_NUMBER = m.CARE_NUMBER
+		WHERE m.SENDER_TYPE ='C' AND m.NORMAL_NUMBER = #{normalNumber}
+		 ) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
 	</select>
 
 	<!-- 내가 쓴 게시판 목록 조회 -->
