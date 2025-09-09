@@ -25,7 +25,7 @@ public class AdminUserPassbookUpdateOkController implements Execute{
         
         AdminUserManagerDTO adminUserManagerDTO = new AdminUserManagerDTO();
         adminUserManagerDTO.setusersNumber(usersNumber);
-        adminUserManagerDTO.setusersName(usersPassbook);
+        adminUserManagerDTO.setUsersPassbook(usersPassbook);
         
         adminDAO.adminUserPassbookUpdate(adminUserManagerDTO);
         

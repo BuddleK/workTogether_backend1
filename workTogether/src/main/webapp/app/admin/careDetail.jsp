@@ -39,7 +39,7 @@
                 <div class="table_head_name">성명</div>
                 <div class="table_name_detail">
                   <span id="name">${admin.usersName}</span>
-                  <button onclick="modalEditNameShow()" type="button">수정</button>
+                  <button onclick="modalEditNameShow()" type="button" style="cursor: pointer;">수정</button>
                 </div>
                 <!-- 회원 구분 -->
                 <div class="table_member_type">
@@ -113,14 +113,14 @@
 				  <div class="table_head_account">계좌 수정</div>
 				  <div class="table_detail table_pw_detail">
 				    <input type="text" id="passbookInput" placeholder="${admin.usersPassbook}" />
-				    <button class="update_btn" type="button" onclick="updatePassbook()">수정</button>
+				    <button class="update_btn" type="button" onclick="updatePassbook()" style="cursor: pointer;">수정</button>
 				  </div>
 			  </div>
 
             </div>
             <!-- 회원 삭제 -->
             <div class="delete">
-              <button type="button" class="delete_btn" onclick="modalDeleteMemberShow()">삭제</button>
+              <button type="button" class="delete_btn" onclick="modalDeleteMemberShow()" style="cursor: pointer;">삭제</button>
             </div>
             
           </form>
@@ -137,6 +137,10 @@
 			  <input type="hidden" name="usersPassbook" id="hiddenNewPassbook" />
 			</form>
 			
+			<form id="deleteMemberForm" action="${pageContext.request.contextPath}/admin/adminUserDeleteOk.ad"
+			      method="post">
+			  <input type="hidden" name="usersNumber" value="${admin.usersNumber}" />
+			</form>
         </div>
       </section>
     </main>
