@@ -47,6 +47,13 @@ main {
   border: 1px solid black;
 }
 
+.table_content .empty {
+  text-align: center;
+  padding: 60px 0;
+  font-size: 16px;
+  color: #555; 
+}
+
 .board_column {
   width: 90%;
   height: 40px;

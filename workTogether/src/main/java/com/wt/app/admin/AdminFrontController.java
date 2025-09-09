@@ -275,8 +275,16 @@ public class AdminFrontController extends HttpServlet {
 			result = new AdminReferenceDetailController().execute(request, response);
 			break;
 		
+		case "/admin/careCareer/approve.ad":
+		    result = new AdminCareCareerApproveController().execute(request, response);
+		    break;
+
+		case "/admin/careCareer/reject.ad":
+		    result = new AdminCareCareerRejectController().execute(request, response);
+		    break;
 		}
 
+		
 		// 공통 포워딩/리다이렉트
 		if (result != null && result.getPath() != null) {
 			if (result.isRedirect()) {

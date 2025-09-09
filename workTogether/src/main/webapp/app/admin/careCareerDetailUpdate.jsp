@@ -2,13 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>돌봄회원 이력 수정 신청관리</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/admin/" />
+<title>돌봄 이력 신청관리</title>
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/headerAdmin.css" />
 <link rel="stylesheet"
@@ -21,30 +20,24 @@
 	href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
-<script defer
-	src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
-<script defer
-	src="${pageContext.request.contextPath}/assets/js/admin/admin.js"></script>
-<script defer
-	src="${pageContext.request.contextPath}/assets/js/modal/modalCareModifyFinished.js"></script>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
 </head>
 <body>
 	<jsp:include page="/header_admin.jsp" />
 	<main>
 		<div id="sidebar"></div>
+
 		<section class="care_box">
 			<div class="box_title">
-				<h1>돌봄 회원 신청관리</h1>
+				<h1>돌봄 이력 신청관리</h1>
 			</div>
 
-			<!-- 필요하면 usersNumber 전달용 히든값 -->
-			<input type="hidden" id="usersNumber" value="${param.usersNumber}" />
+			<!-- 컨트롤러에서 준 값 -->
+			<input type="hidden" id="usersNumber" value="${usersNumber}" /> <input
+				type="hidden" id="approveAction" value="${approveAction}" /> <input
+				type="hidden" id="rejectAction" value="${rejectAction}" />
 
-			<form
-				action="${pageContext.request.contextPath}/admin/careCareer/detail.ad"
-				method="get" class="table_form">
+			<!-- 테이블 영역: form 제거 -> div로 -->
+			<div class="table_form">
 				<div class="table">
 					<div class="thead">
 						<div class="thead_content thead_name">성명</div>
@@ -65,7 +58,7 @@
 							<c:out value="${user.usersEmail}" />
 						</div>
 
-						<!-- 자격증(첨부파일1) -->
+						<!-- 자격증 -->
 						<div class="tbody_content tbody_detach">
 							<c:choose>
 								<c:when
@@ -78,10 +71,7 @@
 									<button class="download" type="button"
 										onclick="location.href='${licenseDownUrl}'">다운로드</button>
 								</c:when>
-								<c:otherwise>
-                    없음
-                    <button class="download" type="button" disabled>다운로드</button>
-								</c:otherwise>
+								<c:otherwise>없음</c:otherwise>
 							</c:choose>
 						</div>
 
@@ -99,28 +89,65 @@
 										onclick="location.href='${accountDownUrl}'">다운로드</button>
 								</c:when>
 								<c:otherwise>
-                    없음
-                    <button class="download" type="button" disabled>다운로드</button>
+                  없음
+                  <button class="download" type="button" disabled>다운로드</button>
 								</c:otherwise>
 							</c:choose>
 						</div>
 					</div>
-				</div>
 
-				<div class="btn_area">
-					<button class="cancle" onclick="modalCareModifyRejectShow()"
-						type="button">반려 처리</button>
-					<button class="submit" onclick="modalCareModifyFinishedShow()"
-						type="button">돌봄 회원 수정 신청 완료</button>
+					<!-- 버튼 -->
+					<div class="btn_area" style="position: relative; z-index: 1000;">
+						<button id="btnReject" class="cancle" type="button">반려 처리</button>
+						<button id="btnApprove" class="submit" type="button">승인
+							완료</button>
+					</div>
 				</div>
+			</div>
+
+			<!-- 실제 전송용 폼 (숨김) -->
+			<form id="careActionForm" method="post">
+				<input type="hidden" name="usersNumber" value="${usersNumber}">
+				<input type="hidden" name="rejectComment" id="rejectComment">
 			</form>
 		</section>
 	</main>
 
 	<jsp:include page="/footer.jsp" />
 
-	<!-- 모달 영역 -->
-	<div id="modalCareModifyFinished"></div>
-	<div id="modalCareModifyReject"></div>
+	<script>
+    function val(id){ const el=document.getElementById(id); return el?el.value:""; }
+
+    function approveUser(){
+      const approveUrl = val("approveAction");
+      if(!approveUrl){ alert("승인 URL이 없습니다."); return; }
+      if(!confirm("해당 신청을 승인하시겠습니까?")) return;
+
+      const form = document.getElementById("careActionForm");
+      form.action = approveUrl;
+      form.submit();
+      // 서버 리다이렉트 전 표시만 필요하면 아래 주석 해제
+      // alert("승인 처리를 진행합니다.");
+    }
+
+    function rejectUser(){
+      const rejectUrl = val("rejectAction");
+      if(!rejectUrl){ alert("반려 URL이 없습니다."); return; }
+
+      const reason = (prompt("반려 사유를 입력하세요") || "").trim();
+      if(!reason){ alert("반려 사유가 필요합니다."); return; }
+
+      if(!confirm("해당 신청을 반려 처리하시겠습니까?")) return;
+
+      document.getElementById("rejectComment").value = reason;
+
+      const form = document.getElementById("careActionForm");
+      form.action = rejectUrl;
+      form.submit();
+    }
+
+    document.getElementById("btnApprove")?.addEventListener("click", approveUser);
+    document.getElementById("btnReject") ?.addEventListener("click", rejectUser);
+  </script>
 </body>
 </html>

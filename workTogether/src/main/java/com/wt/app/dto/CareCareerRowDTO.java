@@ -1,55 +1,55 @@
 package com.wt.app.dto;
 
 public class CareCareerRowDTO {
-	
+
+	private Integer accountModifyNumber;
 	private Integer usersNumber;
-    private Integer number;
-    private String name;
-    private String userId;
-    private String date;
-    private String status;
+	private String usersName; // ← 추가
+	private String usersId; // ← 추가
+	private String accountCreatedDate; // ← 추가 (TO_CHAR로 문자열 받음)
+	private String reviewStatus;
+	public Integer getAccountModifyNumber() {
+		return accountModifyNumber;
+	}
+	public void setAccountModifyNumber(Integer accountModifyNumber) {
+		this.accountModifyNumber = accountModifyNumber;
+	}
 	public Integer getUsersNumber() {
 		return usersNumber;
 	}
 	public void setUsersNumber(Integer usersNumber) {
 		this.usersNumber = usersNumber;
 	}
-	public Integer getNumber() {
-		return number;
+	public String getUsersName() {
+		return usersName;
 	}
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
 	}
-	public String getName() {
-		return name;
+	public String getUsersId() {
+		return usersId;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUsersId(String usersId) {
+		this.usersId = usersId;
 	}
-	public String getUserId() {
-		return userId;
+	public String getAccountCreatedDate() {
+		return accountCreatedDate;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setAccountCreatedDate(String accountCreatedDate) {
+		this.accountCreatedDate = accountCreatedDate;
 	}
-	public String getDate() {
-		return date;
+	public String getReviewStatus() {
+		return reviewStatus;
 	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setReviewStatus(String reviewStatus) {
+		this.reviewStatus = reviewStatus;
 	}
 	@Override
 	public String toString() {
-		return "CareCareerRowDTO [usersNumber=" + usersNumber + ", number=" + number + ", name=" + name + ", userId="
-				+ userId + ", date=" + date + ", status=" + status + "]";
+		return "CareCareerRowDTO [accountModifyNumber=" + accountModifyNumber + ", usersNumber=" + usersNumber
+				+ ", usersName=" + usersName + ", usersId=" + usersId + ", accountCreatedDate=" + accountCreatedDate
+				+ ", reviewStatus=" + reviewStatus + "]";
 	}
-	
-	
+
 	
 }
