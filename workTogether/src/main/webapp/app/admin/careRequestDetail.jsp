@@ -75,26 +75,20 @@
 							</c:choose>
 						</div>
 					</div>
-					<!-- /.tbody -->
 
-					<!-- 버튼 영역 (테이블 밖) -->
 					<div class="btn_area" style="position: relative; z-index: 1000;">
 						<button id="btnReject" class="cancle" type="button">반려 처리</button>
 						<button id="btnApprove" class="submit" type="button">승인
 							완료</button>
 					</div>
 				</div>
-				<!-- /.table -->
 			</div>
-			<!-- /.table_form -->
 
-			<!-- ✅ 숨은 폼: 하나만 둔다 -->
 			<form id="careActionForm" method="post">
 				<input type="hidden" name="usersNumber" value="${usersNumber}">
 				<input type="hidden" name="rejectComment" id="rejectComment">
 			</form>
 
-			<!-- ✅ JS가 읽을 액션 URL들 -->
 			<input type="hidden" id="approveAction" value="${approveAction}">
 			<input type="hidden" id="rejectAction" value="${rejectAction}">
 			<input type="hidden" id="usersNumber" value="${usersNumber}">
@@ -124,7 +118,7 @@
       document.getElementById("rejectComment").value = reason;
 
       const form = document.getElementById("careActionForm");
-      form.action = rejectUrl; // ex) /App/admin/care/reject.ad?usersNumber=...
+      form.action = rejectUrl;
       form.submit();
     }
 

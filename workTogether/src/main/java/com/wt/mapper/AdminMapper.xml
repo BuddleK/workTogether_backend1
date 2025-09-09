@@ -706,7 +706,6 @@
     DELETE FROM tbl_news_banners WHERE banner_news_number = #{value}
   ]]></delete>
 
-	<!-- 배너 파일 업서트 — DAO: admin.bannerUpsertFile 호출 (파라미터 키: bannerNewsNumber/path/fileName/fileType/sizeBytes) -->
 	<update id="bannerUpsertFile" parameterType="map"><![CDATA[
     MERGE INTO tbl_files_banner f
     USING (SELECT #{bannerNewsNumber} AS id FROM dual) s
@@ -830,8 +829,8 @@
     u.users_name        AS usersName,
     pr.points_amount    AS pointsAmount,
     u.users_point       AS remainPoint,
-    pr.bank_name        AS bankName,          -- ✅ PR 컬럼만 사용
-    pr.account_number   AS accountNumber,     -- ✅ PR 컬럼만 사용
+    pr.bank_name        AS bankName,
+    pr.account_number   AS accountNumber,
     TO_CHAR(pr.requested_at, 'YYYY-MM-DD HH24:MI:SS') AS requestedAt,
     TO_CHAR(pr.refunded_at, 'YYYY-MM-DD HH24:MI:SS')  AS refundedAt,
     pr.status           AS status
@@ -878,4 +877,121 @@
 		p.posts_number = #{postsNumber}
 
 	</select>
+
+	<!-- 장성주 이력수정 매퍼 -->
+	<select id="careCareerListPaged" parameterType="map"
+		resultType="com.wt.app.dto.CareCareerRowDTO">
+		<![CDATA[
+  SELECT *
+  FROM (
+    SELECT ROWNUM AS rnum,
+           am.account_modify_number    AS accountModifyNumber,
+           u.users_number              AS usersNumber,
+           u.users_name                AS usersName,   -- 추가
+           u.users_id                  AS usersId,     -- 추가
+           TO_CHAR(am.account_created_date,'YYYY-MM-DD') AS accountCreatedDate,
+           am.review_status            AS reviewStatus
+    FROM TBL_ACCOUNT_MODIFY am
+    JOIN TBL_USERS u ON u.users_number = am.users_number
+  ]]>
+		<where>
+			<if
+				test="column != null and column != '' and keyword != null and keyword != ''">
+				<choose>
+					<when test="column == 'number'">
+						TO_CHAR(am.account_modify_number) LIKE '%' ||
+						#{keyword} || '%'
+					</when>
+					<when test="column == 'name'">
+						u.users_name LIKE '%' || #{keyword} || '%'
+					</when>
+					<when test="column == 'id'">
+						u.users_id LIKE '%' || #{keyword} || '%'
+					</when>
+					<when test="column == 'date'">
+						TO_CHAR(am.account_created_date,'YYYY-MM-DD') =
+						#{keyword}
+					</when>
+					<when test="column == 'condition'">
+						am.review_status = #{keyword}
+					</when>
+				</choose>
+			</if>
+		</where>
+  <![CDATA[
+    ORDER BY am.account_created_date DESC, am.account_modify_number DESC
+  )
+  WHERE rnum BETWEEN #{startRow} AND #{endRow}
+  ]]>
+	</select>
+
+	<!-- 총 개수 -->
+	<select id="careCareerCount" parameterType="map"
+		resultType="int"><![CDATA[
+  		SELECT COUNT(*)
+    	FROM TBL_ACCOUNT_MODIFY am
+    	JOIN TBL_USERS u ON u.users_number = am.users_number
+  		]]>
+		<where>
+			<if
+				test="column != null and column != '' and keyword != null and keyword != ''">
+				<choose>
+					<when test="column == 'number'">
+						TO_CHAR(am.account_modify_number) LIKE '%' ||
+						#{keyword} || '%'
+					</when>
+					<when test="column == 'name'">
+						u.users_name LIKE '%' || #{keyword} || '%'
+					</when>
+					<when test="column == 'id'">
+						u.users_id LIKE '%' || #{keyword} || '%'
+					</when>
+					<when test="column == 'date'">
+						TO_CHAR(am.account_created_date,'YYYY-MM-DD') =
+						#{keyword}
+					</when>
+					<when test="column == 'condition'">
+						am.review_status = #{keyword}
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+
+	<!-- 상태 변경 (승인/반려/대기) -->
+	<update id="careCareerUpdateStatus" parameterType="map"><![CDATA[
+	UPDATE TBL_ACCOUNT_MODIFY
+	SET REVIEW_STATUS = #{status}
+	WHERE ACCOUNT_MODIFY_NUMBER = #{accountModifyNumber}
+]]></update>
+
+	<!-- 최신 신청 1건 승인(Y) -->
+	<update id="careCareerApproveLatestByUser" parameterType="int"><![CDATA[
+	UPDATE TBL_ACCOUNT_MODIFY am
+	SET am.REVIEW_STATUS = 'Y'
+	WHERE am.users_number = #{value}
+	AND am.account_modify_number = (
+		SELECT account_modify_number FROM (
+             SELECT account_modify_number
+             FROM TBL_ACCOUNT_MODIFY
+             WHERE users_number = #{value}
+             ORDER BY account_created_date DESC, account_modify_number DESC
+           ) WHERE ROWNUM = 1
+         )
+	]]></update>
+
+	<!-- 최신 신청 1건 반려(N) -->
+	<update id="careCareerRejectLatestByUser" parameterType="int"><![CDATA[
+	UPDATE TBL_ACCOUNT_MODIFY am
+    SET am.REVIEW_STATUS = 'N'
+   	WHERE am.users_number = #{value}
+    AND am.account_modify_number = (
+          SELECT account_modify_number FROM (
+             SELECT account_modify_number
+               FROM TBL_ACCOUNT_MODIFY
+              WHERE users_number = #{value}
+              ORDER BY account_created_date DESC, account_modify_number DESC
+           ) WHERE ROWNUM = 1
+         )
+	]]></update>
 </mapper>
