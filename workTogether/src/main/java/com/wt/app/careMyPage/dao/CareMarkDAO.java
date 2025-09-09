@@ -32,9 +32,9 @@ public class CareMarkDAO {
 	}
 	
 	//찜 목록 개수
-	public int markTotal() {
+	public int markTotal(int usersNumber) {
 		System.out.println("찜 개수 조회 - markTotal 메소드 실행");
-		return sqlSession.selectOne("careMark.markTotal");
+		return sqlSession.selectOne("careMark.markTotal", usersNumber);
 	}
 	
 	//찜 목록 삭제

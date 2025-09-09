@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.careMyPage.dao.CareMarkDAO;
+import com.wt.app.careMyPage.dao.CareProfileDAO;
 import com.wt.app.dto.CareMarkDTO;
+import com.wt.app.dto.CareProfilePictureDTO;
 
 public class CareMarkController implements Execute {
 
@@ -24,6 +26,12 @@ public class CareMarkController implements Execute {
 		Result result = new Result();
 		
 		int usersNumber = (Integer) request.getSession().getAttribute("usersNumber"); 
+		
+		//프로필 사진 담아오기
+		CareProfileDAO careProfileDAO = new CareProfileDAO();
+		CareProfilePictureDTO careProfilePictureDTO = new CareProfilePictureDTO();
+		careProfilePictureDTO = careProfileDAO.getProPic(usersNumber);
+		request.setAttribute("profilePic", careProfilePictureDTO);
 		
 		String temp = request.getParameter("page");
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
@@ -47,7 +55,8 @@ public class CareMarkController implements Execute {
 		// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회
 		// 실제 마지막 페이지 번호(realEndPage)를 계산함
 
-		int total = careMarkDAO.markTotal();
+		int total = careMarkDAO.markTotal(usersNumber);
+		System.out.println("찜 개수" + total);
 		int realEndPage = (int) Math.ceil(total / (double) rowCount); // 실제 마지막 페이지(전체 게시글 기준으로 계산)
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount); // 현재 페이지 그룹에서의 마지막 페이지
 		int startPage = endPage - (pageCount - 1); // 현재 페이지 그룹에서의 첫 페이지
