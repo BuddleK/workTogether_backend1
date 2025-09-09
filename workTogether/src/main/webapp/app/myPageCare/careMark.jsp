@@ -48,10 +48,7 @@
           
 
 	<div class="div_mark"> 
-      
-      <div style="display:block">
-			page=${page}, startPage=${startPage}, endPage=${endPage}, prev=${prev}, next=${next}
-		</div>
+ 
       
       
       
@@ -79,7 +76,7 @@
         <c:choose>
         	<c:when test="${not empty markList}">
         		<c:forEach var="mark" items="${markList}">
-			        <nav class="mark_list"><a href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${mark.getShopsNumber()}">
+			        <nav class="mark_list"><a href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${String.valueOf(mark.getFavoritesShopsNumber())}">
 			            <ul>
 			              <li><input type="checkbox"></li>
 			              <li class="name">
@@ -102,8 +99,12 @@
    			</div>
    			</c:otherwise>
         </c:choose>
+        <!-- 찜 삭제 버튼 -->
+        <div class="div_delete">
+          <button type="button" id="btnDelete">찜 삭제</button>
+        </div>	
 		<!-- 페이지 이동 버튼 -->
-        <nav class="page">
+        <div class="pagination">
           <ul>
             <c:if test="${prev}">
           		<li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp?page=${startPage - 1}" class="prev">&lt;</a></li>
@@ -127,11 +128,7 @@
           		<li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp?page=${endPage + 1}" class="next">&gt;</a>
           	</c:if>
           </ul>
-        </nav>
-        <!-- 찜 삭제 버튼 -->
-        <div class="div_delete">
-          <button type="button" id="btnDelete">찜 삭제</button>
-        </div>	
+        </div>
         
         
         <!-- div_mark 끝 -->

@@ -51,7 +51,7 @@
 	
 	<!-- 찜 목록 전체 개수 -->
 	<select id="markTotal" resultType="int">
-		SELECT COUNT(*) FROM TBL_SHOPS_FAVORITES WHERE USERS_NUMBER = #{usersNumber}
+		SELECT COUNT(FAVORITES_NUMBER) FROM RICEBALL.TBL_SHOPS_FAVORITES WHERE USERS_NUMBER = #{usersNumber}
 	</select>
 		
 	
