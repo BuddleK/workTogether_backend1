@@ -5,6 +5,7 @@ public class AdminNoticeListDTO {
 	private int noticeNumber; // 공지 번호
 	private String noticeTitle; // 공지 제목
 	private String adminNumber; // 관리자 번호
+	private String adminName;	// 관리자 이름
 	private int noticeViewCount; // 공지 조회 수
 	private String noticeCreatedDate; // 공지 생성 일
 	// 공지 상세에 보이는 부분
@@ -61,8 +62,16 @@ public class AdminNoticeListDTO {
 	@Override
 	public String toString() {
 		return "AdminNoticeListDTO [noticeNumber=" + noticeNumber + ", noticeTitle=" + noticeTitle + ", adminNumber="
-				+ adminNumber + ", noticeViewCount=" + noticeViewCount + ", noticeCreatedDate=" + noticeCreatedDate
-				+ ", noticeContent=" + noticeContent + "]";
+				+ adminNumber + ", adminName=" + adminName + ", noticeViewCount=" + noticeViewCount
+				+ ", noticeCreatedDate=" + noticeCreatedDate + ", noticeContent=" + noticeContent + "]";
+	}
+
+	public String getAdminName() {
+		return adminName;
+	}
+
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
 	}
 
 }

@@ -233,8 +233,16 @@ public class AdminDAO {
 		sqlSession.update("admin.adminUserPassbookUpdate", adminUserManagerDTO);
 	}
 
+	public void adminUserDelete(int usersNumber) {
+		sqlSession.delete("admin.adminUserDelete", usersNumber);
+	}
+	
 	public List<AdminNoticeListDTO> adminNoticeListSearch(Map<String, Integer> pageMap) {
 		return sqlSession.selectList("admin.adminNoticeListSearch", pageMap);
+	}
+	
+	public List<AdminNoticeListDTO> adminNoticeDetailSearch(int noticeNumber){
+		return sqlSession.selectList("admin.adminNoticeDetail",noticeNumber);
 	}
 
 	public int adminNoticeListInsert(AdminNoticeListDTO adminNoticeListDTO) {
