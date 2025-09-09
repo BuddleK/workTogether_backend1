@@ -51,6 +51,12 @@
 		where POSTS_NUMBER = #{postsNumber}
    </update>
    
+   <delete id="deleteReport" parameterType="map">
+    DELETE FROM TBL_REPORT
+    WHERE REPORT_POST_NUMBER = #{postsNumber}
+    AND REPORT_USERS_NUMBER = #{usersNumber}
+</delete>
+   
    <!--  게시글 추가 -->
 <!--    <insert id="insert" parameterType="BoardDTO">
       INSERT INTO TBL_BOARD (board_number, board_title, board_content, member_number)

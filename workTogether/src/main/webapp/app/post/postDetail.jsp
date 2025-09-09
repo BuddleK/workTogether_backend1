@@ -93,7 +93,10 @@
     </div>
   </main>
     <!-- 게시글 삭제 확인 모달 -->
-<input type="hidden" id="usersNumber" value="<%= request.getSession().getAttribute("usersNumber") %>">
+
+<c:if test="${not empty sessionScope.usersNumber}">
+    <input type="hidden" id="usersNumber" value="${sessionScope.usersNumber}">
+</c:if>
 <div class="checkmodal" id="del_modal">
     <div class="modal_box">
       <p>이 게시글을 삭제하시겠습니까?</p>
@@ -123,7 +126,7 @@
   </div> 
   
   <!-- 자신이 이미 신고한 게시글일때 모달 -->
-  <div class="notmodal" id="editModal">
+  <div class="notmodal" id="noteditModal">
     <div class="modal_box">
       <p>이미 신고한 게시글입니다</p>
       <p>신고를 취소하겠습니까?</p>

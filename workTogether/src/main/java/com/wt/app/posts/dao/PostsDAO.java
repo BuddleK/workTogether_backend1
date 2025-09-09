@@ -1,5 +1,6 @@
 package com.wt.app.posts.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,12 @@ public class PostsDAO {
 		int result = sqlSession.update("posts.updateReport", postsNumber);
 		System.out.println("신고 update 결과 : " + result);
 	}
+	
+	
+	public int deleteReport(Map<String, Object> reportMap) {
+		return sqlSession.delete("posts.deleteReport", reportMap);
+	}
+	
 	
 //	게시글 추가 메소드
 	// 게시글 추가 후 자동으로 생성된 boardNumber 반환 -> 파일 테이블에서도 써야하기 때문에
