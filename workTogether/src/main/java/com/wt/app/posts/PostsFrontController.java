@@ -88,7 +88,12 @@ public class PostsFrontController extends HttpServlet {
 			System.out.println("게시글 신고 요청");
 			result = new PostReportController().execute(request, response);
 			break;
+		case "/post/postReportCancel.po":
+		    System.out.println("게시글 신고 취소 요청");
+		    result = new PostReportCancelController().execute(request, response);
+		    break;
 		}
+		
 		
 		if (result != null) {
 			if (result.isRedirect()) {
