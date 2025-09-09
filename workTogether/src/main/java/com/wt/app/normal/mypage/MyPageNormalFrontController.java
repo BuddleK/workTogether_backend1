@@ -110,9 +110,25 @@ public class MyPageNormalFrontController extends HttpServlet {
 			System.out.println("마이페이지 받은 쪽지리스트 요청");
 			result = new NormalMsgListOkController().execute(request, response);
 			break;
+		case "/myPageNormal/normalMsgDeleteList.mn":
+			System.out.println("마이페이지 받은 쪽지리스트 삭제");
+			result = new NormalMsgDeleteOkController().execute(request, response);
+			break;
+		case "/myPageNormal/normalReceiveList.mn":
+			System.out.println("마이페이지 보낸 쪽지리스트 요청");
+			result = new NormalReceiveListOkController().execute(request, response);
+			break;
+		case "/myPageNormal/normalReceiveDeleteList.mn":
+			System.out.println("마이페이지 보낸 쪽지리스트 삭제");
+			result = new NormalReceiveDeleteOkController().execute(request, response);
+			break;
 		case "/myPageNormal/normalPostsList.mn":
-			System.out.println("마이페이지 일반회원 게시판 리스트 페이지 요청");
+			System.out.println("마이페이지 일반회원 게시판 리스트 페이지 요청 js 팦싱");
 			result = new NormalPostsListController().execute(request, response);
+			break;
+		case "/myPageNormal/normalPostsListOk.mn":
+			System.out.println("마이페이지 일반회원 게시판 리스트 페이지 요청");
+			request.getRequestDispatcher("/app/myPageNormal/normalPost.jsp").forward(request, response);
 			break;
 		case "/myPageNormal/normalPostsListDeleteOk.mn":
 			System.out.println("마이페이지 일반회원 게시판 삭제 완료 요청");
@@ -130,9 +146,15 @@ public class MyPageNormalFrontController extends HttpServlet {
 			System.out.println("마이페이지 일반회원 문의 리스트 페이지 요청");
 			result = new NormalReferenceListController().execute(request, response);
 			break;
+			
+		case "/myPageNormal/normalPoint.mn":
+			System.out.println("마이페이지 일반회원 문의 리스트 페이지 요청");
+			request.getRequestDispatcher("/app/myPageNormal/normalPoint.jsp").forward(request, response);
+			break;
 		case "/myPageNormal/normalExit.mn":
 			System.out.println("마이페이지 일반회원 회원탈퇴 페이지 요청");
-			result = new NormalExitController().execute(request, response);
+			request.getRequestDispatcher("/app/myPageNormal/normalQuit.jsp").forward(request, response);
+			/* result = new NormalExitController().execute(request, response); */
 			break;
 		case "/myPageNormal/normalExitOk.mn":
 			System.out.println("마이페이지 일반회원 회원탈퇴 완료 요청");

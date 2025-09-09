@@ -22,7 +22,8 @@
 	<jsp:include page="/header.jsp" />
 	<main>
 		<!-- 메뉴 사이드바 섹션 -->
-		<nav class="main_sidebar">
+		<jsp:include page="sidebar.jsp"></jsp:include>
+		<!-- <nav class="main_sidebar">
 			<ul>
 				<li><img src="./../../assets/img/myPageNormal/normalMember.jpg"
 					alt="#" /></li>
@@ -36,7 +37,7 @@
 				<li><a href="./normalReference.html">1 대 1 문의</a></li>
 				<li><a href="./normalQuit.html">회원 탈퇴</a></li>
 			</ul>
-		</nav>
+		</nav> -->
 		<div class="div_mark">
 			<!-- 메뉴 제목 -->
 			<div class="title">매칭 기록</div>

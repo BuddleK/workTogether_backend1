@@ -18,13 +18,17 @@
 	</update>
 	
 	<select id="listAll" resultType="PostReplyDTO">
-		SELECT r.reply_number, r.posts_number, r.users_number, r.reply_content, r.reply_created_date, r.reply_updated_date, u.users_type, COALESCE(nu.users_name, cu.users_name) AS users_name
+		SELECT r.reply_number, r.posts_number, r.users_number, r.reply_content, r.reply_created_date, r.reply_updated_date, u.users_type, u.users_name
 		FROM tbl_reply r
 		JOIN tbl_users u ON r.users_number = u.users_number
 		LEFT JOIN tbl_normal_users nu ON u.users_type = 'N' AND u.users_number = nu.users_number
 		LEFT JOIN tbl_care_users cu ON u.users_type = 'C' AND u.users_number = cu.users_number
 		WHERE r.posts_number = #{postsNumber}
 		ORDER BY r.reply_created_date DESC
+	</select>
+	
+	<select id="cntReply" resultType="int" parameterType="int">
+		select count(reply_number) from tbl_reply WHERE posts_number = #{postsNUmber}
 	</select>
 	
 	<delete id="replyDelete">

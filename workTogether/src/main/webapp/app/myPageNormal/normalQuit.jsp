@@ -18,7 +18,8 @@
   <jsp:include page="/header.jsp" />
   <main>
     <!-- 메뉴 사이드바 섹션 -->
-    <nav class="main_sidebar">
+    <jsp:include page="sidebar.jsp"></jsp:include>
+    <%-- <nav class="main_sidebar">
       <ul>
         <li><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
         <li><a href="${pageContext.request.contextPath}/normalPwCheck.jsp">개인정보 수정</a></li>
@@ -31,7 +32,7 @@
         <li><a href="${pageContext.request.contextPath}/normalReference.jsp">1 대 1 문의</a></li>
         <li><a href="${pageContext.request.contextPath}/normalQuit.jsp">회원 탈퇴</a></li>
       </ul>
-    </nav>
+    </nav> --%>
     <div class="div_mark">
       <!-- 메뉴 제목 -->
       <div class="title">회원 탈퇴</div>
@@ -86,7 +87,7 @@
     <div class="modal_box">
       <p>성공적으로 회원을 탈퇴 하셨습니다.</p>
       <div class="modal_buttons">
-        <a href="${pageContext.request.contextPath}/main.jsp"><button type="button" id="doneOkBtn">확인</button></a>
+        <a href="/myPageNormal/normalExitOk.mn"><button type="button" id="doneOkBtn">확인</button></a>
       </div>
     </div>
   </div>

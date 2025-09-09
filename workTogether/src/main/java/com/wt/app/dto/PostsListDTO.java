@@ -1,15 +1,6 @@
 package com.wt.app.dto;
 
 public class PostsListDTO {
-//  valid => 대림으로 들ㄹ어온 사람들 충ㄺ
-	
-//	토크
-//	게시글 번호
-//	게시글 제목
-//	작성자 번호
-//	작성자 이름
-//	조회수
-//	작성일
 	
 	private int rnum;
 	private int postsNumber;
@@ -18,6 +9,8 @@ public class PostsListDTO {
 	private String usersName;
 	private int postsViewCount;
 	private String postsCreatedDate;
+	
+	
 	public int getRnum() {
 		return rnum;
 	}

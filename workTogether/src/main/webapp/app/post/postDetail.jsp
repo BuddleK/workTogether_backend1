@@ -62,7 +62,6 @@
       		</c:when>
       		<c:otherwise>
 				<!-- 신고 버튼 -->
-
 				<form action="/post/postReport.po" method="get">
       				<div class="del"><button type="button" class="button_del"
       				data-post-number="${post.getPostsNumber()}" 
@@ -75,7 +74,7 @@
       </div>
       <div class="reply_area">
         <div class="reply_count">
-          댓글 [2]
+          댓글 [<c:out value="${to}"></c:out>]
         </div>
         <ul class="reply_list" id="reply_ul">
           
@@ -147,4 +146,9 @@
   </div>
   <jsp:include page="/footer.jsp" />
 </body>
+
+<script>
+	window.postsNumber = "${post.postsNumber}"
+	window.usersNumber = "${usersNumber}"
+</script>
 </html>

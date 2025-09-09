@@ -1,27 +1,4 @@
-const markList = document.getElementsByClassName("mark_list");
-markList[0].innerHTML = "";
 
-
-
-for (let i = 0; i < 8; i++) {
-  const li = document.createElement("li");
-  li.id = 'li_' + i;
-
-  let str = ``;
-
-  str += `<input class="checkbox_li" name="mark_check" type="checkbox" value = "`;
-  str += `` + i;
-  str += `"><div class="name"><div>보낸 사람` + i + `</div></div>`;
-  str += `<div class="location" onclick="openmesseagemodal()"><div>제목</div></div>`;
-  str += `<div class="phone"><div>날짜</div></div>`;
-  str += `<div class="read"><div>읽음 상태</div></div>`;
-
-
-  li.innerHTML = str;
-
-  markList[0].appendChild(li);
-
-}
 
 function delMarks() {
   const checkbox = document.querySelectorAll('input[name="mark_check"]');
