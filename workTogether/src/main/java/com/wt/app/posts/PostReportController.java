@@ -34,7 +34,7 @@ public class PostReportController implements Execute{
 	    reportMap.put("reportReason", reportReason);
 	    
 	    int reCount = postsDAO.checkReport(reportMap);
-
+	    System.out.println("reportMap: " + reportMap);
 	    if (reCount == 0) {
 	        postsDAO.insertReport(reportMap);
 	        postsDAO.updateReport(postNumber);
