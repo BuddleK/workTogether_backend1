@@ -531,6 +531,11 @@
 		#{usersPassbook}
 		where users_number = #{usersNumber}
 	</update>
+	
+	<delete id="adminUserDelete" parameterType="int">
+		delete from tbl_users
+		where users_number = #{usersNumber}
+	</delete>
 
 	<select id="adminNoticeListSearch" parameterType="map"
 		resultType="AdminNoticeListDTO">
@@ -546,10 +551,17 @@
      WHERE rnum BETWEEN #{startRow} AND #{endRow}
   ]]></select>
 
-	<select id="adminNoticeDetail" resultType="AdminNoticeListDTO"><![CDATA[
-    SELECT NOTICE_NUMBER , NOTICE_TITLE , ADMIN_NUMBER , NOTICE_VIEW_COUNT ,
-           NOTICE_CREATED_DATE, NOTICE_CONTENT
-      FROM TBL_NOTICES
+	<select id="adminNoticeDetail" parameterType="int" resultType="AdminNoticeListDTO"><![CDATA[
+    SELECT N.NOTICE_NUMBER,
+           N.NOTICE_TITLE,
+           N.ADMIN_NUMBER,
+           A.ADMIN_NAME,
+           N.NOTICE_VIEW_COUNT,
+           N.NOTICE_CREATED_DATE,
+           N.NOTICE_CONTENT
+      FROM TBL_NOTICES N
+      JOIN TBL_ADMINS A ON N.ADMIN_NUMBER = A.ADMIN_NUMBER
+     WHERE N.NOTICE_NUMBER = #{noticeNumber}
   ]]></select>
 
 	<insert id="adminNoticeListInsert"
