@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,16 +21,15 @@
 	src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/admin/noticeDetail.js"></script>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
 </head>
 <body>
 	<jsp:include page="/header_admin.jsp" />
 	<main>
 		<section class="notice_detail">
 			<div class="notice_info">
+			<form action="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad" method="post" class="detail_form" enctype="multipart/form-data">
 				<div class="info_title">
-					<span class="title">${notice.noticeTitle}</span>
+					<span class="title"><c:out value="${notice.noticeTitle}"/></span>
 				</div>
 				<div class="member_info">
 					<div class="member_name_title">작성자명</div>
@@ -49,6 +49,7 @@
 					<button class="update" onclick="modalUpdateShow()" type="button">
 						수정</button>
 				</div>
+			</form>
 			</div>
 		</section>
 	</main>

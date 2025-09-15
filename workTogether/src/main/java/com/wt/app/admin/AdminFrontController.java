@@ -276,11 +276,11 @@ public class AdminFrontController extends HttpServlet {
 			break;
 		
 		case "/admin/careCareer/approve.ad":
-		    result = new AdminCareCareerApproveController().execute(request, response);
+		    result = new AdminCareApproveController().execute(request, response);
 		    break;
 
 		case "/admin/careCareer/reject.ad":
-		    result = new AdminCareCareerRejectController().execute(request, response);
+		    result = new AdminCareRejectController().execute(request, response);
 		    break;
 		}
 
