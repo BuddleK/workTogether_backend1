@@ -1,12 +1,12 @@
 window.addEventListener("DOMContentLoaded", () => {
-  fetch("../../app/admin/sidebar.html")
+  fetch(`${pageContext.request.contextPath}/app/admin/sidebar.jsp`)
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("sidebar").innerHTML = data;
     });
 });
 
-const link = "./../../app/admin/notice.html";
+const link = "${pageContext.request.contextPath}/admin/adminNotice.ad";
 function linkHref() {
   location.href = link;
 }
@@ -15,14 +15,14 @@ function cancle() {
   linkHref();
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+/*window.addEventListener("DOMContentLoaded", () => {
   // html 문서에 모달 불러오기
   fetch("../../app/modal/modalUpdate.html")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("modalUpdate").innerHTML = data;
     });
-});
+});*/
 
 //모달 요소 가져오기
 const modalUpdate = document.getElementById("modalUpdate");

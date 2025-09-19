@@ -242,8 +242,8 @@ public class AdminDAO {
 		return sqlSession.selectList("admin.adminNoticeListSearch", pageMap);
 	}
 	
-	public List<AdminNoticeListDTO> adminNoticeDetailSearch(int noticeNumber){
-		return sqlSession.selectList("admin.adminNoticeDetail",noticeNumber);
+	public AdminNoticeListDTO adminNoticeDetailSearch(int noticeNumber){
+		return sqlSession.selectOne("admin.adminNoticeDetail",noticeNumber);
 	}
 
 	public int adminNoticeListInsert(AdminNoticeListDTO adminNoticeListDTO) {
