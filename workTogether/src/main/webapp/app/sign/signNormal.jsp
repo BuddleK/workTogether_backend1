@@ -101,8 +101,8 @@
 				<div class="sign_box sign_author">
 					<input type="text" placeholder="인증번호 6자리 입력" id="author_number">
 					<div class="timer"></div>
-					<button type="button" onclick="sendMsg()">인증번호 발송</button>
-					<button type="button" onclick="checkMsg()">인증번호 확인</button>
+					<button type="button" id="sendSMSBtn">인증번호 발송</button>
+					<button type="button" id="check">인증번호 확인</button>
 				</div>
 
 				<div class="alert">인증번호가 발송되었습니다.</div>

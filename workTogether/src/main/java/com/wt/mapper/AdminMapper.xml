@@ -531,7 +531,7 @@
 		#{usersPassbook}
 		where users_number = #{usersNumber}
 	</update>
-	
+
 	<delete id="adminUserDelete" parameterType="int">
 		delete from tbl_users
 		where users_number = #{usersNumber}
@@ -551,7 +551,8 @@
      WHERE rnum BETWEEN #{startRow} AND #{endRow}
   ]]></select>
 
-	<select id="adminNoticeDetail" parameterType="int" resultType="AdminNoticeListDTO"><![CDATA[
+	<select id="adminNoticeDetail" parameterType="int"
+		resultType="AdminNoticeListDTO"><![CDATA[
     SELECT N.NOTICE_NUMBER,
            N.NOTICE_TITLE,
            N.ADMIN_NUMBER,
@@ -881,49 +882,49 @@
 	<!-- 장성주 이력수정 매퍼 -->
 	<select id="careCareerListPaged" parameterType="map"
 		resultType="com.wt.app.dto.CareCareerRowDTO">
-		<![CDATA[
   SELECT *
   FROM (
-    SELECT ROWNUM AS rnum,
-           am.account_modify_number    AS accountModifyNumber,
-           u.users_number              AS usersNumber,
-           u.users_name                AS usersName,   -- 추가
-           u.users_id                  AS usersId,     -- 추가
-           TO_CHAR(am.account_created_date,'YYYY-MM-DD') AS accountCreatedDate,
-           am.review_status            AS reviewStatus
-    FROM TBL_ACCOUNT_MODIFY am
-    JOIN TBL_USERS u ON u.users_number = am.users_number
-  ]]>
-		<where>
-			<if
-				test="column != null and column != '' and keyword != null and keyword != ''">
-				<choose>
-					<when test="column == 'number'">
-						TO_CHAR(am.account_modify_number) LIKE '%' ||
-						#{keyword} || '%'
-					</when>
-					<when test="column == 'name'">
-						u.users_name LIKE '%' || #{keyword} || '%'
-					</when>
-					<when test="column == 'id'">
-						u.users_id LIKE '%' || #{keyword} || '%'
-					</when>
-					<when test="column == 'date'">
-						TO_CHAR(am.account_created_date,'YYYY-MM-DD') =
-						#{keyword}
-					</when>
-					<when test="column == 'condition'">
-						am.review_status = #{keyword}
-					</when>
-				</choose>
-			</if>
-		</where>
-  <![CDATA[
-    ORDER BY am.account_created_date DESC, am.account_modify_number DESC
+    SELECT t.*, ROWNUM AS rnum
+    FROM (
+      SELECT
+        am.account_modify_number    AS accountModifyNumber,
+        am.account_files_number     AS accountFilesNumber,
+        am.account_files_name       AS accountFilesName,
+        am.account_files_type       AS accountFilesType,
+        u.users_number              AS usersNumber,
+        u.users_name                AS usersName,
+        u.users_id                  AS usersId,
+        TO_CHAR(am.account_created_date,'YYYY-MM-DD') AS accountCreatedDate,
+        am.review_status            AS reviewStatus
+      FROM TBL_ACCOUNT_MODIFY am
+      JOIN TBL_USERS u ON u.users_number = am.users_number
+      <where>
+        <if test="column != null and column != '' and keyword != null and keyword != ''">
+          <choose>
+            <when test="column == 'number'">
+              TO_CHAR(am.account_modify_number) LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="column == 'name'">
+              u.users_name LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="column == 'id'">
+              u.users_id LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="column == 'date'">
+              TO_CHAR(am.account_created_date,'YYYY-MM-DD') = #{keyword}
+            </when>
+            <when test="column == 'condition'">
+              am.review_status = #{keyword}
+            </when>
+          </choose>
+        </if>
+      </where>
+      ORDER BY am.account_created_date DESC, am.account_modify_number DESC
+    ) t
+    WHERE ROWNUM &lt;= #{endRow}
   )
-  WHERE rnum BETWEEN #{startRow} AND #{endRow}
-  ]]>
-	</select>
+  WHERE rnum &gt;= #{startRow}
+</select>
 
 	<!-- 총 개수 -->
 	<select id="careCareerCount" parameterType="map"
