@@ -16,12 +16,10 @@
     <span>
     	<c:choose>
     		<c:when test="${empty sessionScope.adminNumber}">
-      		<!-- 로그인 메뉴 -->
-      		<a href="${pageContext.request.contextPath}/app/admin/adminLogin.jsp" class="logout"> 로그인 </a>
       	</c:when>
       	<c:otherwise>
       		<!-- 로그아웃 메뉴 -->
-      		<a href="${pageContext.request.contextPath}/app/admin/adminLogin.jsp" class="logout"> 로그아웃 </a>
+      		<a href="${pageContext.request.contextPath}/admin/logoutOk.ad" class="logout"> 로그아웃 </a>
       	</c:otherwise>
       </c:choose>
     </span>
