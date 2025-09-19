@@ -140,7 +140,7 @@ public class AdminFrontController extends HttpServlet {
 		case "/admin/care/fileDownload.ad":
 			System.out.println("첨부파일 다운로드 요청");
 			result = new AdminCareFileDownloadController().execute(request, response);
-			break;
+			return;
 
 			
 		/* =============== [Care 이력 수정] =============== */

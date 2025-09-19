@@ -35,7 +35,6 @@
 				<h1>돌봄 회원 신청관리</h1>
 			</div>
 
-			<!-- ❌ 바깥쪽 form 제거 → div로 변경 -->
 			<div class="table_form">
 				<div class="table">
 					<!-- 헤더 -->
@@ -58,7 +57,8 @@
 							<c:choose>
 								<c:when test="${not empty licenseFileName}">
                   ${licenseFileName}
-                  <a class="download" href="${licenseDownloadUrl}">다운로드</a>
+                  <a class="download" href="${licenseDownloadUrl}"
+										download="${licenseFileName}">다운로드</a>
 								</c:when>
 								<c:otherwise>-</c:otherwise>
 							</c:choose>
@@ -69,7 +69,8 @@
 							<c:choose>
 								<c:when test="${not empty accountFileName}">
                   ${accountFileName}
-                  <a class="download" href="${accountDownloadUrl}">다운로드</a>
+                  <a class="download" href="${accountDownloadUrl}"
+										download="${accountFileName}">다운로드</a>
 								</c:when>
 								<c:otherwise>-</c:otherwise>
 							</c:choose>
@@ -106,7 +107,7 @@
       const form = document.getElementById("careActionForm");
       const approveUrl = val("approveAction");
       if(!approveUrl){ alert("승인 URL이 없습니다."); return; }
-      form.action = approveUrl; 
+      form.action = approveUrl;
       form.submit();
     }
 
@@ -122,7 +123,6 @@
       form.submit();
     }
 
-    // 버튼 바인딩
     document.getElementById("btnApprove")?.addEventListener("click", approveUser);
     document.getElementById("btnReject") ?.addEventListener("click", rejectUser);
   </script>

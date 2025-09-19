@@ -2,11 +2,8 @@ package com.wt.app.user;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-
+import java.nio.file.*;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,11 +16,10 @@ import com.wt.app.users.dao.CareUsersDAO;
 
 public class CareJoinOkController implements Execute {
 
-	// webapp 기준 고정 폴더 (WAR 안)
-	private static final String BASE_WEB_DIR = "/uploads/care";
-	private static final String DIR_LICENSE = BASE_WEB_DIR + "/license";
-	private static final String DIR_PASSBOOK = BASE_WEB_DIR + "/passbook";
-	private static final String DIR_PROFILE = BASE_WEB_DIR + "/profile";
+	private static final String UPLOAD_WEB_DIR = "/upload";
+	private static final String DIR_LICENSE = UPLOAD_WEB_DIR + "/license";
+	private static final String DIR_PASSBOOK = UPLOAD_WEB_DIR + "/passbook";
+	private static final String DIR_PROFILE = UPLOAD_WEB_DIR + "/profile";
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
@@ -34,8 +30,6 @@ public class CareJoinOkController implements Execute {
 
 		try {
 			CareSignDTO dto = new CareSignDTO();
-
-			// 1) 기본 회원 정보
 			dto.setUsersId(request.getParameter("usersId"));
 			dto.setUsersPassword(request.getParameter("usersPassword"));
 			dto.setUsersType("C");
@@ -45,46 +39,42 @@ public class CareJoinOkController implements Execute {
 			dto.setUsersPostsalCode(request.getParameter("usersPostsalCode"));
 			dto.setUsersAddressLine1(request.getParameter("usersAddressLine1"));
 			dto.setUsersAddressLine2(request.getParameter("usersAddressLine2"));
-
-			// 2) 돌봄 상세
 			dto.setCareIntroText(request.getParameter("careIntroText"));
-			dto.setCareAccept("W"); // 대기
+			dto.setCareAccept("W");
 
-			// 3) 업로드 디렉토리 준비 (webapp 실제 경로)
-			String realLicense = ensureDir(request, DIR_LICENSE);
-			String realPass = ensureDir(request, DIR_PASSBOOK);
-			String realProfile = ensureDir(request, DIR_PROFILE);
+			// 무조건 프로젝트의 /src/main/webapp/upload 를 사용 (실행시 실제 경로로 변환)
+			Path baseFs = Paths.get(request.getServletContext().getRealPath(UPLOAD_WEB_DIR));
+			Path fsLicense = baseFs.resolve("license");
+			Path fsPassbook = baseFs.resolve("passbook");
+			Path fsProfile = baseFs.resolve("profile");
+			Files.createDirectories(fsLicense);
+			Files.createDirectories(fsPassbook);
+			Files.createDirectories(fsProfile);
 
-			// 4) 파일 처리 (jpg/png만)
-			// (1) 자격증 (필수)
 			Part licensePart = request.getPart("licenseFile");
-			if (licensePart == null || licensePart.getSize() <= 0) {
+			if (!hasFile(licensePart))
 				throw new IllegalArgumentException("자격증 파일은 필수입니다.");
-			}
-			String licWebPath = saveImage(licensePart, realLicense, DIR_LICENSE);
-			dto.setLicensePath(licWebPath);
-			dto.setLicenseName(getBaseName(licensePart)); // DB 칼럼 설계에 맞게
-			dto.setLicenseType(getExtFromSavedPath(licWebPath)); // "jpg" 또는 "png"
+			String licFileName = saveImage(licensePart, fsLicense);
+			dto.setLicensePath(DIR_LICENSE + "/" + licFileName);
+			dto.setLicenseName(getBaseName(licensePart));
+			dto.setLicenseType(getExtFromFileName(licFileName));
 			dto.setLicenseSizeBytes(licensePart.getSize());
 
-			// (2) 통장 사본 (필수)
 			Part accountPart = request.getPart("accountFile");
-			if (accountPart == null || accountPart.getSize() <= 0) {
+			if (!hasFile(accountPart))
 				throw new IllegalArgumentException("통장 사본 파일은 필수입니다.");
-			}
-			String accWebPath = saveImage(accountPart, realPass, DIR_PASSBOOK);
-			dto.setAccountPath(accWebPath);
+			String accFileName = saveImage(accountPart, fsPassbook);
+			dto.setAccountPath(DIR_PASSBOOK + "/" + accFileName);
 			dto.setAccountName(getBaseName(accountPart));
-			dto.setAccountType(getExtFromSavedPath(accWebPath));
+			dto.setAccountType(getExtFromFileName(accFileName));
 			dto.setAccountSizeBytes(accountPart.getSize());
 
-			// (3) 프로필 (선택)
 			Part profilePart = request.getPart("profileFile");
-			if (profilePart != null && profilePart.getSize() > 0) {
-				String proWebPath = saveImage(profilePart, realProfile, DIR_PROFILE);
-				dto.setProfilePath(proWebPath);
+			if (hasFile(profilePart)) {
+				String proFileName = saveImage(profilePart, fsProfile);
+				dto.setProfilePath(DIR_PROFILE + "/" + proFileName);
 				dto.setProfileName(getBaseName(profilePart));
-				dto.setProfileType(getExtFromSavedPath(proWebPath));
+				dto.setProfileType(getExtFromFileName(proFileName));
 				dto.setProfileSizeBytes(profilePart.getSize());
 			} else {
 				dto.setProfilePath(null);
@@ -93,10 +83,8 @@ public class CareJoinOkController implements Execute {
 				dto.setProfileSizeBytes(null);
 			}
 
-			// 5) 저장
 			new CareUsersDAO().sign(dto);
 
-			// 6) 성공
 			result.setRedirect(true);
 			result.setPath(request.getContextPath() + "/mainOk.main");
 			return result;
@@ -109,37 +97,31 @@ public class CareJoinOkController implements Execute {
 		}
 	}
 
-	/* ===== 유틸 ===== */
-
-	// web 경로를 실제 경로로 바꿔 폴더 생성 후 실제 경로 반환
-	private String ensureDir(HttpServletRequest req, String webDir) {
-		String real = req.getServletContext().getRealPath(webDir);
-		if (real == null)
-			throw new IllegalStateException("realPath null: " + webDir);
-		java.io.File d = new java.io.File(real);
-		if (!d.exists())
-			d.mkdirs();
-		return real;
+	private boolean hasFile(Part p) {
+		return p != null && p.getSize() > 0;
 	}
 
-	// jpg/png만 저장, 고유 파일명 생성, 저장 후 web 경로 반환
-	private String saveImage(Part part, String realDir, String webDir) throws IOException {
+	private String saveImage(Part part, Path fsDir) throws IOException {
 		String submitted = part.getSubmittedFileName();
-		String ext = getExtension(submitted).toLowerCase();
+		if (submitted != null)
+			submitted = Paths.get(submitted).getFileName().toString();
 
-		if (!("jpg".equals(ext) || "jpeg".equals(ext) || "png".equals(ext))) {
+		String ext = getExtension(submitted).toLowerCase();
+		if ("jpeg".equals(ext))
+			ext = "jpg";
+		if (!(ext.equals("jpg") || ext.equals("png"))) {
 			throw new IllegalArgumentException("이미지 파일(jpg/png)만 업로드 가능합니다.");
 		}
-		if ("jpeg".equals(ext))
-			ext = "jpg"; // 정규화
 
-		String saved = System.currentTimeMillis() + "_" + Math.abs(submitted.hashCode()) + "." + ext;
-		Path dest = Paths.get(realDir, saved);
+		String base = sanitizeBaseName(submitted);
+		String unique = System.nanoTime() + "_" + ThreadLocalRandom.current().nextInt(1000, 9999);
+		String saved = base + "_" + unique + "." + ext;
+
+		Path dest = fsDir.resolve(saved);
 		try (InputStream in = part.getInputStream()) {
 			Files.copy(in, dest, StandardCopyOption.REPLACE_EXISTING);
 		}
-		// DB에는 web 경로 저장
-		return webDir + "/" + saved;
+		return saved;
 	}
 
 	private String getExtension(String filename) {
@@ -153,12 +135,26 @@ public class CareJoinOkController implements Execute {
 		String n = part.getSubmittedFileName();
 		if (n == null)
 			return "";
+		n = Paths.get(n).getFileName().toString();
 		int dot = n.lastIndexOf('.');
 		return (dot > 0) ? n.substring(0, dot) : n;
 	}
 
-	private String getExtFromSavedPath(String webPath) {
-		int dot = webPath.lastIndexOf('.');
-		return (dot > -1 && dot < webPath.length() - 1) ? webPath.substring(dot + 1) : "";
+	private String getExtFromFileName(String fileName) {
+		int dot = fileName.lastIndexOf('.');
+		return (dot > -1 && dot < fileName.length() - 1) ? fileName.substring(dot + 1) : "";
+	}
+
+	private String sanitizeBaseName(String filename) {
+		String base = (filename == null) ? "file" : filename;
+		int dot = base.lastIndexOf('.');
+		if (dot > 0)
+			base = base.substring(0, dot);
+		base = base.replaceAll("[^0-9A-Za-z가-힣._-]", "_");
+		if (base.isBlank())
+			base = "file";
+		if (base.length() > 40)
+			base = base.substring(0, 40);
+		return base;
 	}
 }
