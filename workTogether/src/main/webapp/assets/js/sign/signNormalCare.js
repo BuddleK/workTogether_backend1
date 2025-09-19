@@ -106,9 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const phoneInput = document.getElementById("phone") || document.querySelector('input[name="usersPhone"]');
   const verifyInput = document.getElementById("author_number");
   const verifyStatus = document.querySelector(".alert");
-  const timerEl = document.querySelector(".timer");
+  const checkSMS = document.getElementById("check");
+  //const timerEl = document.querySelector(".timer");
 
-  let generatedCode = "";
+/*  let generatedCode = "";
   let timerId = null;
 
   function startTimer(sec = 60) {
@@ -127,9 +128,72 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     }, 1000);
-  }
+  }*/
 
-  function sendMsg(e) {
+  
+  // ===== SMS 발송 (임시 인증번호 생성) =====
+// 처음엔 비활성화
+  const phoneRegex = /^01[016789]-?\d{3,4}-?\d{4}$/;
+  sendBtn.addEventListener("click", function() {
+      const phoneNumberChecker = phoneInput.value.trim();
+      if (phoneInput == null || !phoneRegex.test(phoneNumberChecker)) {
+          alert("핸드폰 번호를 입력해주세요.");
+          return;
+      }
+
+      fetch(`/users/JoinSMSController.us?memberPhoneNumber=${encodeURIComponent(phoneNumberChecker)}`, {
+          method: "GET",
+          headers: {
+              "Accept": "text/plain",
+              "X-Requested-With": "XMLHttpRequest" // 이걸 추가해야 서버를 다시로드 하지 않고 인증번호를 받을 수 있음
+          }
+      })
+          .then(res => {
+              if (!res.ok) throw new Error("발송 실패: " + res.status);
+              return res.text(); // text 형식으로 받음
+          })
+          .then(msg => {
+              // 서버가 성공적으로 처리했을 때만 실행
+              alert(msg);               // 발송 메시지
+              sendBtn.disabled = true;  // 재발송 방지
+          })
+          .catch(err => {
+              // 실패했을 때
+              alert("SMS 발송 중 오류가 발생했습니다.\n" + err);
+              sendBtn.disabled = false; // 다시 시도 가능
+          });
+  });
+  // ===== 인증번호 확인 (서버 대신 로컬 비교) =====
+  checkSMS.addEventListener("click", function() {
+      const codeChecker = verifyInput.value.trim();
+      if (!codeChecker) {
+		alert("인증번호를 입력하세요");
+          return;
+      }
+
+      fetch(`/users/VerifyCodeController.us?verificationCode=${encodeURIComponent(codeChecker)}`, {
+          headers: { "Accept": "text/plain", "X-Requested-With": "XMLHttpRequest"} 
+          }).then(res => {
+                  if (!res.ok) throw new Error("발송 실패: " + res.status);
+                  return res.text(); // text 형식으로 받음
+          })
+          .then(msg => {
+              if (msg.includes("성공")) {
+                 alert("인증 성공");
+				 verifyInput.readOnly = true;       // 인증번호 입력란 잠금
+				 phoneInput.readOnly = true;        // (선택) 휴대폰 번호도 잠그려면 이 줄 추가
+              } else {
+				alert("인증 실패");
+              }
+          })
+          .catch(() => {
+              alert("서버오류");
+          });
+  });
+  
+ 
+ 
+ /* function sendMsg(e) {
     e?.preventDefault?.();
     const phone = (phoneInput?.value || "").trim();
     if (!phone) {
@@ -147,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     startTimer(60);
   }
-  /*  sendBtn?.addEventListener("click", sendMsg); */
+    sendBtn?.addEventListener("click", sendMsg); 
   window.sendMsg = sendMsg;
 
   function checkMsg(e) {
@@ -171,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return ok;
   }
-  window.checkMsg = checkMsg;
+  window.checkMsg = checkMsg;*/
 
   // ===== 제출 전 검증
   form?.addEventListener("submit", function (e) {

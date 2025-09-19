@@ -8,6 +8,9 @@ public class CareCareerRowDTO {
 	private String usersId; // ← 추가
 	private String accountCreatedDate; // ← 추가 (TO_CHAR로 문자열 받음)
 	private String reviewStatus;
+	private Integer accountFilesNumber;
+	private String  accountFilesName;
+	private String  accountFilesType;
 	public Integer getAccountModifyNumber() {
 		return accountModifyNumber;
 	}
@@ -44,12 +47,30 @@ public class CareCareerRowDTO {
 	public void setReviewStatus(String reviewStatus) {
 		this.reviewStatus = reviewStatus;
 	}
+	public Integer getAccountFilesNumber() {
+		return accountFilesNumber;
+	}
+	public void setAccountFilesNumber(Integer accountFilesNumber) {
+		this.accountFilesNumber = accountFilesNumber;
+	}
+	public String getAccountFilesName() {
+		return accountFilesName;
+	}
+	public void setAccountFilesName(String accountFilesName) {
+		this.accountFilesName = accountFilesName;
+	}
+	public String getAccountFilesType() {
+		return accountFilesType;
+	}
+	public void setAccountFilesType(String accountFilesType) {
+		this.accountFilesType = accountFilesType;
+	}
 	@Override
 	public String toString() {
 		return "CareCareerRowDTO [accountModifyNumber=" + accountModifyNumber + ", usersNumber=" + usersNumber
 				+ ", usersName=" + usersName + ", usersId=" + usersId + ", accountCreatedDate=" + accountCreatedDate
-				+ ", reviewStatus=" + reviewStatus + "]";
+				+ ", reviewStatus=" + reviewStatus + ", accountFilesNumber=" + accountFilesNumber
+				+ ", accountFilesName=" + accountFilesName + ", accountFilesType=" + accountFilesType + "]";
 	}
-
 	
 }

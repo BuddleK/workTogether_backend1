@@ -1,7 +1,6 @@
 package com.wt.app.admin;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,67 +13,97 @@ import com.wt.app.dto.AdminCareSignupDTO;
 
 public class AdminCareDetailController implements Execute {
 
+	private static String normExt(String ext) {
+		if (ext == null)
+			return "";
+		ext = ext.trim();
+		if (ext.isEmpty())
+			return "";
+		return ext.startsWith(".") ? ext : "." + ext;
+	}
+
+	private static String leadingSlash(String p) {
+		if (p == null || p.isEmpty())
+			return "";
+		return p.startsWith("/") ? p : "/" + p;
+	}
+
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		System.out.println("==== AdminCareDetailController 실행 ====");
 		Result result = new Result();
-
 		AdminDAO dao = new AdminDAO();
 
-		// 1) 파라미터 확인
 		String usersNumberStr = request.getParameter("usersNumber");
 		if (usersNumberStr == null || usersNumberStr.trim().isEmpty()) {
-			System.out.println("[Detail] usersNumber 파라미터 없음");
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return null;
 		}
-		int usersNumber = Integer.parseInt(usersNumberStr);
 
-		// 2) 단건 조회
+		final int usersNumber;
+		try {
+			usersNumber = Integer.parseInt(usersNumberStr.trim());
+		} catch (NumberFormatException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			return null;
+		}
+
 		AdminCareSignupDTO item = dao.careSignupOne(usersNumber);
 		if (item == null) {
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		}
 
-		// 3) 첨부파일 메타 조회 (null 안전)
+		// 파일 메타
 		AdminCareFileDTO license = null;
 		AdminCareFileDTO account = null;
 
 		Integer certNum = item.getCareCertificateFilesNum();
-		if (certNum != null && certNum > 0) {
+		if (certNum != null && certNum > 0)
 			license = dao.careFileLicense(certNum);
-		}
 
 		Integer passbookNum = item.getCarePassbookFilesNum();
-		if (passbookNum != null && passbookNum > 0) {
+		if (passbookNum != null && passbookNum > 0)
 			account = dao.careFileAccount(passbookNum);
-		}
 
-		// 4) 바인딩
 		request.setAttribute("item", item);
 
+		String ctx = request.getContextPath();
+
+		// 자격증
 		if (license != null) {
-		    request.setAttribute("licenseFileName", license.getFileName());
-		    request.setAttribute("licenseFileNumber", license.getFileNumber());
+			String name = license.getFileName();
+			String ext = normExt(license.getFileType());
+			if (name != null && !name.toLowerCase().endsWith(ext))
+				name = name + ext;
+
+			String path = leadingSlash(license.getFilePath()); // DB 경로 그대로 사용
+			request.setAttribute("licenseFileName", name);
+			request.setAttribute("licenseFileNumber", license.getFileNumber());
+			request.setAttribute("licenseDownloadUrl", ctx + path); // ★ 서블릿 대신 정적 경로
 		}
 
+		// 통장사본
 		if (account != null) {
-		    request.setAttribute("accountFileName", account.getFileName());
-		    request.setAttribute("accountFileNumber", account.getFileNumber());
-		}
-		
-		// 5) 액션 URL
-		request.setAttribute("usersNumber", usersNumber);
-		request.setAttribute("approveAction",
-				request.getContextPath() + "/admin/care/approve.ad?usersNumber=" + usersNumber);
-		request.setAttribute("rejectAction",
-				request.getContextPath() + "/admin/care/reject.ad?usersNumber=" + usersNumber);
-		request.setAttribute("rejectAllAction",
-				request.getContextPath() + "/admin/care/rejectAll.ad?usersNumber=" + usersNumber);
+			String name = account.getFileName();
+			String ext = normExt(account.getFileType());
+			if (name != null && !name.toLowerCase().endsWith(ext))
+				name = name + ext;
 
-		// 6) 포워드
+			String path = leadingSlash(account.getFilePath()); // DB 경로 그대로 사용
+			request.setAttribute("accountFileName", name);
+			request.setAttribute("accountFileNumber", account.getFileNumber());
+			request.setAttribute("accountDownloadUrl", ctx + path); // ★ 서블릿 대신 정적 경로
+		}
+
+		// 버튼 액션
+		request.setAttribute("usersNumber", usersNumber);
+		request.setAttribute("approveAction", ctx + "/admin/care/approve.ad?usersNumber=" + usersNumber);
+		request.setAttribute("rejectAction", ctx + "/admin/care/reject.ad?usersNumber=" + usersNumber);
+		request.setAttribute("rejectAllAction", ctx + "/admin/care/rejectAll.ad?usersNumber=" + usersNumber);
+
 		result.setPath("/app/admin/careRequestDetail.jsp");
 		result.setRedirect(false);
 		return result;

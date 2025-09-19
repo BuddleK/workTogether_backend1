@@ -83,6 +83,7 @@ public class UsersFrontController extends HttpServlet {
 			result = new NormalJoinOkController().execute(request, response);
 			break;
 
+			
 		// ===== 회원가입(돌봄) =====
 		case "/users/joinCare.us":
 			System.out.println("돌봄회원 가입 페이지 요청");
@@ -92,6 +93,16 @@ public class UsersFrontController extends HttpServlet {
 		case "/users/joinCareOk.us":
 			System.out.println("돌봄회원 가입 처리 요청");
 			result = new CareJoinOkController().execute(request, response);
+			break;
+
+		case "/users/JoinSMSController.us":
+			System.out.println("돌봄회원 문자인증");
+			result = new JoinSMSController().execute(request, response);
+			break;
+
+		case "/users/VerifyCodeController.us":
+			System.out.println("돌봄회원 문자인증");
+			result = new VerifyCodeController().execute(request, response);
 			break;
 
 		// ===== 로그인/로그아웃 =====
