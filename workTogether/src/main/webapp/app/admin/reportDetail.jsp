@@ -59,6 +59,24 @@
       	</div>
       </section>
     </main>
+    <div class="checkmodal" id="del_modal">
+      <div class="modal_box">
+      	<p>이 게시글을 삭제하시겠습니까?</p>
+      	<div class="modal_buttons">
+        	<button id="check">확인</button>
+        	<button id="cancle">취소</button>
+      	</div>
+      </div>
+  	</div>
+  	
+  	<div class="reportmodal">
+    	<div class="modal_box">
+      		<p>삭제되었습니다</p>
+      		<div class="modal_buttons">
+        		<button id="reportcheck">확인</button>
+      		</div>
+    	</div>
+  	</div>
     <jsp:include page="/footer.jsp" />
     <div id="modalDeletePostReason"></div>
   </body>
