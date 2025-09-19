@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -36,7 +37,6 @@
 				type="hidden" id="approveAction" value="${approveAction}" /> <input
 				type="hidden" id="rejectAction" value="${rejectAction}" />
 
-			<!-- 테이블 영역: form 제거 -> div로 -->
 			<div class="table_form">
 				<div class="table">
 					<div class="thead">
@@ -63,40 +63,55 @@
 							<c:choose>
 								<c:when
 									test="${not empty licenseFile and not empty licenseFile.fileNumber}">
-									<c:out value="${licenseFile.fileName}" />
-									<c:url var="licenseDownUrl" value="/admin/file/download.ad">
+									<!-- 확장자 붙이기 -->
+									<c:set var="lExt"
+										value="${empty licenseFile.fileType ? '' : licenseFile.fileType}" />
+									<c:if test="${not empty lExt and not fn:startsWith(lExt, '.')}">
+										<c:set var="lExt" value=".${lExt}" />
+									</c:if>
+									<c:out value="${licenseFile.fileName}${lExt}" />
+
+									<!-- 동작 확인된 다운로드 URL 사용 -->
+									<c:url var="licenseDownUrl" value="/admin/care/fileDownload.ad">
 										<c:param name="kind" value="license" />
 										<c:param name="no" value="${licenseFile.fileNumber}" />
 									</c:url>
-									<button class="download" type="button"
-										onclick="location.href='${licenseDownUrl}'">다운로드</button>
+									<a class="download" href="${licenseDownUrl}">다운로드</a>
 								</c:when>
 								<c:otherwise>없음</c:otherwise>
 							</c:choose>
 						</div>
 
 						<!-- 통장사본 -->
+						<!-- 통장사본 -->
 						<div class="tbody_content tbody_account">
 							<c:choose>
 								<c:when
 									test="${not empty accountFile and not empty accountFile.fileNumber}">
-									<c:out value="${accountFile.fileName}" />
-									<c:url var="accountDownUrl" value="/admin/file/download.ad">
+									<!-- 확장자 붙이기 -->
+									<c:set var="aExt"
+										value="${empty accountFile.fileType ? '' : accountFile.fileType}" />
+									<c:if test="${not empty aExt and not fn:startsWith(aExt, '.')}">
+										<c:set var="aExt" value=".${aExt}" />
+									</c:if>
+									<c:out value="${accountFile.fileName}${aExt}" />
+
+									<!-- ✅ 파일번호를 accountFile.fileNumber로 -->
+									<c:url var="accountDownUrl" value="/admin/care/fileDownload.ad">
 										<c:param name="kind" value="account" />
 										<c:param name="no" value="${accountFile.fileNumber}" />
 									</c:url>
-									<button class="download" type="button"
-										onclick="location.href='${accountDownUrl}'">다운로드</button>
+									<a class="download" href="${accountDownUrl}">다운로드</a>
 								</c:when>
 								<c:otherwise>
-                  없음
-                  <button class="download" type="button" disabled>다운로드</button>
+      없음
+      <button class="download" type="button" disabled>다운로드</button>
 								</c:otherwise>
 							</c:choose>
 						</div>
+
 					</div>
 
-					<!-- 버튼 -->
 					<div class="btn_area" style="position: relative; z-index: 1000;">
 						<button id="btnReject" class="cancle" type="button">반려 처리</button>
 						<button id="btnApprove" class="submit" type="button">승인
@@ -122,25 +137,18 @@
       const approveUrl = val("approveAction");
       if(!approveUrl){ alert("승인 URL이 없습니다."); return; }
       if(!confirm("해당 신청을 승인하시겠습니까?")) return;
-
       const form = document.getElementById("careActionForm");
       form.action = approveUrl;
       form.submit();
-      // 서버 리다이렉트 전 표시만 필요하면 아래 주석 해제
-      // alert("승인 처리를 진행합니다.");
     }
 
     function rejectUser(){
       const rejectUrl = val("rejectAction");
       if(!rejectUrl){ alert("반려 URL이 없습니다."); return; }
-
       const reason = (prompt("반려 사유를 입력하세요") || "").trim();
       if(!reason){ alert("반려 사유가 필요합니다."); return; }
-
       if(!confirm("해당 신청을 반려 처리하시겠습니까?")) return;
-
       document.getElementById("rejectComment").value = reason;
-
       const form = document.getElementById("careActionForm");
       form.action = rejectUrl;
       form.submit();
