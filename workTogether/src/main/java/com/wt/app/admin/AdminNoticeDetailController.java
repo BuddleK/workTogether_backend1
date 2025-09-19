@@ -19,11 +19,26 @@ public class AdminNoticeDetailController implements Execute{
 			throws ServletException, IOException {
 		Result result = new Result();
 		
-		int noticeNumber = Integer.parseInt(request.getParameter("noticeNumber"));
+		String noticeNumberStr = request.getParameter("noticeNumber");
+		int noticeNumber = Integer.parseInt(noticeNumberStr);
 		AdminDAO adminDAO = new AdminDAO();
-		List<AdminNoticeListDTO> notice = adminDAO.adminNoticeDetailSearch(noticeNumber); 
+		AdminNoticeListDTO notice = adminDAO.adminNoticeDetailSearch(noticeNumber); 
+		
+		if (noticeNumberStr == null || noticeNumberStr.trim().isEmpty()) {
+			System.out.println("noticeNumber 값이 없습니다");
+			result.setPath("/admin/adminNotice.ad"); // 게시글 목록 페이지로 리다이렉트
+			result.setRedirect(true);
+			return result;
+		}
 		
 		request.setAttribute("notice", notice);
+		
+		if(notice == null) {
+			System.out.println("존재하지 않는 유저 입니다" + noticeNumber);
+			result.setPath("/admin/adminNotice.ad"); // 게시글 목록 페이지로 리다이렉트
+			result.setRedirect(true);
+			return result;
+		}
 		
 		result.setPath("/app/admin/noticeDetail.jsp");
 	    result.setRedirect(false);
