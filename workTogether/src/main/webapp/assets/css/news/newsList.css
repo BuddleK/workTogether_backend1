@@ -66,8 +66,14 @@ main {
 /* 제목 */
 .title {
   font-size: 30px;
-  margin-right: 300px;
-  margin-top: 70px;
+  margin: 40px 0px;
+
+}
+
+.search_result_topmenu{
+	display : flex;
+	align-items : center;
+	justify-content: center;
 }
 
 /* 검색 창 바 */
@@ -78,17 +84,21 @@ main {
 
 /* 전체 카드 리스트 */
 .search_result_card{
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+	width : auto;
+	justify-content: center;
+	align-items : center;
 }
 
 /* 전체 카드 리스트 ul */
 .search_result_card > ul{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
+  width : auto;
+  margin-right : auto;
+  margin-left : auto;
+  justify-content: center;
+	align-items : center;
 }
 
 /* 뉴스 카드 */
@@ -122,15 +132,16 @@ main {
 
 /* 카드 뉴스 내용 */
 .card p {
-  margin: 30px auto;
   text-align: center;
   word-wrap: normal;
 }
 
 .cardtitle{
   font-size: 20px;
+  margin : 10px
 }
 .cardlink{
+	margin : 10px;
 	font-size: 15px;
 	word-break: break-word;
 }

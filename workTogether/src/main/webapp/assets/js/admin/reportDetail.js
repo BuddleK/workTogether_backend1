@@ -1,98 +1,30 @@
-const link = "./../../app/admin/report.html"
-function linkHref() {
-  location.href=link;
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-	const del = document.querySelector('.button_del');
-		const editModal = document.getElementById("editModal");
-		const editcheck = document.getElementById("editcheck");
-		const editcancle = document.getElementById("editcancle");
-		const reportmodal = document.querySelector('.reportmodal');
-		const reportcheck = document.getElementById('reportcheck');
-		const notmodal = document.querySelector('.notmodal');
-		const notcheck = document.getElementById("notcheck");
-		const notcancle = document.getElementById("notcancle");
-		const reportReasonSelect = document.getElementById('reportReasonSelect');
-		
-		
-		
-		
-		del.addEventListener("click", () => {
-			const usersNumber = document.getElementById("usersNumber");
-			console.log("usersNumber:", usersNumber);
-			if (!usersNumber || usersNumber === 'null') {
-						const contextPath = del.getAttribute("data-context-path");
-						window.location.href = contextPath + "/users/nomalLogin.us";
-						return;
-			}else{
-			    editModal.style.display = "flex";
-			}
-			
-		});
-		
-		editcancle.addEventListener("click", () => {
-			editModal.style.display = "none";
-		});
-		
-		editcheck.addEventListener("click", () => {
-		    const postNumber = del.getAttribute("data-post-number");
-		    const postUserNumber = del.getAttribute("data-post-user-number");
-		    const contextPath = del.getAttribute("data-context-path");
-		    const reason = encodeURIComponent(reportReasonSelect.value);
+  const deleteBtn = document.querySelector(".delete"); // 삭제 버튼
+  const delModal = document.getElementById("del_modal");   // 모달창
+  const confirmBtn = document.getElementById("check");     // 모달 확인
+  const cancelBtn = document.getElementById("cancle");     // 모달 취소
 
-		    if (!reason) {
-		      alert("신고 사유를 선택해주세요.");
-		      return;
-		    }
+  // 삭제 버튼 클릭 시 모달 열기
+  deleteBtn.addEventListener("click", () => {
+    delModal.style.display = "flex";
+  });
 
-		    fetch(`${contextPath}/post/postReport.po`, {
-		      method: "POST",
-		      headers: {
-		        "Content-Type": "application/x-www-form-urlencoded"
-		      },
-		      body: `postsNumber=${postNumber}&postsUsersNumber=${postUserNumber}&reportReason=${reason}`})
-		    .then(res => res.json())
-		    .then(data => {
-		      editModal.style.display = "none";
-		      if (data.result === "reported") {
-		        reportmodal.style.display = "flex";
-		      } else if (data.result === "already") {
-		        notmodal.style.display = "flex";
-		      }
-		    });
-		  });
+  // 모달 취소 버튼
+  cancelBtn.addEventListener("click", () => {
+    delModal.style.display = "none";
+  });
 
-		notcheck.addEventListener("click", () => {
-			const postNumber = del.getAttribute("data-post-number");
-			    const contextPath = del.getAttribute("data-context-path");
+  // 모달 확인 버튼 → 삭제 실행
+  confirmBtn.addEventListener("click", () => {
+    const postsNumber = deleteBtn.getAttribute("data-posts-number");
+    const contextPath = window.contextPath;
 
-			    fetch(`${contextPath}/post/postReportCancel.po`, {
-			        method: "POST",
-			        headers: {
-			            "Content-Type": "application/x-www-form-urlencoded"
-			        },
-			        body: `postsNumber=${postNumber}`
-			    })
-			    .then(res => res.json())
-			    .then(data => {
-			        if(data.result === "success"){
-			            notmodal.style.display = "none";
-			            alert("신고가 취소되었습니다.");
-			        } else {
-			            alert("신고 취소에 실패했습니다.");
-			        }
-			    });
-		});
-		
-		notcancle.addEventListener("click", () =>{
-			notmodal.style.display = "none";
-		});
-		
-		reportcheck.addEventListener('click', () => {
-			reportmodal.style.display = "none";
-		});
-	
-	
-		
+    if (!postsNumber) {
+      alert("게시글 번호가 없습니다.");
+      return;
+    }
+
+    // 삭제 요청 (GET 방식 이동)
+    location.href = `${contextPath}/admin/adminReportDeleteOk.ad?postsNumber=${postsNumber}`;
+  });
 });
