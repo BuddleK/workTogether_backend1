@@ -29,30 +29,64 @@
     <jsp:include page="/header_admin.jsp" />
     <main>
       <section class="notice_detail">
-        <div class="notice_info">
-          <div class="info_title">
-            <span class="title"><c:out value="${report.getPostsTitle()}"/></span>
+        <div class="table">
+            <div class="board_column">
+              <div class="board_head board_number">회원번호</div>
+              <div class="board_head board_title">회원 이름</div>
+              <div class="board_head board_date">신고 사유</div>
+            </div>
+            <div class="table">
+              <div class="table_content">
+              	<c:choose>
+              		<c:when test="${not empty adminReportList}">
+              			<c:forEach var="report" items="${adminReportList}">
+	                		<ul class="table_body">
+		            			<li class="body_number"><c:out value="${report.getPostsNumber()}"/></li>
+		                		<li class="body_content"><c:out value="${report.getPostsTitle()}"/></li>
+		                		<li class="body_date"><c:out value="${report.getPostsCreatedDate()}"/></li>
+	                		</ul>
+	            		</c:forEach>
+	            	</c:when>
+	            	<c:otherwise>
+   						<div>
+   							<div colspan="5" align="center">등록된 게시물이 없습니다.</div>
+   						</div>
+					</c:otherwise>
+	            </c:choose>   
+              </div>
+            </div>
+            <!-- 페이지네이션 -->
+            <div class="paging_box">
+              <ul class="paging">
+				<c:if test="${prev}">
+					<li><a
+						href="${pageContext.request.contextPath}/admin/adminReportList.ad?page=${startPage - 1}"
+						class="prev">&lt;</a></li>
+				</c:if>
+				<c:set var="realStartPage"
+					value="${startPage < 0 ? 0 : startPage}" />
+				<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+					<c:choose>
+						<c:when test="${!(i == page) }">
+							<li><a
+								href="${pageContext.request.contextPath}/admin/adminReportList.ad?page=${i}">
+									<c:out value="${i}" />
+							</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="#" class="active"> <c:out value="${i}" />
+							</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${next}">
+					<li><a
+						href="${pageContext.request.contextPath}/admin/adminReportList.ad?page=${endPage + 1}"
+						class="next">&gt;</a>
+				</c:if>
+			</ul>
+            </div>
           </div>
-          <div class="member_info">
-            <div class="member_name_title">작성자명</div>
-            <div class="member_name"><c:out value="${report.getUsersName()}"/></div>
-            <div class="member_add_title">등록날짜</div>
-            <div class="member_add_date"><c:out value="${report.getPostsCreatedDate()}"/></div>
-          </div>
-          <div class="cnt">
-            <div class="cnt_title">조회수</div>
-            <div class="cnt_content"><c:out value="${report.getPostsViewCount()}"/></div>
-          </div>
-        </div>
-        <div class="notice_content">
-          <textarea name="content" id="content" readonly><c:out value="${report.getPostsContent()}"/></textarea>
-          <div class="reply">
-            <div class="reply_cnt">댓글 (1)</div>
-            <div class="line"></div>
-            <div class="reply_content">너는 잘 모르는구나?</div>
-            <div class="reply_content">너는 잘 모르는구나?</div>
-          </div>
-        </div>
         <div class="notice_btn">
           <button class="list" onclick="location.href='${pageContext.request.contextPath}/admin/adminReportList.ad'" type="button">목록</button>
           <div class="delete"><a href="${pageContext.request.contextPath}/admin/adminReportDeleteOk.ad?postsNumber=${report.getPostsNumber()}" class="button_del">삭제</a></div>
