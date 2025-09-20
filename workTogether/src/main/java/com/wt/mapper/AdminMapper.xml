@@ -991,4 +991,18 @@
            ) WHERE ROWNUM = 1
          )
 	]]></update>
+	
+	<!-- 신고자 정보 -->
+	<select id="selectReportDetail" parameterType="int" resultType="ReportDTO">
+  	SELECT u.users_number, u.users_name, r.report_reason
+	FROM tbl_report r
+	JOIN tbl_users u 
+    ON r.report_users_number = u.users_number
+	WHERE r.report_post_number = #{postsNumber};
+	</select>
+	
+	<!-- 신고자 전체 개수 -->
+	<select id="allReport" resultType="int">
+		SELECT COUNT(*) FROM TBL_REPORT WHERE report_post_number = #{postNumber};
+	</select>
 </mapper>
