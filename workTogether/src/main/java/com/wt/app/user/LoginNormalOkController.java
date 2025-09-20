@@ -44,9 +44,10 @@ public class LoginNormalOkController implements Execute {
 			result.setRedirect(true);
 			result.setPath(request.getContextPath() + "/mainOk.main"); // 로그인 성공 후 메인으로
 		} else {
-			System.out.println("유저 아이디가 없음");
-			result.setRedirect(false);
-			result.setPath("/app/login/loginNormal.jsp"); // 실패 시 로그인 화면
+			 System.out.println("유저 아이디가 없음");
+			    request.setAttribute("loginFail", true);
+			    result.setRedirect(false);
+			    result.setPath("/app/login/loginNormal.jsp");
 		}
 		return result;
 	}

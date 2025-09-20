@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +51,7 @@
 				<div class="sign_box sign_id">
 					<p>아이디</p>
 					<input type="text" id="get_id_input" name="usersId"
-						required>
+						placeholder="8자리 이상, 문자 숫자 포함 추천" required>
 					<button onclick="checkId()" type="button">중복확인</button>
 				</div>
 				<div class="id_err_box">
@@ -78,7 +79,7 @@
 
 				<div class="sign_box sign_email">
 					<p>이메일</p>
-					<input type="email" id="email" name="usersEmail" required>
+					<input type="text" id="email" name="usersEmail" required>
 				</div>
 				<div class="box_error_email" id="msg_box_email">
 					<p class="error_email_msg">이메일형식에 맞지 않습니다.</p>
@@ -98,8 +99,8 @@
 				<div class="sign_box sign_author">
 					<input type="text" placeholder="인증번호 6자리 입력" id="author_number">
 					<div class="timer"></div>
-					<button type="button" onclick="sendMsg()">인증번호 발송</button>
-					<button type="button" onclick="checkMsg()"id="check">인증번호 확인</button>
+					<button type="button" id=sendSMSBtn>인증번호 발송</button>
+					<button type="button" id="check">인증번호 확인</button>
 				</div>
 				<div class="alert">인증번호가 발송되었습니다.</div>
 				<div class="error_box_msg">
@@ -148,6 +149,7 @@
 					<button type="button" class="file-open" data-target="file-profile">파일첨부</button>
 				</div>
 
+
 				<div class="sign_box sign_btn">
 					<button type="submit">가입하기</button>
 				</div>
@@ -155,5 +157,10 @@
 		</section>
 	</main>
 	<jsp:include page="/footer.jsp" />
+	<c:if test="${param.error eq 'join'}">
+		<script>
+			alert('모든칸을 정확하게 입력해주십시오');
+		</script>
+	</c:if>
 </body>
 </html>

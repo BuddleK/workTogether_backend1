@@ -18,6 +18,8 @@
 }
 .table {
   display: flex;
+  flex-wrap: wrap;          /* <-- 이 한 줄로 다음 줄로 감기게 */
+  align-items: flex-start;
 }
 
 .thead {
@@ -96,3 +98,11 @@
 tn_area button { 
 	pointer-events: auto; 
 }
+
+.table .btn_area{
+  order: 3;                 /* 컬럼들 다음 순서 */
+  width: 75%;               /* thead(15%) + tbody(60%)와 동일 폭 */
+  margin-top: 12px;
+  justify-content: flex-end;/* 오른쪽 정렬 유지 */
+}
+

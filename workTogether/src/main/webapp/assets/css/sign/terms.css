@@ -95,7 +95,7 @@ span {
 .next_btn > a { 
 	width: 100%; 
 	text-align: center; 
-	gab: 30px; 
+	gap: 30px; 
 } 
 
 .next_btn > a > button { 
@@ -104,6 +104,7 @@ span {
 	color: white; 
 	background-color: #1d3266; 
 	border: none; 
+	gap: 30px;
 } 
 
 .next_btn #normal { 
@@ -111,9 +112,18 @@ span {
 	padding: 30px; 
 }
 
+.next_btn #care { 
+	background-color: #1d3266; 
+	padding: 30px; 
 
+}
 
-
+.next_btn {
+	width: 100%;
+	gap: 110px;
+	justify-content: space-between;
+	padding: 0 70px 70px 70px;
+}
 
 
 
