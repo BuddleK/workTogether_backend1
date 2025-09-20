@@ -74,6 +74,10 @@ public class CareMyPageFrontController extends HttpServlet {
 			System.out.println("찜한목록 페이지 요청");
 			result = new CareMarkController().execute(request, response);
 			break;
+		case "/myPageCare/careMarkDelete.cp":
+			System.out.println("체크한 찜 삭제 요청");
+			result = new CareMarkDeleteController().execute(request, response);
+			break;
 		case "/myPageCare/careMatching.cp":
 			System.out.println("매칭기록 페이지 요청");
 			result = new CareMatchingController().execute(request, response);

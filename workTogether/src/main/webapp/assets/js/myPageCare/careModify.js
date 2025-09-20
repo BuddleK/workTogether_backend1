@@ -53,8 +53,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	  alert("전화번호는 11자리로 입력해 주세요");
 	  return;
 	}
+	
+	// 전화번호 변경 여부
+	if(originalPhoneNumber != inputPhone.value){
+		// 인증이 되지 않은 경우 변경 불가
+		if(verified == 0){
+			alert("전화번호 변경 시 전화번호 인증이 필요합니다.")
+			return;
+		}
+	}
 	openSaveModal();
   });
+  
   
   // 주소 인풋
   const inputPostal = document.getElementById('usersPostsalCode');
@@ -63,26 +73,108 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 전화번호 인풋
   const inputPhone = document.getElementById('usersPhone');
+  const phoneError = document.getElementById('phone_error');
+  const sendSMS = document.getElementById('sendSMS');
+  const inputChkSMS = document.getElementById('inputChkSMS');
+  const checkSMS = document.getElementById('checkSMS');
   
+  //원래 전화번호
+  const originalPhoneNumber = inputPhone.value;
+  //인증 여부
+  let verified = 0;
+  // 인증 확인 버튼 비활성화
+  checkSMS.disabled = true;
+  // 인증번호 입력란 비활성화
+  inputChkSMS.disabled = true;
   
-/*  const inputEmail = document.getElementById('usersEmail');
-  const emailError = document.getElementById('email_error');*/
-
-  // ===== 이메일 검사 (전역 함수) =====
-/*  function emailCheck(email) {
-    // 영문/숫자/._- + @ + 도메인 + 최종 TLD 2~4
-    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return re.test(email);
-  }
-
-  inputEmail.addEventListener('input', ()=>{
-	const emailValue = inputEmail.value;
-	if(emailCheck(emailValue)){
-		emailError.style.display = 'none';
-	}else{
-		emailError.style.display = 'block';
+  //sms 발송
+  sendSMS.addEventListener("click", function(){
+	if(inputPhone.value == originalPhoneNumber){
+		alert("비밀번호가 변경되지 않았습니다.");
+		return;
 	}
-  })*/
+	
+	if (inputPhone.value == "" || phoneError.style.display == 'block') {
+	    alert("핸드폰 번호를 확인해 주세요");
+	    return;
+	}
+	alert("sms 진입1");
+	fetch(`/users/JoinSMSController.us?memberPhoneNumber=${encodeURIComponent(inputPhone.value)}`, {
+	    method: "GET",
+	    headers: {
+	        "Accept": "text/plain",
+	        "X-Requested-With": "XMLHttpRequest" // 이걸 추가해야 서버를 다시로드 하지 않고 인증번호를 받을 수 있음
+	    }
+	})
+	    .then(res => {
+			alert("로그1111");
+	        if (!res.ok) throw new Error("발송 실패: " + res.status);
+	        return res.text(); // text 형식으로 받음
+	    })
+	    .then(msg => {
+	        // 서버가 성공적으로 처리했을 때만 실행
+			alert("로그1");
+	        alert(msg);               // 발송 메시지
+	        sendSMS.disabled = true;  // 재발송 방지
+			checkSMS.disabled = false; //인증번호 확인 버튼 활성화
+			checkSMS.style.backgroundColor = "#007bff" //인증 확인 버튼 파랗게 변경
+			inputChkSMS.disabled = false; //인증번호 입력란 활성화
+	    })
+	    .catch(err => {
+	        // 실패했을 때
+			alert("로그2");
+	        alert("SMS 발송 중 오류가 발생했습니다.\n" + err);
+	        sendSMS.disabled = false; // 다시 시도 가능
+	    });
+  });
+  // ===== 인증번호 확인 (서버 대신 로컬 비교) =====
+  checkSMS.addEventListener("click", function() {
+      const codeChecker = inputChkSMS.value.trim();
+      if (!codeChecker) {
+  	alert("인증번호를 입력하세요");
+          return;
+      }
+
+      fetch(`/users/VerifyCodeController.us?verificationCode=${encodeURIComponent(codeChecker)}`, {
+          headers: { "Accept": "text/plain", "X-Requested-With": "XMLHttpRequest"} 
+          }).then(res => {
+                  if (!res.ok) throw new Error("발송 실패: " + res.status);
+                  return res.text(); // text 형식으로 받음
+          })
+          .then(msg => {
+              if (msg.includes("성공")) {
+                 alert("인증 성공");
+  			 codeChecker.readOnly = true;       // 인증번호 입력란 잠금
+  			 inputPhone.readOnly = true;        // (선택) 휴대폰 번호도 잠그려면 이 줄 추가
+			 verified = 1;
+              } else {
+  			alert("인증 실패");
+			sendSMS.disabled = false;
+              }
+          })
+          .catch(() => {
+              alert("서버오류");
+          });
+  });
+  
+  
+  // ===== 전화번호 검사 (전역 함수) =====
+  function phoneCheck(phone) {
+    // 전화번호 형식 검사
+    const re = /^01[016789]\d{8}$/;
+    return re.test(phone);
+  }
+  
+  // ===== 전화번호 입력 검사 =====
+  inputPhone.addEventListener('input', () => {
+    const phValue = inputPhone.value;
+    if (phoneCheck(phValue)) {
+      phoneError.style.display = 'none';
+    } else {
+      phoneError.style.display = 'block';
+    }
+  });
+
   
   
   const inputPw = document.getElementById('rePw');
@@ -125,135 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
-/*  // ===== 폼 델리게이션 =====
-  const form = document.querySelector('form');
-  if (!form) return;*/
-/*
-  form.addEventListener('click', (e) => {
-    const btn = e.target.closest('button');
-    if (!btn) return;
-    e.preventDefault();
-
-
-    // 2) 주소 섹션의 "확인" → 상세주소만 필수
-    if (btn.textContent === '확인' && btn.closest('.member')?.querySelector('.info')?.textContent === '주소') {
-      const detailInput = btn.closest('ul')?.querySelector('input[placeholder="상세주소"]');
-      if (!detailInput || !detailInput.value.trim()) {
-        alert('빈 칸을 입력해 주세요.');
-        detailInput?.focus();
-        return;
-      }
-      openSaveModal();
-      return;
-    }
-
-    // 3) 전화번호 섹션의 "수정" → 숫자/하이픈만, 숫자만 있으면 하이픈 요구, 최종 형식 `010-0000-0000`
-    if (btn.textContent === '수정' && btn.closest('.member')?.querySelector('.info')?.textContent === '전화번호') {
-      const phoneInput = btn.closest('.myinfo')?.querySelector('input[type="text"]');
-      const v = (phoneInput?.value || '').trim();
-
-      if (!v) {
-        alert('빈 칸을 입력해 주세요.');
-        phoneInput?.focus();
-        return;
-      }
-      // 허용 문자: 숫자와 하이픈만
-      if (!/^[0-9-]+$/.test(v)) {
-        alert('전화번호에는 숫자와 하이픈(-)만 입력하세요.');
-        phoneInput?.focus();
-        return;
-      }
-      // 하이픈이 전혀 없으면
-      if (/^\d+$/.test(v)) {
-        alert('하이픈(-)을 포함해 입력해주세요. 예) 010-1234-5678');
-        phoneInput?.focus();
-        return;
-      }
-      // 최종 형식 체크
-      if (!/^010-\d{4}-\d{4}$/.test(v)) {
-        alert('전화번호 형식이 올바르지 않습니다. 예) 010-1234-5678');
-        phoneInput?.focus();
-        return;
-      }
-      openSaveModal();
-      return;
-    }
-
-    // 4) 이메일 섹션의 "수정"
-    if (btn.textContent === '수정' && btn.closest('.email')) {
-      const emailInput = document.getElementById('email');
-      const resultDiv = document.getElementById('result');
-      const v = (emailInput?.value || '').trim();
-
-      if (!v) {
-        alert('빈 칸을 입력해 주세요.');
-        emailInput?.focus();
-        return;
-      }
-      if (!emailCheck(v)) {
-        resultDiv && (resultDiv.textContent = '유효하지 않은 이메일 주소입니다.');
-        alert('유효하지 않은 이메일 주소입니다.');
-        emailInput?.focus();
-        return;
-      }
-      resultDiv && (resultDiv.textContent = '유효한 이메일 주소입니다.');
-      openSaveModal();
-      return;
-    }
-
-    // 5) 비밀번호 재설정 섹션 안의 "확인"
-    if (btn.textContent === '확인' && btn.closest('.pw_reset')) {
-      const pw1 = document.getElementById('rePw');
-      const pw2 = document.getElementById('reCheckPw');
-      const msgBox = document.getElementById('msg_box');
-      const errorText = msgBox?.querySelector('.error_pw_msg');
-
-      const pattern = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
-
-      // 형식
-      if (!pattern.test((pw1?.value || '').trim())) {
-        if (msgBox) {
-          msgBox.style.display = 'block';
-          if (errorText) errorText.textContent = '형식에 맞게 입력해주세요.';
-        }
-        return;
-      }
-      // 일치
-      if ((pw1?.value || '') !== (pw2?.value || '')) {
-        if (msgBox) {
-          msgBox.style.display = 'block';
-          if (errorText) errorText.textContent = '비밀번호가 맞지 않습니다.';
-        }
-        notCorrectModal?.classList.add('open');
-        return;
-      }
-      // 성공
-      msgBox && (msgBox.style.display = 'none');
-      openSaveModal();
-      return;
-    }
-
-    // 6) 그 외 버튼은 기본적으로 저장 모달 (필요 없으면 이 분기 제거하세요)
-    openSaveModal();
-  });*/
 
 
 	

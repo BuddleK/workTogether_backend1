@@ -251,13 +251,17 @@ main {
 }
 
 /* 장소 버튼(파란색) */
-#find_post {
+#find_post, #sendSMS, #checkSMS {
   margin-left: 10px;
   padding: 5px 10px;
   border-radius: 6px;
   cursor: pointer;
   background-color: #2f4db1;
   color: white;
+}
+
+#checkSMS{
+  background-color: rgb(128, 128, 128);
 }
 
 /* 자기소개 줄(세로로 간격) */
