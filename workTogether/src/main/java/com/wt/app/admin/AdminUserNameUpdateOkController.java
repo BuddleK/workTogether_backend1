@@ -20,7 +20,7 @@ public class AdminUserNameUpdateOkController implements Execute{
 		Result result = new Result();
         AdminDAO adminDAO = new AdminDAO();
 		
-        int usersNumber = Integer.parseInt(request.getParameter("usersNumber"));
+        int usersNumber = Integer.valueOf(request.getParameter("usersNumber"));
         String usersName = request.getParameter("usersName");
         
         AdminUserManagerDTO adminUserManagerDTO = new AdminUserManagerDTO();

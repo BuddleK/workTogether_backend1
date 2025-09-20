@@ -20,7 +20,7 @@
       <div id="sidebar"></div>
       <section class="detail_page">
         <div class="detail_box">
-          <form action="${pageContext.request.contextPath}/admin/adminNoticeInsertOk.ad" method="post" class="detail_form">
+          <form action="${pageContext.request.contextPath}/admin/adminNoticeUpdateOk.ad" method="post" class="detail_form">
             <div class="detail_title">
               <input type="text" class="detail_title_text" placeholder="제목" />
             </div>

@@ -552,7 +552,7 @@
   ]]></select>
 
 	<select id="adminNoticeDetail" parameterType="int"
-		resultType="AdminNoticeListDTO"><![CDATA[
+		resultType="AdminNoticeListDTO">
     SELECT N.NOTICE_NUMBER,
            N.NOTICE_TITLE,
            N.ADMIN_NUMBER,
@@ -561,22 +561,18 @@
            N.NOTICE_CREATED_DATE,
            N.NOTICE_CONTENT
       FROM TBL_NOTICES N
-      JOIN TBL_ADMINS A ON N.ADMIN_NUMBER = A.ADMIN_NUMBER
+      JOIN TBL_ADMIN A ON N.ADMIN_NUMBER = A.ADMIN_NUMBER
      WHERE N.NOTICE_NUMBER = #{noticeNumber}
-  ]]></select>
+	</select>
 
 	<insert id="adminNoticeListInsert"
 		parameterType="AdminNoticeListDTO">
 		<selectKey keyProperty="noticeNumber" resultType="int"
-			order="BEFORE"><![CDATA[
+			order="BEFORE">
       SELECT seq_notices.nextVal FROM DUAL
-    ]]></selectKey>
-    <![CDATA[
+      </selectKey>
     INSERT INTO tbl_notices (notice_number, notice_title, notice_content)
     VALUES (#{noticeNumber}, #{noticeTitle}, #{noticeContent})
-    ]]>
-
-
 	</insert>
 
 	<!-- 공지사항 수정 -->
