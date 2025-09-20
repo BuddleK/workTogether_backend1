@@ -23,6 +23,15 @@ public class CareMarkDAO {
 		return list;
 	}
 	
+	//찜 삭제 메소드
+	public void delMark(int favoritesNumber) {
+		System.out.println("찜 삭제 실행 - delMark : " + favoritesNumber);
+		sqlSession.delete("careMark.delMark", favoritesNumber);
+		System.out.println("찜 삭제 쿼리 실행 완료");
+	}
+	
+	
+	
 	//찜 목록 전체 조회
 	public List<CareMarkDTO> markAll(Map<String, Integer> pageMap) {
 		System.out.println("찜 목록 전체 조회 - markAll 메소드 실행 : " + pageMap);

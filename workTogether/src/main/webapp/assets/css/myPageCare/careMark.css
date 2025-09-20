@@ -75,7 +75,7 @@ main {
   display: flex;
   flex-direction: column;
   margin:auto;
-  background-color:yellow;
+  /* background-color:yellow; */
 }
 /* 마이페이지 제목 스타일 설정 */
 .div_mark .title {
@@ -86,7 +86,7 @@ main {
 /* 전체적인 길이 설정 */
 form {
   	margin: auto;
-	background-color:green;
+	/* background-color:green; */
 }
 /* 페이지 분류칸 설정 */
 .mark_nav {

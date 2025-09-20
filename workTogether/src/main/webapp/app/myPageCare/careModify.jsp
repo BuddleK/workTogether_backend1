@@ -102,6 +102,15 @@
         		<div>전화번호</div>
         		<div>
         			<input name="usersPhone" id="usersPhone" type="text" placeholder="- 기호 없이 11자리 입력" value="${careModify.getUsersPhone()}">
+        			<button type="button" id="sendSMS">인증번호 발송</button>
+                    <p class="err_message" id="phone_error">(전화번호)형식에 맞게 입력해 주세요.</p>
+        		</div>
+        	</div>
+        	<div class="mod">
+        		<div>인증</div>
+        		<div>
+        			<input name="inputChkSMS" id="inputChkSMS" type="text" placeholder="인증번호 입력" autocomplete="one-time-code">
+        			<button type="button" id="checkSMS">인증 확인</button>
         		</div>
         	</div>
         	<div class="mod">
@@ -121,11 +130,11 @@
         		<div>
                   <ul>
                     <li>
-                      <input type="password" placeholder="비밀번호 8자리 입력(숫자와 영어 특수기호 포함)" id="rePw">
+                      <input type="password" placeholder="비밀번호 8자리 입력(숫자와 영어 특수기호 포함)" id="rePw" autocomplete="new-password">
                       <p class="err_message" id="password_error">형식에 맞게 입력해 주세요.</p>
                     </li>
                     <li>
-                      <input name="password" type="password" placeholder="비밀번호 재입력" id="reCheckPw">
+                      <input name="password" type="password" placeholder="비밀번호 재입력" id="reCheckPw" autocomplete="new-password">
                       <p class="err_message" id="re_password_error">비밀번호가 일치하지 않습니다.</p>
                     </li>
                   </ul>

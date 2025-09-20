@@ -17,7 +17,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/careMark.js"></script>
 </head>
 
-<body>
+<body data-context-path="${pageContext.request.contextPath}">
   <jsp:include page="/header.jsp" />
 
   <main>
@@ -32,7 +32,7 @@
   				alt="프로필 이미지">
         	</a>
         </li>
-        <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개정보 수정</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보 수정</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp">찜한 목록</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp">매칭 기록</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMesseage.cp">쪽지함</a></li>
@@ -76,7 +76,7 @@
         <c:choose>
         	<c:when test="${not empty markList}">
         		<c:forEach var="mark" items="${markList}">
-			        <nav class="mark_list"><a href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${String.valueOf(mark.getFavoritesShopsNumber())}">
+			        <nav class="mark_list" data-favoritesNumber="${mark.favoritesNumber}" ><a href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${mark.getFavoritesShopsNumber()}">
 			            <ul>
 			              <li><input type="checkbox"></li>
 			              <li class="name">

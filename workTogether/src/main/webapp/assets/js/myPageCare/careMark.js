@@ -61,13 +61,37 @@ document.addEventListener('DOMContentLoaded', function () {
     // 체크된게 있음 띄우기
     openModal(deleteModal);
   });
+  
+  
+  
+  
+
+  let favoriteNumbers = [];  // favoritesNumber를 저장할 배열
+  
   // 삭제확인 버튼 클릭시
   confirmDeleteBtn.addEventListener('click', function () {
     // 체크박스 있는 줄 삭제
+	
+	// 배열 초기화
+	favoriteNumbers = [];
+	
+	
     document.querySelectorAll('.mark_list input[type="checkbox"]:checked').forEach(cb => {
       const row = cb.closest('.mark_list');
-      if (row) row.remove();
+	  // -- 삭제 기능 일시 중지함--
+      //if (row) row.remove();
+	  
+	  // 체크된 애들 찜 번호 가져와 보기
+	  if (row){
+		// 해당 row의 data-favortiesNumber 값 가져오기
+		let favNum = row.getAttribute('data-favoritesNumber');
+		// 배열에 추가
+		favoriteNumbers.push(favNum);
+		
+	  }
     });
+	
+	
     // 삭제 확인 모달 닫기
     closeModal(deleteModal);
     // 삭제 완료 모달 출력
@@ -77,12 +101,40 @@ document.addEventListener('DOMContentLoaded', function () {
     // 상태 새로고침
     refreshMaster();
   });
+  
   // 삭제 취소 버튼
   cancelDeleteBtn.addEventListener('click', function () {
     closeModal(deleteModal);
   });
   // 완료 확인 버튼
   doneOkBtn.addEventListener('click', function () {
-    closeModal(doneModal);
+    console.log(favoriteNumbers);
+
+    const contextPath = document.body.dataset.contextPath;
+    const delUrl = contextPath + `/myPageCare/careMarkDelete.cp`;
+
+    fetch(delUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ favoriteNumbers: favoriteNumbers })
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('서버 오류');
+      return res.text();   // 혹은 .json()
+    })
+    .then(data => {
+      console.log('삭제 완료', data);
+      closeModal(doneModal);
+    })
+    .catch(err => {
+      console.error('전송 실패', err);
+    });
+	
+	const reUrl = contextPath + `/myPageCare/careMark.cp`;
+	
+	window.location.href = reUrl;
+
   });
 });
