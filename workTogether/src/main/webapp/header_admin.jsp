@@ -14,8 +14,14 @@
     </span>
     <!-- 헤더 오른쪽 메뉴 -->
     <span>
-      <!-- 로그아웃 메뉴 -->
-      <a href="${pageContext.request.contextPath}/app/admin/adminLogin.jsp" class="logout"> 로그아웃 </a>
+    	<c:choose>
+    		<c:when test="${empty sessionScope.adminNumber}">
+      	</c:when>
+      	<c:otherwise>
+      		<!-- 로그아웃 메뉴 -->
+      		<a href="${pageContext.request.contextPath}/admin/logoutOk.ad" class="logout"> 로그아웃 </a>
+      	</c:otherwise>
+      </c:choose>
     </span>
   </div>
 </header>

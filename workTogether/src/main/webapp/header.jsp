@@ -24,7 +24,7 @@
 	    		<c:choose>
     				<c:when test="${sessionScope.usersType == 'C'}">
 	    				<!--  돌봄 마이페이지 메뉴 -->
-	    				<span>회원 타입 : <c:out value="${sessionScope.usersType}"></c:out> 
+	    				<span>회원 타입 : <c:out value="${sessionScope.usersType}"></c:out>  
 	    				</span>
 			      		<a href="${pageContext.request.contextPath}/myPageCare/carePwCheck.cp">마이페이지</a>
 			      		<%-- <a href="${pageContext.request.contextPath}/myPageCare/carePwcheck.??">마이페이지</a> --%>
