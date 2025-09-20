@@ -110,9 +110,21 @@ public class MyPageNormalFrontController extends HttpServlet {
 			System.out.println("마이페이지 받은 쪽지리스트 요청");
 			result = new NormalMsgListOkController().execute(request, response);
 			break;
+		case "/myPageNormal/normalMsgGetJsList.mn":
+			System.out.println("마이페이지 받은 쪽지리스트 JS 요청");
+			result = new NormalMsgGetListJsOkController().execute(request, response);
+			break;
+		case "/myPageNormal/normalMsgJsList.mn":
+			System.out.println("마이페이지 보낸 쪽지리스트 JS 요청");
+			result = new NormalMsgListJsOkController().execute(request, response);
+			break;
 		case "/myPageNormal/normalMsgDeleteList.mn":
 			System.out.println("마이페이지 받은 쪽지리스트 삭제");
 			result = new NormalMsgDeleteOkController().execute(request, response);
+			break;
+		case "/myPageNormal/normalMsgNumber.mn":
+			System.out.println("마이페이지 받은 쪽지 넘버값으로 불러오기");
+			result = new NormalMsgOkController().execute(request, response);
 			break;
 		case "/myPageNormal/normalReceiveList.mn":
 			System.out.println("마이페이지 보낸 쪽지리스트 요청");
