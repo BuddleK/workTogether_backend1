@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		const messageId = this.data.id;
 		console.log(messageId + '메시지 넘버');
 		loadMsgNumber(messageId);
+		const senderName = document.getElementById('sender_name');
+		const senderId = document.getElementById('sender_id');
+		const messageContent=document.getElementById('messageContent')
 	})
 
 	deleteBtn.addEventListener('click', function(e) {

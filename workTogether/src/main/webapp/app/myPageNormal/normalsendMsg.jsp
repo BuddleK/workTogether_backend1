@@ -95,7 +95,7 @@
 							<div class="name">
 								<div>${list.usersName }</div>
 							</div>
-							<div class="location" id="msgContent" data-message-id="${list.messageNumber }">
+							<div class="location" id="msgContent" name="msgNumber" data-id="${list.messageNumber }">
 								<div>${list.messageContents }</div>
 							</div>
 							<div class="phone">
@@ -173,9 +173,9 @@
 				</div>
 				<div class="modal_info">
 					<div class="sender_info">
-						<span>보낸 사람 : </span>} | <!-- <span class="sender_id">Trano</span> -->
+						<span id="sender_name">보낸 사람 : </span>} | <span class="sender_id" id="sender_id"></span>
 					</div>
-					<div class="message_content"></div>
+					<div class="message_content" id="messageContent"></div>
 				</div>
 				<!-- 해당 모달에 있는 모달창 -->
 				<div class="modal_button">
