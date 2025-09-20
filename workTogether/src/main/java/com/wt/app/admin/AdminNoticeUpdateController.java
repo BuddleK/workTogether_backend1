@@ -9,15 +9,12 @@ import javax.servlet.http.HttpSession;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
-import com.wt.app.admin.dao.AdminDAO;
-import com.wt.app.admin.dao.AdminTwoDAO;
 
-public class AdminNoticeInsertController implements Execute{
+public class AdminNoticeUpdateController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		Result result = new Result();
 		
 		HttpSession session = request.getSession();
@@ -27,7 +24,7 @@ public class AdminNoticeInsertController implements Execute{
 		if(adminNumber == null) {
 			path = "/admin/login.ad";
 		}else {
-			path = "/app/admin/noticeAdd.jsp";
+			path = "/app/admin/noticeModify.jsp";
 		}
 		
 		
@@ -35,6 +32,7 @@ public class AdminNoticeInsertController implements Execute{
 		result.setRedirect(false);
 		
 		return result;
+		
 	}
 
 }
