@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -20,16 +21,52 @@
 	href="${pageContext.request.contextPath}/assets/css/admin/sidebar.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/modalAdmin.css" />
-
-<script defer
-	src="${pageContext.request.contextPath}/assets/js/main/includeAdmin.js"></script>
 </head>
 <body>
 	<jsp:include page="/header_admin.jsp" />
-
 	<main>
-		<div id="sidebar"></div>
+		<div id="sidebar" class="sidebar">
+			<ul>
+				<div class="blank"></div>
+				<li class="side_attach"><a
+					href="${pageContext.request.contextPath}/admin/adminUserManagerList.ad">회원관리</a>
+				</li>
 
+				<div class="board">
+					<li class="side_attach">일반 게시글 관리</li>
+					<ul class="side_menu side_normal_board">
+						<li class="side_attach"><a
+							href="${pageContext.request.contextPath}/admin/adminNotice.ad">공지사항
+								관리</a></li>
+						<li class="side_attach"><a
+							href="${pageContext.request.contextPath}/admin/adminReportList.ad">신고글
+								관리</a></li>
+					</ul>
+				</div>
+
+				<div class="board">
+					<li class="side_attach">뉴스 게시글 관리</li>
+					<ul class="side_menu side_news_board">
+						<li class="side_attach"><a
+							href="${pageContext.request.contextPath}/admin/news/newsListOk.ad">뉴스
+								게시물</a></li>
+						<li class="side_attach"><a
+							href="${pageContext.request.contextPath}/admin/adminNewsBanner.ad">배너
+								게시물</a></li>
+					</ul>
+				</div>
+
+				<li class="side_attach"><a
+					href="${pageContext.request.contextPath}/admin/pointReturnListOk.ad">돌봄회원
+						환급 관리</a></li>
+				<li class="side_attach"><a
+					href="${pageContext.request.contextPath}/admin/care/list.ad">돌봄
+						회원 신청</a></li>
+				<li class="side_attach"><a
+					href="${pageContext.request.contextPath}/admin/adminReferenceList.ad">1:1
+						문의사항</a></li>
+			</ul>
+		</div>
 		<section class="care_box">
 			<div class="box_title">
 				<h1>돌봄 회원 신청관리</h1>
@@ -107,6 +144,8 @@
       const form = document.getElementById("careActionForm");
       const approveUrl = val("approveAction");
       if(!approveUrl){ alert("승인 URL이 없습니다."); return; }
+      alert("승인이 완료되었습니다.");
+      document.getElementById("btnApprove").disabled = true;
       form.action = approveUrl;
       form.submit();
     }

@@ -82,10 +82,10 @@
 					<p>실명 인증된 아이디로 가입하시면 본인인증이 필요한 서비스를 가입 후 바로 이용하실 수 있어요.</p>
 				</div>
 				<div class="next_btn">
-					<a href="${pageContext.request.contextPath}/users/joinNormal.us">
+					<a href="${pageContext.request.contextPath}/users/joinNormal.us" onclick="goNextNormal(event)">
 						<button type="button" id="normal">일반회원가입</button>
 					</a> 
-					<a href="${pageContext.request.contextPath}/users/joinCare.us">
+					<a href="${pageContext.request.contextPath}/users/joinCare.us" onclick="goNextCare(event)">
 						<button type="button" id="care">돌봄회원가입</button>
 					</a>
 				</div>
