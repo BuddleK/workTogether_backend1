@@ -89,13 +89,11 @@
 						</li>
 					</ul>
 				</nav>
-				
-				
 				<!-- 보낸 쪽지 목록 리스트 -->
-				<ul class="mark_list">
+				<ul class="mark_list" id="mark_list">
 					<c:forEach var="list" items="${msgList }" varStatus="status">
-						<li id="li"><input class="checkbox_li" name="mark_check"
-							type="checkbox" value="${list.messageNumber}">
+						<li id="li"><input class="checkbox_li"
+							name="mark_check" type="checkbox" value="${list.messageNumber}">
 							<div class="name">
 								<div>${list.usersName }</div>
 							</div>
@@ -107,16 +105,17 @@
 							</div>
 							<div class="read">
 								<div>${list.isRead }</div>
-							</div>
-						</li>
+							</div></li>
 					</c:forEach>
+					
+					
 				</ul>
 				<!-- 페이지네이션 -->
 				<nav class="page">
 					<ul>
 						<c:if test="${prev}">
 							<li><a
-								href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn?page=${startPage - 1}"
+								href="${pageContext.request.contextPath}/myPageNormal/normalReceiveList.mn?page=${startPage - 1}"
 								class="prev">&lt;</a></li>
 						</c:if>
 						<c:set var="realStartPage"
@@ -125,7 +124,7 @@
 							<c:choose>
 								<c:when test="${!(i == page) }">
 									<li><a
-										href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn?page=${i}">
+										href="${pageContext.request.contextPath}/myPageNormal/normalReceiveList.mn?page=${i}">
 											<c:out value="${i}" />
 									</a></li>
 								</c:when>
@@ -137,14 +136,14 @@
 						</c:forEach>
 						<c:if test="${next}">
 							<li><a
-								href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn?page=${endPage + 1}"
+								href="${pageContext.request.contextPath}/myPageNormal/normalReceiveList.mn?page=${endPage + 1}"
 								class="next">&gt;</a>
 						</c:if>
 					</ul>
 				</nav>
 				<!-- 보낸 쪽지 삭제 버튼 -->
 				<div class="div_delete">
-					<button type="button" onclick="delMarks()" id="delete">삭제</button>
+					<button type="button" id="delete">삭제</button>
 				</div>
 			</div>
 		</form>
@@ -164,8 +163,28 @@
 			<button type="button" id="deleteBtn">삭제</button>
 		</div>
 	</div>
-
+<!-- 삭제 버튼 클릭시 확인 모달 -->
+	<div class="modal" id="deleteModal">
+		<div class="modal_box">
+			<p>쪽지를 삭제하시겠습니까?</p>
+			<div class="modal_buttons">
+				<button type="button" id="confirmDelete">확인</button>
+				<button type="button" id="cancelDelete">취소</button>
+			</div>
+		</div>
+	</div>
+	<!-- 찜 삭제확인 모달 확인 버튼 클릭시 모달 -->
+	<div class="modal" id="chek_deleteModal">
+		<div class="modal_box">
+			<p>쪽지가 삭제 되었습니다.</p>
+			<div class="modal_buttons">
+				<button type="button" id="check_confirmDelete">확인</button>
+			</div>
+		</div>
+	</div>
 	<jsp:include page="/footer.jsp" />
 </body>
-
+<script>
+	window.usersNumber = "${usersNumber}"
+</script>
 </html>
