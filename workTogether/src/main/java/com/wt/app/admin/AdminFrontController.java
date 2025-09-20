@@ -214,6 +214,9 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("관리자 공지사항 삭제 완료 페이지 요청");
 			result = new AdminNoticeDeleteOkController().execute(request, response);
 			break;
+		case "/admin/adminNoticeUpdate.ad":
+			System.out.println("관리자 공지사항 수정 페이지 요청");
+			result = new AdminNoticeUpdateController().execute(request,response);
 		case "/admin/adminNoticeUpdateOk.ad":
 			System.out.println("관리자 공지사항 수정 완료 페이지 요청");
 			result = new AdminNoticeUpdateOkController().execute(request, response);
