@@ -83,7 +83,7 @@
 													onsubmit="return confirm('정말 삭제하시겠어요?');">
 													<input type="hidden" name="bannerNewsNumber"
 														value="${b.bannerNewsNumber}" />
-													<button type="submit" class="delete_btn">삭제</button>
+
 												</form></li>
 										</ul>
 									</c:if>
@@ -92,12 +92,6 @@
 						</c:choose>
 					</div>
 
-					<!-- 등록 버튼 -->
-					<div class="add">
-						<a
-							href="${pageContext.request.contextPath}/admin/adminNewsBannerUpdate.ad"
-							class="add_btn">등록</a>
-					</div>
 				</div>
 			</div>
 		</section>

@@ -27,11 +27,12 @@ function hrefLink() {
   location.href = link;
 }
 
-function goNextNormal() {
+function goNextNormal(e) {
+	e.preventDefault();
   // all.checked =
   //   terms.map((term) => term.checked).filter((checked) => checked).length ===
   //   terms.length;
-  if (all.checked) {
+  if (all.checked == true) {
     alert("전체 동의 완료!!");
     alert("일반 회원가입페이지로 이동합니다.");
     location.href="./../../app/sign/signNormal.jsp"
@@ -40,7 +41,8 @@ function goNextNormal() {
   }
 }
 
-function goNextCare() {
+function goNextCare(e) {
+	e.preventDefault();
   // all.checked =
   //   terms.map((term) => term.checked).filter((checked) => checked).length ===
   //   terms.length;

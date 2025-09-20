@@ -111,7 +111,8 @@ main {
 .body_delete {
   width: 5%;
   height: 30px;
-  /* border: 1px solid black; */
+  background-color: white;
+  padding-right: 25px;
 }
 
 .delete_btn {
@@ -152,4 +153,13 @@ main {
   color: white;
   padding: 4px 10px;
   cursor: pointer;
+}
+
+.edit_btn{
+	width: 100%;
+	margin: 2px;
+	border: 1px solid black;
+	background-color: #2f52aa;
+	color: white;
+	text-align: center;
 }

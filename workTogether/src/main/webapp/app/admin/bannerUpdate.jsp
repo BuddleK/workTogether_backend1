@@ -99,7 +99,7 @@
 
 				<div class="add_btn">
 					<button class="cancle" type="button" onclick="history.back();">취소</button>
-					<button class="add" type="submit">${isEdit ? '수정 완료' : '등록 완료'}</button>
+					<button class="add" type="submit">수정 완료</button>
 				</div>
 			</form>
 		</section>
@@ -107,5 +107,26 @@
 
 	<jsp:include page="/footer.jsp" />
 	<div id="modalAddNewsFinished"></div>
+	<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('write-form');
+    const btn  = form?.querySelector('button.add[type="submit"]');
+
+    btn?.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      alert('수정이 완료되었습니다.');
+      btn.disabled = true;
+
+      if (typeof form.requestSubmit === 'function') {
+        form.requestSubmit(btn);
+      } else {
+        form.submit();
+      }
+    });
+  });
+</script>
+	
 </body>
 </html>
