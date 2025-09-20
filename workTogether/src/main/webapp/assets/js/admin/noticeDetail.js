@@ -6,13 +6,17 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const link = "${pageContext.request.contextPath}/admin/adminNotice.ad";
+const link = `${pageContext.request.contextPath}/admin/adminNoticeDetail.ad`;
 function linkHref() {
   location.href = link;
 }
 
 function cancle() {
   linkHref();
+}
+
+function update(){
+	location.href = `${pageContext.request.contextPath}/admin/adminNoticeUpdate.ad`
 }
 
 /*window.addEventListener("DOMContentLoaded", () => {
@@ -24,7 +28,7 @@ function cancle() {
     });
 });*/
 
-//모달 요소 가져오기
+/*//모달 요소 가져오기
 const modalUpdate = document.getElementById("modalUpdate");
 
 // 모달이 나타나는 함수(버튼에 추가하여 사용)
@@ -54,3 +58,4 @@ function modalUpdateCancel() {
   modalUpdateNone();
 }
 modalUpdateNone();
+*/

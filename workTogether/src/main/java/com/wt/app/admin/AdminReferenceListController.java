@@ -16,7 +16,7 @@ public class AdminReferenceListController implements Execute {
 			throws ServletException, IOException {
 		Result result = new Result();
 		
-		result.setPath("/admin/adminReferenceList.ad");
+		result.setPath("/app/admin/qeustion.jsp");
 	    result.setRedirect(false);
 	    return result;
 	}

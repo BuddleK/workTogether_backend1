@@ -27,7 +27,7 @@
 	<main>
 		<section class="notice_detail">
 			<div class="notice_info">
-			<form action="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad" method="post" class="detail_form" enctype="multipart/form-data">
+			<form action="${pageContext.request.contextPath}/admin/adminNotice.ad" method="post" class="detail_form" enctype="multipart/form-data">
 				<div class="info_title">
 					<span class="title"><c:out value="${notice.noticeTitle}"/></span>
 				</div>
@@ -45,9 +45,8 @@
 					<textarea name="content" id="content">${notice.noticeContent}</textarea>
 				</div>
 				<div class="notice_btn">
-					<button class="list" onclick="cancle()" type="button">목록</button>
-					<button class="update" onclick="modalUpdateShow()" type="button">
-						수정</button>
+					<button class="list" formaction="${pageContext.request.contextPath}/admin/adminNotice.ad">목록</button>
+					<button class="update" formaction="${pageContext.request.contextPath}/admin/adminNoticeUpdate.ad?adminNumber=${notice.adminNumber}">수정</button>
 				</div>
 			</form>
 			</div>
