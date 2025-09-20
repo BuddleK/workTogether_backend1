@@ -27,10 +27,14 @@
 
 		<nav class="main_sidebar">
 			<ul>
-				<li><a
-					href="${pageContext.request.contextPath}/myPageCare/careProfile.cp"><img
-						src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg"
-						alt="#"></a></li>
+        <li>
+        	<a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp">
+          		<img 
+  				src="${pageContext.request.contextPath}${profilePic.getProfilesFilesPath()}${profilePic.getProfilesFilesName()}${profilePic.getProfilesFilesType()}" 
+  				onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/assets/img/myPageCare/default.png';" 
+  				alt="프로필 이미지">
+        	</a>
+        </li>
 				<li><a
 					href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보
 						수정</a></li>
