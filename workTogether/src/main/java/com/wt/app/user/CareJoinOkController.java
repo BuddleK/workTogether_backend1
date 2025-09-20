@@ -85,8 +85,9 @@ public class CareJoinOkController implements Execute {
 
 			new CareUsersDAO().sign(dto);
 
+			request.getSession().setAttribute("careJoinSuccess", "1");
 			result.setRedirect(true);
-			result.setPath(request.getContextPath() + "/mainOk.main");
+			result.setPath(request.getContextPath() + "/mainOk.main"); // 메인
 			return result;
 
 		} catch (Exception e) {

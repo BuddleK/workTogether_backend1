@@ -78,5 +78,26 @@
 	<div id="modalAddNewsFinished"></div>
 	<script
 		src="${pageContext.request.contextPath}/assets/js/admin/newsBoard.js"></script>
+		<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('write-form');
+    const btn  = form?.querySelector('button.add[type="submit"]');
+
+    btn?.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      alert('추가가 완료되었습니다.');
+      btn.disabled = true; 
+
+      if (typeof form.requestSubmit === 'function') {
+        form.requestSubmit(btn);
+      } else {
+        form.submit();
+      }
+    });
+  });
+</script>
+		
 </body>
 </html>

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,5 +47,14 @@
 
 <jsp:include page="/footer.jsp"/>
 <div id="modalAdminLoginFailed"></div>
+<c:if test="${param.joined eq '1'}">
+  <script>alert('회원가입에 성공하여 로그인 페이지로 이동합니다.');</script>
+</c:if>
+
+<c:if test="${loginFail}">
+  <script>
+    alert('아이디와 비밀번호를 정확하게 입력해주십시오.');
+  </script>
+</c:if>
 </body>
 </html>

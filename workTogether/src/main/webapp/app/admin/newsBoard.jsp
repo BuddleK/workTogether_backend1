@@ -40,21 +40,6 @@
 					<h1>뉴스 게시글 관리</h1>
 				</div>
 
-				<!-- 검색 (백엔드에서 column/keyword 처리 예정) -->
-				<form
-					action="${pageContext.request.contextPath}/admin/news/newsListOk.ad"
-					method="get">
-					<div class="searchbox">
-						<select name="column" class="search_column">
-							<option value="number"
-								${param.column == 'number' ? 'selected' : ''}>번호</option>
-							<option value="title"
-								${param.column == 'title' ? 'selected' : ''}>제목</option>
-							<option value="date" ${param.column == 'date'  ? 'selected' : ''}>작성일</option>
-						</select> <input type="text" name="keyword" value="${param.keyword}" />
-						<button type="submit">검색</button>
-					</div>
-				</form>
 
 				<!-- 테이블 헤더 -->
 				<div class="table">
@@ -130,9 +115,7 @@
 					</c:if>
 					<!-- 등록 버튼 -->
 					<div class="add">
-						<a
-							href="${pageContext.request.contextPath}/admin/news/newsWrite.ad"
-							class="add_btn">등록</a>
+						<a href="${pageContext.request.contextPath}/admin/news/newsWrite.ad" class="add_btn">등록</a>
 					</div>
 				</div>
 			</div>

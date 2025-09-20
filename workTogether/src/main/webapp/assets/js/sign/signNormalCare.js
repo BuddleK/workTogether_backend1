@@ -1,308 +1,353 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("joinForm") || document.querySelector("form");
+document.addEventListener("DOMContentLoaded", function() {
+	const form = document.getElementById("joinForm") || document.querySelector("form");
 
-  const idInput = document.getElementById("get_id_input") || document.querySelector('input[name="usersId"]');
-  const idMsgBox = document.querySelector(".id_err_box");
-  const idOkMsg = document.querySelector(".ok_id_msg");
-  const idErrMsg = document.querySelector(".err_id_msg");
+	const idInput = document.getElementById("get_id_input") || document.querySelector('input[name="usersId"]');
+	const idMsgBox = document.querySelector(".id_err_box");
+	const idOkMsg = document.querySelector(".ok_id_msg");
+	const idErrMsg = document.querySelector(".err_id_msg");
 
-  async function doCheckId() {
-    const id = (idInput?.value || "").trim();
-    if (!id) {
-      if (idMsgBox) idMsgBox.style.display = "block";
-      if (idOkMsg) idOkMsg.style.display = "none";
-      if (idErrMsg) {
-        idErrMsg.style.display = "block";
-        idErrMsg.textContent = "아이디를 입력해주세요.";
-      }
-      return;
-    }
+	async function doCheckId() {
+		const id = (idInput?.value || "").trim();
+		if (!id) {
+			if (idMsgBox) idMsgBox.style.display = "block";
+			if (idOkMsg) idOkMsg.style.display = "none";
+			if (idErrMsg) {
+				idErrMsg.style.display = "block";
+				idErrMsg.textContent = "아이디를 입력해주세요.";
+			}
+			return;
+		}
 
-    try {
-      const res = await fetch(`/users/checkIdOk.us?usersId=${encodeURIComponent(id)}`, {
-        headers: { "Accept": "application/json" }
-      });
-      if (!res.ok) throw new Error(res.status);
-      const data = await res.json(); // {available: true|false}
-      if (idMsgBox) idMsgBox.style.display = "block";
-      if (data.available) {
-        if (idOkMsg) idOkMsg.style.display = "block";
-        if (idErrMsg) idErrMsg.style.display = "none";
-      } else {
-        if (idOkMsg) idOkMsg.style.display = "none";
-        if (idErrMsg) {
-          idErrMsg.style.display = "block";
-          idErrMsg.textContent = "이미 사용 중인 아이디입니다.";
-        }
-      }
-    } catch (_) {
-      if (idOkMsg) idOkMsg.style.display = "none";
-      if (idErrMsg) {
-        idErrMsg.style.display = "block";
-        idErrMsg.textContent = "아이디 중복 검사 중 오류가 발생했습니다.";
-      }
-    }
-  }
-  idInput?.addEventListener("change", doCheckId);
-  window.checkId = doCheckId;
+		try {
+			const res = await fetch(`/users/checkIdOk.us?usersId=${encodeURIComponent(id)}`, {
+				headers: { "Accept": "application/json" }
+			});
+			if (!res.ok) throw new Error(res.status);
+			const data = await res.json(); // {available: true|false}
+			if (idMsgBox) idMsgBox.style.display = "block";
+			if (data.available) {
+				if (idOkMsg) idOkMsg.style.display = "block";
+				if (idErrMsg) idErrMsg.style.display = "none";
+			} else {
+				if (idOkMsg) idOkMsg.style.display = "none";
+				if (idErrMsg) {
+					idErrMsg.style.display = "block";
+					idErrMsg.textContent = "이미 사용 중인 아이디입니다.";
+				}
+			}
+		} catch (_) {
+			if (idOkMsg) idOkMsg.style.display = "none";
+			if (idErrMsg) {
+				idErrMsg.style.display = "block";
+				idErrMsg.textContent = "아이디 중복 검사 중 오류가 발생했습니다.";
+			}
+		}
+	}
+	idInput?.addEventListener("change", doCheckId);
+	window.checkId = doCheckId;
 
-  // ===== 비밀번호 =====
-  const pwInput = document.getElementById("pw_input");
-  const pwMsg = document.getElementById("msg_box");
+	// ===== 비밀번호 =====
+	const pwInput = document.getElementById("pw_input");
+	const pwMsg = document.getElementById("msg_box");
 
-  pwInput?.addEventListener("input", () => {
-    const val = pwInput.value;
-    const pattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*?_])[A-Za-z\d!@#$%^&*?_]{8,}$/;
-    if (pattern.test(val)) {
-      if (pwMsg) pwMsg.style.display = "none";
-    } else {
-      if (pwMsg) {
-        pwMsg.style.display = "block";
-        pwMsg.textContent = "영문, 숫자, 특수문자를 포함한 8자 이상 비밀번호를 입력하세요.";
-      }
-    }
-  });
+	pwInput?.addEventListener("input", () => {
+		const val = pwInput.value;
+		const pattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*?_])[A-Za-z\d!@#$%^&*?_]{8,}$/;
+		if (pattern.test(val)) {
+			if (pwMsg) pwMsg.style.display = "none";
+		} else {
+			if (pwMsg) {
+				pwMsg.style.display = "block";
+				pwMsg.textContent = "영문, 숫자, 특수문자를 포함한 8자 이상 비밀번호를 입력하세요.";
+			}
+		}
+	});
 
-  // 비밀번호 검증 =====
-  const pwCheckInput = document.getElementById("pw_check_input");
-  const pwCheckMsgBox = document.getElementById("msg_box2");
-  const pwMatch = document.querySelector(".correct_pw");
-  const pwNotMatch = document.querySelector(".error_pw_check_msg");
+	// 비밀번호 검증 =====
+	const pwCheckInput = document.getElementById("pw_check_input");
+	const pwCheckMsgBox = document.getElementById("msg_box2");
+	const pwMatch = document.querySelector(".correct_pw");
+	const pwNotMatch = document.querySelector(".error_pw_check_msg");
 
-  pwCheckInput?.addEventListener("input", () => {
-    const pw = pwInput?.value.trim();
-    const confirm = pwCheckInput.value.trim();
+	pwCheckInput?.addEventListener("input", () => {
+		const pw = pwInput?.value.trim();
+		const confirm = pwCheckInput.value.trim();
 
-    if (pwCheckMsgBox) pwCheckMsgBox.style.display = "block";
-    if (pw && pw === confirm) {
-      if (pwMatch) pwMatch.style.display = "block";
-      if (pwNotMatch) pwNotMatch.style.display = "none";
-    } else {
-      if (pwMatch) pwMatch.style.display = "none";
-      if (pwNotMatch) pwNotMatch.style.display = "block";
-    }
-  });
+		if (pwCheckMsgBox) pwCheckMsgBox.style.display = "block";
+		if (pw && pw === confirm) {
+			if (pwMatch) pwMatch.style.display = "block";
+			if (pwNotMatch) pwNotMatch.style.display = "none";
+		} else {
+			if (pwMatch) pwMatch.style.display = "none";
+			if (pwNotMatch) pwNotMatch.style.display = "block";
+		}
+	});
 
-  // ===== 이메일
-  const emailInput = document.getElementById("email") || document.querySelector('input[name="usersEmail"]');
-  const emailBox = document.getElementById("msg_box_email");
-  const emailOk = document.querySelector(".correct_email");
-  const emailErr = document.querySelector(".error_email_msg");
+	// ===== 이메일
+	const emailInput = document.getElementById("email") || document.querySelector('input[name="usersEmail"]');
+	const emailBox = document.getElementById("msg_box_email");
+	const emailOk = document.querySelector(".correct_email");
+	const emailErr = document.querySelector(".error_email_msg");
 
-  emailInput?.addEventListener("input", () => {
-    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailBox) emailBox.style.display = "block";
-    if (pattern.test(emailInput.value)) {
-      if (emailOk) emailOk.style.display = "block";
-      if (emailErr) emailErr.style.display = "none";
-    } else {
-      if (emailOk) emailOk.style.display = "none";
-      if (emailErr) emailErr.style.display = "block";
-    }
-  });
+	emailInput?.addEventListener("input", () => {
+		const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (emailBox) emailBox.style.display = "block";
+		if (pattern.test(emailInput.value)) {
+			if (emailOk) emailOk.style.display = "block";
+			if (emailErr) emailErr.style.display = "none";
+		} else {
+			if (emailOk) emailOk.style.display = "none";
+			if (emailErr) emailErr.style.display = "block";
+		}
+	});
 
-  // ===== 휴대폰 인증
-  const sendBtn = document.getElementById("sendSMSBtn") || document.querySelector('button[onclick="sendMsg()"]');
-  const phoneInput = document.getElementById("phone") || document.querySelector('input[name="usersPhone"]');
-  const verifyInput = document.getElementById("author_number");
-  const verifyStatus = document.querySelector(".alert");
-  const checkSMS = document.getElementById("check");
-  //const timerEl = document.querySelector(".timer");
+	// ===== 휴대폰 인증
+	const sendBtn = document.getElementById("sendSMSBtn") || document.querySelector('button[onclick="sendMsg()"]');
+	const phoneInput = document.getElementById("phone") || document.querySelector('input[name="usersPhone"]');
+	const verifyInput = document.getElementById("author_number");
+	const checkSMS = document.getElementById("check");
+	const timerEl = document.querySelector(".timer");
 
-/*  let generatedCode = "";
-  let timerId = null;
+	/*  let generatedCode = "";
+	  let timerId = null;
+	
+	  function startTimer(sec = 60) {
+		if (timerId) clearInterval(timerId);
+		let left = sec;
+		timerId = setInterval(() => {
+		  if (timerEl) timerEl.innerHTML = `<p>${left}</p>`;
+		  if (left-- <= 0) {
+			clearInterval(timerId);
+			timerId = null;
+			generatedCode = "";
+			if (verifyStatus) {
+			  verifyStatus.textContent = "인증번호가 만료되었습니다. 다시 발급받아 주세요.";
+			  verifyStatus.style.display = "block";
+			  verifyStatus.style.color = "red";
+			}
+		  }
+		}, 1000);
+	  }*/
 
-  function startTimer(sec = 60) {
-    if (timerId) clearInterval(timerId);
-    let left = sec;
-    timerId = setInterval(() => {
-      if (timerEl) timerEl.innerHTML = `<p>${left}</p>`;
-      if (left-- <= 0) {
-        clearInterval(timerId);
-        timerId = null;
-        generatedCode = "";
-        if (verifyStatus) {
-          verifyStatus.textContent = "인증번호가 만료되었습니다. 다시 발급받아 주세요.";
-          verifyStatus.style.display = "block";
-          verifyStatus.style.color = "red";
-        }
-      }
-    }, 1000);
-  }*/
+	let timerId = null;
+	let expiresAt = 0;
 
-  
-  // ===== SMS 발송 (임시 인증번호 생성) =====
-// 처음엔 비활성화
-  const phoneRegex = /^01[016789]-?\d{3,4}-?\d{4}$/;
-  sendBtn.addEventListener("click", function() {
-      const phoneNumberChecker = phoneInput.value.trim();
-      if (phoneInput == null || !phoneRegex.test(phoneNumberChecker)) {
-          alert("핸드폰 번호를 입력해주세요.");
-          return;
-      }
+	function stopTimer() {
+		if (timerId) clearInterval(timerId);
+		timerId = null;
+		expiresAt = 0;
+		if (sendBtn) sendBtn.textContent = "인증번호 발송";
+	}
+	function startTimer(sec = 60) {
+		stopTimer();
+		expiresAt = Date.now() + sec * 1000;
 
-      fetch(`/users/JoinSMSController.us?memberPhoneNumber=${encodeURIComponent(phoneNumberChecker)}`, {
-          method: "GET",
-          headers: {
-              "Accept": "text/plain",
-              "X-Requested-With": "XMLHttpRequest" // 이걸 추가해야 서버를 다시로드 하지 않고 인증번호를 받을 수 있음
-          }
-      })
-          .then(res => {
-              if (!res.ok) throw new Error("발송 실패: " + res.status);
-              return res.text(); // text 형식으로 받음
-          })
-          .then(msg => {
-              // 서버가 성공적으로 처리했을 때만 실행
-              alert(msg);               // 발송 메시지
-              sendBtn.disabled = true;  // 재발송 방지
-          })
-          .catch(err => {
-              // 실패했을 때
-              alert("SMS 발송 중 오류가 발생했습니다.\n" + err);
-              sendBtn.disabled = false; // 다시 시도 가능
-          });
-  });
-  // ===== 인증번호 확인 (서버 대신 로컬 비교) =====
-  checkSMS.addEventListener("click", function() {
-      const codeChecker = verifyInput.value.trim();
-      if (!codeChecker) {
-		alert("인증번호를 입력하세요");
-          return;
-      }
+		const tick = () => {
+			const left = Math.max(0, Math.ceil((expiresAt - Date.now()) / 1000));
+			if (sendBtn) sendBtn.textContent = left ? `인증번호 발송 (${left})` : "인증번호 발송";
+			if (left <= 0) {
+				stopTimer();
+				if (verifyInput) {
+					verifyInput.value = "";
+					verifyInput.dataset.verified = "false";
+				}
+				alert("핸드폰 인증을 다시 받아주십시오.");
+				if (sendBtn) sendBtn.disabled = false;
+			}
+		};
+		tick();
+		timerId = setInterval(tick, 1000);
+	}
+	function isExpired() {
+		return !expiresAt || Date.now() > expiresAt;
+	}
 
-      fetch(`/users/VerifyCodeController.us?verificationCode=${encodeURIComponent(codeChecker)}`, {
-          headers: { "Accept": "text/plain", "X-Requested-With": "XMLHttpRequest"} 
-          }).then(res => {
-                  if (!res.ok) throw new Error("발송 실패: " + res.status);
-                  return res.text(); // text 형식으로 받음
-          })
-          .then(msg => {
-              if (msg.includes("성공")) {
-                 alert("인증 성공");
-				 verifyInput.readOnly = true;       // 인증번호 입력란 잠금
-				 phoneInput.readOnly = true;        // (선택) 휴대폰 번호도 잠그려면 이 줄 추가
-              } else {
-				alert("인증 실패");
-              }
-          })
-          .catch(() => {
-              alert("서버오류");
-          });
-  });
-  
- 
- 
- /* function sendMsg(e) {
-    e?.preventDefault?.();
-    const phone = (phoneInput?.value || "").trim();
-    if (!phone) {
-      alert("휴대폰 번호를 입력해주세요.");
-      return;
-    }
-    generatedCode = String(Math.floor(100000 + Math.random() * 900000));
-    alert(`인증번호는 [${generatedCode}] 입니다.`);
+	// ===== SMS 발송 (임시 인증번호 생성) =====
+	// 처음엔 비활성화
+	const phoneRegex = /^01[016789]-?\d{3,4}-?\d{4}$/;
+	sendBtn.addEventListener("click", function() {
+		const phoneNumberChecker = phoneInput.value.trim();
+		if (phoneInput == null || !phoneRegex.test(phoneNumberChecker)) {
+			alert("핸드폰 번호를 입력해주세요.");
+			return;
+		}
 
-    if (verifyInput) verifyInput.disabled = false;
-    if (verifyStatus) {
-      verifyStatus.textContent = "인증번호가 발송되었습니다.";
-      verifyStatus.style.display = "block";
-      verifyStatus.style.color = "";
-    }
-    startTimer(60);
-  }
-    sendBtn?.addEventListener("click", sendMsg); 
-  window.sendMsg = sendMsg;
+		fetch(`/users/JoinSMSController.us?memberPhoneNumber=${encodeURIComponent(phoneNumberChecker)}`, {
+			method: "GET",
+			headers: {
+				"Accept": "text/plain",
+				"X-Requested-With": "XMLHttpRequest" // 이걸 추가해야 서버를 다시로드 하지 않고 인증번호를 받을 수 있음
+			}
+		})
+			.then(res => {
+				if (!res.ok) throw new Error("발송 실패: " + res.status);
+				return res.text(); // text 형식으로 받음
+			})
+			.then(msg => {
+				// 서버가 성공적으로 처리했을 때만 실행
+				alert(msg);               // 발송 메시지
+				sendBtn.disabled = true;  // 재발송 방지
+				verifyInput.readOnly = false;
+				verifyInput.value = "";      // 새 코드 입력 위해 비워두기
+				verifyInput.dataset.verified = "false";
+				startTimer(60);
+			})
+			.catch(err => {
+				// 실패했을 때
+				alert("SMS 발송 중 오류가 발생했습니다.\n" + err);
+				sendBtn.disabled = false; // 다시 시도 가능
+				stopTimer();
+			});
+	});
+	// ===== 인증번호 확인 (서버 대신 로컬 비교) =====
+	checkSMS.addEventListener("click", function() {
+		if (isExpired()) {
+			alert("인증번호가 만료되었습니다. 다시 발급받아 주세요.");
+			verifyInput.value = "";
+			sendBtn.disabled = false;
+			return;
+		}
 
-  function checkMsg(e) {
-    e?.preventDefault?.();
-    const typed = (verifyInput?.value || "").trim();
-    const ok = !!generatedCode && /^\d{6}$/.test(typed) && typed === generatedCode;
+		const codeChecker = verifyInput.value.trim();
+		if (!codeChecker) {
+			alert("인증번호를 입력하세요");
+			return;
+		}
 
-    if (verifyStatus) {
-      verifyStatus.textContent = ok ? "인증에 성공했습니다." : "인증번호가 일치하지 않습니다.";
-      verifyStatus.style.display = "block";
-      verifyStatus.style.color = ok ? "green" : "red";
-    }
-    if (verifyInput) verifyInput.dataset.verified = ok ? "true" : "false";
+		fetch(`/users/VerifyCodeController.us?verificationCode=${encodeURIComponent(codeChecker)}`, {
+			headers: { "Accept": "text/plain", "X-Requested-With": "XMLHttpRequest" }
+		}).then(res => {
+			if (!res.ok) throw new Error("발송 실패: " + res.status);
+			return res.text(); // text 형식으로 받음
+		})
+			.then(msg => {
+				if (msg.includes("성공")) {
+					alert("인증 성공");
+					verifyInput.readOnly = true;
+					phoneInput.readOnly = true;
+					verifyInput.dataset.verified = "true";
+					stopTimer();
+				} else {
+					alert("인증 실패");
+				}
+			})
+			.catch(() => {
+				alert("서버오류");
+			});
+	});
 
-    const errorBoxMsg = document.querySelector(".error_box_msg");
-    const okMsg = document.querySelector(".okay_msg");
-    const errorMsg = document.querySelector(".error_msg");
-    if (errorBoxMsg) errorBoxMsg.style.display = "block";
-    if (okMsg) okMsg.style.display = ok ? "block" : "none";
-    if (errorMsg) errorMsg.style.display = ok ? "none" : "block";
 
-    return ok;
-  }
-  window.checkMsg = checkMsg;*/
 
-  // ===== 제출 전 검증
-  form?.addEventListener("submit", function (e) {
-    const nameInput = document.getElementById("name") || document.querySelector('input[name="usersName"]');
-    const postCode = document.getElementById("usersPostsalCode") || document.getElementById("postcode");
-    const addrMain = document.getElementById("usersAddressLine1") || document.getElementById("mainAddress");
-    const addrDetail = document.getElementById("usersAddressLine2") || document.getElementById("detailAddress");
+	/* function sendMsg(e) {
+	   e?.preventDefault?.();
+	   const phone = (phoneInput?.value || "").trim();
+	   if (!phone) {
+		 alert("휴대폰 번호를 입력해주세요.");
+		 return;
+	   }
+	   generatedCode = String(Math.floor(100000 + Math.random() * 900000));
+	   alert(`인증번호는 [${generatedCode}] 입니다.`);
+   
+	   if (verifyInput) verifyInput.disabled = false;
+	   if (verifyStatus) {
+		 verifyStatus.textContent = "인증번호가 발송되었습니다.";
+		 verifyStatus.style.display = "block";
+		 verifyStatus.style.color = "";
+	   }
+	   startTimer(60);
+	 }
+	   sendBtn?.addEventListener("click", sendMsg); 
+	 window.sendMsg = sendMsg;
+   
+	 function checkMsg(e) {
+	   e?.preventDefault?.();
+	   const typed = (verifyInput?.value || "").trim();
+	   const ok = !!generatedCode && /^\d{6}$/.test(typed) && typed === generatedCode;
+   
+	   if (verifyStatus) {
+		 verifyStatus.textContent = ok ? "인증에 성공했습니다." : "인증번호가 일치하지 않습니다.";
+		 verifyStatus.style.display = "block";
+		 verifyStatus.style.color = ok ? "green" : "red";
+	   }
+	   if (verifyInput) verifyInput.dataset.verified = ok ? "true" : "false";
+   
+	   const errorBoxMsg = document.querySelector(".error_box_msg");
+	   const okMsg = document.querySelector(".okay_msg");
+	   const errorMsg = document.querySelector(".error_msg");
+	   if (errorBoxMsg) errorBoxMsg.style.display = "block";
+	   if (okMsg) okMsg.style.display = ok ? "block" : "none";
+	   if (errorMsg) errorMsg.style.display = ok ? "none" : "block";
+   
+	   return ok;
+	 }
+	 window.checkMsg = checkMsg;*/
 
-    const requiredInputs = [
-      idInput, pwInput, pwCheckInput, emailInput, nameInput,
-      phoneInput, verifyInput, postCode, addrMain, addrDetail
-    ];
-    const allFilled = requiredInputs.every(el => el && (el.value || "").trim().length > 0);
+	// ===== 제출 전 검증
+	form?.addEventListener("submit", function(e) {
+		const nameInput = document.getElementById("name") || document.querySelector('input[name="usersName"]');
+		const postCode = document.getElementById("usersPostsalCode") || document.getElementById("postcode");
+		const addrMain = document.getElementById("usersAddressLine1") || document.getElementById("mainAddress");
+		const addrDetail = document.getElementById("usersAddressLine2") || document.getElementById("detailAddress");
 
-    if (!allFilled) {
-      e.preventDefault();
-      alert("모든 항목을 입력해주세요.");
-      return;
-    }
-    if (verifyInput?.dataset.verified !== "true") {
-      e.preventDefault();
-      alert("휴대폰 인증을 완료해주세요.");
-      verifyInput?.focus();
-      return;
-    }
-  });
+		const requiredInputs = [
+			idInput, pwInput, pwCheckInput, emailInput, nameInput,
+			phoneInput, verifyInput, postCode, addrMain, addrDetail
+		];
+		const allFilled = requiredInputs.every(el => el && (el.value || "").trim().length > 0);
 
-  // ===== 파일 첨부: 파일명 표시 =====
-  // .file 컨테이너마다 자동 처리 (여러 개도 동작)
-  document.querySelectorAll(".file").forEach((wrap) => {
-    const openBtn = wrap.querySelector('input[type="button"], button');
-    let fileInput = wrap.querySelector('input[type="file"]');
+		if (!allFilled) {
+			e.preventDefault();
+			alert("모든 항목을 입력해주세요.");
+			return;
+		}
+		if (verifyInput?.dataset.verified !== "true") {
+			e.preventDefault();
+			alert("휴대폰 인증을 완료해주세요.");
+			verifyInput?.focus();
+			return;
+		}
+	});
 
-    // 파일명을 표시할 텍스트 인풋 찾기
-    let textBox =
-      wrap.querySelector('input[type="text"], input[type="search"]');
+	// ===== 파일 첨부: 파일명 표시 =====
+	// .file 컨테이너마다 자동 처리 (여러 개도 동작)
+	document.querySelectorAll(".file").forEach((wrap) => {
+		const openBtn = wrap.querySelector('input[type="button"], button');
+		let fileInput = wrap.querySelector('input[type="file"]');
 
-    // 같은 줄의 왼쪽에 독립 input이 있는 구조( prev sibling )도 고려
-    if (!textBox) {
-      const prev = wrap.previousElementSibling;
-      if (prev && prev.tagName === 'INPUT' && (prev.type === 'text' || prev.type === 'search')) {
-        textBox = prev;
-      } else if (prev && typeof prev.querySelector === 'function') {
-        textBox = prev.querySelector('input[type="text"], input[type="search"]');
-      }
-    }
+		// 파일명을 표시할 텍스트 인풋 찾기
+		let textBox =
+			wrap.querySelector('input[type="text"], input[type="search"]');
 
-    // 숨겨진 파일 인풋이 없으면 생성
-    if (!fileInput) {
-      fileInput = document.createElement("input");
-      fileInput.type = "file";
-      fileInput.style.display = "none";
-      wrap.appendChild(fileInput);
-    }
+		// 같은 줄의 왼쪽에 독립 input이 있는 구조( prev sibling )도 고려
+		if (!textBox) {
+			const prev = wrap.previousElementSibling;
+			if (prev && prev.tagName === 'INPUT' && (prev.type === 'text' || prev.type === 'search')) {
+				textBox = prev;
+			} else if (prev && typeof prev.querySelector === 'function') {
+				textBox = prev.querySelector('input[type="text"], input[type="search"]');
+			}
+		}
 
-    // 버튼 클릭 -> 파일 선택 창
-    openBtn?.addEventListener("click", () => fileInput.click());
+		// 숨겨진 파일 인풋이 없으면 생성
+		if (!fileInput) {
+			fileInput = document.createElement("input");
+			fileInput.type = "file";
+			fileInput.style.display = "none";
+			wrap.appendChild(fileInput);
+		}
 
-    // 파일 선택 -> 파일명 표시
-    fileInput.addEventListener("change", () => {
-      const name = fileInput.files?.[0]?.name || "";
-      if (textBox) {
-        textBox.value = name;
-        textBox.readOnly = true; // 원치 않으면 제거
-      }
-      // 선택 후 버튼을 숨기고 싶으면 아래 주석 해제
-      // if (name) openBtn.style.display = "none";
-    });
-  });
+		// 버튼 클릭 -> 파일 선택 창
+		openBtn?.addEventListener("click", () => fileInput.click());
+
+		// 파일 선택 -> 파일명 표시
+		fileInput.addEventListener("change", () => {
+			const name = fileInput.files?.[0]?.name || "";
+			if (textBox) {
+				textBox.value = name;
+				textBox.readOnly = true; // 원치 않으면 제거
+			}
+			// 선택 후 버튼을 숨기고 싶으면 아래 주석 해제
+			// if (name) openBtn.style.display = "none";
+		});
+	});
 });

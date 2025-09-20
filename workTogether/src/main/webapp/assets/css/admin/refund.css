@@ -140,15 +140,52 @@ main {
   border-bottom: 1px solid black;
 }
 
-.paging_box {
-  width: 70%;
-  /* border: 1px solid black; */
-  margin: 0 auto;
+.paging_box{
+  width: 100%;
+  margin: 6px 0 0 0;
+  display: grid;
+  grid-template-columns: 20% 50% 25% 5%;
+  align-items: center;
 }
 
-.paging {
+.paging{
+  grid-column: 2;
+  justify-self: center;
+  display: inline-flex;
+  gap: 10px;
+  padding-top: 4px;
+  margin: 0;
+  list-style: none;
+}
+
+.add_btn {
+  background-color: #2f52aa;
+  color: white;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.add {
+  width: 90%;
   display: flex;
-  gap: 24px;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.add .add_btn {
+  display: inline-block;
+}
+
+.paging a{
+  display: inline-block;
+  text-decoration: none;
+  padding: 2px 6px;
+  color: #333;
+  transition: transform .12s ease, color .12s ease;
+}
+
+.paging .page_number.active a{
+  color: #e40000;
+  font-weight: 700;
+  transform: scale(1.12);
 }

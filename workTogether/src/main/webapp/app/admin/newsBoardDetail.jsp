@@ -79,5 +79,28 @@
 	</main>
 
 	<jsp:include page="/footer.jsp" />
+	<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form[action$="/admin/news/newsUpdateOk.ad"]');
+    const btn  = form?.querySelector('button.add[type="submit"]');
+
+    btn?.addEventListener('click', function (e) {
+      e.preventDefault(); // 기본 제출 막기 (여기서 disabled 해도 안전)
+
+      // HTML5 required 등 유효성 검사 먼저
+      if (form && !form.reportValidity()) return;
+
+      alert('수정이 완료되었습니다.');
+      btn.disabled = true; // 중복 클릭 방지
+
+      // 네이티브 제출 트리거 (검증/submit 이벤트를 정상 경로로)
+      if (typeof form.requestSubmit === 'function') {
+        form.requestSubmit(btn);
+      } else {
+        form.submit(); // 구형 브라우저 대응(검증은 위에서 이미 확인)
+      }
+    });
+  });
+</script>
 </body>
 </html>
