@@ -39,7 +39,9 @@
 				<div class="title">
 					<h1>공지사항 관리</h1>
 				</div>
-				<form action="${pageContext.request.contextPath}/admin/adminNotice.ad" method="post">
+				<form
+					action="${pageContext.request.contextPath}/admin/adminNotice.ad"
+					method="post">
 					<div class="searchbox">
 						<select name="column" id="" class="search_column">
 							<option value="number">번호</option>
@@ -63,20 +65,21 @@
 						<div class="table_md">
 							<c:forEach var="notice" items="${noticeList}">
 								<ul class="table_body">
-									<li class="body_number">
-									<a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp?noticeNumber=${notice.noticeNumber}">
+									<li class="body_number"><a
+										href="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad?noticeNumber=${notice.noticeNumber}">
 											${notice.noticeNumber} </a></li>
-									<li class="body_content">
-									<a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp?noticeNumber=${notice.noticeNumber}">
+									<li class="body_content"><a
+										href="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad?noticeNumber=${notice.noticeNumber}">
 											${notice.noticeTitle} </a></li>
-									<li class="body_name">
-									<a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp?noticeNumber=${notice.noticeNumber}">
+									<li class="body_name"><a
+										href="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad?noticeNumber=${notice.noticeNumber}">
 											${notice.adminNumber} <!-- 필요 시 이름으로 바꿔서 표시 가능 -->
 									</a></li>
-									<li class="body_cnt"><a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp?noticeNumber=${notice.noticeNumber}">
+									<li class="body_cnt"><a
+										href="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad?noticeNumber=${notice.noticeNumber}">
 											${notice.noticeViewCount} </a></li>
-									<li class="body_date">
-									<a href="${pageContext.request.contextPath}/app/admin/noticeDetail.jsp?noticeNumber=${notice.noticeNumber}">
+									<li class="body_date"><a
+										href="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad?noticeNumber=${notice.noticeNumber}">
 											${notice.noticeCreatedDate} </a></li>
 									<li class="body_delete">
 										<button class="delete_btn"
@@ -117,6 +120,9 @@
 									class="next">&gt;</a>
 							</c:if>
 						</ul>
+						<div class="add">
+							<a href="${pageContext.request.contextPath}/admin/adminNoticeInsert.ad?adminNumber=${notice.adminNumber}" class="add_btn">등록</a>
+						</div>
 					</div>
 				</div>
 			</div>
