@@ -9,26 +9,19 @@
 		SELECT * FROM (
 			SELECT ROWNUM AS rnum, subquery.*
 			FROM (
-				SELECT FAVORITES_NUMBER, USERS_NUMBER, FAVORITES_SHOPS_NUMBER, tsf.AVORITES_CREATED_DATE, 
+				SELECT FAVORITES_NUMBER, USERS_NUMBER, FAVORITES_SHOPS_NUMBER, tsf.FAVORITES_CREATED_DATE, 
 				SHOPS_NUMBER, SHOPS_NAME, SHOPS_ROAD_ADDRESS, SHOPS_PHONE 
-				FROM TBL_SHOPS_FAVORITES tsf LEFT JOIN TBL_SHOPS ts ON tsf.FAVORITES_SHOPS_NUMBER = ts.SHOPS_NUMBER WHERE USERS_NUMBER #{usersNumber}
-				ORDER BY f.favorites_created_date DESC
+				FROM TBL_SHOPS_FAVORITES tsf LEFT JOIN TBL_SHOPS ts ON tsf.FAVORITES_SHOPS_NUMBER = ts.SHOPS_NUMBER WHERE USERS_NUMBER = #{usersNumber}
+				ORDER BY tsf.favorites_created_date DESC
 			) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
 		]]>
 	</select>
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	<!-- 찜 삭제 쿼리 -->
+   <delete id="delMark" parameterType="int">
+      delete from TBL_SHOPS_FAVORITES where FAVORITES_NUMBER = #{favoritesNumber}
+   </delete>
 
 
 

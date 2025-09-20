@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.careMyPage.dao.CareMatchingDAO;
+import com.wt.app.careMyPage.dao.CareProfileDAO;
 import com.wt.app.dto.CareMarkDTO;
+import com.wt.app.dto.CareProfilePictureDTO;
 
 public class CareMatchingController implements Execute {
 
@@ -67,6 +69,17 @@ public class CareMatchingController implements Execute {
 //		System.out.println("markList : " + markList);
 		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
+		
+		
+		//로그인한 사용자 번호 가져오기
+		Integer usersNumber = (Integer) request.getSession().getAttribute("usersNumber");
+		System.out.println("로그인 한 멤버 번호 : " + usersNumber);
+		
+		//프로필 사진 담아오기
+		CareProfileDAO careProfileDAO = new CareProfileDAO();
+		CareProfilePictureDTO careProfilePictureDTO = new CareProfilePictureDTO();
+		careProfilePictureDTO = careProfileDAO.getProPic(usersNumber);
+		request.setAttribute("profilePic", careProfilePictureDTO);
 		
 		result.setPath("/app/myPageCare/careMatching.jsp");
 		result.setRedirect(false);
