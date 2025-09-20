@@ -52,7 +52,7 @@
 				<div class="sign_box sign_id">
 					<p>아이디</p>
 					<input type="text" id="get_id_input" name="usersId"
-						placeholder="8자리 이상, 문자 숫자 포함" required>
+						placeholder="8자리 이상, 문자 숫자 포함 추천" required>
 					<button onclick="checkId()" type="button">중복확인</button>
 				</div>
 				<div class="id_err_box">
@@ -147,5 +147,11 @@
 		</section>
 	</main>
 	<jsp:include page="/footer.jsp" />
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<c:if test="${param.error eq 'join'}">
+		<script>
+			alert('모든칸을 정확하게 입력해 주십시오');
+		</script>
+	</c:if>
 </body>
 </html>

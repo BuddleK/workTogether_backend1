@@ -1,6 +1,8 @@
 @charset "UTF-8";
-main {
-  width: 100%;
+
+/* ===== 기본 레이아웃 ===== */
+main { 
+	width: 100%; 
 }
 
 .searchcontent {
@@ -17,9 +19,13 @@ main {
   height: 100%;
 }
 
-/* 타이틀/빈상태/검색 */
-.title { width: 100%; }
-.title > h1 { padding: 20px; }
+.title { 
+	width: 100%;
+}
+
+.title > h1 { 
+	padding: 20px; 
+}
 
 .empty {
   display: flex;
@@ -32,26 +38,34 @@ main {
 }
 
 .searchbox { 
-	display: flex;
-}
-.search_column { 
-	border: 1px solid black; width: 150px; 
-}
-.searchbox > input { 
-	width: 500px; height: 30px; border: 1px solid black; 
-}
-.searchbox > button { 
-	width: 50px; border: 1px solid black; 
-}
-
-/* 테이블 헤더(회색 바) */
-.table { 
 	display: flex; 
-	flex-direction: column; 
-	align-items: stretch; 
-	min-height: 200px; 
 }
 
+.search_column { 
+	border: 1px solid #000; 
+	width: 150px; 
+}
+
+.searchbox > input { 
+	width: 500px; 
+	height: 30px; 
+	border: 1px solid #000; 
+}
+
+.searchbox > button { 
+	width: 50px; 
+	border: 1px solid #000; 
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 200px;
+  margin-right: 180px;
+}
+
+/* 헤더 바 */
 .board_column {
   width: 100%;
   height: 40px;
@@ -61,132 +75,122 @@ main {
   background-color: #d9d9d9;
 }
 
-/* 헤더 셀 공통 */
 .board_head {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-
-.board_column > .board_head:nth-child(1) { 
-	flex: 0 0 15%; 
-}
-.board_column > .board_head:nth-child(2) { 
-	flex: 0 0 20%; 
-}
-.board_column > .board_head:nth-child(3) { 
-	flex: 0 0 20%; 
-}
-.board_column > .board_head:nth-child(4) { 
-	flex: 0 0 35%; 
-}
-.board_column > .board_head:nth-child(5) { 
-	flex: 0 0 10%; 
-}
-
-/* 본문 영역 */
-.table_content { width: 100%; }
-
-/* 한 행 */
-.table_body {
-  display: flex;
-  position: relative;
-  cursor: pointer;
-}
-
-/* 본문 li 공통 */
-.table_body > li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  border-bottom: 1px solid #000;
   padding: 0 8px;
   box-sizing: border-box;
 }
 
-/* 본문 열폭: 헤더와 동일하게 nth-child로 고정 */
-.table_body > li:nth-child(1) { 
-	flex: 0 0 15%; 
-} 
-.table_body > li:nth-child(2) { 
-	flex: 0 0 20%; 
-} 
-.table_body > li:nth-child(3) { 
-	flex: 0 0 20%; 
-} 
-.table_body > li:nth-child(4) { 
-	flex: 0 0 35%; 
-} 
-.table_body > li:nth-child(5) { 
-	flex: 0 0 10%; 
-} 
+.board_column > .board_head:nth-child(1) { flex: 0 0 12%; }
+.board_column > .board_head:nth-child(2) { flex: 0 0 20%; }
+.board_column > .board_head:nth-child(3) { flex: 0 0 18%; }
+.board_column > .board_head:nth-child(4) { flex: 0 0 30%; }
+.board_column > .board_head:nth-child(5) { flex: 0 0 10%; }
+.board_column > .board_head:nth-child(6) { flex: 0 0 10%; }
 
-/* 만약 마지막에 '상세' 버튼 전용 칸을 따로 둘 경우 (6번째 칸) */
-.table_body > li.body_detail,
-.table_body > li:nth-child(6) {
-  flex: 0 0 10%;
-  justify-content: flex-end; /* 오른쪽으로 살짝 빼기 */
-  padding-right: 10px;       /* 요청하신 '조금 오른쪽' */
-  gap: 6px;
+.table_content { width: 100%; }
+
+.table_body {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  transition: background-color .15s ease;
+  width: 100%;
+}
+
+.table_body > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
   border-bottom: 1px solid #000;
+  padding: 0 8px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-/* 행 hover 효과 (선택) */
-.table_body:hover { 
-	background-color: #f7f8fa; 
+.table_body > li:nth-child(1) { flex: 0 0 12%; }
+.table_body > li:nth-child(2) { flex: 0 0 20%; }
+.table_body > li:nth-child(3) { flex: 0 0 18%; }
+.table_body > li:nth-child(4) { flex: 0 0 30%; }
+.table_body > li:nth-child(5) { flex: 0 0 10%; }
+.table_body > li:nth-child(6),
+.table_body > li.body_detail {
+  justify-content: center;
+  padding-right: 0;
+  gap: 0;
 }
 
-/* 상세 버튼 */
+.table_body:hover { background-color: #f7f8fa; }
+
 .detail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
   background: #2f52aa;
   color: #fff;
-  padding: 4px 12px;
   border-radius: 6px;
   text-decoration: none;
   font-size: 14px;
   line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  border: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
-.detail-btn:hover { 
-	background: #1f3c7a; 
-}
+.detail-btn:hover { background: #1f3c7a; }
 
-/* 페이징 */
-.paging_box {
+/* ===== 페이징 ===== */
+.paging_box{
   width: 100%;
-  margin-top: 16px;
-  display: flex;
-  justify-content: center;
-}
-
-.paging {
-  display: flex;
-  gap: 24px;
+  margin: 6px 0 0 0;
+  display: grid;
+  grid-template-columns: 20% 50% 25% 5%;
   align-items: center;
-  justify-content: center;
 }
 
-.paging .page_number a,
-.paging .prev a,
-.paging .next a {
+.paging{
+  grid-column: 2;
+  justify-self: center;
   display: inline-flex;
-  width: 32px;
-  height: 32px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #333;
+  gap: 10px;
+  padding-top: 4px;
+  margin: 0;
+  list-style: none;
 }
 
-.paging .page_number.active a {
-  background: #2f52aa;
-  color: #fff;
-  border-color: #2f52aa;
+.add_btn {
+  background-color: #2f52aa;
+  color: white;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.add {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.add .add_btn {
+  display: inline-block;
+}
+
+.paging a{
+  display: inline-block;
+  text-decoration: none;
+  padding: 2px 6px;
+  color: #333;
+  transition: transform .12s ease, color .12s ease;
+}
+
+.paging .page_number.active a{
+  color: #e40000;
+  font-weight: 700;
+  transform: scale(1.12);
 }

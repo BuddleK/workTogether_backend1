@@ -44,6 +44,7 @@
 						<div class="board_head board_title">이름</div>
 						<div class="board_head board_date">신청일</div>
 						<div class="board_head board_title">상태</div>
+						<div class="board_head board_detail">상세</div>
 					</div>
 
 					<!-- 목록 -->

@@ -46,6 +46,7 @@ public class LoginCareOkController implements Execute {
 			result.setPath(request.getContextPath() + "/mainOk.main"); // 로그인 성공 후 메인으로
 		} else {
 			System.out.println("유저 아이디가 없음");
+			request.setAttribute("loginFail", true);
 			result.setRedirect(false);
 			result.setPath("/app/login/loginCare.jsp"); // 실패 시 로그인 화면
 		}

@@ -95,5 +95,14 @@
 		</section>
 	</main>
 	<jsp:include page="/footer.jsp" />
+	<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.querySelector('.table_form .submit[type="submit"]');
+    btn?.addEventListener('click', function () {
+      alert('환급이 완료되었습니다.');
+      // preventDefault 안 했으므로 폼은 정상 제출됨
+    });
+  });
+</script>
 </body>
 </html>

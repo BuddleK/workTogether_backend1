@@ -33,19 +33,6 @@
 					<h1>돌봄 회원 환급 관리</h1>
 				</div>
 
-				<form action="" method="">
-					<div class="searchbox">
-						<select name="column" class="search_column">
-							<option value="number">환급 신청 번호</option>
-							<option value="name">신청자 명</option>
-							<option value="id">신청자 아이디</option>
-							<option value="date">신청 날짜</option>
-							<option value="type">환급 여부</option>
-						</select> <input type="text" />
-						<button>검색</button>
-					</div>
-				</form>
-
 				<div class="table">
 					<div class="board_column">
 						<div class="board_head board_number">환급 신청 번호</div>
@@ -105,6 +92,31 @@
 							</c:otherwise>
 						</c:choose>
 					</div>
+					
+					<!-- 페이징 -->
+					<c:if test="${not empty list}">
+						<div class="paging_box">
+							<ul class="paging">
+								<c:if test="${prev}">
+									<li class="prev"><a
+										href="${pageContext.request.contextPath}/admin/pointReturnListOk.ad?page=${startPage - 1}">&lt;</a>
+									</li>
+								</c:if>
+
+								<c:forEach begin="${startPage}" end="${endPage}" var="p">
+									<li class="page_number ${p == page ? 'active' : ''}"><a
+										href="${pageContext.request.contextPath}/admin/pointReturnListOk.ad?page=${p}">${p}</a>
+									</li>
+								</c:forEach>
+
+								<c:if test="${next}">
+									<li class="next"><a
+										href="${pageContext.request.contextPath}/admin/pointReturnListOk.ad?page=${endPage + 1}">&gt;</a>
+									</li>
+								</c:if>
+							</ul>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</section>
