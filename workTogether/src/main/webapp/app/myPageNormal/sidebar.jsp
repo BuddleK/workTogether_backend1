@@ -10,7 +10,7 @@
 		<li><a href="/myPageNormal/normalHeartListTotal.mn">하트 목록</a></li>
 		<li><a href="/myPageNormal/normalMatching.mn">매칭 기록</a></li>
 		<li><a href="/myPageNormal/normalMsgList.mn">쪽지함</a></li>
-		<li><a href="/myPageNormal/normalPostsList.mn">게시글 관리</a></li>
+		<li><a href="/myPageNormal/normalPostsListOk.mn">게시글 관리</a></li>
 		<li><a href="/myPageNormal/normalPoint.mn">포인트 충전</a></li>
 		<li><a href="/myPageNormal/normalReferenceInsert.mn">1 대 1 문의</a></li>
 		<li><a href="/myPageNormal/normalExit.mn">회원 탈퇴</a></li>

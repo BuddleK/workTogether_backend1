@@ -134,6 +134,8 @@ public class MyPageNormalDAO {
 	public int getReceiveTotal (int usersNumber) {
 		return sqlSession.selectOne("myPageNormal.getReceiveTotal", usersNumber);
 	}
+	
+	
 
 	public List<NormalPostsListDTO> normalPostsListSearch(int usersNumber) {
 		System.out.println("게시물 리스트 조회하기 - normalPostsListSearch 메소드 실행" + usersNumber);

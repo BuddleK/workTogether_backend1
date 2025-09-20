@@ -239,6 +239,14 @@ button {
   margin-top: 10px;
 }
 
+/* 모달 켜졌을 때 */
+.modal_bg .open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .sendmember {
   display: flex;
   justify-content: start;
@@ -318,4 +326,36 @@ button {
   background-color: #001860;
   color: white;
   cursor: pointer;
+}
+
+/* 모달 안의 상자 */
+.modal_box {
+  background: #fff;
+  min-width: 320px;
+  max-width: 90vw;
+  padding: 20px 24px;
+  border-radius: 10px;
+  text-align: center;
+  max-height: 150px;
+}
+
+/* 모달 안의 버튼 */
+.modal_buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* 모달 안의 버튼들 꾸미기 */
+.modal_buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 0px;
+}
+
+#cancelDelete {
+  background-color: #2f4db1;
 }
