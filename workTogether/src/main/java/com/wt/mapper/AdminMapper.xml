@@ -877,4 +877,135 @@
 		p.posts_number = #{postsNumber}
 
 	</select>
+
+	<!-- 장성주 이력수정 매퍼 -->
+	<select id="careCareerListPaged" parameterType="map"
+		resultType="com.wt.app.dto.CareCareerRowDTO">
+  SELECT *
+  FROM (
+    SELECT t.*, ROWNUM AS rnum
+    FROM (
+      SELECT
+        am.account_modify_number    AS accountModifyNumber,
+        am.account_files_number     AS accountFilesNumber,
+        am.account_files_name       AS accountFilesName,
+        am.account_files_type       AS accountFilesType,
+        u.users_number              AS usersNumber,
+        u.users_name                AS usersName,
+        u.users_id                  AS usersId,
+        TO_CHAR(am.account_created_date,'YYYY-MM-DD') AS accountCreatedDate,
+        am.review_status            AS reviewStatus
+      FROM TBL_ACCOUNT_MODIFY am
+      JOIN TBL_USERS u ON u.users_number = am.users_number
+      <where>
+        <if test="column != null and column != '' and keyword != null and keyword != ''">
+          <choose>
+            <when test="column == 'number'">
+              TO_CHAR(am.account_modify_number) LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="column == 'name'">
+              u.users_name LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="column == 'id'">
+              u.users_id LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="column == 'date'">
+              TO_CHAR(am.account_created_date,'YYYY-MM-DD') = #{keyword}
+            </when>
+            <when test="column == 'condition'">
+              am.review_status = #{keyword}
+            </when>
+          </choose>
+        </if>
+      </where>
+      ORDER BY am.account_created_date DESC, am.account_modify_number DESC
+    ) t
+    WHERE ROWNUM &lt;= #{endRow}
+  )
+  WHERE rnum &gt;= #{startRow}
+</select>
+
+	<!-- 총 개수 -->
+	<select id="careCareerCount" parameterType="map"
+		resultType="int"><![CDATA[
+  		SELECT COUNT(*)
+    	FROM TBL_ACCOUNT_MODIFY am
+    	JOIN TBL_USERS u ON u.users_number = am.users_number
+  		]]>
+		<where>
+			<if
+				test="column != null and column != '' and keyword != null and keyword != ''">
+				<choose>
+					<when test="column == 'number'">
+						TO_CHAR(am.account_modify_number) LIKE '%' ||
+						#{keyword} || '%'
+					</when>
+					<when test="column == 'name'">
+						u.users_name LIKE '%' || #{keyword} || '%'
+					</when>
+					<when test="column == 'id'">
+						u.users_id LIKE '%' || #{keyword} || '%'
+					</when>
+					<when test="column == 'date'">
+						TO_CHAR(am.account_created_date,'YYYY-MM-DD') =
+						#{keyword}
+					</when>
+					<when test="column == 'condition'">
+						am.review_status = #{keyword}
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+
+	<!-- 상태 변경 (승인/반려/대기) -->
+	<update id="careCareerUpdateStatus" parameterType="map"><![CDATA[
+	UPDATE TBL_ACCOUNT_MODIFY
+	SET REVIEW_STATUS = #{status}
+	WHERE ACCOUNT_MODIFY_NUMBER = #{accountModifyNumber}
+]]></update>
+
+	<!-- 최신 신청 1건 승인(Y) -->
+	<update id="careCareerApproveLatestByUser" parameterType="int"><![CDATA[
+	UPDATE TBL_ACCOUNT_MODIFY am
+	SET am.REVIEW_STATUS = 'Y'
+	WHERE am.users_number = #{value}
+	AND am.account_modify_number = (
+		SELECT account_modify_number FROM (
+             SELECT account_modify_number
+             FROM TBL_ACCOUNT_MODIFY
+             WHERE users_number = #{value}
+             ORDER BY account_created_date DESC, account_modify_number DESC
+           ) WHERE ROWNUM = 1
+         )
+	]]></update>
+
+	<!-- 최신 신청 1건 반려(N) -->
+	<update id="careCareerRejectLatestByUser" parameterType="int"><![CDATA[
+	UPDATE TBL_ACCOUNT_MODIFY am
+    SET am.REVIEW_STATUS = 'N'
+   	WHERE am.users_number = #{value}
+    AND am.account_modify_number = (
+          SELECT account_modify_number FROM (
+             SELECT account_modify_number
+               FROM TBL_ACCOUNT_MODIFY
+              WHERE users_number = #{value}
+              ORDER BY account_created_date DESC, account_modify_number DESC
+           ) WHERE ROWNUM = 1
+         )
+	]]></update>
+	
+	<!-- 신고자 정보 -->
+	<select id="selectReportDetail" parameterType="int" resultType="ReportDTO">
+  	SELECT u.users_number, u.users_name, r.report_reason
+	FROM tbl_report r
+	JOIN tbl_users u 
+    ON r.report_users_number = u.users_number
+	WHERE r.report_post_number = #{postsNumber};
+	</select>
+	
+	<!-- 신고자 전체 개수 -->
+	<select id="allReport" resultType="int">
+		SELECT COUNT(*) FROM TBL_REPORT WHERE report_post_number = #{postNumber};
+	</select>
 </mapper>
