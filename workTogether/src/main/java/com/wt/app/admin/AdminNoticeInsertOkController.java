@@ -12,6 +12,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.FileNotice.dao.FileNoticeDAO;
+import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.admin.dao.AdminTwoDAO;
 import com.wt.app.dto.AdminNoticeListDTO;
 import com.wt.app.dto.FileNoticeDTO;
@@ -22,7 +23,7 @@ public class AdminNoticeInsertOkController implements Execute{
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		AdminTwoDAO adminTwoDAO = new AdminTwoDAO();
+		AdminDAO adminDAO = new AdminDAO();
 		Result result = new Result();
 		
 		FileNoticeDTO fileNoticeDTO = new FileNoticeDTO();
@@ -32,7 +33,7 @@ public class AdminNoticeInsertOkController implements Execute{
 		
 		if(adminNumber == null) {
 			System.out.println("로그인된 관리자가 없습니다");
-			response.sendRedirect("adminLogin.jsp");
+			response.sendRedirect("/admin/login.ad");
 			return null;
 		}
 
@@ -43,17 +44,16 @@ public class AdminNoticeInsertOkController implements Execute{
 		
 		AdminNoticeListDTO adminNoticeListDTO = new AdminNoticeListDTO();
 		adminNoticeListDTO.setNoticeTitle(multipartRequest.getParameter("noticeTitle"));
-		adminNoticeListDTO.setNoticeContent("noticeContent");
+		adminNoticeListDTO.setNoticeContent(multipartRequest.getParameter("noticeContent"));
 		System.out.println("게시글 추가 - adminNoticeListDTO : " + adminNoticeListDTO);
 		
-		int noticeNumber = adminTwoDAO.adminNoticeListInsert(adminNoticeListDTO);
+		int noticeNumber = adminDAO.adminNoticeListInsert(adminNoticeListDTO);
 		System.out.println("생성된 게시글 번호 : " + noticeNumber);
 		
 		Enumeration<String> fileNames = multipartRequest.getFileNames();
 		while(fileNames.hasMoreElements()) {
 			String name = fileNames.nextElement();
 			String noticeFilesName = multipartRequest.getFilesystemName(name);
-			String fileOriginalName = multipartRequest.getOriginalFileName(name);
 			
 			if(noticeFilesName == null) {
 				continue;
@@ -66,8 +66,8 @@ public class AdminNoticeInsertOkController implements Execute{
 			fileNoticeDAO.insert(fileNoticeDTO);
 		}
 		
-		result.setPath("/admin/adminNoticeInsertOk.ad");
-		result.setRedirect(false);
+		result.setPath(request.getContextPath()+"/admin/adminNotice.ad");
+		result.setRedirect(true);
 		
 		return result;
 	}
