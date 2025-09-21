@@ -73,7 +73,6 @@
 							<c:choose>
 								<c:when test="${not empty shopsList }">
 									<c:forEach var="shop" items="${shopsList}">
-										
 											<div class="restaurant_card" data-dong="${shops.getAdminDong() }">
 												<a class="go_detail"
 													href="${pageContext.request.contextPath}/shops/shopsDetailOk.sh?shopsNumber=${shop.shopsNumber}">
