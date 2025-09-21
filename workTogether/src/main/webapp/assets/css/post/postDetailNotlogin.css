@@ -168,14 +168,12 @@ main {
 .checkmodal {
   display: none;
   position: fixed;
-  top: 0;
-  width: 900px;
-  height: 400px;
+  top: 20%;
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 10px;
-  margin-left: 30%;
+  margin-left: 40%;
 }
 
 .modal_box {
@@ -228,14 +226,12 @@ main {
 .notmodal {
   display: none;
   position: fixed;
-  top: 0;
-  width: 900px;
-  height: 400px;
+  top: 20%;
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 10px;
-  margin-left: 30%;
+  margin-left: 45%;
 }
 
 .modal_box {
@@ -269,14 +265,12 @@ main {
 .reportmodal {
   display: none;
   position: fixed;
-  top: 0;
-  width: 900px;
-  height: 400px;
+  top: 20%;
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 10px;
-  margin-left: 30%;
+  margin-left: 45%;
 }
 .modal_box {
   background-color: rgb(255, 255, 255);

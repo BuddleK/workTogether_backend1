@@ -38,10 +38,10 @@
               			<c:forEach var="report" items="${adminReportList}">
               				<a href="${pageContext.request.contextPath}/admin/adminReportListOk.ad?postsNumber=${report.getPostsNumber()}">
 	                			<ul class="table_body">
-		            				<li class="body_number"><c:out value="${report.getPostsNumber()}"/></li>
-		                			<li class="body_content"><c:out value="${report.getPostsTitle()}"/></li>
-		                			<li class="body_date"><c:out value="${report.getPostsCreatedDate()}"/></li>
-		                			<li class="body_cnt"><c:out value="${report.getPostsReportCount()}"/></li>
+		            				<li class="body_number"><c:out value="${report.postsNumber}"/></li>
+		                			<li class="body_content"><c:out value="${report.postsTitle}"/></li>
+		                			<li class="body_date"><c:out value="${report.postsCreatedDate}"/></li>
+		                			<li class="body_cnt"><c:out value="${report.postsReportCount}"/></li>
 	                			</ul>
 	            			</a> 
 	            		</c:forEach>
