@@ -60,6 +60,10 @@ public class CareListFrontController extends HttpServlet {
 			System.out.println("쪽지 페이지 처리 요청");
 			result = new CareListSendMsgOkController().execute(request, response);
 			break;
+		case "/careList/careListSearchOk.cl" : 
+			System.out.println("쪽지 페이지 처리 요청");
+			result = new CareListSearchOkController().execute(request, response);
+			break;
 		}
 		
 		if (result != null) {

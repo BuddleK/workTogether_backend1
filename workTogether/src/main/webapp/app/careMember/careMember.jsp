@@ -28,24 +28,27 @@
 			<!-- 돌봄회원 리스트 페이지 제목 -->
 			<p class="page_title">돌봄회원 리스트</p>
 			<!-- 검색 창 바 -->
+			<form action="/careList/careListSearchOk.cl" action="get">
+			
 			<div id="search_area">
 				<!-- 검색 창 분류 선택 메뉴 -->
-				<select id="search_criteria">
+				<select id="search_criteria" name="option">
 					<!-- 이름 검색 -->
 					<option value="name">이름</option>
 					<!-- 소개 검색 -->
 					<option value="introduce">소개</option>
 				</select>
 				<!-- 검색 입력 창 -->
-				<input type="text" id="criteria" placeholder="검색어를 입력하세요">
+				<input type="text" id="criteria" placeholder="검색어를 입력하세요" name="content">
 				<!-- 검색 버튼 -->
-				<div id="search_icon_box">
+				<button id="search_icon_box" type="submit">
 					<!-- 검색 버튼 이미지 -->
 					<img id="search_icon"
 						src="${pageContext.request.contextPath}/assets/img/careMember/search_icon.png">
-				</div>
+				</button>
 			</div>
-			<div id="day_list">
+			</form>
+			<!-- <div id="day_list">
 				<div>
 					<input type="checkbox" id="mon" checked>월
 				</div>
@@ -67,7 +70,7 @@
 				<div>
 					<input type="checkbox" id="sun" checked>일
 				</div>
-			</div>
+			</div> -->
 			<!-- 카드 리스트 컨텍스트 -->
 			<div class="context">
 				<!-- 카드 행 1 -->

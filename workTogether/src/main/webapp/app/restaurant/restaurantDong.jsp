@@ -97,14 +97,14 @@
 															<c:out value="${shop.getShopsWorkingHours()}" />
 														</div>
 													</div>
-													<div class="restaurant_mark">
+													<%-- <div class="restaurant_mark">
 														<div onclick="togleStar(0)" class="star_img_box">
 															<img class="star_img"
 																src="./../../assets/img/restaurant/star.png"
 																data-favorite="<c:out value='${shop.getIsFavorite()}'/>">
 														</div>
 														<div>찜하기</div>
-													</div>
+													</div> --%>
 												</div>
 											</div>
 									</c:forEach>

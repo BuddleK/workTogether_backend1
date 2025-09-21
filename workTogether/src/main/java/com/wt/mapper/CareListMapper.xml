@@ -43,7 +43,8 @@
 		fp.profiles_files_number
 		left join
 		tbl_day d on c.users_number = d.users_number
-		LEFT OUTER JOIN tbl_day d ON
+		LEFT OUTER JOIN tbl_day d
+		ON
 		c.users_number = d.users_number
 	</select>
 
@@ -54,7 +55,7 @@
 		#{userId}
 	</select>
 
-	
+
 
 	<!-- 전체 리스트 개수 -->
 	<select id="getTotal" resultType="int">
@@ -64,56 +65,83 @@
 		WHERE CARE_ACCEPT = 'Y'
 	</select>
 
-	<select id="detail"  resultType="CareListDTO">
-		SELECT c.users_number, u.users_address_line1, u.users_type, u.users_id,
-		u.users_name, c.CARE_INTRO_TEXT, d.DAY_MONDAY, d.DAY_TUESDAY,
-		d.DAY_WEDNESDAY, d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY,
+	<select id="detail" resultType="CareListDTO">
+		SELECT c.users_number,
+		u.users_address_line1, u.users_type, u.users_id,
+		u.users_name,
+		c.CARE_INTRO_TEXT, d.DAY_MONDAY, d.DAY_TUESDAY,
+		d.DAY_WEDNESDAY,
+		d.DAY_THURSDAY, d.DAY_FRIDAY, d.DAY_SATURDAY,
 		d.DAY_SUNDAY,
-		f.profiles_files_number, f.profiles_files_name, f.PROFILES_FILES_PATH, f.profiles_files_type
+		f.profiles_files_number, f.profiles_files_name, f.PROFILES_FILES_PATH,
+		f.profiles_files_type
 		FROM TBL_CARE_USERS c
-		LEFT JOIN TBL_DAY d ON c.users_number = d.users_number
-		LEFT JOIN tbl_users u ON u.users_number = c.USERS_NUMBER
-		LEFT JOIN TBL_FILES_PROFILES f ON c.care_profiles_photo_number = f.PROFILES_FILES_NUMBER
-		WHERE c.CARE_ACCEPT =
-		'Y' 
+		LEFT JOIN TBL_DAY d ON
+		c.users_number = d.users_number
+		LEFT JOIN tbl_users u ON u.users_number
+		= c.USERS_NUMBER
+		LEFT JOIN TBL_FILES_PROFILES f ON
+		c.care_profiles_photo_number = f.PROFILES_FILES_NUMBER
+		WHERE
+		c.CARE_ACCEPT =
+		'Y'
 		and c.users_number = #{usersNumber}
 	</select>
 
-	
+
 	<!-- 하트 상태 -->
 	<select id="showHeartN" resultType="int">
-		SELECT hearts_normal_number FROM tbl_hearts WHERE hearts_normal_number = #{normalNumber} AND hearts_care_number = #{careNumber}
+		SELECT hearts_normal_number
+		FROM tbl_hearts WHERE hearts_normal_number = #{normalNumber} AND
+		hearts_care_number = #{careNumber}
 	</select>
-	
+
 	<select id="showHeartC" resultType="int">
-		SELECT hearts_care_number FROM tbl_hearts WHERE hearts_normal_number = #{normalNumber} AND hearts_care_number = #{careNumber}
+		SELECT hearts_care_number
+		FROM tbl_hearts WHERE hearts_normal_number = #{normalNumber} AND
+		hearts_care_number = #{careNumber}
 	</select>
-	
-	
+
+
 	<!-- 하트 추가 -->
-	  <insert id="addHeart" parameterType="CareHeartDTO">
+	<insert id="addHeart" parameterType="CareHeartDTO">
 		INSERT INTO TBL_HEARTS
 		(HEARTS_NORMAL_NUMBER, HEARTS_CARE_NUMBER)
 		VALUES(#{heartsNormalNumber},
 		#{heartsCareNumber})
-	</insert> 
+	</insert>
 
 
-	
+
 	<!-- 하트 삭제 -->
 	<delete id="deleteHeart" parameterType="int">
 		delete from TBL_HEARTS
 		where
-		hearts_normal_number = #{heartsNormalNumber} and hearts_care_number = #{heartsCareNumber}
+		hearts_normal_number = #{heartsNormalNumber} and
+		hearts_care_number = #{heartsCareNumber}
 	</delete>
-	
-	<!--
-	<insert id="startMessage" parameterType="CareHeartDTO">
-		INSERT INTO RICEBALL.TBL_MESSAGE
-		(MESSAGE_NUMBER, CARE_NUMBER, NORMAL_NUMBER, SENDER_TYPE, MESSAGE_CONTENTS, MESSAGE_DATE, IS_READ)
-		VALUES(seq_messages.nextval, #{careNumber}, #{normalNumber}, 'N', #{messageContent}, SYSDATE , 'N');
-	</insert> -->
-	
+
+	<!-- <insert id="startMessage" parameterType="CareHeartDTO"> INSERT INTO 
+		RICEBALL.TBL_MESSAGE (MESSAGE_NUMBER, CARE_NUMBER, NORMAL_NUMBER, SENDER_TYPE, 
+		MESSAGE_CONTENTS, MESSAGE_DATE, IS_READ) VALUES(seq_messages.nextval, #{careNumber}, 
+		#{normalNumber}, 'N', #{messageContent}, SYSDATE , 'N'); </insert> -->
+
+	<!-- 회원 검색 -->
+	<select id="searchCare" parameterType="map"
+		resultType="CareListDTO">
+		SELECT * FROM TBL_CARE_USERS cu
+		JOIN tbl_users u ON cu.USERS_NUMBER = u.USERS_NUMBER
+		WHERE 1=1
+		<choose>
+			<when test="option == 'name'">
+				and u.users_name LIKE '%' || #{content} || '%'
+			</when>
+			<when test="option == 'introduce'">
+				and cu.care_intro_text LIKE '%' || #{content} || '%'
+			</when>
+		</choose>
+	</select>
+
 
 </mapper>
 
