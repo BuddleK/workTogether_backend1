@@ -20,9 +20,10 @@ public class AdminReportDeleteOkController implements Execute{
 		System.out.println("===AdminReportDeleteOkController 실행===");
 		AdminDAO adminDAO = new AdminDAO();
 		Result result = new Result();
+		String postsNumberStr = request.getParameter("postsNumber");
 		
 		// 1. 삭제할 게시글 번호 받아오기
-	    int postsNumber = Integer.parseInt(request.getParameter("postsNumber"));
+		int postsNumber = Integer.parseInt(postsNumberStr);
 	    System.out.println(postsNumber);
 
 	    // 2. DAO에서 삭제

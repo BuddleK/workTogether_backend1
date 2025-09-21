@@ -74,7 +74,7 @@
       <!-- 뉴스 게시판 메뉴 -->
       <li>
         <div>
-          <a href="${pageContext.request.contextPath}/app/news/news.jsp">
+          <a href="${pageContext.request.contextPath}/news/newsAllList.ne">
           <%-- <a href="${pageContext.request.contextPath}/news/newsMain.news"> --%>
             · 뉴스 게시판
           </a>

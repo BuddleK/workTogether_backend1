@@ -3,7 +3,7 @@
   /* border: 1px solid black; */
   width: 90%;
   height: 100%;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 .board_column {
   width: 100%;
@@ -37,11 +37,12 @@
 
 .table_body {
   display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
 }
 
 .table {
   width: 100%;
-  margin : 20px 0px;
 }
 /* 테스트(간격 조절) */
 /* .board_head {
@@ -75,7 +76,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid black;
+  
 }
 
 .paging_box {

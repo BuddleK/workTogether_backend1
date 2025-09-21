@@ -26,7 +26,7 @@ public class NewsAllListController implements Execute{
 		
 		String tmp = request.getParameter("page");
 		int page = (tmp == null) ? 1 : Integer.valueOf(tmp);
-		int rowCount = 4;
+		int rowCount = 6;
 		int pageCount = 4;
 
 		int startRow = (page - 1) * rowCount + 1;
