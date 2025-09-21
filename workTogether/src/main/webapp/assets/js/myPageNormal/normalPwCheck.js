@@ -1,13 +1,11 @@
-/*const pwChecktext = document.getElementById("pwaccord"); */
-/*const pwCheck = document.querySelector('checkBtn');*/
-/*const inputPw = document.getElementById("pw_input");*/
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebarLinks = document.querySelectorAll(".main_sidebar ul li a"); 
 
-/*let correct = "12345678";*/
-
-/*function chPw(){
-  if(inputPw.value == correct){
-    window.location.href="./normalModify.html";
-  }else{
-    pwChecktext.style.display = 'block';
-  }
-}*/
+    sidebarLinks.forEach(link => {
+		console.log('click함')
+      link.addEventListener("click", function (e) {
+          e.preventDefault();
+          alert("비밀번호 인증이 필요합니다.");
+      });
+    });
+  });

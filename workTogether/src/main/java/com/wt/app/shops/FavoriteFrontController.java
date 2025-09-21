@@ -45,6 +45,11 @@ public class FavoriteFrontController extends HttpServlet {
 		Result result = new Result();
 
 		switch (target) {
+		case "/favorite/favoriteOk.fa":
+			System.out.println("찜 상태 컨트롤러 진입");
+			result = new FavoriteOkController().execute(request, response);
+			break;
+		
 		case "/favorite/favoriteAddOk.fa":
 			System.out.println("찜 추가 컨트롤러 진입");
 			result = new AddFavoriteOkController().execute(request, response);

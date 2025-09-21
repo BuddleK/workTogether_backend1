@@ -89,10 +89,7 @@
 				<!-- 지도 영역 -->
 				<div class="detail_map_area">
 					<!-- 지도 이미지 -->
-					<div class="map_img_box">
-						<img class="map_img"
-							src="${pageContext.request.contextPath}/assets/img/restaurant/map.PNG">
-					</div>
+					<div class="map_img_box" id="map"></div>
 					<div id="short_info">
 						<div>
 							<p id="short_firstfloor">
@@ -138,21 +135,28 @@
 								<c:out value="${shops.getShopsDisabledParking()}" />
 							</p>
 							<div id="star_img_box">
-							<c:choose>
-								<c:when test="${isJim == 0 }">
-									<img draggable="false" id="star_img" class="noStar"
+								<img draggable="false" id="star_img" class="noStar"
 									src="${pageContext.request.contextPath}/assets/img/restaurant/star.png"
 									data-shops-number="${shops.shopsNumber}" /> <span>찜하기</span>
-								</c:when>
-								<c:otherwise>
-									<img draggable="false" id="star_img" class="yesStar"
-									src="${pageContext.request.contextPath}/assets/img/restaurant/star.png"
-									data-shops-number="${shops.shopsNumber}" /> <span>찜하기</span>
-								</c:otherwise>
-							</c:choose>
-								
+								<%-- <c:choose>
+									<c:when test="${isJim == 0 }">
+										<img draggable="false" id="star_img" class="noStar"
+											src="${pageContext.request.contextPath}/assets/img/restaurant/star.png"
+											data-shops-number="${shops.shopsNumber}" />
+										<span>찜하기</span>
+									</c:when>
+									<c:otherwise>
+										<img draggable="false" id="star_img" class="yesStar"
+											src="${pageContext.request.contextPath}/assets/img/restaurant/star.png"
+											data-shops-number="${shops.shopsNumber}" />
+										<span>찜하기</span>
+									</c:otherwise>
+								</c:choose> --%>
+
 							</div>
-							<button type="button" id="list_button" onclick="goToList()">목록</button>
+							<a href="/shops/shopsListOk.sh">
+								<div id="list_button">목록</div>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -166,10 +170,36 @@
 	<script>
 		window.shopsNumber = "${shops.shopsNumber}";
 
-		window.usersNumber = 1;
-
+		window.usersNumber ="${sessionScope.usersNumber}";;
+		
 		console.log(window.shopsNumber);
 		console.log(window.usersNumber);
+	</script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9f1ed8d49c70a5d2d213e83f145527e1"></script>
+
+	<script type="text/javascript">
+	const latitude = <c:out value="${shops.getShopsLatitude()}" /> 
+	const longitude = <c:out value="${shops.getShopsLongitude()}" />
+	
+	console.log("lat = "  + latitude);
+	console.log("long = "  + longitude);
+	
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center : new kakao.maps.LatLng( latitude, longitude ), //지도의 중심좌표.
+			level : 3
+		//지도의 레벨(확대, 축소 정도)
+		};
+
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+		
+		 const markerPosition = new kakao.maps.LatLng(latitude, longitude);
+		  const marker = new kakao.maps.Marker({
+		    position: markerPosition
+		  });
+
+		  marker.setMap(map);
 	</script>
 </body>
 </html>

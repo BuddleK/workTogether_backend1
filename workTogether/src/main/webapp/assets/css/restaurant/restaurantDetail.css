@@ -172,5 +172,7 @@ main{
   height: 20px;
   text-align: center;
   border: solid 1px black;
-  right: -100px;
+  right: -120px;
+  cursor: pointer;
+  background-color: gray;
 }
