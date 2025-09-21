@@ -55,6 +55,7 @@
    		<typeAlias type="com.wt.app.dto.NormalSignDTO" alias="NormalSignDTO"></typeAlias>   		
    		<typeAlias type="com.wt.app.dto.CareSignDTO" alias="CareSignDTO"></typeAlias>   		
    		<typeAlias type="com.wt.app.dto.NormalMatchingPointDTO" alias="NormalMatchingPointDTO"></typeAlias>   		
+   		<typeAlias type="com.wt.app.dto.NormalReferenceReplyDTO" alias="NormalReferenceReplyDTO"></typeAlias>   		
    </typeAliases> 
    
    <environments default="oracle">
