@@ -6,6 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const reasonSelect = document.querySelector(".exit-select");
   // 에러 믄그
   const errorText = document.getElementById("reasonError");
+  
+  // 오늘 날짜 가져오기
+  const today = new Date();
+
+  // 연/월/일 분리
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0"); // 0~11 이라 +1 필요
+  const day = String(today.getDate()).padStart(2, "0");
+
+  // 원하는 포맷으로 조합
+  const formattedDate = `${year} - ${month} - ${day}`;
+
+  // DOM에 출력
+  document.getElementById("exitDate").textContent = formattedDate;
+  
+  
+  
   // 모달 열기
   function openModal(id) {
     // 해당하는 모달을 찾아가기

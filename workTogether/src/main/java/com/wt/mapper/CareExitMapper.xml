@@ -2,16 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="careExit">
 	
-	<!-- 회원 삭제 -->
-	<delete id="careExit">
-		DELETE FROM tbl_users u
-		WHERE u.users_number = (
-    	SELECT c.users_number
-    	FROM tbl_care_users c
-    	JOIN tbl_matchings m ON c.users_number = m.care_number
-    	WHERE m.match_status IN ('C', 'D')
-      	AND c.users_number = #{usersNumber});
+	<!-- 프로필 삭제 삭제 -->
+	<delete id="delCareProExit">
+		DELETE FROM RICEBALL.TBL_FILES_PROFILES tfp WHERE USERS_NUMBER = #{usersNumber}
 	</delete>
+	
+	<!-- 회원 삭제 -->
+	<delete id="delCareExit">
+		DELETE FROM RICEBALL.TBL_FILES_PROFILES tfp WHERE USERS_NUMBER = #{usersNumber}
+	</delete>
+	
+	
+	<select id="countReserve" resultType="int">
+		SELECT COUNT(MATCH_NUMBER) FROM tbl_matchings WHERE TBL_MATCHINGS.CARE_NUMBER = #{usersNumber} AND MATCH_STATUS = 'S'
+	</select>
 
 </mapper>
 

@@ -58,6 +58,9 @@
    		<typeAlias type="com.wt.app.dto.NormalMatchingPointDTO" alias="NormalMatchingPointDTO"></typeAlias>   		
    		<typeAlias type="com.wt.app.dto.NormalReferenceReplyDTO" alias="NormalReferenceReplyDTO"></typeAlias>   		
    		<typeAlias type="com.wt.app.dto.CareMessageDTO" alias="CareMessageDTO"></typeAlias>   		
+   		<typeAlias type="com.wt.app.dto.CareModifyDTO" alias="CareModifyDTO"></typeAlias>   		
+   		<typeAlias type="com.wt.app.dto.CareProfilePictureDTO" alias="CareProfilePictureDTO"></typeAlias>   		
+   		<typeAlias type="com.wt.app.dto.CareSignDTO" alias="CareSignDTO"></typeAlias>   		
    </typeAliases> 
    
    <environments default="oracle">
