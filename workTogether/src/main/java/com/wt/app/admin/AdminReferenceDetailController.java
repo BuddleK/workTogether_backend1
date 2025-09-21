@@ -1,6 +1,7 @@
 package com.wt.app.admin;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +20,8 @@ public class AdminReferenceDetailController implements Execute {
         int referenceNumber = Integer.parseInt(request.getParameter("referenceNumber"));
 
         AdminDAO adminDAO = new AdminDAO();
-        AdminReferenceListDTO question = adminDAO.adminReferenceDetail(referenceNumber);
-
+        List<AdminReferenceListDTO> question = adminDAO.adminReferenceDetail(referenceNumber);
+        
         request.setAttribute("question", question);
 
         Result result = new Result();

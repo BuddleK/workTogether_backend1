@@ -280,9 +280,8 @@ public class AdminFrontController extends HttpServlet {
 			
 		case "/admin/adminReferenceReplyOk.ad":
 			System.out.println("관리자 문의 등록 완료 요청");
-			result = new AdminReferenceDetailOkController().execute(request,response);
+			result = new AdminReferenceReplyOkController().execute(request,response);
 			break;
-			
 			
 		case "/admin/careCareer/approve.ad":
 		    result = new AdminCareApproveController().execute(request, response);

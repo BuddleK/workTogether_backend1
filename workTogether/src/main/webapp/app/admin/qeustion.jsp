@@ -52,10 +52,11 @@
 								<li class="body_id">${q.usersId}</li>
 								<li class="body_date">${q.referenceCreatedDate}</li>
 								<li class="body_type">
-								<c:choose>
-									<c:when test="${q.answeredYn}">Y</c:when>
-									<c:otherwise>N</c:otherwise>
-								</c:choose></li>
+									<c:choose>
+										<c:when test="${q.answeredYn}">Y</c:when>
+										<c:otherwise>N</c:otherwise>
+									</c:choose>
+								</li>
 							</ul>
 						</c:forEach>
 					</div>

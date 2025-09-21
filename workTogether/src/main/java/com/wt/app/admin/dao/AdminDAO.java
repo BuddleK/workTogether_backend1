@@ -322,14 +322,14 @@ public class AdminDAO {
 		return sqlSession.selectList("admin.adminReferenceListSelect");
 	}
 
-	public AdminReferenceListDTO adminReferenceDetail(int referenceNumber) {
-		return sqlSession.selectOne("admin.adminReferenceDetail", referenceNumber);
+	public List<AdminReferenceListDTO> adminReferenceDetail(int referenceNumber) {
+		return sqlSession.selectList("admin.adminReferenceDetail", referenceNumber);
 	}
 	
     
     public void insertReply(AdminReferenceReplyDTO adminReferenceReplyDTO) {
-        sqlSession.insert("AdminReference.insertReply", adminReferenceReplyDTO);
-        sqlSession.update("AdminMapper.updateReferenceAnswered", adminReferenceReplyDTO.getReferenceNumber());
+        sqlSession.insert("admin.insertReply", adminReferenceReplyDTO);
+        sqlSession.update("admin.updateReferenceAnswered", adminReferenceReplyDTO.getReferenceNumber());
     }
 
 	/* ======================= [Point Refunds / 환급] ======================= */
