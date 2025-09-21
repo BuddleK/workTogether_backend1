@@ -11,72 +11,92 @@ const reCards = document.getElementsByClassName("restaurant_card");
 // 음식점 찜하기(별)이미지들 가져오기
 const reStars = document.getElementsByClassName("star_img");
 
+
 // 동 목록
 var arr = [
   ['방배 1동','방배 2동','방배 3동','방배 4동','방배 본동'],
   ['서초 1동','서초 2동','서초 3동','서초 4동'],
   ['잠원동'],
   ['양재 1동','양재 2동'],
-  ['내곡동', '반포 1동', '반포 2동', '반포 3동', '반포 4동'],
+  ['내곡동', '반포 1동', '반포 2동', '반표 3동', '반포 4동'],
 ];
 
-// 음식점 카드 표출 함수
+// 음식점 더미데이터
+
+
+// 음식점 카드 표출 함수(매개변수 : 지역, 동 인덱스)
 function showCards(num, value){
   const villages = document.getElementsByClassName('village');
-  for(let v of villages){
-    v.style.backgroundColor = 'white';
-    v.style.color = 'black';
-  }
-  // 선택된 동 버튼 스타일 지정
-  if(villages[value]){
+  let selectedIndex = 0;
+    for(let v of villages){
+      // 모든 버튼 초기화
+      v.style.backgroundColor = 'white';
+      v.style.color = 'black';
+    }
+
+    // 선택된 동 버튼 스타일 지정
     villages[value].style.backgroundColor = '#1D3266';
     villages[value].style.color = 'white';
-  }
+  
+
 }
 
-// 지역 버튼 클릭 시 실행
-function reClicked(num, selectedDong){
-  // 지역 버튼 초기화
-  for(let button of reButtons){
+//지역 버튼 클릭 시 실행
+function reClicked(num){
+  // (확인용)입력한 숫자
+  console.log("숫자는 : " + num);
+
+  //버튼 색 초기화
+  for(button of reButtons){
     button.style.backgroundColor = 'white';
     button.style.color = 'black';
   }
+
+  //누른 버튼 스타일 수정
   reButtons[num].style.backgroundColor = '#1D3266';
   reButtons[num].style.color = 'white';
 
-  // 동 리스트 초기화
-  reSmallList.innerHTML = "";
+  // 판 보이기
   reSmall[0].style.display = "block";
 
-  // 동 버튼 생성
+  // 해당 행의 문자열 배열 출력
+  console.log(arr[num], typeof arr[num]);
+
+  // 리스트 초기화
+  reSmallList.innerHTML = "";
+
+  // 행정동별 버튼 생성
   let d = 0;
-  for(let ar of arr[num]){
+  for(ar of arr[num]){
+    console.log(ar, typeof ar);
+
+
     const li = document.createElement("li");
     li.innerText = ar;
-    li.dataset.dong = ar;
+	li.dataset.dong = ar
     li.value = d;
-    li.className = 'village';
+    li.className += 'village';
     li.onclick = function(){
-      const selectedDong = this.dataset.dong;
-      showCards(num, d);
-      window.location.href = `/shops/shopsListSearchOk.sh?leNum=${num}&legalDong=${encodeURIComponent(selectedDong)}`;
+      showCards(num, li.value);
+	  const selectedDong = this.dataset.dong;
+	  window.location.href=`/shops/shopsListSearchOk.sh?legalDong=${encodeURIComponent(selectedDong)}`
     };
-
-    // URL 파라미터에 있는 동이면 선택
-    if(selectedDong && ar.trim() === selectedDong.trim()){
-      li.style.backgroundColor = '#1D3266';
-      li.style.color = 'white';
-    }
 
     reSmallList.appendChild(li);
     d++;
   }
-
   // 화살표 표시
-  for(let j=0; j<reMarks.length; j++){
-    reMarks[j].style.display = (j===num) ? "block" : "none";
+  var j = 0;
+  for(i of reMarks){
+    if(j==num){
+      i.style.display="block";
+    }else{
+      i.style.display="none";
+    }
+    j++;
   }
 }
+
 
 function togleStar(num){
   console.log("별! " + num);
@@ -91,32 +111,56 @@ function togleStar(num){
   }
 }
 
-// URL 파라미터 확인
+// 처음 페이지에 들어오면 0번째 법정동 버튼을 클릭함
+reClicked(0);
+// 0번째 법정동의 0번째 행정동 버튼을 클릭함
+showCards(0, 0);
+
+// url 파라미터를 가져옴
+// 디테일 페이지에서 뒤로가기 버튼을 누른 경우 법정동과 행정동
 const params = new URLSearchParams(window.location.search);
 let leNum = params.get('leNum'); // 지역
-let legalDong = params.get('legalDong'); // 동
+let legalDong = params.get('legalDong'); // 선택된 동
 
-if(!leNum) leNum = 0;
+// 초기화할 지역 번호
+if (!leNum) leNum = 0; // 없으면 0
 else leNum = parseInt(leNum);
 
-// 페이지 초기화
-reClicked(leNum, legalDong);
+// 지역 버튼 클릭
+reClicked(leNum);
 
-// 선택된 동이 없으면 첫 번째 동 선택
-if(!legalDong){
-  showCards(leNum, 0);
-} else {
-  // 선택된 동 index 찾기
+// 동 버튼 선택
+if (legalDong) {
   const villages = document.getElementsByClassName('village');
-  for(let i=0; i<villages.length; i++){
-    if(villages[i].innerText.trim() === legalDong.trim()){
-      showCards(leNum, i);
+  for (let i = 0; i < villages.length; i++) {
+    if (villages[i].innerText === legalDong) {
+      showCards(leNum, i); // 선택된 동 적용
       break;
     }
   }
+} else {
+  showCards(leNum, selectedIndex); // legalDong 없으면 첫 번째 동 선택
 }
 
-// 카드 초기화
-for(let i = 0 ;i < 4;i++){
-  reCards[i].innerHTML = "";
+let adNum;
+
+if (params.has('leNum')) {
+  leNum = params.get("leNum");
+  adNum = params.get("adNum");
+
+  console.log("leNum = "+ leNum);
+  console.log("adNum = "+ adNum);
+
+  console.log("아까 그 카드 다시 보여주기");
+
+  //카드 초기화
+  for(let i = 0 ;i < 4;i++){
+    reCards[i].innerHTML = "";
+  }
+  reClicked(leNum);
+  showCards(leNum, adNum);
+
+} else {
+  // 'paramName' 파라미터가 존재하지 않습니다.
+  console.log('파라미터가 없습니다.');
 }
