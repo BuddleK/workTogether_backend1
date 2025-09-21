@@ -57,6 +57,45 @@
     AND REPORT_USERS_NUMBER = #{usersNumber}
 </delete>
    
+   <select id="getNotices" resultType="AdminNoticeListDTO">
+   		SELECT TM.NOTICE_NUMBER, TM.NOTICE_TITLE, TM.ADMIN_NUMBER, TA.ADMIN_NAME, 
+       	TO_CHAR(TM.NOTICE_CREATED_DATE, 'YYYY-MM-DD') AS NOTICE_CREATED_DATE, 
+       	TM.NOTICE_VIEW_COUNT
+		FROM RICEBALL.TBL_NOTICES TM
+		LEFT JOIN RICEBALL.TBL_ADMIN TA ON TM.ADMIN_NUMBER = TA.ADMIN_NUMBER
+		ORDER BY TM.NOTICE_CREATED_DATE DESC
+		FETCH FIRST 4 ROWS ONLY
+	</select>
+   
+   <select id="getNoticeDetail" resultType="AdminNoticeListDTO">
+   		SELECT TM.NOTICE_NUMBER, TM.NOTICE_TITLE, TM.ADMIN_NUMBER, TA.ADMIN_NAME, 
+       	TO_CHAR(TM.NOTICE_CREATED_DATE, 'YYYY-MM-DD') AS NOTICE_CREATED_DATE, 
+       	TM.NOTICE_VIEW_COUNT
+		FROM RICEBALL.TBL_NOTICES TM
+		LEFT JOIN RICEBALL.TBL_ADMIN TA ON TM.ADMIN_NUMBER = TA.ADMIN_NUMBER
+		WHERE NOTICE_NUMBER = #{noticeNumber}
+	</select>
+   
+   <select id="getNoticeDetailUpdated" resultType="String">
+   		SELECT TO_CHAR(TM.NOTICE_UPDATED_DATE, 'YYYY-MM-DD') AS NOTICE_UPDATED_DATE
+		FROM RICEBALL.TBL_NOTICES TM
+		WHERE NOTICE_NUMBER = #{noticeNumber}
+	</select>
+   
+   <select id="getNoticeDetailContent" resultType="String">
+   		SELECT NOTICE_CONTENT
+		FROM RICEBALL.TBL_NOTICES TM
+		WHERE NOTICE_NUMBER = #{noticeNumber}
+	</select>
+   
+   <!-- 조회수 추가 쿼리 -->
+	<update id="updateNoticeViewCount" parameterType="int">
+		UPDATE RICEBALL.TBL_NOTICES SET NOTICE_VIEW_COUNT = NOTICE_VIEW_COUNT + 1
+		WHERE NOTICE_NUMBER = #{noticeNumber}
+   </update>
+	
+	
+   
    <!--  게시글 추가 -->
 <!--    <insert id="insert" parameterType="BoardDTO">
       INSERT INTO TBL_BOARD (board_number, board_title, board_content, member_number)

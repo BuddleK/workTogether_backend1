@@ -84,6 +84,30 @@ document.addEventListener('DOMContentLoaded', function () {
       closeM(deleteModal);
       // 체크된 것들 지우기
       var checkedRows = document.querySelectorAll('.mark_list input[type="checkbox"]:checked');
+	  
+	  // 게시물 번호들 배열 만들기
+	  var postsNumbers = Array.from(checkedRows).map(function (cb) {
+	    return cb.getAttribute('data-posts-number');
+	  });
+	  
+
+	  // 콘솔에 출력
+	  console.log("체크된 게시물 번호들:", postsNumbers);
+	  
+	  doneModal.style.display = 'none';
+
+	  const body = document.body;
+
+	  // contextPath 읽기
+	  const contextPath = body.dataset.contextPath;
+	  
+	
+	  
+	  
+	  //url 이동
+	  	const url = `${contextPath}/myPageCare/carePostDelete.cp?postsNumbers=${encodeURIComponent(JSON.stringify(postsNumbers))}`;
+	  	window.location.href = url;
+	  
       checkedRows.forEach(function (cb) {
         var row = cb.closest('.mark_list');
         if (row) row.remove();

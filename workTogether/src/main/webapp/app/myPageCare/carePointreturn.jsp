@@ -51,25 +51,25 @@
       <div class="point_table_wrap">
         <div class="point_table">
           <div class="point_fixed"><label>보유 포인트</label></div>
-          <div class="point_row"><span>38,960 P</span></div>
+          <div class="point_row"><span>${commaPoint}</span></div>
         </div>
 <!-- 신청 포인트 환급하기 위한 칸 -->
         <div class="point_table">
           <div class="point_fixed"><label for="input_point">신청 포인트</label></div>
           <div class="point_row">
-            <input type="text" id="input_point"placeholder="환급할 포인트를 입력하세요">
+            <input  data-context-path="${pageContext.request.contextPath}" type="text" id="input_point"placeholder="환급할 포인트를 입력하세요">
             <span>(최대 10만 포인트)</span>
           </div>
         </div>
 <!-- 예상 전환 포인트 칸 -->
         <div class="point_table">
           <div class="point_fixed"><label>예상 전환 포인트</label></div>
-          <div class="point_row"><span>34,200 P</span></div>
+          <div class="point_row"><span id="expected">0 P</span></div>
         </div>
 <!-- 어느 계좌로 입금 되는지 보여주는 칸 -->
         <div class="point_table">
           <div class="point_fixed"><label>입금 대상 계좌</label></div>
-          <div class="point_row"><span>[기업은행] 506502-04-342422</span></div>
+          <div class="point_row"><span>${passbook}</span></div>
         </div>
 
       </div>
@@ -87,7 +87,7 @@
         </div>
 <!-- 환급 지급 내역 버튼 -->
         <button class="btn_return_list">
-          <a href="${pageContext.request.contextPath}/carePointList.jsp">환급/지급 내역</a>
+          <a href="${pageContext.request.contextPath}/myPageCare/carePointList.cp">환급/지급 내역</a>
         </button>
       </div>
     </section>

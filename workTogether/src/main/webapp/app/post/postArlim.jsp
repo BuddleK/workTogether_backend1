@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,40 +20,40 @@
     <div class="context">
       <div class="post_area">
         <div class="post_title">
-          공지
+          <c:out value="${notice.getNoticeTitle()}"/>
         </div>
         <div class="post_info">
           <div class="post_columns">
             등록자명
           </div>
           <div class="post_col">
-            관리자
+            <c:out value="${notice.getAdminName()}"/>
           </div>
           <div class="post_columns">
             등록일
           </div>
           <div class="post_col">
-            2025-08-09
+            <c:out value="${notice.getNoticeCreatedDate()}"/>
           </div>
           <div class="post_columns">
             수정일
           </div>
           <div class="post_col">
-            2025-08-10
+            <c:out value="${updatedDate}"/>
           </div>
           <div class="post_columns">
             조회수
           </div>
           <div class="post_col">
-            4
+            <c:out value="${notice.getNoticeViewCount()}"/>
           </div>
         </div>
         <div id="context_box">
-          공지사항. 다음주 목요일부터 사이트 점검을 실시합니다
+          <c:out value="${content}"/>
         </div>
       </div>
       <div class="button_area">
-      <button class="button_list"><a href="${pageContext.request.contextPath}/app/post/postMain.jsp">목록</a></button>
+      <a href="${pageContext.request.contextPath}/post/postMain.po" class="toListA"><button class="button_list">목록</button></a>
     </div>
   </main>
   <jsp:include page="/footer.jsp" />
