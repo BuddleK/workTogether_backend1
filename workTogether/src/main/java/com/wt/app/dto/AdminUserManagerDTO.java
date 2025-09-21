@@ -8,6 +8,7 @@ public class AdminUserManagerDTO {
 	private String usersEmail; // 일반 or 돌봄 유저 이메일
 	private String usersPhone; // 일반 or 돌봄 유저 전화번호
 	private String usersType; // 유저 타입
+	private String careAccept;
 
 	// 유저 디테일 페이지를 위한 필드
 	private String usersCreatedDate; // 유저 생성일
@@ -110,9 +111,9 @@ public class AdminUserManagerDTO {
 	public String toString() {
 		return "AdminUserManagerDTO [usersNumber=" + usersNumber + ", usersName=" + usersName + ", usersId=" + usersId
 				+ ", usersEmail=" + usersEmail + ", usersPhone=" + usersPhone + ", usersType=" + usersType
-				+ ", usersCreatedDate=" + usersCreatedDate + ", usersAddressLine1=" + usersAddressLine1
-				+ ", usersAddressLine2=" + usersAddressLine2 + ", usersPassword=" + usersPassword + ", usersPoint="
-				+ usersPoint + ", usersPassbook=" + usersPassbook + "]";
+				+ ", careAccept=" + careAccept + ", usersCreatedDate=" + usersCreatedDate + ", usersAddressLine1="
+				+ usersAddressLine1 + ", usersAddressLine2=" + usersAddressLine2 + ", usersPassword=" + usersPassword
+				+ ", usersPoint=" + usersPoint + ", usersPassbook=" + usersPassbook + "]";
 	}
 
 	public String getUsersPassbook() {
@@ -121,6 +122,14 @@ public class AdminUserManagerDTO {
 
 	public void setUsersPassbook(String usersPassbook) {
 		this.usersPassbook = usersPassbook;
+	}
+
+	public String getCareAccept() {
+		return careAccept;
+	}
+
+	public void setCareAccept(String careAccept) {
+		this.careAccept = careAccept;
 	}
 
 }

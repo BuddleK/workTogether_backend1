@@ -32,21 +32,6 @@
 				<div class="title">
 					<h1>회원관리</h1>
 				</div>
-				<form
-					action="${pageContext.request.contextPath}/admin/adminUserManagerList.ad"
-					method="post">
-					<div class="searchbox">
-						<select name="column" id="" class="search_column">
-							<option value="number">회원 번호</option>
-							<option value="name">회원 이름</option>
-							<option value="id">회원 아이디</option>
-							<option value="email">회원 이메일</option>
-							<option value="phone">회원 전화번호</option>
-							<option value="type">회원 분류</option>
-						</select> <input type="text" />
-						<button>검색</button>
-					</div>
-				</form>
 				<div class="table">
 					<div class="board_column">
 						<div class="board_head board_number">회원 번호</div>
@@ -95,20 +80,15 @@
 													<a
 														href="${pageContext.request.contextPath}/admin/adminUserDetail.ad?usersNumber=${users.usersNumber}">
 														<c:choose>
-															<c:when test="${ users.usersType == 'C'}">
-																<c:out value="돌봄" />
-															</c:when>
-															<c:when test="${ users.usersType == 'N'}">
-																<c:out value="일반" />
-															</c:when>
-															<c:otherwise>
-																<c:out value="알수없음" />
-															</c:otherwise>
+															<c:when test="${users.usersType == 'C'}">돌봄</c:when>
+															<c:when test="${users.usersType == 'N'}">일반</c:when>
+															<c:otherwise>알수없음</c:otherwise>
 														</c:choose>
 													</a>
 												</div>
 											</div>
 										</c:forEach>
+
 									</c:when>
 									<c:otherwise>
 										<div>

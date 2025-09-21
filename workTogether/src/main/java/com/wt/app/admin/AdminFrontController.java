@@ -277,7 +277,13 @@ public class AdminFrontController extends HttpServlet {
 			System.out.println("관리자 문의 상세 페이지 요청");
 			result = new AdminReferenceDetailController().execute(request, response);
 			break;
-		
+			
+		case "/admin/adminReferenceReplyOk.ad":
+			System.out.println("관리자 문의 등록 완료 요청");
+			result = new AdminReferenceDetailOkController().execute(request,response);
+			break;
+			
+			
 		case "/admin/careCareer/approve.ad":
 		    result = new AdminCareApproveController().execute(request, response);
 		    break;
