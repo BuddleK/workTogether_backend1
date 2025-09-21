@@ -11,7 +11,7 @@ import com.wt.app.Result;
 import com.wt.app.admin.dao.AdminDAO;
 import com.wt.app.dto.AdminReferenceReplyDTO;
 
-public class AdminReferenceDetailOkController implements Execute {
+public class AdminReferenceReplyOkController implements Execute {
 
     @Override
     public Result execute(HttpServletRequest request, HttpServletResponse response)
@@ -19,9 +19,12 @@ public class AdminReferenceDetailOkController implements Execute {
 
         request.setCharacterEncoding("UTF-8");
         Result result = new Result();
-
-        // JSP에서 넘어온 파라미터 받기
-        int referenceNumber = Integer.parseInt(request.getParameter("referenceNumber"));
+        
+        String refNumStr = request.getParameter("referenceNumber");
+        if(refNumStr == null || refNumStr.isEmpty()) {
+            throw new RuntimeException("referenceNumber 파라미터가 비어 있습니다.");
+        }
+        int referenceNumber = Integer.parseInt(refNumStr);
         int adminNumber = (Integer) request.getSession().getAttribute("adminNumber"); // 세션에서 가져오기
         String replyContent = request.getParameter("replyContent");
 

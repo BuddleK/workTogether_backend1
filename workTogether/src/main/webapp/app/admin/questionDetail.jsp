@@ -52,16 +52,16 @@
 					</div>
 				</div>
 			</div>
-			<form action="${pageContext.request.contextPath}/admin/adminReferenceDetailOk.ad" method="post">
-			  <input type="hidden" name="referenceNumber" value="${reference.referenceNumber}" />
-			  <textarea name="replyContent" id="reply" placeholder="답변을 달아주세요"></textarea>
-			
+			<form action="${pageContext.request.contextPath}/admin/adminReferenceReplyOk.ad" method="post">
+			    <input type="hidden" name="referenceNumber" value="${question.referenceNumber}" />
+			    <textarea name="replyContent" id="reply" placeholder="${question.replyContent}"></textarea>
 			  <div class="notice_btn">
 			    <!-- 목록 이동 -->
 			    <button class="list" type="button"
 			      onclick="location.href='${pageContext.request.contextPath}/admin/adminReferenceList.ad'">목록</button>
 			    <!-- 답변 달기 (submit) -->
-			    <button class="delete" type="submit">답변 달기</button>
+			    <button class="delete" formaction="${pageContext.request.contextPath}/admin/adminReferenceReplyOk.ad?referenceNumber=${question.referenceNumber}" 
+			    type="submit">답변 달기</button>
 			  </div>
 			</form>
 		</section>
