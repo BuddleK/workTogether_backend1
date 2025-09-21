@@ -16,21 +16,22 @@
   <jsp:include page="/header.jsp" />
   <main>
     <!-- 메뉴 사이드바 섹션 -->
-    <jsp:include page="sidebar.jsp"></jsp:include>
-    <%-- <nav class="main_sidebar">
-      <ul>
-        <li><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></li>
-        <li><a href="${pageContext.request.contextPath}/normalPwCheck.jsp">개인정보 수정</a></li>
-        <li><a href="${pageContext.request.contextPath}/normalMark.jsp">찜한 목록</a></li>
-        <li><a href="${pageContext.request.contextPath}/normalheart.jsp">하트 목록</a></li>
-        <li><a href="${pageContext.request.contextPath}/normalMatching.jsp">매칭 기록</a></li>
-        <li><a href="${pageContext.request.contextPath}/normalsendMesseage.jsp">쪽지함</a></li>
-        <li><a href="${pageContext.request.contextPath}/normalPost.jsp">게시글 관리</a></li>
-        <li><a href="${pageContext.request.contextPath}/normalPoint.jsp">포인트 충전</a></li>
-        <li><a href="${pageContext.request.contextPath}/normalReference.jsp">1 대 1 문의</a></li>
-        <li><a href="${pageContext.request.contextPath}/normalQuit.jsp">회원 탈퇴</a></li>
-      </ul>
-    </nav> --%>
+    <nav class="main_sidebar">
+	<ul>
+		<li><img
+			src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg"
+			alt="#"></li>
+		<li><a href="/myPageNormal/normalModify.mn">개인정보 수정</a></li>
+		<li><a href="/myPageNormal/normalfavoriteList.mn">찜한 목록</a></li>
+		<li><a href="/myPageNormal/normalHeartListTotal.mn">하트 목록</a></li>
+		<li><a href="/myPageNormal/normalMatching.mn">매칭 기록</a></li>
+		<li><a href="/myPageNormal/normalMsgList.mn">쪽지함</a></li>
+		<li><a href="/myPageNormal/normalPostsListOk.mn">게시글 관리</a></li>
+		<li><a href="/myPageNormal/normalPoint.mn">포인트 충전</a></li>
+		<li><a href="/myPageNormal/normalReferenceList.mn">1 대 1 문의</a></li>
+		<li><a href="/myPageNormal/normalExit.mn">회원 탈퇴</a></li>
+	</ul>
+</nav>
     <!-- 비밀번호 확인 섹션 -->
     <div class="pw_check">
       <form action="/myPageNormal/checkPwOk.mn" method="get"> 
@@ -45,4 +46,5 @@
   </main>
   <jsp:include page="/footer.jsp" />
 </body>
+
 </html>

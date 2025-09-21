@@ -25,35 +25,6 @@
 	<main>
 		<!-- 메뉴 사이드바 섹션 -->
 		<jsp:include page="sidebar.jsp"></jsp:include>
-		<%-- <nav class="main_sidebar">
-			<ul>
-				<li><img
-					src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg"
-					alt="#"></li>
-				<li><a
-					href="${pageContext.request.contextPath}/normalPwCheck.jsp">개인정보
-						수정</a></li>
-				<li><a href="${pageContext.request.contextPath}/normalMark.jsp">찜한
-						목록</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/normalheart.jsp">하트 목록</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/normalMatching.jsp">매칭
-						기록</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/normalsendMesseage.jsp">쪽지함</a></li>
-				<li><a href="${pageContext.request.contextPath}/normalPost.jsp">게시글
-						관리</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/normalPoint.jsp">포인트
-						충전</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/normalReference.jsp">1
-						대 1 문의</a></li>
-				<li><a href="${pageContext.request.contextPath}/normalQuit.jsp">회원
-						탈퇴</a></li>
-			</ul>
-		</nav> --%>
 		<form action="/myPageNormal/normalReceiveDeleteList.mn" method="get">
 			<div class="div_mark">
 				<!-- 메뉴 제목 -->
@@ -97,7 +68,7 @@
 							<div class="name">
 								<div>${list.usersName }</div>
 							</div>
-							<div class="location" onclick="openmesseagemodal()">
+							<div class="location" name="msgNumber" data-id="${list.messageNumber }">
 								<div>${list.messageContents }</div>
 							</div>
 							<div class="phone">
@@ -150,19 +121,19 @@
 
 	</main>
 	<!-- 보낸 쪽지 확인 모달 -->
-	<div class="modal">
-		<div class="modal-content">
-			<button id="sendxbutton">X</button>
-			<p>보낸 쪽지 읽기</p>
-			<div class="sendmember">
-				<div>받는 사람 : 홍길동 | honggildong123</div>
+	<div class="modal_bg" id="msgModal">
+			<div class="modal_box">
+				<div class="modal_read">
+					<span class="modal_title">보낸 쪽지 읽기</span> <span class="modal_close">&times;</span>
+				</div>
+				<div class="modal_info">
+					<div class="sender_info">
+						<span>보낸 사람 : </span><span id="sender_name"></span> | <span class="sender_id" id="sender_id"></span>
+					</div>
+					<div class="message_content" id="messageContent"></div>
+				</div>
 			</div>
-			<div class="content">
-				<div>쪽지 내용</div>
-			</div>
-			<button type="button" id="deleteBtn">삭제</button>
 		</div>
-	</div>
 <!-- 삭제 버튼 클릭시 확인 모달 -->
 	<div class="modal" id="deleteModal">
 		<div class="modal_box">

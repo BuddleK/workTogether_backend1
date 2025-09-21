@@ -18,7 +18,7 @@ import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.normal.mypage.dao.MyPageNormalDAO;
 
-public class NormalMsgOkController implements Execute {
+public class NormalReceiveOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
@@ -33,7 +33,7 @@ public class NormalMsgOkController implements Execute {
 		int msgNumber = Integer.parseInt(msgNumberStr);
 		System.out.println(msgNumber);
 		
-		dao.getMsgContent(msgNumber).stream().map(gson::toJson).map(JsonParser::parseString).forEach(msgs::add);
+		dao.getMsgReceiveContent(msgNumber).stream().map(gson::toJson).map(JsonParser::parseString).forEach(msgs::add);
 		
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();

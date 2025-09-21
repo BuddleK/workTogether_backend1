@@ -19,7 +19,27 @@
 	<!-- 가게 총 개수 -->
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(shops_number)
-		FROM tbl_shops	
+		FROM tbl_shops
+	</select>
+	
+	<!-- 동별 가게 출력 -->
+	<select id="searchEachDong" resultType="ShopsListDTO" >
+	<![CDATA[
+		SELECT * FROM (
+	SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+		SELECT * FROM tbl_shops
+		WHERE shops_legal_dong = #{shopsLegalDong} 
+		) subquery
+	) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
+	]]>
+	</select>
+	
+	<!-- 동별 가게 총 개수 -->
+	<select id="getDongTotal" resultType="int">
+		SELECT COUNT(shops_number)
+		FROM tbl_shops
+		where shops_legal_dong = #{shopsLegalDong}
 	</select>
 	
 	<!-- 가게 세부 -->
@@ -50,6 +70,15 @@
 		SELECT shops_legal_dong FROM tbl_shops GROUP BY SHOPS_legal_DONG
 	</select>
 	 -->
+	 
+	 <!-- 찜 상태 확인 -->
+	 <select id="isJim"  parameterType="map" resultType="int">
+	 	SELECT count(favorites_number)
+		FROM TBL_SHOPS_FAVORITES f
+		WHERE f.USERS_NUMBER = #{usersNumber}
+		AND f.FAVORITES_SHOPS_NUMBER  = #{shopsNumber}
+	 </select>
+	 
 	<!-- 찜 추가 -->
 	 <insert id="favoriteAdd">
 		insert into tbl_shops_favorites
@@ -61,10 +90,11 @@
 	</select>
 	
 	<!-- 찜 삭제 -->
-	<!-- <delete id="favoriteDelete" parameterType="ShopsFavoritesActionDTO">
+	 <delete id="favoriteDelete" parameterType="map">
 		delete from tbl_shops_favorites
-		where users_number = #{usersNumber} and favorites_shops_number = #{shopsNumber}
-	</delete> --> 
+		where users_number = #{usersNumber} 
+		and favorites_shops_number = #{shopsNumber}
+	</delete>  
 </mapper>
 
 

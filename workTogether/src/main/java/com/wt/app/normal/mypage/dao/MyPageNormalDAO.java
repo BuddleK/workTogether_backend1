@@ -15,6 +15,7 @@ import com.wt.app.dto.NormalMatchingPointDTO;
 import com.wt.app.dto.NormalModifyDTO;
 import com.wt.app.dto.NormalPostsListDTO;
 import com.wt.app.dto.NormalReferenceListDTO;
+import com.wt.app.dto.NormalReferenceReplyDTO;
 import com.wt.config.MyBatisConfig;
 
 public class MyPageNormalDAO {
@@ -135,7 +136,14 @@ public class MyPageNormalDAO {
 		return sqlSession.selectOne("myPageNormal.getReceiveTotal", usersNumber);
 	}
 	
+	public List<MessageSRDTO> getMsgContent(int messageNumber) {
+		sqlSession.update("myPageNormal.msgRead", messageNumber);
+		return sqlSession.selectList("myPageNormal.getMsgContent", messageNumber);
+	}
 	
+	public List<MessageSRDTO> getMsgReceiveContent(int messageNumber) {
+		return sqlSession.selectList("myPageNormal.getMsgContent", messageNumber);
+	}
 
 	public List<NormalPostsListDTO> normalPostsListSearch(int usersNumber) {
 		System.out.println("게시물 리스트 조회하기 - normalPostsListSearch 메소드 실행" + usersNumber);
@@ -149,16 +157,27 @@ public class MyPageNormalDAO {
 		System.out.println("게시물 리스트 삭제하기 실행 완료");
 	}
 
-	public int normalReferenceInsert(NormalReferenceListDTO normalReferenceListDTO) {
+	public void normalReferenceInsert(NormalReferenceListDTO normalReferenceListDTO) {
 		sqlSession.insert("myPageNormal.normalReferenceInsert", normalReferenceListDTO);
-		return normalReferenceListDTO.getReferenceNumber();
 	}
 	
-	public List<NormalReferenceListDTO> normalReferenceListSearch() {
+	public List<NormalReferenceListDTO> normalReferenceListAll(Map<String, Integer> numbers) {
 		System.out.println("문의 목록 조회하기 - normalReferenceListSearch 메소드 실행");
-		List<NormalReferenceListDTO> list = sqlSession.selectList("myPageNormal.normalReferenceListSearch");
+		List<NormalReferenceListDTO> list = sqlSession.selectList("myPageNormal.normalReferenceListSearch",numbers);
 		System.out.println("조회결과 : " + list);
 		return list;
+	}
+	
+	public List<NormalReferenceListDTO> refDetail (int referenceNumber) {
+		return sqlSession.selectList("myPageNormal.normalReferenceDetail", referenceNumber);
+	}
+	
+	public List<NormalReferenceReplyDTO> refDetailReply (int referenceNumber) {
+		return sqlSession.selectList("myPageNormal.normalReferenceReply", referenceNumber);
+	}
+	
+	public int totalReference(int usersNumber) {
+		return sqlSession.selectOne("myPageNormal.getTotalReference",usersNumber);
 	}
 	
 	public void normalExit(int usersNumber) {
