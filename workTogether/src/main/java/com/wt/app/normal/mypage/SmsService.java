@@ -43,7 +43,7 @@ public class SmsService {
 	      // 발송 결과 콘솔에 출력 (디버깅용)
 	      System.out.println(obj.toString());
 	      // 생성한 인증번호 반환 (서버 세션 등에서 인증 검증용)
-	      return verificationCode;
+	      return verificationCode; 
 	   }
 
 	   private String generateVerificationCode() {
