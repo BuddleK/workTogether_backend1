@@ -67,7 +67,7 @@ public class ShopsListSearchOkController implements Execute {
 
 		System.out.println("====페이징정보 확인====");
 		System.out.println("pageMap : " + pageMap);
-		System.out.println("shopsList : " + shopsListDong);
+		System.out.println("shopsListDODODONG : " + shopsListDong);
 		System.out.println(
 				"startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
