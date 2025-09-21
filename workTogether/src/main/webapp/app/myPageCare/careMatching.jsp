@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +15,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/careMatching.js"></script>
 </head>
 
-<body>
+<body data-context-path="${pageContext.request.contextPath}" data-month="${month}">
   <jsp:include page="/header.jsp" />
   <header>
 
@@ -24,14 +25,7 @@
 
     <nav class="sidebar">
       <ul>
-        <li>
-        	<a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp">
-          		<img 
-  				src="${pageContext.request.contextPath}${profilePic.getProfilesFilesPath()}${profilePic.getProfilesFilesName()}${profilePic.getProfilesFilesType()}" 
-  				onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/assets/img/myPageCare/default.png';" 
-  				alt="프로필 이미지">
-        	</a>
-        </li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보 수정</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp">찜한 목록</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp">매칭 기록</a></li>
@@ -51,22 +45,52 @@
 
       <div class="matching_month">
         <ul class="months">
-          <li class="month">1월</li>
-          <li class="month">2월</li>
-          <li class="month">3월</li>
-          <li class="month">4월</li>
-          <li class="month">5월</li>
-          <li class="month">6월</li>
-          <li class="month">7월</li>
-          <li class="month">8월</li>
-          <li class="month">9월</li>
-          <li class="month">10월</li>
-          <li class="month">11월</li>
-          <li class="month">12월</li>
+          <li class="month"><a data-month="1" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=1&page=1">1월</a></li>
+          <li class="month"><a data-month="2" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=2&page=1">2월</a></li>
+          <li class="month"><a data-month="3" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=3&page=1">3월</a></li>
+          <li class="month"><a data-month="4" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=4&page=1">4월</a></li>
+          <li class="month"><a data-month="5" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=5&page=1">5월</a></li>
+          <li class="month"><a data-month="6" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=6&page=1">6월</a></li>
+          <li class="month"><a data-month="7" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=7&page=1">7월</a></li>
+          <li class="month"><a data-month="8" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=8&page=1">8월</a></li>
+          <li class="month"><a data-month="9" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=9&page=1">9월</a></li>
+          <li class="month"><a data-month="10" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=10&page=1">10월</a></li>
+          <li class="month"><a data-month="11" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=11&page=1">11월</a></li>
+          <li class="month"><a data-month="12" href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?month=12&page=1">12월</a></li>
         </ul>
         <!-- 매칭 페이지 원래 넣었던 값 (js 넣어서 이건 안나와요) -->
         <ul class="matching_list">
-          <li class="matching">
+        	
+        	<c:choose>
+        		<c:when test="${not empty matchingList}">
+        			<c:forEach var="match" items="${matchingList}">
+        				<li class="matchingColumn">
+            				<span class="matching_day">
+              					<c:out value="${match.getMatchDate()}"/>
+            				</span>
+           					<span class="matching_member">
+              					<c:out value="${match.getUsersName()}"/>
+            				</span>
+            				<span class="matching_time">
+              					<c:out value="이용시간 : ${match.getMatchMatchTime()}"/>
+            				</span>
+            				<span class="matching_point">
+              					포인트 사용: <c:out value="${match.getMatchPoints()}"/>
+            				</span>
+            				<span class="check">
+            					<c:out value="${match.getMatchStatus()}"/>
+            				</span>
+        				</li>
+        			</c:forEach>
+        		</c:when>
+        		<c:otherwise>
+        			<li class="matchingColumnEmpty">
+        				<div>매칭 기록이 없습니다</div>
+        			</li>
+        		</c:otherwise>
+        	</c:choose>
+        
+<!--           <li class="matching">
             <div class="matching_day">
               2일
             </div>
@@ -82,18 +106,37 @@
             <div class="check">
               완료 / 취소 / 진행중
             </div>
-          </li>
+          </li> -->
+          
+          
+          
+          
         </ul>
       </div>
       <!-- 페이지네이션 -->
       <nav class="page">
         <ul>
-          <li><a href="">&lt;</a></li>
-          <li><a href="">1</a></li>
-          <li><a href="">2</a></li>
-          <li><a href="">3</a></li>
-          <li><a href="">4</a></li>
-          <li><a href="">&gt;</a></li>
+          <c:if test="${prev}">
+          	<li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?page=${startPage - 1}" class="prev">&lt;</a></li>
+          </c:if>
+          <c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
+          <c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+          	<c:choose>
+          		<c:when test="${!(i == page) }">
+          			<li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?page=${i}">
+          				<c:out value="${i}" />
+          			</a></li>
+          		</c:when>
+          		<c:otherwise>
+          			<li><a href="#" class="active">
+          				<c:out value="${i}" />
+          			</a></li>
+          		</c:otherwise>
+          	</c:choose>
+          </c:forEach>
+          <c:if test="${next}">
+          	<li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp?page=${endPage + 1}" class="next">&gt;</a>
+          </c:if>
         </ul>
 
       </nav>
@@ -111,10 +154,10 @@
     <div class="modal_container">
       <h2> 매칭 추가 </h2>
       <form action="" method="get">
-        <label for=""> 대상자: <input type="text" ></label><br>
-        <label for=""> 날짜: <input type="date"></label><br>
-        <label for=""> 시간: <input type="text"></label><br>
-        <label for=""> 지급 P: <input type="text"></label><br>
+        <label for=""> 대상자: <input id="inputNormal" type="text" ></label><br>
+        <label for=""> 날짜: <input id="inputDate" type="date"></label><br>
+        <label for=""> 시간: <input id="inputTime" type="text"></label><br>
+        <label for=""> 지급 P: <input id="inputPoint" type="text"></label><br>
         <div class="modal_button">
           <button type="submit" id="success_modal">등록</button>
           <button id="cansel_modal">취소</button>

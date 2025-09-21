@@ -119,9 +119,20 @@ main {
 }
 
 /* 매칭 표시될 것들 스타일 */
-.matching {
+.matching_list {
   display: flex;
+  flex-direction: column; 
   margin-top: 15px;
+  background-color: rgb(0, 0, 0);
+}
+
+.matchingColumn{
+	display:flex;
+}
+.matchingColumnEmpty{
+	display:flex;
+  	justify-content: center;
+  	background-color: rgb(0, 0, 0);
 }
 
 /* 매칭 표시될 것들 스타일 */
@@ -129,6 +140,7 @@ main {
 .matching_day {
   width: 180px;
   text-align: center;
+  /* background-color: rgb(128, 255, 0); */
 }
 
 /* 매칭 표시될 것들 스타일 */
@@ -136,27 +148,31 @@ main {
 .matching_member {
   width: 180px;
   text-align: center;
+  /* background-color: rgb(128, 0, 0); */
 }
 
 /* 매칭 표시될 것들 스타일 */
 
 .matching_time {
-  width: 180px;
-  text-align: center;
+  width: 300px;
+  text-align: left;
+  /* background-color: rgb(0, 255, 0); */
 }
 
 /* 매칭 표시될 것들 스타일 */
 
 .matching_point {
   width: 180px;
-  text-align: center;
+  text-align: left;
+  /* background-color: rgb(128, 255, 255); */
 }
 
 /* 매칭 표시될 것들 스타일 */
 
 .check {
-  width: 180px;
+  flex-basis: 180px;
   text-align: center;
+  /* background-color: rgb(0, 255, 255); */
 }
 
 /* 페이지 세부 스타일  */

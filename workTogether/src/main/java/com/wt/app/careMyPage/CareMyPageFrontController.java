@@ -1,6 +1,7 @@
 package com.wt.app.careMyPage;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -82,17 +83,41 @@ public class CareMyPageFrontController extends HttpServlet {
 			System.out.println("매칭기록 페이지 요청");
 			result = new CareMatchingController().execute(request, response);
 			break;
+		case "/myPageCare/careMatchingOk.cp":
+			System.out.println("매칭 추가 요청");
+			result = new CareMatchingOkController().execute(request, response);
+			break;
 		case "/myPageCare/careMesseage.cp":
 			System.out.println("쪽지함 페이지 요청");
 			result = new CareMesseageController().execute(request, response);
+			break;
+		case "/myPageCare/careSendMesseage.cp":
+			System.out.println("쪽지함 페이지 요청");
+			result = new CareSendMesseageController().execute(request, response);
+			break;
+		case "/myPageCare/careMesseageDelete.cp":
+			System.out.println("쪽지 삭제 요청");
+			result = new CareMesseageDeleteController().execute(request, response);
 			break;
 		case "/myPageCare/carePost.cp":
 			System.out.println("게시글 관리 페이지 요청");
 			result = new CarePostController().execute(request, response);
 			break;
+		case "/myPageCare/carePostDelete.cp":
+			System.out.println("게시글 관리-삭제 요청");
+			result = new CarePostDeleteController().execute(request, response);
+			break;
 		case "/myPageCare/carePointreturn.cp":
-			System.out.println("포인트 환급 페이지 요청");
+			System.out.println("포인트 환급 신청 페이지 요청");
 			result = new CarePointreturnController().execute(request, response);
+			break;
+		case "/myPageCare/carePointreturnOK.cp":
+			System.out.println("포인트 환급 신청 요청");
+			result = new CarePointreturnOkController().execute(request, response);
+			break;
+		case "/myPageCare/carePointList.cp":
+			System.out.println("포인트 환급 내역 페이지 요청");
+			result = new CarePointListController().execute(request, response);
 			break;
 		case "/myPageCare/careReference.cp":
 			System.out.println("1대1문의 페이지 요청");

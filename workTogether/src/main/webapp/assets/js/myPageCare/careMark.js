@@ -133,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 	
 	const reUrl = contextPath + `/myPageCare/careMark.cp`;
-	
 	window.location.href = reUrl;
 
   });
