@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let data = JSON.parse(localStorage.getItem('match_data') || '{}');
   let nowMonth = new Date().getMonth() + 1;
 // 월 버튼 클릭시
-  monthBtns.forEach(function (btn, idx) {
+/*  monthBtns.forEach(function (btn, idx) {
     btn.addEventListener('click', function () {
       // 클릭한 달로 바꾸기
       nowMonth = idx + 1;
@@ -25,10 +25,31 @@ document.addEventListener('DOMContentLoaded', function () {
       // 리스트 보이게
       showList();
     });
-  });
+  });*/
 // 시작할 때 현재 달 보여주기
-  monthBtns[nowMonth - 1].id = 'active';
-  showList();
+/*  monthBtns[nowMonth - 1].id = 'active';
+  showList();*/
+  
+  
+  // body의 data-month 값(문자열) 읽기
+  const currentMonth = document.body.dataset.month;
+
+  // 같은 data-month를 가진 li 요소 찾기
+  const activeLi = document.querySelector(
+    `.months a[data-month="${currentMonth}"]`
+  );
+
+  // 찾으면 스타일 적용
+  if (activeLi) {
+    activeLi.style.color = "red";
+    // 또는 클래스 추가 → CSS에서 스타일 지정 가능
+    // activeLi.classList.add("selected-month");
+  }
+  
+  
+  
+  
+  
   // 추가 버튼 클릭시 모달
   addBtn.addEventListener('click', function () {
     addModal.style.display = 'flex';
@@ -51,38 +72,60 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     // 월하고 일이 몇인지 구하기
-    let dateObj = new Date(date);
+/*    let dateObj = new Date(date);
     let monthNum = dateObj.getMonth() + 1;
-    let dayText = dateObj.getDate() + '일';
+    let dayText = dateObj.getDate() + '일';*/
     // 새 데이터 생성하기
-    let newItem = {
+/*    let newItem = {
       day: dayText,
       name: name,
       time: '이용 시간: ' + time,
       point: '포인트 사용: ' + Number(point).toLocaleString(),
       status: '완료 / 취소 / 진행중'
-    };
+    };*/
     // 원 데이터 없으면 만들기
-    if (!data[monthNum]) data[monthNum] = [];
+/*    if (!data[monthNum]) data[monthNum] = [];
     data[monthNum].push(newItem);
-    localStorage.setItem('match_data', JSON.stringify(data));
+    localStorage.setItem('match_data', JSON.stringify(data));*/
+	
+	
+	
     // 모달 닫고 완료 모달 열기
     addModal.style.display = 'none';
     doneModal.style.display = 'flex';
     // 월 선택하면 다시 새로운 것으로
-    nowMonth = monthNum;
+/*    nowMonth = monthNum;
     monthBtns.forEach(b => b.removeAttribute('id'));
     monthBtns[nowMonth - 1].id = 'active';
-    showList();
+    showList();*/
     // 입력칸 비우기
-    form.reset();
+/*    form.reset();*/
   });
   // 완료모달 확인버튼 클릭
   okBtn.addEventListener('click', function () {
     doneModal.style.display = 'none';
+	
+	const body = document.body;
+	
+	// contextPath 읽기
+	const contextPath = body.dataset.contextPath;
+
+	const inputNormal = document.getElementById('inputNormal').value;
+	const inputDate = document.getElementById('inputDate').value;
+	const inputTime = document.getElementById('inputTime').value;
+	const inputPoint = document.getElementById('inputPoint').value;
+	
+	//url 이동
+	const url = `${contextPath}/myPageCare/careMatchingOk.cp?inputNormal=${inputNormal}&inputDate=${inputDate}&inputTime=${inputTime}&inputPoint=${inputPoint}`;
+	window.location.href = url;
+	
+	
+	
+	
+	
   });
   // 리스트 보여주는 함수
-  function showList() {
+/*  function showList() {
     //빈 상태로 만들기
     listBox.innerHTML = ''; 
     let arr = data[nowMonth] || [];
@@ -103,5 +146,5 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="check">${item.status}</div>`;
       listBox.appendChild(li);
     });
-  }
+  }*/
 });

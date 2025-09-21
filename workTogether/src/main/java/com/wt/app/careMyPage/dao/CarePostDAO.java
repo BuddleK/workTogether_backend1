@@ -21,9 +21,9 @@ public class CarePostDAO {
 		return list;
 	}
 	//게시글 개수 가져오기
-	public int postTotal() {
-		System.out.println("게시글 총 개수 조회 - postTotal 메소드 실행");
-		return sqlSession.selectOne("carePost.postTotal");
+	public int postTotal(int usersNumber) {
+		System.out.println("개인 게시글 총 개수 조회 - postTotal 메소드 실행");
+		return sqlSession.selectOne("carePost.postTotal", usersNumber);
 	}
 	/*
 	 * //게시글 삭제하기 public void postDelete(CarePostDTO carePostDTO) {

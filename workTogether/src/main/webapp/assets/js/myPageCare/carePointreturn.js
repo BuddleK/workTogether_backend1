@@ -56,18 +56,28 @@ document.addEventListener('DOMContentLoaded', function () {
   remain.style.fontWeight = '600';
   remain.textContent = '(잔여: ' + fmt(owned) + ' P)';
   if (ownedRow) ownedRow.appendChild(remain);
+  
+
+  // 예상 전환 포인트 칸
+  var expected = document.getElementById('expected');
+
 
   // 표시 업데이트
   function showHint(n) {
     var u = toUnit(n);
     var afterFee = Math.floor(u * (1 - charge));
     hint.textContent = '예상 전환: ' + fmt(afterFee) + ' P';
+	// +추가
+	expected.textContent = fmt(afterFee) + ' P';
   }
   function showRemain(n) {
     var u = toUnit(n);
     var left = Math.max(owned - u, 0);
     remain.textContent = '(잔여: ' + fmt(left) + ' P)';
   }
+  
+  
+  
 
   // 초기 표시
   if (input) {
@@ -142,10 +152,19 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
+	// 최종 환급 결정
     // 모달 닫기
     if (closeBtn) {
       closeBtn.addEventListener('click', function () {
         if (modal) modal.style.display = 'none';
+		const contextPath = input.getAttribute('data-context-path'); // contextPath 가져오기
+		
+		const fee = input.value;
+		
+		const url = `${contextPath}/myPageCare/carePointreturnOK.cp?fee=${fee}`;
+		alert("fee : " + fee)
+		// 서블릿 경로로 이동
+		window.location.href = url;
       });
     }
   }
