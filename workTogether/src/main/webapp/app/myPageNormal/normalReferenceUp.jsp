@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,34 +19,35 @@
   <main>
     <!-- 문의 작성 디테일 페이지 -->
     <section class="reference_dp">
+    <form action="/myPageNormal/normalReferenceInsertOk.mn" method="post">
       <div class="title">
-        <h2>[문의] 다크모드 요청</h2>
+        <textarea name="title" class="input_title"></textarea>
       </div>
       <div class="reference_info">
-        <span>등록자명 : 아무개</span>
-        <span>등록일 : 2025-08-04</span><br>
+        <span class="name">등록자명 : ${userName }</span>
+        <span>등록일 : ${today }</span><br>
       </div>
-      <div class="tools">
-      </div>
+      
       <div class="reference_content">
-        <textarea></textarea>
+        <textarea name="content"></textarea>
       </div>
       <div class="buttons">
         <a href="${pageContext.request.contextPath}/normalReference.jsp"><button class="btn_list">목록</button></a>
-        <a href="${pageContext.request.contextPath}/normalReference.jsp"><button class="btn_cancle">취소</button></a>
-        <button class="btn_compelete">등록</button>
+        <button type="button" class="btn_compelete">등록</button>
       </div>
-    </section>
-  </main>
-  <!-- 문의사항 등록 확인 모달 -->
-  <div class="modal" id="editModal">
+      <div class="modal" id="editModal">
     <div class="modal_box">
       <p>문의가 등록 되었습니다.</p>
       <div class="modal_buttons">
-        <a href="${pageContext.request.contextPath}/normalReference.jsp"><button id="check">확인</button></a>
+        <button id="check" type="submit">확인</button>
       </div>
     </div>
   </div>
+    </form>
+    </section>
+  </main>
+  <!-- 문의사항 등록 확인 모달 -->
+  
   <jsp:include page="/footer.jsp" />
 </body>
 </html>

@@ -39,35 +39,7 @@
 	<main>
 		<!-- 메뉴 사이드바 섹션 -->
 		<jsp:include page="sidebar.jsp"></jsp:include>
-		<%-- <nav class="main_sidebar">
-			<ul>
-				<li><img
-					src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg"
-					alt="#"></li>
-				<li><a
-					href="/myPageNormal/normalModify.mn">개인정보
-						수정</a></li>
-				<li><a href="/myPageNormal/normalfavoriteList.mn">찜한
-						목록</a></li>
-				<li><a
-					href="/myPageNormal/normalHeartListTotal.mn">하트 목록</a></li>
-				<li><a
-					href="/myPageNormal/normalMatching.mn">매칭
-						기록</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/normalsendMesseage.jsp">쪽지함</a></li>
-				<li><a href="/myPageNormal/normalPostsList.mn">게시글
-						관리</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/normalPoint.jsp">포인트
-						충전</a></li>
-				<li><a
-					href="/myPageNormal/normalReferenceInsert.mn">1
-						대 1 문의</a></li>
-				<li><a href="/myPageNormal/normalExit.mn">회원
-						탈퇴</a></li>
-			</ul>
-		</nav> --%>
+		
 		<div class="div_mark">
 			<!-- 메뉴 제목 -->
 			<div class="title">개인정보 수정</div>

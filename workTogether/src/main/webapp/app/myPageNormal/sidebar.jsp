@@ -12,7 +12,7 @@
 		<li><a href="/myPageNormal/normalMsgList.mn">쪽지함</a></li>
 		<li><a href="/myPageNormal/normalPostsListOk.mn">게시글 관리</a></li>
 		<li><a href="/myPageNormal/normalPoint.mn">포인트 충전</a></li>
-		<li><a href="/myPageNormal/normalReferenceInsert.mn">1 대 1 문의</a></li>
+		<li><a href="/myPageNormal/normalReferenceList.mn">1 대 1 문의</a></li>
 		<li><a href="/myPageNormal/normalExit.mn">회원 탈퇴</a></li>
 	</ul>
 </nav>
