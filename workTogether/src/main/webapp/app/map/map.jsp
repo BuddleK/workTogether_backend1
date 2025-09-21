@@ -248,7 +248,7 @@ function makeOutListener(infowindow) {
         <!-- 지역 정보 -->
         <div class="map_info">
           <!-- 정보 칸 닫기 -->
-          <div class="closebtn">&times;</div>
+          <!-- <div class="closebtn">&times;</div> -->
           <!-- 정보 내용 컨테이너 -->
           <div class="info_content_container">
             <!-- 정보 내용 ul -->
