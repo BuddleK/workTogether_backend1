@@ -58,7 +58,7 @@ const checkCode = document.getElementById('checkCode');
 
 sendCode.addEventListener('click', () => {
 	const phone = document.getElementById('userPhone');
-	fetch(`/myPageNormal/JoinSMSController.mn?memberPhoneNumber=${encodeURIComponent(phone)}`, {
+	fetch(`/users/JoinSMSController.us?memberPhoneNumber=${encodeURIComponent(phone)}`, {
 		method: "GET",
 		headers: {
 			"Accept": "text/plain",
@@ -69,34 +69,33 @@ sendCode.addEventListener('click', () => {
 		return res.text();
 	}).then(msg => {
 		alert(msg);               // 발송 메시지
-		sendBtn.disabled = true;  // 재발송 방지
-		verifyInput.readOnly = false;
-		verifyInput.value = "";      // 새 코드 입력 위해 비워두기
-		verifyInput.dataset.verified = "false";
+		sendCode.disabled = true;  // 재발송 방지
+		checkCode.readOnly = false;
+		checkCode.value = "";      // 새 코드 입력 위해 비워두기
+		checkCode.dataset.verified = "false";
 	}).catch(err => {
 
 		alert("SMS 발송 중 오류가 발생했습니다.\n" + err);
-		sendBtn.disabled = false; // 다시 시도 가능
+		sendCode.disabled = false; // 다시 시도 가능
 	});
 });
 
-const verifyInput = document.getElementById('verifyInput')
 
 checkCode.addEventListener("click", function() {
 	if (isExpired()) {
 		alert("인증번호가 만료되었습니다. 다시 발급받아 주세요.");
-		verifyInput.value = "";
-		sendBtn.disabled = false;
+		checkCode.value = "";
+		sendCode.disabled = false;
 		return;
 	}
 
-	const codeChecker = verifyInput.value.trim();
+	const codeChecker = checkCode.value.trim();
 	if (!codeChecker) {
 		alert("인증번호를 입력하세요");
 		return;
 	}
 
-	fetch(`/myPageNormal/VerifyCodeController.mn?verificationCode=${encodeURIComponent(codeChecker)}`, {
+	fetch(`/users/VerifyCodeController.us?verificationCode=${encodeURIComponent(codeChecker)}`, {
 		headers: { "Accept": "text/plain", "X-Requested-With": "XMLHttpRequest" }
 	}).then(res => {
 		if (!res.ok) throw new Error("발송 실패: " + res.status);
@@ -105,9 +104,9 @@ checkCode.addEventListener("click", function() {
 		.then(msg => {
 			if (msg.includes("성공")) {
 				alert("인증 성공");
-				verifyInput.readOnly = true;
+				checkCode.readOnly = true;
 				phoneInput.readOnly = true;
-				verifyInput.dataset.verified = "true";
+				checkCode.dataset.verified = "true";
 				stopTimer();
 			} else {
 				alert("인증 실패");
