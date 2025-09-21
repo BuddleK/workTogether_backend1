@@ -25,6 +25,7 @@ main {
   color: #fff;
   display: flex;
   flex-direction: column;
+  flex: 0 0 180px;
 }
 
 .main_sidebar ul li img {
@@ -45,10 +46,11 @@ main {
 /* ============================= */
 
  .div_mark {
-   /* flex: 1; */
-   width: 100%;
-   display: flex;
-   flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-left: 150px;
+  padding-right: 150px;
+  box-sizing: border-box;
  }
 
  .div_mark .title {
@@ -293,7 +295,12 @@ form{
   justify-content: center;
   width: 100px;
 }
-
+.mark_nav,
+.mark_list{
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
 
 
 

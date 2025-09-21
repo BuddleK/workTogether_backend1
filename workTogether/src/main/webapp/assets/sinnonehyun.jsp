@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
   <script defer src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/subwayLine/yangjae.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/subwayLine/sinnonehyun.css">
 </head>
 
 <body>
@@ -21,16 +21,16 @@
       <!-- 해당 지하철 역 사진 -->
 
       <div class="station_img">
-        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/yangjae.png" alt="">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/sinnonehyun.png" alt="">
       </div>
 
       <div class="station_exit">
         <!-- 역 정보 -->
-        <div> 양재역 </div>
+        <div> 신논현역 </div>
       </div>
 
       <div class="line_number">
-        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/LIne_3.png" alt="">
+        <img src="${pageContext.request.contextPath}/assets/img/subwayLine/Line_9.png" alt="">
         <img src="${pageContext.request.contextPath}/assets/img/subwayLine/dx_Line.png" alt="">
       </div>
     </div>
@@ -38,14 +38,13 @@
     <!-- 지도 api -->
     <div class="map_api">
 			<div id="map" style="width: 100%; height: 400px;" data-lat="${lat}"
-				data-lng="${lng}" data-name="양재역"></div>
+				data-lng="${lng}" data-name="신논현역"></div>
       <a href="${pageContext.request.contextPath}/subway/subwayList.sw"><button>목록</button></a>
 
     </div>
 
 
-  </main>
-  <script>
+  </main><script>
 		(function initKakaoMap() {
 			// 공통 header.jsp에서 SDK가 로드될 때까지 대기
 			function ready(fn) {

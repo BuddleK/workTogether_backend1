@@ -161,9 +161,22 @@ main {
   padding-top: 10px;
 }
 
+.paging a { 
+  color: #222;
+  text-decoration: none;
+  transition: color .15s ease, font-size .15s ease;
+}
+.paging a.active,
+.paging a.active:link,
+.paging a.active:visited {
+  color: #e53935 !important;
+  font-weight: 700;
+  font-size: 18px;
+}
 
-
-a.active{
-	color: red !important;
-	font-weight: bold;
+.table .paging_box {
+  width: 90%;
+  margin: 8px auto 0;
+  display: flex;
+  justify-content: center;
 }

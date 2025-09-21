@@ -1,54 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="subway">
-	<!-- 노선도 조회 -->
+
+	<!-- 노선 목록 -->
 	<select id="subwayLineSearch" resultType="GetSubwayLineDTO">
+		SELECT line_number, line_name
+		FROM tbl_subway_lines
+		ORDER BY CASE WHEN line_number = 0 THEN -1 ELSE line_number END
+	</select>
+
+	<!-- 역 목록(이미지) : 0=전체이면 WHERE 없음 -->
+	<select id="subwayStationImgSearch" parameterType="int"
+		resultType="SubwayStationDTO">
 		SELECT
-			line_number, 
-			LINE_NAME
-		FROM TBL_SUBWAY_LINES
-		ORDER BY LINE_NAME
+    s.stations_id           AS stationsId,
+    s.line_number           AS lineNumber,
+    s.stations_name         AS stationsName,
+    f.stations_files_name   AS stationsFilesName,
+    f.stations_files_path   AS stationsFilesPath
+  FROM tbl_subway_stations s
+  LEFT JOIN tbl_files_stations f
+    ON s.stations_photo_id = f.stations_files_number
+  <where>
+    <if test="_parameter != 0">
+      s.line_number = #{_parameter}
+    </if>
+  </where>
+  ORDER BY s.stations_name
+</select>
+
+	<select id="subwayStationSearch" parameterType="int"
+		resultType="SubwayStationDTO">
+		<choose>
+    <when test="_parameter == 0">
+      SELECT MIN(stations_id) AS stationsId,
+             stations_name    AS stationsName
+      FROM tbl_subway_stations
+      GROUP BY stations_name
+      ORDER BY stations_name
+    </when>
+    <otherwise>
+      SELECT stations_id   AS stationsId,
+             stations_name AS stationsName
+      FROM tbl_subway_stations
+      WHERE line_number = #{_parameter}
+      ORDER BY stations_name
+    </otherwise>
+  </choose>
 	</select>
-	
-	<!-- 역 목록(이미지) 조회 -->
-	<select id="subwayStationImgSearch" parameterType="int" resultType="SubwayStationDTO">
-		SELECT
-			s.stations_id,
-			s.line_number,
-		    s.stations_name,
-		    f.stations_files_name,
-		    f.stations_files_path
-		FROM
-		    TBL_SUBWAY_STATIONS s
-		LEFT JOIN tbl_files_stations f
-			ON s.stations_photo_id = f.stations_files_number
-		WHERE s.line_number = #{lineNumber}
-		ORDER BY s.stations_name
-	</select>
-	
-	<!-- 역 목록 리스트 조회 -->
-	<select id="subwayStationSearch" parameterType="int" resultType="SubwayStationDTO">
-		SELECT
-			stations_id,
-			stations_name
-		FROM TBL_SUBWAY_STATIONS
-		WHERE stations_id = #{stationsId}
-		ORDER BY stations_name
-	</select>
-	
-	<!-- 역 세부정보 조회 -->
-	<select id="subwayDetailSearch" parameterType="int" resultType="SubwayStationDTO">
-		SELECT 
-		    f.stations_files_name,
-		    s.stations_id,
-		    s.stations_name,
-		    l.line_name
-		FROM tbl_subway_stations s
-		JOIN tbl_subway_lines l 
-		    ON s.line_number = l.line_number
-		LEFT JOIN tbl_files_stations f 
-		    ON s.stations_photo_id = f.stations_files_number
-		where stations_id = #{stationsId}
-		ORDER BY l.line_name, s.stations_name
-	</select>
+
+	<!-- 역 상세 -->
+	<select id="subwayDetailSearch" parameterType="int"
+		resultType="SubwayStationDTO">
+		 SELECT 
+    s.stations_id           AS stationsId,
+    s.line_number           AS lineNumber,
+    s.stations_name         AS stationsName,
+    s.stations_address      AS stationsAddress,
+    s.latitude              AS latitude,
+    s.longitude             AS longitude,
+    l.line_name             AS lineName,
+    f.stations_files_name   AS stationsFilesName,
+    f.stations_files_path   AS stationsFilesPath
+  FROM tbl_subway_stations s
+  JOIN tbl_subway_lines l ON s.line_number = l.line_number
+  LEFT JOIN tbl_files_stations f ON s.stations_photo_id = f.stations_files_number
+  WHERE s.stations_id = #{_parameter}
+</select>
+
 </mapper>
