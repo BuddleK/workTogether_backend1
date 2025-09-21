@@ -9,11 +9,11 @@ import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 public class SmsService {
-	 private static final String API_KEY = "";
-	   private static final String API_SECRET = "";
+	 private static final String API_KEY = "NCSONBIZEZ7VOD5M";
+	   private static final String API_SECRET = "O04X8955M8GJZYNHNSWGNWCAP1GWKNOX";
 	   
 	   // SMS 발신자 번호
-	   private static final String FROM_NUMBER = "";
+	   private static final String FROM_NUMBER = "010-2936-3179";
 
 	   /*
 	    * 인증번호를 SMS로 발송하는 메서드

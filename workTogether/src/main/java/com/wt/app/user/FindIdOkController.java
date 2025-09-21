@@ -70,13 +70,13 @@ public class FindIdOkController implements Execute {
         // 5) 포워드
         if (usersId != null) {
             request.setAttribute("usersId", usersId);
-            result.setRedirect(false);
+            result.setRedirect(true);
             result.setPath("/app/login/findIdResult.jsp");
         } else {
             request.setAttribute("findIdError", "일치하는 회원 정보가 없습니다.");
             preserveInputs(request, usersName, usersPhone, usersType);
             result.setRedirect(false);
-            result.setPath("/app/login/findId.jsp");
+            result.setPath("/app/login/findIdResult.jsp");
         }
 
         return result;
