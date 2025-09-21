@@ -139,10 +139,10 @@
       </div>
       <div class="modal_info">
         <div class="sender_info">
-          <span>보낸 사람 : </span>티라노사우루스 | <span class="sender_id">Trano</span>
+          <span>보낸 사람 : </span>정승제 | <span class="sender_id">JungSeungJe</span>
         </div>
         <div class="message_content">
-          나는나는 육식 공룡 풀떼기는 안먹지
+          오늘 이렇게 연락을 드린 건 다름이 아니고...
         </div>
       </div>
       <!-- 해당 모달에 있는 모달창 -->
@@ -161,7 +161,7 @@
       </div>
       <div class="modal_info">
         <div class="sender_info">
-          <span>받는 사람 : </span>스태고사우루스 | <span class="sender_id">stago</span>
+          <span>받는 사람 : </span>장성규 | <span class="sender_id">JangJang</span>
         </div>
         <textarea id="message_textarea" placeholder="내용을 입력하세요"></textarea>
       </div>
