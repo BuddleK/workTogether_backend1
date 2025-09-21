@@ -41,9 +41,9 @@
               		<c:when test="${not empty adminReportList}">
               			<c:forEach var="report" items="${adminReportList}">
 	                		<ul class="table_body">
-		            			<li class="body_number"><c:out value="${report.getPostsNumber()}"/></li>
-		                		<li class="body_content"><c:out value="${report.getPostsTitle()}"/></li>
-		                		<li class="body_date"><c:out value="${report.getPostsCreatedDate()}"/></li>
+		            			<li class="body_number"><c:out value="${report.usersNumber}"/></li>
+		                		<li class="body_content"><c:out value="${report.usersName}"/></li>
+		                		<li class="body_date"><c:out value="${report.reportReason}"/></li>
 	                		</ul>
 	            		</c:forEach>
 	            	</c:when>
@@ -89,7 +89,7 @@
           </div>
         <div class="notice_btn">
           <button class="list" onclick="location.href='${pageContext.request.contextPath}/admin/adminReportList.ad'" type="button">목록</button>
-          <div class="delete"><a href="${pageContext.request.contextPath}/admin/adminReportDeleteOk.ad?postsNumber=${report.getPostsNumber()}" class="button_del">삭제</a></div>
+          <div class="delete"><a href="${pageContext.request.contextPath}/admin/adminReportDeleteOk.ad?postsNumber=${postsNumber}" class="button_del">삭제</a></div>
       	</div>
       </section>
     </main>

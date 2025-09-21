@@ -410,9 +410,9 @@ public class AdminDAO {
 		return sqlSession.selectOne("admin.reportTotal");
 	}
 
-	public AdminReportListDTO reportDetail(int postsNumber) {
+	public List<AdminReportListDTO> reportDetail(int postsNumber) {
 		System.out.println("신고글 상세 페이지 조회");
-		return sqlSession.selectOne("admin.reportDetail", postsNumber);
+		return sqlSession.selectList("admin.selectReportDetail", postsNumber);
 	}
 
 //	============ [Care 이력수정: 통장 사본 목록/상태] ============  추가함

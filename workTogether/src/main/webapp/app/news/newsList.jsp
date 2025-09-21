@@ -22,19 +22,6 @@
       <div class="search_result_topmenu">
         <!-- 전체 뉴스 페이지 제목 -->
         <div class="title">전체목록</div>
-        <!-- 검색 창 바 -->
-        <div class="searchbar">
-          <!-- 검색 결과 보내주기 위한 폼 -->
-          <form action="get">
-            <!-- 검색 입력 창 -->
-            <input type="text" class="underbar">
-          </form>
-          <!-- 검색 버튼 -->
-          <button class="search_btn">
-            <!-- 검색 버튼 이미지 -->
-            <img class="searchIcon" src="${pageContext.request.contextPath}/assets/img/news/searchIcon.png" alt="검색아이콘">
-          </button>
-        </div>
       </div>
       <!-- 전체 뉴스 카드 리스트 -->
       <div class="search_result_card">
