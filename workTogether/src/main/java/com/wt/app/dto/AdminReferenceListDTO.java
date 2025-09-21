@@ -13,6 +13,8 @@ public class AdminReferenceListDTO {
 	private boolean answeredYn; // 답변 유무
 
 	private String referenceContent;
+	
+	private String replyContent;
 
 	public int getReferenceNumber() {
 		return referenceNumber;
@@ -67,7 +69,7 @@ public class AdminReferenceListDTO {
 		return "AdminReferenceListDTO [referenceNumber=" + referenceNumber + ", referenceTitle=" + referenceTitle
 				+ ", userNumber=" + userNumber + ", usersName=" + usersName + ", usersId=" + usersId
 				+ ", referenceCreatedDate=" + referenceCreatedDate + ", answeredYn=" + answeredYn
-				+ ", referenceContent=" + referenceContent + "]";
+				+ ", referenceContent=" + referenceContent + ", replyContent=" + replyContent + "]";
 	}
 
 	public String getUsersId() {
@@ -84,6 +86,14 @@ public class AdminReferenceListDTO {
 
 	public void setUsersName(String usersName) {
 		this.usersName = usersName;
+	}
+
+	public String getReplyContent() {
+		return replyContent;
+	}
+
+	public void setReplyContent(String replyContent) {
+		this.replyContent = replyContent;
 	}
 	
 
