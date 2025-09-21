@@ -34,7 +34,6 @@
 		users_address_line1 =
 		#{usersAddressLine1},
 		users_address_line2 = #{usersAddressLine2},
-		users_email = #{usersEmail},
 		users_password = #{usersPassword}
 		WHERE
 		users_number = #{usersNumber}

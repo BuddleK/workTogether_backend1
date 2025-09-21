@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Result;
 import com.wt.app.admin.AdminUserManagerListController;
+import com.wt.app.user.JoinSMSController;
+import com.wt.app.user.VerifyCodeController;
 
 /**
  * Servlet implementation class MyPageNormalFrontController
@@ -65,6 +67,17 @@ public class MyPageNormalFrontController extends HttpServlet {
 			System.out.println("마이페이지 일반회원 회원정보 수정 페이지 요청");
 			result = new NormalModifyController().execute(request, response);
 			break;
+			
+		case "/myPageNormal/JoinSMSController.mn":
+			System.out.println("문자인증");
+			result = new JoinSMSController().execute(request, response);
+			break;
+			
+		case "/myPageNormal/VerifyCodeController.mn":
+			System.out.println("문자인증");
+			result = new VerifyCodeController().execute(request, response);
+			break;
+			
 		case "/myPageNormal/normalModifyOk.mn":
 			System.out.println("마이페이지 일반회원 회원정보 수정 완료 요청");
 			result = new NormalModifyOkController().execute(request, response);

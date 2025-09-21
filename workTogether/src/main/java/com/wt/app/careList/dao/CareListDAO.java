@@ -24,6 +24,13 @@ public class CareListDAO {
 		return list;
 	}
 	
+	public List<CareListDTO> searchAll(Map<String, String> pageMap) {
+		System.out.println("모든 돌봄 조회하기 - selectAll 메소드 실행 : " + pageMap);
+		List<CareListDTO> list = sqlSession.selectList("careList.searchCare", pageMap);
+		System.out.println("조회결과 : " + list);
+		return list;
+	}
+	
 	// 돌봄 총 개수 가져오기
 		public int getTotal() {
 			System.out.println("돌봄 총 개수 조회 - getTotal 메소드 실행");

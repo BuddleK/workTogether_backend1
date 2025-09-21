@@ -98,8 +98,14 @@
 						<li class="member">
 							<ul>
 								<li class="info">전화번호</li>
-								<li class="myinfo"><input type="text" name="usersPhone"
-									value="${normal.getUsersPhone() }"></li>
+								<li class="myinfo"><input type="text" name="usersPhone" id="userPhone"
+								class="phone"
+  									value="${normal.getUsersPhone() }">
+									<div class="autho">
+									<input type="text" name="sms" id="verifyInput"/>
+									<button id="sendCode">인증번호 발송</button> <button id="checkCode">인증번호 발송</button>
+									</div>
+									</li>
 							</ul>
 						</li>
 						<li class="member">
@@ -121,7 +127,7 @@
 								<li class="myinfo">
 									<ul>
 										<li><input id="pwInput" type="password"
-											name="usersPassword" placeholder="비밀번호 입력"></li>
+											name="usersPassword" placeholder="비밀번호 입력 (영문 + 숫자 + 특수기호 포함 8자리 이상 작성해주세요)"></li>
 										<li><input id="newPwInput" type="password"
 											placeholder="새 비밀번호 입력"> <!-- <button type="button" id="pwbutton">확인</button></li> -->
 										<li><div class="pwCheck">비밀번호가 일치하지않습니다</div></li>
@@ -130,17 +136,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button>수정완료</button>
-				<c:if test="${err eq 'email_dup'}">
-					<script>
-						alert("이미 등록된 이메일입니다. 다른 이메일을 입력해 주세요.");
-					</script>
-				</c:if>
-				<c:if test="${success eq 'success' }">
-					<script>
-						alert("수정 완료 되었습니다.")
-					</script>
-				</c:if>
+				<button id="submit" type="submit">수정완료</button>
 			</form>
 		</div>
 	</main>

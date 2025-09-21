@@ -25,6 +25,8 @@
 	<!-- 헤더 -->
 	<jsp:include page="/header.jsp" />
 	<!-- 메인 -->
+<input type="hidden" id="leNum" value="${leNum}" />
+<input type="hidden" id="legalDong" value="${param.legalDong}" />
 	<main>
 		<!-- 메인 바디 -->
 		<div class="main_body">
@@ -96,14 +98,14 @@
 															<c:out value="${shop.getShopsWorkingHours()}" />
 														</div>
 													</div>
-													<div class="restaurant_mark">
+													<%-- <div class="restaurant_mark">
 														<div onclick="togleStar(0)" class="star_img_box">
 															<img class="star_img"
 																src="./../../assets/img/restaurant/star.png"
 																data-favorite="<c:out value='${shop.getIsFavorite()}'/>">
 														</div>
 														<div>찜하기</div>
-													</div>
+													</div> --%>
 												</div>
 											</div>
 									</c:forEach>
