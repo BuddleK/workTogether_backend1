@@ -22,25 +22,21 @@
         <div class="detail_box">
           <form action="${pageContext.request.contextPath}/admin/adminNoticeInsertOk.ad" method="post" class="detail_form">
             <div class="detail_title">
-              <input type="text" class="detail_title_text" placeholder="제목" />
+              <input type="text" 
+                     name="noticeTitle" 
+                     class="detail_title_text" 
+                     placeholder="제목" 
+                     value="${param.noticeTitle}" 
+                     />
             </div>
             <div class="detail_content">
-              <div class="detail_file">
-                <input
-                  type="text"
-                  readonly
-                  class="file_name"
-                  placeholder="첨부파일을 등록해주세요."
-                />
-                <input type="file" placeholder="파일 선택" />
-              </div>
               <div class="detail_content_input">
-                <textarea name="detail" id="detail"></textarea>
+                <textarea name="noticeContent" id="detail">${param.noticeContent}</textarea>
               </div>
             </div>
             <div class="btn_area">
-              <button class="cancle_btn" type="button">취소</button>
-              <button class="add_btn" type="button">추가</button>
+              <button class="cancle_btn" formaction="${pageContext.request.contextPath}/admin/adminNotice.ad">취소</button>
+              <button class="add_btn" formaction="${pageContext.request.contextPath}/admin/adminNoticeInsertOk.ad">추가</button>
             </div>
           </form>
         </div>

@@ -16,14 +16,15 @@ import com.wt.app.dto.AdminNewsBoardDTO;
 import com.wt.app.dto.AdminNewsBoardListDTO;
 import com.wt.app.dto.AdminNoticeListDTO;
 import com.wt.app.dto.AdminReferenceListDTO;
+import com.wt.app.dto.AdminReferenceReplyDTO;
 import com.wt.app.dto.AdminReportListDTO;
 import com.wt.app.dto.AdminUserManagerDTO;
+import com.wt.app.dto.CareCareerRowDTO;
 import com.wt.app.dto.CarePointreturnDTO;
 import com.wt.app.dto.FileNoticeDTO;
 import com.wt.app.dto.FilesLicenseDTO;
 import com.wt.app.dto.LicenseModifyDTO;
 import com.wt.config.MyBatisConfig;
-import com.wt.app.dto.CareCareerRowDTO;
 
 public class AdminDAO {
 
@@ -258,6 +259,8 @@ public class AdminDAO {
 	public void adminNoticeListDelete(int noticeNumber) {
 		sqlSession.delete("admin.adminNoticeListDelete", noticeNumber);
 	}
+	
+	
 
 	public List<AdminReportListDTO> adminReportListSelect(Map<String, Object> pageMap) {
 		return sqlSession.selectList("admin.adminReportListSelect");
@@ -322,6 +325,12 @@ public class AdminDAO {
 	public AdminReferenceListDTO adminReferenceDetail(int referenceNumber) {
 		return sqlSession.selectOne("admin.adminReferenceDetail", referenceNumber);
 	}
+	
+    
+    public void insertReply(AdminReferenceReplyDTO adminReferenceReplyDTO) {
+        sqlSession.insert("AdminReference.insertReply", adminReferenceReplyDTO);
+        sqlSession.update("AdminMapper.updateReferenceAnswered", adminReferenceReplyDTO.getReferenceNumber());
+    }
 
 	/* ======================= [Point Refunds / 환급] ======================= */
 

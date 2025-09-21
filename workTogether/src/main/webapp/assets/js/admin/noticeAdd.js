@@ -1,6 +1,6 @@
 const addBtn = document.querySelector(".add_btn"); 
 const cancleBtn = document.querySelector(".cancle_btn");
-const link = "${pageContext.request.contextPath}/admin/adminNotice.ad";
+const link = `${pageContext.request.contextPath}/admin/adminNotice.ad`;
 function linkHref() {
   location.href=link;
 }

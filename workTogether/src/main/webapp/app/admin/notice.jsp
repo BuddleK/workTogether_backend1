@@ -39,20 +39,6 @@
 				<div class="title">
 					<h1>공지사항 관리</h1>
 				</div>
-				<form
-					action="${pageContext.request.contextPath}/admin/adminNotice.ad"
-					method="post">
-					<div class="searchbox">
-						<select name="column" id="" class="search_column">
-							<option value="number">번호</option>
-							<option value="title">제목</option>
-							<option value="name">작성자</option>
-							<option value="cnt">조회수</option>
-							<option value="date">작성일</option>
-						</select> <input type="text" />
-						<button>검색</button>
-					</div>
-				</form>
 				<div class="table">
 					<div class="board_column">
 						<div class="board_head board_number">번호</div>
@@ -73,8 +59,7 @@
 											${notice.noticeTitle} </a></li>
 									<li class="body_name"><a
 										href="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad?noticeNumber=${notice.noticeNumber}">
-											${notice.adminNumber} <!-- 필요 시 이름으로 바꿔서 표시 가능 -->
-									</a></li>
+											${notice.adminName} </a></li>
 									<li class="body_cnt"><a
 										href="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad?noticeNumber=${notice.noticeNumber}">
 											${notice.noticeViewCount} </a></li>
@@ -82,9 +67,14 @@
 										href="${pageContext.request.contextPath}/admin/adminNoticeDetail.ad?noticeNumber=${notice.noticeNumber}">
 											${notice.noticeCreatedDate} </a></li>
 									<li class="body_delete">
-										<button class="delete_btn"
-											onclick="modalDeleteNoticeShow(${notice.noticeNumber})"
-											type="button">삭제</button>
+										<form id="deleteForm${notice.noticeNumber}"
+											action="${pageContext.request.contextPath}/admin/adminNoticeDeleteOk.ad"
+											method="post" style="display: inline;">
+											<input type="hidden" name="noticeNumber"
+												value="${notice.noticeNumber}" />
+											<button type="button" class="delete_btn"
+												onclick="confirmDelete(${notice.noticeNumber})">삭제</button>
+										</form>
 									</li>
 								</ul>
 							</c:forEach>
@@ -121,7 +111,9 @@
 							</c:if>
 						</ul>
 						<div class="add">
-							<a href="${pageContext.request.contextPath}/admin/adminNoticeInsert.ad?adminNumber=${notice.adminNumber}" class="add_btn">등록</a>
+							<a
+								href="${pageContext.request.contextPath}/admin/adminNoticeInsert.ad?adminNumber=${notice.adminNumber}"
+								class="add_btn">등록</a>
 						</div>
 					</div>
 				</div>

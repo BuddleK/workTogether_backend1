@@ -4,7 +4,7 @@ public class AdminNoticeListDTO {
 	// 공지 테이블
 	private int noticeNumber; // 공지 번호
 	private String noticeTitle; // 공지 제목
-	private String adminNumber; // 관리자 번호
+	private int adminNumber; // 관리자 번호
 	private String adminName;	// 관리자 이름
 	private int noticeViewCount; // 공지 조회 수
 	private String noticeCreatedDate; // 공지 생성 일
@@ -27,11 +27,11 @@ public class AdminNoticeListDTO {
 		this.noticeTitle = noticeTitle;
 	}
 
-	public String getAdminNumber() {
+	public int getAdminNumber() {
 		return adminNumber;
 	}
 
-	public void setAdminNumber(String adminNumber) {
+	public void setAdminNumber(int adminNumber) {
 		this.adminNumber = adminNumber;
 	}
 
