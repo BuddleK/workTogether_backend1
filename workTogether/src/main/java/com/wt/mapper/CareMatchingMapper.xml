@@ -74,7 +74,7 @@ WHERE EXTRACT(MONTH FROM MATCH_DATE) = #{month} AND USERS_NUMBER = #{usersNumber
 </insert>
 
 <!-- 받은 쪽지 조회 -->
-<select id="getRM" resultType="com.wt.app.dto.CareMessageDTO">
+<select id="getRM" resultType="CareMessageDTO">
     <![CDATA[
     SELECT * FROM (
         SELECT ROWNUM AS rnum, subquery.*
@@ -108,7 +108,7 @@ WHERE EXTRACT(MONTH FROM MATCH_DATE) = #{month} AND USERS_NUMBER = #{usersNumber
 		WHERE CARE_NUMBER = #{usersNumber} AND SENDER_TYPE = 'N'
 	</select>
 <!-- 보낸 쪽지 조회 -->
-<select id="getSM" resultType="com.wt.app.dto.CareMessageDTO">
+<select id="getSM" resultType="CareMessageDTO">
     <![CDATA[
     SELECT * FROM (
         SELECT ROWNUM AS rnum, subquery.*
