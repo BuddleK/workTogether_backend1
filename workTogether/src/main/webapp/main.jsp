@@ -20,6 +20,31 @@
 	src="${pageContext.request.contextPath}/assets/js/main/includeMain.js"></script>
 
 </head>
+<%
+    // WEB-INF/.env 경로 얻기
+    String envPath = application.getRealPath("/WEB-INF/.env");
+
+    java.util.Properties env = new java.util.Properties();
+    if (envPath != null) {
+        try (java.io.BufferedReader br = new java.io.BufferedReader(new java.io.FileReader(envPath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                line = line.trim();
+                if (line.isEmpty() || line.startsWith("#")) continue;
+                int eq = line.indexOf('=');
+                if (eq > 0) {
+                    String k = line.substring(0, eq).trim();
+                    String v = line.substring(eq + 1).trim();
+                    env.setProperty(k, v);
+                }
+            }
+        } catch (Exception e) {
+            // 필요하면 로그
+        }
+    }
+    String kakaoKey = env.getProperty("KAKAO_MAP_API_KEY");
+
+%>
 <body>
 	<!-- 헤더 -->
 	<jsp:include page="/header.jsp" />
