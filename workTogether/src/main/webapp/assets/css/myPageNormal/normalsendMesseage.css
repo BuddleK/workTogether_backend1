@@ -223,6 +223,7 @@ form {
   border-radius: 10px;
   text-align: center;
   max-height: 150px;
+  min-height: 500px;
 }
 
 .modal_box_msg{
@@ -414,4 +415,8 @@ form {
   text-align: center;
   font-size: 16px;
   color: #111;
+}
+
+.careNumber{
+	display:none;
 }

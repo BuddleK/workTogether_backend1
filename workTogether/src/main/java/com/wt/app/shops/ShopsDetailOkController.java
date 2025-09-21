@@ -61,12 +61,6 @@ public class ShopsDetailOkController implements Execute{
 		request.setAttribute("isJim", isJim);
 		
 		
-//		//첨부파일 가져오기
-//		List<FileDTO> files = fileDAO.select(boardNumber);
-//		System.out.println("======파일 확인======");
-//		System.out.println(files);
-//		System.out.println("===================");
-//		
 		System.out.println(shopsListDTO);
 		System.out.println(shopsListDTO.getShopsName());
 		request.setAttribute("shops", shopsListDTO);
