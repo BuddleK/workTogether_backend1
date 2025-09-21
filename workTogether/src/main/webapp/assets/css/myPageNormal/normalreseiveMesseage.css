@@ -1,361 +1,383 @@
 @charset "UTF-8";
+
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 @font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
 }
 
 main {
-  /* width: 100%; */
-  min-height: calc(100vh - 200px);
-  /* height: 100vh; */
-  display: flex;
+	/* width: 100%; */
+	min-height: calc(100vh - 200px);
+	/* height: 100vh; */
+	display: flex;
 }
 
 .main_sidebar {
-  width: 180px;
-  /* height: 100%; */
-  background-color: #2F52AA;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
+	width: 180px;
+	/* height: 100%; */
+	background-color: #2F52AA;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
 }
 
 .main_sidebar ul li img {
-  height: 130px;
-  width: 130px;
-  border-radius: 100%;
-  margin: 0 auto 20px;
+	height: 130px;
+	width: 130px;
+	border-radius: 100%;
+	margin: 0 auto 20px;
 }
 
 .main_sidebar ul li {
-  padding: 12px 20px;
+	padding: 12px 20px;
 }
 
 .main_sidebar ul li a {
-  color: white;
+	color: white;
 }
 
 /* ============================= */
 .div_mark {
-  /* flex: 1; */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+	/* flex: 1; */
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 .div_mark .title {
-  font-size: 30px;
-  margin: 30px;
+	font-size: 30px;
+	margin: 30px;
 }
 
 form {
-  width: 100%;
+	width: 100%;
 }
 
 .reseive {
-  border-bottom: 1px solid black;
-  font-weight: bold;
+	border-bottom: 1px solid black;
+	font-weight: bold;
 }
 
 .mark_nav {
-  display: flex;
-  /* width: 100%; */
-  margin: 0px 150px 0px 150px;
-  height: 50px;
-  align-items: center;
-  background-color: #F2F2F2;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+	display: flex;
+	/* width: 100%; */
+	margin: 0px 150px 0px 150px;
+	height: 50px;
+	align-items: center;
+	background-color: #F2F2F2;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 .mark_nav ul {
-  width: 100%;
-  display: flex;
-  justify-content: space-between
+	width: 100%;
+	display: flex;
+	justify-content: space-between
 }
 
 .mark_nav ul li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #F2F2F2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #F2F2F2;
 }
 
 .mark_nav input {
-  margin: 0px 30px;
-  width: 30px;
-  height: 30px;
+	margin: 0px 30px;
+	width: 30px;
+	height: 30px;
 }
 
-.name_col div,
-.name div {
-  width: 10vw;
-  text-align: center;
+.name_col div, .name div {
+	width: 10vw;
+	text-align: center;
 }
 
-.location_col div,
-.location div {
-  width: 20vw;
-  text-align: center;
-  background-color: #F2F2F2;
+.location_col div, .location div {
+	width: 20vw;
+	text-align: center;
+	background-color: #F2F2F2;
 }
 
-.phone_col div,
-.phone div {
-  width: 10vw;
-  text-align: center;
+.phone_col div, .phone div {
+	width: 10vw;
+	text-align: center;
 }
 
-.read_col div,
-.read div {
-  width: 10vw;
-  text-align: center;
+.read_col div, .read div {
+	width: 10vw;
+	text-align: center;
 }
 
 .mark_list {
-  display: flex;
-  margin: 0px 150px;
-  background-color: rgb(255, 255, 255);
-  flex-direction: column;
-  height: 400px;
+	display: flex;
+	margin: 0px 150px;
+	background-color: rgb(255, 255, 255);
+	flex-direction: column;
+	height: 400px;
 }
 
 .mark_list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50px;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid black;
-
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 50px;
+	background-color: rgb(255, 255, 255);
+	border-bottom: 1px solid black;
 }
 
-.mark_list li input,
-.mark_list li div,
-.mark_list li a {
-  background-color: rgb(255, 255, 255);
+.mark_list li input, .mark_list li div, .mark_list li a {
+	background-color: rgb(255, 255, 255);
 }
 
 .checkbox_li {
-  margin: 0px 30px;
-  width: 30px;
-  height: 30px;
+	margin: 0px 30px;
+	width: 30px;
+	height: 30px;
 }
+
 .div_choose {
-  width: 500px;
+	width: 500px;
 }
 
 .div_choose ul {
-  display: flex;
-  list-style-type: none;
-  padding: 50px 0px 0px 150px;
+	display: flex;
+	list-style-type: none;
+	padding: 50px 0px 0px 150px;
 }
 
 .div_choose ul li {
-  margin: 10px;
+	margin: 10px;
 }
 
-
-
-
-
 .page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .page ul {
-  display: flex;
-  list-style-type: none;
+	display: flex;
+	list-style-type: none;
 }
 
 .page ul li {
-  margin: 10px;
+	margin: 10px;
 }
 
 .div_delete {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 button {
-  background-color: red;
-  color: white;
-  width: 80px;
-  height: 40px;
-  margin-left: 150px;
-  border-radius: 15px;
-  border: 0px;
+	background-color: red;
+	color: white;
+	width: 80px;
+	height: 40px;
+	margin-left: 150px;
+	border-radius: 15px;
+	border: 0px;
 }
 
-
-
-
 .modal {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	position: fixed;
+	justify-content: center;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-  position: fixed;
-  top: 25%;
-  left: 40%;
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  width: 400px;
-  text-align: center;
-  border-radius: 20px;
-  justify-content: center;
-  align-items: center;
+	position: fixed;
+	top: 25%;
+	left: 40%;
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #ccc;
+	width: 400px;
+	text-align: center;
+	border-radius: 20px;
+	justify-content: center;
+	align-items: center;
 }
 
 .modal-content p {
-  margin-bottom: 20px;
-  font-size: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
 }
 
 .content {
-  display: flex;
-  justify-content: start;
-  width: auto;
-  height: 200px;
-  border: 1px solid black;
-  border-radius: 15px;
-  padding: 10px;
-  margin-top: 10px;
+	display: flex;
+	justify-content: start;
+	width: auto;
+	height: 200px;
+	border: 1px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	margin-top: 10px;
 }
 
 /* 모달 켜졌을 때 */
-.modal_bg .open {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.open {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
+.message_content {
+  min-height: 220px;
+  padding: 14px 12px;
+  border: 2px solid #d9d9d9;
+  border-radius: 12px;
+  background: #fff;
+  color: #111;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+/* 모달 닫기 버튼 */
+.modal_close {
+  position: relative;
+    right: -113px;
+    top: -20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 모달 꺼짐 */
+.modal_bg {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.45);
+	z-index: 1000;
+}
 
 .sendmember {
-  display: flex;
-  justify-content: start;
+	display: flex;
+	justify-content: start;
 }
 
 #sendBtn {
-  margin: 20px 0px 0px 0px;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background-color: #001860;
-  color: white;
-  cursor: pointer;
-  justify-content: center;
+	margin: 20px 0px 0px 0px;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	background-color: #001860;
+	color: white;
+	cursor: pointer;
+	justify-content: center;
 }
 
 #deleteBtn {
-  margin: 20px 0px 0px 0px;
-  padding: 10px;
-  border: 2px solid red;
-  border-radius: 10px;
-  background-color: white;
-  color: red;
-  cursor: pointer;
-  justify-content: center;
+	margin: 20px 0px 0px 0px;
+	padding: 10px;
+	border: 2px solid red;
+	border-radius: 10px;
+	background-color: white;
+	color: red;
+	cursor: pointer;
+	justify-content: center;
 }
 
 #sendxbutton {
-  display: flex;
-  justify-content: end;
-  font-size: 30px;
-  background-color: white;
-  color: black;
-  margin-left: 300px;
+	display: flex;
+	justify-content: end;
+	font-size: 30px;
+	background-color: white;
+	color: black;
+	margin-left: 300px;
 }
 
 #reseivexbutton {
-  display: flex;
-  justify-content: end;
-  font-size: 30px;
-  background-color: white;
-  color: black;
-  margin-left: 300px;
+	display: flex;
+	justify-content: end;
+	font-size: 30px;
+	background-color: white;
+	color: black;
+	margin-left: 300px;
 }
 
-
 .modal_delete {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	position: fixed;
+	justify-content: center;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-checkcontent {
-  position: fixed;
-  top: 0;
-  left: 40%;
-  background-color: #fff;
-  padding: 40px;
-  border: 1px solid #ccc;
-  width: 400px;
-  text-align: center;
-  border-radius: 20px;
-  justify-content: center;
-  align-items: center;
+	position: fixed;
+	top: 0;
+	left: 40%;
+	background-color: #fff;
+	padding: 40px;
+	border: 1px solid #ccc;
+	width: 400px;
+	text-align: center;
+	border-radius: 20px;
+	justify-content: center;
+	align-items: center;
 }
 
 .modal-checkcontent button {
-  margin-top: 20px;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background-color: #001860;
-  color: white;
-  cursor: pointer;
+	margin-top: 20px;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	background-color: #001860;
+	color: white;
+	cursor: pointer;
 }
 
 /* 모달 안의 상자 */
 .modal_box {
-  background: #fff;
-  min-width: 320px;
-  max-width: 90vw;
-  padding: 20px 24px;
-  border-radius: 10px;
-  text-align: center;
-  max-height: 150px;
+	background: #fff;
+	min-width: 320px;
+	max-width: 90vw;
+	padding: 20px 24px;
+	border-radius: 10px;
+	text-align: center;
+	max-height: 150px;
+	min-height: 300px;
 }
 
 /* 모달 안의 버튼 */
 .modal_buttons {
-  margin-top: 16px;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
+	margin-top: 16px;
+	display: flex;
+	gap: 10px;
+	justify-content: center;
 }
 
 /* 모달 안의 버튼들 꾸미기 */
 .modal_buttons button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: 0px;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	margin-left: 0px;
 }
 
 #cancelDelete {
-  background-color: #2f4db1;
+	background-color: #2f4db1;
 }

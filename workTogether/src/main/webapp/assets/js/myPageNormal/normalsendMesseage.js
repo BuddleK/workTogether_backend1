@@ -28,19 +28,77 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function openModal(m) { m.classList.add('open'); }
 	function closeModal(m) { m.classList.remove('open'); }
-	
+
+	/* 쪽지 읽기 */
 	const showMsg = document.getElementById('msgModal');
-	const msgContents = document.getElementById('msgContent')
+	const msgContents = document.querySelectorAll('.location')
+	msgContents.forEach((msgContent) => {
+		msgContent.addEventListener('click', function() {
+			openModal(showMsg);
+
+			const messageId = this.dataset.id;
+
+			console.log(messageId + ' 메시지 넘버');
+			loadMsgNumber(messageId);
+			const btnReply = document.querySelector('.btn_reply');
+			btnReply.addEventListener('click', async () => {
+					const showMsg = document.getElementById('msgModal');
+					showMsg.classList.remove('open');
+					const sendMsg = document.getElementById('sendMsgModal');
+					sendMsg.classList.add('open');
+					loadMsgNumber(messageId);
+					try {
+							const res = await fetch(`/myPageNormal/normalMsgNumber.mn?msgNumber=${messageId}`, {
+								headers: {
+									Accept: "application/json",
+									"X-Requested-With": "XMLHttpRequest",
+								},
+							});
+							if (!res.ok) throw new Error("쪽지를 불러오는데 실패했습니다.");
+
+							const msgL = await safeJson(res);
+							const msg = msgL[0];
+							if (!msg) {
+								alert("쪽지 데이터를 불러올 수 없습니다.");
+								return;
+							}
+
+							document.getElementById("receive_name").innerText = msg.usersName;
+							document.getElementById("receive_id").innerText = msg.usersId;
+							document.getElementById("careNumber").value = msg.careNumber;
+						} catch (error) {
+							console.error("답장용 쪽지 불러오기 실패:", error);
+							alert("쪽지 데이터를 불러오는데 실패했습니다.");
+						}
+				})
+				
+				const btnSend = document.getElementById('btn_send');
+				btnSend.addEventListener('click', () => {
+					const sendMsg = document.getElementById('sendMsgModal');
+					sendMsg.classList.remove('open');
+					const sModal=document.getElementById('sendSuccessModal');
+					sModal.classList.add('open')
+				} )
+			
+		});
+	});
+
 	
-	msgContents.addEventListener('click', function(e) {
-		openModal(showMsg);
-		const messageId = this.data.id;
-		console.log(messageId + '메시지 넘버');
-		loadMsgNumber(messageId);
-		const senderName = document.getElementById('sender_name');
-		const senderId = document.getElementById('sender_id');
-		const messageContent=document.getElementById('messageContent')
+	const closeResend = document.getElementById('close_resend');
+		closeResend.addEventListener('click', function() {
+			const modalBg = document.getElementById('sendMsgModal');
+			console.log('답장에서 닫기 누름');
+			modalBg.classList.remove('open');
+		});
+	
+
+	/* 모달 닫기 */
+	const close = document.querySelector(".modal_close")
+	close.addEventListener('click', () => {
+		const showMsg = document.getElementById('msgModal');
+		showMsg.classList.remove('open');
 	})
+
 
 	deleteBtn.addEventListener('click', function(e) {
 		e.preventDefault();
@@ -158,24 +216,33 @@ document.addEventListener('DOMContentLoaded', function() {
 			return null;
 		}
 	}
-	
+
 	/*쪽지 읽기 랜더링*/
 	async function loadMsgNumber(number) {
-			try {
-				const res = await fetch(`/myPageNormal/normalMsgNumber.mn?msgNumber=${number}`, {
-					headers: {
-						Accept: "application/json",
-						"X-Requested-With": "XMLHttpRequest",
-					},
-				});
-				if (!res.ok) throw new Error("쪽지를 불러오는데 실패했습니다.");
-				const msgs = await safeJson(res);
-				console.log(msgs);
-				renderMatching(Array.isArray(msgs) ? msgs : []);
-			} catch (error) {
-				console.error("쪽지 불러오기 실패:", error);
-				alert("쪽지를 불러오는데 실패했습니다.");
+		try {
+			const res = await fetch(`/myPageNormal/normalMsgNumber.mn?msgNumber=${number}`, {
+				headers: {
+					Accept: "application/json",
+					"X-Requested-With": "XMLHttpRequest",
+				},
+			});
+			if (!res.ok) throw new Error("쪽지를 불러오는데 실패했습니다.");
+
+			const msgL = await safeJson(res);
+			const msg = msgL[0];
+			if (!msg) {
+				alert("쪽지 데이터를 불러올 수 없습니다.");
+				return;
 			}
+
+			document.getElementById("sender_name").innerText = msg.usersName;
+			document.getElementById("sender_id").innerText = msg.usersId;
+			document.getElementById("messageContent").innerText = msg.messageContents;
+
+		} catch (error) {
+			console.error("쪽지 불러오기 실패:", error);
+			alert("쪽지를 불러오는데 실패했습니다.");
 		}
+	}
 	/*loadMatch();*/
 });					

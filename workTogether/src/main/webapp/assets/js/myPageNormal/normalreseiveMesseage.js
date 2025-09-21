@@ -38,6 +38,56 @@ document.addEventListener('DOMContentLoaded', function() {
 		openModal(deleteModal);
 	});
 
+	/* 보낸 쪽지 읽기 */
+	async function loadMsgNumber(number) {
+		try {
+			const res = await fetch(`/myPageNormal/normalMsgNumber.mn?msgNumber=${number}`, {
+				headers: {
+					Accept: "application/json",
+					"X-Requested-With": "XMLHttpRequest",
+				},
+			});
+			if (!res.ok) throw new Error("쪽지를 불러오는데 실패했습니다.");
+
+			const msgL = await safeJson(res);
+			const msg = msgL[0];
+			if (!msg) {
+				alert("쪽지 데이터를 불러올 수 없습니다.");
+				return;
+			}
+
+			document.getElementById("sender_name").innerText = msg.usersName;
+			document.getElementById("sender_id").innerText = msg.usersId;
+			document.getElementById("messageContent").innerText = msg.messageContents;
+
+		} catch (error) {
+			console.error("쪽지 불러오기 실패:", error);
+			alert("쪽지를 불러오는데 실패했습니다.");
+		}
+	}
+
+
+	const showMsg = document.getElementById('msgModal');
+	const msgContents = document.querySelectorAll('.location')
+	msgContents.forEach((msgContent) => {
+		msgContent.addEventListener('click', function() {
+			openModal(showMsg);
+			showMsg.style.display = "flex";
+			const messageId = this.dataset.id;
+			console.log(messageId + ' 메시지 넘버');
+			loadMsgNumber(messageId);
+		});
+	});
+
+	/* 모달 닫기 */
+	const close = document.querySelector(".modal_close")
+	close.addEventListener('click', () => {
+		const showMsg = document.getElementById('msgModal');
+		showMsg.classList.remove('open');
+		showMsg.style.display = "none";
+	})
+
+
 	//쪽지 삭제
 	confirmDeleteBtn.addEventListener('click', async function() {
 		closeModal(deleteModal);

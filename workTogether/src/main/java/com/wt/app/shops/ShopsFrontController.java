@@ -57,6 +57,11 @@ public class ShopsFrontController extends HttpServlet {
 			System.out.println("가게 세부 페이지 처리 요청");
 			result = new ShopsDetailOkController().execute(request, response);
 			break;
+			
+		case "/shops/shopsListSearchOk.sh" : 
+			System.out.println("가게 동별 목록 처리");
+			result = new ShopsListSearchOkController().execute(request, response);
+			break;
 		
 		}
 		
