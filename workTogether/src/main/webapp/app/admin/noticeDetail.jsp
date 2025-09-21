@@ -27,9 +27,14 @@
 	<main>
 		<section class="notice_detail">
 			<div class="notice_info">
-			<form action="${pageContext.request.contextPath}/admin/adminNotice.ad" method="post" class="detail_form" enctype="multipart/form-data">
+			<form action="${pageContext.request.contextPath}/admin/adminNoticeUpdateOk.ad?noticeNumber=${notice.noticeNumber}" method="post" class="detail_form" enctype="multipart/form-data">
 				<div class="info_title">
-					<span class="title"><c:out value="${notice.noticeTitle}"/></span>
+					<span class="title">
+					<input type="text" 
+					 class="title"
+                     name="noticeTitle" 
+                     value="${notice.noticeTitle}" 
+                     /></span>
 				</div>
 				<div class="member_info">
 					<div class="member_name_title">작성자명</div>
@@ -42,11 +47,11 @@
 					<div class="cnt_content">${notice.noticeViewCount}</div>
 				</div>
 				<div class="notice_content">
-					<textarea name="content" id="content">${notice.noticeContent}</textarea>
+					<textarea name="noticeContent" id="content">${notice.noticeContent}</textarea>
 				</div>
 				<div class="notice_btn">
 					<button class="list" formaction="${pageContext.request.contextPath}/admin/adminNotice.ad">목록</button>
-					<button class="update" formaction="${pageContext.request.contextPath}/admin/adminNoticeUpdate.ad?adminNumber=${notice.adminNumber}">수정</button>
+					<button class="update" type="submit">수정</button>
 				</div>
 			</form>
 			</div>

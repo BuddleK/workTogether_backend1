@@ -6,10 +6,13 @@ public class AdminReferenceListDTO {
 	private String referenceTitle; // 문의 제목
 	//전체 유저 테이블
 	private int userNumber; // 유저 번호
-	private String userName; // 일반 or 돌봄 유저 이름
+	private String usersName;
+	private String usersId; // 일반 or 돌봄 유저 이름
 	//문의 테이블
 	private String referenceCreatedDate; // 문의 생성 일
 	private boolean answeredYn; // 답변 유무
+
+	private String referenceContent;
 
 	public int getReferenceNumber() {
 		return referenceNumber;
@@ -35,14 +38,6 @@ public class AdminReferenceListDTO {
 		this.userNumber = userNumber;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 	public String getReferenceCreatedDate() {
 		return referenceCreatedDate;
 	}
@@ -59,11 +54,37 @@ public class AdminReferenceListDTO {
 		this.answeredYn = answeredYn;
 	}
 
+	public String getReferenceContent() {
+		return referenceContent;
+	}
+
+	public void setReferenceContent(String referenceContent) {
+		this.referenceContent = referenceContent;
+	}
+
 	@Override
 	public String toString() {
 		return "AdminReferenceListDTO [referenceNumber=" + referenceNumber + ", referenceTitle=" + referenceTitle
-				+ ", userNumber=" + userNumber + ", userName=" + userName + ", referenceCreatedDate="
-				+ referenceCreatedDate + ", answeredYn=" + answeredYn + "]";
+				+ ", userNumber=" + userNumber + ", usersName=" + usersName + ", usersId=" + usersId
+				+ ", referenceCreatedDate=" + referenceCreatedDate + ", answeredYn=" + answeredYn
+				+ ", referenceContent=" + referenceContent + "]";
 	}
+
+	public String getUsersId() {
+		return usersId;
+	}
+
+	public void setUsersId(String usersId) {
+		this.usersId = usersId;
+	}
+
+	public String getUsersName() {
+		return usersName;
+	}
+
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
+	}
+	
 
 }
