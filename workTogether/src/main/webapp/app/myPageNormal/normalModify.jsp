@@ -103,7 +103,7 @@
   									value="${normal.getUsersPhone() }">
 									<div class="autho">
 									<input type="text" name="sms" id="verifyInput"/>
-									<button id="sendCode">인증번호 발송</button> <button id="checkCode">인증번호 발송</button>
+									<button id="sendCode">인증번호 발송</button> <button id="checkCode">인증번호 확인</button>
 									</div>
 									</li>
 							</ul>
