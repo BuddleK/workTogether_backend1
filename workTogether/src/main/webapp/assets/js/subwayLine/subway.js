@@ -1,46 +1,27 @@
+// /assets/js/subwayLine/subway.js
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".subway_subwayLine button");
-  const mapSection = document.querySelector(".map_section");
-  const stationList = document.querySelector("#station_list");
 
+  // 현재 라인 파라미터
+  const params = new URLSearchParams(location.search);
+  const currentLine = params.get("lineNumber") || "0";
+
+  // 버튼 active 표시
+  buttons.forEach(b => {
+    if (b.dataset.lineNumber === currentLine ||
+        (!params.has("lineNumber") && (b.dataset.lineNumber === "0" ||
+         b.dataset.lineName === "전체" || b.textContent.trim() === "전체"))) {
+      b.classList.add("selected-btn");
+    }
+  });
+
+  // 클릭 시 단순 이동 (AJAX X → 깜빡임 없음)
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-      const lineNumber = btn.getAttribute("data-line-number"); 
-      const url = `/subway/subwayLine.sw?lineNumber=${lineNumber}`;
-
-      // 서버에서 새 JSP 받아오기
-      fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const newDoc = parser.parseFromString(html, "text/html");
-
-          // --- 노선도 영역 갱신 ---
-          const newMapSection = newDoc.querySelector(".map_section");
-          if (newMapSection) {
-            mapSection.innerHTML = newMapSection.innerHTML;
-          }
-
-          // --- 역 목록 영역 갱신 ---
-          const newStationList = newDoc.querySelector("#station_list");
-          if (newStationList) {
-            stationList.innerHTML = newStationList.innerHTML;
-          }
-
-          // --- 노선도 이미지 토글 ---
-          const lineImgs = mapSection.querySelectorAll("[class^='subway_line']");
-          lineImgs.forEach(div => (div.style.display = "none"));
-
-          const selectedImg = mapSection.querySelector(
-            ".subway_line" + lineNumber + "_img"
-          );
-          if (selectedImg) {
-            selectedImg.style.display = "block";
-          } else {
-            console.warn(`선택한 노선(${lineNumber})의 이미지가 없습니다.`);
-          }
-        })
-        .catch(err => console.error("노선도/역 목록 로드 실패:", err));
+      const num = btn.dataset.lineNumber || "0";
+      if (num === currentLine) return; // 동일 라인이면 아무 것도 안 함
+      window.location.href = `${window.location.origin}${window.location.pathname}?lineNumber=${num}`;
+      // 예: /subway/subwayList.sw?lineNumber=2
     });
   });
 });

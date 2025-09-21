@@ -156,10 +156,8 @@ main {
   justify-content: center;
   
 }
-
 .paging_box {
-  width: 70%;
-  /* border: 1px solid black; */
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -174,9 +172,47 @@ main {
   padding-top: 10px;
 }
 
-.add_btn {
-  background-color: #2f52aa;
-  color: white;
-  padding: 4px 10px;
+.paging a { 
+  color: #222;
+  text-decoration: none;
+  transition: color .15s ease, font-size .15s ease;
+}
+.paging a.active,
+.paging a.active:link,
+.paging a.active:visited {
+  color: #e53935 !important;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.table .paging_box {
+  width: 90%;
+  margin: 8px auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.add {
+  width: 90%;
+  margin: 8px auto 0;
+  display: flex;
+  justify-content: flex-end;   /* ← 오른쪽 끝으로 */
+}
+
+/* 등록 버튼 스타일 */
+.add .add_btn,
+.add .add_button {             /* 기존 클래스 병행 지원 */
+  background-color: #2f52aa;   /* 배경 */
+  color: #fff;                 /* 글자색 */
+  padding: 6px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
   cursor: pointer;
+  margin-right: 10%;
+}
+
+.add .add_btn:hover,
+.add .add_button:hover {
+  opacity: .9;
 }

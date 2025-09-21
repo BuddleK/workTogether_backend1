@@ -8,6 +8,11 @@ public class SubwayStationDTO {
 	private String stationsName;
 	private String stationsAddress;
 	private List<FilesStationsDTO> stationsPhoto;
+	private Double latitude;
+    private Double longitude;
+    private String lineName;
+    private String stationsFilesName;
+    private String stationsFilesPath;
 
 	public int getStationsId() {
 		return stationsId;
@@ -49,10 +54,51 @@ public class SubwayStationDTO {
 		this.stationsPhoto = stationsPhoto;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "SubwayStationDTO [stationsId=" + stationsId + ", lineNumber=" + lineNumber + ", stationsName="
-				+ stationsName + ", stationsAddress=" + stationsAddress + ", stationsPhoto=" + stationsPhoto + "]";
+				+ stationsName + ", stationsAddress=" + stationsAddress + ", latitude=" + latitude + ", longitude=" + longitude + ", stationsPhoto=" + stationsPhoto + "]";
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public String getLineName() {
+		return lineName;
+	}
+
+	public void setLineName(String lineName) {
+		this.lineName = lineName;
+	}
+
+	public String getStationsFilesName() {
+		return stationsFilesName;
+	}
+
+	public void setStationsFilesName(String stationsFilesName) {
+		this.stationsFilesName = stationsFilesName;
+	}
+
+	public String getStationsFilesPath() {
+		return stationsFilesPath;
+	}
+
+	public void setStationsFilesPath(String stationsFilesPath) {
+		this.stationsFilesPath = stationsFilesPath;
 	}
 
 }

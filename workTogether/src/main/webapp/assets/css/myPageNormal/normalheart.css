@@ -21,7 +21,7 @@ main {
 
 .main_sidebar {
   width: 180px;
-  height: 100%;
+  flex: 0 0 180px;
   background-color: #2F52AA;
   color: #fff;
   display: flex;
@@ -48,6 +48,7 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  flex: 0 0 180px;
 }
 
 .div_mark .title {
@@ -56,7 +57,8 @@ main {
 }
 
 form {
-  width: calc(100% - 170px);
+  width: 100%;
+  margin: 0;
 }
 .context{
   margin-top: 30px;

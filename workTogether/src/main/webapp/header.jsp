@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- 카카오 지도 SDK: autoload=false + 필요한 라이브러리만 -->
+<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9f1ed8d49c70a5d2d213e83f145527e1&autoload=false"></script>
+
 <header id="site_header">
   <div id="header_upper">
     <span>
