@@ -22,13 +22,12 @@ public class CareExitOkController implements Execute {
 		// 로그인 한 회원 정보 가져오기
 		Integer usersNumber = (Integer) request.getSession().getAttribute("usersNumber");
 
-		if (usersNumber != null) {
-			//if 매칭회원 유무
-			careExitDAO.careExit(usersNumber);
-			request.getSession().invalidate();
-		}
+		careExitDAO.delCareProExit(usersNumber);
+		careExitDAO.delCareExit(usersNumber);
+		
+		request.getSession().removeAttribute("usersNumber");
 
-		result.setPath("/app/main.jsp");
+		result.setPath("/mainOk.main");
 		result.setRedirect(true);
 		return result;
 	}

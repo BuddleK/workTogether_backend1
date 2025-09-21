@@ -15,7 +15,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/careExit.js"></script>
 </head>
 
-<body>
+<body data-exit="${exitFlag}">
   <jsp:include page="/header.jsp" />
   <main>
     <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
@@ -48,7 +48,7 @@
       <div class="exit-box">
         <div class="exit-row">
           <div class="exit-label">탈퇴 날짜</div>
-          <div class="exit-value">2025 - 08 - 03</div>
+          <div class="exit-value" id="exitDate">2025 - 08 - 03</div>
         </div>
         <div class="exit-row">
           <div class="exit-label">탈퇴 사유</div>
