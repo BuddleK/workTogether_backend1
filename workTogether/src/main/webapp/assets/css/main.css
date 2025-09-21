@@ -135,7 +135,7 @@ main{
   margin-bottom: 30px;
 }
 .recommend_activiies li{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .recommend_activity a{
   color: black;
@@ -145,7 +145,7 @@ main{
 }
 .board_list li{
   flex: 1;
-  padding: 10px 0;
+  padding-top: 10px;
   border-bottom: 1px solid black;
 }
 .board_list li a{
@@ -162,12 +162,18 @@ main{
   padding : 10px;
 }
 .board_list_author{
+	display : flex;
   width: 100px;
   text-align: center;
+  justify-content: center;
+  align-items:center;
 }
 .board_list_date{
   width: 130px;
   text-align: center;
+  justify-content: center;
+  align-items:center;
+  padding : 10px;
 }
 .explore{
   margin: 50px 0;

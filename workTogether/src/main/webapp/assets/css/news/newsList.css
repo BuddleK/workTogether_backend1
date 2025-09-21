@@ -34,34 +34,6 @@ main {
   margin: 0px auto;
 }
 
-/* 검색 아이콘 */
-.searchIcon {
-  width: 20px;
-  height: 20px;
-}
-
-/* 검색 바 창 */
-.searchbar {
-  display: flex;
-  justify-content: center;
-}
-
-/* 검색 입력 창 */
-.underbar {
-  background-color: #FFE7C9;
-  border: 0px;
-  border-bottom: 1px solid black;
-  font-size: 20px;
-}
-
-/* 검색 버튼 */
-.search_btn {
-  max-width: 20px;
-  max-height: 20px;
-  background-color: #FFE7C9;
-  border: 0px;
-  cursor: pointer;
-}
 
 /* 제목 */
 .title {
@@ -76,11 +48,6 @@ main {
 	justify-content: center;
 }
 
-/* 검색 창 바 */
-.searchbar {
-  margin-left: 200px;
-  margin-top: 50px;
-}
 
 /* 전체 카드 리스트 */
 .search_result_card{
@@ -100,6 +67,12 @@ main {
   justify-content: center;
 	align-items : center;
 }
+.news_list li {
+	display : flex;
+  flex: 0 0 calc(33.333% - 20px); /* 3등분 */
+  justify-content: center;
+	align-items : center;
+}
 
 /* 뉴스 카드 */
 .card{
@@ -109,6 +82,8 @@ main {
   margin: 10px 20px;
   border: 1px solid black;
   border-radius: 20px;
+   justify-content: center;
+	align-items : center;
 }
 
 /* 페이지 네이션 */
