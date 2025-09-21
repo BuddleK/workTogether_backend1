@@ -22,16 +22,8 @@ public class CarePostDTO {
 	private int usersNumber;
 	private String postsCreatedDate;
 	private String postsUpdatedDate;
-	private List<CareMarkDTO> rows;
-
-	public List<CareMarkDTO> getRows() {
-		return rows;
-	}
-
-	public void setRows(List<CareMarkDTO> rows) {
-		this.rows = rows;
-	}
-
+	private String usersName;
+	
 	public int getPostsNumber() {
 		return postsNumber;
 	}
@@ -75,8 +67,16 @@ public class CarePostDTO {
 	@Override
 	public String toString() {
 		return "CarePostDTO [postsNumber=" + postsNumber + ", postsTitle=" + postsTitle + ", usersNumber=" + usersNumber
-				+ ", postsCreatedDate=" + postsCreatedDate + ", postsUpdatedDate=" + postsUpdatedDate + ", rows=" + rows
+				+ ", postsCreatedDate=" + postsCreatedDate + ", postsUpdatedDate=" + postsUpdatedDate
 				+ "]";
+	}
+
+	public String getUsersName() {
+		return usersName;
+	}
+
+	public void setUsersName(String usersName) {
+		this.usersName = usersName;
 	}
 
 }

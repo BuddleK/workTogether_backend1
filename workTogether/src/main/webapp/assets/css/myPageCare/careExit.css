@@ -25,6 +25,7 @@ main {
 /* 마이페이지 왼쪽 사이드 바 설정 */
 .sidebar {
   width: 180px;
+  min-width:180px;
   background-color: #2f4db1;
   color: white;
   padding: 20px 0;

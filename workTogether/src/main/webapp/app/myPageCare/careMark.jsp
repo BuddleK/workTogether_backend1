@@ -24,14 +24,7 @@
     <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
     <nav class="sidebar">
       <ul>
-        <li>
-        	<a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp">
-          		<img 
-  				src="${pageContext.request.contextPath}${profilePic.getProfilesFilesPath()}${profilePic.getProfilesFilesName()}${profilePic.getProfilesFilesType()}" 
-  				onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/assets/img/myPageCare/default.png';" 
-  				alt="프로필 이미지">
-        	</a>
-        </li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보 수정</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp">찜한 목록</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp">매칭 기록</a></li>
@@ -93,7 +86,7 @@
 			     	</nav>
 				</c:forEach>
        		</c:when>
-        <c:otherwise>
+        	<c:otherwise>
    			<div>
    				<div colspan="3" align="center">등록된 찜이 없습니다.</div>
    			</div>

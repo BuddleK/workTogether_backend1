@@ -1,7 +1,6 @@
 package com.wt.app.careMyPage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,17 +13,15 @@ import com.wt.app.Execute;
 import com.wt.app.Result;
 import com.wt.app.careMyPage.dao.CareMatchingDAO;
 import com.wt.app.careMyPage.dao.CareProfileDAO;
-import com.wt.app.dto.CareMarkDTO;
-import com.wt.app.dto.CareMatchingDTO;
+import com.wt.app.dto.CareMessageDTO;
 import com.wt.app.dto.CareProfilePictureDTO;
 
-public class CareMatchingController implements Execute {
+public class CareSendMesseageController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("========CareMatchingController========");
-		
+		Result result = new Result();
 		
 		//로그인한 사용자 번호 가져오기
 		Integer usersNumber = (Integer) request.getSession().getAttribute("usersNumber");
@@ -36,29 +33,19 @@ public class CareMatchingController implements Execute {
 		careProfilePictureDTO = careProfileDAO.getProPic(usersNumber);
 		request.setAttribute("profilePic", careProfilePictureDTO);
 		
-		//오늘 월 구하기
-		LocalDate now = LocalDate.now();
-		int month = 0;
-		if(request.getParameter("month") == null) {
-			month = now.getMonthValue();
-		}else {
-			month = Integer.parseInt(request.getParameter("month"));
-		}
-		request.setAttribute("month", month);
-		System.out.println("month : " + month);
-		
-		
-		
-		
-		
-		
 		CareMatchingDAO careMatchingDAO = new CareMatchingDAO();
-		Result result = new Result();
-
+		
+		
+		//List<CareMessageDTO> messageList = careMatchingDAO.getRM(usersNumber);
+		
+		//System.out.println("메세지 리스트 : " + messageList);
+		
+		
+		
 		String temp = request.getParameter("page");
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
-		int rowCount = 10; // 한 페이지당 게시글 수
-		int pageCount = 5; // 페이지 버튼 수
+		int rowCount = 4; // 한 페이지당 게시글 수
+		int pageCount = 4; // 페이지 버튼 수
 
 		// 페이징 처리
 		int startRow = (page - 1) * rowCount + 1; // 시작행(1, 11, 21, ..)
@@ -67,25 +54,14 @@ public class CareMatchingController implements Execute {
 		Map<String, Integer> pageMap = new HashMap<>();
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
-		pageMap.put("month", month);
 		pageMap.put("usersNumber", usersNumber);
 
 		// 게시글 목록 조회
-		List<CareMatchingDTO> matchingList = careMatchingDAO.getMonthMatching(pageMap);
-		request.setAttribute("matchingList", matchingList);
-		
-		System.out.println("일치 매칭들 : " + matchingList);
+		List<CareMessageDTO> rMessageList = careMatchingDAO.getSM(pageMap);
+		request.setAttribute("rMessageList", rMessageList);
 
-		// 페이징 정보 설정
-		// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회
-		// 실제 마지막 페이지 번호(realEndPage)를 계산함
-		
-		Map<String, Integer> getMonthMatchingCountMap = new HashMap<>();
-		getMonthMatchingCountMap.put("month", month);
-		getMonthMatchingCountMap.put("usersNumber", usersNumber);
-
-		int total = careMatchingDAO.getMonthMatchingCount(getMonthMatchingCountMap);
-		System.out.println("토탈? : " + total);
+		int total = careMatchingDAO.totalGetSM(usersNumber);
+		System.out.println("받은 쪽지 개수" + total);
 		int realEndPage = (int) Math.ceil(total / (double) rowCount); // 실제 마지막 페이지(전체 게시글 기준으로 계산)
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount); // 현재 페이지 그룹에서의 마지막 페이지
 		int startPage = endPage - (pageCount - 1); // 현재 페이지 그룹에서의 첫 페이지
@@ -103,14 +79,13 @@ public class CareMatchingController implements Execute {
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
 		
-		
 		System.out.println("====페이징정보 확인====");
 		System.out.println("pageMap : " + pageMap);
-//		System.out.println("markList : " + markList);
+		System.out.println("rMessageList : " + rMessageList);
 		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
-		
-		result.setPath("/app/myPageCare/careMatching.jsp");
+
+		result.setPath("/app/myPageCare/careMessageReturn.jsp");
 		result.setRedirect(false);
 		return result;
 	}

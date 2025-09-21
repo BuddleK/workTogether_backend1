@@ -44,6 +44,12 @@ public class PostsFrontController extends HttpServlet {
 		System.out.println("PostsFrontController 현재 경로 : " + target);
 		Result result = new Result();
 		switch(target) {
+		case "/post/postAlimDetail.po"://예시
+			System.out.println("공지사항 디테일 페이지요청");
+//임시		request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);
+			result = new PostAlimDetailController().execute(request, response);
+			System.out.println(result);
+			break;
 		case "/post/postMain.po"://예시
 			System.out.println("게시물 목록 페이지 요청");
 //임시		request.getRequestDispatcher("/app/post/postMain.jsp").forward(request, response);

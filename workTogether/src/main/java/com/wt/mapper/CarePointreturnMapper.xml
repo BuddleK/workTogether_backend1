@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="carePointreturn">
-
-
+	
+	<select id="getPoint" resultType="int">
+		SELECT TU.USERS_POINT FROM RICEBALL.TBL_USERS tu WHERE USERS_NUMBER = #{usersNumber}
+	</select>
+	<select id="getPassbook" resultType="String">
+		SELECT TCU.USERS_PASSBOOK FROM RICEBALL.TBL_CARE_USERS tcu WHERE USERS_NUMBER = #{usersNumber}
+	</select>
+	
+	<update id="updatePoint">
+		UPDATE RICEBALL.TBL_USERS SET USERS_POINT = #{afterPoint} WHERE USERS_NUMBER = #{usersNumber}
+	</update>
+	
+   <insert id="insertRefund">
+      INSERT INTO TBL_POINT_RETURN (point_return_id, users_number, points_amount, requested_at, refunded_at, status, bank_name, account_number)
+	  VALUES(seq_point_refunds.NEXTVAL, #{usersNumber}, #{fee}, SYSDATE, NULL, 'P', #{bank}, #{passNum})
+   </insert>
+	
 </mapper>

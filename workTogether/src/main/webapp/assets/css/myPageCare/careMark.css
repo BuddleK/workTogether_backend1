@@ -31,6 +31,7 @@ main {
 
 .sidebar {
   width: 180px;
+  min-width:180px;
   background-color: #2f4db1;
   color: white;
   padding: 20px 0;

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
+import com.wt.app.dto.AdminNoticeListDTO;
 import com.wt.app.dto.PostsListDTO;
 import com.wt.app.posts.dao.PostsDAO;
 
@@ -22,6 +23,11 @@ public class PostListOkController implements Execute {
 		System.out.println("====postListOkController 실행====");
 		PostsDAO postsDAO = new PostsDAO();
 		Result result = new Result();
+		
+		//공지
+		List<AdminNoticeListDTO> noticeList = postsDAO.getNotices();
+		request.setAttribute("noticeList", noticeList);
+		
 		
 		//방금 선택한 페이지
 		String temp = request.getParameter("page");
@@ -65,6 +71,9 @@ public class PostListOkController implements Execute {
 		System.out.println("postsList : " + postsList);
 		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
+		
+		
+		System.out.println("공지 : " + noticeList);
 		
 		result.setPath("/app/post/postMain.jsp");
 		result.setRedirect(false);
