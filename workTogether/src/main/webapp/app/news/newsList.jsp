@@ -27,7 +27,7 @@
       <div class="search_result_card">
       	<c:choose>
       		<c:when test="${not empty newsList}">
-      			<ul>
+      			<ul class="news_list">
       				<c:forEach var="news" items="${newsList}">
       					<li>
       						<!-- 뉴스 링크 이동 카드 리스트 -->
