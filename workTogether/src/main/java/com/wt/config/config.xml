@@ -14,6 +14,7 @@
 
    <!-- DTO 별칭 설정 -->
  	<typeAliases>
+ 		<typeAlias type="com.wt.app.dto.AdminReferenceReplyDTO" alias="AdminReferenceReplyDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.UsersLoginDTO" alias="UsersLoginDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.ShopsListDTO" alias="ShopsListDTO"></typeAlias>
    		<typeAlias type="com.wt.app.dto.AdminDongListDTO" alias="AdminDongListDTO"></typeAlias>

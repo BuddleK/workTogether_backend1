@@ -8,17 +8,25 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wt.app.Execute;
 import com.wt.app.Result;
+import com.wt.app.admin.dao.AdminDAO;
+import com.wt.app.dto.AdminReferenceListDTO;
 
-public class AdminReferenceDetailController implements Execute{
+public class AdminReferenceDetailController implements Execute {
+    @Override
+    public Result execute(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	@Override
-	public Result execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		Result result = new Result();
-		
-		result.setPath("/admin/adminReferenceDetail.ad");
-	    result.setRedirect(false);
-	    return result;
-	}
-	
+        int referenceNumber = Integer.parseInt(request.getParameter("referenceNumber"));
+
+        AdminDAO adminDAO = new AdminDAO();
+        AdminReferenceListDTO question = adminDAO.adminReferenceDetail(referenceNumber);
+
+        request.setAttribute("question", question);
+
+        Result result = new Result();
+        result.setPath("/app/admin/questionDetail.jsp");
+        result.setRedirect(false);
+        return result;
+    }
 }
+
