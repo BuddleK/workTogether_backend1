@@ -14,13 +14,13 @@
 main {
   width: 100%;
   /* height: calc(100vh - 200px); */
-  /* height: 100vh; */
+  height: 100vh;
   display: flex;
 }
 
 .main_sidebar {
   width: 180px;
-  /* height: 100%; */
+  flex: 0 0 180px;
   background-color: #2F52AA;
   color: #fff;
   display: flex;
@@ -47,6 +47,8 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
 .div_mark .title {
@@ -56,11 +58,12 @@ main {
 
 form {
   width: 100%;
+  margin: 0;
 }
 
 .mark_nav {
   display: flex;
-  margin: 30px 150px 0px 150px;
+  margin: 30px 0 0 0;
   height: 50px;
   align-items: center;
   background-color: #F2F2F2;
@@ -107,7 +110,7 @@ form {
 
 .mark_list {
   display: flex;
-  margin: 0px 150px;
+  margin: 0px;
   background-color: rgb(255, 255, 255);
   flex-direction: column;
   height: 400px;

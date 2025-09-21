@@ -90,39 +90,37 @@
 							</c:forEach>
 						</div>
 					</div>
+					<div class="add">
+							<a href="${pageContext.request.contextPath}/admin/adminNoticeInsert.ad?adminNumber=${notice.adminNumber}" class="add_btn">등록</a>
+					</div>
 
 					<div class="paging_box">
-						<ul class="paging" style="margin: 0px auto;">
-							<c:if test="${prev}">
-								<li><a
-									href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${startPage - 1}"
-									class="prev">&lt;</a></li>
-							</c:if>
+						<ul class="paging" style="margin: 0 auto;">
+							<c:set var="currentPage"
+								value="${not empty page ? page : (not empty param.page ? param.page : 1)}" />
 							<c:set var="realStartPage"
-								value="${startPage < 0 ? 0 : startPage}" />
+								value="${startPage lt 1 ? 1 : startPage}" />
+
+							<c:if test="${prev}">
+								<li><a class="prev"
+									href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${startPage - 1}">&lt;</a>
+								</li>
+							</c:if>
+
 							<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
-								<c:choose>
-									<c:when test="${!(i == page) }">
-										<li><a
-											href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${i}">
-												<c:out value="${i}" />
-										</a></li>
-									</c:when>
-									<c:otherwise>
-										<li><a href="#" class="active"> <c:out value="${i}" />
-										</a></li>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-							<c:if test="${next}">
 								<li><a
-									href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${endPage + 1}"
-									class="next">&gt;</a>
+									href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${i}"
+									class="${i eq currentPage ? 'active' : ''}"> <c:out
+											value="${i}" />
+								</a></li>
+							</c:forEach>
+
+							<c:if test="${next}">
+								<li><a class="next"
+									href="${pageContext.request.contextPath}/admin/adminNotice.ad?page=${endPage + 1}">&gt;</a>
+								</li>
 							</c:if>
 						</ul>
-						<div class="add">
-							<a href="${pageContext.request.contextPath}/admin/adminNoticeInsert.ad?adminNumber=${notice.adminNumber}" class="add_btn">등록</a>
-						</div>
 					</div>
 				</div>
 			</div>

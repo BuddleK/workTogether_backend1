@@ -160,3 +160,17 @@ main {
   padding: 4px 10px;
   cursor: pointer;
 }
+
+.paging a {
+  color: #222;
+  text-decoration: none;
+  transition: color .15s ease, font-size .15s ease;
+}
+
+.paging a.active,
+.paging a.active:link,
+.paging a.active:visited {
+  color: #e53935 !important;
+  font-weight: 700;
+  font-size: 18px;
+}

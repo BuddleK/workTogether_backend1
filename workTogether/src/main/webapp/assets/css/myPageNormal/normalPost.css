@@ -20,7 +20,7 @@ main {
 
 .main_sidebar {
   width: 180px;
-  /* height: 100%; */
+  flex: 0 0 180px;
   background-color: #2F52AA;
   color: #fff;
   display: flex;
@@ -47,6 +47,9 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-left: 150px;
+  padding-right: 150px;
+  box-sizing: border-box;
 }
 
 .div_mark .title {
@@ -60,7 +63,7 @@ form {
 
 .mark_nav {
   display: flex;
-  margin: 0px 150px 0px 150px;
+  margin: 0;
   height: 50px;
   align-items: center;
   background-color: #F2F2F2;
@@ -108,10 +111,11 @@ form {
 
 .mark_list {
   display: flex;
-  margin: 0px 150px;
+  margin: 0;
   background-color: rgb(255, 255, 255);
   flex-direction: column;
   height: 400px;
+  width: 100%;
 }
 
 .mark_list li {
@@ -173,7 +177,7 @@ button {
 .div_choose ul {
   display: flex;
   list-style-type: none;
-  padding: 0px 0px 0px 150px;
+  padding: 0;
 }
 
 .div_choose ul li {

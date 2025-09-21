@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Normal_Messeage</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/myPageNormal/normalreseiveMesseage.css">
-<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/myPageNormal/normalreseiveMesseage.css">
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
 <script defer
