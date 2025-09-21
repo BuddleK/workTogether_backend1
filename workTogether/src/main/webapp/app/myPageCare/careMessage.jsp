@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,21 +15,14 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/careMessage.js"></script>
 </head>
 
-<body>
+<body data-context-path="${pageContext.request.contextPath}">
   <jsp:include page="/header.jsp" />
   <main>
           <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
 
     <nav class="sidebar">
       <ul>
-        <li>
-        	<a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp">
-          		<img 
-  				src="${pageContext.request.contextPath}${profilePic.getProfilesFilesPath()}${profilePic.getProfilesFilesName()}${profilePic.getProfilesFilesType()}" 
-  				onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/assets/img/myPageCare/default.png';" 
-  				alt="프로필 이미지">
-        	</a>
-        </li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보 수정</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp">찜한 목록</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp">매칭 기록</a></li>
@@ -48,9 +42,9 @@
 
       <nav class="div_choose">
         <ul>
-          <li class="send"><a href="${pageContext.request.contextPath}/careMessage.jsp"><strong>받은 쪽지</strong></a></li>
+          <li class="send"><a href="${pageContext.request.contextPath}/myPageCare/careMesseage.cp"><strong>받은 쪽지</strong></a></li>
           <li>|</li>
-          <li class="reseive"><a href="${pageContext.request.contextPath}/careMessageReturn.jsp">보낸 쪽지</a></li>
+          <li class="reseive"><a href="${pageContext.request.contextPath}/myPageCare/careSendMesseage.cp">보낸 쪽지</a></li>
         </ul>
 
       </nav>
@@ -72,91 +66,62 @@
           </li>
         </ul>
       </nav>
-<!-- 쪽지 게시글 상세 페이지  -->
-      <nav class="mark_list">
-        <ul>
-          <li><input type="checkbox"></li>
-          <li class="name"><a href="">
-              <div>티라노사우루스</div>
-            </a></li>
-          <li class="messeagetitle"><a href="">
-              <div>나는 티라노</div>
-            </a></li>
-          <li class="day"><a href="">
-              <div>2025-08-10</div>
-            </a></li>
-          <li class="read"><a href="">
-              <div>읽음</div>
-            </a></li>
-        </ul>
-      </nav>
-      <!-- 쪽지 게시글 상세 페이지  -->
+      
+      <c:choose>
+      	<c:when test="${not empty rMessageList}">
+      		<c:forEach var="rMessage" items="${rMessageList}">
+      
+			<!-- 쪽지 게시글 상세 페이지  -->
+		      <nav class="mark_list" data-messageNumber="${rMessage.getMessageNumber()}" >
+		        <ul>
+		          <li><input type="checkbox"></li>
+		          <li class="name"><a href="">
+		              <div><c:out value="${rMessage.getUsersName()}" /></div>
+		            </a></li>
+		          <li class="messeagetitle"><a href="">
+		              <div><c:out value="${rMessage.getMessageContents()}" /></div>
+		            </a></li>
+		          <li class="day"><a href="">
+		              <div><c:out value="${rMessage.getMessageDate()}" /></div>
+		            </a></li>
+		          <li class="read"><a href="">
+		              <div><c:out value="${rMessage.getIsRead()}" /></div>
+		            </a></li>
+		        </ul>
+		      </nav>
+      		
+      		</c:forEach>
+      		
+      	</c:when>
+      	<c:otherwise>
+      	</c:otherwise>
+      </c:choose>
 
-      <nav class="mark_list">
-        <ul>
-          <li><input type="checkbox"></li>
-          <li class="name"><a href="">
-              <div>보낸 사람</div>
-            </a></li>
-          <li class="messeagetitle"><a href="">
-              <div>제목</div>
-            </a></li>
-          <li class="day"><a href="">
-              <div>날짜</div>
-            </a></li>
-          <li class="read"><a href="">
-              <div>읽음 상태</div>
-            </a></li>
-        </ul>
-      </nav>
-      <!-- 쪽지 게시글 상세 페이지  -->
-
-      <nav class="mark_list">
-        <ul>
-          <li><input type="checkbox"></li>
-          <li class="name"><a href="">
-              <div>보낸 사람</div>
-            </a></li>
-          <li class="messeagetitle"><a href="">
-              <div>제목</div>
-            </a></li>
-          <li class="day"><a href="">
-              <div>날짜</div>
-            </a></li>
-          <li class="read"><a href="">
-              <div>읽음 상태</div>
-            </a></li>
-        </ul>
-      </nav>
-      <!-- 쪽지 게시글 상세 페이지  -->
-
-      <nav class="mark_list">
-        <ul>
-          <li><input type="checkbox"></li>
-          <li class="name"><a href="">
-              <div>보낸 사람</div>
-            </a></li>
-          <li class="messeagetitle"><a href="">
-              <div>제목</div>
-            </a></li>
-          <li class="day"><a href="">
-              <div>날짜</div>
-            </a></li>
-          <li class="read"><a href="">
-              <div>읽음 상태</div>
-            </a></li>
-        </ul>
-      </nav>
       <!-- 페이지 네이션  -->
       <nav class="page">
-        <ul>
-          <li>&lt;</li>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>&gt;</li>
-        </ul>
+           <ul>
+            <c:if test="${prev}">
+          		<li><a href="${pageContext.request.contextPath}/myPageCare/careMesseage.cp?page=${startPage - 1}" class="prev">&lt;</a></li>
+          	</c:if>
+          	<c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
+          	<c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+          		<c:choose>
+          			<c:when test="${!(i == page) }">
+          				<li><a href="${pageContext.request.contextPath}/myPageCare/careMesseage.cp?page=${i}">
+          					<c:out value="${i}" />
+          				</a></li>
+          			</c:when>
+          			<c:otherwise>
+          				<li><a href="#" class="active">
+          					<c:out value="${i}" />
+          				</a></li>
+          			</c:otherwise>
+          		</c:choose>
+          	</c:forEach>
+          	<c:if test="${next}">
+          		<li><a href="${pageContext.request.contextPath}/myPageCare/careMesseage.cp?page=${endPage + 1}" class="next">&gt;</a>
+          	</c:if>
+          </ul>
 
       </nav>
       <!-- 삭제 버튼 클릭 시 쪽지 삭제 -->

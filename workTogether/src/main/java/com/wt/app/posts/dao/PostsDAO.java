@@ -1,11 +1,11 @@
 package com.wt.app.posts.dao;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.AdminNoticeListDTO;
 import com.wt.app.dto.PostsDTO;
 import com.wt.app.dto.PostsListDTO;
 import com.wt.config.MyBatisConfig;
@@ -53,6 +53,37 @@ public class PostsDAO {
 	public int deleteReport(Map<String, Object> reportMap) {
 		return sqlSession.delete("posts.deleteReport", reportMap);
 	}
+	
+//	최신 공지 4개 불러오기
+	public List<AdminNoticeListDTO> getNotices(){
+		System.out.println("최신 공지 4개 불러오기 - getNotices 메소드 실행 : ");
+		List<AdminNoticeListDTO> list = sqlSession.selectList("posts.getNotices");
+		System.out.println("조회결과 : " + list);
+		return list;
+	}
+//	단일 공지 불러오기
+	public AdminNoticeListDTO getNoticeDetail(int noticeNumber) {
+		System.out.println("공지 상세 - getNoticeDetail 메소드 실행");
+	    return sqlSession.selectOne("posts.getNoticeDetail", noticeNumber);
+	}
+//	단일 공지 수정일 불러오기
+	public String getNoticeDetailUpdated(int noticeNumber) {
+		System.out.println("공지 수정일 - getNoticeDetailUpdated 메소드 실행");
+	    return sqlSession.selectOne("posts.getNoticeDetailUpdated", noticeNumber);
+	}
+//	단일 공지 수정일 불러오기
+	public String getNoticeDetailContent(int noticeNumber) {
+		System.out.println("공지 내용 - getNoticeDetailContent 메소드 실행");
+	    return sqlSession.selectOne("posts.getNoticeDetailContent", noticeNumber);
+	}
+//	단일 공지 조회수 증가
+	public String updateNoticeViewCount(int noticeNumber) {
+		System.out.println("공지 조회수 증가 - updateNoticeViewCount 메소드 실행");
+	    return sqlSession.selectOne("posts.updateNoticeViewCount", noticeNumber);
+	}
+	
+	
+	
 	
 	
 //	게시글 추가 메소드

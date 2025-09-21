@@ -7,24 +7,18 @@
 		SELECT * FROM (
 			SELECT ROWNUM AS rnum, subquery.*
 			FROM (
-				SELECT users_number, posts_title, posts_created_date
-				FROM tbl_posts
-				where users_number = #{usersNumber}
-				ORDER BY posts_number DESC
+				SELECT tp.POSTS_NUMBER, tp.POSTS_TITLE, tp.USERS_NUMBER, tp.POSTS_CREATED_DATE, tu.USERS_NAME 
+				FROM TBL_POSTS tp LEFT JOIN TBL_USERS tu ON tp.USERS_NUMBER = tu.USERS_NUMBER 
+				WHERE tp.USERS_NUMBER = #{usersNumber}
+				ORDER BY POSTS_CREATED_DATE DESC
 			) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
 		]]>
 	</select>
 	
 	<!-- 게시글 목록 전체 개수 -->
-	<select id="postTotal" resultType="CarePostDTO">
-		SELECT u.users_number, u.users_id,
-	       	COUNT(p.posts_number) AS posts_count
-			FROM tbl_users u
-			LEFT JOIN tbl_posts p
-	       	ON u.users_number = p.users_number
-			WHERE u.users_number = #{usersNumber}
-			GROUP BY u.users_number, u.users_id;
+	<select id="postTotal" resultType="int">
+		SELECT count(POSTS_NUMBER) FROM TBL_POSTS tp WHERE tp.USERS_NUMBER = #{usersNumber}
 	</select>
 		
 

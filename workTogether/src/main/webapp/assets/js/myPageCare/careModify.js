@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	    alert("핸드폰 번호를 확인해 주세요");
 	    return;
 	}
-	alert("sms 진입1");
 	fetch(`/users/JoinSMSController.us?memberPhoneNumber=${encodeURIComponent(inputPhone.value)}`, {
 	    method: "GET",
 	    headers: {
@@ -107,13 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	    }
 	})
 	    .then(res => {
-			alert("로그1111");
 	        if (!res.ok) throw new Error("발송 실패: " + res.status);
 	        return res.text(); // text 형식으로 받음
 	    })
 	    .then(msg => {
 	        // 서버가 성공적으로 처리했을 때만 실행
-			alert("로그1");
 	        alert(msg);               // 발송 메시지
 	        sendSMS.disabled = true;  // 재발송 방지
 			checkSMS.disabled = false; //인증번호 확인 버튼 활성화
@@ -122,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	    })
 	    .catch(err => {
 	        // 실패했을 때
-			alert("로그2");
 	        alert("SMS 발송 중 오류가 발생했습니다.\n" + err);
 	        sendSMS.disabled = false; // 다시 시도 가능
 	    });

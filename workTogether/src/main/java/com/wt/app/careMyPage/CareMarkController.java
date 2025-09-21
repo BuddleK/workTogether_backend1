@@ -50,9 +50,9 @@ public class CareMarkController implements Execute {
 		// 게시글 목록 조회
 		List<CareMarkDTO> markList = careMarkDAO.getMarks(pageMap);
 		request.setAttribute("markList", markList);
-		for(int i = 0 ; i < 4; i++) {
-			System.out.println(markList.get(i));
-		}
+		/*
+		 * for(int i = 0 ; i < 4; i++) { System.out.println(markList.get(i)); }
+		 */
 
 		// 페이징 정보 설정
 		// BoardMapper.xml의 getTotal을 이용하여 전체 게시글 개수 조회
