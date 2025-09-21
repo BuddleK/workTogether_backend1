@@ -30,42 +30,28 @@ session.setAttribute("memberNumber", memberNumber); // "memberNumber" 이라는 
         <span class="post_rea">조회수</span>
       </div>
       <ul class="notice_list">
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">
-            <span class="post_num">공지</span>
-            <span class="post_tit">전화번호 인증 관련 안내사항</span>
-            <span class="post_aut">관리자</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">404</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">
-            <span class="post_num">공지</span>
-            <span class="post_tit">안내</span>
-            <span class="post_aut">관리자</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">404</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">
-            <span class="post_num">공지</span>
-            <span class="post_tit">이벤트 안내</span>
-            <span class="post_aut">관리자</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">404</span>
-          </a>
-        </li>
-        <li class="post_columns">
-          <a href="${pageContext.request.contextPath}/app/post/postArlim.jsp">
-            <span class="post_num">공지</span>
-            <span class="post_tit">사이트 일정 안내</span>
-            <span class="post_aut">관리자</span>
-            <span class="post_dat">2025-08-20</span>
-            <span class="post_rea">404</span>
-          </a>
-        </li>
+      		<c:choose>
+			<c:when test="${not empty noticeList}">
+				<c:forEach var="notice" items="${noticeList}">
+					<li class="post_columns">
+						<a href="${pageContext.request.contextPath}/post/postAlimDetail.po?noticeNumber=${notice.getNoticeNumber()}">
+            				<span class="post_num">공지</span>
+            				<span class="post_tit"><c:out value="${notice.getNoticeTitle()}"/></span>
+            				<span class="post_aut"><c:out value="${notice.getAdminName()}"/></span>
+            				<span class="post_dat"><c:out value="${notice.getNoticeCreatedDate()}"/></span>
+            				<span class="post_rea"><c:out value="${notice.getNoticeViewCount()}"/></span>
+						</a>
+					</li>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+   				<div>
+   					<div colspan="5" align="center">등록된 공지가 없습니다.</div>
+   				</div>
+			</c:otherwise>
+		</c:choose>
+      
+        
       </ul>
       <ul class="post_list">
 		<c:choose>

@@ -2,22 +2,165 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="careMatching">
 
-	<!-- 매칭 수 조회 -->
-	<select id="matchingTotal" resultType="int">
-		SELECT COUNT(MATCH_NUMBER) FROM RICEBALL.TBL_MATCHINGS
+<!-- 9월 조회 -->
+<!-- 	
+	<select id="getMonthMatching" resultType="CareMatchingDTO">
+	<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS RNUM, SUBQUERY.*
+		FROM (SELECT MATCH_NUMBER, CARE_NUMBER, NORMAL_NUMBER, MATCH_DATE, MATCH_MATCH_TIME, MATCH_POINTS, MATCH_STATUS,
+		USERS_NAME, USERS_NUMBER, USERS_ID
+		FROM TBL_MATCHINGS tm LEFT JOIN TBL_USERS tu ON TM.CARE_NUMBER = TU.USERS_NUMBER
+		WHERE EXTRACT(MONTH FROM MATCH_DATE) = #{month} AND USERS_NUMBER = #{usersNumber} ORDER BY MATCH_DATE DESC) SUBQUERY
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
+	]]>
+	</select> -->
+	
+	<!-- 월별 조회 -->
+<select id="getMonthMatching" resultType="CareMatchingDTO">
+<![CDATA[
+    SELECT * FROM (
+        SELECT ROWNUM AS RNUM, SUBQUERY.*
+        FROM (
+            SELECT 
+                MATCH_NUMBER,
+                CARE_NUMBER,
+                NORMAL_NUMBER,
+                TO_CHAR(MATCH_DATE, 'YYYY-MM-DD') AS MATCH_DATE,
+                MATCH_MATCH_TIME,
+                MATCH_POINTS,
+                CASE 
+                    WHEN MATCH_STATUS = 'C' THEN '완료'
+                    WHEN MATCH_STATUS = 'S' THEN '진행'
+                    WHEN MATCH_STATUS = 'D' THEN '취소'
+                END AS MATCH_STATUS,
+                USERS_NAME,
+                USERS_NUMBER,
+                USERS_ID
+            FROM TBL_MATCHINGS tm 
+            LEFT JOIN TBL_USERS tu ON TM.NORMAL_NUMBER = TU.USERS_NUMBER
+            WHERE EXTRACT(MONTH FROM MATCH_DATE) = #{month}
+              AND CARE_NUMBER = #{usersNumber}
+            ORDER BY MATCH_DATE DESC
+        ) SUBQUERY
+    )
+    WHERE rnum BETWEEN #{startRow} AND #{endRow}
+]]>
+</select>
+	
+		<!-- 매칭 수 조회 -->
+	<select id="getMonthMatchingCount" resultType="int">
+		SELECT count(MATCH_NUMBER)
+FROM TBL_MATCHINGS tm LEFT JOIN TBL_USERS tu ON TM.CARE_NUMBER = TU.USERS_NUMBER
+WHERE EXTRACT(MONTH FROM MATCH_DATE) = #{month} AND USERS_NUMBER = #{usersNumber}
 	</select>
+	
+	
+<!-- 아이디로 회원번호 검색 -->
+	<select id="searchId" resultType="int">
+		SELECT USERS_NUMBER FROM TBL_USERS WHERE USERS_ID = #{userId}
+	</select>
+
+<!-- 회원번호로 타입 검색 -->
+	<select id="searchType" resultType="String">
+		SELECT USERS_TYPE FROM TBL_USERS WHERE USERS_NUMBER = #{normalNumber}
+	</select>
+	
+<!-- 매칭 추가 -->
+<insert id="insertMatching">
+	INSERT INTO RICEBALL.TBL_MATCHINGS 
+	(MATCH_NUMBER, CARE_NUMBER, NORMAL_NUMBER, MATCH_DATE, MATCH_MATCH_TIME, MATCH_POINTS, MATCH_STATUS) 
+	VALUES (seq_matchings.NEXTVAL, #{usersNumber}, #{normalNumber}, TO_DATE(#{date}, 'YYYY-MM-DD'), #{time}, #{point}, 'S')
+</insert>
+
+<!-- 받은 쪽지 조회 -->
+<select id="getRM" resultType="com.wt.app.dto.CareMessageDTO">
+    <![CDATA[
+    SELECT * FROM (
+        SELECT ROWNUM AS rnum, subquery.*
+        FROM (
+            SELECT 
+                tm.MESSAGE_NUMBER, 
+                tm.CARE_NUMBER, 
+                tm.NORMAL_NUMBER, 
+                tm.SENDER_TYPE, 
+                tm.MESSAGE_CONTENTS, 
+                TO_CHAR(tm.MESSAGE_DATE, 'YYYY-MM-DD') MESSAGE_DATE, 
+                CASE 
+                    WHEN tm.IS_READ = 'N' THEN '확인 안함' 
+                    WHEN tm.IS_READ = 'Y' THEN '읽음' 
+                END AS IS_READ, 
+                tu.USERS_NAME,
+                tu.USERS_ID
+            FROM RICEBALL.TBL_MESSAGE tm 
+            LEFT JOIN RICEBALL.TBL_USERS tu 
+                ON tm.NORMAL_NUMBER = tu.USERS_NUMBER 
+            WHERE tm.CARE_NUMBER = #{usersNumber} 
+                AND tm.SENDER_TYPE = 'N'
+        ) subquery
+    ) WHERE rnum BETWEEN #{startRow} AND #{endRow}    
+    ]]>
+</select>
+	<!-- 받은 쪽지 수 -->
+	<select id="totalGetRM" resultType="int">
+		SELECT COUNT(tm.MESSAGE_NUMBER) 
+		FROM RICEBALL.TBL_MESSAGE tm LEFT JOIN RICEBALL.TBL_USERS tu ON tm.NORMAL_NUMBER = TU.USERS_NUMBER 
+		WHERE CARE_NUMBER = #{usersNumber} AND SENDER_TYPE = 'N'
+	</select>
+<!-- 보낸 쪽지 조회 -->
+<select id="getSM" resultType="com.wt.app.dto.CareMessageDTO">
+    <![CDATA[
+    SELECT * FROM (
+        SELECT ROWNUM AS rnum, subquery.*
+        FROM (
+            SELECT 
+                tm.MESSAGE_NUMBER, 
+                tm.CARE_NUMBER, 
+                tm.NORMAL_NUMBER, 
+                tm.SENDER_TYPE, 
+                tm.MESSAGE_CONTENTS, 
+                TO_CHAR(tm.MESSAGE_DATE, 'YYYY-MM-DD') MESSAGE_DATE, 
+                CASE 
+                    WHEN tm.IS_READ = 'N' THEN '확인 안함' 
+                    WHEN tm.IS_READ = 'Y' THEN '읽음' 
+                END AS IS_READ, 
+                tu.USERS_NAME,
+                tu.USERS_ID
+            FROM RICEBALL.TBL_MESSAGE tm 
+            LEFT JOIN RICEBALL.TBL_USERS tu 
+                ON tm.NORMAL_NUMBER = tu.USERS_NUMBER 
+            WHERE tm.CARE_NUMBER = #{usersNumber} 
+                AND tm.SENDER_TYPE = 'C'
+        ) subquery
+    ) WHERE rnum BETWEEN #{startRow} AND #{endRow}    
+    ]]>
+</select>
+	<!-- 보낸 쪽지 수 -->
+	<select id="totalGetSM" resultType="int">
+		SELECT COUNT(tm.MESSAGE_NUMBER) 
+		FROM RICEBALL.TBL_MESSAGE tm LEFT JOIN RICEBALL.TBL_USERS tu ON tm.NORMAL_NUMBER = TU.USERS_NUMBER 
+		WHERE CARE_NUMBER = #{usersNumber} AND SENDER_TYPE = 'C'
+	</select>
+
+
+	<!-- 매칭 수 조회 -->
+<!-- 	<select id="matchingTotal" resultType="int">
+		SELECT COUNT(MATCH_NUMBER) FROM RICEBALL.TBL_MATCHINGS
+	</select> -->
 	<!-- 매칭 추가 -->
-	<insert id="matchingAdd" parameterType="CareMatchingDTO">
+<!-- 	<insert id="matchingAdd" parameterType="CareMatchingDTO">
 		<selectKey keyProperty="matchingNumber" resultType="int" order="BEFORE">
 			SELECT seq_matchings.CURRVAL FROM DUAL
 		</selectKey>
 		INSERT INTO tbl_matchings (match_number, care_number, normal_number, match_date, match_match_time, match_points, match_status)
 		VALUES (#{matchNumber},#{careNumber},(SELECT users_number FROM tbl_users WHERE users_id = #{usersId}),#{ matchDate},#{matchMatchTime},#{matchPoints},#{matchStatus});
-	</insert>
+	</insert> -->
+	
+	
 
 
 	<!-- 매칭기록 조회 -->
-	<select id="matchingMonth" parameterType="CareMatchingDTO">
+<!-- 	<select id="matchingMonth" parameterType="CareMatchingDTO">
 		<![CDATA[
 		SELECT * FROM (
 			SELECT ROWNUM AS rnum, subquery.*
@@ -30,7 +173,7 @@
 			) subquery
 		) WHERE rnum BETWEEN #{startRow} AND #{endRow}	
 		]]>
-	</select>
+	</select> -->
 
 </mapper>
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +15,7 @@
   <script defer src="${pageContext.request.contextPath}/assets/js/myPageCare/carePost.js"></script>
 </head>
 
-<body>
+<body data-context-path="${pageContext.request.contextPath}">
   <jsp:include page="/header.jsp" />
   <main>
           <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
@@ -60,9 +61,42 @@
             </li>
           </ul>
         </nav>
-        <!-- 게시글 글 목록 -->
+        
+        <c:choose>
+        	<c:when test="${not empty postsList}">
+        		<c:forEach var="post" items="${postsList}">
+        		        <!-- 게시글 글 목록 -->
+        		<nav class="mark_list">
+            		<ul>
+              			<li><input type="checkbox" data-posts-number="${post.postsNumber}"></li>
+              			<li class="name"><a href="${pageContext.request.contextPath}/post/postReadOk.po?postsNumber=${post.postsNumber}">
+                			<div>${post.getUsersName()}</div>
+              			</a></li>
+              			<li class="posttitle"><a href="${pageContext.request.contextPath}/post/postReadOk.po?postsNumber=${post.postsNumber}">
+                			<div>${post.getPostsTitle()}</div>
+              			</a></li>
+              			<li class="day"><a href="${pageContext.request.contextPath}/post/postReadOk.po?postsNumber=${post.postsNumber}">
+                			<div>${post.getPostsCreatedDate()}</div>
+              			</a></li>
+          			</ul>
+        		</nav>
+        		
+        		</c:forEach>
+        	</c:when>
+        	<c:otherwise>
+        		<div align="center">등록된 게시물이 없습니다</div>
+        	</c:otherwise>
+        </c:choose>
+        
+        
+        
+        
+        
+<%--         <!-- 게시글 글 목록 -->
         <nav class="mark_list">
             <ul>
+            
+            
               <li><input type="checkbox"></li>
               <li class="name"><a href="${pageContext.request.contextPath}/myPageCare/carePostDP.jsp">
                 <div>아무개</div>
@@ -123,28 +157,38 @@
                 <div>날짜</div>
               </a></li>
           </ul>
-        </nav>
+        </nav> --%>
 <!-- 페이지네이션 -->
         <nav class="page">
           <ul>
-            <a href="">
-              <li>&lt;</li>
-            </a>
-            <a href="">
-              <li>1</li>
-            </a>
-            <a href="">
-              <li>2</li>
-            </a>
-            <a href="">
-              <li>3</li>
-            </a>
-            <a href="">
-              <li>4</li>
-            </a>
-            <a href="">
-              <li>&gt;</li>
-            </a>
+          
+          
+          
+          <c:if test="${prev}">
+          	<li><a href="${pageContext.request.contextPath}/myPageCare/carePost.cp?page=${startPage - 1}" class="prev">&lt;</a></li>
+          </c:if>
+          <c:set var="realStartPage" value="${startPage < 0 ? 0 : startPage}" />
+          <c:forEach var="i" begin="${realStartPage}" end="${endPage}">
+          	<c:choose>
+          		<c:when test="${!(i == page) }">
+          			<li><a href="${pageContext.request.contextPath}/myPageCare/carePost.cp?page=${i}">
+          				<c:out value="${i}" />
+          			</a></li>
+          		</c:when>
+          		<c:otherwise>
+          			<li><a href="#" class="active">
+          				<c:out value="${i}" />
+          			</a></li>
+          		</c:otherwise>
+          	</c:choose>
+          </c:forEach>
+          <c:if test="${next}">
+          	<li><a href="${pageContext.request.contextPath}/myPageCare/carePost.cp?page=${endPage + 1}" class="next">&gt;</a>
+          </c:if>
+            
+            
+            
+            
           </ul>
         </nav>
         <!-- 버튼 삭제 버튼 -->

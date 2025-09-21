@@ -27,37 +27,15 @@
 
 		<nav class="main_sidebar">
 			<ul>
-        <li>
-        	<a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp">
-          		<img 
-  				src="${pageContext.request.contextPath}${profilePic.getProfilesFilesPath()}${profilePic.getProfilesFilesName()}${profilePic.getProfilesFilesType()}" 
-  				onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/assets/img/myPageCare/default.png';" 
-  				alt="프로필 이미지">
-        	</a>
-        </li>
-				<li><a
-					href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보
-						수정</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/myPageCare/careMark.cp">찜한
-						목록</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/myPageCare/careMatching.cp">매칭
-						기록</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/myPageCare/careMesseage.cp">쪽지함</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/myPageCare/carePost.cp">게시글
-						관리</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/myPageCare/carePointreturn.cp">포인트
-						환급</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/myPageCare/careReference.cp">1
-						대 1 문의</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/myPageCare/careExit.cp">회원
-						탈퇴</a></li>
+        <li><a><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
+				<li><a>개인정보 수정</a></li>
+				<li><a>찜한 목록</a></li>
+				<li><a>매칭 기록</a></li>
+				<li><a>쪽지함</a></li>
+				<li><a>게시글 관리</a></li>
+				<li><a>포인트 환급</a></li>
+				<li><a>1 대 1 문의</a></li>
+				<li><a>회원 탈퇴</a></li>
 			</ul>
 		</nav>
 		<!-- 페이지 세부 정보 -->

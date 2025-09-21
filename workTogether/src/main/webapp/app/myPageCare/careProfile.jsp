@@ -39,14 +39,7 @@
     <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
     <nav class="sidebar">
       <ul>
-        <li>
-        	<a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp">
-          		<img 
-  				src="${pageContext.request.contextPath}${profilePic.getProfilesFilesPath()}${profilePic.getProfilesFilesName()}${profilePic.getProfilesFilesType()}" 
-  				onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/assets/img/myPageCare/default.png';" 
-  				alt="프로필 이미지">
-        	</a>
-        </li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보 수정</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp">찜한 목록</a></li>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp">매칭 기록</a></li>
@@ -67,11 +60,8 @@
 
       		<!-- 마이페이지 사진 수정 -->
         	<div class="profile_section">
-          		<img id="profilePreview"
-  					src="${pageContext.request.contextPath}${profile.getProfilesFilesPath()}${profile.getProfilesFilesName()}${profile.getProfilesFilesType()}" 
-  					onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/assets/img/myPageCare/default.png';" 
-  					alt="프로필 이미지">
-          		<input id="profileUpload" type="file" name="proPic">
+          		<img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#">
+          		<!-- <input id="profileUpload" type="file" name="proPic"> -->
         	</div>
 		
 
@@ -109,12 +99,12 @@
                 <ul>
                   <li>
                     <label class="license" for="license"><c:out value="${profile.getLicenseFilesName()}"/></label>
-                    <input type="file" id="license" placeholder="자격증 1">
+                    <!-- <input type="file" id="license" placeholder="자격증 1"> -->
                   </li>
                   <li>
                     <label class="license" for="manuscript"><c:out value="${profile.getAccountFilesName()}"/></label>
-                    <input type="file" id="account" placeholder="계좌 사본">
-                	<button type="button" id="request">수정 요청</button>
+                    <!-- <input type="file" id="account" placeholder="계좌 사본">
+                	<button type="button" id="request">수정 요청</button> -->
                   </li>
                 </ul>
               </div>
