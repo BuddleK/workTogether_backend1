@@ -4,11 +4,11 @@
 <mapper namespace="careModify">
 
 	<!-- 개인정보 가져오는 쿼리 -->
-	<select id="getInfo" resultType="com.wt.app.dto.CareModifyDTO">
+	<select id="getInfo" resultType="CareModifyDTO">
 		SELECT USERS_NUMBER, USERS_NAME, USERS_POSTSAL_CODE, USERS_ADDRESS_LINE1, USERS_ADDRESS_LINE2, USERS_PHONE, USERS_ID, USERS_EMAIL, USERS_PASSWORD FROM RICEBALL.TBL_USERS WHERE USERS_NUMBER = #{usersNumber}
 	</select>
 
-	<update id="modAddress" parameterType="com.wt.app.dto.CareModifyDTO">
+	<update id="modAddress" parameterType="CareModifyDTO">
 		UPDATE RICEBALL.TBL_USERS SET USERS_POSTSAL_CODE = #{usersPostsalCode}, USERS_ADDRESS_LINE1 = #{usersAddressLine1}, USERS_ADDRESS_LINE2 = #{usersAddressLine2} WHERE USERS_NUMBER = #{usersNumber}
 	</update>
 

@@ -160,10 +160,10 @@
       </div>
       <div class="modal_info">
         <div class="receiver_info">
-          <span>받는 사람 : </span><span class="receiver_name">스테고사우루스</span> | <span class="receiver_id">stago</span>
+          <span>받는 사람 : </span><span class="receiver_name">장성규</span> | <span class="receiver_id">JangJang</span>
         </div>
         <div class="message_content">
-          나 이대나온 남자야. 까불지마
+          오늘 이렇게 연락을 드린 건 다름이 아니고...
         </div>
       </div>
       <!-- 삭제 버튼 클릭시 삭제 -->

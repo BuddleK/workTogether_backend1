@@ -4,7 +4,7 @@
 <mapper namespace="careProfile">
 
 	<!-- 프로필 사진만 -->
-	<select id="getProPic" resultType="com.wt.app.dto.CareProfilePictureDTO">
+	<select id="getProPic" resultType="CareProfilePictureDTO">
 		SELECT fp.PROFILES_FILES_TYPE, fp.PROFILES_FILES_NAME, fp.PROFILES_FILES_PATH
 		FROM RICEBALL.TBL_FILES_PROFILES fp
 		WHERE USERS_NUMBER = #{usersNumber}
