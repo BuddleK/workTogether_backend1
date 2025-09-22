@@ -80,16 +80,18 @@
 		<choose>
 			<when test='usersType == "N"'>
 				WHERE u.users_name = #{usersName}
-				AND u.users_phone =
-				#{usersPhone}
+				AND u.users_phone = #{usersPhone}
 				AND u.users_type = 'N'
 			</when>
 			<when test='usersType == "C"'>
 				WHERE u.users_name = #{usersName}
-				AND u.users_phone =
-				#{usersPhone}
+				AND u.users_phone = #{usersPhone}
 				AND u.users_type = 'C'
 			</when>
+			<otherwise>
+				WHERE u.users_name = #{usersName}
+				AND u.users_phone = #{usersPhone}
+			</otherwise>
 		</choose>
 		FETCH FIRST 1 ROWS ONLY
 	</select>
@@ -120,7 +122,8 @@
 
 	<!--회원번호로 아이디 조회: DAO에서 long 그대로 전달 → #{value} 사용 -->
 	<select id="getUsersId" parameterType="long" resultType="string">
-		SELECT users_id FROM tbl_users WHERE users_number = #{value}
+		SELECT
+		users_id FROM tbl_users WHERE users_number = #{value}
 	</select>
 
 </mapper>

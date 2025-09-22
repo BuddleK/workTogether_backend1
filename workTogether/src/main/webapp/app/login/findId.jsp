@@ -45,7 +45,7 @@
 
           <div>
             <div class="box_author">
-              <input type="text" placeholder="인증번호 6자리 입력" class="input_number" id="author_number" name=authCode/>
+              <input type="text" placeholder="인증번호 6자리 입력" class="input_number" id="author_number" name="verificationCode"/>
               <div class="timer"></div>
               <button type="button" id="check">인증번호 확인</button>
             </div>

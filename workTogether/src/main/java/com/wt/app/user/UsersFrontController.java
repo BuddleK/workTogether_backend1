@@ -139,6 +139,11 @@ public class UsersFrontController extends HttpServlet {
 			result = new FindIdOkController().execute(request, response);
 			break;
 
+		case "/users/findIdResult.us":
+			System.out.println("아이디 결과 처리 요청");
+			request.getRequestDispatcher("/app/login/findIdResult.jsp").forward(request, response);
+			break;
+
 		// ===== 비밀번호 찾기/변경 =====
 		case "/users/findPw.us":
 			System.out.println("비밀번호 찾기 페이지 요청");
