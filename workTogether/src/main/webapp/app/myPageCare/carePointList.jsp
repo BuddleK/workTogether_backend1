@@ -97,7 +97,7 @@
             
 	            <div class="table-row">
 	              <span>1</span>
-	              <span>아무개</span>
+	              <span>이재준</span>
 	              <span>5,000P</span>
 	              <span>2025-08-02</span>
 	            </div>
