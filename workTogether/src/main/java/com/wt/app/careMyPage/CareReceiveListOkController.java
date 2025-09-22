@@ -15,20 +15,19 @@ import com.wt.app.Result;
 import com.wt.app.careMyPage.dao.CareMSGDAO2;
 import com.wt.app.dto.MessageSRDTO;
 
-public class CareSendMesseageController implements Execute {
+public class CareReceiveListOkController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Result result = new Result();
-
-		System.out.println("쪽지 리스트 페이지 들옴(받은 쪽지)");
-
+		System.out.println("쪽지 리스트 페이지 들옴(보낸 쪽지)");
+		
 		MessageSRDTO dto = new MessageSRDTO();
 		CareMSGDAO2 dao = new CareMSGDAO2();
 		HttpSession session = request.getSession();
-		Integer normalNumber = (Integer) session.getAttribute("usersNumber");
-
+		Integer normalNumber = (Integer)session.getAttribute("usersNumber");
+		
 		String tmp = request.getParameter("page");
 		int page = (tmp == null) ? 1 : Integer.valueOf(tmp);
 		int rowCount = 8;
@@ -41,13 +40,13 @@ public class CareSendMesseageController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("endRow", endRow);
 		pageMap.put("normalNumber", normalNumber);
-
-		List<MessageSRDTO> msgList = dao.selectAllMsg(pageMap);
+		
+		List<MessageSRDTO> msgList = dao.selectAllReceive(pageMap);
 		request.setAttribute("msgList", msgList);
-
+		
 		int usersNumber = normalNumber;
-
-		int total = dao.getMsgTotal(usersNumber);
+		
+		int total = dao.getReceiveTotal(usersNumber);
 		int realEndPage = (int) Math.ceil(total / (double) rowCount);
 		int endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount);
 		int startPage = endPage - (pageCount - 1);
@@ -62,10 +61,10 @@ public class CareSendMesseageController implements Execute {
 		request.setAttribute("prev", prev);
 		request.setAttribute("next", next);
 		System.out.println(msgList);
-
+		
 		result.setPath("/app/myPageCare/carereseiveMsg.jsp");
-		result.setRedirect(false);
-		return result;
+        result.setRedirect(false);
+        return result;
 	}
-
+	
 }

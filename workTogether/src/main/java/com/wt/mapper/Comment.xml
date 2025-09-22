@@ -2,10 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comment">
 	<select id="selectAll" resultType="CommentDTO">
-		select c.comments_number, c.normal_number, nu.users_name, c.care_number, c.comments_content, c.comments_created_date, c.comments_updated_date
+		select c.comments_number, c.normal_number, nu.users_name, c.care_number, c.comments_content, TO_CHAR(c.comments_created_date, 'YYYY-MM-DD') AS comments_created_date,
+    TO_CHAR(c.comments_updated_date, 'YYYY-MM-DD') AS comments_updated_date
 		from tbl_comments c
 		left join tbl_users nu on c.normal_number = nu.users_number
 		where c.care_number = #{careNumber} and nu.users_type = 'N'
+		order by c.comments_created_date desc
 	</select>
 
 	<insert id="insert" parameterType="CommentDTO">

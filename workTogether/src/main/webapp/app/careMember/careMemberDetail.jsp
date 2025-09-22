@@ -150,9 +150,7 @@
 							<button id="comment_button">작성</button>
 						</div>
 					</div> <!-- 페이지 네이션 -->
-					<div id="comment_pagenation">
-						
-					</div>
+					<a href="/careList/careListOk.cl" id="link">목록</a>
 				</span>
 			</div>
 		</div>

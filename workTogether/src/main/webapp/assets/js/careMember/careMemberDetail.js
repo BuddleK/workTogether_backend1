@@ -167,13 +167,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			return;
 		}
 		const frag = document.createDocumentFragment();
-		let num = 1;
+		let total = comments.length;
 		comments.forEach((comment) => {
 			const isMyComment = String(comment.normalNumber) === String(normalNumber);
 			const li = document.createElement("li");
 			li.innerHTML = `
 			<div class="comment_div">
-				<div class="comment_number">${num++}</div>
+				<div class="comment_number">${total--}</div>
 				<div class="comment_author">${comment.usersName}</div>
 				<div class="comment_context">${comment.commentsContent}</div>
 				<div class="comment_btn_group">
