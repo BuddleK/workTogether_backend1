@@ -9,6 +9,8 @@ public class FindIdDTO {
 	private String usersName;	//회원 이름
 	private String usersPhone;	//회원 전화번호
 	private String usersType;		//회원 타입
+	private String usersId;
+	
 	public String getUsersName() {
 		return usersName;
 	}
@@ -29,7 +31,13 @@ public class FindIdDTO {
 	}
 	@Override
 	public String toString() {
-		return "FindIdDTO [usersName=" + usersName + ", usersPhone=" + usersPhone + ", usersType=" + usersType + "]";
+		return "FindIdDTO [usersName=" + usersName + ", usersPhone=" + usersPhone + ", usersType=" + usersType + ", usersId=" + usersId + "]";
+	}
+	public String getUsersId() {
+		return usersId;
+	}
+	public void setUsersId(String usersId) {
+		this.usersId = usersId;
 	}
 	
 	

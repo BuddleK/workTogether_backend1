@@ -48,15 +48,15 @@
           <div class="box_phone">
             <p>휴대전화</p>
             <input type="text" name="usersPhone" placeholder="-없이 숫자만 입력해주세요" id="phone_input" required/>
-            <button type="button" onclick="sendMsg()">인증번호 받기</button>
+            <button type="button" id=sendSMSBtn>인증번호 받기</button>
             <div class="alert">인증번호가 발송되었습니다.</div>
           </div>
 
           <div>
             <div class="box_author">
-              <input type="text" placeholder="인증번호 6자리 입력" class="input_number" id="author_number"/>
+              <input type="text" placeholder="인증번호 6자리 입력" class="input_number" id="author_number" name="verificationCode"/>
               <div class="timer"></div>
-              <button type="button" onclick="checkMsg()">인증번호 확인</button>
+              <button type="button" id="check">인증번호 확인</button>
             </div>
             <div class="error_box_msg">
               <p class="error_msg">인증번호가 올바르지 않습니다.</p>

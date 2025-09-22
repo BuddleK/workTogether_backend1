@@ -76,20 +76,18 @@ public class FindIdOkController implements Execute {
             request.setAttribute("findIdError", "일치하는 회원 정보가 없습니다.");
             preserveInputs(request, usersName, usersPhone, usersType);
             result.setRedirect(false);
-            result.setPath("/app/login/findId.jsp");
+            result.setPath("/app/login/findIdResult.jsp");
         }
 
         return result;
     }
 
-    /** null-safe trim */
     private String trimOrNull(String s) {
         if (s == null) return null;
         String t = s.trim();
         return t.isEmpty() ? null : t;
     }
 
-    /** 입력값 유지(되돌아갈 때 기존 값 채워 넣기 용) */
     private void preserveInputs(HttpServletRequest request, String name, String phone, String type) {
         request.setAttribute("prevName",  name  == null ? "" : name);
         request.setAttribute("prevPhone", phone == null ? "" : phone);
