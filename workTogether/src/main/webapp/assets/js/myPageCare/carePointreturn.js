@@ -159,10 +159,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (modal) modal.style.display = 'none';
 		const contextPath = input.getAttribute('data-context-path'); // contextPath 가져오기
 		
-		const fee = input.value;
+		const fee = Number(input.value.replace(/,/g, ''));
 		
 		const url = `${contextPath}/myPageCare/carePointreturnOK.cp?fee=${fee}`;
-		alert("fee : " + fee)
+		/*alert("fee : " + fee)*/
 		// 서블릿 경로로 이동
 		window.location.href = url;
       });

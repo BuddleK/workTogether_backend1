@@ -109,6 +109,7 @@ main {
   border-radius: 8px;
   overflow: hidden;
   font-size: 15px;
+  margin-top: 50px;
 }
 /* 환급내역의 헤더, 내용 칸 */
 .table-header, .table-row {

@@ -17,5 +17,61 @@
       INSERT INTO TBL_POINT_RETURN (point_return_id, users_number, points_amount, requested_at, refunded_at, status, bank_name, account_number)
 	  VALUES(seq_point_refunds.NEXTVAL, #{usersNumber}, #{fee}, SYSDATE, NULL, 'P', #{bank}, #{passNum})
    </insert>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <!-- 개인 환급신청 -->
+   <select id="pointReturn" resultType="com.wt.app.dto.CarePointreturnDTO">
+   <![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS RNUM, SUBQUERY.*
+		FROM(
+   		SELECT POINT_RETURN_ID, USERS_NUMBER, POINTS_AMOUNT, TO_CHAR(REQUESTED_AT, 'YYYY-MM-DD') AS REQUESTED_AT, TO_CHAR(REFUNDED_AT, 'YYYY-MM-DD') AS REFUNDED_AT, STATUS 
+   		FROM RICEBALL.TBL_POINT_RETURN tpr WHERE USERS_NUMBER = #{usersNumber} AND STATUS = 'A'
+   		ORDER BY REQUESTED_AT DESC
+		) SUBQUERY
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+   		]]>
+   </select>
+   <!-- 개인 환급신청 수 -->
+   <select id="pointReturnCount" resultType="int">
+   		SELECT COUNT(POINT_RETURN_ID) FROM RICEBALL.TBL_POINT_RETURN tpr WHERE USERS_NUMBER = #{usersNumber} AND STATUS = 'A'
+   </select>
+   <!-- 개인 매칭 -->
+   <select id="matchingReturn" resultType="CareMatchingDTO">
+   		SELECT MATCH_NUMBER, CARE_NUMBER, NORMAL_NUMBER, MATCH_DATE, MATCH_POINTS FROM RICEBALL.TBL_MATCHINGS tm WHERE CARE_NUMBER  = #{usersNumber} AND MATCH_STATUS = 'C'
+   </select>
+   <!-- 개인 매칭 수 -->
+   <select id="matchingReturnCount" resultType="int">
+  		 SELECT COUNT(MATCH_NUMBER) FROM RICEBALL.TBL_MATCHINGS tm WHERE CARE_NUMBER = #{usersNumber} AND MATCH_STATUS = 'C';
+  		 
+   </select>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 	
 </mapper>
