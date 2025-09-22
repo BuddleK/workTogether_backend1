@@ -32,12 +32,14 @@ public class CareExitController implements Execute {
 		careProfilePictureDTO = careProfileDAO.getProPic(usersNumber);
 		request.setAttribute("profilePic", careProfilePictureDTO);
 		
-		request.setAttribute("exitFlag", false);
+		request.setAttribute("exitFlag", 1);
 		
 		if(careExitDAO.countReserve(usersNumber) == 0) {
-			request.setAttribute("exitFlag", true);
+			request.setAttribute("exitFlag", 0);
+			System.out.println("매칭 없으면 폴스");
 		}
 
+		
 		result.setPath("/app/myPageCare/careExit.jsp");
 		result.setRedirect(false);
 		return result;

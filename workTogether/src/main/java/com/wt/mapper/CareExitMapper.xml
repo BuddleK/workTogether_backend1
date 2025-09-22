@@ -9,7 +9,7 @@
 	
 	<!-- 회원 삭제 -->
 	<delete id="delCareExit">
-		DELETE FROM RICEBALL.TBL_FILES_PROFILES tfp WHERE USERS_NUMBER = #{usersNumber}
+		DELETE FROM RICEBALL.TBL_USERS WHERE USERS_NUMBER = #{usersNumber}
 	</delete>
 	
 	

@@ -127,6 +127,10 @@ public class CareMyPageFrontController extends HttpServlet {
 			System.out.println("회원탈퇴 페이지 요청");
 			result = new CareExitController().execute(request, response);
 			break;
+		case "/myPageCare/careExitOk.cp":
+			System.out.println("회원탈퇴지 요청");
+			result = new CareExitOkController().execute(request, response);
+			break;
 		
 		}
 		

@@ -28,10 +28,12 @@ public class CareMarkController implements Execute {
 		int usersNumber = (Integer) request.getSession().getAttribute("usersNumber"); 
 		
 		//프로필 사진 담아오기
-		CareProfileDAO careProfileDAO = new CareProfileDAO();
-		CareProfilePictureDTO careProfilePictureDTO = new CareProfilePictureDTO();
-		careProfilePictureDTO = careProfileDAO.getProPic(usersNumber);
-		request.setAttribute("profilePic", careProfilePictureDTO);
+		/*
+		 * CareProfileDAO careProfileDAO = new CareProfileDAO(); CareProfilePictureDTO
+		 * careProfilePictureDTO = new CareProfilePictureDTO(); careProfilePictureDTO =
+		 * careProfileDAO.getProPic(usersNumber); request.setAttribute("profilePic",
+		 * careProfilePictureDTO);
+		 */
 		
 		String temp = request.getParameter("page");
 		int page = (temp == null) ? 1 : Integer.valueOf(temp); // 페이지 번호 기본값 1로 설정하겠다
