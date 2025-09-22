@@ -87,14 +87,50 @@ public class CareMyPageFrontController extends HttpServlet {
 			System.out.println("매칭 추가 요청");
 			result = new CareMatchingOkController().execute(request, response);
 			break;
-		case "/myPageCare/careMesseage.cp":
-			System.out.println("쪽지함 페이지 요청");
-			result = new CareMesseageController().execute(request, response);
+		
+			
+		case "/myPageCare/careMsgList.cp":
+			System.out.println("마이페이지 받은 쪽지리스트 요청");
+			result = new CareMsgListOkController().execute(request, response);
 			break;
-		case "/myPageCare/careSendMesseage.cp":
-			System.out.println("쪽지함 페이지 요청");
-			result = new CareSendMesseageController().execute(request, response);
+		case "/myPageCare/careMsgGetJsList.cp":
+			System.out.println("마이페이지 받은 쪽지리스트 JS 요청");
+			result = new CareMsgGetListJsOkController().execute(request, response);
 			break;
+		case "/myPageCare/careMsgJsList.cp":
+			System.out.println("마이페이지 보낸 쪽지리스트 JS 요청");
+			result = new CareMsgListJsOkController().execute(request, response);
+			break;
+		case "/myPageCare/careMsgDeleteList.cp":
+			System.out.println("마이페이지 받은 쪽지리스트 삭제");
+			result = new CareMsgDeleteOkController().execute(request, response);
+			break;
+		case "/myPageCare/careMsgNumber.cp":
+			System.out.println("마이페이지 쪽지 넘버값으로 불러오기");
+			result = new CareMsgOkController().execute(request, response);
+			break;
+		case "/myPageCare/careMsgResend.cp":
+			System.out.println("마이페이지 받은 쪽지 답장하기");
+			result = new CareSendMsgOkController().execute(request, response);
+			//대기
+			break;
+		case "/myPageCare/careReceiveList.cp":
+			System.out.println("마이페이지 보낸 쪽지리스트 요청");
+			result = new CareReceiveListOkController().execute(request, response);
+			break;
+		case "/myPageCare/normalReceiveDeleteList.cp":
+			System.out.println("마이페이지 보낸 쪽지리스트 삭제");
+			result = new CareReceiveDeleteOkController().execute(request, response);
+			break;
+		case "/myPageCare/careReceiveNumber.cp":
+		  System.out.println("마이페이지 받은 쪽지 넘버값으로 불러오기"); 
+		  result = new CareReceiveOkController().execute(request, response); 
+		  break;
+			
+			
+			
+			
+			
 		case "/myPageCare/careMesseageDelete.cp":
 			System.out.println("쪽지 삭제 요청");
 			result = new CareMesseageDeleteController().execute(request, response);

@@ -153,7 +153,8 @@ public class MyPageNormalFrontController extends HttpServlet {
 			break;
 		case "/myPageNormal/normalReceiveNumber.mn":
 		  System.out.println("마이페이지 받은 쪽지 넘버값으로 불러오기"); 
-		  result = new NormalReceiveOkController().execute(request, response); break;
+		  result = new NormalReceiveOkController().execute(request, response); 
+		  break;
 		case "/myPageNormal/normalPostsList.mn":
 			System.out.println("마이페이지 일반회원 게시판 리스트 페이지 요청 js 팦싱");
 			result = new NormalPostsListController().execute(request, response);

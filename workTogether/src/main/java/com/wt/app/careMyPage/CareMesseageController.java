@@ -86,7 +86,7 @@ public class CareMesseageController implements Execute{
 		System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("====================");
 
-		result.setPath("/app/myPageCare/careMessage.jsp");
+		result.setPath("/app/myPageCare/caresendMsg.jsp");
 		result.setRedirect(false);
 		return result;
 	}

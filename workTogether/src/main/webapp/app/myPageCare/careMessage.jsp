@@ -19,7 +19,6 @@
   <jsp:include page="/header.jsp" />
   <main>
           <!-- 마이페이지 사이드 바 목록과 이동 경로 -->
-
     <nav class="sidebar">
       <ul>
         <li><a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
@@ -70,7 +69,6 @@
       <c:choose>
       	<c:when test="${not empty rMessageList}">
       		<c:forEach var="rMessage" items="${rMessageList}">
-      
 			<!-- 쪽지 게시글 상세 페이지  -->
 		      <nav class="mark_list" data-messageNumber="${rMessage.getMessageNumber()}" >
 		        <ul>
@@ -89,9 +87,7 @@
 		            </a></li>
 		        </ul>
 		      </nav>
-      		
       		</c:forEach>
-      		
       	</c:when>
       	<c:otherwise>
       	</c:otherwise>
@@ -126,12 +122,81 @@
       </nav>
       <!-- 삭제 버튼 클릭 시 쪽지 삭제 -->
       <div class="div_delete">
-        <button class="btn_list_delete">삭제</button>
+        <button class="btn_list_delete" id="delete">삭제</button>
       </div>
     </div>
   </main>
 <!-- 쪽지 row 클릭시 나오는 모달창 -->
-  <div class="modal_bg" id="msgModal">
+
+<div class="modal" id="deleteModal">
+		<div class="modal_box_msg">
+			<p>쪽지를 삭제하시겠습니까?</p>
+			<div class="modal_buttons">
+				<button type="button" id="confirmDelete">확인</button>
+				<button type="button" id="cancelDelete">취소</button>
+			</div>
+		</div>
+	</div>
+	<!-- 찜 삭제확인 모달 확인 버튼 클릭시 모달 -->
+	<div class="modal" id="chek_deleteModal">
+		<div class="modal_box">
+			<p>쪽지가 삭제 되었습니다.</p>
+			<div class="modal_buttons">
+				<button type="button" id="check_confirmDelete">확인</button>
+			</div>
+		</div>
+	</div>
+	<!-- 쪽지 row 클릭시 나오는 모달창 -->
+		<div class="modal_bg" id="msgModal">
+			<div class="modal_box">
+				<div class="modal_read">
+					<span class="modal_title">받은 쪽지 읽기</span> <span class="modal_close">&times;</span>
+				</div>
+				<div class="modal_info">
+					<div class="sender_info">
+						<span>보낸 사람 : </span><span id="sender_name"></span> | <span class="sender_id" id="sender_id"></span>
+					</div>
+					<div class="message_content" id="messageContent"></div>
+				</div>
+				<!-- 해당 모달에 있는 모달창 -->
+				<div class="modal_button">
+					<button class="btn_reply">답장</button>
+				</div>
+			</div>
+		</div>
+	<!-- 답장 버튼 클릭 시 모달 출력 -->
+	 <form action="${pageContext.request.contextPath}/myPageNormal/normalMsgResend.mn" method="post">
+	 <div class="modal_bg" id="sendMsgModal">
+		<div class="modal_box">
+			<div class="modal_read">
+				<span class="modal_title">쪽지 보내기</span> 
+				<span class="modal_close" id="close_resend"
+					onclick="closeSendMsgModal()">&times;</span>
+			</div>
+			<div class="modal_info">
+				<input type="hidden" id="careNumber" name="careNumber">
+				<div class="sender_info">
+					<span>받는 사람 : </span><span id="receive_name"></span> | <span class="sender_id" id="receive_id">
+				</div>
+				<textarea id="message_textarea" name="message" placeholder="내용을 입력하세요"></textarea>
+			</div>
+			<div class="modal_button">
+				<button class="btn_send" id="btn_send" type="button">보내기</button>
+			<!-- 	<button class="btn_cancel">취소</button> -->
+			</div>
+		</div>
+	</div>
+	<div class="modal_bg" id="sendSuccessModal">
+		<div class="modal_box modal_send">
+			<p class="send_message">쪽지를 보냈습니다.</p>
+			<div class="modal_button">
+				<button class="btn_confirm" type="submit">확인</button>
+			</div>
+		</div>
+	</div>
+	</form>
+
+  <!-- <div class="modal_bg" id="msgModal">
     <div class="modal_box">
       <div class="modal_read">
         <span class="modal_title">받은 쪽지 읽기</span>
@@ -139,20 +204,19 @@
       </div>
       <div class="modal_info">
         <div class="sender_info">
-          <span>보낸 사람 : </span>정승제 | <span class="sender_id">JungSeungJe</span>
+          <span>보낸 사람 : </span> | <span class="sender_id"></span>
         </div>
         <div class="message_content">
-          오늘 이렇게 연락을 드린 건 다름이 아니고...
         </div>
       </div>
-      <!-- 해당 모달에 있는 모달창 -->
+      해당 모달에 있는 모달창
       <div class="modal_button">
         <button class="btn_reply">답장</button>
         <button class="btn_delete">삭제</button>
       </div>
     </div>
   </div>
-<!-- 답장 버튼 클릭 시 모달 출력 -->
+답장 버튼 클릭 시 모달 출력
   <div class="modal_bg" id="sendMsgModal">
     <div class="modal_box">
       <div class="modal_read">
@@ -161,7 +225,7 @@
       </div>
       <div class="modal_info">
         <div class="sender_info">
-          <span>받는 사람 : </span>장성규 | <span class="sender_id">JangJang</span>
+          <span>받는 사람 : </span> | <span class="sender_id"></span>
         </div>
         <textarea id="message_textarea" placeholder="내용을 입력하세요"></textarea>
       </div>
@@ -171,7 +235,7 @@
       </div>
     </div>
   </div>
-<!-- 보내기 버튼 클릭 시 모달 출력 -->
+보내기 버튼 클릭 시 모달 출력
   <div class="modal_bg" id="sendSuccessModal">
     <div class="modal_box modal_send">
       <p class="send_message">쪽지를 보냈습니다.</p>
@@ -180,7 +244,7 @@
       </div>
     </div>
   </div>
-<!-- 삭제 버튼 클릭 시 모달 출력 -->
+삭제 버튼 클릭 시 모달 출력
   <div class="modal_bg" id="deleteMsgModal">
     <div class="modal_box confirm_modal">
       <p class="confirm_text">정말로 쪽지를 삭제하시겠습니까?</p>
@@ -190,7 +254,7 @@
       </div>
     </div>
   </div>
-<!-- 삭제 모달에서 확인 클릭시 모달 출력 -->
+삭제 모달에서 확인 클릭시 모달 출력
   <div class="modal_bg" id="sendSuccessModal">
     <div class="modal_box modal_send">
       <p class="send_message">쪽지가 삭제되었습니다.</p>
@@ -199,7 +263,7 @@
       </div>
     </div>
   </div>
-  <!-- 보낸 쪽지 페이지에서 사용하는 모달 -->
+  보낸 쪽지 페이지에서 사용하는 모달
   <div class="modal_bg" id="sentMsgReadModal">
     <div class="modal_box read_modal">
       <div class="modal_header">
@@ -207,7 +271,7 @@
         <span class="modal_close" onclick="closeSentMsgModal()">&times;</span>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
   <jsp:include page="/footer.jsp" />

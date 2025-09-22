@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					sendMsg.classList.add('open');
 					loadMsgNumber(messageId);
 					try {
-							const res = await fetch(`/myPageNormal/normalMsgNumber.mn?msgNumber=${messageId}`, {
+							const res = await fetch(`/myPageCare/careMsgNumber.cp?msgNumber=${messageId}`, {
 								headers: {
 									Accept: "application/json",
 									"X-Requested-With": "XMLHttpRequest",
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 		try {
 			const response = await fetch(
-				`/myPageNormal/normalMsgDeleteList.mn?mark_check=${encodeURIComponent(checkedValues.join(","))}`,
+				`/myPageCare/careMsgDeleteList.cp?mark_check=${encodeURIComponent(checkedValues.join(","))}`,
 				{
 					method: "POST",
 					headers: { "X-Requested-With": "XMLHttpRequest" }
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// 전체 쪽지 불러오기
 	async function loadMatch() {
 		try {
-			const res = await fetch(`/myPageNormal/normalMsgGetJsList.mn`, {
+			const res = await fetch(`/myPageCare/careMsgGetJsList.cp`, {
 				headers: {
 					Accept: "application/json",
 					"X-Requested-With": "XMLHttpRequest",
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	/*쪽지 읽기 랜더링*/
 	async function loadMsgNumber(number) {
 		try {
-			const res = await fetch(`/myPageNormal/normalMsgNumber.mn?msgNumber=${number}`, {
+			const res = await fetch(`/myPageCare/careMsgNumber.cp?msgNumber=${number}`, {
 				headers: {
 					Accept: "application/json",
 					"X-Requested-With": "XMLHttpRequest",

@@ -8,4 +8,72 @@
 		VALUES(seq_messages.nextval, #{careNumber}, #{normalNumber}, 'N', #{messageContents}, SYSDATE , 'N' )
 	</insert>
 	
+	
+	<!-- 쪽지 리스트 불러오기 -->
+	<select id="selectAllMsg" parameterType="int"
+		resultType="MessageSRDTO">
+		<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+		SELECT u.USERS_NAME usersName, m.* FROM TBL_MESSAGE m
+		JOIN tbl_users u ON u.USERS_NUMBER = m.CARE_NUMBER
+		WHERE m.SENDER_TYPE ='N' AND m.NORMAL_NUMBER = #{normalNumber}
+		ORDER BY m.MESSAGE_DATE DESC
+		 ) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>
+
+	<select id="getMsgTotal" parameterType="int" resultType="int">
+		SELECT
+		count(m.message_number) FROM TBL_MESSAGE m WHERE m.SENDER_TYPE ='C'
+		AND m.NORMAL_NUMBER = #{usersNumber}
+	</select>
+
+	<!-- 받은 쪽지 삭제 -->
+	<delete id="deleteMsg" parameterType="int">
+		DELETE FROM TBL_MESSAGE
+		WHERE message_number = #{messageNumber}
+	</delete>
+
+
+	<!-- 쪽지 리스트 불러오기 -->
+	<select id="selectAllReceive" parameterType="int"
+		resultType="MessageSRDTO">
+		<![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM AS rnum, subquery.*
+		FROM (
+		SELECT u.USERS_NAME usersName, m.* FROM TBL_MESSAGE m
+		JOIN tbl_users u ON u.USERS_NUMBER = m.NORMAL_NUMBER
+		WHERE m.SENDER_TYPE ='C' AND m.NORMAL_NUMBER = #{normalNumber}
+		ORDER BY m.MESSAGE_DATE DESC
+		 ) subquery
+		) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+		]]>
+	</select>
+
+	<select id="getReceiveTotal" parameterType="int"
+		resultType="int">
+		SELECT count(m.message_number) FROM TBL_MESSAGE m WHERE
+		m.SENDER_TYPE ='C' AND m.NORMAL_NUMBER = #{usersNumber}
+	</select>
+
+	<!-- 메시지 읽기 -->
+	<select id="getMsgContent" parameterType="int"
+		resultType="MessageSRDTO">
+		SELECT u.USERS_NAME, u.USERS_ID, t.MESSAGE_CONTENTS, t.care_number,
+		t.normal_number
+		FROM tbl_message t
+		JOIN tbl_users u ON u.USERS_NUMBER = t.CARE_NUMBER
+		WHERE message_number = #{messageNumber}
+	</select>
+
+	<update id="msgRead" parameterType="int">
+		UPDATE TBL_MESSAGE
+		SET IS_READ='Y'
+		WHERE MESSAGE_NUMBER= #{messageNumber}
+	</update>
+	
 </mapper>

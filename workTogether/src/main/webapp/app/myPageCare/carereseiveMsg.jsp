@@ -1,33 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Normal_Messeage</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/myPageNormal/normalsendMesseage.css">
-<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/myPageNormal/normalreseiveMesseage.css">
 <script defer
 	src="${pageContext.request.contextPath}/assets/js/main/include.js"></script>
- <script defer
-	src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalsendMesseage.js"></script> 
+<script defer
+	src="${pageContext.request.contextPath}/assets/js/myPageNormal/normalreseiveMesseage.js"></script>
 </head>
+
 <body>
 	<jsp:include page="/header.jsp" />
 	<main>
 		<!-- 메뉴 사이드바 섹션 -->
-		<jsp:include page="sidebar.jsp"></jsp:include>
-		<form action="/myPageNormal/normalMsgDeleteList.mn" method="get">
+		 <nav class="sidebar">
+      <ul>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careProfile.cp"><img src="${pageContext.request.contextPath}/assets/img/myPageNormal/normalMember.jpg" alt="#"></a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careModify.cp">개인정보 수정</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careMark.cp">찜한 목록</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careMatching.cp">매칭 기록</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careMesseage.cp">쪽지함</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/carePost.cp">게시글 관리</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/carePointreturn.cp">포인트 환급</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careReference.cp">1 대 1 문의</a></li>
+        <li><a href="${pageContext.request.contextPath}/myPageCare/careExit.cp">회원 탈퇴</a></li>
+      </ul>
+    </nav>
+		<form action="/myPageNormal/normalReceiveDeleteList.mn" method="get">
 			<div class="div_mark">
 				<!-- 메뉴 제목 -->
 				<div class="title">쪽지함</div>
-				<!-- 받은 쪽지, 보낸 쪽지 이동 -->
+				<!-- 받은 쪽지, 보낸 쪽지로 이동 -->
 				<nav class="div_choose">
 					<ul>
 						<li class="send"><a
@@ -39,8 +53,8 @@
 								쪽지</a></li>
 					</ul>
 				</nav>
-				<!-- 받은 쪽지 컬럼 -->
 				<nav class="mark_nav">
+					<!-- 보낸 쪽지 컬럼 -->
 					<ul>
 						<li><input onclick="toggleMarksAll()" id="checkbox_col"
 							name="mark_check_col" type="checkbox"></li>
@@ -58,7 +72,7 @@
 						</li>
 					</ul>
 				</nav>
-				<!-- 받은 쪽지 목록 리스트 -->
+				<!-- 보낸 쪽지 목록 리스트 -->
 				<ul class="mark_list" id="mark_list">
 					<c:forEach var="list" items="${msgList }" varStatus="status">
 						<li id="li"><input class="checkbox_li"
@@ -66,7 +80,7 @@
 							<div class="name">
 								<div>${list.usersName }</div>
 							</div>
-							<div class="location"  name="msgNumber" data-id="${list.messageNumber }">
+							<div class="location" name="msgNumber" data-id="${list.messageNumber }">
 								<div>${list.messageContents }</div>
 							</div>
 							<div class="phone">
@@ -76,13 +90,15 @@
 								<div>${list.isRead }</div>
 							</div></li>
 					</c:forEach>
+					
+					
 				</ul>
 				<!-- 페이지네이션 -->
 				<nav class="page">
 					<ul>
 						<c:if test="${prev}">
 							<li><a
-								href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn?page=${startPage - 1}"
+								href="${pageContext.request.contextPath}/myPageNormal/normalReceiveList.mn?page=${startPage - 1}"
 								class="prev">&lt;</a></li>
 						</c:if>
 						<c:set var="realStartPage"
@@ -91,7 +107,7 @@
 							<c:choose>
 								<c:when test="${!(i == page) }">
 									<li><a
-										href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn?page=${i}">
+										href="${pageContext.request.contextPath}/myPageNormal/normalReceiveList.mn?page=${i}">
 											<c:out value="${i}" />
 									</a></li>
 								</c:when>
@@ -103,12 +119,12 @@
 						</c:forEach>
 						<c:if test="${next}">
 							<li><a
-								href="${pageContext.request.contextPath}/myPageNormal/normalMsgList.mn?page=${endPage + 1}"
+								href="${pageContext.request.contextPath}/myPageNormal/normalReceiveList.mn?page=${endPage + 1}"
 								class="next">&gt;</a>
 						</c:if>
 					</ul>
 				</nav>
-				<!-- 받은 쪽지 삭제 버튼 -->
+				<!-- 보낸 쪽지 삭제 버튼 -->
 				<div class="div_delete">
 					<button type="button" id="delete">삭제</button>
 				</div>
@@ -116,9 +132,23 @@
 		</form>
 
 	</main>
-	<!-- 삭제 버튼 클릭시 확인 모달 -->
+	<!-- 보낸 쪽지 확인 모달 -->
+	<div class="modal_bg" id="msgModal">
+			<div class="modal_box">
+				<div class="modal_read">
+					<span class="modal_title">보낸 쪽지 읽기</span> <span class="modal_close">&times;</span>
+				</div>
+				<div class="modal_info">
+					<div class="sender_info">
+						<span>보낸 사람 : </span><span id="sender_name"></span> | <span class="sender_id" id="sender_id"></span>
+					</div>
+					<div class="message_content" id="messageContent"></div>
+				</div>
+			</div>
+		</div>
+<!-- 삭제 버튼 클릭시 확인 모달 -->
 	<div class="modal" id="deleteModal">
-		<div class="modal_box_msg">
+		<div class="modal_box">
 			<p>쪽지를 삭제하시겠습니까?</p>
 			<div class="modal_buttons">
 				<button type="button" id="confirmDelete">확인</button>
@@ -135,58 +165,9 @@
 			</div>
 		</div>
 	</div>
-	<!-- 쪽지 row 클릭시 나오는 모달창 -->
-		<div class="modal_bg" id="msgModal">
-			<div class="modal_box">
-				<div class="modal_read">
-					<span class="modal_title">받은 쪽지 읽기</span> <span class="modal_close">&times;</span>
-				</div>
-				<div class="modal_info">
-					<div class="sender_info">
-						<span>보낸 사람 : </span><span id="sender_name"></span> | <span class="sender_id" id="sender_id"></span>
-					</div>
-					<div class="message_content" id="messageContent"></div>
-				</div>
-				<!-- 해당 모달에 있는 모달창 -->
-				<div class="modal_button">
-					<button class="btn_reply">답장</button>
-				</div>
-			</div>
-		</div>
-	<!-- 답장 버튼 클릭 시 모달 출력 -->
-	 <form action="${pageContext.request.contextPath}/myPageNormal/normalMsgResend.mn" method="post">
-	 <div class="modal_bg" id="sendMsgModal">
-		<div class="modal_box">
-			<div class="modal_read">
-				<span class="modal_title">쪽지 보내기</span> 
-				<span class="modal_close" id="close_resend"
-					onclick="closeSendMsgModal()">&times;</span>
-			</div>
-			<div class="modal_info">
-				<input type="hidden" id="careNumber" name="careNumber">
-				<div class="sender_info">
-					<span>받는 사람 : </span><span id="receive_name"></span> | <span class="sender_id" id="receive_id">
-				</div>
-				<textarea id="message_textarea" name="message" placeholder="내용을 입력하세요"></textarea>
-			</div>
-			<div class="modal_button">
-				<button class="btn_send" id="btn_send" type="button">보내기</button>
-			<!-- 	<button class="btn_cancel">취소</button> -->
-			</div>
-		</div>
-	</div>
-	<div class="modal_bg" id="sendSuccessModal">
-		<div class="modal_box modal_send">
-			<p class="send_message">쪽지를 보냈습니다.</p>
-			<div class="modal_button">
-				<button class="btn_confirm" type="submit">확인</button>
-			</div>
-		</div>
-	</div>
-	</form>
-	
-	
-
 	<jsp:include page="/footer.jsp" />
 </body>
+<script>
+	window.usersNumber = "${usersNumber}"
+</script>
 </html>
