@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -41,22 +42,35 @@
         <div class="history-section">
           <h3>환급 내역</h3>
 
-          <div class="month-control">
+<!--           <div class="month-control">
             <button>&lt;</button>
             <span>8월</span>
             <button>&gt;</button>
-          </div>
+          </div> -->
           <div class="table-box">
             <div class="table-header">
               <span>순번</span>
               <span>환급 포인트</span>
               <span>날짜</span>
             </div>
-            <div class="table-row">
-              <span>1</span>
-              <span>38,000P</span>
-              <span>2025-08-02</span>
-            </div>
+            
+            <c:choose>
+        	<c:when test="${not empty returnList}">
+        		<c:forEach var="ret" items="${returnList}">
+			        <div class="table-row">
+	              <span><c:out value="${ret.getRnum()}" /></span>
+	              <span><c:out value="${ret.getPointsAmount()}" /></span>
+	              <span><c:out value="${ret.getRefundedAt()}" /></span>
+	            </div>
+				</c:forEach>
+       		</c:when>
+        	<c:otherwise>
+   			<div>
+   				<div colspan="3" align="center">환급 내역이 없습니다.</div>
+   			</div>
+   			</c:otherwise>
+        </c:choose>
+ 
           </div>
           <div class="pagination">
             &lt; <span class="active">1</span> 2 3 4 ... &gt;
@@ -66,11 +80,11 @@
         <!-- 페이지 세부 정보 -->
         <div class="history-section" id="takepoint">
           <h3>받은 포인트 내역</h3>
-          <div class="month-control">
+<!--           <div class="month-control">
             <button>&lt;</button>
             <span>8월</span>
             <button>&gt;</button>
-          </div>
+          </div> -->
           <div class="table-box">
             <div class="table-header">
               <span>순번</span>
@@ -78,12 +92,16 @@
               <span>지급 포인트</span>
               <span>날짜</span>
             </div>
-            <div class="table-row">
-              <span>1</span>
-              <span>아무개</span>
-              <span>5,000P</span>
-              <span>2025-08-02</span>
-            </div>
+    
+            
+            
+	            <div class="table-row">
+	              <span>1</span>
+	              <span>아무개</span>
+	              <span>5,000P</span>
+	              <span>2025-08-02</span>
+	            </div>
+	            
           </div>
           <!-- 페이지 네이션 -->
           <div class="pagination">

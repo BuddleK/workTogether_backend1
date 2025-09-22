@@ -95,7 +95,7 @@
         <div class="modal-content">
           <p>성공적으로 회원을 탈퇴 하셨습니다.</p>
           <div class="modal-buttons">
-            <a href="${pageContext.request.contextPath}/main.html"><button class="btn blue" onclick="closeModal('modalSuccess')">확인</button></a>
+            <a href="${pageContext.request.contextPath}/myPageCare/careExitOk.cp"><button class="btn blue" onclick="closeModal('modalSuccess')">확인</button></a>
           </div>
         </div>
       </div>

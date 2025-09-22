@@ -1,9 +1,12 @@
 package com.wt.app.careMyPage.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wt.app.dto.CareMatchingDTO;
+import com.wt.app.dto.CarePointreturnDTO;
 import com.wt.config.MyBatisConfig;
 
 public class CarePointreturnDAO {
@@ -12,6 +15,48 @@ public class CarePointreturnDAO {
 	public CarePointreturnDAO() {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
+	
+	//개인 환급신청 리스트
+	public List<CarePointreturnDTO> pointReturn(Map<String, Integer> pageMap){
+		System.out.println("환급내역 조회 - pointReturn 메소드 실행 : " + pageMap);
+		List<CarePointreturnDTO> list = sqlSession.selectList("carePointreturn.pointReturn", pageMap);
+		System.out.println("조회결과 : " + list);
+		return list;
+	}
+	
+	//개인 환급신청 수
+	public int pointReturnCount(int usersNumber) {
+		System.out.println("개인 포인트 개수 조회 - pointReturnCount 메소드 싱행 : " + usersNumber);
+		int result = sqlSession.selectOne("carePointreturn.pointReturnCount", usersNumber);
+		return result;
+	}
+	
+	//개인 매칭 리스트
+	public List<CareMatchingDTO> matchingReturn(Map<String, Integer> pageMap){
+		System.out.println("환급내역 조회 - pointReturn 메소드 실행 : " + pageMap);
+		List<CareMatchingDTO> list = sqlSession.selectList("carePointreturn.pointReturn");
+		System.out.println("조회결과 : " + list);
+		return list;
+	}
+	
+	//개인 매칭 수
+	public int matchingReturnCount(int usersNumber) {
+		System.out.println("개인 포인트 개수 조회 - pointReturnCount 메소드 싱행 : " + usersNumber);
+		int result = sqlSession.selectOne("carePointreturn.pointReturnCount", usersNumber);
+		return result;
+	}
+	
+	
+	
+	
+	//개인 환급신청 수
+	public int matchingReturn(int usersNumber) {
+		System.out.println("개인 포인트 개수 조회 - pointReturnCount 메소드 싱행 : " + usersNumber);
+		int result = sqlSession.selectOne("carePointreturn.pointReturnCount", usersNumber);
+		return result;
+	}
+	
+	
 	
 	//포인트 조회!
 	public int getPoint(int usersNumber) {

@@ -47,7 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 탈퇴 확인하기
   window.checkWithdrawal = function () {
     // 예약이 있는지 없는지 확인용 이것이가 ture면 거동 불편자 있고 false면 없음
-    const hasReservation = true;
+	const flag = document.body.dataset.exit == 0?false:true;
+    const hasReservation = flag;
+	
+	
     // 확인하는 모달 닫기
     closeModal('modalConfirm');
     // 33번째 줄이 트루인지 false인지에 따라 달라짐

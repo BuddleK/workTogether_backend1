@@ -2,6 +2,7 @@ package com.wt.app.dto;
 
 public class CarePointreturnDTO {
 
+	private int rnum;
     private Long pointReturnId;
     private Long usersNumber;
     private String usersId;
@@ -85,6 +86,12 @@ public class CarePointreturnDTO {
 				+ usersId + ", usersName=" + usersName + ", pointsAmount=" + pointsAmount + ", bankName=" + bankName
 				+ ", accountNumber=" + accountNumber + ", requestedAt=" + requestedAt + ", refundedAt=" + refundedAt
 				+ ", status=" + status + ", remainPoint=" + remainPoint + "]";
+	}
+	public int getRnum() {
+		return rnum;
+	}
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
 	}
     
 	
